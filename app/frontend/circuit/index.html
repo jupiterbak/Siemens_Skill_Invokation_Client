@@ -1,0 +1,399 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <title>ATS Skill Simulator</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <!-- <link rel="icon" type="./image/png" href="./images/favicon_64x64.png" sizes="64x64">
+    <link rel="icon" type="./image/png" href="./images/favicon_48x48.png" sizes="48x48">
+    <link rel="icon" type="./image/png" href="./images/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="./image/png" href="./images/favicon_16x16.png" sizes="16x16"> -->
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100,900' rel='stylesheet' type='text/css'>
+    <link href='./lib/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='./lib/bootstrap-slider/slider.css' rel='stylesheet' type='text/css'>
+    <link href="./lib/anno.js/anno.css" rel='stylesheet' type='text/css' />
+
+    <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/jquery/jquery-ui.js"></script>
+
+    <script src="./lib/anno.js/anno.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/notify/bootstrap-notify.js"></script>
+    <script src="./lib/bootbox/bootbox.min.js"></script>
+    <script src="./lib/bootstrap-slider/bootstrap-slider.js"></script>
+    <script src="./lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="./lib/shufflejs/jquery.shuffle.modernizr.min.js"></script>
+
+    <script src="./lib/draw2d.js"></script>
+    <script src="../socket.io/socket.io.js"></script>
+    <SCRIPT src="./js/webpack/bundle.js"></SCRIPT>
+
+    <style>
+        .x.axis line {
+            shape-rendering: auto;
+        }
+        
+        .line {
+            fill: none;
+            stroke: #000;
+            stroke-width: 1px;
+        }
+    </style>
+    <script type="text/javascript">
+        var app = null
+        var socket = null
+    </script>
+
+</head>
+
+
+<body class="mousetrap">
+    <div id="layout">
+        <div class="tab-content panel">
+            <div class="tab-pane active" id="editor">
+                <div class="workspace">
+                    <div class="palette ">
+                        <input type="text" id="filter" placeholder="Filter..." autofocus>
+                        <div id="paletteElementsScroll">
+                            <div id="paletteElements" class="row">
+
+                            </div>
+                            <div id="paletteElementsOverlay"></div>
+                        </div>
+                    </div>
+                    <div class="toolbar">
+                        <span class="group" id="editorgroup_fileoperations">
+                            <span class="image-button"  id="editorFileOpen">
+                                <img title="Open circuit" src="./images/toolbar_download.svg"/>
+                                <div>Import Skill</div>
+                            </span>
+                        <!-- <span class="image-button" id="editorFileSave">
+                            <img title="Save circuit" src="./images/toolbar_upload.svg"/>
+                            <div>Save</div>
+                            </span>
+                        </span> -->
+                        <span class="group">
+                            <span class="image-button disabled"  id="editDelete">
+                            <img  src="./images/toolbar_delete.svg"/>
+                            <div>Delete</div>
+                            </span>
+                        </span>
+
+                        <span class="group">
+                            <span class="image-button disabled" id="editUndo">
+                            <img src="./images/toolbar_undo.svg"/>
+                            <div>Undo</div>
+                            </span>
+                        <span class="image-button disabled" id="editRedo">
+                            <img src="./images/toolbar_redo.svg"/>
+                            <div>Redo</div>
+                            </span>
+                        </span>
+
+                        <span id="" class="group editBase">
+                            <label id="tool_shape" class="dropdown" >
+                            <span class="image-button" id="editConnections" data-toggle="dropdown" >
+                            <img src="./images/status_index.svg">
+                            <div>Backend Connection</div>
+                        </span>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <form class="form-horizontal" role="form">
+                                <label class="statusIndicator" id="statusRaspi">
+                                <img src="./images/status_raspi.svg"/>
+                                <span>Server</span>
+                                <span class="connected">connected</span>
+                                <span class="disconnected">disconnected</span>
+                                <span class="notSupported">not available</span>
+                                </label>
+                            </form>
+                        </ul>
+                        </label>
+                        </span>
+
+                        <span class="group simulationBase" style="display: none;">
+                <label>Simulation Speed</label>
+                <input id="simulationBaseTimer"
+                       type="text"
+                       value="100"
+                       data-slider-min="50"
+                       data-slider-max="500"
+                       data-slider-step="1"
+                       data-slider-value="100"
+                       data-slider-handle="round"
+                       data-slider-tooltip="hide"
+                       data-slider-id="simulationBaseTimerSlider"
+                       data-slider-orientation="horizontal">
+            </span>
+
+                        <a href="#" class="morph_btn play" id="simulationStartStop">
+                            <span>
+                      <span class="s1"></span>
+                            <span class="s2"></span>
+                            <span class="s3"></span>
+                            </span>
+                        </a>
+
+                    </div>
+                    <div class="content" id="draw2dCanvasWrapper">
+                        <div class="canvas" id="draw2dCanvas" oncontextmenu="return false;">
+                        </div>
+                        <div id="canvas_zoom" class="btn-group">
+                            <button type="button" id="canvas_zoom_in" class="btn highlight">&#8210;</button>
+                            <button type="button" id="canvas_zoom_normal" class="btn highlight">100%</button>
+                            <button type="button" id="canvas_zoom_out" class="btn highlight">&#xFF0B</button>
+                        </div>
+                    </div>
+                    <div id='probe_window'>
+                        <div id="probe_window_stick" class="ion-ios-eye-outline" title="Stick Window"><img src="./images/slideout_bottom.svg" /></div>
+                        <div id="probe_hint"><span class="ion-ios-information-outline"></span>Right click on a connection to add a probe signal to this logic analyzer window
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /tab-content -->
+
+    </div>
+    <!-- /container -->
+
+    <script id="shapeTemplate" type="text/x-jsrender">
+        {{#categories}}
+        <div class="row">
+            <div data-name='{{name}}' data-file='{{filePath}}' class="col-md-12 bg-info">
+                <h5 class="font-weight-bold text-center">{{name}}</h5>
+            </div>
+            {{#shapes}}
+            <div data-name='{{name}}' data-file='{{filePath}}' class="mix col-md-6 pallette_item">
+                <div class="glow">
+                    <img data-shape="{{name}}" class="draw2d_droppable" src="{{shapesUrl}}{{name}}.png" />
+                    <div>{{basename}}</div>
+                </div>
+            </div>
+            {{/shapes}}
+        </div>
+        {{/categories}}
+
+    </script>
+
+    <script id="filesTemplate" type="text/x-jsrender">
+        <ul class="list-group col-lg-10 col-md-10 col-xs-10 ">
+            {{#files}}
+            <li class="list-group-item" data-name="{{name}}">
+                <div class="media">
+                    <a class="thumbnail media-left" data-name="{{name}}">
+                        <div style="width: 64px; height: 64px">
+                            <img style="width:100%; height:auto;" data-name="{{name}}" src="{{path}}{{name}}">
+                        </div>
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{title}}</h4>
+                        <img class="deleteIcon svg" data-toggle="confirmation" data-name="{{name}}" src="./images/toolbar_delete.svg" />
+                    </div>
+                </div>
+            </li>
+            {{/files}}
+        </ul>
+
+    </script>
+
+
+    <!--
+  # Save Dialog
+  #
+  #
+-->
+    <div id="fileSaveDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">Save your circuit</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <div class="media-object filePreview ion-ios-upload-outline"></div>
+                            </a>
+                        </div>
+                        <div class="media-body">
+
+
+                            <br>
+                            <br>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control floating-label githubFileName" value="">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal">Abort</button>
+                    <button class="btn btn-primary okButton"><span>Save</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+  # Save Dialog
+  #
+  #
+-->
+    <div id="fileNewDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">Enter File Name</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <div class="media-object filePreview ion-ios-plus-outline"></div>
+                            </a>
+                        </div>
+                        <div class="media-body">
+
+
+                            <br>
+                            <br>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control floating-label githubFileName" value="">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal">Abort</button>
+                    <button class="btn btn-primary okButton"><span>Create</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+  # GitHub File select/open dialog
+  #
+  -->
+    <div id="fileOpenDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">File Open...</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="list-group">
+                        <!-- FileList here -->
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal">Abort</button>
+                    <button class="btn btn-primary okButton"><span>Open</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--
+  Dialog with behaviour code preview of the shapes
+ -->
+    <div id="codePreviewDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">Shape Behaviour Code</h4>
+                </div>
+                <div class="modal-body">
+                    <pre class="prettyprint">
+          </pre>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn  btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--
+  Help file of a single shape element
+ -->
+    <div id="markdownDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">Shape Documentation</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="html">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn  btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+  Help file of a single shape element
+ -->
+    <div id="webUSBHelpDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">Introduction to WebUSB</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="html">
+                        <h4>To use the <a href="https://wicg.github.io/webusb/" target="_blank">WebUSB</a> feature some prerequisists must be fullfilled</h4>
+                        <ul>
+                            <li>Technically WebUSB is an open standard. But <b>only Chrome</b> implements this specification at the moment, so end-users may need to switch browser to use this feature.</li>
+                            <li>
+                                Because this API is a powerful new feature added to the Web, Chrome aims to make it available only to secure contexts. This means you'll need to <b>use HTTPS</b> if you run <b>brainbox</b> on your own raspberry or desktop
+                                computer.
+                            </li>
+                            <li>During development you'll be able to interact with WebUSB through <b>http://localhost/...</b></li>
+                        </ul>
+                        <br> Check if all of the conditions are fulfilled.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn  btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="figureConfigDialog">
+        Please configure me
+    </div>
+
+</body>
+
+</html>

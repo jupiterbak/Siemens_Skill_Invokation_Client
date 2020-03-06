@@ -1,0 +1,439 @@
+﻿<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title>Brainbox Shape Designer</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="icon" type="image/png"    href="./images/favicon_64x64.png" sizes="64x64">
+  <link rel="icon" type="image/png"    href="./images/favicon_48x48.png" sizes="48x48">
+  <link rel="icon" type="image/png"    href="./images/favicon_32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png"    href="./images/favicon_16x16.png" sizes="16x16">
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100,900' rel='stylesheet' type='text/css'>
+  <link href='./lib/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+  <script>
+
+  // required for phantomJS. Function is not defined in this env.
+  // PhantomJS is not optimal for some reason but didn't have any solution right now
+  // to render the shape preview server side.
+  // DON'T remove it even if log2 defined in chrome/FF
+  Math.log2 = Math.log2 || function(x) {
+    return Math.log(x) * Math.LOG2E
+  }
+
+
+
+  // global struct to serialize/deserialize JSON structs from/to draw2d shapes
+  var shape_designer = {
+    app: null,
+    figure: {},
+    filter: {}
+  }
+
+  var app = null
+  var socket = null
+</script>
+
+  <!-- "include" files in a world of ES6 is not perfect. Unfortunately draw2d.js isn't complete
+       ES6 and therefore I run into some compatibility issues with jQuery and prerequisite
+  -->
+  <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/jquery/jquery-ui.js"></script>
+
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/bootbox/bootbox.min.js"></script>
+  <script src="./lib/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+
+  <script src="./lib/draw2d.js"></script>
+  <script src="./lib/ace-noconflict/ace.js"></script>
+  <script src="../socket.io/socket.io.js"></script>
+  <SCRIPT src="./js/webpack/bundle.js"></SCRIPT>
+
+</head>
+
+<body id="container">
+
+   <div class="toolbar navbar-default">
+   </div>
+
+   <div id="layer" class="">
+     <div class="title">
+       <a href="https://freegroup.github.io/brainbox/" target="_blank"><img src="./images/favicon_64x64.svg"/></a>
+       <div>
+         <h1>Brainbox</h1>
+         <h2>Shape Designer</h2>
+       </div>
+     </div>
+     <div id="layer_header" class="panetitle">Layers</div>
+     <div id="layer_elements"></div>
+   </div>
+
+   <div id="canvas" class="" >
+   </div>
+
+   <div id="canvas_zoom" class="btn-group">
+     <button type="button" id="canvas_zoom_in"     class="btn highlight">&#8213;</button>
+     <button type="button" id="canvas_zoom_normal" class="btn highlight">100%</button>
+     <button type="button" id="canvas_zoom_out"    class="btn highlight">&#xFF0B</button>
+   </div>
+
+    <div class="btn-group dropdown">
+       <img id="canvas_config" src="./images/canvas_configure.svg" class="dropdown-toggle " data-toggle="dropdown"/>
+       <div class="dropdown-menu" id="canvas_config_items">
+          <div class="">
+            <label class="">Grid
+                <input id="canvas_config_grid" type="checkbox" checked="checked" data-toggle="toggle" >
+            </label>
+          </div>
+       </div>
+    </div>
+
+   <div id="filter" class="navbar-default">
+       <div class="filter_actions" ></div>
+       <div class="highlight filter_header">Properties</div>
+       <div class="filter_toolbar" >
+
+        <div class="btn-group dropup">
+            <button id="add_filter_button" class="disabled btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                Add
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" id="add_filter_action_menu">
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--
+  # Save Dialog
+  #
+  #
+-->
+<div id="fileSaveDialog" class="modal fade genericDialog" tabindex="-1">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="media-heading">Save Shape </h4>
+            </div>
+            <div class="modal-body">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                            <img class="media-object filePreview" src="">
+                        </a>
+                    </div>
+                    <div class="media-body">
+
+                        <form class="form-horizontal">
+                            <br>
+                            Filename:
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <input type="text"
+                                               class="form-control floating-label githubFileName"
+                                               value=""
+                                                >
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                            <div class="row"></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">Abort</button>
+                <button class="btn btn-primary okButton"><span>Save</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   <!--
+  # General shape settings
+  #
+  -->
+   <div id="shapeSettingsDialog" class="modal fade" tabindex="-1">
+       <div class="modal-dialog ">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h4 class="media-heading">General Shape Settings</h4>
+               </div>
+               <div class="modal-body">
+
+
+                   <fieldset class="form-group">
+                   <label>Shape Base Class</label><br>
+                   <div class="btn-group shapeBaseClass" data-toggle="buttons">
+                       <label class="btn btn-primary active">
+                           <input data-class="draw2d.SetFigure" type="radio" name="shapeBaseClass" > Basic Node
+                       </label>
+
+                       <label class="btn btn-primary">
+                           <input data-class="draw2d.shape.composite.Raft" type="radio" name="shapeBaseClass" > Raft
+                       </label>
+
+                       <label class="btn btn-primary">
+                           <input data-class="draw2d.shape.composite.Jailhouse" type="radio" name="shapeBaseClass"> Jail House
+                       </label>
+                   </div>
+                   </fieldset>
+
+               </div>
+               <div class="modal-footer">
+                   <button class="btn" data-dismiss="modal">Abort</button>
+                   <button class="btn btn-primary okButton"><span>Close</span></button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+   <!--
+     # GitHub File select/open dialog
+     #
+     -->
+<div id="fileOpenDialog" class="modal fade genericDialog" tabindex="-1">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="media-heading">File Open...</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="list-group">
+                    <!-- FileList here -->
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">Abort</button>
+                <button class="btn btn-primary okButton"><span>Open</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   <!--
+     # FileSaveAs Dialog
+     #
+     -->
+   <div id="githubFileSaveAsDialog" class="modal fade genericDialog" tabindex="-1">
+       <div class="modal-dialog ">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h4 class="media-heading">Save Shape As..</h4>
+               </div>
+               <div class="modal-body">
+
+                   <div class="list-group">
+                       <!-- FileList here -->
+                   </div>
+
+
+                   <div class="media">
+                       <div class="media-left media-middle">
+                           <a href="#">
+                               <img class="media-object filePreview" src="">
+                           </a>
+                       </div>
+                       <div class="media-body">
+
+                           <form class="form-horizontal">
+                               <br>
+                               <br>
+                               <fieldset>
+                                   <div class="form-group">
+                                       <div class="col-lg-12">
+                                           <input type="text"
+                                                  class="form-control floating-label githubFileName"
+                                                  value=""
+                                                  placeholder="enter filename"
+                                                   >
+                                       </div>
+                                   </div>
+
+                               </fieldset>
+                               <div class="row"></div>
+
+                           </form>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="modal-footer">
+                   <button class="btn" data-dismiss="modal">Abort</button>
+                   <button class="btn btn-primary okButton"><span>Save</span></button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+<script id="shape-edit-template" type="text/js-template">
+/**
+ * Generated Code for the Draw2D touch HTML5 lib.
+ * File will be generated if you save the *.shape file.
+ *
+ * by 'Draw2D Shape Designer'
+ *
+ * Custom JS code to tweak the standard behaviour of the generated
+ * shape. add your custom code and event handler here.
+ *
+ * Looks disconcerting - extending my own class. But this is a good method to
+ * merge basic code and override them with custom methods.
+ */
+testShape = testShape.extend({
+
+    init: function(attr, setter, getter){
+         this._super(attr, setter, getter);
+
+         // your special code here
+    },
+
+    /**
+     *  Called by the simulator for every calculation
+     *  loop
+     *  @required
+     **/
+    calculate:function()
+    {
+    },
+
+
+    /**
+     *  Called if the simulation mode is starting
+     *  @required
+     **/
+    onStart:function()
+    {
+    },
+
+    /**
+     *  Called if the simulation mode is stopping
+     *  @required
+     **/
+    onStop:function()
+    {
+    },
+
+    /**
+     * Get the simulator a hint which kind of hardware the shapes requires or supports
+     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost
+     * and your are running a circuit which needs this kind of hardware...
+     **/
+    getRequiredHardware: function(){
+      return {
+        raspi: false,
+        arduino: false
+      }
+    }
+
+});
+</script>
+
+<script id="decoratedport-template" type="text/js-template">
+var DecoratedInputPort = draw2d.InputPort.extend({
+
+  init: function (attr, setter, getter) {
+  this.hasChanged = true
+
+  this._super(attr, setter, getter)
+
+  this.decoration = new shape_designer.figure.MarkerFigure()
+
+  this.add(this.decoration, new draw2d.layout.locator.LeftLocator({margin: 8}))
+
+
+  // a port can have a value. Useful for workflow engines or circuit diagrams
+  this.setValue(true)
+  },
+
+  useDefaultValue: function () {
+  this.decoration.setStick(true)
+  },
+
+  setValue: function (value) {
+  this.hasChanged = this.value !== value
+  this._super(value)
+  },
+
+  hasChangedValue: function () {
+  return this.hasChanged
+  },
+
+  hasRisingEdge: function () {
+  return this.hasChangedValue() && this.getValue()
+  },
+
+  hasFallingEdge: function () {
+  return this.hasChangedValue() && !this.getValue()
+  }
+})
+
+</script>
+
+<script id="shape-base-template" type="text/js-template">
+// Generated Code for the Draw2D touch HTML5 lib.
+// File will be generated if you save the *.shape file.
+//
+// created with http://www.draw2d.org
+//
+//
+var {{{className}}} = CircuitFigure.extend({
+
+   NAME: "{{{className}}}",
+
+   init:function(attr, setter, getter)
+   {
+     var _this = this;
+
+     this._super( $.extend({stroke:0, bgColor:null, width:{{width}},height:{{height}}},attr), setter, getter);
+     var port;
+     {{#ports}}
+     // {{{name}}}
+     port = this.{{{method}}}({{{type}}}, new draw2d.layout.locator.XYRelPortLocator({{x}}, {{y}}));
+     port.setConnectionDirection({{direction}});
+     port.setBackgroundColor("{{color}}");
+     port.setName("{{name}}");
+     port.setMaxFanOut({{fanout}});
+     {{/ports}}
+   },
+
+   createShapeElement : function()
+   {
+      var shape = this._super();
+      this.originalWidth = {{width}};
+      this.originalHeight= {{height}};
+      return shape;
+   },
+
+   createSet: function()
+   {
+       this.canvas.paper.setStart();
+       var shape = null;
+       {{#figures}}
+       // {{{name}}}
+       shape = {{{constructor}}};
+       shape.attr({{{attr}}});
+       shape.data("name","{{{name}}}");
+       {{{extra}}}
+       {{/figures}}
+
+       return this.canvas.paper.setFinish();
+   }
+});
+</script>
+
+
+</body>
+</html>

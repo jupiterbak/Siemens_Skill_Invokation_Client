@@ -1,0 +1,60 @@
+
+#files{
+  overflow-y: scroll;
+  padding:30px !important;
+  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);
+
+  .deleteIcon{
+    position: absolute;
+    right: 24px;
+    width: 24px;
+    color:@tintColor;
+    top: 8px;
+    cursor:pointer;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: rgba(255,0,0,0.5);
+    &:hover{
+      background-color: rgba(255,0,0,0.9);
+    }
+  }
+
+  .thumb{
+    .thumbnail{
+      img{
+        cursor:pointer;
+      }
+    }
+    .filenameInplaceEdit{
+      font-size:18px;
+      color:@tintColor;
+      margin-top:5px;
+    }
+    h4{
+      font-size:18px;
+      color:@tintColor;
+    }
+  }
+
+  .thumbAdd{
+    color:@tintColor;
+    color: #0078f2;
+    border: 1px solid rgba(0, 120, 242, 0.33);
+    border-radius: 6px;
+    cursor:pointer;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    div{
+      font-size: 160px;
+      text-align: center;
+    }
+    h4{
+      text-align: center;
+    }
+    &:hover{
+      border: 1px solid rgba(0, 120, 242, 1);
+      transition: all 1s;
+      -webkit-transition: all 1s;
+    }
+  }
+}

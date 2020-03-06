@@ -1,0 +1,119 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+
+  #layout {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    .nav-tabs {
+      float: left;
+      border-bottom: 0;
+      li {
+        float: none;
+        margin: 0;
+
+        a {
+          margin-right: 0;
+          border: 0;
+
+          &:hover {
+          }
+        }
+      }
+
+      .active .glyphicon {
+      }
+    }
+
+    #leftTabStrip {
+      height: 100%;
+      position:absolute;
+      width: @tabSize;
+      padding-top: @tabSize;
+      overflow:hidden;
+      .leftTab {
+        border-radius: 0 !important;
+        width:@tabSize;
+        height:@tabSize;
+      }
+    }
+
+    .tab-content {
+      position: relative;
+      margin-left: @tabSize;
+      height: 100%;
+
+      .tab-pane {
+        display: none;
+        padding: 0;
+        height:100%;
+        position:relative;
+
+        .workspace {
+
+          .palette {
+            position:absolute;
+            height: 100%;
+            width: @leftPaneWidth;
+            padding: 0;
+
+            #filter{
+              position: absolute;
+              font-size: 20px;
+              width: (@leftPaneWidth)-5;
+              left: 2px;
+            }
+
+            #paletteElementsScroll {
+              position: absolute;
+              width: @leftPaneWidth - 2px;
+              margin: 0;
+              padding: 0;
+              top: 40px;
+              bottom: 0px;
+              overflow: auto;
+              #paletteElements {
+                position: absolute;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                .mix {
+                  height: @leftPaneWidth/2;
+                  border: 1px solid #f0f0f0;
+                  /* to avoid doubling the border of the grid */
+                  margin: -1px 0 0 -1px;
+                }
+              }
+            }
+          }
+          .content {
+            position:absolute;
+            right: 0;
+            top:@toolbarHeight;
+            bottom:0;
+            left: @leftPaneWidth;
+            overflow: scroll;
+            .canvas {
+                width:6000px;
+                height:6000px;
+            }
+          }
+        }
+      }
+      .active {
+        display: block;
+      }
+    }
+  }
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  border:0;
+}

@@ -1,0 +1,45 @@
+{
+    "name": "brainbox",
+    "version": "1.1.18",
+    "description": "BrainBox. A browser based circuit simulator which is able to run on a raspi with a node.js backend and has access to the GPIO pins.",
+    "main": "index.html",
+    "private": true,
+    "scripts": {
+        "build": "webpack --env dev && webpack --env build",
+        "dev": "webpack --progress --colors --watch --env dev",
+        "start": "node ./app/backend/index.js"
+    },
+    "bin": {
+        "brainbox": "./app/backend/index.js"
+    },
+    "keywords": [
+        "diagramming",
+        "canvas",
+        "HTML5",
+        "js"
+    ],
+    "author": "Jupiter Bakakeu",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "1.18.3",
+        "bootstrap-toggle": "^2.2.2",
+        "express": "4.16.3",
+        "glob": "7.0.3",
+        "handlebars": "^4.2.0",
+        "intro.js": "^2.9.3",
+        "jsdom": "9.0.0",
+        "jsts": "1.6.0",
+        "less": "3.7.1",
+        "mousetrap": "1.6.2",
+        "node-ttl": "0.0.5",
+        "phantomjs": "^2.1.7",
+        "prettify": "^0.1.7",
+        "prompt": "1.0.0",
+        "sanitize-filename": "^1.6.1",
+        "socket.io": "2.1.1",
+        "system": "2.0.1",
+        "template7": "^1.4.2",
+        "uuid": "^3.3.3",
+        "webpage": "0.3.0"
+    }
+}

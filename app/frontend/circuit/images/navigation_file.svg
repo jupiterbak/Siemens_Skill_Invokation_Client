@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>navigation_file</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="navigation_file" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M34.8378906,7 L39.6666667,7 C41.5076158,7 43,8.47940691 43,10.3043478 L43,41.6956522 C43,43.5205931 41.5076158,45 39.6666667,45 L16.3333333,45 C14.4923842,45 13,43.5205931 13,41.6956522 L13,36.3486328" id="Rectangle-7" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round"></path>
+        <g id="up" transform="translate(21.000000, 21.000000) rotate(-180.000000) translate(-21.000000, -21.000000) translate(8.000000, 7.000000)" stroke="#4A4A4A" stroke-width="2">
+            <path d="M13,0.457581133 L13,27 L13,0.457581133 Z" id="Line-5" stroke-linecap="square"></path>
+            <path d="M0.272077939,16.5 L10.8839548,27.1118769 C12.0526143,28.2805364 13.9498396,28.2780824 15.120851,27.1070711 L23.0005102,19.2274119 L25.7279221,16.5" id="Path-21"></path>
+        </g>
+    </g>
+</svg>

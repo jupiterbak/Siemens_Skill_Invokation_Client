@@ -1,0 +1,109 @@
+{
+  "draw2d": [
+    {
+      "type": "shape_designer.figure.PolyCircle",
+      "id": "23e1591b-1ccc-930d-7bb3-fea4d6f0707b",
+      "x": 7985,
+      "y": 7985,
+      "width": 30,
+      "height": 30,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n         // your special code here\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function()\n    {\n        this.getOutputPort(0).setValue(true);\n        this.layerAttr(\"Circle_\", { fill: \"#C21B7A\" });\n    },\n\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function()\n    {\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function()\n    {\n    },\n\n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    }\n\n});",
+        "name": "Circle"
+      },
+      "cssClass": "shape_designer_figure_PolyCircle",
+      "ports": [],
+      "bgColor": "#000000",
+      "color": "#1B1B1B",
+      "stroke": 0,
+      "radius": 0,
+      "dasharray": null,
+      "blur": 0,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.SizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.PolyCircle",
+      "id": "6564a81a-b89f-5e40-4f67-77280b2e29bf",
+      "x": 7990,
+      "y": 7990,
+      "width": 20,
+      "height": 20,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n         // your special code here\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function()\n    {\n        this.getOutputPort(0).setValue(true);\n        this.layerAttr(\"Circle_\", { fill: \"#C21B7A\" });\n    },\n\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function()\n    {\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function()\n    {\n    },\n\n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    }\n\n});",
+        "name": "Circle_"
+      },
+      "cssClass": "shape_designer_figure_PolyCircle",
+      "ports": [],
+      "bgColor": "#000000",
+      "color": "#1B1B1B",
+      "stroke": 0,
+      "radius": 0,
+      "dasharray": null,
+      "blur": 0,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.SizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "be07df8d-47d7-5e42-bb1a-576c53d9ddf5",
+      "x": 8011,
+      "y": 7994.83222784,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Port",
+        "type": "Output",
+        "direction": 1,
+        "fanout": 20
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#37B1DE",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        }
+      ]
+    }
+  ],
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADNElEQVRoQ+1YTUhUURT+HtM0Nj+Mok4zTlqgUNHCoDZJga0LDHLRj7Sq0IwSS7GCFkVGCZFGUtYqKKFEFFq0iJKCVhZkEAgNlVzfzPiDGY7p/BVXGhiHmeHeM/MGGd7dvvOde77z3XPuu0dBniwlT3hAJ7LWlNQV0RXRKAP60dIosWS3uiJpUlcHYD+AXQAqATj+204B8AD4BOANgGFy+pMAs6VIEYA2AKcBFAsGOAugD0AXgDlBTEqzbBA5CeA2AE6GsjiJdgCPKeAYJlMi9wGcySSAOGwvgGaqr0yIPAVwjLpxCtwzAMcpPqlEsqlEYtwkZShEeE08omRNAnNKtmZkifCC5i2UWtiiXHgD4K1buJvJEukEcEk0mgzt+F5XRH3IEpmRuCdEY0hqZzAY5pxOZ5diKtjNDf4uL41GIpF+n8/3IxlAhgi/sYcyik4QbLVaYS8shHlfXWRDVbWBw5Y8Y6HAuyGDArQyxroTXckQuQvgvGAsZDOLxYKiiko4WrphdG5e5Sfk+4mZe63zkbmpjsnJyQfxH2WIvAewlxyhAFBRFJRtKoej/SHWV2xNighOjGO6q3ExtLzk8Pv9AcrNrgJwCcRDNjGbzSip3gNXR/ruPnXnrDfkGbvIGOMX6MqSUSQMYOW8arVsNhvc9U2wH2pMu8X8cF/w96snN1RVvbZmibgOnEDR0QvpibzoCSyMDFxnjN2iENH8aJlMJpRWbYe7czAtEd/VI/7QNGtQVfU1hYjmxc6D2uguR2lDGyw1B5OSCXx4iV/Pez6z7992UrsW793ntKqPmF+j0QiHqwyFh5thra1ftd3CyADmB3sDkeByrdfrHaUSydmFyMnYi0tQYLYumrZs+8MDDk6Mr4uGwx+VcLCFMfYlMaEyXYtjc/aLAmDW7XbXKIqyg28cjUa/qqo6nupEyBLJ5U/jTQCXRY+yLJG8+Y3nCcqLh1VMaf4cbRKVXdIuZ0/dWFxaDB/6qQMN2RpJTG42lSEpQbnZU52QvBjQxcjlxcg0UalUQ2x/3BD77VodYks2puybZ1rs2Y+I6FEnQkycZjBdEc1SS3SsK0JMnGYwXRHNUkt0/A8Mnc8zku+rJgAAAABJRU5ErkJggg=="
+}
