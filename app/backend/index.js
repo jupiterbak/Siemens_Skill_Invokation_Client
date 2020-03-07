@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 const glob = require("glob");
 const uuidv4 = require('uuid/v4');
 const template7 = require('template7');
+const superagent = require('superagent');
+
 template7.registerHelper('add', function(arg_1, arg_2, options) {
     return eval(arg_1 + " + " + arg_2);
 });
@@ -28,9 +30,10 @@ template7.registerHelper('BoxHeight', function(inputs, outputs, options) {
 });
 
 
+// Initialize SocketIO
+const OPCUA_BACKEND_URL = 'http://localhost:8080/';
+const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, OPCUA_BACKEND_URL);
 
-
-const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' });
 
 // Tell the bodyparser middleware to accept more data
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -140,106 +143,134 @@ function runServer() {
             });
         });
     });
+
+    // =================================================================
+    // Handle skill browse
+    //
+    // =================================================================
     app.post('/backend/skill/save', (req, res) => {
         fs.readFile(path.normalize(skillTemplateDir + '/skill_template.shape'), "utf8", (err, data) => {
-            if (err) throw err;
-            for (var prop in req.body.skill) {
-                var _skill = req.body.skill[prop];
-                _skill["parameters"] = { "inputs": [], "outputs": [] };
-                var compiledTemplate = template7.compile(data);
+            if (err) throw err;            
+            var _skill = req.body.skill;
+            _skill["parameters"] = { "inputs": [], "outputs": [] };
+            var compiledTemplate = template7.compile(data);
 
-                // Extract the parameters with the schema of a skill from ats
-                // Input parameter from the parameters of the start function
-                _skill.skillModel.Invokation.Start.parameters.inputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.inputs.push(param);
+            // Extract the parameters with the schema of a skill from ats
+            // Input parameter from the parameters of the start function
+            _skill.skillModel.Invokation.Start.parameters.inputArguments.forEach(param => {
+                param["id_circle"] = uuidv4();
+                param["id_label"] = uuidv4();
+                param["id_port"] = uuidv4();
+                _skill.parameters.inputs.push(param);
+            });
+
+            // Input parameter from the parameters of the GetResult function
+            _skill.skillModel.Invokation.GetResult.parameters.inputArguments.forEach(param => {
+                param["id_circle"] = uuidv4();
+                param["id_label"] = uuidv4();
+                param["id_port"] = uuidv4();
+                _skill.parameters.inputs.push(param);
+            });
+
+            // Output parameter from the parameters of the start function
+            _skill.skillModel.Invokation.Start.parameters.outputArguments.forEach(param => {
+                param["id_circle"] = uuidv4();
+                param["id_label"] = uuidv4();
+                param["id_port"] = uuidv4();
+                _skill.parameters.outputs.push(param);
+            });
+
+            // Output parameter from the parameters of the GetResult function
+            _skill.skillModel.Invokation.GetResult.parameters.outputArguments.forEach(param => {
+                param["id_circle"] = uuidv4();
+                param["id_label"] = uuidv4();
+                param["id_port"] = uuidv4();
+                _skill.parameters.outputs.push(param);
+            });
+            let _content = compiledTemplate(_skill);
+            // console.log(_content);
+            // Add Custom Code
+            let _content_json = JSON.parse(_content);
+            _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code.txt'), "utf8");
+
+            fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
+                if (err) throw err
+
+                // file is saved...fine
+                //
+                res.send(JSON.stringify({err:null}));
+
+                // create the js/png/md async to avoid a blocked UI
+                //
+                let binPath = phantomjs.path;
+                let childArgs = [
+                    path.normalize(__dirname + '/../shape2code/converter.js'),
+                    path.normalize(shapeDirApp + req.body.filePath),
+                    shape2CodeDir,
+                    shapeDirApp
+                ];
+
+                // inform the browser that the processing of the
+                // code generation is ongoing
+                //
+                io.sockets.emit("shape:generating", {
+                    filePath: req.body.filePath
                 });
-
-                // Input parameter from the parameters of the GetResult function
-                _skill.skillModel.Invokation.GetResult.parameters.inputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.inputs.push(param);
-                });
-
-                // Output parameter from the parameters of the start function
-                _skill.skillModel.Invokation.Start.parameters.outputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.outputs.push(param);
-                });
-
-                // Output parameter from the parameters of the GetResult function
-                _skill.skillModel.Invokation.GetResult.parameters.outputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.outputs.push(param);
-                });
-                let _content = compiledTemplate(_skill);
-                console.log(_content);
-                // Add Custom Code
-                let _content_json = JSON.parse(_content);
-                _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code.txt'), "utf8");
-
-                fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
+                
+                // console.log("Generating skill images...");
+                // console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
                     if (err) throw err
-
-                    // file is saved...fine
-                    //
-                    res.send('true');
-
-                    // create the js/png/md async to avoid a blocked UI
-                    //
-                    let binPath = phantomjs.path;
-                    let childArgs = [
-                        path.normalize(__dirname + '/../shape2code/converter.js'),
-                        path.normalize(shapeDirApp + req.body.filePath),
-                        shape2CodeDir,
-                        shapeDirApp
-                    ];
-
-                    // inform the browser that the processing of the
-                    // code generation is ongoing
-                    //
-                    io.sockets.emit("shape:generating", {
-                        filePath: req.body.filePath
-                    });
-
-                    console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
-                    childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-                        if (err) throw err
-                        let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
-                        glob(pattern, {}, function(er, files) {
-                            files.forEach(file => {
-                                fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
-                                    if (err) throw err;
-                                });
+                    let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
+                    glob(pattern, {}, function(er, files) {
+                        files.forEach(file => {
+                            fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
+                                if (err) throw err;
                             });
                         });
+                    });
 
-                        io.sockets.emit("shape:generated", {
-                            filePath: req.body.filePath,
-                            imagePath: req.body.filePath.replace(".shape", ".png"),
-                            jsPath: req.body.filePath.replace(".shape", ".js")
-                        });
-                    })
-                });
-            };
+                    io.sockets.emit("shape:generated", {
+                        filePath: req.body.filePath,
+                        imagePath: req.body.filePath.replace(".shape", ".png"),
+                        jsPath: req.body.filePath.replace(".shape", ".js")
+                    });
+                })
+            });
         });
-
-
     });
+    app.get('/backend/skill/browse', (req, res) => {
 
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'connect')
+            .query(
+                    {
+                        parameter: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT"
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
+    
 
+    //  Start the web server
     http.listen(port, function() {
         console.log('using phantomJS for server side rendering of shape previews:', phantomjs.path)
         console.log('+------------------------------------------------------------+');
-        console.log('| Welcome to brainbox - the begin of something awesome       |');
+        console.log('| Welcome to the SP347 Skill Invokation Client               |');
         console.log('|------------------------------------------------------------|');
         console.log('| System is up and running. Copy the URL below and open this |');
         console.log('| in your browser: http://' + address + ':' + port + '/                |');

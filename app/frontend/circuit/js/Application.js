@@ -9,6 +9,7 @@ import View from "./View"
 import Files from "./Files"
 import FileOpen from "./dialog/FileOpen"
 import FileSave from "./dialog/FileSave"
+import BrowseSkillsDialog from "./dialog/BrowseSkillsDialog"
 import storage from './io/BackendStorage'
 import conf from "./Configuration"
 
@@ -48,14 +49,18 @@ class Application {
 
         $("#fileOpen, #editorFileOpen").on("click", () => {
             new FileOpen().show(this.view)
-        })
+        });
         $("#fileNew").on("click", () => {
             this.fileNew()
-        })
+        });
 
         $("#fileSave, #editorFileSave").on("click", () => {
-            new FileSave().show(this.view)
-        })
+            new FileSave().show(this.view);
+        });
+        
+        $("#BrowseSkills, #editorBrowseSkills").on("click", () => {
+            new BrowseSkillsDialog().show(this.view);
+        });
 
         /*
          * Replace all SVG images with inline SVG

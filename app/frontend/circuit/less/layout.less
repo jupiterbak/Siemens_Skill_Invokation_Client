@@ -63,11 +63,45 @@ body {
             width: @leftPaneWidth;
             padding: 0;
 
+            .title {
+              left: 10px;
+              right:0px;
+              top: 10px;
+              position: absolute;
+              img {
+                padding-right:20px;
+                position: absolute;
+                left:10px;
+                max-height: 30px;
+              }
+              div{
+                position: absolute;
+                left:90px;
+                h1{
+                  font-size: 25px;
+                  font-weight:200;
+                  line-height: 45px;
+                  margin:0;
+                  padding:0;
+                  text-align: left;
+                }
+                h2{
+                  font-size: 15px;
+                  font-weight:200;
+                  margin:0;
+                  padding:0;
+                  text-align: left;
+                }
+              }
+            }
+
             #filter{
               position: absolute;
+              top: @layerTitleHeight;
               font-size: 20px;
               width: (@leftPaneWidth)-5;
               left: 2px;
+              height: @layerPaneFilterHeight;
             }
 
             #paletteElementsScroll {
@@ -75,7 +109,7 @@ body {
               width: @leftPaneWidth - 2px;
               margin: 0;
               padding: 0;
-              top: 40px;
+              top: @layerPaneFilterHeight + @layerTitleHeight + 10px;
               bottom: 0px;
               overflow: auto;
               #paletteElements {

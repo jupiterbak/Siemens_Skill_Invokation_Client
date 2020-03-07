@@ -2,7 +2,7 @@ const fs = require('fs')
 const glob = require("glob")
 const path = require('path')
 
-const brainDirHOME = "./.brainbox/"
+const brainDirHOME = "./.skillInvocationClient/"
 const brainDirUserHOME = brainDirHOME + "brain/"
 const shapeDirUserHOME = brainDirHOME + "shapes/"
 

@@ -18,13 +18,17 @@ export default {
       del:     `../backend/brain/delete`,
       rename:  `../backend/brain/rename`,
       save:     `../backend/brain/save`
+    },
+    skill:{
+      browse: '/backend/skill/browse',
+      save: '/backend/skill/save'
     }
+  },
+  monitor: {
+    url:"http://localhost:8080/skill-monitoring.html"
   },
   issues: {
     url:"dddddd"
-  },
-  designer: {
-    url: "../designer/"
   },
   shapes: {
     url: "./shapes/"

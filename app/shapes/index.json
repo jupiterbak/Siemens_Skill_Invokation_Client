@@ -1,31 +1,41 @@
-[{
-        "name": "End",
-        "tags": [
-            "End"
-        ],
-        "filePath": "End.shape"
-    },
-    {
-        "name": "localhost_4840_InsertSkill",
-        "tags": [
-            "localhost",
-            "4840",
-            "InsertSkill"
-        ],
-        "filePath": "localhost_4840_InsertSkill.shape"
-    },
-    {
-        "name": "Skill",
-        "tags": [
-            "Skill"
-        ],
-        "filePath": "Skill.shape"
-    },
-    {
-        "name": "START",
-        "tags": [
-            "START"
-        ],
-        "filePath": "START.shape"
-    }
+[
+  {
+    "name": "End",
+    "tags": [
+      "End"
+    ],
+    "filePath": "End.shape"
+  },
+  {
+    "name": "localhost_4840_InsertSkill",
+    "tags": [
+      "localhost",
+      "4840",
+      "InsertSkill"
+    ],
+    "filePath": "localhost_4840_InsertSkill.shape"
+  },
+  {
+    "name": "localhost_4842_InsertSkill",
+    "tags": [
+      "localhost",
+      "4842",
+      "InsertSkill"
+    ],
+    "filePath": "localhost_4842_InsertSkill.shape"
+  },
+  {
+    "name": "Skill",
+    "tags": [
+      "Skill"
+    ],
+    "filePath": "Skill.shape"
+  },
+  {
+    "name": "START",
+    "tags": [
+      "START"
+    ],
+    "filePath": "START.shape"
+  }
 ]

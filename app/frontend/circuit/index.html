@@ -1,16 +1,13 @@
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <title>ATS Skill Simulator</title>
+    <title>ATS Skill Invocation Client</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 
-    <!-- <link rel="icon" type="./image/png" href="./images/favicon_64x64.png" sizes="64x64">
-    <link rel="icon" type="./image/png" href="./images/favicon_48x48.png" sizes="48x48">
-    <link rel="icon" type="./image/png" href="./images/favicon_32x32.png" sizes="32x32">
-    <link rel="icon" type="./image/png" href="./images/favicon_16x16.png" sizes="16x16"> -->
+    <link rel="icon" type="./image/png" href="./images/siemens_favicon.ico" >
 
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100,900' rel='stylesheet' type='text/css'>
     <link href='./lib/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
@@ -57,6 +54,9 @@
             <div class="tab-pane active" id="editor">
                 <div class="workspace">
                     <div class="palette ">
+                        <div class="title">
+                            <a href="https://siemens.com/" target="_blank"><img src="./images/siemens-logo-en-2x.png"></a>                            
+                          </div>
                         <input type="text" id="filter" placeholder="Filter..." autofocus>
                         <div id="paletteElementsScroll">
                             <div id="paletteElements" class="row">
@@ -66,16 +66,22 @@
                         </div>
                     </div>
                     <div class="toolbar">
+                        <span class="group">
+                            <span class="image-button"  id="editorBrowseSkills">
+                            <img  title="Browse OPC UA Server" src="./images/search-24px.svg"/>
+                            <div>Browse</div>
+                            </span>
+                        </span>
                         <span class="group" id="editorgroup_fileoperations">
                             <span class="image-button"  id="editorFileOpen">
                                 <img title="Open circuit" src="./images/toolbar_download.svg"/>
-                                <div>Import Skill</div>
+                                <div>Open</div>
                             </span>
-                        <!-- <span class="image-button" id="editorFileSave">
+                            <span class="image-button" id="editorFileSave">
                             <img title="Save circuit" src="./images/toolbar_upload.svg"/>
                             <div>Save</div>
                             </span>
-                        </span> -->
+                        </span>
                         <span class="group">
                             <span class="image-button disabled"  id="editDelete">
                             <img  src="./images/toolbar_delete.svg"/>
@@ -94,13 +100,6 @@
                             </span>
                         </span>
 
-                        <span id="" class="group editBase">
-                            <label id="tool_shape" class="dropdown" >
-                            <span class="image-button" id="editConnections" data-toggle="dropdown" >
-                            <img src="./images/status_index.svg">
-                            <div>Backend Connection</div>
-                        </span>
-
                         <ul class="dropdown-menu" role="menu">
                             <form class="form-horizontal" role="form">
                                 <label class="statusIndicator" id="statusRaspi">
@@ -115,7 +114,7 @@
                         </label>
                         </span>
 
-                        <span class="group simulationBase" style="display: none;">
+            <span class="group simulationBase" style="display: none;">
                 <label>Simulation Speed</label>
                 <input id="simulationBaseTimer"
                        type="text"
@@ -166,7 +165,7 @@
     <script id="shapeTemplate" type="text/x-jsrender">
         {{#categories}}
         <div class="row">
-            <div data-name='{{name}}' data-file='{{filePath}}' class="col-md-12 bg-info">
+            <div data-name='{{name}}' data-file='{{filePath}}' class="col-md-12 pallete-bg">
                 <h5 class="font-weight-bold text-center">{{name}}</h5>
             </div>
             {{#shapes}}
@@ -203,6 +202,53 @@
 
     </script>
 
+    <!--
+    # Skill Browse Dialog
+    #
+    #
+    -->
+    <div id="skillBrowseDialog" class="modal fade genericDialog" tabindex="-1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="media-heading">Browse OPC UA Server</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <div class="media-object filePreview ion-ios-upload-outline"></div>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <br/>
+                            <div class="alert alert-primary " role="alert">                               
+                            </div>                            
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label" for="paramIPOPCUA">IP </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control floating-label opcuaip" placeholder="localhost" value="localhost">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12 control-label" for="paramPortOPCUA">Port </label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control floating-label opcuaport" placeholder="4840" value="4840">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal">Abort</button>
+                    <button class="btn btn-primary okButton"><span>Start Browsing</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--
   # Save Dialog
@@ -213,7 +259,7 @@
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="media-heading">Save your circuit</h4>
+                    <h4 class="media-heading">Save your orchestration</h4>
                 </div>
                 <div class="modal-body">
                     <div class="media">

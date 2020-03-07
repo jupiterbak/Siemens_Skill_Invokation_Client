@@ -13,7 +13,6 @@ import conf from "./Configuration"
 import Connection from "./figures/Connection"
 import SimulationEditPolicy from "./SimulationEditPolicy"
 import MarkdownDialog from "./dialog/MarkdownDialog"
-import CodeDialog from "./dialog/CodeDialog"
 import WebUSBHelpDialog from "./dialog/WebUSBHelpDialog"
 
 import hardware from "./hardware"
@@ -261,14 +260,13 @@ export default draw2d.Canvas.extend({
                 let y = event.y
 
                 let pathToMD = conf.shapes.url + figure.NAME + ".md"
-                let pathToCustom = conf.shapes.url + figure.NAME + ".custom"
-                let pathToDesign = conf.designer.url + "?timestamp=" + new Date().getTime() + "&file=" + figure.NAME + ".shape"
+                // TODO: Jupiter - Monitor Skill
+                let pathToDesign = conf.monitor.url + "?timestamp=" + new Date().getTime() + "&file=" + figure.NAME + ".shape"
                 let items = {
                     "label": { name: "Attach Label", icon: "x ion-ios-pricetag-outline" },
                     "delete": { name: "Delete", icon: "x ion-ios-close-outline" },
                     "sep1": "---------",
-                    "design": { name: "Edit Shape", icon: "x ion-ios-compose-outline" },
-                    "code": { name: "Show Custom Code", icon: "x ion-code" },
+                    "monitor": { name: "Monitor Skill", icon: "x ion-ios-compose-outline" },
                     "help": { name: "Info", icon: "x ion-ios-information-outline" }
                 }
 
@@ -281,11 +279,6 @@ export default draw2d.Canvas.extend({
                     },
                     callback: $.proxy(function(key, options) {
                         switch (key) {
-                            case "code":
-                                $.get(pathToCustom, function(content) {
-                                    new CodeDialog().show(content)
-                                })
-                                break
                             case "label":
                                 let text = prompt("Label")
                                 if (text) {
@@ -296,8 +289,8 @@ export default draw2d.Canvas.extend({
                                     Object.defineProperty(figure, "canvas", { configurable: false, writable: false })
                                 }
                                 break
-                            case "design":
-                                window.open(pathToDesign, "designer")
+                            case "monitor":
+                                window.open(pathToDesign, "skill")
                                 break
                             case "help":
                                 $.get(pathToMD, function(content) {
@@ -432,9 +425,9 @@ export default draw2d.Canvas.extend({
 
         $("#simulationStartStop").addClass("pause")
         $("#simulationStartStop").removeClass("play")
-        $(".editBase").fadeOut("slow", () => {
-            $(".simulationBase").fadeIn("slow")
-        })
+        // $(".editBase").fadeOut("slow", () => {
+        //     $(".simulationBase").fadeIn("slow")
+        // })
         $("#paletteElementsOverlay").fadeIn("fast")
         $("#paletteElementsOverlay").height($("#paletteElements").height())
         this.slider.slider("setValue", 100)
@@ -452,9 +445,9 @@ export default draw2d.Canvas.extend({
 
         $("#simulationStartStop").addClass("play")
         $("#simulationStartStop").removeClass("pause")
-        $(".simulationBase").fadeOut("slow", () => {
-            $(".editBase").fadeIn("slow")
-        })
+        // $(".simulationBase").fadeOut("slow", () => {
+        //     $(".editBase").fadeIn("slow")
+        // })
         $("#paletteElementsOverlay").fadeOut("fast")
     },
 
