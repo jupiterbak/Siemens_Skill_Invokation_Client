@@ -1,0 +1,1288 @@
+{
+    "draw2d": [
+        {
+            "type": "shape_designer.figure.PolyRect",
+            "id": "3f3cebb6-442a-5a78-be8e-ee14a564a9bc",
+            "x": 7900.241887499999,
+            "y": 7889.5,
+            "width": 200,
+            "height": 211,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "baseClass": "draw2d.SetFigure",
+                "code": "/**\r\n * by 'Draw2D Shape Designer'\r\n *\r\n * Custom JS code to tweak the standard behaviour of the generated\r\n * shape. add your custome code and event handler here.\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n   init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n         \r\n         var _this= this;\r\n         this.onChangeCallback = function(emitter, event){\r\n            \r\n         }\r\n\r\n         this.onConnectedCallback = function(emitter, event){\r\n            \r\n         }\r\n    },\r\n    \r\n    calculate:function(){\r\n    },\r\n\r\n    propagate: function(index, port){\r\n        if(!port.getConnections().isEmpty()){\r\n            var con = port.getConnections().first();\r\n            var other = con.getSource()===port?con.getTarget():con.getSource()\r\n            if(other instanceof draw2d.InputPort){\r\n                \r\n            }\r\n            else {\r\n                hardware.arduino.set(index,!!other.getValue())\r\n            }\r\n        }\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n    },\r\n    \r\n    setCanvas: function(canvas)\r\n    {\r\n        // deregister old listerener ...if exists\r\n        if(this.canvas !==null) {\r\n            hardware.arduino.off(\"connect\", this.onConnectedCallback);\r\n            hardware.arduino.off(\"disconnect\", this.onConnectedCallback);\r\n        }\r\n        \r\n        this._super(canvas);\r\n        \r\n        \r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: true\r\n      }\r\n    }\r\n    \r\n});",
+                "name": "circle",
+                "markdown": "#Skill Template"
+            },
+            "cssClass": "shape_designer_figure_PolyRect",
+            "ports": [],
+            "bgColor": "#FFFFFF",
+            "color": "#303030",
+            "stroke": 1,
+            "radius": 6,
+            "dasharray": null,
+            "vertices": [
+                {
+                    "x": 7900.241887499999,
+                    "y": 7889.5
+                },
+                {
+                    "x": 8100.241887499999,
+                    "y": 7889.5
+                },
+                {
+                    "x": 8100.241887499999,
+                    "y": 8110.5
+                },
+                {
+                    "x": 7900.241887499999,
+                    "y": 8110.5
+                }
+            ],
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.RadiusFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "8e9303cc-561f-5fd2-4f77-1ad9200f3402",
+            "x": 7953.952824999999,
+            "y": 7890,
+            "width": 56.25,
+            "height": 21,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Name"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "InsertSkill",
+            "outlineStroke": 0,
+            "outlineColor": "#FF0000",
+            "fontSize": 16,
+            "fontColor": "#00979D",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.OutlineStrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "68577b0b-5c59-4e5b-91a5-86400758b6f4",
+            "x": 7896,
+            "y": 7980,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_0"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "a1dc6da1-f144-4c8b-baaa-76d7e86366d5",
+            "x": 7905,
+            "y": 7974,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_0"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "Position",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "95776628-e4e6-49f5-9d33-8a651734e749",
+            "x": 7896,
+            "y": 7980,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_0",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "34ba39ef-29b4-4ada-8ad5-4c0e8c3422e3",
+            "x": 7896,
+            "y": 7993,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_1"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "6e763bb1-231f-4a0a-ae20-0ee0df532e3d",
+            "x": 7905,
+            "y": 7987,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_1"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "BuildingBlockTypeId",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "02309e41-8319-45cd-851b-b20ce0d8f015",
+            "x": 7896,
+            "y": 7993,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_1",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "e2aba3fa-acc0-420c-a0c7-901f5876cbbc",
+            "x": 7896,
+            "y": 8006,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_2"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "cdce8527-3db9-444b-b0e4-db07b71010fd",
+            "x": 7905,
+            "y": 8000,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_2"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "Orientation",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "8f355aed-0a81-4958-95f6-6e31dd37f352",
+            "x": 7896,
+            "y": 8006,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_2",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "bed5512d-d88c-44bf-b7f3-4f7d05256dbe",
+            "x": 7896,
+            "y": 8019,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_3"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "fa5bd1f6-8683-454a-83e9-0dc438e557d0",
+            "x": 7905,
+            "y": 8013,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_3"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "RFID",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "b67cc2f7-17d6-43bd-81e7-315b07ec997a",
+            "x": 7896,
+            "y": 8019,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_3",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "a8b2256f-c8f5-48e8-9106-09f13ba7212e",
+            "x": 7896,
+            "y": 8032,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_4"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "fe84043c-5962-4717-b091-dd14d0bc437f",
+            "x": 7905,
+            "y": 8026,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_4"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "CurrentConfiguration_BuildingBlockTypeId",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "d9194f9f-2b48-4946-a520-09a887de712a",
+            "x": 7896,
+            "y": 8032,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_4",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "65f7aabe-51c9-4d7f-b61e-2f0218f0b8cb",
+            "x": 7896,
+            "y": 8045,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_5"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "8cb69a6e-0631-434c-bfe3-86f98b4ae4c2",
+            "x": 7905,
+            "y": 8039,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_5"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "CurrentConfiguration_Orientation",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "3d0dc3f4-94e8-4ebd-ac4b-b302b2400a0d",
+            "x": 7896,
+            "y": 8045,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_5",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "c476bf51-7fa1-45dc-8a3c-3a94b4c9a4c0",
+            "x": 7896,
+            "y": 8058,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_6"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "92288be7-a72f-43a5-b962-ea6e137ad392",
+            "x": 7905,
+            "y": 8052,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_6"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "RFID",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "7eff8a91-6ca4-4103-ad1a-26de59643b88",
+            "x": 7896,
+            "y": 8058,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_6",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "49b0c14b-93db-44ac-92ba-16bdcf94c870",
+            "x": 8095,
+            "y": 7980,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_OUT_0"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "071e15cf-a5a8-4bf9-b13e-5e3d8ba78523",
+            "x": 8038,
+            "y": 7974,
+            "width": 60,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_OUT_0"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "ErrorId",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "8c180d1c-4c0f-434d-8fe5-e0bab6f477b0",
+            "x": 8095,
+            "y": 7980,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_OUT_0",
+                "type": "Output",
+                "direction": 1
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "b89441ef-42e5-4bbd-8860-b635f1f3eb62",
+            "x": 8095,
+            "y": 7993,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_OUT_1"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "30bd9d52-614c-465f-89a3-f437e57bb0fb",
+            "x": 8038,
+            "y": 7987,
+            "width": 60,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_OUT_1"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "ErrorId",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "e1b3cf56-9e31-44dc-925f-ceb92fff4809",
+            "x": 8095,
+            "y": 7993,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_OUT_1",
+                "type": "Output",
+                "direction": 1
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "9ecebbd2-a09b-ae1b-142c-0c81b6bf3ece",
+            "x": 7923.523937499999,
+            "y": 7894.909500000001,
+            "width": 12.180999999998676,
+            "height": 12.180999999998676,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "led_power"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#FF3C00",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "ce456901-1d35-ac42-3365-852cd6b83986",
+            "x": 7906.706575,
+            "y": 7894.909500000001,
+            "width": 12.180999999998676,
+            "height": 12.180999999998676,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "led_connected"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#33DE09",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "77985263-0a58-9fe1-8204-be956e54d7cf",
+            "x": 7940,
+            "y": 7920,
+            "width": 108.5625,
+            "height": 21,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Skill_IP"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "localhost:4842",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 12,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "dbec1a1b-a1f0-5b2e-d012-f0037ce9916f",
+            "x": 7940,
+            "y": 7939,
+            "width": 108.5625,
+            "height": 21,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Skill_State"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "State: Stopped",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 12,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "f1f06fb1-4c6d-59cc-81f7-5cba2cf66a2c",
+            "x": 7940,
+            "y": 7956,
+            "width": 108.5625,
+            "height": 21,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Skill_NodeID"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "NodeID: ns=4;i=1027",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 12,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        }
+    ],
+    "image": "data:image/png;base64,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"
+}

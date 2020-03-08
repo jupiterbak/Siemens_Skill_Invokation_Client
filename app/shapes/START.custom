@@ -26,7 +26,7 @@ START = START.extend({
     calculate:function()
     {
         this.getOutputPort(0).setValue(true);
-        this.layerAttr("Circle_", { fill: "#C21B7A" });
+        this.layerAttr("Circle_", { fill: "#faa50a" });
     },
 
 

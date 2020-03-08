@@ -14,18 +14,6 @@ var localhost_4842_InsertSkill = CircuitFigure.extend({
 
      this._super( $.extend({stroke:0, bgColor:null, width:209,height:221},attr), setter, getter);
      var port;
-     // Port_en
-     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.3923444976076556, 32.35294117647059));
-     port.setConnectionDirection(3);
-     port.setBackgroundColor("#1C9BAB");
-     port.setName("Port_en");
-     port.setMaxFanOut(20);
-     // Port_done
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(97.60765550239235, 32.35294117647059));
-     port.setConnectionDirection(1);
-     port.setBackgroundColor("#1C9BAB");
-     port.setName("Port_done");
-     port.setMaxFanOut(20);
      // Port_IN_0
      port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.3923444976076556, 43.21266968325792));
      port.setConnectionDirection(3);
@@ -109,26 +97,6 @@ var localhost_4842_InsertSkill = CircuitFigure.extend({
        shape.attr({"x":61.95282499999939,"y":13.5,"text-anchor":"start","text":"InsertSkill","font-family":"\"Arial\"","font-size":16,"stroke":"#FF0000","fill":"#00979D","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Name");
        
-       // Circle_en
-       shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":5,"ry":5,"cx":5,"cy":71.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#1C9BAB","dasharray":null,"opacity":1});
-       shape.data("name","Circle_en");
-       
-       // Label_en
-       shape = this.canvas.paper.text(0,0,'En');
-       shape.attr({"x":11.898637499999495,"y":71.5,"text-anchor":"start","text":"En","font-family":"\"Arial\"","font-size":10,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
-       shape.data("name","Label_en");
-       
-       // Circle_done
-       shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":5,"ry":5,"cx":204,"cy":71.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#1C9BAB","dasharray":null,"opacity":1});
-       shape.data("name","Circle_done");
-       
-       // Label_done
-       shape = this.canvas.paper.text(0,0,'Done');
-       shape.attr({"x":170.75,"y":71.5,"text-anchor":"start","text":"Done","font-family":"\"Arial\"","font-size":10,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
-       shape.data("name","Label_done");
-       
        // Circle_IN_0
        shape = this.canvas.paper.ellipse();
        shape.attr({"rx":5,"ry":5,"cx":5,"cy":95.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
@@ -206,7 +174,7 @@ var localhost_4842_InsertSkill = CircuitFigure.extend({
        
        // Label_OUT_0
        shape = this.canvas.paper.text(0,0,'ErrorId');
-       shape.attr({"x":167,"y":95.1171875,"text-anchor":"start","text":"ErrorId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.attr({"x":146,"y":95.1171875,"text-anchor":"start","text":"ErrorId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_OUT_0");
        
        // Circle_OUT_1
@@ -266,30 +234,16 @@ localhost_4842_InsertSkill = localhost_4842_InsertSkill.extend({
          this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
          
          var _this= this;
-         this.c_started=false;
-         this.currentTimer=0;
+         this.onChangeCallback = function(emitter, event){
+            
+         }
+
+         this.onConnectedCallback = function(emitter, event){
+            
+         }
     },
     
     calculate:function(){
-        if(this.getInputPort(0).getValue()){
-            if(this.c_started===false){
-                this.currentTimer = (this.currentTimer + 1)% 200;
-                if(this.currentTimer === 0){
-                    this.c_started=true;
-                }
-            }else{
-                this.layerAttr("Circle_done",{fill:"#faa50a"});
-                this.getOutputPort(0).setValue(true);
-            }
-            this.layerAttr("Circle_en",{fill:"#faa50a"});
-        }
-        else{
-            this.layerAttr("Circle_en",{fill:"#f0f0f0"});
-            this.layerAttr("Circle_done",{fill:"#f0f0f0"});
-            this.getOutputPort(0).setValue(false);
-            this.c_started=false;
-            this.currentTimer=0;
-        }
     },
 
     propagate: function(index, port){
@@ -309,8 +263,6 @@ localhost_4842_InsertSkill = localhost_4842_InsertSkill.extend({
      *  Called if the simulation mode is starting
      **/
     onStart:function(){
-        this.c_started=false;
-        this.currentTimer=0;
     },
 
     /**
@@ -319,10 +271,23 @@ localhost_4842_InsertSkill = localhost_4842_InsertSkill.extend({
     onStop:function(){
     },
     
+    setCanvas: function(canvas)
+    {
+        // deregister old listerener ...if exists
+        if(this.canvas !==null) {
+            hardware.arduino.off("connect", this.onConnectedCallback);
+            hardware.arduino.off("disconnect", this.onConnectedCallback);
+        }
+        
+        this._super(canvas);
+        
+        
+    },
+    
     getRequiredHardware: function(){
       return {
         raspi: false,
-        arduino: false
+        arduino: true
       }
     }
     

@@ -439,7 +439,7 @@ exports.default = {
     url: "./shapes/"
   },
   color: {
-    high: "#C21B7A",
+    high: "#faa50a",
     low: "#0078F2"
   }
 };

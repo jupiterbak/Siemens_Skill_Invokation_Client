@@ -1,5 +1,12 @@
 [
   {
+    "name": "AND",
+    "tags": [
+      "AND"
+    ],
+    "filePath": "AND.shape"
+  },
+  {
     "name": "End",
     "tags": [
       "End"
@@ -23,6 +30,20 @@
       "InsertSkill"
     ],
     "filePath": "localhost_4842_InsertSkill.shape"
+  },
+  {
+    "name": "MUX",
+    "tags": [
+      "MUX"
+    ],
+    "filePath": "MUX.shape"
+  },
+  {
+    "name": "OR",
+    "tags": [
+      "OR"
+    ],
+    "filePath": "OR.shape"
   },
   {
     "name": "Skill",

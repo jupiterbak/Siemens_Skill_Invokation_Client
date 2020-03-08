@@ -18,12 +18,11 @@ End = End.extend({
     calculate: function()
     {
         if(this.getInputPort(0).getValue()){
-            this.layerAttr("Circle_Innen",{fill:"#C21B7A"});
-            this.layerAttr("Circle_Out",{fill:"#C21B7A"});
+            this.layerAttr("Circle_Out",{fill:"#faa50a"});
         }
         else{
             this.layerAttr("Circle_Out",{fill:"#f0f0f0"});
-            this.layerAttr("Circle_Innen",{fill:"#f0f0f0"});
         }
+        this.layerAttr("Circle_Innen",{fill:"#f0f0f0"});
     }
 });

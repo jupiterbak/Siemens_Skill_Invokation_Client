@@ -15,16 +15,30 @@ localhost_4842_InsertSkill = localhost_4842_InsertSkill.extend({
          this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
          
          var _this= this;
-         this.onChangeCallback = function(emitter, event){
-            
-         }
-
-         this.onConnectedCallback = function(emitter, event){
-            
-         }
+         this.c_started=false;
+         this.currentTimer=0;
     },
     
     calculate:function(){
+        if(this.getInputPort(0).getValue()){
+            if(this.c_started===false){
+                this.currentTimer = (this.currentTimer + 1)% 200;
+                if(this.currentTimer === 0){
+                    this.c_started=true;
+                }
+            }else{
+                this.layerAttr("Circle_done",{fill:"#faa50a"});
+                this.getOutputPort(0).setValue(true);
+            }
+            this.layerAttr("Circle_en",{fill:"#faa50a"});
+        }
+        else{
+            this.layerAttr("Circle_en",{fill:"#f0f0f0"});
+            this.layerAttr("Circle_done",{fill:"#f0f0f0"});
+            this.getOutputPort(0).setValue(false);
+            this.c_started=false;
+            this.currentTimer=0;
+        }
     },
 
     propagate: function(index, port){
@@ -44,6 +58,8 @@ localhost_4842_InsertSkill = localhost_4842_InsertSkill.extend({
      *  Called if the simulation mode is starting
      **/
     onStart:function(){
+        this.c_started=false;
+        this.currentTimer=0;
     },
 
     /**
@@ -52,23 +68,10 @@ localhost_4842_InsertSkill = localhost_4842_InsertSkill.extend({
     onStop:function(){
     },
     
-    setCanvas: function(canvas)
-    {
-        // deregister old listerener ...if exists
-        if(this.canvas !==null) {
-            hardware.arduino.off("connect", this.onConnectedCallback);
-            hardware.arduino.off("disconnect", this.onConnectedCallback);
-        }
-        
-        this._super(canvas);
-        
-        
-    },
-    
     getRequiredHardware: function(){
       return {
         raspi: false,
-        arduino: true
+        arduino: false
       }
     }
     
