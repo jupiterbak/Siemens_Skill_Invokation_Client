@@ -41,15 +41,16 @@ class BackendSkills {
     });
   }
 
-  saveSkill(skillObject) {
+  saveSkill(skillObject, _machineName) {
     return $.ajax({
         url: conf.backend.skill.save,
         method: "POST",
+        async: false,
         xhrFields: {
           withCredentials: true
         },
         data: {
-          filePath: "" + skillObject.ip + "_" + skillObject.port + "_"+ skillObject.skill.name + ".shape",
+          filePath: "" + _machineName + "_" + skillObject.ip + "_" + skillObject.port + "_"+ skillObject.skill.name + ".shape",
           skill: skillObject
         }
       }

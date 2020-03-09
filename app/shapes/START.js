@@ -69,8 +69,9 @@ var START = CircuitFigure.extend({
 START = START.extend({
 
     init: function(attr, setter, getter){
-         this._super(attr, setter, getter);
-
+        this._super(attr, setter, getter);
+        this.attr({resizeable:false});
+        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
          // your special code here
     },
 

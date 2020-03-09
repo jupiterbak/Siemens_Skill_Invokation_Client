@@ -19,7 +19,7 @@ export default class Palette {
         var self = this;
         $.getJSON(conf.shapes.url + "index.json", function(data) {
             var _dataObj = self.arrayToObjectMap(data);
-            console.log("_dataObj" + _dataObj);
+            // console.log("_dataObj" + _dataObj);
 
             data.forEach(function(element) {
                 element.basename = element.name.split("_").pop();
@@ -109,11 +109,11 @@ export default class Palette {
     arrayToObjectMap(array) {
         return array.reduce((obj, item) => {
             item["basename"] = item.name.split("_").pop();
-            if (item.tags.length > 2) {
-                obj[item.tags[0] + ":" + item.tags[1]] = obj[item.tags[0] + ":" + item.tags[1]] || { "shapes": [], "name": "" };
-                item["category"] = item.tags[0] + ":" + item.tags[1];
-                obj[item.tags[0] + ":" + item.tags[1]].name = item.tags[0] + ":" + item.tags[1];
-                obj[item.tags[0] + ":" + item.tags[1]].shapes.push(item);
+            if (item.tags.length > 3) {
+                obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]] = obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]] || { "shapes": [], "name": "" };
+                item["category"] = item.tags[0] + " (" + item.tags[1] + ":" + item.tags[2] + ")";
+                obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]].name = item.tags[0] + " (" + item.tags[1] + ":" + item.tags[2] + ")";
+                obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]].shapes.push(item);
             } else {
                 obj["Default"] = obj["Default"] || { "shapes": [], "name": "" };
                 item["category"] = "Default";

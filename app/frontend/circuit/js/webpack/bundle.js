@@ -1227,7 +1227,7 @@ var Palette = function () {
         var self = this;
         $.getJSON(_Configuration2.default.shapes.url + "index.json", function (data) {
             var _dataObj = self.arrayToObjectMap(data);
-            console.log("_dataObj" + _dataObj);
+            // console.log("_dataObj" + _dataObj);
 
             data.forEach(function (element) {
                 element.basename = element.name.split("_").pop();
@@ -1316,11 +1316,11 @@ var Palette = function () {
         value: function arrayToObjectMap(array) {
             return array.reduce(function (obj, item) {
                 item["basename"] = item.name.split("_").pop();
-                if (item.tags.length > 2) {
-                    obj[item.tags[0] + ":" + item.tags[1]] = obj[item.tags[0] + ":" + item.tags[1]] || { "shapes": [], "name": "" };
-                    item["category"] = item.tags[0] + ":" + item.tags[1];
-                    obj[item.tags[0] + ":" + item.tags[1]].name = item.tags[0] + ":" + item.tags[1];
-                    obj[item.tags[0] + ":" + item.tags[1]].shapes.push(item);
+                if (item.tags.length > 3) {
+                    obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]] = obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]] || { "shapes": [], "name": "" };
+                    item["category"] = item.tags[0] + " (" + item.tags[1] + ":" + item.tags[2] + ")";
+                    obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]].name = item.tags[0] + " (" + item.tags[1] + ":" + item.tags[2] + ")";
+                    obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]].shapes.push(item);
                 } else {
                     obj["Default"] = obj["Default"] || { "shapes": [], "name": "" };
                     item["category"] = "Default";
@@ -2425,6 +2425,7 @@ var BrowseSkillsDialog = function () {
       Mousetrap.pause();
       $("#skillBrowseDialog .opcuaip").val("localhost");
       $("#skillBrowseDialog .opcuaport").val("4840");
+      $("#skillBrowseDialog .opcua_module_name").val("Module 01");
 
       $('#skillBrowseDialog').off('shown.bs.modal').on('shown.bs.modal', function (event) {
         $("#skillBrowseDialog .alert").hide();
@@ -2439,8 +2440,9 @@ var BrowseSkillsDialog = function () {
         canvas.setCurrentSelection(null);
         var ip = $("#skillBrowseDialog .opcuaip").val();
         var port = $("#skillBrowseDialog .opcuaport").val();
-        if ("" + ip === "" || "" + port === "") {
-          $("#skillBrowseDialog .alert").text("Please define the IP and the Port!").show();
+        var machineName = ("" + $("#skillBrowseDialog .opcua_module_name").val()).replace(/\s/g, "");
+        if ("" + ip === "" || "" + port === "" || "" + machineName === "") {
+          $("#skillBrowseDialog .alert").text("Please define the machine name, the IP-address and the Port of the module.").show();
         } else {
           _BackendSkills2.default.browseSkills(ip, port).then(function (obj) {
             if (obj.err) {
@@ -2449,10 +2451,9 @@ var BrowseSkillsDialog = function () {
               var _skills = obj.skills;
               $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
               _skills.forEach(function (_skill) {
-                _BackendSkills2.default.saveSkill(_skill).then(function () {
-                  $("#skillBrowseDialog .alert").text("Saving " + _skill.skill.name + " ...").show();
-                  $("#skillBrowseDialog .alert").addClass("spinner");
-                });
+                $("#skillBrowseDialog .alert").text("Saving Skill" + _skill.skill.name + " ...").show();
+                $("#skillBrowseDialog .alert").addClass("spinner");
+                _BackendSkills2.default.saveSkill(_skill, machineName);
               });
               setTimeout(function () {
                 $('#skillBrowseDialog').modal('hide');
@@ -4661,15 +4662,16 @@ var BackendSkills = function () {
     }
   }, {
     key: "saveSkill",
-    value: function saveSkill(skillObject) {
+    value: function saveSkill(skillObject, _machineName) {
       return $.ajax({
         url: _Configuration2.default.backend.skill.save,
         method: "POST",
+        async: false,
         xhrFields: {
           withCredentials: true
         },
         data: {
-          filePath: "" + skillObject.ip + "_" + skillObject.port + "_" + skillObject.skill.name + ".shape",
+          filePath: "" + _machineName + "_" + skillObject.ip + "_" + skillObject.port + "_" + skillObject.skill.name + ".shape",
           skill: skillObject
         }
       });

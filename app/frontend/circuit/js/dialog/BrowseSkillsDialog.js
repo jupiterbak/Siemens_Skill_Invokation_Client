@@ -24,6 +24,8 @@ export default class BrowseSkillsDialog {
     Mousetrap.pause()
     $("#skillBrowseDialog .opcuaip").val("localhost");
     $("#skillBrowseDialog .opcuaport").val("4840");
+    $("#skillBrowseDialog .opcua_module_name").val("Module 01");
+    
 
     $('#skillBrowseDialog').off('shown.bs.modal').on('shown.bs.modal', (event) => {
       $("#skillBrowseDialog .alert").hide();
@@ -38,8 +40,9 @@ export default class BrowseSkillsDialog {
       canvas.setCurrentSelection(null);
       let ip = $("#skillBrowseDialog .opcuaip").val();
       let port = $("#skillBrowseDialog .opcuaport").val();
-      if((""+ip === "") || (""+port ==="")){
-        $("#skillBrowseDialog .alert").text("Please define the IP and the Port!").show();
+      let machineName = ("" + $("#skillBrowseDialog .opcua_module_name").val()).replace(/\s/g, "");
+      if((""+ip === "") || (""+port ==="") || (""+machineName ==="")){
+        $("#skillBrowseDialog .alert").text("Please define the machine name, the IP-address and the Port of the module.").show();
       }else{
         skillproxy.browseSkills(ip,port)
         .then(function (obj) {
@@ -47,14 +50,12 @@ export default class BrowseSkillsDialog {
             $("#skillBrowseDialog .alert").text("Error while browsing the opc ua server.").show();
           }else{
             const _skills =obj.skills;
-            $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
+            $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();            
             _skills.forEach(_skill => {
-              skillproxy.saveSkill(_skill)
-              .then(function () {
-                $("#skillBrowseDialog .alert").text("Saving " + _skill.skill.name + " ...").show();
-                $("#skillBrowseDialog .alert").addClass("spinner");
-              });
-            });
+              $("#skillBrowseDialog .alert").text("Saving Skill" + _skill.skill.name + " ...").show();
+              $("#skillBrowseDialog .alert").addClass("spinner");
+              skillproxy.saveSkill(_skill, machineName);
+            });                        
             setTimeout(() => {              
               $('#skillBrowseDialog').modal('hide');
               Mousetrap.unpause();
