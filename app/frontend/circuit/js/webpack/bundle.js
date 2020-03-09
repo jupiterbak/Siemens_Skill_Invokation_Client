@@ -2428,6 +2428,7 @@ var BrowseSkillsDialog = function () {
 
       $('#skillBrowseDialog').off('shown.bs.modal').on('shown.bs.modal', function (event) {
         $("#skillBrowseDialog .alert").hide();
+        $("#skillBrowseDialog .alert").removeClass("spinner");
         $(event.currentTarget).find('input:first').focus();
       });
       $("#skillBrowseDialog").modal("show");
@@ -2450,10 +2451,14 @@ var BrowseSkillsDialog = function () {
               _skills.forEach(function (_skill) {
                 _BackendSkills2.default.saveSkill(_skill).then(function () {
                   $("#skillBrowseDialog .alert").text("Saving " + _skill.skill.name + " ...").show();
+                  $("#skillBrowseDialog .alert").addClass("spinner");
                 });
               });
-              Mousetrap.unpause();
-              $('#skillBrowseDialog').modal('hide');
+              setTimeout(function () {
+                $('#skillBrowseDialog').modal('hide');
+                Mousetrap.unpause();
+                location.reload();
+              }, 10000);
             }
           });
         }

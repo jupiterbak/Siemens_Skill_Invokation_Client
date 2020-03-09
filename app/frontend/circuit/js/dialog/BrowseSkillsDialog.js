@@ -27,6 +27,7 @@ export default class BrowseSkillsDialog {
 
     $('#skillBrowseDialog').off('shown.bs.modal').on('shown.bs.modal', (event) => {
       $("#skillBrowseDialog .alert").hide();
+      $("#skillBrowseDialog .alert").removeClass("spinner");
       $(event.currentTarget).find('input:first').focus();
     });
     $("#skillBrowseDialog").modal("show");
@@ -51,10 +52,15 @@ export default class BrowseSkillsDialog {
               skillproxy.saveSkill(_skill)
               .then(function () {
                 $("#skillBrowseDialog .alert").text("Saving " + _skill.skill.name + " ...").show();
+                $("#skillBrowseDialog .alert").addClass("spinner");
               });
             });
-            Mousetrap.unpause();
-            $('#skillBrowseDialog').modal('hide');
+            setTimeout(() => {              
+              $('#skillBrowseDialog').modal('hide');
+              Mousetrap.unpause();
+              location.reload();
+            }, 10000);
+            
           }
         });
       }
