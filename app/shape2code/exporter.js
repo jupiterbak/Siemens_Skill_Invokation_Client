@@ -10,7 +10,7 @@ var json=[
     "angle": 0,
     "userData": {
       "baseClass": "draw2d.SetFigure",
-      "code": "/**\r\n * by 'Draw2D Shape Designer'\r\n *\r\n * Custom JS code to tweak the standard behaviour of the generated\r\n * shape. add your custome code and event handler here.\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n   init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n         \r\n         var _this= this;\r\n         this.c_started=false;\r\n         this.currentTimer=0;\r\n    },\r\n    \r\n    calculate:function(){\r\n        if(this.getInputPort(0).getValue()){\r\n            if(this.c_started===false){\r\n                this.currentTimer = (this.currentTimer + 1)% 300;\r\n                if(this.currentTimer === 0){\r\n                    this.c_started=true;\r\n                }\r\n            }else{\r\n                this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n                this.getOutputPort(0).setValue(true);\r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n        }\r\n        else{\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.getOutputPort(0).setValue(false);\r\n            this.c_started=false;\r\n            this.currentTimer=0;\r\n        }\r\n    },\r\n\r\n    propagate: function(index, port){\r\n        if(!port.getConnections().isEmpty()){\r\n            var con = port.getConnections().first();\r\n            var other = con.getSource()===port?con.getTarget():con.getSource()\r\n            if(other instanceof draw2d.InputPort){\r\n                \r\n            }\r\n            else {\r\n                hardware.arduino.set(index,!!other.getValue())\r\n            }\r\n        }\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        this.c_started=false;\r\n        this.currentTimer=0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      }\r\n    }\r\n});",
+      "code": "/**\r\n * by 'Draw2D Shape Designer'\r\n *\r\n * Custom JS code to tweak the standard behaviour of the generated\r\n * shape. add your custome code and event handler here.\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n   init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n         \r\n         var _this= this;\r\n         this.c_started=false;\r\n         this.currentTimer=0;\r\n    },\r\n    \r\n    calculate:function(){\r\n        if(this.getInputPort(0).getValue()){\r\n            if(this.c_started===false){\r\n                this.currentTimer = (this.currentTimer + 1)% 300;\r\n                if(this.currentTimer === 0){\r\n                    this.c_started=true;\r\n                }\r\n            }else{\r\n                this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n                this.getOutputPort(0).setValue(true);\r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        }\r\n        else{\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.getOutputPort(0).setValue(false);\r\n            this.c_started=false;\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        }\r\n    },\r\n\r\n    propagate: function(index, port){\r\n        if(!port.getConnections().isEmpty()){\r\n            var con = port.getConnections().first();\r\n            var other = con.getSource()===port?con.getTarget():con.getSource()\r\n            if(other instanceof draw2d.InputPort){\r\n                \r\n            }\r\n            else {\r\n                hardware.arduino.set(index,!!other.getValue())\r\n            }\r\n        }\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        this.c_started=false;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        this.layerAttr(\"led_power\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      }\r\n    }\r\n});",
       "name": "circle",
       "markdown": "#Skill Template"
     },
@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "c56ad7d3-4bde-4087-839d-8f9cae634c62",
+    "id": "24326997-f17f-4fc4-a7ea-2c25898a4dda",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "2339a42a-f0ed-4249-97af-8e01506d8ccf",
+    "id": "34629aff-ac03-4d78-ac11-1c6512190e13",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "77e3b437-b701-4f1c-af32-5b427d5a5b7d",
+    "id": "321da998-c86a-4d2a-91be-1b9db1dbf4ef",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "012e2260-a179-42b5-969e-412827b935d2",
+    "id": "c6b10a95-cf77-4d16-bde9-9c71a276e533",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "1b8709cf-1cc0-46a7-abe7-e20589e7702e",
+    "id": "d715af89-af03-42e0-b806-34d600ed2c72",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "359e3a06-409c-4478-a5e7-363216dc4238",
+    "id": "91112d18-5633-4347-b429-38a7f36ed7b1",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,7 +547,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "83c89198-b826-4892-bf87-fbdfb877ffdc",
+    "id": "00358701-8e93-47eb-a0b0-1a698f611021",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -582,7 +582,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "cfca2fd6-bfa0-4622-9950-2c1b962ef940",
+    "id": "775f91c4-431c-4f51-8696-118dd00d2ecb",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -620,7 +620,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "d905a744-4647-4e45-a16e-40cf2d565293",
+    "id": "0fffa1e8-8d81-41aa-a8a5-4a8797488ff5",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -658,7 +658,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "579b37e8-a591-4ce2-85e8-80b45706e096",
+    "id": "cda8cf32-b5e0-4d3a-9413-63a7ccf06f94",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -693,7 +693,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "5aa582c3-9e83-4c97-aaae-400cc368fdc2",
+    "id": "c3ca9973-f7b3-40bd-aef6-b6ed8b4a200e",
     "x": 8038,
     "y": 7987,
     "width": 60,
@@ -731,7 +731,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "5cd553aa-f535-492f-94ff-d4b64c4c8dda",
+    "id": "581d8cfd-1573-41cb-a749-a8a79d9a976e",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -952,7 +952,7 @@ var json=[
     ]
   }
 ];
-var pkg='Module02_localhost_4842_Load';
+var pkg='AssemblyModule02_localhost_4842_Load';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();

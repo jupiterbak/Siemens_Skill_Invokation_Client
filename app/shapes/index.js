@@ -179,6 +179,7 @@ End = End.extend({
     }
 });
 
+
 // Generated Code for the Draw2D touch HTML5 lib.
 // File will be generated if you save the *.shape file.
 //
@@ -700,105 +701,80 @@ var Skill = CircuitFigure.extend({
  */
 Skill = Skill.extend({
 
-   init: function(attr, setter, getter){
-         this._super(attr, setter, getter);
+    init: function(attr, setter, getter){
+        this._super(attr, setter, getter);
 
-         this.attr({resizeable:false});
-         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
-         
-         var _this= this;
-         this.onChangeCallback = function(emitter, event){
-            if(event.value){
-                _this.layerAttr("led_d13",{fill:"#33DE09"});
-            }
-            else{
-                _this.layerAttr("led_d13",{fill:"#f0f0f0"});
-            }
-         }
+        this.attr({resizeable:false});
+        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
+        
+        var _this= this;
+        this.c_started=false;
+        this.currentTimer=0;
+   },
+   
+   calculate:function(){
+       if(this.getInputPort(0).getValue()){
+           if(this.c_started===false){
+               this.currentTimer = (this.currentTimer + 1)% 300;
+               if(this.currentTimer === 0){
+                   this.c_started=true;
+               }
+           }else{
+               this.layerAttr("Circle_done",{fill:"#faa50a"});
+               this.getOutputPort(0).setValue(true);
+           }
+           this.layerAttr("Circle_en",{fill:"#faa50a"});
+           this.layerAttr("led_power",{fill:"#33DE09"});
+           this.layerAttr("led_connected",{fill:"#f0f0f0"});
+       }
+       else{
+           this.layerAttr("Circle_en",{fill:"#f0f0f0"});
+           this.layerAttr("Circle_done",{fill:"#f0f0f0"});
+           this.getOutputPort(0).setValue(false);
+           this.c_started=false;
+           this.currentTimer=0;
+           this.layerAttr("led_power",{fill:"#FF3C00"});
+           this.layerAttr("led_connected",{fill:"#f0f0f0"});
+       }
+   },
 
-         this.onConnectedCallback = function(emitter, event){
-            if(hardware.arduino.connected){
-                _this.layerAttr("led_power",{fill:"#FF3C00"});
-            }
-            else{
-                _this.layerAttr("led_power",{fill:"#f0f0f0"});
-            }
-         }
-    },
-    
-    calculate:function(){
-        this.propagate(2,  this.getPort("port_d2"));
-        this.propagate(3,  this.getPort("port_d3"));
-        this.propagate(4,  this.getPort("port_d4"));
-        this.propagate(5,  this.getPort("port_d5"));
-        this.propagate(6,  this.getPort("port_d6"));
-        this.propagate(7,  this.getPort("port_d7"));
-        this.propagate(8,  this.getPort("port_d8"));
-        this.propagate(9,  this.getPort("port_d9"));
-        this.propagate(10, this.getPort("port_d10"));
-        this.propagate(11, this.getPort("port_d11"));
-        this.propagate(12, this.getPort("port_d12"));
-        this.propagate(13, this.getPort("port_d13"));
-    },
+   propagate: function(index, port){
+       if(!port.getConnections().isEmpty()){
+           var con = port.getConnections().first();
+           var other = con.getSource()===port?con.getTarget():con.getSource()
+           if(other instanceof draw2d.InputPort){
+               
+           }
+           else {
+               hardware.arduino.set(index,!!other.getValue())
+           }
+       }
+   },
+   
+  /**
+    *  Called if the simulation mode is starting
+    **/
+   onStart:function(){
+       this.c_started=false;
+       this.currentTimer=0;
+       this.layerAttr("led_power",{fill:"#f0f0f0"});
+       this.layerAttr("led_connected",{fill:"#f0f0f0"});
+   },
 
-    propagate: function(index, port){
-        if(!port.getConnections().isEmpty()){
-            var con = port.getConnections().first();
-            var other = con.getSource()===port?con.getTarget():con.getSource()
-            if(other instanceof draw2d.InputPort){
-                
-            }
-            else {
-                hardware.arduino.set(index,!!other.getValue())
-            }
-        }
-    },
-    
    /**
-     *  Called if the simulation mode is starting
-     **/
-    onStart:function(){
-        this.getPort("port_d13").on("change:value", this.onChangeCallback);
-    },
-
-    /**
-     *  Called if the simulation mode is stopping
-     **/
-    onStop:function(){
-        this.getPort("port_d13").off("change:value", this.onChangeCallback);
-    },
-    
-    setCanvas: function(canvas)
-    {
-        // deregister old listerener ...if exists
-        if(this.canvas !==null) {
-            hardware.arduino.off("connect", this.onConnectedCallback);
-            hardware.arduino.off("disconnect", this.onConnectedCallback);
-        }
-        
-        this._super(canvas);
-        
-        // register new listener...if requried
-        if(this.canvas !==null) {
-            hardware.arduino.on("connect", this.onConnectedCallback);
-            hardware.arduino.on("disconnect", this.onConnectedCallback);
-            
-            this.onConnectedCallback();
-            if(this.getPort("port_d13").getValue() && !this.getPort("port_d13").getConnections().isEmpty()) {
-                 this.onChangeCallback(this, {value:true})
-            }
-            else{
-                 this.onChangeCallback(this, {value:false})
-            }
-        }
-    },
-    
-    getRequiredHardware: function(){
-      return {
-        raspi: false,
-        arduino: true
-      }
-    }
+    *  Called if the simulation mode is stopping
+    **/
+   onStop:function(){
+       this.layerAttr("led_power",{fill:"#f0f0f0"});
+       this.layerAttr("led_connected",{fill:"#f0f0f0"});
+   },
+   
+   getRequiredHardware: function(){
+     return {
+       raspi: false,
+       arduino: false
+     }
+   }
     
 });
 
