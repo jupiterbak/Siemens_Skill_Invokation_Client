@@ -2450,18 +2450,42 @@ var BrowseSkillsDialog = function () {
             if (obj.err) {
               $("#skillBrowseDialog .alert").text("Error while browsing the opc ua server.").show();
             } else {
+              // Get the skill objects
               var _skills = obj.skills;
+
+              // Show the results
               $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
-              _skills.forEach(function (_skill) {
+
+              // Save the found skills
+              for (var i = 0, len = _skills.length; i < len; i++) {
+                var _skill = _skills[i];
                 $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
                 $("#skillBrowseDialog .alert").addClass("spinner");
-                _BackendSkills2.default.saveSkill(_skill, machineName);
-              });
-              setTimeout(function () {
+
+                // Save the skill synchronously
+                _BackendSkills2.default.saveSkill(_skill, machineName).then(function (s_data) {
+                  if (s_data.err) {
+                    $("#skillBrowseDialog .alert").text("Error while saving the skill " + _skill.skill.name + ":" + s_data.err).show();
+                    $("#skillBrowseDialog .alert").removeClass("spinner");
+                  } else {
+                    $("#skillBrowseDialog .alert").text("Skill " + _skill.skill.name + "saved successfully.").show();
+                    $("#skillBrowseDialog .alert").removeClass("spinner");
+                    if (i === len - 1) {
+                      $('#skillBrowseDialog').modal('hide');
+                      Mousetrap.unpause();
+                      location.reload();
+                    }
+                  }
+                });
+              }
+
+              /*                                  
+              setTimeout(() => {              
                 $('#skillBrowseDialog').modal('hide');
                 Mousetrap.unpause();
                 location.reload();
               }, 10000 * _skills.length);
+              */
             }
           });
         }

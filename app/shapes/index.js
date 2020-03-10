@@ -179,7 +179,6 @@ End = End.extend({
     }
 });
 
-
 // Generated Code for the Draw2D touch HTML5 lib.
 // File will be generated if you save the *.shape file.
 //

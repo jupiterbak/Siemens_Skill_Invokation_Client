@@ -5,7 +5,7 @@ var json=[
     "x": 7900.241887499999,
     "y": 7889.5,
     "width": 200,
-    "height": 211,
+    "height": 146,
     "alpha": 1,
     "angle": 0,
     "userData": {
@@ -77,7 +77,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "InsertSkill",
+    "text": "Load",
     "outlineStroke": 0,
     "outlineColor": "#FF0000",
     "fontSize": 16,
@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "5980a74d-df09-4966-93b6-ae9664ac7336",
+    "id": "c56ad7d3-4bde-4087-839d-8f9cae634c62",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "5d2e79c4-dc8b-470c-8c58-61888a6f58e6",
+    "id": "2339a42a-f0ed-4249-97af-8e01506d8ccf",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -377,7 +377,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "Position",
+    "text": "Orientation",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "bf7e8b8c-6d87-4b05-b513-25d1a447d85b",
+    "id": "77e3b437-b701-4f1c-af32-5b427d5a5b7d",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "c2ba33ea-2638-491c-96c2-15330a695bce",
+    "id": "012e2260-a179-42b5-969e-412827b935d2",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "392a97d3-9798-4ca6-a684-e2d1441e3d2b",
+    "id": "1b8709cf-1cc0-46a7-abe7-e20589e7702e",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -488,7 +488,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "BuildingBlockTypeId",
+    "text": "RFID",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "55e61c32-6528-4eab-92ad-98af1f368d4f",
+    "id": "359e3a06-409c-4478-a5e7-363216dc4238",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,562 +547,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "79475019-77b2-4a0b-ae2e-4811a810060a",
-    "x": 7896,
-    "y": 8006,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_2"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "ecfb0446-3a28-4acb-8f3c-2104d75db762",
-    "x": 7905,
-    "y": 8000,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_2"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "Orientation",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "81bb95f3-9a55-4b1a-9d3f-e106bd32b20b",
-    "x": 7896,
-    "y": 8006,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_2",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "f9740e58-30f9-4db5-bf9d-c1e20afaa09a",
-    "x": 7896,
-    "y": 8019,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_3"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "df18b70b-25c6-46d2-ad46-515ea21cc58e",
-    "x": 7905,
-    "y": 8013,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_3"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "RFID",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "28e6f091-50f9-43f0-b904-87086ac0d269",
-    "x": 7896,
-    "y": 8019,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_3",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "7ae33297-12e9-4e3f-a8f2-7542230bc64b",
-    "x": 7896,
-    "y": 8032,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_4"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "5444a15d-9615-42fc-ad3c-0959f83e248d",
-    "x": 7905,
-    "y": 8026,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_4"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "CurrentConfiguration_BuildingBlockTypeId",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "5b90a93a-32e1-4990-90cd-7cc57fc74c97",
-    "x": 7896,
-    "y": 8032,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_4",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "9b17aa4f-b8af-49df-a17b-ab8496e85b1b",
-    "x": 7896,
-    "y": 8045,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_5"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "f4802898-f9ae-4499-8707-7c202d9be7a6",
-    "x": 7905,
-    "y": 8039,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_5"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "CurrentConfiguration_Orientation",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "afb0f034-9d99-454b-bbee-1b3b74998563",
-    "x": 7896,
-    "y": 8045,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_5",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "37d75604-370b-4d00-8a12-8210f45c590a",
-    "x": 7896,
-    "y": 8058,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_6"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "75676dee-d7ba-4e5e-ac94-c2c5f9a15f16",
-    "x": 7905,
-    "y": 8052,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_6"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "RFID",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "00eff413-589c-474a-b041-33b4fbf2d9ca",
-    "x": 7896,
-    "y": 8058,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_6",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "3a138e63-4d06-41b1-8ece-a88da3616fa1",
+    "id": "83c89198-b826-4892-bf87-fbdfb877ffdc",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -1137,7 +582,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "bd2ce008-d400-4c7e-a74f-d8ad66974209",
+    "id": "cfca2fd6-bfa0-4622-9950-2c1b962ef940",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -1175,7 +620,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "004bd364-55b4-4b4c-a1f0-907e53b83eb8",
+    "id": "d905a744-4647-4e45-a16e-40cf2d565293",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -1213,7 +658,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "d873fbf3-0029-4eb5-9355-7fbe062f78ce",
+    "id": "579b37e8-a591-4ce2-85e8-80b45706e096",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -1248,7 +693,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "a4551f0c-d75c-4f01-aee1-300930a1321d",
+    "id": "5aa582c3-9e83-4c97-aaae-400cc368fdc2",
     "x": 8038,
     "y": 7987,
     "width": 60,
@@ -1286,7 +731,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "f8f2c7c7-11be-4098-9df5-7f785b07e6ef",
+    "id": "5cd553aa-f535-492f-94ff-d4b64c4c8dda",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -1411,7 +856,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "localhost:4840",
+    "text": "localhost:4842",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -1487,7 +932,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "NodeID: ns=4;i=1027",
+    "text": "NodeID: ns=4;i=1010",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -1507,7 +952,7 @@ var json=[
     ]
   }
 ];
-var pkg='AssenblyModule01_localhost_4840_InsertSkill';
+var pkg='Module02_localhost_4842_Load';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();

@@ -194,11 +194,12 @@ function runServer() {
             _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code.txt'), "utf8");
 
             fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
-                if (err) throw err
-
-                // file is saved...fine
-                //
-                res.send(JSON.stringify({err:null}));
+                if (err){                    
+                    // file could not be saved.
+                    //
+                    res.send(JSON.stringify({err:"Skill couldn't be saved."}));
+                    throw err;
+                }
 
                 // create the js/png/md async to avoid a blocked UI
                 //
@@ -220,21 +221,31 @@ function runServer() {
                 // console.log("Generating skill images...");
                 // console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
                 childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-                    if (err) throw err
-                    let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
-                    glob(pattern, {}, function(er, files) {
-                        files.forEach(file => {
-                            fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
-                                if (err) throw err;
+                    if (err){
+                        // file could be saved but the index were not properly generated.
+                        //
+                        res.send(JSON.stringify({err:"Skill could be saved but the index were not properly generated."}));
+                        throw err;
+                    }else{
+                        let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
+                        glob(pattern, {}, function(er, files) {
+                            files.forEach(file => {
+                                fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
+                                    if (err) throw err;
+                                });
                             });
                         });
-                    });
+                        // file is saved...fine
+                        //
+                        res.send(JSON.stringify({err:null}));
 
-                    io.sockets.emit("shape:generated", {
-                        filePath: req.body.filePath,
-                        imagePath: req.body.filePath.replace(".shape", ".png"),
-                        jsPath: req.body.filePath.replace(".shape", ".js")
-                    });
+                        // SocketIO
+                        io.sockets.emit("shape:generated", {
+                            filePath: req.body.filePath,
+                            imagePath: req.body.filePath.replace(".shape", ".png"),
+                            jsPath: req.body.filePath.replace(".shape", ".js")
+                        });
+                    }
                 })
             });
         });
