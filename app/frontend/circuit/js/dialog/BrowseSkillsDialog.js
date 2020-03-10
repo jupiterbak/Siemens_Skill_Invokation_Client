@@ -36,7 +36,7 @@ export default class BrowseSkillsDialog {
 
     // Button: Commit to GitHub
     //
-    $("#skillBrowseDialog .okButton").off("click").on("click", async () => {
+    $("#skillBrowseDialog .okButton").off("click").on("click", () => {
       canvas.setCurrentSelection(null);
       let ip = $("#skillBrowseDialog .opcuaip").val();
       let port = $("#skillBrowseDialog .opcuaport").val();
@@ -53,10 +53,10 @@ export default class BrowseSkillsDialog {
           }else{
             const _skills =obj.skills;
             $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();            
-            _skills.forEach(async _skill =>  {
+            _skills.forEach(_skill =>  {
               $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
               $("#skillBrowseDialog .alert").addClass("spinner");
-              await skillproxy.saveSkill(_skill, machineName);
+              skillproxy.saveSkill(_skill, machineName);
             });                        
             setTimeout(() => {              
               $('#skillBrowseDialog').modal('hide');

@@ -2395,8 +2395,6 @@ var _BackendSkills2 = _interopRequireDefault(_BackendSkills);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BrowseSkillsDialog = function () {
@@ -2424,8 +2422,6 @@ var BrowseSkillsDialog = function () {
   _createClass(BrowseSkillsDialog, [{
     key: "show",
     value: function show(canvas) {
-      var _this2 = this;
-
       Mousetrap.pause();
       $("#skillBrowseDialog .opcuaip").val("localhost");
       $("#skillBrowseDialog .opcuaport").val("4840");
@@ -2440,69 +2436,36 @@ var BrowseSkillsDialog = function () {
 
       // Button: Commit to GitHub
       //
-      $("#skillBrowseDialog .okButton").off("click").on("click", _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-        var ip, port, machineName;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                canvas.setCurrentSelection(null);
-                ip = $("#skillBrowseDialog .opcuaip").val();
-                port = $("#skillBrowseDialog .opcuaport").val();
-                machineName = ("" + $("#skillBrowseDialog .opcua_module_name").val()).replace(/\s/g, "");
-
-                if ("" + ip === "" || "" + port === "" || "" + machineName === "") {
-                  $("#skillBrowseDialog .alert").text("Please define the machine name, the IP-address and the Port of the module.").show();
-                } else {
-                  $("#skillBrowseDialog .alert").text("Browsing ...").show();
-                  $("#skillBrowseDialog .alert").addClass("spinner");
-                  _BackendSkills2.default.browseSkills(ip, port).then(function (obj) {
-                    var _this = this;
-
-                    if (obj.err) {
-                      $("#skillBrowseDialog .alert").text("Error while browsing the opc ua server.").show();
-                    } else {
-                      var _skills = obj.skills;
-                      $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
-                      _skills.forEach(function () {
-                        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_skill) {
-                          return regeneratorRuntime.wrap(function _callee$(_context) {
-                            while (1) {
-                              switch (_context.prev = _context.next) {
-                                case 0:
-                                  $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
-                                  $("#skillBrowseDialog .alert").addClass("spinner");
-                                  _context.next = 4;
-                                  return _BackendSkills2.default.saveSkill(_skill, machineName);
-
-                                case 4:
-                                case "end":
-                                  return _context.stop();
-                              }
-                            }
-                          }, _callee, _this);
-                        }));
-
-                        return function (_x) {
-                          return _ref2.apply(this, arguments);
-                        };
-                      }());
-                      setTimeout(function () {
-                        $('#skillBrowseDialog').modal('hide');
-                        Mousetrap.unpause();
-                        location.reload();
-                      }, 10000 * _skills.length);
-                    }
-                  });
-                }
-
-              case 5:
-              case "end":
-                return _context2.stop();
+      $("#skillBrowseDialog .okButton").off("click").on("click", function () {
+        canvas.setCurrentSelection(null);
+        var ip = $("#skillBrowseDialog .opcuaip").val();
+        var port = $("#skillBrowseDialog .opcuaport").val();
+        var machineName = ("" + $("#skillBrowseDialog .opcua_module_name").val()).replace(/\s/g, "");
+        if ("" + ip === "" || "" + port === "" || "" + machineName === "") {
+          $("#skillBrowseDialog .alert").text("Please define the machine name, the IP-address and the Port of the module.").show();
+        } else {
+          $("#skillBrowseDialog .alert").text("Browsing ...").show();
+          $("#skillBrowseDialog .alert").addClass("spinner");
+          _BackendSkills2.default.browseSkills(ip, port).then(function (obj) {
+            if (obj.err) {
+              $("#skillBrowseDialog .alert").text("Error while browsing the opc ua server.").show();
+            } else {
+              var _skills = obj.skills;
+              $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
+              _skills.forEach(function (_skill) {
+                $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
+                $("#skillBrowseDialog .alert").addClass("spinner");
+                _BackendSkills2.default.saveSkill(_skill, machineName);
+              });
+              setTimeout(function () {
+                $('#skillBrowseDialog').modal('hide');
+                Mousetrap.unpause();
+                location.reload();
+              }, 10000 * _skills.length);
             }
-          }
-        }, _callee2, _this2);
-      })));
+          });
+        }
+      });
     }
   }]);
 
@@ -4720,7 +4683,7 @@ var BackendSkills = function () {
     value: function deleteSkill(skill) {
       // TODO: Jupiter Delete Skill remotely
       // return $.ajax({
-      //     url: conf.backend.file.del,
+      //     url: conf.backend.skill.del,
       //     method: "POST",
       //     xhrFields: {
       //       withCredentials: true

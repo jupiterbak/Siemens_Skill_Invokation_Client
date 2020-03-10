@@ -60,7 +60,7 @@ class BackendSkills {
   deleteSkill(skill) {
     // TODO: Jupiter Delete Skill remotely
     // return $.ajax({
-    //     url: conf.backend.file.del,
+    //     url: conf.backend.skill.del,
     //     method: "POST",
     //     xhrFields: {
     //       withCredentials: true
