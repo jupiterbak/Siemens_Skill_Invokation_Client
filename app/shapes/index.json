@@ -7,6 +7,16 @@
     "filePath": "AND.shape"
   },
   {
+    "name": "AssemblyModule01_localhost_4840_InsertSkill",
+    "tags": [
+      "AssemblyModule01",
+      "localhost",
+      "4840",
+      "InsertSkill"
+    ],
+    "filePath": "AssemblyModule01_localhost_4840_InsertSkill.shape"
+  },
+  {
     "name": "End",
     "tags": [
       "End"
