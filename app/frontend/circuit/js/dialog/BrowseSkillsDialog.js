@@ -44,6 +44,8 @@ export default class BrowseSkillsDialog {
       if((""+ip === "") || (""+port ==="") || (""+machineName ==="")){
         $("#skillBrowseDialog .alert").text("Please define the machine name, the IP-address and the Port of the module.").show();
       }else{
+        $("#skillBrowseDialog .alert").text("Browsing ...").show();
+        $("#skillBrowseDialog .alert").addClass("spinner");
         skillproxy.browseSkills(ip,port)
         .then(function (obj) {
           if(obj.err){
@@ -52,7 +54,7 @@ export default class BrowseSkillsDialog {
             const _skills =obj.skills;
             $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();            
             _skills.forEach(_skill => {
-              $("#skillBrowseDialog .alert").text("Saving Skill" + _skill.skill.name + " ...").show();
+              $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
               $("#skillBrowseDialog .alert").addClass("spinner");
               skillproxy.saveSkill(_skill, machineName);
             });                        
