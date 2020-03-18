@@ -827,7 +827,7 @@ var START = CircuitFigure.extend({
        
        // Circle_
        shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":10,"ry":10,"cx":15,"cy":15,"stroke":"none","stroke-width":0,"fill":"#303030","dasharray":null,"opacity":1});
+       shape.attr({"rx":10,"ry":10,"cx":15,"cy":14.832227840000087,"stroke":"none","stroke-width":0,"fill":"#303030","dasharray":null,"opacity":1});
        shape.data("name","Circle_");
        
 
@@ -865,6 +865,7 @@ START = START.extend({
     {
         this.getOutputPort(0).setValue(true);
         this.layerAttr("Circle_", { fill: "#faa50a" });
+        
     },
 
 
@@ -874,6 +875,8 @@ START = START.extend({
      **/
     onStart:function()
     {
+        this.getOutputPort(0).setValue(false);
+        this.layerAttr("Circle_", { fill: "#303030" });
     },
 
     /**
@@ -882,6 +885,8 @@ START = START.extend({
      **/
     onStop:function()
     {
+        this.getOutputPort(0).setValue(false);
+        this.layerAttr("Circle_", { fill: "#303030" });
     },
 
     /**

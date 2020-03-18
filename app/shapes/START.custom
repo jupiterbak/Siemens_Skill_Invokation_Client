@@ -28,6 +28,7 @@ START = START.extend({
     {
         this.getOutputPort(0).setValue(true);
         this.layerAttr("Circle_", { fill: "#faa50a" });
+        
     },
 
 
@@ -37,6 +38,8 @@ START = START.extend({
      **/
     onStart:function()
     {
+        this.getOutputPort(0).setValue(false);
+        this.layerAttr("Circle_", { fill: "#303030" });
     },
 
     /**
@@ -45,6 +48,8 @@ START = START.extend({
      **/
     onStop:function()
     {
+        this.getOutputPort(0).setValue(false);
+        this.layerAttr("Circle_", { fill: "#303030" });
     },
 
     /**
