@@ -94,7 +94,6 @@ AND = AND.extend({
     }
 });
 
-
 // Generated Code for the Draw2D touch HTML5 lib.
 // File will be generated if you save the *.shape file.
 //
@@ -179,6 +178,7 @@ End = End.extend({
         this.layerAttr("Circle_Innen",{fill:"#f0f0f0"});
     }
 });
+
 
 // Generated Code for the Draw2D touch HTML5 lib.
 // File will be generated if you save the *.shape file.
