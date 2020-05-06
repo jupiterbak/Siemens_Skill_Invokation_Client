@@ -26,7 +26,7 @@ env("<html></html>", function (errors, window) {
     vm.runInThisContext(fs.readFileSync("./server/shapes.js"));
 
 
-    // draw2d is loaded and you can now read some documents into a HeadlessCanvas
+    // server is loaded and you can now read some documents into a HeadlessCanvas
     //
     var json   =  JSON.parse(fs.readFileSync("./server/FullAdderTest.circuit"));
     var canvas = new draw2d.HeadlessCanvas();

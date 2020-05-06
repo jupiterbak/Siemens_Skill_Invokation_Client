@@ -1,8 +1,5 @@
 /**
- * by 'Draw2D Shape Designer'
- *
- * Custom JS code to tweak the standard behaviour of the generated
- * shape. add your custome code and event handler here.
+ * Jupiter Bakakeu
  *
  *
  */
@@ -47,7 +44,7 @@ testShape = testShape.extend({
             this.state = 2;
             break;
           case 2: // Wait for the  skill to be done
-            this.currentTimer = (this.currentTimer + 1)% 300;
+            this.currentTimer = (this.currentTimer + 1)% 400;
             if(this.currentTimer === 0){
                 this.state = 3;
             }

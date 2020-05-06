@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "3ab621d3-dbe9-4558-908a-68e568e77203",
+    "id": "f3f35218-3210-454e-bae0-794b1486bfc8",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "c96c8cb8-16e6-4672-aa40-56659418370b",
+    "id": "0c1d7a94-a34f-45ab-bfdd-414fec6143bf",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "e69d4efb-ef36-4be5-8ef0-a67a2600fa3c",
+    "id": "006ed716-2cfe-4978-b736-18d5c7d216ce",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "8999c1b6-db2c-4ee0-930a-12b92d88c4ea",
+    "id": "b150a39d-288c-4893-8374-ba86427b7356",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "44b61433-31ee-4fff-92d2-3b64556b92dd",
+    "id": "1215abbc-b593-452a-b8ab-79f4ae6dd31e",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "45add8dd-5281-4ebd-8f7d-5f7246a7a23b",
+    "id": "3ef73f91-eaf2-4c13-9516-58bad9a3e59c",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,7 +547,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "30b995d0-798c-423e-9c88-28f4294f94c4",
+    "id": "76ea3265-be23-4982-9bc3-cf73231d6d2b",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -582,7 +582,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "ce4c5940-3671-4acb-95fc-83882cee5d3e",
+    "id": "2ac1cb0a-5bab-4560-a1a2-108259eccd04",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -620,7 +620,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "a729817d-a4a4-47b3-8d7d-06362209dbc5",
+    "id": "d685df66-daa1-417e-bccb-3b5841b03760",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -658,7 +658,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "077bc5b7-f3bf-41bd-825c-5d9f135fda2d",
+    "id": "9f81624b-f5a3-49c1-85d7-a2cc86748103",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -693,7 +693,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "f8eb6d3b-b865-4c85-be60-3e09a7c76f93",
+    "id": "dc8807fc-fd04-42d4-8d5c-64213b58d275",
     "x": 8038,
     "y": 7987,
     "width": 60,
@@ -731,7 +731,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "da2ee531-ba8f-4656-aef9-cf5a0293ac31",
+    "id": "019c401d-0c21-4145-83b9-86b292cb2da1",
     "x": 8095,
     "y": 7993,
     "width": 10,
