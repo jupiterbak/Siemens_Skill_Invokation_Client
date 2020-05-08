@@ -2,7 +2,6 @@
   {
     "name": "AND",
     "tags": [
-      "Control",
       "AND"
     ],
     "filePath": "AND.shape"
@@ -17,7 +16,6 @@
   {
     "name": "MUX",
     "tags": [
-      "Control",
       "MUX"
     ],
     "filePath": "MUX.shape"
@@ -25,17 +23,9 @@
   {
     "name": "OR",
     "tags": [
-      "Control",
       "OR"
     ],
     "filePath": "OR.shape"
-  },
-  {
-    "name": "Skill",
-    "tags": [
-      "Skill"
-    ],
-    "filePath": "Skill.shape"
   },
   {
     "name": "START",
@@ -45,7 +35,7 @@
     "filePath": "START.shape"
   },
   {
-    "name": "documentation_Text",
+    "name": "Documentation_Text",
     "tags": [
       "Documentation",
       "Text"
@@ -58,51 +48,49 @@
     "image": "Text.png"
   },
   {
-    "name": "circuit_digital_signals_High",
+    "name": "High",
     "tags": [
-      "Control",
       "High"
     ],
     "version": "1.0.168_309",
-    "basename": "circuit_digital_signals_High.js",
+    "basename": "High.js",
     "displayName": "High",
-    "filePath": "circuit_digital_signals_High.shape",
-    "image": "circuit_digital_signals_High.png"
+    "filePath": "High.shape",
+    "image": "High.png"
   },
   {
-    "name": "circuit_digital_signals_Low",
+    "name": "Low",
     "tags": [
-      "Control",
       "Low"
     ],
     "version": "1.0.168_309",
-    "basename": "circuit_digital_signals_Low.js",
+    "basename": "Low.js",
     "displayName": "Low",
-    "filePath": "circuit_digital_signals_Low.shape",
-    "image": "circuit_digital_signals_Low.png"
+    "filePath": "Low.shape",
+    "image": "Low.png"
   },
   {
-    "name": "circuit_digital_signals_SignalSource",
+    "name": "Signals_SignalSource",
     "tags": [
       "Signals",
       "SignalSource"
     ],
     "version": "1.0.168_309",
-    "basename": "circuit_digital_signals_SignalSource.js",
+    "basename": "Signals_SignalSource.js",
     "displayName": "SignalSource",
-    "filePath": "circuit_digital_signals_SignalSource.shape",
-    "image": "circuit_digital_signals_SignalSource.png"
+    "filePath": "Signals_SignalSource.shape",
+    "image": "Signals_SignalSource.png"
   },
   {
-    "name": "circuit_digital_signals_SignalTarget",
+    "name": "Signals_SignalTarget",
     "tags": [
       "Signals",
       "SignalTarget"
     ],
     "version": "1.0.168_309",
-    "basename": "circuit_digital_signals_SignalTarget.js",
+    "basename": "Signals_SignalTarget.js",
     "displayName": "SignalTarget",
-    "filePath": "circuit_digital_signals_SignalTarget.shape",
-    "image": "circuit_digital_signals_SignalTarget.png"
+    "filePath": "Signals_SignalTarget.shape",
+    "image": "Signals_SignalTarget.png"
   }
 ]

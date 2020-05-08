@@ -912,6 +912,7 @@ exports.default = draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
   _onMouseMoveCallback: function _onMouseMoveCallback(emitter, event) {
     // there is no benefit to show decorations during Drag&Drop of an shape
     //
+    var _this = this;
     if (this.mouseMovedDuringMouseDown === true) {
       if (this.configIcon !== null) {
         this.configIcon.remove();
@@ -939,10 +940,10 @@ exports.default = draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
         $("body").append(this.configIcon);
         this.configIcon.on("click", function () {
           _FigureConfigDialog2.default.show(hit, pos);
-          this.configFigure = hit;
-          if (this.configIcon !== null) {
-            this.configIcon.remove();
-            this.configIcon = null;
+          _this.configFigure = hit;
+          if (_this.configIcon !== null) {
+            _this.configIcon.remove();
+            _this.configIcon = null;
           }
         });
       }
