@@ -1,26 +1,44 @@
 var json=[
   {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "23e1591b-1ccc-930d-7bb3-fea4d6f0707b",
-    "x": 7985,
-    "y": 7985,
-    "width": 30,
-    "height": 30,
+    "type": "shape_designer.figure.PolyRect",
+    "id": "3f3cebb6-442a-5a78-be8e-ee14a564a9bc",
+    "x": 7900.241887499999,
+    "y": 7889.5,
+    "width": 200,
+    "height": 146,
     "alpha": 1,
     "angle": 0,
     "userData": {
       "baseClass": "draw2d.SetFigure",
-      "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n        this._super(attr, setter, getter);\n        this.attr({resizeable:false});\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n         // your special code here\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function()\n    {\n        this.getOutputPort(0).setValue(true);\n        this.layerAttr(\"Circle_\", { fill: \"#faa50a\" });\n        \n    },\n\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function()\n    {\n        this.getOutputPort(0).setValue(false);\n        this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function()\n    {\n        this.getOutputPort(0).setValue(false);\n        this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n    },\n\n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    }\n\n});",
-      "name": "Circle",
-      "markdown": "# T-FlipFlop\n\n## Description\n\nThe D FlipFLop is widely used. It is also known as a \n*toggle*  flip-flop.\n\nA T flip-flop is a device which swaps or **toggles** state \nevery time it is triggered if the T input is asserted, \notherwise it holds the current output.\n\n\nThe toggle flip-flop is also a frequency divider."
+      "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n   init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n         \r\n         var _this= this;\r\n         this.currentTimer=0;\r\n         this.state = 5; // STOPPED\r\n         this.last_en_value = 0;\r\n    },\r\n    \r\n    calculate:function(){\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 1;\r\n            }\r\n            break;\r\n          case 1: // Call skill start\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            // TODO: Call Start method with the parameters\r\n            this.currentTimer=0;\r\n            \r\n            // Make transition\r\n            this.state = 2;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            this.currentTimer = (this.currentTimer + 1)% 400;\r\n            if(this.currentTimer === 0){\r\n                this.state = 3;\r\n            }\r\n            break;\r\n          case 3: // Call Get results\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.getOutputPort(0).setValue(true);\r\n            this.state = 4;\r\n            break;\r\n          case 4: // Set the outputs\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.getOutputPort(0).setValue(true);\r\n            \r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      }\r\n    }\r\n});",
+      "name": "circle",
+      "markdown": "#Skill Template"
     },
-    "cssClass": "shape_designer_figure_PolyCircle",
+    "cssClass": "shape_designer_figure_PolyRect",
     "ports": [],
-    "bgColor": "#303030",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
+    "bgColor": "#FFFFFF",
+    "color": "#303030",
+    "stroke": 1,
+    "radius": 6,
     "dasharray": null,
+    "vertices": [
+      {
+        "x": 7900.241887499999,
+        "y": 7889.5
+      },
+      {
+        "x": 8100.241887499999,
+        "y": 7889.5
+      },
+      {
+        "x": 8100.241887499999,
+        "y": 8110.5
+      },
+      {
+        "x": 7900.241887499999,
+        "y": 8110.5
+      }
+    ],
     "blur": 0,
     "filters": [
       {
@@ -30,62 +48,110 @@ var json=[
         "name": "shape_designer.filter.SizeFilter"
       },
       {
+        "name": "shape_designer.filter.StrokeFilter"
+      },
+      {
         "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.RadiusFilter"
       }
     ]
   },
   {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "6564a81a-b89f-5e40-4f67-77280b2e29bf",
-    "x": 7990,
-    "y": 7989.83222784,
-    "width": 20,
-    "height": 20,
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "8e9303cc-561f-5fd2-4f77-1ad9200f3402",
+    "x": 7953.952824999999,
+    "y": 7890,
+    "width": 56.25,
+    "height": 21,
     "alpha": 1,
     "angle": 0,
     "userData": {
-      "baseClass": "draw2d.SetFigure",
-      "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n         // your special code here\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function()\n    {\n        this.getOutputPort(0).setValue(true);\n        this.layerAttr(\"Circle_\", { fill: \"#faa50a\" });\n    },\n\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function()\n    {\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function()\n    {\n    },\n\n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    }\n\n});",
-      "name": "Circle_"
+      "name": "Name"
     },
-    "cssClass": "shape_designer_figure_PolyCircle",
+    "cssClass": "shape_designer_figure_ExtLabel",
     "ports": [],
-    "bgColor": "#303030",
+    "bgColor": "none",
     "color": "#1B1B1B",
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "blur": 0,
+    "text": "Load",
+    "outlineStroke": 0,
+    "outlineColor": "#FF0000",
+    "fontSize": 16,
+    "fontColor": "#00979D",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
     "filters": [
       {
         "name": "shape_designer.filter.PositionFilter"
       },
       {
-        "name": "shape_designer.filter.SizeFilter"
+        "name": "shape_designer.filter.FontSizeFilter"
       },
       {
-        "name": "shape_designer.filter.FillColorFilter"
+        "name": "shape_designer.filter.FontColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.OutlineStrokeFilter"
       }
     ]
   },
   {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "be07df8d-47d7-5e42-bb1a-576c53d9ddf5",
-    "x": 8011,
-    "y": 7994.83222784,
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "1ae0818b-2abe-9c51-551a-4988295d83c5",
+    "x": 7895.5,
+    "y": 7956,
     "width": 10,
     "height": 10,
     "alpha": 1,
     "angle": 0,
     "userData": {
-      "name": "Port",
-      "type": "Output",
-      "direction": 1,
+      "name": "Circle_en"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "17109eb2-7d96-9976-b9bb-4fb1478419c5",
+    "x": 7895.5,
+    "y": 7956,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_en",
+      "type": "Input",
+      "direction": 3,
       "fanout": 20
     },
     "cssClass": "shape_designer_figure_ExtPort",
     "ports": [],
-    "bgColor": "#37B1DE",
+    "bgColor": "#1C9BAB",
     "color": "#1B1B1B",
     "stroke": 1,
     "dasharray": null,
@@ -101,11 +167,792 @@ var json=[
       },
       {
         "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "d7c16052-5fba-38c3-4f20-69197b70ed45",
+    "x": 7903.3986374999995,
+    "y": 7950.3828125,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_en"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "En",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 10,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "137262e2-9efb-29f7-fb7e-6d30dd4a3c33",
+    "x": 8094.5,
+    "y": 7956,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_done"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "1013f7b7-e2df-9606-b851-aaee6bb4c283",
+    "x": 8094.5,
+    "y": 7956,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_done",
+      "type": "Output",
+      "direction": 1,
+      "fanout": 20
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "bd488022-da32-54e3-ac76-02ffcbb3c24b",
+    "x": 8062.25,
+    "y": 7950.3828125,
+    "width": 60,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_done"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "Done",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 10,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "419011d3-93ec-4610-8b2a-f4c3b8d820af",
+    "x": 7896,
+    "y": 7980,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_0"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "79df4a20-c84a-4aa1-bc4d-330ec563dc02",
+    "x": 7905,
+    "y": 7974,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_0"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "Orientation",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "d948eab0-6f42-404d-a443-f2514ae5a217",
+    "x": 7896,
+    "y": 7980,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_0",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "0355b1e5-0970-489b-ad3f-2175e89dcd56",
+    "x": 7896,
+    "y": 7993,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_1"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "90401f0a-253e-4e84-a148-3a1724126ebc",
+    "x": 7905,
+    "y": 7987,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_1"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "RFID",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "0520f14b-cbc7-4eeb-ac14-d3e7513d03cd",
+    "x": 7896,
+    "y": 7993,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_1",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "ae426e96-9bd8-4888-82e5-98d1f74e7732",
+    "x": 8095,
+    "y": 7980,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_OUT_0"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "6e82f5c4-c67c-4c11-a196-295b39fec6f4",
+    "x": 8038,
+    "y": 7974,
+    "width": 60,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_OUT_0"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "ErrorId",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "0e516673-2657-4bc4-818f-588466c01387",
+    "x": 8095,
+    "y": 7980,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_OUT_0",
+      "type": "Output",
+      "direction": 1
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "6ab8ea3c-eeac-4bac-8584-5cdcd94b9e31",
+    "x": 8095,
+    "y": 7993,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_OUT_1"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "12c9ef8a-4003-486c-b482-a7ea01e3f960",
+    "x": 8038,
+    "y": 7987,
+    "width": 60,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_OUT_1"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "ErrorId",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "67882e6a-e796-45f5-be42-c6dcc0337f31",
+    "x": 8095,
+    "y": 7993,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_OUT_1",
+      "type": "Output",
+      "direction": 1
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "9ecebbd2-a09b-ae1b-142c-0c81b6bf3ece",
+    "x": 7923.523937499999,
+    "y": 7894.909500000001,
+    "width": 12.180999999998676,
+    "height": 12.180999999998676,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "led_power"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#FF3C00",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "ce456901-1d35-ac42-3365-852cd6b83986",
+    "x": 7906.706575,
+    "y": 7894.909500000001,
+    "width": 12.180999999998676,
+    "height": 12.180999999998676,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "led_connected"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#33DE09",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "77985263-0a58-9fe1-8204-be956e54d7cf",
+    "x": 7940,
+    "y": 7920,
+    "width": 108.5625,
+    "height": 21,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Skill_IP"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "localhost:4842",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 12,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "dbec1a1b-a1f0-5b2e-d012-f0037ce9916f",
+    "x": 7940,
+    "y": 7939,
+    "width": 108.5625,
+    "height": 21,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Skill_State"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "State: Stopped",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 12,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "f1f06fb1-4c6d-59cc-81f7-5cba2cf66a2c",
+    "x": 7940,
+    "y": 7956,
+    "width": 108.5625,
+    "height": 21,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Skill_NodeID"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "NodeID: ns=4;i=1010",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 12,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
       }
     ]
   }
 ];
-var pkg='START';
+var pkg='Module01_localhost_4842_Load';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();

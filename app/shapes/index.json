@@ -7,11 +7,53 @@
     "filePath": "AND.shape"
   },
   {
+    "name": "Documentation_Text",
+    "tags": [
+      "Documentation",
+      "Text"
+    ],
+    "filePath": "Documentation_Text.shape"
+  },
+  {
     "name": "End",
     "tags": [
       "End"
     ],
     "filePath": "End.shape"
+  },
+  {
+    "name": "High",
+    "tags": [
+      "High"
+    ],
+    "filePath": "High.shape"
+  },
+  {
+    "name": "Low",
+    "tags": [
+      "Low"
+    ],
+    "filePath": "Low.shape"
+  },
+  {
+    "name": "Module01_localhost_4842_Load",
+    "tags": [
+      "Module01",
+      "localhost",
+      "4842",
+      "Load"
+    ],
+    "filePath": "Module01_localhost_4842_Load.shape"
+  },
+  {
+    "name": "Module01_localhost_4842_Unload",
+    "tags": [
+      "Module01",
+      "localhost",
+      "4842",
+      "Unload"
+    ],
+    "filePath": "Module01_localhost_4842_Unload.shape"
   },
   {
     "name": "MUX",
@@ -28,58 +70,12 @@
     "filePath": "OR.shape"
   },
   {
-    "name": "START",
-    "tags": [
-      "START"
-    ],
-    "filePath": "START.shape"
-  },
-  {
-    "name": "Documentation_Text",
-    "tags": [
-      "Documentation",
-      "Text"
-    ],
-    "version": "1.0.168_309",
-    "basename": "Text.js",
-    "displayName": "Text",
-    "basedir": "documentation",
-    "filePath": "Text.shape",
-    "image": "Text.png"
-  },
-  {
-    "name": "High",
-    "tags": [
-      "High"
-    ],
-    "version": "1.0.168_309",
-    "basename": "High.js",
-    "displayName": "High",
-    "filePath": "High.shape",
-    "image": "High.png"
-  },
-  {
-    "name": "Low",
-    "tags": [
-      "Low"
-    ],
-    "version": "1.0.168_309",
-    "basename": "Low.js",
-    "displayName": "Low",
-    "filePath": "Low.shape",
-    "image": "Low.png"
-  },
-  {
     "name": "Signals_SignalSource",
     "tags": [
       "Signals",
       "SignalSource"
     ],
-    "version": "1.0.168_309",
-    "basename": "Signals_SignalSource.js",
-    "displayName": "SignalSource",
-    "filePath": "Signals_SignalSource.shape",
-    "image": "Signals_SignalSource.png"
+    "filePath": "Signals_SignalSource.shape"
   },
   {
     "name": "Signals_SignalTarget",
@@ -87,10 +83,13 @@
       "Signals",
       "SignalTarget"
     ],
-    "version": "1.0.168_309",
-    "basename": "Signals_SignalTarget.js",
-    "displayName": "SignalTarget",
-    "filePath": "Signals_SignalTarget.shape",
-    "image": "Signals_SignalTarget.png"
+    "filePath": "Signals_SignalTarget.shape"
+  },
+  {
+    "name": "START",
+    "tags": [
+      "START"
+    ],
+    "filePath": "START.shape"
   }
 ]
