@@ -2,6 +2,7 @@
   {
     "name": "AND",
     "tags": [
+      "Control",
       "AND"
     ],
     "filePath": "AND.shape"
@@ -16,6 +17,7 @@
   {
     "name": "MUX",
     "tags": [
+      "Control",
       "MUX"
     ],
     "filePath": "MUX.shape"
@@ -23,6 +25,7 @@
   {
     "name": "OR",
     "tags": [
+      "Control",
       "OR"
     ],
     "filePath": "OR.shape"
@@ -40,5 +43,66 @@
       "START"
     ],
     "filePath": "START.shape"
+  },
+  {
+    "name": "documentation_Text",
+    "tags": [
+      "Documentation",
+      "Text"
+    ],
+    "version": "1.0.168_309",
+    "basename": "Text.js",
+    "displayName": "Text",
+    "basedir": "documentation",
+    "filePath": "Text.shape",
+    "image": "Text.png"
+  },
+  {
+    "name": "circuit_digital_signals_High",
+    "tags": [
+      "Control",
+      "High"
+    ],
+    "version": "1.0.168_309",
+    "basename": "circuit_digital_signals_High.js",
+    "displayName": "High",
+    "filePath": "circuit_digital_signals_High.shape",
+    "image": "circuit_digital_signals_High.png"
+  },
+  {
+    "name": "circuit_digital_signals_Low",
+    "tags": [
+      "Control",
+      "Low"
+    ],
+    "version": "1.0.168_309",
+    "basename": "circuit_digital_signals_Low.js",
+    "displayName": "Low",
+    "filePath": "circuit_digital_signals_Low.shape",
+    "image": "circuit_digital_signals_Low.png"
+  },
+  {
+    "name": "circuit_digital_signals_SignalSource",
+    "tags": [
+      "Signals",
+      "SignalSource"
+    ],
+    "version": "1.0.168_309",
+    "basename": "circuit_digital_signals_SignalSource.js",
+    "displayName": "SignalSource",
+    "filePath": "circuit_digital_signals_SignalSource.shape",
+    "image": "circuit_digital_signals_SignalSource.png"
+  },
+  {
+    "name": "circuit_digital_signals_SignalTarget",
+    "tags": [
+      "Signals",
+      "SignalTarget"
+    ],
+    "version": "1.0.168_309",
+    "basename": "circuit_digital_signals_SignalTarget.js",
+    "displayName": "SignalTarget",
+    "filePath": "circuit_digital_signals_SignalTarget.shape",
+    "image": "circuit_digital_signals_SignalTarget.png"
   }
 ]

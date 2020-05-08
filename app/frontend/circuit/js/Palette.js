@@ -114,7 +114,13 @@ export default class Palette {
                 item["category"] = item.tags[0] + " (" + item.tags[1] + ":" + item.tags[2] + ")";
                 obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]].name = item.tags[0] + " (" + item.tags[1] + ":" + item.tags[2] + ")";
                 obj[item.tags[0] + ":" + item.tags[1] + ":" + item.tags[2]].shapes.push(item);
-            } else {
+            } else  if (item.tags.length > 1) {
+                obj[item.tags[0]] = obj[item.tags[0]] || { "shapes": [], "name": "" };
+                item["category"] = item.tags[0];
+                obj[item.tags[0]].name = item.tags[0];
+                obj[item.tags[0]].shapes.push(item);
+            }     
+            else {
                 obj["Default"] = obj["Default"] || { "shapes": [], "name": "" };
                 item["category"] = "Default";
                 obj["Default"].name = "Default";

@@ -1,0 +1,147 @@
+{
+  "draw2d": [
+    {
+      "type": "shape_designer.figure.PolyRect",
+      "id": "722d9720-c010-73b7-4026-b9e994a271b3",
+      "x": 7967.136399999998,
+      "y": 7989.234375,
+      "width": 65.72720000000481,
+      "height": 20.243800000000192,
+      "alpha": 1,
+      "selectable": true,
+      "draggable": true,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n        \n        var _this = this;\n             \n        // calculate the outer frame/shape in the correct size in relation to the length of the text\n        //\n        var adjustWidth = function(){\n            var width = _this.layerGet(\"label\").getBBox().width+15\n\n            _this.setWidth(width+5);\n            _this.layerAttr(\"BoundingBox\", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`})\n            _this.layerAttr(\"outline\",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`})\n        }\n        this.on(\"change:userData.signalId\",function(emitter, event){\n            _this.layerAttr(\"label\", {text: event.value})\n            adjustWidth()\n        });\n        this.on(\"added\", function(){\n            var signalId = _this.attr(\"userData.signalId\")\n            if(!signalId){\n                signalId = \"Signal_Id\"\n                _this.attr(\"userData.signalId\", signalId)\n            }            \n            _this.layerAttr(\"label\", {text: signalId})\n            adjustWidth()\n        })\n        \n        // override the \"getValue\" method of the port and delegate them to the related party (SourceTarget port)\n        this.originalGetValue = this.getOutputPort(0).getValue\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function(context)\n    {\n        var signalId = this.attr(\"userData.signalId\")\n        if(context.signalPorts && context.signalPorts[signalId]){\n            this.getOutputPort(0).getValue = function(){ \n                if(context.signalPorts[signalId] instanceof draw2d.Port){\n                    return context.signalPorts[signalId].getValue()\n                }\n                else {\n                    return false\n                }\n            }\n        }\n    },\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function(context)\n    {\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function(context)\n    {\n    },\n\n\n    getParameterSettings: function()\n    {\n        return [\n        {\n            name:\"signalId\",\n            label:\"Signal Id\",\n            property:{\n                type: \"string\"\n            }\n        }];\n    },\n    \n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    },\n    \n  /**\n   * @private\n   */\n  applyTransformation: function () {\n    let s =\n      // override the base implementation and do not scale the internal SVG elements....this let the arrow looks a like streche...we\n      // calculate the path in the event handler. A lot more code....but the result is much cleaner\n      //\"S\" + this.scaleX + \",\" + this.scaleY + \",0,0 \" +\n      \"R\" + this.rotationAngle + \",\" + ((this.getWidth() / 2) | 0) + \",\" + ((this.getHeight() / 2) | 0) +\n      \"T\" + this.getAbsoluteX() + \",\" + this.getAbsoluteY() +\n      \"\"\n    this.svgNodes.transform(s)\n    if (this.rotationAngle === 90 || this.rotationAngle === 270) {\n      let before = this.svgNodes.getBBox(true)\n      let ratio = before.height / before.width\n      let reverseRatio = before.width / before.height\n      let rs = \"...S\" + ratio + \",\" + reverseRatio + \",\" + (this.getAbsoluteX() + this.getWidth() / 2) + \",\" + (this.getAbsoluteY() + this.getHeight() / 2)\n      this.svgNodes.transform(rs)\n    }\n\n    return this\n  }\n\n\n});",
+        "name": "outline",
+        "markdown": "# Signal Source\n\nWhen you don’t want to route too many wires, how about trying `signal` elements.\n\n\nA `signal` shape is an electrical design primitive. It is used to make an electrical \nconnection between one schematic group and another group, or sheet symbol in a \ndesign. The name of the `signal` defines the connection. \n\nA `signal target` on a schematic sheet connects to `signals source`\nor sheet entries with the **same name** in the project.",
+        "type": "Output",
+        "direction": 1
+      },
+      "cssClass": "shape_designer_figure_PolyRect",
+      "ports": [],
+      "bgColor": "rgba(255,255,255,1)",
+      "color": "rgba(0,120,242,1)",
+      "stroke": 1,
+      "radius": 0,
+      "dasharray": null,
+      "vertices": [
+        {
+          "x": 7967.136399999998,
+          "y": 7989.234375
+        },
+        {
+          "x": 8020.954579219902,
+          "y": 7989.234375
+        },
+        {
+          "x": 8032.863600000002,
+          "y": 7999.234375
+        },
+        {
+          "x": 8020.954579219902,
+          "y": 8009.234375
+        },
+        {
+          "x": 7967.3802,
+          "y": 8009.478175
+        }
+      ],
+      "blur": 0,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.SizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLabel",
+      "id": "2369ca87-43d5-837d-cc3e-448f9f9747e4",
+      "x": 7967.909450000003,
+      "y": 7989.234375,
+      "width": 51.375,
+      "height": 21.25,
+      "alpha": 1,
+      "selectable": true,
+      "draggable": true,
+      "angle": 0,
+      "userData": {
+        "name": "label"
+      },
+      "cssClass": "shape_designer_figure_ExtLabel",
+      "ports": [],
+      "bgColor": "rgba(0,0,0,0)",
+      "color": "rgba(27,27,27,1)",
+      "stroke": 0,
+      "radius": 0,
+      "dasharray": null,
+      "text": "Signal_ID",
+      "outlineStroke": 0,
+      "outlineColor": "rgba(0,0,0,0)",
+      "fontSize": 12,
+      "fontColor": "rgba(0,120,242,1)",
+      "fontFamily": null,
+      "editor": "LabelInplaceEditor",
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontSizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "fd38272c-22f5-46fb-3f8d-2d70036a8113",
+      "x": 8026.863600000002,
+      "y": 7994.478175,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "selectable": true,
+      "draggable": true,
+      "angle": 0,
+      "userData": {
+        "name": "Port",
+        "type": "Output",
+        "direction": 1,
+        "fanout": 20
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "rgba(55,177,222,1)",
+      "color": "rgba(27,27,27,1)",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        }
+      ]
+    }
+  ],
+  "image": "data:image/png;base64,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"
+}

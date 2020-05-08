@@ -33,6 +33,10 @@ export default draw2d.Canvas.extend({
 
         this.probeWindow = new ProbeWindow(this)
 
+        // global context where objects can store data during different simulation steps.
+        // OTHER object can read them. Useful for signal handover
+        this.simulationContext = {}
+
         this.simulate = false
         this.animationFrameFunc = this._calculate.bind(this)
 
@@ -84,7 +88,7 @@ export default draw2d.Canvas.extend({
 
         // show the ports of the elements only if the mouse cursor is close to the shape.
         //
-        this.coronaFeedback = new draw2d.policy.canvas.CoronaDecorationPolicy({ diameterToBeVisible: 50 })
+        this.coronaFeedback = new draw2d.policy.canvas.CoronaDecorationPolicy({diameterToBeVisible: 50})
         this.installEditPolicy(this.coronaFeedback)
 
         // nice grid decoration for the canvas paint area
@@ -103,16 +107,20 @@ export default draw2d.Canvas.extend({
         // Enable Copy&Paste for figures
         //
         Mousetrap.bindGlobal(['ctrl+c', 'command+c'], () => {
-            let primarySelection = this.getSelection().getPrimary()
-            if (primarySelection !== null) {
-                this.clippboardFigure = primarySelection.clone({ excludePorts: true })
-                this.clippboardFigure.translate(5, 5)
-            }
+            // ctrl+c and ctrl+v works just for normal figures and not connections
+            //
+            this.getSelection().each( (i, figure)=>{
+                if (figure instanceof CircuitFigure) {
+                    _this.clippboardFigure = figure.clone({excludePorts: true})
+                    _this.clippboardFigure.translate(5, 5)
+                    return false
+                }
+            })
             return false
         })
         Mousetrap.bindGlobal(['ctrl+v', 'command+v'], () => {
             if (this.clippboardFigure !== null) {
-                let cloneToAdd = this.clippboardFigure.clone({ excludePorts: true })
+                let cloneToAdd = this.clippboardFigure.clone({excludePorts: true})
                 let command = new draw2d.command.CommandAdd(this, cloneToAdd, cloneToAdd.getPosition())
                 this.getCommandStack().execute(command)
                 this.setCurrentSelection(cloneToAdd)
@@ -233,7 +241,7 @@ export default draw2d.Canvas.extend({
         })
 
 
-        // Register a Selection listener for the state hnadling
+        // Register a Selection listener for the state handling
         // of the Delete Button
         //
         this.on("select", function(emitter, event) {
@@ -246,7 +254,7 @@ export default draw2d.Canvas.extend({
         this.on("contextmenu", function(emitter, event) {
             let figure = _this.getBestFigure(event.x, event.y)
 
-            // a connectionprovides its own context menu
+            // a connection provides its own context menu
             //
             if (figure instanceof draw2d.Connection) {
                 return
@@ -258,16 +266,32 @@ export default draw2d.Canvas.extend({
             if (figure !== null) {
                 let x = event.x
                 let y = event.y
+                let items = {}
 
-                let pathToMD = conf.shapes.url + figure.NAME + ".md"
-                // TODO: Jupiter - Monitor Skill
-                let pathToDesign = conf.monitor.url + "?timestamp=" + new Date().getTime() + "&file=" + figure.NAME + ".shape"
-                let items = {
-                    "label": { name: "Attach Label", icon: "x ion-ios-pricetag-outline" },
-                    "delete": { name: "Delete", icon: "x ion-ios-close-outline" },
+                if (figure instanceof CircuitFigure) {
+                    // TODO: Jupiter - Monitor Skill
+                    let pathToMD = conf.shapes.url + figure.NAME + ".md"
+                    let pathToDesign = conf.monitor.url + "?timestamp=" + new Date().getTime() + "&file=" + figure.NAME + ".shape"
+                    items = {
+                        "label": { name: "Attach Label", icon: "x ion-ios-pricetag-outline" },
+                        "delete": { name: "Delete", icon: "x ion-ios-close-outline" },
+                        "sep1": "---------",
+                        "monitor": { name: "Monitor Skill", icon: "x ion-ios-compose-outline", url: pathToDesign},
+                        "help": { name: "Info", icon: "x ion-ios-information-outline" , url: pathToMD }
+                    }
+                } else if (figure instanceof draw2d.shape.basic.Label) {
+                  items = {
+                    "delete": {name: "Delete", icon: "x ion-ios-close-outline"}
+                  }
+                } else if (figure instanceof draw2d.Port) {
+                  return
+                } else {
+                  items = {
+                    "label": {name: "Attach Label", icon: "x ion-ios-pricetag-outline"},
+                    "help": {name: "Description", icon: "x ion-ios-information-outline"},
                     "sep1": "---------",
-                    "monitor": { name: "Monitor Skill", icon: "x ion-ios-compose-outline" },
-                    "help": { name: "Info", icon: "x ion-ios-information-outline" }
+                    "delete": {name: "Delete", icon: "x ion-ios-close-outline"}
+                  }
                 }
 
                 $.contextMenu({
@@ -282,18 +306,18 @@ export default draw2d.Canvas.extend({
                             case "label":
                                 let text = prompt("Label")
                                 if (text) {
-                                    let label = new draw2d.shape.basic.Label({ text: text, stroke: 0, x: -20, y: -40 })
+                                    let label = new draw2d.shape.basic.Label({text: text, stroke: 0, x: -20, y: -40})
                                     let locator = new draw2d.layout.locator.SmartDraggableLocator()
                                     label.installEditor(new LabelInplaceEditor())
                                     figure.add(label, locator)
-                                    Object.defineProperty(figure, "canvas", { configurable: false, writable: false })
+                                    Object.defineProperty(figure, "canvas", {configurable: false, writable: false})
                                 }
                                 break
                             case "monitor":
-                                window.open(pathToDesign, "skill")
+                                window.open(options.items.monitor.url, "skill")
                                 break
                             case "help":
-                                $.get(pathToMD, function(content) {
+                                $.get(options.items.help.url, function(content) {
                                     new MarkdownDialog().show(content)
                                 })
                                 break
@@ -309,7 +333,6 @@ export default draw2d.Canvas.extend({
                     x: x,
                     y: y,
                     items: items
-
                 })
             }
         })
@@ -352,6 +375,20 @@ export default draw2d.Canvas.extend({
         return this.simulate
     },
 
+
+    getTimerBase: function () {
+        return this.timerBase
+      },
+    
+      setTimerBase: function (timerBase) {
+        this.timerBase = timerBase
+    
+        if (this.timerBase > 10)
+          this.slider.slider("setValue", -((timerBase - 100) * ((100 - 50) + 10)) / (100 - 10) + 50)
+        else
+          this.slider.slider("setValue", (((-(timerBase - 11) - 2) * (500 - 100)) / (10 - 2)) + 100)
+      },
+
     /**
      * @method
      * Clear the canvas and stop the simulation. Be ready for the next clean circuit
@@ -393,8 +430,23 @@ export default draw2d.Canvas.extend({
      **/
     onDrop: function(droppedDomNode, x, y, shiftKey, ctrlKey) {
         let type = $(droppedDomNode).data("shape")
-        let figure = eval("new " + type + "();") // jshint ignore:line
-            // create a command for the undo/redo support
+        let file = $(droppedDomNode).data("file")
+        let figure = new draw2d.shape.basic.Label({
+            text: `Unable to load shape '${type}'`,
+            color: "#ff0000"
+        })
+        try {
+            figure = eval("new " + type + "();") // jshint ignore:line
+
+            // required to calculate the filepath for markdown/js/shape
+            //
+            figure.attr("userData.file", file)
+        }
+        catch(exc){
+            console.log(exc)
+        }
+
+        // create a command for the undo/redo support
         let command = new draw2d.command.CommandAdd(this, figure, x, y)
         this.getCommandStack().execute(command)
     },
@@ -421,6 +473,9 @@ export default draw2d.Canvas.extend({
             p.setVisible(false)
         })
 
+        this.getFigures().each( (index, shape) => {
+            shape.onStart(this.simulationContext)
+          })
         this._calculate()
 
         $("#simulationStartStop").addClass("pause")
@@ -443,6 +498,10 @@ export default draw2d.Canvas.extend({
         this.installEditPolicy(this.connectionPolicy)
         this.installEditPolicy(this.coronaFeedback)
 
+        this.getFigures().each( (index, shape) =>{
+            shape.onStop(this.simulationContext)
+          })
+
         $("#simulationStartStop").addClass("play")
         $("#simulationStartStop").removeClass("pause")
         // $(".simulationBase").fadeOut("slow", () => {
@@ -454,8 +513,9 @@ export default draw2d.Canvas.extend({
     _calculate: function() {
         // call the "calculate" method if given to calculate the output-port values
         //
+        var self = this;
         this.getFigures().each(function(i, figure) {
-            figure.calculate()
+            figure.calculate(self.simulationContext)
         })
 
         // transport the value from oututPort to inputPort
@@ -550,6 +610,11 @@ export default draw2d.Canvas.extend({
             xCoords.push(b.x, b.x + b.w)
             yCoords.push(b.y, b.y + b.h)
         })
+        this.getLines().each(function (i, f) {
+            let b = f.getBoundingBox()
+            xCoords.push(b.x, b.x + b.w)
+            yCoords.push(b.y, b.y + b.h)
+          })
         let minX = Math.min.apply(Math, xCoords)
         let minY = Math.min.apply(Math, yCoords)
         let width = Math.max(100, Math.max.apply(Math, xCoords) - minX)
@@ -566,6 +631,7 @@ export default draw2d.Canvas.extend({
     },
 
     centerDocument: function() {
+        this.setZoom(1.0)
         let c = $("#draw2dCanvasWrapper")
         if (this.getFigures().getSize() > 0) {
             // get the bounding box of the document and translate the complete document

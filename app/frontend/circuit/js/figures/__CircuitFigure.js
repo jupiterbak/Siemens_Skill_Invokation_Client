@@ -95,23 +95,23 @@ export default draw2d.SetFigure.extend({
   applyAlpha: function () {
   },
 
-  layerGet: function (name) {
+  layerGet: function (name, attributes) {
     if (this.svgNodes === null) return null
-    let found = null
-    this.svgNodes.forEach(function (shape) {
-      if (found ===null && shape.data("name") === name) {
-        found = shape
+
+    let result = null
+    this.svgNodes.some(function (shape) {
+      if (shape.data("name") === name) {
+        result = shape
       }
+      return result !== null
     })
-    return found
+
+    return result
   },
 
   layerAttr: function (name, attributes) {
     if (this.svgNodes === null) return
 
-    // rewrite pure RED to the brainbox "HIGH" color
-    // rewrite pure BLUE to the brainbox "LOW" color
-    // without affecting the original JSON Object
     this.svgNodes.forEach(function (shape) {
       if (shape.data("name") === name) {
         shape.attr(attributes)
@@ -150,13 +150,13 @@ export default draw2d.SetFigure.extend({
     }
   },
 
-  calculate: function ( context ) {
+  calculate: function () {
   },
 
-  onStart: function (context) {
+  onStart: function () {
   },
 
-  onStop: function (context) {
+  onStop: function () {
   },
 
   getParameterSettings: function () {
@@ -206,8 +206,6 @@ export default draw2d.SetFigure.extend({
   getPersistentAttributes: function () {
     let memento = this._super()
 
-    memento.value = this.value
-
     // add all decorations to the memento
     //
     memento.labels = []
@@ -229,10 +227,6 @@ export default draw2d.SetFigure.extend({
    */
   setPersistentAttributes: function (memento) {
     this._super(memento)
-
-    if(typeof memento.value !== "undefined"){
-      this.value = memento.value
-    }
 
     // remove all decorations created in the constructor of this element
     //
