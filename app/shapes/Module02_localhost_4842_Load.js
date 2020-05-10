@@ -4,9 +4,9 @@
 // created with http://www.draw2d.org
 //
 //
-var Module01_localhost_4842_Load = CircuitFigure.extend({
+var Module02_localhost_4842_Load = CircuitFigure.extend({
 
-   NAME: "Module01_localhost_4842_Load",
+   NAME: "Module02_localhost_4842_Load",
 
    init:function(attr, setter, getter)
    {
@@ -174,9 +174,9 @@ var Module01_localhost_4842_Load = CircuitFigure.extend({
  *
  *
  */
-Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
+Module02_localhost_4842_Load = Module02_localhost_4842_Load.extend({
 
-    init: function(attr, setter, getter){
+     init: function(attr, setter, getter){
          this._super(attr, setter, getter);
 
          this.attr({resizeable:false});
@@ -239,36 +239,13 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
                   self.state = 6;
                   self.err_msg = "Error while connecting to the skill!";
                 }else{
-                  socket.on("opcua_serverstatus", msg =>{
+                  /*socket.on("opcua_serverstatus", msg =>{
                     console.log("####### Serverstatus");
                   });
-                  socket.on("SkillStatesChanged", data =>{
+                  socket.on("SkillStatesChanged", msg =>{
                     console.log("####### StatesChanged");
-                    // Filter the event for the state changes related to this skill.
-                    var _changed_states = [];
-                    for (var prop in data) {
-                        if (Object.prototype.hasOwnProperty.call(data, prop)) {
-                            var el = data[prop];
-                            if (el.ip === self.decription.ip && el.port === self.decription.port && el.skill === self.decription.skill.name) {
-                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(item => item.id === el.state.value);
-                                // filter with the nodeId
-                                if (candidates.length == 0) {
-                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {
-                                        var src = el.state.value;
-                                        var target = item.nid;
-                                        var rslt = ("" + src).indexOf(target);
-                                        return rslt >= 0;
-                                    });
-                                }
-                                if (candidates.length > 0) {
-                                    _changed_states.push(candidates[0].id);
-                                }
-                            }
-                        }
-                    }
-                    self.skill_current_state = _changed_states;
-                  });
-                  
+                  });*/
+    
                   // Make transition
                   self.state = 12;
                 }
@@ -296,49 +273,41 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
 
             this.state = 120;               
             break;
+          // case 1: // Call skill start
+          //   this.layerAttr("Circle_en",{fill:"#faa50a"});
+          //   this.layerAttr("led_power",{fill:"#33DE09"});
+          //   this.layerAttr("led_connected",{fill:"#f0f0f0"});
+          //   this.layerAttr("circle",{fill:"#f0f0f0"});
+          //   // TODO: Call Start method with the parameters
+          //   this.currentTimer=0;
+            
+          //   // Make transition
+          //   this.state = 2;
+          //   break;
           case 120: // Wait for the callback
             this.currentTimer=0;
             break;
           case 2: // Wait for the  skill to be done
-            if(self.skill_current_state.includes('completed')){
+            if(self.skill_current_state === "MMM"){
               // Make transition
               this.state = 3;
             }
+            // this.currentTimer = (this.currentTimer + 1)% 400;
+            // if(this.currentTimer === 0){
+            //     this.state = 3;
+            // }
             break;
           case 3: // Call Get results
-            this.layerAttr("Circle_en",{fill:"#faa50a"});
-            this.layerAttr("led_power",{fill:"#33DE09"});
-            this.layerAttr("led_connected",{fill:"#33DE09"});
-            this.layerAttr("circle",{fill:"#f0f0f0"});
-            skillproxy.getResultsOfSkillCall(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_getResults) {
-              if(resp_getResults.err){
-                // Make transition to err
-                self.state = 6;
-                self.err_msg = "Error while fetching the results of the skill!";
-              }else{
-                // Make transition
-                self.state = 310;
-              }
-            });
-            this.state = 300;
-            break;
-          case 300: // Wait call getResults
-            break;
-          case 310: // Wait until skill is ready again
-            // set all the output variables
-            // TODO: Jupiter
-
-            if(self.skill_current_state.includes('skill_ready')){
-              // Make transition
-              this.state = 4;
-            }
-            break;
-          case 4: // Set the done signal
-            this.getOutputPort(0).setValue(true);
-
+            this.currentTimer=0;
             this.layerAttr("Circle_done",{fill:"#faa50a"});
+            this.getOutputPort(0).setValue(true);
+            this.state = 4;
+            break;
+          case 4: // Set the outputs
+            this.layerAttr("Circle_done",{fill:"#faa50a"});
+            this.getOutputPort(0).setValue(true);
+            
             this.layerAttr("led_power",{fill:"#FF3C00"});
-            this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
             if(! this.getInputPort(0).getValue()){
                 this.state = 5;
@@ -392,12 +361,12 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
         this.state = 5; // STOPPED
         this.last_en_value = 0;
 
-        socket.off("opcua_serverstatus", msg =>{
+        /*socket.off("opcua_serverstatus", msg =>{
           console.log("####### Serverstatus");
         });
         socket.off("SkillStatesChanged", msg =>{
           console.log("####### StatesChanged");
-        });
+        });*/
     },
     
     getRequiredHardware: function(){

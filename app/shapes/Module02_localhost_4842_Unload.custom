@@ -3,7 +3,7 @@
  *
  *
  */
-testShape = testShape.extend({
+Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
 
      init: function(attr, setter, getter){
          this._super(attr, setter, getter);

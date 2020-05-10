@@ -22,20 +22,6 @@
     "filePath": "End.shape"
   },
   {
-    "name": "High",
-    "tags": [
-      "High"
-    ],
-    "filePath": "High.shape"
-  },
-  {
-    "name": "Low",
-    "tags": [
-      "Low"
-    ],
-    "filePath": "Low.shape"
-  },
-  {
     "name": "Module01_localhost_4842_Load",
     "tags": [
       "Module01",
@@ -54,6 +40,26 @@
       "Unload"
     ],
     "filePath": "Module01_localhost_4842_Unload.shape"
+  },
+  {
+    "name": "Module02_localhost_4842_Load",
+    "tags": [
+      "Module02",
+      "localhost",
+      "4842",
+      "Load"
+    ],
+    "filePath": "Module02_localhost_4842_Load.shape"
+  },
+  {
+    "name": "Module02_localhost_4842_Unload",
+    "tags": [
+      "Module02",
+      "localhost",
+      "4842",
+      "Unload"
+    ],
+    "filePath": "Module02_localhost_4842_Unload.shape"
   },
   {
     "name": "MUX",

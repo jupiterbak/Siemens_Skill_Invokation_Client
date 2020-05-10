@@ -40,7 +40,7 @@ export default draw2d.Canvas.extend({
         this.simulate = false
         this.animationFrameFunc = this._calculate.bind(this)
 
-        this.timerBase = 500 // ms calculate every 10ms all elements
+        this.timerBase = 200 // ms calculate every 10ms all elements
 
         this.setScrollArea("#draw2dCanvasWrapper")
 
@@ -269,16 +269,34 @@ export default draw2d.Canvas.extend({
                 let items = {}
 
                 if (figure instanceof CircuitFigure) {
-                    // TODO: Jupiter - Monitor Skill
+                    // Try to get the skill description if there is one.
+                    let obj_descr = $.ajax({
+                        url: conf.backend.skill.getDescription,
+                        type: "GET",
+                        async: false,
+                        xhrFields: {
+                          withCredentials: true
+                        },                        
+                        data: {
+                          skill_name: figure.NAME,
+                        }
+                      }).responseJSON;
+
                     let pathToMD = conf.shapes.url + figure.NAME + ".md"
-                    let pathToDesign = conf.monitor.url + "?timestamp=" + new Date().getTime() + "&file=" + figure.NAME + ".shape"
                     items = {
                         "label": { name: "Attach Label", icon: "x ion-ios-pricetag-outline" },
                         "delete": { name: "Delete", icon: "x ion-ios-close-outline" },
-                        "sep1": "---------",
-                        "monitor": { name: "Monitor Skill", icon: "x ion-ios-compose-outline", url: pathToDesign},
-                        "help": { name: "Info", icon: "x ion-ios-information-outline" , url: pathToMD }
+                        "sep1": "---------"
                     }
+
+                    if(! obj_descr.err){
+                        let _obj = JSON.parse(obj_descr.skill_descp);
+                        items["monitor"] = { name: "Monitor Skill", icon: "x ion-ios-compose-outline", url: conf.monitor.url + "?skill=" + _obj.skill.name + "&ip=" + _obj.ip + "&port=" + _obj.port};
+                        items["sep2"] = "---------";
+
+                    }
+                    items["help"] = { name: "Info", icon: "x ion-ios-information-outline" , url: pathToMD };
+                    
                 } else if (figure instanceof draw2d.shape.basic.Label) {
                   items = {
                     "delete": {name: "Delete", icon: "x ion-ios-close-outline"}
