@@ -425,8 +425,11 @@ exports.default = {
       save: '../backend/brain/save'
     },
     skill: {
+      connect: '/backend/skill/connect',
       browse: '/backend/skill/browse',
-      save: '/backend/skill/save'
+      save: '/backend/skill/save',
+      getDescription: '/backend/skill/getDescription',
+      call: '/backend/skill/call'
     }
   },
   monitor: {
@@ -1807,7 +1810,7 @@ exports.default = draw2d.Canvas.extend({
         this.simulate = false;
         this.animationFrameFunc = this._calculate.bind(this);
 
-        this.timerBase = 10; // ms calculate every 10ms all elements
+        this.timerBase = 500; // ms calculate every 10ms all elements
 
         this.setScrollArea("#draw2dCanvasWrapper");
 
@@ -4516,6 +4519,10 @@ var _hardware = __webpack_require__(/*! ./hardware */ "./app/frontend/circuit/js
 
 var _hardware2 = _interopRequireDefault(_hardware);
 
+var _BackendSkills = __webpack_require__(/*! ./io/BackendSkills */ "./app/frontend/circuit/js/io/BackendSkills.js");
+
+var _BackendSkills2 = _interopRequireDefault(_BackendSkills);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -4533,7 +4540,8 @@ exports.default = {
   inlineSVG: _inlineSVG2.default,
   LabelInplaceEditor: _LabelInplaceEditor2.default,
   ConnectionRouter: _ConnectionRouter2.default,
-  CircuitFigure: _CircuitFigure2.default
+  CircuitFigure: _CircuitFigure2.default,
+  skillproxy: _BackendSkills2.default
 };
 module.exports = exports["default"];
 
@@ -4916,6 +4924,30 @@ var BackendSkills = function () {
   }
 
   _createClass(BackendSkills, [{
+    key: "connectSkill",
+    value: function connectSkill(ip, port) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.connect,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: ip,
+          port: port
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          self.skillList = resp.results;
+          return { err: resp.err, skills: self.skillList };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
     key: "browseSkills",
     value: function browseSkills(ip, port) {
       var self = this;
@@ -4970,6 +5002,79 @@ var BackendSkills = function () {
       //     }
       //   }
       // );
+    }
+  }, {
+    key: "getSkillDescription",
+    value: function getSkillDescription(skill_name) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.getDescription,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          skill_name: skill_name
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, skill_descp: JSON.parse(resp.skill_descp) };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "startSkill",
+    value: function startSkill(_ip, _port, _skill_name, _parameters) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.call,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          method: 'Start',
+          parameters: _parameters
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "getResultsOfSkillCall",
+    value: function getResultsOfSkillCall(_ip, _port, _skill_name, _parameters) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.call,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          method: 'GetResults',
+          parameters: _parameters
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
     }
   }, {
     key: "allSkills",

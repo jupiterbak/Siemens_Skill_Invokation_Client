@@ -20,8 +20,11 @@ export default {
       save:     `../backend/brain/save`
     },
     skill:{
+      connect: '/backend/skill/connect',
       browse: '/backend/skill/browse',
-      save: '/backend/skill/save'
+      save: '/backend/skill/save',
+      getDescription: '/backend/skill/getDescription',
+      call: '/backend/skill/call'
     }
   },
   monitor: {

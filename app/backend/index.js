@@ -193,6 +193,12 @@ function runServer() {
             let _content_json = JSON.parse(_content);
             _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code.txt'), "utf8");
 
+            // Generate the JSON file path, which describe the skill (OPC UA)
+            let skillDesriptionFile = path.normalize(shapeDirApp + req.body.filePath);
+            skillDesriptionFile = skillDesriptionFile.replace(".shape", ".json");
+            let skillDesriptionFileContent = JSON.stringify(_skill,null, 4);
+            
+
             fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
                 if (err){                    
                     // file could not be saved.
@@ -227,6 +233,11 @@ function runServer() {
                         res.send(JSON.stringify({err:"Skill could be saved but the index were not properly generated."}));
                         throw err;
                     }else{
+
+                        // Write the skill description as JSON
+                        fs.writeFileSync(skillDesriptionFile, skillDesriptionFileContent);
+                        
+                        // Copy the generated files to the user directory
                         let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
                         glob(pattern, {}, function(er, files) {
                             files.forEach(file => {
@@ -235,6 +246,7 @@ function runServer() {
                                 });
                             });
                         });
+
                         // file is saved...fine
                         //
                         res.send(JSON.stringify({err:null}));
@@ -250,6 +262,7 @@ function runServer() {
             });
         });
     });
+    
     app.get('/backend/skill/browse', (req, res) => {
 
         const _params = req.query;
@@ -261,6 +274,79 @@ function runServer() {
                             ip: _params.ip, 
                             port: _params.port, 
                             serverName: "INVOCATION_CLIENT"
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
+
+    app.get('/backend/skill/getDescription', (req, res) => {
+        var _skill_desc = req.query.skill_name;
+        if(_skill_desc){
+            try {
+                _json_resp = fs.readFileSync(path.normalize(shapeDirApp + _skill_desc + ".json"), "utf8");
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify({err:null, skill_descp: _json_resp}));
+              } catch (err) {
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify({err:"Cannot read the requested skill description."}));
+              }
+            
+        }else{
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({err:"Please summit the name of the skill to read."}));
+        }
+    });
+
+    app.get('/backend/skill/connect', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'connect')
+            .query(
+                    {
+                        parameter: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT"
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
+
+    app.get('/backend/skill/call', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'ExecuteMethod')
+            .query(
+                    {
+                        action: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            actionName: _params.method,
+                            parameters: _params.parameters
                         })
                     }
             )

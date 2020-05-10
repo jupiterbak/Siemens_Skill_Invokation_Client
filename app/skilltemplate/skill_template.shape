@@ -569,7 +569,7 @@
       "alpha": 1,
       "angle": 0,
       "userData": {
-        "name": "led_power"
+        "name": "led_connected"
       },
       "cssClass": "shape_designer_figure_PolyCircle",
       "ports": [],
@@ -604,7 +604,7 @@
       "alpha": 1,
       "angle": 0,
       "userData": {
-        "name": "led_connected"
+        "name": "led_power"
       },
       "cssClass": "shape_designer_figure_PolyCircle",
       "ports": [],
@@ -686,7 +686,7 @@
       "stroke": 0,
       "radius": 0,
       "dasharray": null,
-      "text": "State: Stopped",
+      "text": "State: Not Connected",
       "outlineStroke": 0,
       "outlineColor": "none",
       "fontSize": 12,

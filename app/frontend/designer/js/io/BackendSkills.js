@@ -109,7 +109,7 @@ class BackendSkills {
       if (resp.err){
         return {err: resp.err};
       }else{
-        return {err: resp.err, skill_descp: JSON.parse(resp.skill_descp)};
+        return {err: resp.err, skill_descp: resp.skill_descp};
       }        
       return {err: "Unknown response."};
     });

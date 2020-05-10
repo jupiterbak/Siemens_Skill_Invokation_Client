@@ -5435,6 +5435,10 @@ var _LabelInplaceEditor = __webpack_require__(/*! ./LabelInplaceEditor */ "./app
 
 var _LabelInplaceEditor2 = _interopRequireDefault(_LabelInplaceEditor);
 
+var _BackendSkills = __webpack_require__(/*! ./io/BackendSkills */ "./app/frontend/designer/js/io/BackendSkills.js");
+
+var _BackendSkills2 = _interopRequireDefault(_BackendSkills);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -5443,7 +5447,8 @@ exports.default = {
   LabelInplaceEditor: _LabelInplaceEditor2.default,
   Mousetrap: _mousetrap2.default,
   CircuitFigure: _CircuitFigure2.default,
-  inlineSVG: _inlineSVG2.default
+  inlineSVG: _inlineSVG2.default,
+  skillproxy: _BackendSkills2.default
 };
 module.exports = exports["default"];
 
@@ -5525,6 +5530,9 @@ $(window).load(function () {
     path: '/socket.io'
   });
 
+  // Hack: add socket to the global context
+  window['socket'] = socket;
+
   // remove the fileOpen/Save stuff if we run in a "serverless" mode. e.g. on gh-pages
   // (fake event from the socket.io mock )
   //
@@ -5539,6 +5547,214 @@ $(window).load(function () {
     app = shape_designer.app = new _Application2.default();
   });
 });
+
+/***/ }),
+
+/***/ "./app/frontend/designer/js/io/BackendSkills.js":
+/*!******************************************************!*\
+  !*** ./app/frontend/designer/js/io/BackendSkills.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Configuration = __webpack_require__(/*! ./../Configuration */ "./app/frontend/designer/js/Configuration.js");
+
+var _Configuration2 = _interopRequireDefault(_Configuration);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var sanitize = __webpack_require__(/*! sanitize-filename */ "./node_modules/sanitize-filename/index.js");
+
+var BackendSkills = function () {
+
+  /**
+   * @constructor
+   *
+   */
+  function BackendSkills() {
+    _classCallCheck(this, BackendSkills);
+
+    this.skillList = [];
+    Object.preventExtensions(this);
+  }
+
+  _createClass(BackendSkills, [{
+    key: "connectSkill",
+    value: function connectSkill(ip, port) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.connect,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: ip,
+          port: port
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          self.skillList = resp.results;
+          return { err: resp.err, skills: self.skillList };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "browseSkills",
+    value: function browseSkills(ip, port) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.browse,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: ip,
+          port: port
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          self.skillList = resp.results;
+          return { err: resp.err, skills: self.skillList };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "saveSkill",
+    value: function saveSkill(skillObject, _machineName) {
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.save,
+        method: "POST",
+        async: false,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          filePath: "" + _machineName + "_" + skillObject.ip + "_" + skillObject.port + "_" + skillObject.skill.name + ".shape",
+          skill: skillObject
+        }
+      });
+    }
+  }, {
+    key: "deleteSkill",
+    value: function deleteSkill(skill) {
+      // TODO: Jupiter Delete Skill remotely
+      // return $.ajax({
+      //     url: conf.backend.skill.del,
+      //     method: "POST",
+      //     xhrFields: {
+      //       withCredentials: true
+      //     },
+      //     data: {
+      //       filePath: fileName
+      //     }
+      //   }
+      // );
+    }
+  }, {
+    key: "getSkillDescription",
+    value: function getSkillDescription(skill_name) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.getDescription,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          skill_name: skill_name
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, skill_descp: resp.skill_descp };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "startSkill",
+    value: function startSkill(_ip, _port, _skill_name, _parameters) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.call,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          method: 'Start',
+          parameters: _parameters
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "getResultsOfSkillCall",
+    value: function getResultsOfSkillCall(_ip, _port, _skill_name, _parameters) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.call,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          method: 'GetResults',
+          parameters: _parameters
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "allSkills",
+    get: function get() {
+      return this.skillList;
+    }
+  }]);
+
+  return BackendSkills;
+}();
+
+var skillproxy = new BackendSkills();
+exports.default = skillproxy;
+module.exports = exports["default"];
 
 /***/ }),
 
@@ -51059,6 +51275,77 @@ module.exports = function text(state, silent) {
 
 /***/ }),
 
+/***/ "./node_modules/sanitize-filename/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/sanitize-filename/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*jshint node:true*/
+
+
+/**
+ * Replaces characters in strings that are illegal/unsafe for filenames.
+ * Unsafe characters are either removed or replaced by a substitute set
+ * in the optional `options` object.
+ *
+ * Illegal Characters on Various Operating Systems
+ * / ? < > \ : * | "
+ * https://kb.acronis.com/content/39790
+ *
+ * Unicode Control codes
+ * C0 0x00-0x1f & C1 (0x80-0x9f)
+ * http://en.wikipedia.org/wiki/C0_and_C1_control_codes
+ *
+ * Reserved filenames on Unix-based systems (".", "..")
+ * Reserved filenames in Windows ("CON", "PRN", "AUX", "NUL", "COM1",
+ * "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9",
+ * "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", and
+ * "LPT9") case-insesitively and with or without filename extensions.
+ *
+ * Capped at 255 characters in length.
+ * http://unix.stackexchange.com/questions/32795/what-is-the-maximum-allowed-filename-and-folder-size-with-ecryptfs
+ *
+ * @param  {String} input   Original filename
+ * @param  {Object} options {replacement: String | Function }
+ * @return {String}         Sanitized filename
+ */
+
+var truncate = __webpack_require__(/*! truncate-utf8-bytes */ "./node_modules/truncate-utf8-bytes/browser.js");
+
+var illegalRe = /[\/\?<>\\:\*\|"]/g;
+var controlRe = /[\x00-\x1f\x80-\x9f]/g;
+var reservedRe = /^\.+$/;
+var windowsReservedRe = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\..*)?$/i;
+var windowsTrailingRe = /[\. ]+$/;
+
+function sanitize(input, replacement) {
+  if (typeof input !== 'string') {
+    throw new Error('Input must be string');
+  }
+  var sanitized = input
+    .replace(illegalRe, replacement)
+    .replace(controlRe, replacement)
+    .replace(reservedRe, replacement)
+    .replace(windowsReservedRe, replacement)
+    .replace(windowsTrailingRe, replacement);
+  return truncate(sanitized, 255);
+}
+
+module.exports = function (input, options) {
+  var replacement = (options && options.replacement) || '';
+  var output = sanitize(input, replacement);
+  if (replacement === '') {
+    return output;
+  }
+  return sanitize(output, '');
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -51545,6 +51832,137 @@ module.exports = function (css) {
 
 	// send back the fixed css
 	return fixedCss;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/truncate-utf8-bytes/browser.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/truncate-utf8-bytes/browser.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var truncate = __webpack_require__(/*! ./lib/truncate */ "./node_modules/truncate-utf8-bytes/lib/truncate.js");
+var getLength = __webpack_require__(/*! utf8-byte-length/browser */ "./node_modules/utf8-byte-length/browser.js");
+module.exports = truncate.bind(null, getLength);
+
+
+/***/ }),
+
+/***/ "./node_modules/truncate-utf8-bytes/lib/truncate.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/truncate-utf8-bytes/lib/truncate.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function isHighSurrogate(codePoint) {
+  return codePoint >= 0xd800 && codePoint <= 0xdbff;
+}
+
+function isLowSurrogate(codePoint) {
+  return codePoint >= 0xdc00 && codePoint <= 0xdfff;
+}
+
+// Truncate string by size in bytes
+module.exports = function truncate(getLength, string, byteLength) {
+  if (typeof string !== "string") {
+    throw new Error("Input must be string");
+  }
+
+  var charLength = string.length;
+  var curByteLength = 0;
+  var codePoint;
+  var segment;
+
+  for (var i = 0; i < charLength; i += 1) {
+    codePoint = string.charCodeAt(i);
+    segment = string[i];
+
+    if (isHighSurrogate(codePoint) && isLowSurrogate(string.charCodeAt(i + 1))) {
+      i += 1;
+      segment += string[i];
+    }
+
+    curByteLength += getLength(segment);
+
+    if (curByteLength === byteLength) {
+      return string.slice(0, i + 1);
+    }
+    else if (curByteLength > byteLength) {
+      return string.slice(0, i - segment.length + 1);
+    }
+  }
+
+  return string;
+};
+
+
+
+/***/ }),
+
+/***/ "./node_modules/utf8-byte-length/browser.js":
+/*!**************************************************!*\
+  !*** ./node_modules/utf8-byte-length/browser.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function isHighSurrogate(codePoint) {
+  return codePoint >= 0xd800 && codePoint <= 0xdbff;
+}
+
+function isLowSurrogate(codePoint) {
+  return codePoint >= 0xdc00 && codePoint <= 0xdfff;
+}
+
+// Truncate string by size in bytes
+module.exports = function getByteLength(string) {
+  if (typeof string !== "string") {
+    throw new Error("Input must be string");
+  }
+
+  var charLength = string.length;
+  var byteLength = 0;
+  var codePoint = null;
+  var prevCodePoint = null;
+  for (var i = 0; i < charLength; i++) {
+    codePoint = string.charCodeAt(i);
+    // handle 4-byte non-BMP chars
+    // low surrogate
+    if (isLowSurrogate(codePoint)) {
+      // when parsing previous hi-surrogate, 3 is added to byteLength
+      if (prevCodePoint != null && isHighSurrogate(prevCodePoint)) {
+        byteLength += 1;
+      }
+      else {
+        byteLength += 3;
+      }
+    }
+    else if (codePoint <= 0x7f ) {
+      byteLength += 1;
+    }
+    else if (codePoint >= 0x80 && codePoint <= 0x7ff) {
+      byteLength += 2;
+    }
+    else if (codePoint >= 0x800 && codePoint <= 0xffff) {
+      byteLength += 3;
+    }
+    prevCodePoint = codePoint;
+  }
+
+  return byteLength;
 };
 
 

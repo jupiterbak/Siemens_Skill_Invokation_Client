@@ -11,7 +11,7 @@
             "angle": 0,
             "userData": {
                 "baseClass": "draw2d.SetFigure",
-                "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n   init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n         \r\n         var _this= this;\r\n         this.currentTimer=0;\r\n         this.state = 5; // STOPPED\r\n         this.last_en_value = 0;\r\n    },\r\n    \r\n    calculate:function(){\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 1;\r\n            }\r\n            break;\r\n          case 1: // Call skill start\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            // TODO: Call Start method with the parameters\r\n            this.currentTimer=0;\r\n            \r\n            // Make transition\r\n            this.state = 2;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            this.currentTimer = (this.currentTimer + 1)% 400;\r\n            if(this.currentTimer === 0){\r\n                this.state = 3;\r\n            }\r\n            break;\r\n          case 3: // Call Get results\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.getOutputPort(0).setValue(true);\r\n            this.state = 4;\r\n            break;\r\n          case 4: // Set the outputs\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.getOutputPort(0).setValue(true);\r\n            \r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      }\r\n    }\r\n});",
+                "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n         // get the skill description from the backend.\r\n         this.decription = null;       \r\n         \r\n         var _this= this;\r\n         this.currentTimer=0;\r\n         this.state = 5; // STOPPED\r\n         this.last_en_value = 0;\r\n         this.err_msg = \"\";\r\n         this.state = \"Ready\";\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The skill description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            skillproxy.getSkillDescription(this.NAME).then(function (desc) {\r\n                if (desc.skill_descp){\r\n                    self.decription = desc.skill_descp;\r\n                }\r\n                if(self.decription){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the skill\r\n            skillproxy.connectSkill(self.decription.ip, self.decription.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  this.state = 6;\r\n                  self.err_msg = \"Error while connecting to the skill!\";\r\n                }else{\r\n                  //socket.on(\"serverstatus\", msg =>{\r\n                    //console.log(\"####### Serverstatus\");\r\n                  //});\r\n                  //socket.on(\"StatesChanged\", msg =>{\r\n                    //console.log(\"####### StatesChanged\");\r\n                  //});\r\n    \r\n                  // Make transition\r\n                  this.state = 12;\r\n                }\r\n            }); \r\n            this.state = 110;               \r\n            break;\r\n          case 110:\r\n            this.currentTimer=0;\r\n            break;\r\n          case 12: // Call the skill\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            skillproxy.startSkill(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_start) {\r\n              if(resp_start.err){\r\n                // Make transition to err\r\n                this.state = 6;\r\n                self.err_msg = \"Error while starting the skill!\";\r\n              }else{\r\n                // Make transition\r\n                this.state = 2;\r\n              }\r\n            });\r\n\r\n            this.state = 120;               \r\n            break;\r\n          // case 1: // Call skill start\r\n          //   this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n          //   this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n          //   this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n          //   this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n          //   // TODO: Call Start method with the parameters\r\n          //   this.currentTimer=0;\r\n            \r\n          //   // Make transition\r\n          //   this.state = 2;\r\n          //   break;\r\n          case 120: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            if(self.state =='ready'){\r\n              // Make transition\r\n              this.state = 3;\r\n            }\r\n            // this.currentTimer = (this.currentTimer + 1)% 400;\r\n            // if(this.currentTimer === 0){\r\n            //     this.state = 3;\r\n            // }\r\n            // break;\r\n          case 3: // Call Get results\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.getOutputPort(0).setValue(true);\r\n            this.state = 4;\r\n            break;\r\n          case 4: // Set the outputs\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.getOutputPort(0).setValue(true);\r\n            \r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      }\r\n    }\r\n});",
                 "name": "circle",
                 "markdown": "#Skill Template"
             },
@@ -326,7 +326,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "419011d3-93ec-4610-8b2a-f4c3b8d820af",
+            "id": "145c3a98-b44f-4b2a-b0f2-7f70f232b65a",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -361,7 +361,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "79df4a20-c84a-4aa1-bc4d-330ec563dc02",
+            "id": "dbc44b0e-150a-4558-b695-ab4e7f4db274",
             "x": 7905,
             "y": 7974,
             "width": 100,
@@ -399,7 +399,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "d948eab0-6f42-404d-a443-f2514ae5a217",
+            "id": "d9c1e764-25c1-4890-9776-ced6cfc2a17c",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -437,7 +437,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "0355b1e5-0970-489b-ad3f-2175e89dcd56",
+            "id": "bd49fa36-4021-4e87-923f-db913621b93c",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -472,7 +472,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "90401f0a-253e-4e84-a148-3a1724126ebc",
+            "id": "f71fb15f-0c55-498b-8d0a-5045dcfb56cc",
             "x": 7905,
             "y": 7987,
             "width": 100,
@@ -510,7 +510,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "0520f14b-cbc7-4eeb-ac14-d3e7513d03cd",
+            "id": "bd91d68a-5f66-4f75-8c41-b83ea8b67cf6",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -548,7 +548,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "ae426e96-9bd8-4888-82e5-98d1f74e7732",
+            "id": "16c90fb9-7347-48df-a6b7-3c92e3b4fc2f",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -583,7 +583,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "6e82f5c4-c67c-4c11-a196-295b39fec6f4",
+            "id": "c1d22e3c-2c08-4346-886d-dfe409a4ac5c",
             "x": 8038,
             "y": 7974,
             "width": 60,
@@ -621,7 +621,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "0e516673-2657-4bc4-818f-588466c01387",
+            "id": "9823e159-6ecf-4461-b17b-d1843749f482",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -659,7 +659,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "6ab8ea3c-eeac-4bac-8584-5cdcd94b9e31",
+            "id": "ff996cd1-2305-43ef-a755-7d4b66cfdeb4",
             "x": 8095,
             "y": 7993,
             "width": 10,
@@ -694,7 +694,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "12c9ef8a-4003-486c-b482-a7ea01e3f960",
+            "id": "95d5402d-73d5-41a0-886a-d704af636de1",
             "x": 8038,
             "y": 7987,
             "width": 60,
@@ -732,7 +732,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "67882e6a-e796-45f5-be42-c6dcc0337f31",
+            "id": "46728f5f-6ac2-47d3-9d20-dfba2822d357",
             "x": 8095,
             "y": 7993,
             "width": 10,
@@ -778,7 +778,7 @@
             "alpha": 1,
             "angle": 0,
             "userData": {
-                "name": "led_power"
+                "name": "led_connected"
             },
             "cssClass": "shape_designer_figure_PolyCircle",
             "ports": [],
@@ -813,7 +813,7 @@
             "alpha": 1,
             "angle": 0,
             "userData": {
-                "name": "led_connected"
+                "name": "led_power"
             },
             "cssClass": "shape_designer_figure_PolyCircle",
             "ports": [],
@@ -895,7 +895,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "State: Stopped",
+            "text": "State: Not Connected",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 12,

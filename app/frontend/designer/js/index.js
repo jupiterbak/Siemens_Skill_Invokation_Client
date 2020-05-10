@@ -63,6 +63,9 @@ $(window).load(function () {
       path: '/socket.io'
     })
 
+  // Hack: add socket to the global context
+  window['socket']=socket;
+
   // remove the fileOpen/Save stuff if we run in a "serverless" mode. e.g. on gh-pages
   // (fake event from the socket.io mock )
   //

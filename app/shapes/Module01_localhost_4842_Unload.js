@@ -139,15 +139,15 @@ var Module01_localhost_4842_Unload = CircuitFigure.extend({
        shape.attr({"x":146.5,"y":108.1171875,"text-anchor":"start","text":"ErrorId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_OUT_1");
        
-       // led_power
-       shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":6.090499999999338,"ry":6.090499999999338,"cx":34.11443749999853,"cy":11.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#FF3C00","dasharray":null,"opacity":1});
-       shape.data("name","led_power");
-       
        // led_connected
        shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":6.090499999999338,"ry":6.090499999999338,"cx":17.297074999999495,"cy":11.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#33DE09","dasharray":null,"opacity":1});
+       shape.attr({"rx":6.090499999999338,"ry":6.090499999999338,"cx":34.11443749999853,"cy":11.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#FF3C00","dasharray":null,"opacity":1});
        shape.data("name","led_connected");
+       
+       // led_power
+       shape = this.canvas.paper.ellipse();
+       shape.attr({"rx":6.090499999999338,"ry":6.090499999999338,"cx":17.297074999999495,"cy":11.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#33DE09","dasharray":null,"opacity":1});
+       shape.data("name","led_power");
        
        // Skill_IP
        shape = this.canvas.paper.text(0,0,'localhost:4842');
@@ -155,8 +155,8 @@ var Module01_localhost_4842_Unload = CircuitFigure.extend({
        shape.data("name","Skill_IP");
        
        // Skill_State
-       shape = this.canvas.paper.text(0,0,'State: Stopped');
-       shape.attr({"x":48.5,"y":61,"text-anchor":"start","text":"State: Stopped","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'State: Not Connected');
+       shape.attr({"x":48.5,"y":61,"text-anchor":"start","text":"State: Not Connected","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Skill_State");
        
        // Skill_NodeID
@@ -176,19 +176,25 @@ var Module01_localhost_4842_Unload = CircuitFigure.extend({
  */
 Module01_localhost_4842_Unload = Module01_localhost_4842_Unload.extend({
 
-   init: function(attr, setter, getter){
+    init: function(attr, setter, getter){
          this._super(attr, setter, getter);
 
          this.attr({resizeable:false});
          this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
+
+         // get the skill description from the backend.
+         this.decription = null;       
          
          var _this= this;
          this.currentTimer=0;
          this.state = 5; // STOPPED
          this.last_en_value = 0;
+         this.err_msg = "";
+         this.state = "Ready";
     },
     
     calculate:function(){
+        var self = this;
         // STATE MACHINE
         switch (this.state) {
           case 0: // STOPPED
@@ -200,26 +206,97 @@ Module01_localhost_4842_Unload = Module01_localhost_4842_Unload.extend({
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
             if(this.getInputPort(0).getValue()){
-                this.state = 1;
+                this.state = 10;
             }
             break;
-          case 1: // Call skill start
+          case 10: // Get The skill description
             this.layerAttr("Circle_en",{fill:"#faa50a"});
             this.layerAttr("led_power",{fill:"#33DE09"});
-            this.layerAttr("led_connected",{fill:"#f0f0f0"});
+            this.layerAttr("led_connected",{fill:"#FF3C00"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
-            // TODO: Call Start method with the parameters
+            skillproxy.getSkillDescription(this.NAME).then(function (desc) {
+                if (desc.skill_descp){
+                    self.decription = desc.skill_descp;
+                }
+                if(self.decription){
+                  // Make transition
+                  self.state = 11;
+                }else{
+                  // Make transition to err
+                  self.state = 6;
+                  self.err_msg = "Could not fetch the skill description";
+                }
+            });
+            this.state = 100;                       
+            break;
+          case 100: // Wait for the callback
             this.currentTimer=0;
+            break;
+          case 11: // Connect to the skill
+            skillproxy.connectSkill(self.decription.ip, self.decription.port).then(function (resp_con) {
+                if(resp_con.err){
+                  // Make transition to err
+                  this.state = 6;
+                  self.err_msg = "Error while connecting to the skill!";
+                }else{
+                  //socket.on("serverstatus", msg =>{
+                    //console.log("####### Serverstatus");
+                  //});
+                  //socket.on("StatesChanged", msg =>{
+                    //console.log("####### StatesChanged");
+                  //});
+    
+                  // Make transition
+                  this.state = 12;
+                }
+            }); 
+            this.state = 110;               
+            break;
+          case 110:
+            this.currentTimer=0;
+            break;
+          case 12: // Call the skill
+            this.layerAttr("Circle_en",{fill:"#faa50a"});
+            this.layerAttr("led_power",{fill:"#33DE09"});
+            this.layerAttr("led_connected",{fill:"#33DE09"});
+            this.layerAttr("circle",{fill:"#f0f0f0"});
+            skillproxy.startSkill(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_start) {
+              if(resp_start.err){
+                // Make transition to err
+                this.state = 6;
+                self.err_msg = "Error while starting the skill!";
+              }else{
+                // Make transition
+                this.state = 2;
+              }
+            });
+
+            this.state = 120;               
+            break;
+          // case 1: // Call skill start
+          //   this.layerAttr("Circle_en",{fill:"#faa50a"});
+          //   this.layerAttr("led_power",{fill:"#33DE09"});
+          //   this.layerAttr("led_connected",{fill:"#f0f0f0"});
+          //   this.layerAttr("circle",{fill:"#f0f0f0"});
+          //   // TODO: Call Start method with the parameters
+          //   this.currentTimer=0;
             
-            // Make transition
-            this.state = 2;
+          //   // Make transition
+          //   this.state = 2;
+          //   break;
+          case 120: // Wait for the callback
+            this.currentTimer=0;
             break;
           case 2: // Wait for the  skill to be done
-            this.currentTimer = (this.currentTimer + 1)% 400;
-            if(this.currentTimer === 0){
-                this.state = 3;
+            if(self.state =='ready'){
+              // Make transition
+              this.state = 3;
             }
-            break;
+            // this.currentTimer = (this.currentTimer + 1)% 400;
+            // if(this.currentTimer === 0){
+            //     this.state = 3;
+            // }
+            // break;
           case 3: // Call Get results
             this.currentTimer=0;
             this.layerAttr("Circle_done",{fill:"#faa50a"});

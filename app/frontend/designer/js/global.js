@@ -7,6 +7,7 @@ import "./util/mousetrap-pause"
 import hardware from "./Hardware"
 import inlineSVG from "../lib/inlineSVG"
 import LabelInplaceEditor from './LabelInplaceEditor'
+import skillproxy from "./io/BackendSkills"
 
 export default {
   hardware,
@@ -14,5 +15,6 @@ export default {
   LabelInplaceEditor,
   Mousetrap,
   CircuitFigure,
-  inlineSVG
+  inlineSVG,
+  skillproxy
 }
