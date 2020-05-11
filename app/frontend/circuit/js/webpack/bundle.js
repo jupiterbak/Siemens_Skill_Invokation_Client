@@ -1810,7 +1810,7 @@ exports.default = draw2d.Canvas.extend({
         this.simulate = false;
         this.animationFrameFunc = this._calculate.bind(this);
 
-        this.timerBase = 200; // ms calculate every 10ms all elements
+        this.timerBase = 50; // ms calculate every 10ms all elements
 
         this.setScrollArea("#draw2dCanvasWrapper");
 
@@ -3673,7 +3673,8 @@ exports.default = draw2d.InputPort.extend({
         }.bind(this));
 
         // a port can have a value. Usefull for workflow engines or circuit diagrams
-        this.setValue(true);
+        // NOTE: Jupiter - Change port default value to False
+        this.setValue(false);
     },
 
     useDefaultValue: function useDefaultValue() {

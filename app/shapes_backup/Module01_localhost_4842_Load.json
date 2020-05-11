@@ -41,9 +41,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "8df612b9-b4ca-4f8e-81d2-5d545025530a",
-                            "id_label": "51cab6e1-705d-4770-bf2d-d028f44e08a6",
-                            "id_port": "42b2b884-c401-446a-9c88-c789696a1781"
+                            "id_circle": "bd49fa36-4021-4e87-923f-db913621b93c",
+                            "id_label": "f71fb15f-0c55-498b-8d0a-5045dcfb56cc",
+                            "id_port": "bd91d68a-5f66-4f75-8c41-b83ea8b67cf6"
                         }
                     ],
                     "outputArguments": [
@@ -54,9 +54,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "f3ea4a1a-0a07-47b4-b986-d6845999a051",
-                            "id_label": "6e303cd3-59a9-4a49-b28b-1a7a99f5fad4",
-                            "id_port": "fe032094-5f37-4e30-8a56-cc2304a6bfc1"
+                            "id_circle": "ff996cd1-2305-43ef-a755-7d4b66cfdeb4",
+                            "id_label": "95d5402d-73d5-41a0-886a-d704af636de1",
+                            "id_port": "46728f5f-6ac2-47d3-9d20-dfba2822d357"
                         }
                     ]
                 },
@@ -105,9 +105,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "5fbccb7f-68fa-472d-99d3-823d9417f5bf",
-                            "id_label": "e638ef18-62f2-4110-9d5f-03c8ec8d12ee",
-                            "id_port": "0214014f-7106-4186-962d-148e3d983ca9"
+                            "id_circle": "145c3a98-b44f-4b2a-b0f2-7f70f232b65a",
+                            "id_label": "dbc44b0e-150a-4558-b695-ab4e7f4db274",
+                            "id_port": "d9c1e764-25c1-4890-9776-ced6cfc2a17c"
                         }
                     ],
                     "outputArguments": [
@@ -118,9 +118,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "b38869e4-7a45-435d-911b-4fa36ec0ec2c",
-                            "id_label": "7ce1f7b3-a5ce-4396-8833-d419970f1a99",
-                            "id_port": "def428c7-f295-489c-b80a-5be733034a84"
+                            "id_circle": "16c90fb9-7347-48df-a6b7-3c92e3b4fc2f",
+                            "id_label": "c1d22e3c-2c08-4346-886d-dfe409a4ac5c",
+                            "id_port": "9823e159-6ecf-4461-b17b-d1843749f482"
                         }
                     ]
                 },
@@ -225,8 +225,7 @@
                         },
                         "type": "Variable",
                         "interval": "50",
-                        "value": "",
-                        "ID": "ns=4;i=1089"
+                        "value": "1"
                     }
                 },
                 "RunningStateMachine": {
@@ -334,8 +333,7 @@
                                 },
                                 "type": "Variable",
                                 "interval": "50",
-                                "value": "",
-                                "ID": "ns=4;i=1121"
+                                "value": "1"
                             }
                         }
                     },
@@ -399,8 +397,7 @@
                                 },
                                 "type": "Variable",
                                 "interval": "50",
-                                "value": "",
-                                "ID": "ns=4;i=1123"
+                                "value": "1"
                             }
                         }
                     },
@@ -464,8 +461,7 @@
                                 },
                                 "type": "Variable",
                                 "interval": "50",
-                                "value": "",
-                                "ID": "ns=4;i=1125"
+                                "value": "1"
                             }
                         }
                     },
@@ -484,8 +480,7 @@
                             },
                             "type": "Variable",
                             "interval": "50",
-                            "value": "",
-                            "ID": "ns=4;i=1115"
+                            "value": "1"
                         }
                     },
                     "ResettingStateMachine": {
@@ -548,8 +543,7 @@
                                 },
                                 "type": "Variable",
                                 "interval": "50",
-                                "value": "",
-                                "ID": "ns=4;i=1127"
+                                "value": "1"
                             }
                         }
                     }
@@ -592,8 +586,7 @@
                     },
                     "type": "Variable",
                     "interval": "50",
-                    "value": "",
-                    "ID": "ns=4;i=1087"
+                    "value": "1"
                 }
             }
         }
@@ -641,8 +634,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1089"
+                "value": "1"
             },
             {
                 "name": "Id",
@@ -718,8 +710,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1121"
+                "value": "1"
             },
             {
                 "name": "Id",
@@ -762,8 +753,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1123"
+                "value": "1"
             },
             {
                 "name": "Id",
@@ -806,8 +796,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1125"
+                "value": "1"
             },
             {
                 "name": "Id",
@@ -817,8 +806,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1115"
+                "value": "1"
             },
             {
                 "name": "Id",
@@ -861,8 +849,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1127"
+                "value": "1"
             },
             {
                 "name": "Id",
@@ -905,8 +892,7 @@
                 },
                 "type": "Variable",
                 "interval": "50",
-                "value": "",
-                "ID": "ns=4;i=1087"
+                "value": "1"
             }
         ],
         "ACTIONS": [
@@ -1011,7 +997,7 @@
                 }
             }
         ],
-        "CURRENT_STATE_VALUE": "cleared"
+        "CURRENT_STATE_VALUE": "1"
     },
     "parameters": {
         "inputs": [
@@ -1022,9 +1008,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "5fbccb7f-68fa-472d-99d3-823d9417f5bf",
-                "id_label": "e638ef18-62f2-4110-9d5f-03c8ec8d12ee",
-                "id_port": "0214014f-7106-4186-962d-148e3d983ca9"
+                "id_circle": "145c3a98-b44f-4b2a-b0f2-7f70f232b65a",
+                "id_label": "dbc44b0e-150a-4558-b695-ab4e7f4db274",
+                "id_port": "d9c1e764-25c1-4890-9776-ced6cfc2a17c"
             },
             {
                 "name": "RFID",
@@ -1033,9 +1019,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "8df612b9-b4ca-4f8e-81d2-5d545025530a",
-                "id_label": "51cab6e1-705d-4770-bf2d-d028f44e08a6",
-                "id_port": "42b2b884-c401-446a-9c88-c789696a1781"
+                "id_circle": "bd49fa36-4021-4e87-923f-db913621b93c",
+                "id_label": "f71fb15f-0c55-498b-8d0a-5045dcfb56cc",
+                "id_port": "bd91d68a-5f66-4f75-8c41-b83ea8b67cf6"
             }
         ],
         "outputs": [
@@ -1046,9 +1032,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "b38869e4-7a45-435d-911b-4fa36ec0ec2c",
-                "id_label": "7ce1f7b3-a5ce-4396-8833-d419970f1a99",
-                "id_port": "def428c7-f295-489c-b80a-5be733034a84"
+                "id_circle": "16c90fb9-7347-48df-a6b7-3c92e3b4fc2f",
+                "id_label": "c1d22e3c-2c08-4346-886d-dfe409a4ac5c",
+                "id_port": "9823e159-6ecf-4461-b17b-d1843749f482"
             },
             {
                 "name": "ErrorId",
@@ -1057,9 +1043,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "f3ea4a1a-0a07-47b4-b986-d6845999a051",
-                "id_label": "6e303cd3-59a9-4a49-b28b-1a7a99f5fad4",
-                "id_port": "fe032094-5f37-4e30-8a56-cc2304a6bfc1"
+                "id_circle": "ff996cd1-2305-43ef-a755-7d4b66cfdeb4",
+                "id_label": "95d5402d-73d5-41a0-886a-d704af636de1",
+                "id_port": "46728f5f-6ac2-47d3-9d20-dfba2822d357"
             }
         ]
     }

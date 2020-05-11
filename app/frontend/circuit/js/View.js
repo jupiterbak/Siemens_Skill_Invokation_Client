@@ -40,7 +40,7 @@ export default draw2d.Canvas.extend({
         this.simulate = false
         this.animationFrameFunc = this._calculate.bind(this)
 
-        this.timerBase = 200 // ms calculate every 10ms all elements
+        this.timerBase = 50 // ms calculate every 10ms all elements
 
         this.setScrollArea("#draw2dCanvasWrapper")
 

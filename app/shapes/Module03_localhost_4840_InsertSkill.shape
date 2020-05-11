@@ -6,7 +6,7 @@
             "x": 7900.241887499999,
             "y": 7889.5,
             "width": 200,
-            "height": 146,
+            "height": 211,
             "alpha": 1,
             "angle": 0,
             "userData": {
@@ -78,7 +78,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "Unload",
+            "text": "InsertSkill",
             "outlineStroke": 0,
             "outlineColor": "#FF0000",
             "fontSize": 16,
@@ -326,7 +326,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "68798fd6-48fa-491f-a4d8-6f3981efcb46",
+            "id": "c4fe7d6b-a34e-49cb-8544-54229367f344",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -361,7 +361,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "6499e271-0912-4b58-959d-887f350f33c0",
+            "id": "caba4979-2e9e-4081-a802-e63b81e5f11f",
             "x": 7905,
             "y": 7974,
             "width": 100,
@@ -378,7 +378,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "Orientation",
+            "text": "Position",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 8,
@@ -399,7 +399,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "5789befd-de7d-4049-bd6c-b16f84858323",
+            "id": "6e35a102-97d7-429c-aa29-12289aa86043",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -437,7 +437,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "c0e37d4b-8294-47e7-901a-4ff390babc41",
+            "id": "e75fc96c-a482-490f-b18a-1eb18953e426",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -472,7 +472,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "0c2cd619-f6cc-4a4b-8547-9b5539c83a80",
+            "id": "286416dc-4edd-4984-99d2-9efadf381270",
             "x": 7905,
             "y": 7987,
             "width": 100,
@@ -489,7 +489,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "RFID",
+            "text": "BuildingBlockTypeId",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 8,
@@ -510,7 +510,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "7f41af68-409c-487a-9681-6dfb13b15c63",
+            "id": "a0524651-ef28-442e-a94c-6df433322902",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -548,7 +548,562 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "272b2891-b4f9-416d-bf14-e153b33044d2",
+            "id": "a6cf9a09-f926-4293-a24b-c9075bbd6d6c",
+            "x": 7896,
+            "y": 8006,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_2"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "e48112cc-e3ad-4dbb-a0e2-89103d37044f",
+            "x": 7905,
+            "y": 8000,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_2"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "Orientation",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "d50a10b4-3f1b-4cea-ac4e-ffd443ad31c9",
+            "x": 7896,
+            "y": 8006,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_2",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "6ac660ed-0cf9-4a96-8f14-cb3a89796dd9",
+            "x": 7896,
+            "y": 8019,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_3"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "ca08d421-0fef-442c-b684-bee617b78a62",
+            "x": 7905,
+            "y": 8013,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_3"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "RFID",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "a761b75c-29f2-4226-83ec-09ec61f16aea",
+            "x": 7896,
+            "y": 8019,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_3",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "0c67b06c-3532-4896-a3a5-319aa93a2c9a",
+            "x": 7896,
+            "y": 8032,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_4"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "c693dcda-27b6-459f-8b55-c904e114aadc",
+            "x": 7905,
+            "y": 8026,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_4"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "CurrentConfiguration_BuildingBlockTypeId",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "f020134f-392e-4aff-a032-3f567cf7db54",
+            "x": 7896,
+            "y": 8032,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_4",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "4260b233-71e3-4a9f-a771-b04fc81785db",
+            "x": 7896,
+            "y": 8045,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_5"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "5ce187e0-9dc4-4af1-a733-64ce828a2d64",
+            "x": 7905,
+            "y": 8039,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_5"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "CurrentConfiguration_Orientation",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "7f316235-5117-455a-8a01-f284a2b36670",
+            "x": 7896,
+            "y": 8045,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_5",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "6a416fdc-bb20-4c75-b365-c5fc49e49a06",
+            "x": 7896,
+            "y": 8058,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Circle_IN_6"
+            },
+            "cssClass": "shape_designer_figure_PolyCircle",
+            "ports": [],
+            "bgColor": "#F2F2F2",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "radius": 0,
+            "dasharray": null,
+            "blur": 0,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.SizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                },
+                {
+                    "name": "shape_designer.filter.StrokeFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtLabel",
+            "id": "173c8189-af38-4796-aebd-ca77aed5422b",
+            "x": 7905,
+            "y": 8052,
+            "width": 100,
+            "height": 21.234375,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Label_IN_6"
+            },
+            "cssClass": "shape_designer_figure_ExtLabel",
+            "ports": [],
+            "bgColor": "none",
+            "color": "#1B1B1B",
+            "stroke": 0,
+            "radius": 0,
+            "dasharray": null,
+            "text": "RFID",
+            "outlineStroke": 0,
+            "outlineColor": "none",
+            "fontSize": 8,
+            "fontColor": "#080808",
+            "fontFamily": null,
+            "editor": "LabelInplaceEditor",
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontSizeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FontColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.ExtPort",
+            "id": "13ff8284-2bfd-4098-bfbf-f42f4e6cad88",
+            "x": 7896,
+            "y": 8058,
+            "width": 10,
+            "height": 10,
+            "alpha": 1,
+            "angle": 0,
+            "userData": {
+                "name": "Port_IN_6",
+                "type": "Input",
+                "direction": 3
+            },
+            "cssClass": "shape_designer_figure_ExtPort",
+            "ports": [],
+            "bgColor": "#1C9BAB",
+            "color": "#1B1B1B",
+            "stroke": 1,
+            "dasharray": null,
+            "filters": [
+                {
+                    "name": "shape_designer.filter.PositionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FanoutFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortDirectionFilter"
+                },
+                {
+                    "name": "shape_designer.filter.PortTypeFilter"
+                },
+                {
+                    "name": "shape_designer.filter.FillColorFilter"
+                }
+            ]
+        },
+        {
+            "type": "shape_designer.figure.PolyCircle",
+            "id": "b126c619-7bd3-43db-bee6-3c0e5466bdce",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -583,7 +1138,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "1162124b-97f0-4756-955f-057a03b05fdf",
+            "id": "4b596e95-b5c0-4cd7-aba9-68b1c73ae019",
             "x": 8038,
             "y": 7974,
             "width": 60,
@@ -621,7 +1176,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "b247ad8c-d362-4120-9034-2eda33c3ed8e",
+            "id": "479d1b70-2f02-4a54-b683-c68133b8c1b1",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -659,7 +1214,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "b8a64cd2-64e8-4d63-8f38-2c71d88bc163",
+            "id": "ecb2680a-9d28-4bbf-899b-ac972e1de4bd",
             "x": 8095,
             "y": 7993,
             "width": 10,
@@ -694,7 +1249,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "1914a39f-4b75-4418-9ec9-1762cf867780",
+            "id": "055c1cd6-2b84-491a-a7f0-e1b002837a6b",
             "x": 8038,
             "y": 7987,
             "width": 60,
@@ -732,7 +1287,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "3b1c4e61-3d61-40b3-8094-e97179c23971",
+            "id": "2a3b325f-1d94-489a-8fc5-48a098c7ee53",
             "x": 8095,
             "y": 7993,
             "width": 10,
@@ -857,7 +1412,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "localhost:4842",
+            "text": "localhost:4840",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 12,

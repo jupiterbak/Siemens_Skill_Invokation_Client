@@ -4,9 +4,9 @@
 // created with http://www.draw2d.org
 //
 //
-var Module02_localhost_4842_Load = CircuitFigure.extend({
+var Module03_localhost_4840_InsertSkill = CircuitFigure.extend({
 
-   NAME: "Module02_localhost_4842_Load",
+   NAME: "Module03_localhost_4840_InsertSkill",
 
    init:function(attr, setter, getter)
    {
@@ -37,6 +37,36 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
      port.setConnectionDirection(3);
      port.setBackgroundColor("#1C9BAB");
      port.setName("Port_IN_1");
+     port.setMaxFanOut(20);
+     // Port_IN_2
+     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.6252983293556085, 54.97737556561086));
+     port.setConnectionDirection(3);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port_IN_2");
+     port.setMaxFanOut(20);
+     // Port_IN_3
+     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.6252983293556085, 60.85972850678733));
+     port.setConnectionDirection(3);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port_IN_3");
+     port.setMaxFanOut(20);
+     // Port_IN_4
+     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.6252983293556085, 66.7420814479638));
+     port.setConnectionDirection(3);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port_IN_4");
+     port.setMaxFanOut(20);
+     // Port_IN_5
+     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.6252983293556085, 72.62443438914028));
+     port.setConnectionDirection(3);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port_IN_5");
+     port.setMaxFanOut(20);
+     // Port_IN_6
+     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(2.6252983293556085, 78.50678733031674));
+     port.setConnectionDirection(3);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port_IN_6");
      port.setMaxFanOut(20);
      // Port_OUT_0
      port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(97.61336515513126, 43.21266968325792));
@@ -75,8 +105,8 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
        shape.data("name","circle");
        
        // Name
-       shape = this.canvas.paper.text(0,0,'Load');
-       shape.attr({"x":62.45282499999939,"y":13.5,"text-anchor":"start","text":"Load","font-family":"\"Arial\"","font-size":16,"stroke":"#FF0000","fill":"#00979D","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'InsertSkill');
+       shape.attr({"x":62.45282499999939,"y":13.5,"text-anchor":"start","text":"InsertSkill","font-family":"\"Arial\"","font-size":16,"stroke":"#FF0000","fill":"#00979D","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Name");
        
        // Circle_en
@@ -105,8 +135,8 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
        shape.data("name","Circle_IN_0");
        
        // Label_IN_0
-       shape = this.canvas.paper.text(0,0,'Orientation');
-       shape.attr({"x":13.5,"y":95.1171875,"text-anchor":"start","text":"Orientation","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'Position');
+       shape.attr({"x":13.5,"y":95.1171875,"text-anchor":"start","text":"Position","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_IN_0");
        
        // Circle_IN_1
@@ -115,9 +145,59 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
        shape.data("name","Circle_IN_1");
        
        // Label_IN_1
-       shape = this.canvas.paper.text(0,0,'RFID');
-       shape.attr({"x":13.5,"y":108.1171875,"text-anchor":"start","text":"RFID","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'BuildingBlockTypeId');
+       shape.attr({"x":13.5,"y":108.1171875,"text-anchor":"start","text":"BuildingBlockTypeId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_IN_1");
+       
+       // Circle_IN_2
+       shape = this.canvas.paper.ellipse();
+       shape.attr({"rx":5,"ry":5,"cx":5.5,"cy":121.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
+       shape.data("name","Circle_IN_2");
+       
+       // Label_IN_2
+       shape = this.canvas.paper.text(0,0,'Orientation');
+       shape.attr({"x":13.5,"y":121.1171875,"text-anchor":"start","text":"Orientation","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","Label_IN_2");
+       
+       // Circle_IN_3
+       shape = this.canvas.paper.ellipse();
+       shape.attr({"rx":5,"ry":5,"cx":5.5,"cy":134.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
+       shape.data("name","Circle_IN_3");
+       
+       // Label_IN_3
+       shape = this.canvas.paper.text(0,0,'RFID');
+       shape.attr({"x":13.5,"y":134.1171875,"text-anchor":"start","text":"RFID","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","Label_IN_3");
+       
+       // Circle_IN_4
+       shape = this.canvas.paper.ellipse();
+       shape.attr({"rx":5,"ry":5,"cx":5.5,"cy":147.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
+       shape.data("name","Circle_IN_4");
+       
+       // Label_IN_4
+       shape = this.canvas.paper.text(0,0,'CurrentConfiguration_BuildingBlockTypeId');
+       shape.attr({"x":13.5,"y":147.1171875,"text-anchor":"start","text":"CurrentConfiguration_BuildingBlockTypeId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","Label_IN_4");
+       
+       // Circle_IN_5
+       shape = this.canvas.paper.ellipse();
+       shape.attr({"rx":5,"ry":5,"cx":5.5,"cy":160.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
+       shape.data("name","Circle_IN_5");
+       
+       // Label_IN_5
+       shape = this.canvas.paper.text(0,0,'CurrentConfiguration_Orientation');
+       shape.attr({"x":13.5,"y":160.1171875,"text-anchor":"start","text":"CurrentConfiguration_Orientation","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","Label_IN_5");
+       
+       // Circle_IN_6
+       shape = this.canvas.paper.ellipse();
+       shape.attr({"rx":5,"ry":5,"cx":5.5,"cy":173.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
+       shape.data("name","Circle_IN_6");
+       
+       // Label_IN_6
+       shape = this.canvas.paper.text(0,0,'RFID');
+       shape.attr({"x":13.5,"y":173.1171875,"text-anchor":"start","text":"RFID","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","Label_IN_6");
        
        // Circle_OUT_0
        shape = this.canvas.paper.ellipse();
@@ -150,8 +230,8 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
        shape.data("name","led_power");
        
        // Skill_IP
-       shape = this.canvas.paper.text(0,0,'localhost:4842');
-       shape.attr({"x":48.5,"y":42,"text-anchor":"start","text":"localhost:4842","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'localhost:4840');
+       shape.attr({"x":48.5,"y":42,"text-anchor":"start","text":"localhost:4840","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Skill_IP");
        
        // Skill_State
@@ -160,8 +240,8 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
        shape.data("name","Skill_State");
        
        // Skill_NodeID
-       shape = this.canvas.paper.text(0,0,'NodeID: ns=4;i=1010');
-       shape.attr({"x":48.5,"y":78,"text-anchor":"start","text":"NodeID: ns=4;i=1010","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'NodeID: ns=4;i=1027');
+       shape.attr({"x":48.5,"y":78,"text-anchor":"start","text":"NodeID: ns=4;i=1027","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Skill_NodeID");
        
 
@@ -174,7 +254,7 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
  *
  *
  */
-Module02_localhost_4842_Load = Module02_localhost_4842_Load.extend({
+Module03_localhost_4840_InsertSkill = Module03_localhost_4840_InsertSkill.extend({
 
     
     init: function(attr, setter, getter){

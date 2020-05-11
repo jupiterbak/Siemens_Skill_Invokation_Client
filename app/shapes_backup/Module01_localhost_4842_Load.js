@@ -4,9 +4,9 @@
 // created with http://www.draw2d.org
 //
 //
-var Module02_localhost_4842_Load = CircuitFigure.extend({
+var Module01_localhost_4842_Load = CircuitFigure.extend({
 
-   NAME: "Module02_localhost_4842_Load",
+   NAME: "Module01_localhost_4842_Load",
 
    init:function(attr, setter, getter)
    {
@@ -174,9 +174,8 @@ var Module02_localhost_4842_Load = CircuitFigure.extend({
  *
  *
  */
-Module02_localhost_4842_Load = Module02_localhost_4842_Load.extend({
+Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
 
-    
     init: function(attr, setter, getter){
          this._super(attr, setter, getter);
 
@@ -245,12 +244,10 @@ Module02_localhost_4842_Load = Module02_localhost_4842_Load.extend({
                   self.err_msg = "Error while connecting to the skill!";
                 }else{
                   self.layerAttr("Skill_State", {text: 'State: Connected'});
-                  
-                  socket.on("opcua_serverstatus", function(msg){
+                  socket.on("opcua_serverstatus", msg =>{
                     console.log("####### Serverstatus");
                   });
-                  
-                  socket.on("SkillStatesChanged", function(data){
+                  socket.on("SkillStatesChanged", data =>{
                     console.log("####### StatesChanged");
                     // Filter the event for the state changes related to this skill.
                     var _changed_states = [];
@@ -258,7 +255,7 @@ Module02_localhost_4842_Load = Module02_localhost_4842_Load.extend({
                         if (Object.prototype.hasOwnProperty.call(data, prop)) {
                             var el = data[prop];
                             if (el.ip === self.decription.ip && el.port === self.decription.port && el.skill === self.decription.skill.name) {
-                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});
+                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(item => item.id === el.state.value);
                                 // filter with the nodeId
                                 if (candidates.length == 0) {
                                     candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {
@@ -409,12 +406,11 @@ Module02_localhost_4842_Load = Module02_localhost_4842_Load.extend({
         this.layerAttr("Skill_State", {text: 'State: not connected'});
         this.state = 5; // STOPPED
         this.last_en_value = 0;
-        
-        socket.off("opcua_serverstatus", function(msg){
+
+        socket.off("opcua_serverstatus", msg =>{
           console.log("####### Serverstatus");
         });
-        
-        socket.off("SkillStatesChanged", function(msg){
+        socket.off("SkillStatesChanged", msg =>{
           console.log("####### StatesChanged");
         });
     },

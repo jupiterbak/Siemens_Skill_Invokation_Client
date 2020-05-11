@@ -62,6 +62,16 @@
     "filePath": "Module02_localhost_4842_Unload.shape"
   },
   {
+    "name": "Module03_localhost_4840_InsertSkill",
+    "tags": [
+      "Module03",
+      "localhost",
+      "4840",
+      "InsertSkill"
+    ],
+    "filePath": "Module03_localhost_4840_InsertSkill.shape"
+  },
+  {
     "name": "MUX",
     "tags": [
       "MUX"

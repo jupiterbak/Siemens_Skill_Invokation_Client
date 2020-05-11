@@ -5,7 +5,8 @@
  */
 Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
 
-     init: function(attr, setter, getter){
+    
+    init: function(attr, setter, getter){
          this._super(attr, setter, getter);
 
          this.attr({resizeable:false});
@@ -34,6 +35,7 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
+            this.layerAttr("Skill_State", {text: 'State: not connected'});
             if(this.getInputPort(0).getValue()){
                 this.state = 10;
             }
@@ -43,6 +45,7 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Getting descr.'});
             skillproxy.getSkillDescription(this.NAME).then(function (desc) {
                 if (desc.skill_descp){
                     self.decription = desc.skill_descp;
@@ -62,19 +65,47 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
             this.currentTimer=0;
             break;
           case 11: // Connect to the skill
+            this.layerAttr("Skill_State", {text: 'State: Connecting'});
+            this.layerAttr("led_connected",{fill:"#ffb300"}); // Orange
             skillproxy.connectSkill(self.decription.ip, self.decription.port).then(function (resp_con) {
                 if(resp_con.err){
                   // Make transition to err
                   self.state = 6;
                   self.err_msg = "Error while connecting to the skill!";
                 }else{
-                  /*socket.on("opcua_serverstatus", msg =>{
+                  self.layerAttr("Skill_State", {text: 'State: Connected'});
+                  
+                  socket.on("opcua_serverstatus", function(msg){
                     console.log("####### Serverstatus");
                   });
-                  socket.on("SkillStatesChanged", msg =>{
+                  
+                  socket.on("SkillStatesChanged", function(data){
                     console.log("####### StatesChanged");
-                  });*/
-    
+                    // Filter the event for the state changes related to this skill.
+                    var _changed_states = [];
+                    for (var prop in data) {
+                        if (Object.prototype.hasOwnProperty.call(data, prop)) {
+                            var el = data[prop];
+                            if (el.ip === self.decription.ip && el.port === self.decription.port && el.skill === self.decription.skill.name) {
+                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});
+                                // filter with the nodeId
+                                if (candidates.length == 0) {
+                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {
+                                        var src = el.state.value;
+                                        var target = item.nid;
+                                        var rslt = ("" + src).indexOf(target);
+                                        return rslt >= 0;
+                                    });
+                                }
+                                if (candidates.length > 0) {
+                                    _changed_states.push(candidates[0].id);
+                                }
+                            }
+                        }
+                    }
+                    self.skill_current_state = _changed_states;
+                  });
+                  
                   // Make transition
                   self.state = 12;
                 }
@@ -89,6 +120,7 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Starting'});
             skillproxy.startSkill(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_start) {
               if(resp_start.err){
                 // Make transition to err
@@ -97,46 +129,59 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
               }else{
                 // Make transition
                 self.state = 2;
+                self.layerAttr("Skill_State", {text: 'State: Executing'});
               }
             });
 
             this.state = 120;               
             break;
-          // case 1: // Call skill start
-          //   this.layerAttr("Circle_en",{fill:"#faa50a"});
-          //   this.layerAttr("led_power",{fill:"#33DE09"});
-          //   this.layerAttr("led_connected",{fill:"#f0f0f0"});
-          //   this.layerAttr("circle",{fill:"#f0f0f0"});
-          //   // TODO: Call Start method with the parameters
-          //   this.currentTimer=0;
-            
-          //   // Make transition
-          //   this.state = 2;
-          //   break;
           case 120: // Wait for the callback
             this.currentTimer=0;
             break;
           case 2: // Wait for the  skill to be done
-            if(self.skill_current_state === "MMM"){
+            self.layerAttr("Skill_State", {text: 'State: Executing'});
+            if(self.skill_current_state.includes('completed')){
               // Make transition
               this.state = 3;
+              this.layerAttr("Skill_State", {text: 'State: Completed'});
             }
-            // this.currentTimer = (this.currentTimer + 1)% 400;
-            // if(this.currentTimer === 0){
-            //     this.state = 3;
-            // }
             break;
           case 3: // Call Get results
-            this.currentTimer=0;
-            this.layerAttr("Circle_done",{fill:"#faa50a"});
-            this.getOutputPort(0).setValue(true);
-            this.state = 4;
+            this.layerAttr("Circle_en",{fill:"#faa50a"});
+            this.layerAttr("led_power",{fill:"#33DE09"});
+            this.layerAttr("led_connected",{fill:"#33DE09"});
+            this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Getting results'});
+            skillproxy.getResultsOfSkillCall(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_getResults) {
+              if(resp_getResults.err){
+                // Make transition to err
+                self.state = 6;
+                self.err_msg = "Error while fetching the results of the skill!";
+              }else{
+                // Make transition
+                self.state = 310;
+              }
+            });
+            this.state = 300;
             break;
-          case 4: // Set the outputs
-            this.layerAttr("Circle_done",{fill:"#faa50a"});
+          case 300: // Wait call getResults
+            break;
+          case 310: // Wait until skill is ready again
+            // set all the output variables
+            // TODO: Jupiter
+
+            if(self.skill_current_state.includes('skill_ready')){
+              // Make transition
+              this.state = 4;
+              this.layerAttr("Skill_State", {text: 'State: Done'});
+            }
+            break;
+          case 4: // Set the done signal
             this.getOutputPort(0).setValue(true);
-            
+
+            this.layerAttr("Circle_done",{fill:"#faa50a"});
             this.layerAttr("led_power",{fill:"#FF3C00"});
+            this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
             if(! this.getInputPort(0).getValue()){
                 this.state = 5;
@@ -151,6 +196,7 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
             this.state = 0;
+            this.layerAttr("Skill_State", {text: 'State: Ready'});
             break;
           case 6: // Error
             this.getOutputPort(0).setValue(false);
@@ -159,6 +205,7 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
             this.currentTimer=0;
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
+            this.layerAttr("Skill_State", {text: 'State: Error'});
         }
         this.last_en_value = this.getOutputPort(0).getValue();
     },
@@ -173,6 +220,7 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
         this.layerAttr("Circle_en",{fill:"#f0f0f0"});
         this.layerAttr("Circle_done",{fill:"#f0f0f0"});
         this.layerAttr("circle",{fill:"#ffffff"});
+        this.layerAttr("Skill_State", {text: 'State: not connected'});
         this.state = 5; // STOPPED
         this.last_en_value = 0;
     },
@@ -187,15 +235,17 @@ Module02_localhost_4842_Unload = Module02_localhost_4842_Unload.extend({
         this.layerAttr("Circle_en",{fill:"#f0f0f0"});
         this.layerAttr("Circle_done",{fill:"#f0f0f0"});
         this.layerAttr("circle",{fill:"#ffffff"});
+        this.layerAttr("Skill_State", {text: 'State: not connected'});
         this.state = 5; // STOPPED
         this.last_en_value = 0;
-
-        /*socket.off("opcua_serverstatus", msg =>{
+        
+        socket.off("opcua_serverstatus", function(msg){
           console.log("####### Serverstatus");
         });
-        socket.off("SkillStatesChanged", msg =>{
+        
+        socket.off("SkillStatesChanged", function(msg){
           console.log("####### StatesChanged");
-        });*/
+        });
     },
     
     getRequiredHardware: function(){

@@ -37,7 +37,8 @@ export default draw2d.InputPort.extend({
         }.bind(this));
 
         // a port can have a value. Usefull for workflow engines or circuit diagrams
-        this.setValue(true);
+        // NOTE: Jupiter - Change port default value to False
+        this.setValue(false);
     },
 
     useDefaultValue:function()

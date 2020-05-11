@@ -41,9 +41,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "4fc2abb9-12cc-4175-9580-10a0519b633d",
-                            "id_label": "8fda971c-25ea-4957-9def-56e5fd77f97c",
-                            "id_port": "2c2fbf21-bd28-4b5e-9c2e-f5f8954d4e38"
+                            "id_circle": "68798fd6-48fa-491f-a4d8-6f3981efcb46",
+                            "id_label": "6499e271-0912-4b58-959d-887f350f33c0",
+                            "id_port": "5789befd-de7d-4049-bd6c-b16f84858323"
                         }
                     ],
                     "outputArguments": [
@@ -54,9 +54,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "be297d1a-aa23-4fb3-934a-3b530e07df5f",
-                            "id_label": "485be9f2-f5c6-41ce-a6ea-d75c7a094618",
-                            "id_port": "951d407e-e89e-4782-98f7-7aa6ce9dd0b9"
+                            "id_circle": "272b2891-b4f9-416d-bf14-e153b33044d2",
+                            "id_label": "1162124b-97f0-4756-955f-057a03b05fdf",
+                            "id_port": "b247ad8c-d362-4120-9034-2eda33c3ed8e"
                         }
                     ]
                 },
@@ -108,9 +108,9 @@
                             "description": {
                                 "text": "RFID"
                             },
-                            "id_circle": "78ba05e2-34e6-44e4-99c3-e1c59a5ecb05",
-                            "id_label": "433376cc-c56a-4c29-8fd1-877dd5325012",
-                            "id_port": "b246e533-1c7d-460b-bc12-28e24c51a729"
+                            "id_circle": "c0e37d4b-8294-47e7-901a-4ff390babc41",
+                            "id_label": "0c2cd619-f6cc-4a4b-8547-9b5539c83a80",
+                            "id_port": "7f41af68-409c-487a-9681-6dfb13b15c63"
                         }
                     ],
                     "outputArguments": [
@@ -121,9 +121,9 @@
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "3bac9da0-4fb8-401f-8ed2-7f676119ff0c",
-                            "id_label": "e00a125d-bee2-4705-8eb2-17c0d5ddca4c",
-                            "id_port": "7ada94aa-4e98-42d2-9534-130bdfd4c01f"
+                            "id_circle": "b8a64cd2-64e8-4d63-8f38-2c71d88bc163",
+                            "id_label": "1914a39f-4b75-4418-9ec9-1762cf867780",
+                            "id_port": "3b1c4e61-3d61-40b3-8094-e97179c23971"
                         }
                     ]
                 },
@@ -1028,9 +1028,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "4fc2abb9-12cc-4175-9580-10a0519b633d",
-                "id_label": "8fda971c-25ea-4957-9def-56e5fd77f97c",
-                "id_port": "2c2fbf21-bd28-4b5e-9c2e-f5f8954d4e38"
+                "id_circle": "68798fd6-48fa-491f-a4d8-6f3981efcb46",
+                "id_label": "6499e271-0912-4b58-959d-887f350f33c0",
+                "id_port": "5789befd-de7d-4049-bd6c-b16f84858323"
             },
             {
                 "name": "RFID",
@@ -1042,9 +1042,9 @@
                 "description": {
                     "text": "RFID"
                 },
-                "id_circle": "78ba05e2-34e6-44e4-99c3-e1c59a5ecb05",
-                "id_label": "433376cc-c56a-4c29-8fd1-877dd5325012",
-                "id_port": "b246e533-1c7d-460b-bc12-28e24c51a729"
+                "id_circle": "c0e37d4b-8294-47e7-901a-4ff390babc41",
+                "id_label": "0c2cd619-f6cc-4a4b-8547-9b5539c83a80",
+                "id_port": "7f41af68-409c-487a-9681-6dfb13b15c63"
             }
         ],
         "outputs": [
@@ -1055,9 +1055,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "be297d1a-aa23-4fb3-934a-3b530e07df5f",
-                "id_label": "485be9f2-f5c6-41ce-a6ea-d75c7a094618",
-                "id_port": "951d407e-e89e-4782-98f7-7aa6ce9dd0b9"
+                "id_circle": "272b2891-b4f9-416d-bf14-e153b33044d2",
+                "id_label": "1162124b-97f0-4756-955f-057a03b05fdf",
+                "id_port": "b247ad8c-d362-4120-9034-2eda33c3ed8e"
             },
             {
                 "name": "ErrorId",
@@ -1066,9 +1066,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "3bac9da0-4fb8-401f-8ed2-7f676119ff0c",
-                "id_label": "e00a125d-bee2-4705-8eb2-17c0d5ddca4c",
-                "id_port": "7ada94aa-4e98-42d2-9534-130bdfd4c01f"
+                "id_circle": "b8a64cd2-64e8-4d63-8f38-2c71d88bc163",
+                "id_label": "1914a39f-4b75-4418-9ec9-1762cf867780",
+                "id_port": "3b1c4e61-3d61-40b3-8094-e97179c23971"
             }
         ]
     }
