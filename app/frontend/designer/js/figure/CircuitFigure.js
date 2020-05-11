@@ -81,17 +81,14 @@ export default draw2d.SetFigure.extend({
   },
 
   layerGet: function (name, attributes) {
-    if (this.svgNodes === null) return null
-
-    let result = null
-    this.svgNodes.some(function (shape) {
-      if (shape.data("name") === name) {
-        result = shape
-      }
-      return result !== null
-    })
-
-    return result
+      if (this.svgNodes === null) return null
+      let found = null
+      this.svgNodes.forEach(function (shape) {
+        if (found ===null && shape.data("name") === name) {
+          found = shape
+        }
+      })
+      return found
   },
 
   layerAttr: function (name, attributes) {
@@ -135,13 +132,13 @@ export default draw2d.SetFigure.extend({
     }
   },
 
-  calculate: function () {
+  calculate: function (context) {
   },
 
-  onStart: function () {
+  onStart: function (context) {
   },
 
-  onStop: function () {
+  onStop: function (context) {
   },
 
   getParameterSettings: function () {

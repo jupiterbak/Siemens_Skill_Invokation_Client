@@ -88,7 +88,7 @@ Signals_SignalSource = Signals_SignalSource.extend({
         }
         this.on("change:userData.signalId",function(emitter, event){
             _this.layerAttr("label", {text: event.value})
-            adjustWidth()
+            adjustWidth();
         });
         this.on("added", function(){
             var signalId = _this.attr("userData.signalId")
@@ -97,11 +97,11 @@ Signals_SignalSource = Signals_SignalSource.extend({
                 _this.attr("userData.signalId", signalId)
             }            
             _this.layerAttr("label", {text: signalId})
-            adjustWidth()
+            adjustWidth();
         })
         
         // override the "getValue" method of the port and delegate them to the related party (SourceTarget port)
-        this.originalGetValue = this.getOutputPort(0).getValue
+        this.originalGetValue = this.getOutputPort(0).getValue;
     },
 
     /**
@@ -187,6 +187,5 @@ Signals_SignalSource = Signals_SignalSource.extend({
 
     return this
   }
-
 
 });

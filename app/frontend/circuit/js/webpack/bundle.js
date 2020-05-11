@@ -2235,8 +2235,7 @@ exports.default = draw2d.Canvas.extend({
     },
 
     simulationStart: function simulationStart() {
-        var _this3 = this;
-
+        var self = this;
         if (this.simulate === true) {
             return; // silently
         }
@@ -2249,9 +2248,9 @@ exports.default = draw2d.Canvas.extend({
         this.commonPorts.each(function (i, p) {
             p.setVisible(false);
         });
-
+        this.simulationContext = {};
         this.getFigures().each(function (index, shape) {
-            shape.onStart(_this3.simulationContext);
+            shape.onStart(self.simulationContext);
         });
         this._calculate();
 
@@ -2266,7 +2265,7 @@ exports.default = draw2d.Canvas.extend({
     },
 
     simulationStop: function simulationStop() {
-        var _this4 = this;
+        var _this3 = this;
 
         this._calculate();
         this.simulate = false;
@@ -2278,8 +2277,9 @@ exports.default = draw2d.Canvas.extend({
         this.installEditPolicy(this.coronaFeedback);
 
         this.getFigures().each(function (index, shape) {
-            shape.onStop(_this4.simulationContext);
+            shape.onStop(_this3.simulationContext);
         });
+        this.simulationContext = {};
 
         $("#simulationStartStop").addClass("play");
         $("#simulationStartStop").removeClass("pause");
@@ -2407,11 +2407,11 @@ exports.default = draw2d.Canvas.extend({
     },
 
     reloadFromCache: function reloadFromCache() {
-        var _this5 = this;
+        var _this4 = this;
 
         new draw2d.io.json.Writer().marshal(this, function (json) {
-            draw2d.Canvas.prototype.clear.call(_this5);
-            new draw2d.io.json.Reader().unmarshal(_this5, json);
+            draw2d.Canvas.prototype.clear.call(_this4);
+            new draw2d.io.json.Reader().unmarshal(_this4, json);
         });
     },
 
@@ -38536,7 +38536,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "devDependencies", function() { return devDependencies; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dependencies", function() { return dependencies; });
 var name = "d3";
-var version = "5.15.0";
+var version = "5.16.0";
 var description = "Data-Driven Documents";
 var keywords = ["dom","visualization","svg","animation","canvas"];
 var homepage = "https://d3js.org";

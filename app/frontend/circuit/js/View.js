@@ -478,6 +478,7 @@ export default draw2d.Canvas.extend({
     },
 
     simulationStart: function() {
+        let self = this;
         if (this.simulate === true) {
             return // silently
         }
@@ -490,9 +491,9 @@ export default draw2d.Canvas.extend({
         this.commonPorts.each(function(i, p) {
             p.setVisible(false)
         })
-
+        this.simulationContext = {}
         this.getFigures().each( (index, shape) => {
-            shape.onStart(this.simulationContext)
+            shape.onStart(self.simulationContext)
           })
         this._calculate()
 
@@ -519,6 +520,7 @@ export default draw2d.Canvas.extend({
         this.getFigures().each( (index, shape) =>{
             shape.onStop(this.simulationContext)
           })
+        this.simulationContext = {}
 
         $("#simulationStartStop").addClass("play")
         $("#simulationStartStop").removeClass("pause")

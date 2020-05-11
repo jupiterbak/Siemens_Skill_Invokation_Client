@@ -76,20 +76,20 @@
     "filePath": "OR.shape"
   },
   {
-    "name": "Signals_SignalSource",
+    "name": "Signals_DataSource",
     "tags": [
       "Signals",
-      "SignalSource"
+      "DataSource"
     ],
-    "filePath": "Signals_SignalSource.shape"
+    "filePath": "Signals_DataSource.shape"
   },
   {
-    "name": "Signals_SignalTarget",
+    "name": "Signals_DataTarget",
     "tags": [
       "Signals",
-      "SignalTarget"
+      "DataTarget"
     ],
-    "filePath": "Signals_SignalTarget.shape"
+    "filePath": "Signals_DataTarget.shape"
   },
   {
     "name": "START",

@@ -1,7 +1,7 @@
 {
-  "name": "brainbox",
-  "version": "1.1.18",
-  "description": "BrainBox. A browser based circuit simulator which is able to run on a raspi with a node.js backend and has access to the GPIO pins.",
+  "name": "skill_invocation_client",
+  "version": "0.0.1",
+  "description": "A simple client to browse and invoke skills on a CPPS.",
   "main": "index.html",
   "private": true,
   "scripts": {

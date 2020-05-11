@@ -1856,6 +1856,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var FigureTest = function () {
   function FigureTest() {
     _classCallCheck(this, FigureTest);
+
+    this.simulationContext = {};
   }
 
   _createClass(FigureTest, [{
@@ -1863,6 +1865,8 @@ var FigureTest = function () {
     value: function show() {
       var _this = this;
       this.animationFrameFunc = this._calculate.bind(this);
+
+      this.simulationContext = {};
 
       var writer = new _FigureWriter2.default();
       var testShape = null;
@@ -1936,11 +1940,14 @@ var FigureTest = function () {
           splash.removeClass("open");
           setTimeout(function () {
             splash.remove();
+            test.onStop(_this.simulationContext);
           }, 400);
         };
 
         $("#test_close").on("click", removeDialog);
         splash.addClass("open");
+
+        test.onStart(_this.simulationContext);
 
         _this.simulate = true;
         requestAnimationFrame(_this.animationFrameFunc);
@@ -1951,11 +1958,12 @@ var FigureTest = function () {
     value: function _calculate() {
       // call the "calculate" method if given to calculate the output-port values
       //
+      var _this = this;
       var figures = this.canvas.getFigures().clone().grep(function (f) {
         return f.calculate;
       });
       figures.each(function (i, figure) {
-        figure.calculate();
+        figure.calculate(_this.simulationContext);
       });
 
       // transport the value from oututPort to inputPort
@@ -2410,16 +2418,13 @@ exports.default = draw2d.SetFigure.extend({
 
   layerGet: function layerGet(name, attributes) {
     if (this.svgNodes === null) return null;
-
-    var result = null;
-    this.svgNodes.some(function (shape) {
-      if (shape.data("name") === name) {
-        result = shape;
+    var found = null;
+    this.svgNodes.forEach(function (shape) {
+      if (found === null && shape.data("name") === name) {
+        found = shape;
       }
-      return result !== null;
     });
-
-    return result;
+    return found;
   },
 
   layerAttr: function layerAttr(name, attributes) {
@@ -2460,11 +2465,11 @@ exports.default = draw2d.SetFigure.extend({
     }
   },
 
-  calculate: function calculate() {},
+  calculate: function calculate(context) {},
 
-  onStart: function onStart() {},
+  onStart: function onStart(context) {},
 
-  onStop: function onStop() {},
+  onStop: function onStop(context) {},
 
   getParameterSettings: function getParameterSettings() {
     return [];

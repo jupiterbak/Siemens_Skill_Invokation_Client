@@ -205,6 +205,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
+            this.layerAttr("Skill_State", {text: 'State: not connected'});
             if(this.getInputPort(0).getValue()){
                 this.state = 10;
             }
@@ -214,6 +215,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Getting descr.'});
             skillproxy.getSkillDescription(this.NAME).then(function (desc) {
                 if (desc.skill_descp){
                     self.decription = desc.skill_descp;
@@ -233,12 +235,15 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.currentTimer=0;
             break;
           case 11: // Connect to the skill
+            this.layerAttr("Skill_State", {text: 'State: Connecting'});
+            this.layerAttr("led_connected",{fill:"#ffb300"}); // Orange
             skillproxy.connectSkill(self.decription.ip, self.decription.port).then(function (resp_con) {
                 if(resp_con.err){
                   // Make transition to err
                   self.state = 6;
                   self.err_msg = "Error while connecting to the skill!";
                 }else{
+                  self.layerAttr("Skill_State", {text: 'State: Connected'});
                   socket.on("opcua_serverstatus", msg =>{
                     console.log("####### Serverstatus");
                   });
@@ -283,6 +288,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Starting'});
             skillproxy.startSkill(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_start) {
               if(resp_start.err){
                 // Make transition to err
@@ -291,6 +297,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
               }else{
                 // Make transition
                 self.state = 2;
+                self.layerAttr("Skill_State", {text: 'State: Executing'});
               }
             });
 
@@ -300,9 +307,11 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.currentTimer=0;
             break;
           case 2: // Wait for the  skill to be done
+            self.layerAttr("Skill_State", {text: 'State: Executing'});
             if(self.skill_current_state.includes('completed')){
               // Make transition
               this.state = 3;
+              this.layerAttr("Skill_State", {text: 'State: Completed'});
             }
             break;
           case 3: // Call Get results
@@ -310,6 +319,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Getting results'});
             skillproxy.getResultsOfSkillCall(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_getResults) {
               if(resp_getResults.err){
                 // Make transition to err
@@ -331,6 +341,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             if(self.skill_current_state.includes('skill_ready')){
               // Make transition
               this.state = 4;
+              this.layerAttr("Skill_State", {text: 'State: Done'});
             }
             break;
           case 4: // Set the done signal
@@ -353,6 +364,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
             this.state = 0;
+            this.layerAttr("Skill_State", {text: 'State: Ready'});
             break;
           case 6: // Error
             this.getOutputPort(0).setValue(false);
@@ -361,6 +373,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
             this.currentTimer=0;
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
+            this.layerAttr("Skill_State", {text: 'State: Error'});
         }
         this.last_en_value = this.getOutputPort(0).getValue();
     },
@@ -375,6 +388,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
         this.layerAttr("Circle_en",{fill:"#f0f0f0"});
         this.layerAttr("Circle_done",{fill:"#f0f0f0"});
         this.layerAttr("circle",{fill:"#ffffff"});
+        this.layerAttr("Skill_State", {text: 'State: not connected'});
         this.state = 5; // STOPPED
         this.last_en_value = 0;
     },
@@ -389,6 +403,7 @@ Module01_localhost_4842_Load = Module01_localhost_4842_Load.extend({
         this.layerAttr("Circle_en",{fill:"#f0f0f0"});
         this.layerAttr("Circle_done",{fill:"#f0f0f0"});
         this.layerAttr("circle",{fill:"#ffffff"});
+        this.layerAttr("Skill_State", {text: 'State: not connected'});
         this.state = 5; // STOPPED
         this.last_en_value = 0;
 
