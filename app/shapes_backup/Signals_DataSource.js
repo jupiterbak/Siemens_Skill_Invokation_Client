@@ -103,7 +103,7 @@ Signals_DataSource = Signals_DataSource.extend({
             _this.layerAttr("label", {text: dataId})
             adjustWidth()
             var dataValue = _this.attr("userData.dataValue");
-            if( ("" + dataValue) !== ""){
+            if(dataValue){
                 _this.constSignalValue = dataValue;
             }
         })
@@ -148,9 +148,6 @@ Signals_DataSource = Signals_DataSource.extend({
             if(!(dataId in context.signalPorts)){
                 context.signalPorts[dataId] = _this.getOutputPort(0);
             }
-        }
-        else{
-            delete context.signalPorts[dataId];
         }
     },
 
