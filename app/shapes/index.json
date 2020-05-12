@@ -22,56 +22,6 @@
     "filePath": "End.shape"
   },
   {
-    "name": "Module01_localhost_4842_Load",
-    "tags": [
-      "Module01",
-      "localhost",
-      "4842",
-      "Load"
-    ],
-    "filePath": "Module01_localhost_4842_Load.shape"
-  },
-  {
-    "name": "Module01_localhost_4842_Unload",
-    "tags": [
-      "Module01",
-      "localhost",
-      "4842",
-      "Unload"
-    ],
-    "filePath": "Module01_localhost_4842_Unload.shape"
-  },
-  {
-    "name": "Module02_localhost_4842_Load",
-    "tags": [
-      "Module02",
-      "localhost",
-      "4842",
-      "Load"
-    ],
-    "filePath": "Module02_localhost_4842_Load.shape"
-  },
-  {
-    "name": "Module02_localhost_4842_Unload",
-    "tags": [
-      "Module02",
-      "localhost",
-      "4842",
-      "Unload"
-    ],
-    "filePath": "Module02_localhost_4842_Unload.shape"
-  },
-  {
-    "name": "Module03_localhost_4840_InsertSkill",
-    "tags": [
-      "Module03",
-      "localhost",
-      "4840",
-      "InsertSkill"
-    ],
-    "filePath": "Module03_localhost_4840_InsertSkill.shape"
-  },
-  {
     "name": "MUX",
     "tags": [
       "MUX"
