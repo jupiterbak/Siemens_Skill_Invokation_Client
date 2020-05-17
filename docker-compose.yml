@@ -1,0 +1,33 @@
+version: "2.0"
+
+services:
+  mongodb:
+    image: "skillmonitoring"
+    restart: always
+    volumes:
+      -  skillmonitoring:/data/skillmonitoring
+    ports:
+      - "8080:8080"
+    networks: 
+      - backend
+      
+  
+  server:
+    build: .
+    restart: always
+    environment:
+      - OPCUA_BACKEND_URL=http://0.0.0.0:8080/
+    ports:
+      - "7400:7400"
+    depends_on:
+      - skillmonitoring
+    links:
+      - skillmonitoring
+    networks: 
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  skillmonitoring-data:

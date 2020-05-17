@@ -31,7 +31,7 @@ template7.registerHelper('BoxHeight', function(inputs, outputs, options) {
 
 
 // Initialize SocketIO
-const OPCUA_BACKEND_URL = 'http://localhost:8080/';
+const OPCUA_BACKEND_URL = process.env.OPCUA_BACKEND_URL || 'http://0.0.0.0:8080/';
 const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, OPCUA_BACKEND_URL);
 
 
