@@ -209,6 +209,30 @@ class BackendSkills {
     });
   }
 
+  monitorSkillResultsTrigger(_ip, _port, _skill_name, _node) {
+    const self = this;
+    self.skillList = [];
+    return $.ajax({
+      url: conf.backend.skill.monitorResultTigger,
+      xhrFields: {
+        withCredentials: true
+      },
+      data: {
+        ip: _ip,
+        port: _port,
+        skillName: _skill_name,
+        node: _node
+      }
+    }).then((resp) => {
+      if (resp.err){
+        return {err: resp.err};
+      }else{
+        return {err: resp.err, results: resp.results};
+      }        
+      return {err: "Unknown response."};
+    });
+  }
+
   getResultsOfSkillCall(_ip, _port, _skill_name, _parameters) {
     const self = this;
     self.skillList = [];

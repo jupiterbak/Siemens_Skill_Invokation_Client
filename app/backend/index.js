@@ -160,36 +160,47 @@ function runServer() {
 
             // Extract the parameters with the schema of a skill from ats
             // Input parameter from the parameters of the start function
-            _skill.skillModel.Invokation.Start.parameters.inputArguments.forEach(param => {
-                param["id_circle"] = uuidv4();
-                param["id_label"] = uuidv4();
-                param["id_port"] = uuidv4();
-                _skill.parameters.inputs.push(param);
-            });
+            if(_skill.skillModel.Invokation.Start.parameters.inputArguments){
+                _skill.skillModel.Invokation.Start.parameters.inputArguments.forEach(param => {
+                    param["id_circle"] = uuidv4();
+                    param["id_label"] = uuidv4();
+                    param["id_port"] = uuidv4();
+                    _skill.parameters.inputs.push(param);
+                });
+            }
+            
 
             // Input parameter from the parameters of the GetResult function
-            _skill.skillModel.Invokation.GetResult.parameters.inputArguments.forEach(param => {
-                param["id_circle"] = uuidv4();
-                param["id_label"] = uuidv4();
-                param["id_port"] = uuidv4();
-                _skill.parameters.inputs.push(param);
-            });
+            if(_skill.skillModel.Invokation.GetResult.parameters.inputArguments){
+                _skill.skillModel.Invokation.GetResult.parameters.inputArguments.forEach(param => {
+                    param["id_circle"] = uuidv4();
+                    param["id_label"] = uuidv4();
+                    param["id_port"] = uuidv4();
+                    _skill.parameters.inputs.push(param);
+                });
+            }
+           
 
             // Output parameter from the parameters of the start function
-            _skill.skillModel.Invokation.Start.parameters.outputArguments.forEach(param => {
-                param["id_circle"] = uuidv4();
-                param["id_label"] = uuidv4();
-                param["id_port"] = uuidv4();
-                _skill.parameters.outputs.push(param);
-            });
+            if(_skill.skillModel.Invokation.Start.parameters.outputArguments){
+                _skill.skillModel.Invokation.Start.parameters.outputArguments.forEach(param => {
+                    param["id_circle"] = uuidv4();
+                    param["id_label"] = uuidv4();
+                    param["id_port"] = uuidv4();
+                    _skill.parameters.outputs.push(param);
+                });
+            }
 
             // Output parameter from the parameters of the GetResult function
-            _skill.skillModel.Invokation.GetResult.parameters.outputArguments.forEach(param => {
-                param["id_circle"] = uuidv4();
-                param["id_label"] = uuidv4();
-                param["id_port"] = uuidv4();
-                _skill.parameters.outputs.push(param);
-            });
+            if(_skill.skillModel.Invokation.GetResult.parameters.outputArguments){
+                _skill.skillModel.Invokation.GetResult.parameters.outputArguments.forEach(param => {
+                    param["id_circle"] = uuidv4();
+                    param["id_label"] = uuidv4();
+                    param["id_port"] = uuidv4();
+                    _skill.parameters.outputs.push(param);
+                });
+            }
+            
             let _content = compiledTemplate(_skill);
             // console.log(_content);
             // Add Custom Code
@@ -201,7 +212,6 @@ function runServer() {
             skillDesriptionFile = skillDesriptionFile.replace(".shape", ".json");
             let skillDesriptionFileContent = JSON.stringify(_skill,null, 4);
             
-
             fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
                 if (err){                    
                     // file could not be saved.
@@ -364,7 +374,62 @@ function runServer() {
                 }
             });
     });
-    
+  
+    app.get('/backend/skill/monitorNode', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'MonitorNode')
+            .query(
+                    {
+                        node: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            node: _params.node
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    }); 
+
+    app.get('/backend/skill/monitorResultTrigger', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'monitorResultTrigger')
+            .query(
+                    {
+                        node: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            node: _params.node
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
 
     //  Start the web server
     http.listen(port, function() {

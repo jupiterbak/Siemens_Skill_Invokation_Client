@@ -5,12 +5,12 @@ var json=[
     "x": 7900.241887499999,
     "y": 7889.5,
     "width": 200,
-    "height": 211,
+    "height": 146,
     "alpha": 1,
     "angle": 0,
     "userData": {
       "baseClass": "draw2d.SetFigure",
-      "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    \r\n    init: function(attr, setter, getter){\r\n         this._super(attr, setter, getter);\r\n\r\n         this.attr({resizeable:false});\r\n         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n         // get the skill description from the backend.\r\n         this.decription = null;       \r\n         \r\n         var _this= this;\r\n         this.currentTimer=0;\r\n         this.state = 5; // STOPPED\r\n         this.last_en_value = 0;\r\n         this.err_msg = \"\";\r\n         this.skill_current_state = \"Ready\";\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The skill description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting descr.'});\r\n            skillproxy.getSkillDescription(this.NAME).then(function (desc) {\r\n                if (desc.skill_descp){\r\n                    self.decription = desc.skill_descp;\r\n                }\r\n                if(self.decription){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the skill\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Connecting'});\r\n            this.layerAttr(\"led_connected\",{fill:\"#ffb300\"}); // Orange\r\n            skillproxy.connectSkill(self.decription.ip, self.decription.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while connecting to the skill!\";\r\n                }else{\r\n                  self.layerAttr(\"Skill_State\", {text: 'State: Connected'});\r\n                  \r\n                  socket.on(\"opcua_serverstatus\", function(msg){\r\n                    console.log(\"####### Serverstatus\");\r\n                  });\r\n                  \r\n                  socket.on(\"SkillStatesChanged\", function(data){\r\n                    console.log(\"####### StatesChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    var _changed_states = [];\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.decription.ip && el.port === self.decription.port && el.skill === self.decription.skill.name) {\r\n                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});\r\n                                // filter with the nodeId\r\n                                if (candidates.length == 0) {\r\n                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {\r\n                                        var src = el.state.value;\r\n                                        var target = item.nid;\r\n                                        var rslt = (\"\" + src).indexOf(target);\r\n                                        return rslt >= 0;\r\n                                    });\r\n                                }\r\n                                if (candidates.length > 0) {\r\n                                    _changed_states.push(candidates[0].id);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                    self.skill_current_state = _changed_states;\r\n                  });\r\n                  \r\n                  // Make transition\r\n                  self.state = 12;\r\n                }\r\n            }); \r\n            self.state = 110;               \r\n            break;\r\n          case 110:\r\n            this.currentTimer=0;\r\n            break;\r\n          case 12: // Call the skill\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Starting'});\r\n            skillproxy.startSkill(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_start) {\r\n              if(resp_start.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while starting the skill!\";\r\n              }else{\r\n                // Make transition\r\n                self.state = 2;\r\n                self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n              }\r\n            });\r\n\r\n            this.state = 120;               \r\n            break;\r\n          case 120: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n            if(self.skill_current_state.includes('completed')){\r\n              // Make transition\r\n              this.state = 3;\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n            }\r\n            break;\r\n          case 3: // Call Get results\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting results'});\r\n            skillproxy.getResultsOfSkillCall(self.decription.ip, self.decription.port, self.decription.skill.name, []).then(function (resp_getResults) {\r\n              if(resp_getResults.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while fetching the results of the skill!\";\r\n              }else{\r\n                // Make transition\r\n                self.state = 310;\r\n              }\r\n            });\r\n            this.state = 300;\r\n            break;\r\n          case 300: // Wait call getResults\r\n            break;\r\n          case 310: // Wait until skill is ready again\r\n            // set all the output variables\r\n            // TODO: Jupiter\r\n\r\n            if(self.skill_current_state.includes('skill_ready')){\r\n              // Make transition\r\n              this.state = 4;\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n            }\r\n            break;\r\n          case 4: // Set the done signal\r\n            this.getOutputPort(0).setValue(true);\r\n\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Ready'});\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Error'});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n        \r\n        socket.off(\"opcua_serverstatus\", function(msg){\r\n          console.log(\"####### Serverstatus\");\r\n        });\r\n        \r\n        socket.off(\"SkillStatesChanged\", function(msg){\r\n          console.log(\"####### StatesChanged\");\r\n        });\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      }\r\n    }\r\n});",
+      "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    init: function(attr, setter, getter){\r\n      this._super(attr, setter, getter);\r\n\r\n      this.attr({resizeable:false});\r\n      this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n      // get the skill description from the backend.\r\n      this.description = null;       \r\n      \r\n      var _this= this;\r\n      this.currentTimer=0;\r\n      this.state = 5; // STOPPED\r\n      this.last_en_value = 0;\r\n      this.err_msg = \"\";\r\n      this.skill_current_state = \"Ready\";\r\n\r\n      this.initial_result_trigger_value = 0;\r\n      this.last_result_trigger_value = 0;\r\n\r\n      this.monitor_rt_call_results = null;\r\n      this.start_call_results = null;\r\n      this.get_results_call_results = null;\r\n\r\n      for (var index = 0; index < this.getInputPorts().length -1 ; index++) {\r\n        this.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n      for (var index = 0; index < this.getOutputPorts().length -1; index++) {\r\n        this.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n            }\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);               \r\n            }\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The skill description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting descr.'});\r\n            skillproxy.getSkillDescription(this.NAME).then(function (desc) {\r\n                if (desc.skill_descp){\r\n                    self.description = desc.skill_descp;\r\n                }\r\n                if(self.description){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the skill\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Connecting'});\r\n            this.layerAttr(\"led_connected\",{fill:\"#ffb300\"}); // Orange\r\n            skillproxy.connectSkill(self.description.ip, self.description.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while connecting to the skill!\";\r\n                }else{\r\n                  self.layerAttr(\"Skill_State\", {text: 'State: Connected'});\r\n                  \r\n                  socket.on(\"opcua_serverstatus\", function(msg){\r\n                    console.log(\"####### Serverstatus\");\r\n                  });\r\n                  \r\n                  socket.on(\"SkillStatesChanged\", function(data){\r\n                    console.log(\"####### StatesChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    var _changed_states = [];\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});\r\n                                // filter with the nodeId\r\n                                if (candidates.length == 0) {\r\n                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {\r\n                                        var src = el.state.value;\r\n                                        var target = item.nid;\r\n                                        var rslt = (\"\" + src).indexOf(target);\r\n                                        return rslt >= 0;\r\n                                    });\r\n                                }\r\n                                if (candidates.length > 0) {\r\n                                    _changed_states.push(candidates[0].id);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                    self.skill_current_state = _changed_states;\r\n                  });\r\n\r\n                  socket.on(\"ResultTriggerChanged\", function(data){\r\n                    console.log(\"####### ResultTriggerChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                self.last_result_trigger_value = el.value.value;\r\n                            }\r\n                        }\r\n                    }\r\n                  });\r\n                  \r\n                  // Make transition\r\n                  if (self.description.skillModel.StateMachine){\r\n                    self.state = 12; // Call the skill directly\r\n                  }else{\r\n                    self.state = 130; // monitor result trigger before calling the skill\r\n                  }                  \r\n                }\r\n            }); \r\n            self.state = 110;               \r\n            break;\r\n          case 110: // Wait for result of connect skill\r\n            this.currentTimer=0;\r\n            break;\r\n          case 130: // Subscribe to result trigger before calling the skill\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Subscribing to result trigger.'});\r\n            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.Invokation.ResultTrigger).then(function (resp_rt) {\r\n              self.monitor_rt_call_results = resp_rt;\r\n              if(resp_rt.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while monitoring result trigger!\";\r\n              }else{\r\n                if(resp_rt.results){\r\n                  self.initial_result_trigger_value = resp_rt.results.value.value;\r\n                }else{\r\n                  self.initial_result_trigger_value = 0;\r\n                }\r\n                // Make transition to call the skill\r\n                self.state = 12;\r\n              }\r\n            });\r\n            self.state = 135;\r\n            break;\r\n          case 135: // Wait for call \r\n            break;\r\n          case 12: // Call the skill (Model with state machine)\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Starting'});\r\n            \r\n            // sample the input values\r\n            var _params = [];\r\n            var _inputs = this.description.skillModel.Invokation.Start.parameters.inputArguments || [];\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _params.push({\r\n                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25\r\n                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02\r\n                  value: this.getInputPort(index + 1).getValue()?this.getInputPort(index + 1).getValue():0\r\n              });\r\n            }\r\n\r\n            // Call the skill\r\n            skillproxy.startSkill(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_start) {\r\n              self.start_call_results = resp_start;\r\n              if(resp_start.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while starting the skill!\";\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _outputs = resp_start.results.outputArguments;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1).setValue(_outputs[index].value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index) ,{fill:\"#faa50a\"});\r\n                }\r\n                // Make transition\r\n                self.state = 2;\r\n                self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n              }\r\n            });\r\n\r\n            this.state = 120;               \r\n            break;\r\n          case 120: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n            if (self.description.skillModel.StateMachine){              \r\n              if(self.skill_current_state.includes('completed')){\r\n                // Make transition\r\n                this.state = 3;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n              }\r\n            }else{\r\n              if(self.last_result_trigger_value > self.initial_result_trigger_value){\r\n                // Make transition\r\n                this.state = 3;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n              }\r\n            }            \r\n            break;\r\n          case 3: // Call Get results\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting results'});\r\n\r\n            // sample the input values\r\n            var _params = [];\r\n            var _inputs = this.description.skillModel.Invokation.GetResult.parameters.inputArguments || [];\r\n            var _offset = (this.description.skillModel.Invokation.Start.parameters.inputArguments || []).length;\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _params.push({\r\n                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25\r\n                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02\r\n                  value: this.getInputPort(index + 1 + _offset).getValue()?this.getInputPort(index + 1 + _offset).getValue():0\r\n              });\r\n            }\r\n\r\n            // Call the emthod\r\n            skillproxy.getResultsOfSkillCall(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_getResults) {\r\n              self.get_results_call_results = resp_getResults;\r\n              if(resp_getResults.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while fetching the results of the skill!\";\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _offset = (self.start_call_results.results.outputArguments || []).length;\r\n                var _outputs = resp_getResults.results.outputArguments;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n                }\r\n                // Make transition\r\n                self.state = 310;\r\n              }\r\n            });\r\n\r\n            // Wait\r\n            this.state = 300;\r\n            break;\r\n          case 300: // Wait call getResults\r\n            break;\r\n          case 310: // Wait until skill is ready again\r\n            if (self.description.skillModel.StateMachine){              \r\n              if(self.skill_current_state.includes('skill_ready')){\r\n                // Make transition\r\n                this.state = 4;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n              }\r\n            }else{\r\n              this.state = 4;\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n            }            \r\n            break;\r\n          case 4: // Set the done signal\r\n            this.getOutputPort(0).setValue(true);\r\n\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);                \r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Ready'});\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Error'});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);                \r\n        }\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);              \r\n        }\r\n\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n        \r\n        socket.off(\"opcua_serverstatus\", function(msg){\r\n          console.log(\"####### Serverstatus\");\r\n        });\r\n        \r\n        socket.off(\"SkillStatesChanged\", function(msg){\r\n          console.log(\"####### StatesChanged\");\r\n        });\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      };\r\n    }\r\n});",
       "name": "circle",
       "markdown": "#Skill Template"
     },
@@ -77,7 +77,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "InsertSkill",
+    "text": "Skill_Add",
     "outlineStroke": 0,
     "outlineColor": "#FF0000",
     "fontSize": 16,
@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "c4fe7d6b-a34e-49cb-8544-54229367f344",
+    "id": "3d95d14c-92f2-41ad-965d-a64633a7f714",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "caba4979-2e9e-4081-a802-e63b81e5f11f",
+    "id": "00c31b3b-7261-40ae-bd5c-509bc82914cc",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -377,7 +377,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "Position",
+    "text": "Value1",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "6e35a102-97d7-429c-aa29-12289aa86043",
+    "id": "2b8cc61b-bbbb-485b-9cc2-bc3de0fa30c7",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "e75fc96c-a482-490f-b18a-1eb18953e426",
+    "id": "8b0aba88-c0a2-4113-b97a-31a9da593227",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "286416dc-4edd-4984-99d2-9efadf381270",
+    "id": "7c0f3b59-062b-45b9-9e67-b84a19d90e63",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -488,7 +488,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "BuildingBlockTypeId",
+    "text": "Value2",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "a0524651-ef28-442e-a94c-6df433322902",
+    "id": "68b0ffe3-b40a-4c9f-b8f2-a95b0c2975e9",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,562 +547,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "a6cf9a09-f926-4293-a24b-c9075bbd6d6c",
-    "x": 7896,
-    "y": 8006,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_2"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "e48112cc-e3ad-4dbb-a0e2-89103d37044f",
-    "x": 7905,
-    "y": 8000,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_2"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "Orientation",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "d50a10b4-3f1b-4cea-ac4e-ffd443ad31c9",
-    "x": 7896,
-    "y": 8006,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_2",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "6ac660ed-0cf9-4a96-8f14-cb3a89796dd9",
-    "x": 7896,
-    "y": 8019,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_3"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "ca08d421-0fef-442c-b684-bee617b78a62",
-    "x": 7905,
-    "y": 8013,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_3"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "RFID",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "a761b75c-29f2-4226-83ec-09ec61f16aea",
-    "x": 7896,
-    "y": 8019,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_3",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "0c67b06c-3532-4896-a3a5-319aa93a2c9a",
-    "x": 7896,
-    "y": 8032,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_4"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "c693dcda-27b6-459f-8b55-c904e114aadc",
-    "x": 7905,
-    "y": 8026,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_4"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "CurrentConfiguration_BuildingBlockTypeId",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "f020134f-392e-4aff-a032-3f567cf7db54",
-    "x": 7896,
-    "y": 8032,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_4",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "4260b233-71e3-4a9f-a771-b04fc81785db",
-    "x": 7896,
-    "y": 8045,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_5"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "5ce187e0-9dc4-4af1-a733-64ce828a2d64",
-    "x": 7905,
-    "y": 8039,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_5"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "CurrentConfiguration_Orientation",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "7f316235-5117-455a-8a01-f284a2b36670",
-    "x": 7896,
-    "y": 8045,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_5",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "6a416fdc-bb20-4c75-b365-c5fc49e49a06",
-    "x": 7896,
-    "y": 8058,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_IN_6"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "173c8189-af38-4796-aebd-ca77aed5422b",
-    "x": 7905,
-    "y": 8052,
-    "width": 100,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_IN_6"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "RFID",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "13ff8284-2bfd-4098-bfbf-f42f4e6cad88",
-    "x": 7896,
-    "y": 8058,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_IN_6",
-      "type": "Input",
-      "direction": 3
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "b126c619-7bd3-43db-bee6-3c0e5466bdce",
+    "id": "db19eb7c-5c36-4704-8320-fc777fce636f",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -1137,7 +582,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "4b596e95-b5c0-4cd7-aba9-68b1c73ae019",
+    "id": "bc8e8609-f324-4d8a-aef9-b96e40125cac",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -1154,7 +599,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "ErrorId",
+    "text": "ValueOut",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -1175,7 +620,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "479d1b70-2f02-4a54-b683-c68133b8c1b1",
+    "id": "96771a9f-1873-43fa-b09e-efd5ef748b1e",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -1184,117 +629,6 @@ var json=[
     "angle": 0,
     "userData": {
       "name": "Port_OUT_0",
-      "type": "Output",
-      "direction": 1
-    },
-    "cssClass": "shape_designer_figure_ExtPort",
-    "ports": [],
-    "bgColor": "#1C9BAB",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "dasharray": null,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FanoutFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortDirectionFilter"
-      },
-      {
-        "name": "shape_designer.filter.PortTypeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "ecb2680a-9d28-4bbf-899b-ac972e1de4bd",
-    "x": 8095,
-    "y": 7993,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Circle_OUT_1"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#F2F2F2",
-    "color": "#1B1B1B",
-    "stroke": 1,
-    "radius": 0,
-    "dasharray": null,
-    "blur": 0,
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.SizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FillColorFilter"
-      },
-      {
-        "name": "shape_designer.filter.StrokeFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtLabel",
-    "id": "055c1cd6-2b84-491a-a7f0-e1b002837a6b",
-    "x": 8038,
-    "y": 7987,
-    "width": 60,
-    "height": 21.234375,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Label_OUT_1"
-    },
-    "cssClass": "shape_designer_figure_ExtLabel",
-    "ports": [],
-    "bgColor": "none",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
-    "text": "ErrorId",
-    "outlineStroke": 0,
-    "outlineColor": "none",
-    "fontSize": 8,
-    "fontColor": "#080808",
-    "fontFamily": null,
-    "editor": "LabelInplaceEditor",
-    "filters": [
-      {
-        "name": "shape_designer.filter.PositionFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontSizeFilter"
-      },
-      {
-        "name": "shape_designer.filter.FontColorFilter"
-      }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.ExtPort",
-    "id": "2a3b325f-1d94-489a-8fc5-48a098c7ee53",
-    "x": 8095,
-    "y": 7993,
-    "width": 10,
-    "height": 10,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "name": "Port_OUT_1",
       "type": "Output",
       "direction": 1
     },
@@ -1411,7 +745,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "localhost:4840",
+    "text": "localhost:4843",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -1487,7 +821,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "NodeID: ns=4;i=1027",
+    "text": "NodeID: ns=4;i=5012",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -1507,7 +841,7 @@ var json=[
     ]
   }
 ];
-var pkg='Module03_localhost_4840_InsertSkill';
+var pkg='Module03_localhost_4843_Skill_Add';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();

@@ -80,36 +80,37 @@ Signals_DataTarget = Signals_DataTarget.extend({
         
         // handle the size of the shape if the label has changed
         //
-        var adjustWidth = function(){
-            var width = _this.layerGet("label").getBBox().width+15
+        this.adjustWidth = function(){
+            var width = _this.layerGet("label").getBBox().width+15 ;
 
             _this.setWidth(width+5);
-            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`})
-            _this.layerAttr("outline",     { path: `M0 10 L13 0 L${width} 0 L${width} 20 L13 20 Z`})
+            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`});
+            _this.layerAttr("outline",     { path: `M0 10 L13 0 L${width} 0 L${width} 20 L13 20 Z`});
           
         }
         this.on("change:userData.dataId",function(emitter, event){
-            _this.layerAttr("label", {text: event.value})
-            adjustWidth()
+            _this.layerAttr("label", {text: event.value});
+            _this.adjustWidth();
         });
         this.on("added", function(){
-            var dataId = _this.attr("userData.dataId")
+            var dataId = _this.attr("userData.dataId");
             if(!dataId){
-                dataId = "Data_Id"
-                _this.attr("userData.dataId", dataId)
+                dataId = "Data_Id";
+                _this.attr("userData.dataId", dataId);
             }            
-            _this.layerAttr("label", {text: dataId})
-            adjustWidth()
-        })
+            _this.layerAttr("label", {text: dataId});
+            _this.adjustWidth();
+        });
         
         // get the connected port and forward the port to the related party ( SignalSource shape)
         //
         this.getInputPort(0).on("connect", function(emitter, event){
-           _this.signalPort = event.connection.getSource()
-        })
+           _this.signalPort = event.connection.getSource();
+        });
+
         this.getInputPort(0).on("disconnect", function(emitter, event){
-            delete _this.signalPort
-        })
+            delete _this.signalPort;
+        });
     },
 
     /**
@@ -119,6 +120,7 @@ Signals_DataTarget = Signals_DataTarget.extend({
      **/
     calculate:function(context)
     {
+        var _this = this;
         var dataId = this.attr("userData.dataId")
         // first check if any object already create the signal context
         if(!context.signalPorts){
@@ -128,11 +130,21 @@ Signals_DataTarget = Signals_DataTarget.extend({
         // check if my signal port is set 
         if(this.signalPort){
             if(!(dataId in context.signalPorts)){
-                context.signalPorts[dataId] = this.signalPort;
+                context.signalPorts[dataId] = _this.signalPort;
             }
+            // Update the value
+            // var _val = _this.signalPort.getValue();
+            // if(_val){
+                _this.layerAttr("label", {text: dataId + ": " + _this.signalPort.getValue()});
+                _this.adjustWidth();
+            // }else{
+            //     _this.layerAttr("label", {text: dataId});
+            //     _this.adjustWidth();
+            // }
+            
         }
         else{
-            delete context.signalPorts[dataId]
+            delete context.signalPorts[dataId];
         }
     },
 
@@ -143,7 +155,7 @@ Signals_DataTarget = Signals_DataTarget.extend({
      **/
     onStart:function()
     {
-        console.log("start")
+        //console.log("start");
     },
 
     /**
@@ -152,7 +164,7 @@ Signals_DataTarget = Signals_DataTarget.extend({
      **/
     onStop:function()
     {
-        console.log("end")
+        //console.log("end");
     },
 
 
@@ -177,7 +189,7 @@ Signals_DataTarget = Signals_DataTarget.extend({
       return {
         raspi: false,
         arduino: false
-      }
+      };
     },
     
     
@@ -194,14 +206,14 @@ Signals_DataTarget = Signals_DataTarget.extend({
         ""
         this.svgNodes.transform(s)
         if (this.rotationAngle === 90 || this.rotationAngle === 270) {
-        let before = this.svgNodes.getBBox(true)
-        let ratio = before.height / before.width
-        let reverseRatio = before.width / before.height
+        let before = this.svgNodes.getBBox(true);
+        let ratio = before.height / before.width;
+        let reverseRatio = before.width / before.height;
         let rs = "...S" + ratio + "," + reverseRatio + "," + (this.getAbsoluteX() + this.getWidth() / 2) + "," + (this.getAbsoluteY() + this.getHeight() / 2)
-        this.svgNodes.transform(rs)
+        this.svgNodes.transform(rs);
         }
 
-        return this
+        return this;
     }
 
 });

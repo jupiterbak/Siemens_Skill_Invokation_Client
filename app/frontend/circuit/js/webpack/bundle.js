@@ -429,7 +429,9 @@ exports.default = {
       browse: '/backend/skill/browse',
       save: '/backend/skill/save',
       getDescription: '/backend/skill/getDescription',
-      call: '/backend/skill/call'
+      call: '/backend/skill/call',
+      monitorResultTigger: '/backend/skill/MonitorResultTrigger',
+      monitorNode: '/backend/skill/monitorNode'
     }
   },
   monitor: {
@@ -1856,7 +1858,7 @@ exports.default = draw2d.Canvas.extend({
 
         // show the ports of the elements only if the mouse cursor is close to the shape.
         //
-        this.coronaFeedback = new draw2d.policy.canvas.CoronaDecorationPolicy({ diameterToBeVisible: 50 });
+        this.coronaFeedback = new draw2d.policy.canvas.DecorationPolicy({ diameterToBeVisible: 50 });
         this.installEditPolicy(this.coronaFeedback);
 
         // nice grid decoration for the canvas paint area
@@ -2244,10 +2246,10 @@ exports.default = draw2d.Canvas.extend({
 
         this.installEditPolicy(new _SimulationEditPolicy2.default());
         this.uninstallEditPolicy(this.connectionPolicy);
-        this.uninstallEditPolicy(this.coronaFeedback);
-        this.commonPorts.each(function (i, p) {
-            p.setVisible(false);
-        });
+        // this.uninstallEditPolicy(this.coronaFeedback)
+        // this.commonPorts.each(function(i, p) {
+        //     p.setVisible(false)
+        // })
         this.simulationContext = {};
         this.getFigures().each(function (index, shape) {
             shape.onStart(self.simulationContext);
@@ -2269,12 +2271,12 @@ exports.default = draw2d.Canvas.extend({
 
         this._calculate();
         this.simulate = false;
-        this.commonPorts.each(function (i, p) {
-            p.setVisible(true);
-        });
+        // this.commonPorts.each(function(i, p) {
+        //     p.setVisible(true)
+        // })
         this.installEditPolicy(new _EditEditPolicy2.default());
         this.installEditPolicy(this.connectionPolicy);
-        this.installEditPolicy(this.coronaFeedback);
+        // this.installEditPolicy(this.coronaFeedback)
 
         this.getFigures().each(function (index, shape) {
             shape.onStop(_this3.simulationContext);
@@ -3656,7 +3658,7 @@ exports.default = draw2d.InputPort.extend({
             // default value of a not connected port is always HIGH
             //
             if (this.getConnections().getSize() === 0) {
-                this.setValue(true);
+                this.setValue(false);
             }
         }.bind(this));
 
@@ -5066,6 +5068,31 @@ var BackendSkills = function () {
           skillName: _skill_name,
           method: 'Start',
           parameters: _parameters
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "monitorSkillResultsTrigger",
+    value: function monitorSkillResultsTrigger(_ip, _port, _skill_name, _node) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.monitorResultTigger,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          node: _node
         }
       }).then(function (resp) {
         if (resp.err) {

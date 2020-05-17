@@ -79,19 +79,35 @@ Signals_DataSource = Signals_DataSource.extend({
              
         // calculate the outer frame/shape in the correct size in relation to the length of the text
         //
-        var adjustWidth = function(){
-            var width = _this.layerGet("label").getBBox().width+15
+        _this.adjustWidth = function(){
+            var width = _this.layerGet("label").getBBox().width+15;
 
             _this.setWidth(width+5);
-            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`})
-            _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`})
+            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`});
+            _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`});
         }
         this.on("change:userData.dataId",function(emitter, event){
-            _this.layerAttr("label", {text: event.value})
-            adjustWidth();
+            _this.layerAttr("label", {text: event.value});
+            if(_this.constSignalValue){
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " + event.value + ": " + _this.constSignalValue});
+            }
+            _this.adjustWidth();
         });
+
         this.on("change:userData.dataValue",function(emitter, event){
             _this.constSignalValue = event.value;
+            var dataId = _this.attr("userData.dataId");
+            if(!dataId){
+                dataId = "Data_Id";
+                _this.attr("userData.dataId", dataId);
+            }
+            _this.layerAttr("label", {text: dataId});            
+            if(_this.constSignalValue){
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " + dataId + ": " + _this.constSignalValue});
+            }
+            _this.adjustWidth();
         });
 
         this.on("added", function(){
@@ -100,13 +116,15 @@ Signals_DataSource = Signals_DataSource.extend({
                 dataId = "Data_Id";
                 _this.attr("userData.dataId", dataId);
             }
-            _this.layerAttr("label", {text: dataId})
-            adjustWidth()
+            _this.layerAttr("label", {text: dataId});
             var dataValue = _this.attr("userData.dataValue");
             if(dataValue){
                 _this.constSignalValue = dataValue;
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _this.constSignalValue});
             }
-        })
+            _this.adjustWidth();
+        });
 
         // override the "getValue" method of the port and delegate them to the related party (SourceTarget port)
         this.originalGetValue = this.getOutputPort(0).getValue;
@@ -148,6 +166,24 @@ Signals_DataSource = Signals_DataSource.extend({
             if(!(dataId in context.signalPorts)){
                 context.signalPorts[dataId] = _this.getOutputPort(0);
             }
+        }
+
+        var _val = _this.getOutputPort(0).getValue();
+        if(_val){
+            if(_this.constSignalValue){
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _val});
+                _this.adjustWidth();
+            }else{
+                // Update the label with the value
+                _this.layerAttr("label", {text: dataId + ": " + _val});
+                _this.adjustWidth();
+            }
+            
+        }else{
+            // Update the label with the value
+            _this.layerAttr("label", {text: dataId});
+            _this.adjustWidth();
         }
     },
 
@@ -196,7 +232,7 @@ Signals_DataSource = Signals_DataSource.extend({
       return {
         raspi: false,
         arduino: false
-      }
+      };
     },
     
     /**

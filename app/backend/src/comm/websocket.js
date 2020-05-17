@@ -23,6 +23,9 @@ module.exports = {
     this.ioClient.on("StatesChanged", function(data) {
       self.io.sockets.emit("SkillStatesChanged", data);
     });
+    this.ioClient.on("ResultTriggerChanged", function(data) {
+      self.io.sockets.emit("ResultTriggerChanged", data);
+    });
     this.ioClient.on("KPIChanged", function(data) {
       self.io.sockets.emit("SkillKPIChanged", data);
     });

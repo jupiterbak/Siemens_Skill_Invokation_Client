@@ -20,7 +20,7 @@ export default draw2d.InputPort.extend({
             // default value of a not connected port is always HIGH
             //
             if(this.getConnections().getSize()===0){
-                this.setValue(true);
+                this.setValue(false);
             }
         }.bind(this));
 

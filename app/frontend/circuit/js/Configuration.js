@@ -24,7 +24,9 @@ export default {
       browse: '/backend/skill/browse',
       save: '/backend/skill/save',
       getDescription: '/backend/skill/getDescription',
-      call: '/backend/skill/call'
+      call: '/backend/skill/call',
+      monitorResultTigger: '/backend/skill/MonitorResultTrigger',
+      monitorNode: '/backend/skill/monitorNode'
     }
   },
   monitor: {

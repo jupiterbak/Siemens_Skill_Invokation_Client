@@ -3,7 +3,7 @@
  *
  *
  */
-testShape = testShape.extend({
+Module03_localhost_4843_Skill_Add = Module03_localhost_4843_Skill_Add.extend({
 
     init: function(attr, setter, getter){
       this._super(attr, setter, getter);

@@ -88,7 +88,7 @@ export default draw2d.Canvas.extend({
 
         // show the ports of the elements only if the mouse cursor is close to the shape.
         //
-        this.coronaFeedback = new draw2d.policy.canvas.CoronaDecorationPolicy({diameterToBeVisible: 50})
+        this.coronaFeedback = new draw2d.policy.canvas.DecorationPolicy({diameterToBeVisible: 50})
         this.installEditPolicy(this.coronaFeedback)
 
         // nice grid decoration for the canvas paint area
@@ -487,10 +487,10 @@ export default draw2d.Canvas.extend({
 
         this.installEditPolicy(new SimulationEditPolicy())
         this.uninstallEditPolicy(this.connectionPolicy)
-        this.uninstallEditPolicy(this.coronaFeedback)
-        this.commonPorts.each(function(i, p) {
-            p.setVisible(false)
-        })
+        // this.uninstallEditPolicy(this.coronaFeedback)
+        // this.commonPorts.each(function(i, p) {
+        //     p.setVisible(false)
+        // })
         this.simulationContext = {}
         this.getFigures().each( (index, shape) => {
             shape.onStart(self.simulationContext)
@@ -510,12 +510,12 @@ export default draw2d.Canvas.extend({
     simulationStop: function() {
         this._calculate()
         this.simulate = false
-        this.commonPorts.each(function(i, p) {
-            p.setVisible(true)
-        })
+        // this.commonPorts.each(function(i, p) {
+        //     p.setVisible(true)
+        // })
         this.installEditPolicy(new EditEditPolicy())
         this.installEditPolicy(this.connectionPolicy)
-        this.installEditPolicy(this.coronaFeedback)
+        // this.installEditPolicy(this.coronaFeedback)
 
         this.getFigures().each( (index, shape) =>{
             shape.onStop(this.simulationContext)

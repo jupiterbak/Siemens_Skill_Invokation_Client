@@ -21,10 +21,6 @@ testShape = testShape.extend({
       this.err_msg = "";
       this.skill_current_state = "Ready";
 
-      this.initial_result_trigger_value = 0;
-      this.last_result_trigger_value = 0;
-
-      this.monitor_rt_call_results = null;
       this.start_call_results = null;
       this.get_results_call_results = null;
 
@@ -48,8 +44,7 @@ testShape = testShape.extend({
               self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
             }
             for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-              self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-              self.getOutputPort(index).setValue(0);               
+              self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});              
             }
             this.currentTimer=0;
             this.layerAttr("led_power",{fill:"#FF3C00"});
@@ -125,56 +120,17 @@ testShape = testShape.extend({
                     }
                     self.skill_current_state = _changed_states;
                   });
-
-                  socket.on("ResultTriggerChanged", function(data){
-                    console.log("####### ResultTriggerChanged");
-                    // Filter the event for the state changes related to this skill.
-                    for (var prop in data) {
-                        if (Object.prototype.hasOwnProperty.call(data, prop)) {
-                            var el = data[prop];
-                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {
-                                self.last_result_trigger_value = el.value.value;
-                            }
-                        }
-                    }
-                  });
                   
                   // Make transition
-                  if (self.description.skillModel.StateMachine){
-                    self.state = 12; // Call the skill directly
-                  }else{
-                    self.state = 130; // monitor result trigger before calling the skill
-                  }                  
+                  self.state = 12;
                 }
             }); 
             self.state = 110;               
             break;
-          case 110: // Wait for result of connect skill
+          case 110:
             this.currentTimer=0;
             break;
-          case 130: // Subscribe to result trigger before calling the skill
-            self.layerAttr("Skill_State", {text: 'State: Subscribing to result trigger.'});
-            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.Invokation.ResultTrigger).then(function (resp_rt) {
-              self.monitor_rt_call_results = resp_rt;
-              if(resp_rt.err){
-                // Make transition to err
-                self.state = 6;
-                self.err_msg = "Error while monitoring result trigger!";
-              }else{
-                if(resp_rt.results){
-                  self.initial_result_trigger_value = resp_rt.results.value.value;
-                }else{
-                  self.initial_result_trigger_value = 0;
-                }
-                // Make transition to call the skill
-                self.state = 12;
-              }
-            });
-            self.state = 135;
-            break;
-          case 135: // Wait for call 
-            break;
-          case 12: // Call the skill (Model with state machine)
+          case 12: // Call the skill
             this.layerAttr("Circle_en",{fill:"#faa50a"});
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
@@ -221,19 +177,11 @@ testShape = testShape.extend({
             break;
           case 2: // Wait for the  skill to be done
             self.layerAttr("Skill_State", {text: 'State: Executing'});
-            if (self.description.skillModel.StateMachine){              
-              if(self.skill_current_state.includes('completed')){
-                // Make transition
-                this.state = 3;
-                this.layerAttr("Skill_State", {text: 'State: Completed'});
-              }
-            }else{
-              if(self.last_result_trigger_value > self.initial_result_trigger_value){
-                // Make transition
-                this.state = 3;
-                this.layerAttr("Skill_State", {text: 'State: Completed'});
-              }
-            }            
+            if(self.skill_current_state.includes('completed')){
+              // Make transition
+              this.state = 3;
+              this.layerAttr("Skill_State", {text: 'State: Completed'});
+            }
             break;
           case 3: // Call Get results
             this.layerAttr("Circle_en",{fill:"#faa50a"});
@@ -256,7 +204,6 @@ testShape = testShape.extend({
               });
             }
 
-            // Call the emthod
             skillproxy.getResultsOfSkillCall(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_getResults) {
               self.get_results_call_results = resp_getResults;
               if(resp_getResults.err){
@@ -275,23 +222,19 @@ testShape = testShape.extend({
                 self.state = 310;
               }
             });
-
-            // Wait
             this.state = 300;
             break;
           case 300: // Wait call getResults
             break;
           case 310: // Wait until skill is ready again
-            if (self.description.skillModel.StateMachine){              
-              if(self.skill_current_state.includes('skill_ready')){
-                // Make transition
-                this.state = 4;
-                this.layerAttr("Skill_State", {text: 'State: Done'});
-              }
-            }else{
+            // set all the output variables
+            // TODO: Jupiter
+
+            if(self.skill_current_state.includes('skill_ready')){
+              // Make transition
               this.state = 4;
               this.layerAttr("Skill_State", {text: 'State: Done'});
-            }            
+            }
             break;
           case 4: // Set the done signal
             this.getOutputPort(0).setValue(true);
@@ -306,10 +249,6 @@ testShape = testShape.extend({
             break;
           case 5: // Reinitialize
             this.getOutputPort(0).setValue(false);
-            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-              self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-              self.getOutputPort(index).setValue(0);                
-            }
             this.layerAttr("Circle_en",{fill:"#f0f0f0"});
             this.layerAttr("Circle_done",{fill:"#f0f0f0"});
             this.currentTimer=0;
@@ -346,8 +285,7 @@ testShape = testShape.extend({
           self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
         for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-          self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-          self.getOutputPort(index).setValue(0);                
+          self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
         this.layerAttr("Skill_State", {text: 'State: not connected'});
         this.state = 5; // STOPPED
@@ -370,8 +308,7 @@ testShape = testShape.extend({
           self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
         for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-          self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-          self.getOutputPort(index).setValue(0);              
+          self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
 
         this.state = 5; // STOPPED
