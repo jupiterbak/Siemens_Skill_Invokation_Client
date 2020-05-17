@@ -5,7 +5,7 @@ services:
     image: "skillmonitoring"
     restart: always
     volumes:
-      -  skillmonitoring:/data/skillmonitoring
+      -  skillmonitoring-data:/data/skillmonitoring
     ports:
       - "8080:8080"
     networks: 
@@ -25,9 +25,12 @@ services:
       - skillmonitoring
     networks: 
       - backend
+    volumes:
+      -  skillinvocationclient-data:/data/skillinvocationclient
 
 networks:
   backend:
 
 volumes:
   skillmonitoring-data:
+  skillinvocationclient-data:
