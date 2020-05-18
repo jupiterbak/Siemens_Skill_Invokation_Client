@@ -18,4 +18,5 @@ RUN npm install
 RUN npm run build
 
 EXPOSE 7400
+EXPOSE 3800
 CMD npm run start
