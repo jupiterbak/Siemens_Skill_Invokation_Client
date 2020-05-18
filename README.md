@@ -3,7 +3,7 @@
 SP 347 Skill Invocation Client
 
 
-[![](app\frontend\circuit\images\Screenshot_Skill_Invocation_Client.PNG)](http://www.youtube.com/watch?v=AX0XKIXNPGM "Skill Invocation Client")
+[![](/app/frontend/circuit/images/Screenshot_Skill_Invocation_Client.PNG)](http://www.youtube.com/watch?v=AX0XKIXNPGM "Skill Invocation Client")
 
 
 ***Fig. 1:*** *Screenshot of the Siemens Skill Invocation Client.* 
