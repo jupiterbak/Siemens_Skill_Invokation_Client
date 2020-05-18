@@ -79,7 +79,9 @@ $ npm run build
 #### Step 4: Start the skill monitoring service
 The skill invocation client requires the skill monitoring service. The ***Skill Monitoring Service*** is responsible for the discovery, indentification, matching, monitoring and interfacing of a skill implementated in an OPC UA server. The server should follow the skill concept of the SP347 Project.
 
-All intruction for the installation and the start of the service is provided at: [https://github.com/jupiterbak/WDISS/tree/master/skillmonitoring](https://github.com/jupiterbak/WDISS/tree/master/skillmonitoring). 
+All intruction for the installation and the start of the service is provided at: [https://github.com/jupiterbak/WDISS/tree/master/skillmonitoring](https://github.com/jupiterbak/WDISS/tree/master/skillmonitoring).
+
+A zip source of the ***Skill Monitoring Service*** as well as some DEMO OPC UA Server can be found under the folder ***services***.
 
 #### Step 5: Set the environment variable `OPCUA_BACKEND_URL`
 
