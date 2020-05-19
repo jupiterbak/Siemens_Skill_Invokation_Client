@@ -5002,6 +5002,7 @@ var BackendSkills = function () {
   }, {
     key: "saveSkill",
     value: function saveSkill(skillObject, _machineName) {
+      var ip_to_name = skillObject.ip.split(".").join("");
       return $.ajax({
         url: _Configuration2.default.backend.skill.save,
         method: "POST",
@@ -5010,7 +5011,7 @@ var BackendSkills = function () {
           withCredentials: true
         },
         data: {
-          filePath: "" + _machineName + "_" + skillObject.ip + "_" + skillObject.port + "_" + skillObject.skill.name + ".shape",
+          filePath: "" + _machineName + "_" + ip_to_name + "_" + skillObject.port + "_" + skillObject.skill.name + ".shape",
           skill: skillObject
         }
       });

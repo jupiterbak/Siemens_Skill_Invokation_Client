@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "45bb39c5-b246-450f-a9fa-ecfc39d35c28",
+    "id": "3d95d14c-92f2-41ad-965d-a64633a7f714",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "95b0216e-3275-4e2d-940e-22bfcd2c0c9c",
+    "id": "00c31b3b-7261-40ae-bd5c-509bc82914cc",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "e792438f-bd8a-4e89-b3d6-f55ae139d01e",
+    "id": "2b8cc61b-bbbb-485b-9cc2-bc3de0fa30c7",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "513514b5-30d3-4e00-83b7-885cd8370177",
+    "id": "8b0aba88-c0a2-4113-b97a-31a9da593227",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "d6aca34d-854e-4ee5-b26b-838626ebbbaf",
+    "id": "7c0f3b59-062b-45b9-9e67-b84a19d90e63",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "47d92a31-cfc2-4620-882e-1a6cbe55e945",
+    "id": "68b0ffe3-b40a-4c9f-b8f2-a95b0c2975e9",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,7 +547,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "7513d75c-42ed-408e-b472-787f332858dd",
+    "id": "db19eb7c-5c36-4704-8320-fc777fce636f",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -582,7 +582,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "441b0415-75e7-4e58-afd9-389df647685d",
+    "id": "bc8e8609-f324-4d8a-aef9-b96e40125cac",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -620,7 +620,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "20ffe5d1-eeee-48ca-9b7c-7fa291542741",
+    "id": "96771a9f-1873-43fa-b09e-efd5ef748b1e",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -745,7 +745,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "192.168.245.1:4843",
+    "text": "localhost:4843",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -841,7 +841,7 @@ var json=[
     ]
   }
 ];
-var pkg='TESTPLC_1921682451_4843_Skill_Add';
+var pkg='Module03_localhost_4843_Skill_Add';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();

@@ -134,6 +134,7 @@ class BackendSkills {
   }
 
   saveSkill(skillObject, _machineName) {
+    var ip_to_name = (skillObject.ip).split(".").join("");
     return $.ajax({
         url: conf.backend.skill.save,
         method: "POST",
@@ -142,7 +143,7 @@ class BackendSkills {
           withCredentials: true
         },
         data: {
-          filePath: "" + _machineName + "_" + skillObject.ip + "_" + skillObject.port + "_"+ skillObject.skill.name + ".shape",
+          filePath: "" + _machineName + "_" + ip_to_name + "_" + skillObject.port + "_"+ skillObject.skill.name + ".shape",
           skill: skillObject
         }
       }
