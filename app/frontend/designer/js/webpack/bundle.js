@@ -266,7 +266,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 
 var Application = function () {

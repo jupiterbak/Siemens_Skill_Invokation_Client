@@ -2,7 +2,7 @@
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 import ProbeWindow from "./ProbeWindow"
 import ConnectionRouter from "./ConnectionRouter"
@@ -27,31 +27,31 @@ require("bootstrap-toggle/js/bootstrap-toggle.min")
 export default draw2d.Canvas.extend({
 
     init: function(id) {
-        let _this = this
+        let _this = this;
 
-        this._super(id, 6000, 6000)
+        this._super(id, 6000, 6000);
 
-        this.probeWindow = new ProbeWindow(this)
+        this.probeWindow = new ProbeWindow(this);
 
         // global context where objects can store data during different simulation steps.
         // OTHER object can read them. Useful for signal handover
-        this.simulationContext = {}
+        this.simulationContext = {};
 
-        this.simulate = false
-        this.animationFrameFunc = this._calculate.bind(this)
+        this.simulate = false;
+        this.animationFrameFunc = this._calculate.bind(this);
 
-        this.timerBase = 50 // ms calculate every 10ms all elements
+        this.timerBase = 50; // ms calculate every 10ms all elements
 
-        this.setScrollArea("#draw2dCanvasWrapper")
+        this.setScrollArea("#draw2dCanvasWrapper");
 
         // register this class as event listener for the canvas
         // CommandStack. This is required to update the state of
         // the Undo/Redo Buttons.
         //
-        this.getCommandStack().addEventListener(this)
+        this.getCommandStack().addEventListener(this);
 
-        let router = new ConnectionRouter()
-        router.abortRoutingOnFirstVertexNode = false
+        let router = new ConnectionRouter();
+        router.abortRoutingOnFirstVertexNode = false;
         let createConnection = this.createConnection = function(sourcePort, targetPort) {
             let c = new Connection({
                 color: "#000000",
@@ -60,13 +60,13 @@ export default draw2d.Canvas.extend({
                 radius: 2
             })
             if (sourcePort) {
-                c.setSource(sourcePort)
-                c.setTarget(targetPort)
+                c.setSource(sourcePort);
+                c.setTarget(targetPort);
             }
-            return c
+            return c;
         }
 
-        this.installEditPolicy(new DropInterceptorPolicy())
+        this.installEditPolicy(new DropInterceptorPolicy());
 
         // install a Connection create policy which matches to a "circuit like"
         // connections
@@ -83,26 +83,26 @@ export default draw2d.Canvas.extend({
                 new draw2d.policy.connection.OrthogonalConnectionCreatePolicy({
                     createConnection: createConnection
                 })
-            ])
-        this.installEditPolicy(this.connectionPolicy)
+            ]);
+        this.installEditPolicy(this.connectionPolicy);
 
         // show the ports of the elements only if the mouse cursor is close to the shape.
-        //
-        this.coronaFeedback = new draw2d.policy.canvas.DecorationPolicy({diameterToBeVisible: 50})
-        this.installEditPolicy(this.coronaFeedback)
+        // NOTE: Change CoronaDecorationPolicy --> DecorationPolicy
+        this.coronaFeedback = new draw2d.policy.canvas.DecorationPolicy({diameterToBeVisible: 50});
+        this.installEditPolicy(this.coronaFeedback);
 
         // nice grid decoration for the canvas paint area
         //
-        this.grid = new draw2d.policy.canvas.ShowGridEditPolicy(20)
-        this.installEditPolicy(this.grid)
+        this.grid = new draw2d.policy.canvas.ShowGridEditPolicy(20);
+        this.installEditPolicy(this.grid);
 
         // add some SnapTo policy for better shape/figure alignment
         //
-        this.installEditPolicy(new draw2d.policy.canvas.SnapToGeometryEditPolicy())
-        this.installEditPolicy(new draw2d.policy.canvas.SnapToCenterEditPolicy())
-        this.installEditPolicy(new draw2d.policy.canvas.SnapToInBetweenEditPolicy())
+        this.installEditPolicy(new draw2d.policy.canvas.SnapToGeometryEditPolicy());
+        this.installEditPolicy(new draw2d.policy.canvas.SnapToCenterEditPolicy());
+        this.installEditPolicy(new draw2d.policy.canvas.SnapToInBetweenEditPolicy());
 
-        this.installEditPolicy(new EditEditPolicy())
+        this.installEditPolicy(new EditEditPolicy());
 
         // Enable Copy&Paste for figures
         //
@@ -111,99 +111,99 @@ export default draw2d.Canvas.extend({
             //
             this.getSelection().each( (i, figure)=>{
                 if (figure instanceof CircuitFigure) {
-                    _this.clippboardFigure = figure.clone({excludePorts: true})
-                    _this.clippboardFigure.translate(5, 5)
-                    return false
+                    _this.clippboardFigure = figure.clone({excludePorts: true});
+                    _this.clippboardFigure.translate(5, 5);
+                    return false;
                 }
             })
             return false
         })
         Mousetrap.bindGlobal(['ctrl+v', 'command+v'], () => {
             if (this.clippboardFigure !== null) {
-                let cloneToAdd = this.clippboardFigure.clone({excludePorts: true})
-                let command = new draw2d.command.CommandAdd(this, cloneToAdd, cloneToAdd.getPosition())
-                this.getCommandStack().execute(command)
-                this.setCurrentSelection(cloneToAdd)
+                let cloneToAdd = this.clippboardFigure.clone({excludePorts: true});
+                let command = new draw2d.command.CommandAdd(this, cloneToAdd, cloneToAdd.getPosition());
+                this.getCommandStack().execute(command);
+                this.setCurrentSelection(cloneToAdd);
             }
-            return false
-        })
+            return false;
+        });
         Mousetrap.bindGlobal(['left'], function(event) {
-            let diff = _this.getZoom() < 0.5 ? 0.5 : 1
+            let diff = _this.getZoom() < 0.5 ? 0.5 : 1;
             _this.getSelection().each(function(i, f) {
-                f.translate(-diff, 0)
+                f.translate(-diff, 0);
             })
-            return false
-        })
+            return false;
+        });
         Mousetrap.bindGlobal(['up'], function(event) {
-            let diff = _this.getZoom() < 0.5 ? 0.5 : 1
+            let diff = _this.getZoom() < 0.5 ? 0.5 : 1;
             _this.getSelection().each(function(i, f) {
-                f.translate(0, -diff)
-            })
-            return false
-        })
+                f.translate(0, -diff);
+            });
+            return false;
+        });
         Mousetrap.bindGlobal(['right'], function(event) {
-            let diff = _this.getZoom() < 0.5 ? 0.5 : 1
+            let diff = _this.getZoom() < 0.5 ? 0.5 : 1;
             _this.getSelection().each(function(i, f) {
-                f.translate(diff, 0)
-            })
-            return false
-        })
+                f.translate(diff, 0);
+            });
+            return false;
+        });
         Mousetrap.bindGlobal(['down'], function(event) {
-            let diff = _this.getZoom() < 0.5 ? 0.5 : 1
+            let diff = _this.getZoom() < 0.5 ? 0.5 : 1;
             _this.getSelection().each(function(i, f) {
-                f.translate(0, diff)
-            })
-            return false
-        })
+                f.translate(0, diff);
+            });
+            return false;
+        });
 
 
         let setZoom = (newZoom) => {
-            let bb = this.getBoundingBox().getCenter()
-            let c = $("#draw2dCanvasWrapper")
-            this.setZoom(newZoom)
+            let bb = this.getBoundingBox().getCenter();
+            let c = $("#draw2dCanvasWrapper");
+            this.setZoom(newZoom);
             this.scrollTo((bb.y / newZoom - c.height() / 2), (bb.x / newZoom - c.width() / 2))
-        }
+        };
 
         //  ZoomIn Button and the callbacks
         //
         $("#canvas_zoom_in").on("click", () => {
-            setZoom(this.getZoom() * 1.2)
-        })
+            setZoom(this.getZoom() * 1.2);
+        });
 
         // OneToOne Button
         //
-        $("#canvas_zoom_normal").on("click", () => setZoom(1.0))
+        $("#canvas_zoom_normal").on("click", () => setZoom(1.0));
 
         //ZoomOut Button and the callback
         //
-        $("#canvas_zoom_out").on("click", () => setZoom(_this.getZoom() * 0.8))
+        $("#canvas_zoom_out").on("click", () => setZoom(_this.getZoom() * 0.8));
 
         $("#statusWebUSB .help-link").on("click", () => new WebUSBHelpDialog().show())
 
-        hardware.arduino.on("disconnect", this.hardwareChanged.bind(this))
-        hardware.arduino.on("connect", this.hardwareChanged.bind(this))
-        hardware.raspi.on("disconnect", this.hardwareChanged.bind(this))
-        hardware.raspi.on("connect", this.hardwareChanged.bind(this))
+        hardware.arduino.on("disconnect", this.hardwareChanged.bind(this));
+        hardware.arduino.on("connect", this.hardwareChanged.bind(this));
+        hardware.raspi.on("disconnect", this.hardwareChanged.bind(this));
+        hardware.raspi.on("connect", this.hardwareChanged.bind(this));
 
 
-        let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)
-        let isHTTPS = location.protocol === 'https:'
+        let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        let isHTTPS = location.protocol === 'https:';
         if (isChrome && isHTTPS) {
             $('#statusWebUSB').on("click", () => {
                 if (hardware.arduino.connected) {
-                    hardware.arduino.disconnect()
+                    hardware.arduino.disconnect();
                 } else {
-                    hardware.arduino.connect()
+                    hardware.arduino.connect();
                 }
-            })
+            });
         } else {
-            $('#statusWebUSB').addClass("disabled")
+            $('#statusWebUSB').addClass("disabled");
         }
 
 
         this.deleteSelectionCallback = function() {
-            let selection = _this.getSelection()
-            _this.getCommandStack().startTransaction(draw2d.Configuration.i18n.command.deleteShape)
+            let selection = _this.getSelection();
+            _this.getCommandStack().startTransaction(draw2d.Configuration.i18n.command.deleteShape);
             selection.each(function(index, figure) {
 
                     // Don't delete the conection if the source or target node part of the
@@ -211,45 +211,45 @@ export default draw2d.Canvas.extend({
                     //
                     if (figure instanceof draw2d.Connection) {
                         if (selection.contains(figure.getSource().getRoot()) || selection.contains(figure.getTarget().getRoot())) {
-                            return
+                            return;
                         }
                     }
 
-                    let cmd = figure.createCommand(new draw2d.command.CommandType(draw2d.command.CommandType.DELETE))
+                    let cmd = figure.createCommand(new draw2d.command.CommandType(draw2d.command.CommandType.DELETE));
                     if (cmd !== null) {
-                        _this.getCommandStack().execute(cmd)
+                        _this.getCommandStack().execute(cmd);
                     }
                 })
                 // execute all single commands at once.
-            _this.getCommandStack().commitTransaction()
+            _this.getCommandStack().commitTransaction();
         }
 
-        $(".toolbar").delegate("#editDelete:not(.disabled)", "click", this.deleteSelectionCallback)
-        Mousetrap.bindGlobal(['del', 'backspace'], this.deleteSelectionCallback)
+        $(".toolbar").delegate("#editDelete:not(.disabled)", "click", this.deleteSelectionCallback);
+        Mousetrap.bindGlobal(['del', 'backspace'], this.deleteSelectionCallback);
 
 
         $(".toolbar").delegate("#editUndo:not(.disabled)", "click", function() {
-            _this.getCommandStack().undo()
-        })
+            _this.getCommandStack().undo();
+        });
 
         $(".toolbar").delegate("#editRedo:not(.disabled)", "click", function() {
-            _this.getCommandStack().redo()
-        })
+            _this.getCommandStack().redo();
+        });
 
         $("#simulationStartStop").on("click", function() {
-            _this.simulationToggle()
-        })
+            _this.simulationToggle();
+        });
 
 
         // Register a Selection listener for the state handling
         // of the Delete Button
         //
         this.on("select", function(emitter, event) {
-            $("#editDelete").removeClass("disabled")
-        })
+            $("#editDelete").removeClass("disabled");
+        });
         this.on("unselect", function(emitter, event) {
-            $("#editDelete").addClass("disabled")
-        })
+            $("#editDelete").addClass("disabled");
+        });
 
         this.on("contextmenu", function(emitter, event) {
             let figure = _this.getBestFigure(event.x, event.y)
@@ -353,19 +353,19 @@ export default draw2d.Canvas.extend({
                     items: items
                 })
             }
-        })
+        });
 
         // hide the figure configuration dialog if the user clicks inside the canvas
         //
         this.on("click", function() {
-            $("#figureConfigDialog").hide()
-        })
+            $("#figureConfigDialog").hide();
+        });
 
         socket.on("shape:generated", msg => {
             $.getScript(conf.shapes.url + msg.jsPath + "?timestamp=" + new Date().getTime(),
                 this.reloadFromCache.bind(this)
-            )
-        })
+            );
+        });
 
         this.slider = $('#simulationBaseTimer')
             .slider({
@@ -386,16 +386,16 @@ export default draw2d.Canvas.extend({
                 } else {
                     _this.timerBase = parseInt(11 - ((event.value - 100) * (10 - 2) / (500 - 100) + 2))
                 }
-            })
+            });
     },
 
     isSimulationRunning: function() {
-        return this.simulate
+        return this.simulate;
     },
 
 
     getTimerBase: function () {
-        return this.timerBase
+        return this.timerBase;
       },
     
       setTimerBase: function (timerBase) {
@@ -413,11 +413,11 @@ export default draw2d.Canvas.extend({
      * load. Start from the beginning
      */
     clear: function() {
-        this.simulationStop()
+        this.simulationStop();
 
-        this._super()
+        this._super();
 
-        this.centerDocument()
+        this.centerDocument();
     },
 
     /**
@@ -427,9 +427,9 @@ export default draw2d.Canvas.extend({
      */
     snapToHelper: function(figure, pos) {
         if (this.getSelection().getSize() > 1) {
-            return pos
+            return pos;
         }
-        return this._super(figure, pos)
+        return this._super(figure, pos);
     },
 
     /**
@@ -454,26 +454,26 @@ export default draw2d.Canvas.extend({
             color: "#ff0000"
         })
         try {
-            figure = eval("new " + type + "();") // jshint ignore:line
+            figure = eval("new " + type + "();") ;// jshint ignore:line
 
             // required to calculate the filepath for markdown/js/shape
             //
-            figure.attr("userData.file", file)
+            figure.attr("userData.file", file);
         }
         catch(exc){
-            console.log(exc)
+            console.log(exc);
         }
 
         // create a command for the undo/redo support
-        let command = new draw2d.command.CommandAdd(this, figure, x, y)
-        this.getCommandStack().execute(command)
+        let command = new draw2d.command.CommandAdd(this, figure, x, y);
+        this.getCommandStack().execute(command);
     },
 
     simulationToggle: function() {
         if (this.simulate === true) {
-            this.simulationStop()
+            this.simulationStop();
         } else {
-            this.simulationStart()
+            this.simulationStart();
         }
     },
 
@@ -492,6 +492,11 @@ export default draw2d.Canvas.extend({
         //     p.setVisible(false)
         // })
         this.simulationContext = {}
+        // reset the connection colors
+        this.getLines().each(function(i, line) {
+            line.setColor(conf.color.low);
+        })
+
         this.getFigures().each( (index, shape) => {
             shape.onStart(self.simulationContext)
           })

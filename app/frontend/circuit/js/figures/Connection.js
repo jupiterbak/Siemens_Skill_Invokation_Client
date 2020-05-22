@@ -25,7 +25,7 @@ export default draw2d.Connection.extend({
   },
 
   getValue: function () {
-    return this.getSource().getValue()
+    return this.getSource().getValue();
   },
 
   /**
@@ -35,21 +35,21 @@ export default draw2d.Connection.extend({
    */
   getProbeFigure: function () {
     let entry = this.children.find(function (entry) {
-      return entry.figure instanceof ProbeFigure
-    })
-    return (entry !== null) ? entry.figure : null
+      return entry.figure instanceof ProbeFigure;
+    });
+    return (entry !== null) ? entry.figure : null;
   },
 
   disconnect: function () {
-    this._super()
+    this._super();
 
     // remove some decorations of the router.
     // This is a design flaw. the router creates the decoration and the connection must remove them :-/
     // Unfortunately the Router didn't have a callback when a connection is removed from the canvas.
     //
     if (typeof this.vertexNodes !== "undefined" && this.vertexNodes !== null) {
-      this.vertexNodes.remove()
-      delete this.vertexNodes
+      this.vertexNodes.remove();
+      delete this.vertexNodes;
     }
   },
 
@@ -57,7 +57,7 @@ export default draw2d.Connection.extend({
     this._super.apply(this, arguments)
 
     if (figure instanceof ProbeFigure && this.canvas !== null) {
-      this.canvas.fireEvent("probe:add", {figure: figure})
+      this.canvas.fireEvent("probe:add", {figure: figure});
     }
   },
 
@@ -66,7 +66,7 @@ export default draw2d.Connection.extend({
     this._super.apply(this, arguments)
 
     if (figure instanceof ProbeFigure && this.canvas !== null) {
-      this.canvas.fireEvent("probe:remove", {figure: figure})
+      this.canvas.fireEvent("probe:remove", {figure: figure});
     }
   },
 
@@ -77,7 +77,7 @@ export default draw2d.Connection.extend({
    * @returns {Object}
    */
   getPersistentAttributes: function () {
-    let memento = this._super()
+    let memento = this._super();
 
     // add all decorations to the memento
     //
@@ -101,31 +101,31 @@ export default draw2d.Connection.extend({
   setPersistentAttributes: function (memento) {
     // patch the router from some legacy data
     //
-    memento.router = "ConnectionRouter"
+    memento.router = "ConnectionRouter";
 
-    this._super(memento)
+    this._super(memento);
 
     // remove all decorations created in the constructor of this element
     //
-    this.resetChildren()
+    this.resetChildren();
 
     // and add all children of the JSON document.
     //
     if (memento.labels) {
       $.each(memento.labels, $.proxy(function (i, json) {
         // create the figure stored in the JSON
-        let figure = eval("new " + json.type + "()")
+        let figure = eval("new " + json.type + "()");
 
         // apply all attributes
-        figure.setPersistentAttributes(json)
+        figure.setPersistentAttributes(json);
 
         // instantiate the locator
-        let locator = eval("new " + json.locator + "()")
+        let locator = eval("new " + json.locator + "()");
 
         // add the new figure as child to this figure
-        this.add(figure, locator)
-      }, this))
+        this.add(figure, locator);
+      }, this));
     }
   }
 
-})
+});

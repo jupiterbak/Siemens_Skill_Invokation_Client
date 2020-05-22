@@ -4,13 +4,13 @@ import * as d3 from "d3"
 export default class ProbeWindow {
 
   constructor(canvas) {
-    this.canvas = canvas
-    this.visible = false
+    this.canvas = canvas;
+    this.visible = false;
 
     // the tick function if the oszi goes from left to the right
     //
     this.rightShiftTick = entry => {
-      entry.data.unshift(entry.probe.getValue() ? 5 : 0)
+      entry.data.unshift(entry.probe.getValue() ? 5 : 0);
       entry.vis
         .selectAll("path")
         .attr("transform", "translate(-" + this.xScale(1) + ")")
@@ -19,12 +19,12 @@ export default class ProbeWindow {
         .ease(d3.easeLinear)
         //.ease("linear")
         .duration(this.intervalTime)
-        .attr("transform", "translate(0)")
-      entry.data.pop()
-    }
+        .attr("transform", "translate(0)");
+      entry.data.pop();
+    };
 
     this.leftShiftTick = entry => {
-      entry.data.push(entry.probe.getValue() ? 5 : 0)
+      entry.data.push(entry.probe.getValue() ? 5 : 0);
       entry.vis
         .selectAll("path")
         .attr("transform", "translate(" + this.xScale(1) + ")")
@@ -33,90 +33,90 @@ export default class ProbeWindow {
         .ease(d3.easeLinear)
         //.ease("linear")
         .duration(this.intervalTime)
-        .attr("transform", "translate(0)")
-      entry.data.shift()
+        .attr("transform", "translate(0)");
+      entry.data.shift();
     }
 
-    $(window).resize(() => this.resize())
+    $(window).resize(() => this.resize());
 
-    this.canvas.on("probe:add", (emitter, event) => this.addProbe(event.figure))
-    this.canvas.on("probe:remove", (emitter, event) => this.removeProbe(event.figure))
+    this.canvas.on("probe:add", (emitter, event) => this.addProbe(event.figure));
+    this.canvas.on("probe:remove", (emitter, event) => this.removeProbe(event.figure));
 
-    this.channelBufferSize = 500
-    this.channelHeight = 20
-    this.channelWidth = $("#probe_window").width()
-    this.probes = []
+    this.channelBufferSize = 500;
+    this.channelHeight = 20;
+    this.channelWidth = $("#probe_window").width();
+    this.probes = [];
 
-    this.xScale = d3.scaleLinear().domain([0, this.channelBufferSize - 1]).range([0, this.channelWidth])
-    this.yScale = d3.scaleLinear().domain([0, 5]).range([this.channelHeight, 0])
+    this.xScale = d3.scaleLinear().domain([0, this.channelBufferSize - 1]).range([0, this.channelWidth]);
+    this.yScale = d3.scaleLinear().domain([0, 5]).range([this.channelHeight, 0]);
 
     $("#probe_window_stick").on("click", () => {
       if (this.visible) {
-        this.hide()
+        this.hide();
       }
       else {
-        this.show()
+        this.show();
       }
-    })
+    });
   }
 
 
   show() {
-    let _this = this
-    let probes = []
+    let _this = this;
+    let probes = [];
 
-    this.resize()
+    this.resize();
 
     // get all probes from the canvas and add them to the window
     //
     this.canvas.getLines().each(function (i, line) {
-      let probe = line.getProbeFigure()
+      let probe = line.getProbeFigure();
       if (probe !== null) {
-        probes.push(probe)
+        probes.push(probe);
       }
-    })
+    });
 
 
     // sort the probes by the "index" attribute
     //
     probes.sort(function (a, b) {
-      return a.index - b.index
-    })
+      return a.index - b.index;
+    });
 
-    $("#probeSortable").remove()
-    $("#probe_window").append('<ul id="probeSortable"></ul>')
+    $("#probeSortable").remove();
+    $("#probe_window").append('<ul id="probeSortable"></ul>');
 
 
     probes.forEach(function (probe) {
-      _this.addProbe(probe)
-    })
+      _this.addProbe(probe);
+    });
 
     if (probes.length > 0)
-      $("#probe_hint").hide()
+      $("#probe_hint").hide();
     else
-      $("#probe_hint").show()
-    $("#probe_window").show().animate({height: '200px'}, 300)
-    $("#draw2dCanvasWrapper").animate({bottom: '200px'}, 300)
+      $("#probe_hint").show();
+    $("#probe_window").show().animate({height: '200px'}, 300);
+    $("#draw2dCanvasWrapper").animate({bottom: '200px'}, 300);
     $("#probeSortable").sortable({
       update: function (event, ui) {
-        let lis = $("#probeSortable li")
+        let lis = $("#probeSortable li");
         $.each(lis, function (index, li) {
           let probeEntry = _this.probes.find(function (entry) {
             return entry.probe.id === li.attributes.id.value
           })
-          probeEntry.probe.setIndex(index)
-        })
+          probeEntry.probe.setIndex(index);
+        });
       }
     })
-    this.visible = true
+    this.visible = true;
   }
 
   hide() {
-    $("#probe_window").animate({height: '0'}, 300)
+    $("#probe_window").animate({height: '0'}, 300);
     $("#draw2dCanvasWrapper").animate({bottom: '0'}, 300, () => {
-      $("#probeSortable").remove()
-    })
-    this.visible = false
+      $("#probeSortable").remove();
+    });
+    this.visible = false;
   }
 
   resize() {
@@ -125,47 +125,47 @@ export default class ProbeWindow {
     this.yScale = d3.scaleLinear().domain([0, 5]).range([this.channelHeight, 0])
 
     this.probes.forEach((entry) => {
-      entry.svg.attr("width", this.channelWidth)
-    })
+      entry.svg.attr("width", this.channelWidth);
+    });
   }
 
   tick(intervalTime) {
     // test fiddle for D3 line chart
     // http://jsfiddle.net/Q5Jag/1859/
 
-    this.intervalTime = intervalTime
-    this.probes.forEach(this.leftShiftTick)
+    this.intervalTime = intervalTime;
+    this.probes.forEach(this.leftShiftTick);
   }
 
   removeProbe(probeFigure) {
-    this.probes = $.grep(this.probes, entry => entry.probe !== probeFigure)
-    $("#" + probeFigure.id).remove()
-    this.resize()
+    this.probes = $.grep(this.probes, entry => entry.probe !== probeFigure);
+    $("#" + probeFigure.id).remove();
+    this.resize();
     if (this.probes.length > 0)
-      $("#probe_hint").fadeOut()
+      $("#probe_hint").fadeOut();
     else
-      $("#probe_hint").fadeIn()
+      $("#probe_hint").fadeIn();
   }
 
   addProbe(probeFigure) {
-    probeFigure.setIndex(this.probes.length)
+    probeFigure.setIndex(this.probes.length);
 
-    let _this = this
+    let _this = this;
 
-    let data = d3.range(this.channelBufferSize).map(() => 0)
-    let li = d3.select("#probeSortable").append("li").attr("id", probeFigure.id).attr("index", probeFigure.getIndex())
-    let label = li.append("div").text(probeFigure.getText())
+    let data = d3.range(this.channelBufferSize).map(() => 0);
+    let li = d3.select("#probeSortable").append("li").attr("id", probeFigure.id).attr("index", probeFigure.getIndex());
+    let label = li.append("div").text(probeFigure.getText());
 
-    let svg = li.append("svg:svg").attr("width", this.channelWidth).attr("height", this.channelHeight)
-    let vis = svg.append("svg:g")
+    let svg = li.append("svg:svg").attr("width", this.channelWidth).attr("height", this.channelHeight);
+    let vis = svg.append("svg:g");
     let path = d3.line()
       .x(function (d, i) {
-        return _this.xScale(i)
+        return _this.xScale(i);
       })
       .y(function (d, i) {
-        return _this.yScale(d)
+        return _this.yScale(d);
       })
-      .curve(d3.curveStepBefore)
+      .curve(d3.curveStepBefore);
     //   .interpolate("step-before")
 
     vis.selectAll("path")
@@ -175,7 +175,7 @@ export default class ProbeWindow {
       .attr("d", path)
       .attr('stroke', 'green')
       .attr('stroke-width', 1)
-      .attr('fill', 'none')
+      .attr('fill', 'none');
 
     this.probes.push({
       data: data,
@@ -183,43 +183,43 @@ export default class ProbeWindow {
       vis: vis,
       path: path,
       probe: probeFigure
-    })
+    });
     if (this.probes.length > 0)
-      $("#probe_hint").hide()
+      $("#probe_hint").hide();
     else
-      $("#probe_hint").show()
+      $("#probe_hint").show();
 
     // direct edit of the label
     //
-    let $label = $(label[0])
+    let $label = $(label[0]);
     $label.click(function () {
 
-      let $replaceWith = $('<input type="input" class="inplaceEdit" value="' + probeFigure.getText() + '" />')
-      $label.hide()
-      $label.after($replaceWith)
-      $replaceWith.focus()
+      let $replaceWith = $('<input type="input" class="inplaceEdit" value="' + probeFigure.getText() + '" />');
+      $label.hide();
+      $label.after($replaceWith);
+      $replaceWith.focus();
 
       let fire = function () {
-        let newLabel = $replaceWith.val()
+        let newLabel = $replaceWith.val();
         if (newLabel !== "") {
-          $replaceWith.remove()
-          $label.html(newLabel)
-          $label.show()
-          probeFigure.setText(newLabel)
+          $replaceWith.remove();
+          $label.html(newLabel);
+          $label.show();
+          probeFigure.setText(newLabel);
         }
         else {
           // get the value and post them here
-          $replaceWith.remove()
-          $label.show()
+          $replaceWith.remove();
+          $label.show();
         }
-      }
-      $replaceWith.blur(fire)
+      };
+      $replaceWith.blur(fire);
       $replaceWith.keypress(function (e) {
         if (e.which === 13) {
-          fire()
+          fire();
         }
-      })
-    })
-    this.resize()
+      });
+    });
+    this.resize();
   }
 }

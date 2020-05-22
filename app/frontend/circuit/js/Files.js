@@ -7,7 +7,7 @@ import storage from "./io/BackendStorage"
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 
 export default class Files {

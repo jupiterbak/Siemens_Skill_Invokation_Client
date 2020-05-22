@@ -147,7 +147,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * The **GraphicalEditor** is responsible for layout and dialog handling.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author Andreas Herz
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author Jupiter Bakakeu
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
@@ -1010,7 +1010,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 
 var Files = function () {
@@ -1217,7 +1217,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 
 var Palette = function () {
@@ -1789,7 +1789,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 __webpack_require__(/*! bootstrap-toggle/css/bootstrap-toggle.min.css */ "./node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css");
 __webpack_require__(/*! bootstrap-toggle/js/bootstrap-toggle.min */ "./node_modules/bootstrap-toggle/js/bootstrap-toggle.min.js");
@@ -1857,7 +1857,7 @@ exports.default = draw2d.Canvas.extend({
         this.installEditPolicy(this.connectionPolicy);
 
         // show the ports of the elements only if the mouse cursor is close to the shape.
-        //
+        // NOTE: Change CoronaDecorationPolicy --> DecorationPolicy
         this.coronaFeedback = new draw2d.policy.canvas.DecorationPolicy({ diameterToBeVisible: 50 });
         this.installEditPolicy(this.coronaFeedback);
 
@@ -2251,6 +2251,11 @@ exports.default = draw2d.Canvas.extend({
         //     p.setVisible(false)
         // })
         this.simulationContext = {};
+        // reset the connection colors
+        this.getLines().each(function (i, line) {
+            line.setColor(_Configuration2.default.color.low);
+        });
+
         this.getFigures().each(function (index, shape) {
             shape.onStart(self.simulationContext);
         });
@@ -4243,7 +4248,7 @@ Object.defineProperty(exports, "__esModule", {
  *    canvas.add( circle, 100,50);
  *
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  * @extend draw2d.layout.locator.Locator
  */
 var Locator = draw2d.layout.locator.Locator.extend(

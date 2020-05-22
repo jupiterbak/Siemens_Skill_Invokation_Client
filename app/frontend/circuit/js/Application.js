@@ -2,7 +2,7 @@
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 import Palette from "./Palette"
 import View from "./View"

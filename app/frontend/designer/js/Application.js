@@ -13,7 +13,7 @@ import FileSaveAs from "./dialog/FileSaveAs"
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 
 export default class Application {

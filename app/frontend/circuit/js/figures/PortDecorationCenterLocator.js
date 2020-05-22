@@ -20,7 +20,7 @@
  *    canvas.add( circle, 100,50);
  *
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  * @extend draw2d.layout.locator.Locator
  */
 let Locator  = draw2d.layout.locator.Locator.extend(

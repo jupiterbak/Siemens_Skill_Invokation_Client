@@ -5,7 +5,7 @@ import Hogan from "hogan.js";
  *
  * The **GraphicalEditor** is responsible for layout and dialog handling.
  *
- * @author Andreas Herz
+ * @author Jupiter Bakakeu
  */
 
 export default class Palette {
