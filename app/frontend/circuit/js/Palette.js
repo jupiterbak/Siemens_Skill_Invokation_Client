@@ -126,7 +126,7 @@ export default class Palette {
                 obj["Default"].name = "Default";
                 obj["Default"].shapes.push(item);
             }
-            return obj
+            return obj;
         }, {});
     }
 }
