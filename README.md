@@ -142,7 +142,7 @@ docker build -t skill_invocation_client .
 #### Step 3: Run the Docker container locally
 
 ```bash
-docker run -p 7400:7400 -p 3800:3800 -d skill_invocation_client
+docker run -p 7400:7400 -d skill_invocation_client
 ```
 
 #### Step 3_a: (Alternativ) Run the Docker container in the cluster
