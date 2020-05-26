@@ -19,8 +19,8 @@ RUN npm install
 RUN npm run build
 
 # Define the volume
-VOLUME app/shapes
-VOLUME ./.skillInvocationClient
+VOLUME /usr/src/app/shapes
+VOLUME /usr/src/app/.skillInvocationClient
 
 # TODO: replace this environment variable before compiling
 ENV OPCUA_BACKEND_URL="http://skill_monitoring:8080/"

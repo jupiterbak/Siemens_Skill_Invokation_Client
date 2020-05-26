@@ -1,36 +1,36 @@
 version: "2.0"
 
 services:
-  mongodb:
-    image: "skillmonitoring"
+  skill_monitoring:
+    image: "jupiterbak2002/skill_monitoring"
     restart: always
-    volumes:
-      -  skillmonitoring-data:/data/skillmonitoring
+    container_name: skill_monitoring
     ports:
       - "8080:8080"
     networks: 
-      - backend
-      
+      - backend      
   
-  server:
-    build: .
+  skill_invocation_client:
+    image: "jupiterbak2002/skill_invocation_client"
     restart: always
+    container_name: skill_invocation_client
     environment:
-      - OPCUA_BACKEND_URL=http://0.0.0.0:8080/
+      - OPCUA_BACKEND_URL=http://skill_monitoring:8080/
     ports:
       - "7400:7400"
     depends_on:
-      - skillmonitoring
+      - skill_monitoring
     links:
-      - skillmonitoring
+      - skill_monitoring
     networks: 
       - backend
     volumes:
-      -  skillinvocationclient-data:/data/skillinvocationclient
+      -  skill_invocation_client-shapes:/usr/src/app/shapes
+      -  skill_invocation_client-sequences:/usr/src/app/.skillInvocationClient
 
 networks:
   backend:
 
 volumes:
-  skillmonitoring-data:
-  skillinvocationclient-data:
+  skill_invocation_client-shapes:
+  skill_invocation_client-sequences:
