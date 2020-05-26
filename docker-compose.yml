@@ -1,8 +1,32 @@
 version: "2.0"
 
 services:
+  skill_load_unload:
+    image: "jupiterbak2002/skill_load_unload:latest"
+    restart: always
+    container_name: skill_load_unload
+    ports:
+      - "4842:4842"
+    networks: 
+      - backend
+  skill_insert:
+    image: "jupiterbak2002/skill_insert:latest"
+    restart: always
+    container_name: skill_insert
+    ports:
+      - "4840:4840"
+    networks: 
+      - backend
+  skill_add:
+    image: "jupiterbak2002/skill_add:latest"
+    restart: always
+    container_name: skill_add
+    ports:
+      - "4843:4843"
+    networks: 
+      - backend  
   skill_monitoring:
-    image: "jupiterbak2002/skill_monitoring"
+    image: "jupiterbak2002/skill_monitoring:latest"
     restart: always
     container_name: skill_monitoring
     ports:
@@ -11,7 +35,7 @@ services:
       - backend      
   
   skill_invocation_client:
-    image: "jupiterbak2002/skill_invocation_client"
+    image: "jupiterbak2002/skill_invocation_client:latest"
     restart: always
     container_name: skill_invocation_client
     environment:
