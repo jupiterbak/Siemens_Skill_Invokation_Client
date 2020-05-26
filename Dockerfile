@@ -23,7 +23,7 @@ VOLUME app/shapes
 VOLUME ./.skillInvocationClient
 
 # TODO: replace this environment variable before compiling
-ENV OPCUA_BACKEND_URL="http://192.168.99.100:8080/"
+ENV OPCUA_BACKEND_URL="http://skill_monitoring:8080/"
 
 EXPOSE 7400
 
