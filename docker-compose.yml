@@ -9,7 +9,6 @@ services:
       - "4842:4842"
     networks: 
       - backend
-
   skill_insert:
     image: "jupiterbak2002/skill_insert:latest"
     restart: always
@@ -18,7 +17,6 @@ services:
       - "4840:4840"
     networks: 
       - backend
-
   skill_add:
     image: "jupiterbak2002/skill_add:latest"
     restart: always
@@ -27,7 +25,6 @@ services:
       - "4843:4843"
     networks: 
       - backend  
-  
   skill_monitoring:
     image: "jupiterbak2002/skill_monitoring:latest"
     restart: always
@@ -35,8 +32,7 @@ services:
     ports:
       - "8080:8080"
     networks: 
-      - backend      
-  
+      - backend   
   skill_invocation_client:
     image: "jupiterbak2002/skill_invocation_client:latest"
     restart: always
