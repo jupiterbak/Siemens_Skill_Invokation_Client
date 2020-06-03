@@ -4,25 +4,25 @@
  *
  * @author Jupiter Bakakeu
  */
-import ProbeWindow from "./ProbeWindow"
-import ConnectionRouter from "./ConnectionRouter"
-import DropInterceptorPolicy from "./DropInterceptorPolicy"
-import EditEditPolicy from "./EditEditPolicy"
-import ProbeFigure from "./figures/ProbeFigure"
-import conf from "./Configuration"
-import Connection from "./figures/Connection"
-import SimulationEditPolicy from "./SimulationEditPolicy"
-import MarkdownDialog from "./dialog/MarkdownDialog"
-import WebUSBHelpDialog from "./dialog/WebUSBHelpDialog"
+import ProbeWindow from "./ProbeWindow";
+import ConnectionRouter from "./ConnectionRouter";
+import DropInterceptorPolicy from "./DropInterceptorPolicy";
+import EditEditPolicy from "./EditEditPolicy";
+import ProbeFigure from "./figures/ProbeFigure";
+import conf from "./Configuration";
+import Connection from "./figures/Connection";
+import SimulationEditPolicy from "./SimulationEditPolicy";
+import MarkdownDialog from "./dialog/MarkdownDialog";
+import WebUSBHelpDialog from "./dialog/WebUSBHelpDialog";
 
-import hardware from "./hardware"
+import hardware from "./hardware";
 
-import imgConnectionStatusNeutral from "../images/status_index.svg"
-import imgConnectionStatusTrue from "../images/status_index_true.svg"
-import imgConnectionStatusFalse from "../images/status_index_false.svg"
+import imgConnectionStatusNeutral from "../images/status_index.svg";
+import imgConnectionStatusTrue from "../images/status_index_true.svg";
+import imgConnectionStatusFalse from "../images/status_index_false.svg";
 
-require("bootstrap-toggle/css/bootstrap-toggle.min.css")
-require("bootstrap-toggle/js/bootstrap-toggle.min")
+require("bootstrap-toggle/css/bootstrap-toggle.min.css");
+require("bootstrap-toggle/js/bootstrap-toggle.min");
 
 export default draw2d.Canvas.extend({
 
@@ -58,13 +58,15 @@ export default draw2d.Canvas.extend({
                 router: router,
                 stroke: 1.5,
                 radius: 2
-            })
+            });
+            // NOTE: Jupiter - Try to include Spline pattern for connections
+            // c.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
             if (sourcePort) {
                 c.setSource(sourcePort);
                 c.setTarget(targetPort);
             }
             return c;
-        }
+        };
 
         this.installEditPolicy(new DropInterceptorPolicy());
 

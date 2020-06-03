@@ -1831,6 +1831,8 @@ exports.default = draw2d.Canvas.extend({
                 stroke: 1.5,
                 radius: 2
             });
+            // NOTE: Jupiter - Try to include Spline pattern for connections
+            // c.setRouter(new draw2d.layout.connection.SplineConnectionRouter());
             if (sourcePort) {
                 c.setSource(sourcePort);
                 c.setTarget(targetPort);
