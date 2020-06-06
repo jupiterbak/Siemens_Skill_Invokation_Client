@@ -62,6 +62,22 @@ class Application {
             new BrowseSkillsDialog().show(this.view);
         });
 
+        $("#showPalette").on("click", () => {
+            var panel = $('.palette');
+            if (panel.hasClass("visible")) {
+                panel.removeClass('visible').animate({'margin-left':'-240px'});
+                $('.toolbar').animate({'left':'10px'});
+                $('.content').animate({'left':'10px'});
+                $('.probe_window').animate({'left':'10px'});
+            } else {
+                panel.addClass('visible').animate({'margin-left':'0px'});
+                $('.toolbar').animate({'left':'250px'});
+                $('.content').animate({'left':'250px'});
+                $('.probe_window').animate({'left':'250px'});
+            }   
+            return false;
+        });
+
         /*
          * Replace all SVG images with inline SVG
          */
