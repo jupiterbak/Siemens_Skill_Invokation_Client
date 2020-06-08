@@ -1,0 +1,17 @@
+<svg width="14" height="55" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+ <title>slideout_bottom</title>
+ <desc>Created with Sketch.</desc>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="57" width="16" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g transform="rotate(90 4.923048496246335,27.500001907348636) " fill-rule="evenodd" fill="none" id="slideout_bottom">
+   <path fill="#289CAB" id="Triangle-4" d="m5.370708,22.616841l18.66428,2.10188c0.50578,0.05696 0.88809,0.48474 0.88809,0.99372l0,2.69579l-40,0l0,-2.69579c0,-0.50898 0.38231,-0.93676 0.88809,-0.99372l18.66428,-2.10188c0.29748,-0.0335 0.59778,-0.0335 0.89526,0z"/>
+   <polygon points="24.92298948764801,29.40827178955078 24.92298948764801,32.40828323364258 -15.076913237571716,32.40828323364258 -15.076913237571716,29.40827178955078 " fill="#289CAB" id="Triangle-4"/>
+  </g>
+ </g>
+</svg>
