@@ -68,12 +68,12 @@ class Application {
                 panel.removeClass('visible').animate({'margin-left':'-240px'});
                 $('.toolbar').animate({'left':'10px'});
                 $('.content').animate({'left':'10px'});
-                $('.probe_window').animate({'left':'10px'});
+                $('#probe_window').animate({'left':'10px'});
             } else {
                 panel.addClass('visible').animate({'margin-left':'0px'});
                 $('.toolbar').animate({'left':'250px'});
                 $('.content').animate({'left':'250px'});
-                $('.probe_window').animate({'left':'250px'});
+                $('#probe_window').animate({'left':'250px'});
             }   
             return false;
         });
