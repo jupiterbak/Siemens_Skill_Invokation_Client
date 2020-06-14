@@ -31,8 +31,12 @@ services:
     container_name: skill_monitoring
     ports:
       - "8080:8080"
-    networks: 
-      - backend   
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    networks:
+      backend:
+        ipv4_address: '172.31.0.100'   
   skill_invocation_client:
     image: "jupiterbak2002/skill_invocation_client:latest"
     restart: always
@@ -53,7 +57,21 @@ services:
 
 networks:
   backend:
+    ipam:
+      config:
+        - subnet: 172.31.0.0/16
 
 volumes:
   skill_invocation_client-shapes:
+    driver: host
+    driver_opts:
+      source: /tmp/data
   skill_invocation_client-sequences:
+    driver: host
+    driver_opts:
+      source: /tmp/data
+  # driver: local
+  # driver_opts:
+  #   type: none
+  #   device: ${WEB_APP_PATH}
+  #   o: bind
