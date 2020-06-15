@@ -43,23 +43,37 @@ class Application {
      * @param {String} canvasId the id of the DOM element to use as paint container
      */
     constructor() {
-        this.palette = new Palette()
-        this.view = new View("draw2dCanvas")
-        this.filePane = new Files()
+        this.palette = new Palette();
+        this.view = new View("draw2dCanvas");
+        this.filePane = new Files();
+        var self = this;
 
         $("#fileOpen, #editorFileOpen").on("click", () => {
-            new FileOpen().show(this.view)
+            new FileOpen().show(self.view);
         });
+        Mousetrap.bindGlobal(['ctrl+o', 'command+o'], () => {
+            new FileOpen().show(self.view);
+            return false;
+        });
+
         $("#fileNew").on("click", () => {
-            this.fileNew()
+            this.fileNew();
         });
 
         $("#fileSave, #editorFileSave").on("click", () => {
-            new FileSave().show(this.view);
+            new FileSave().show(self.view);
+        });
+        Mousetrap.bindGlobal(['ctrl+s', 'command+s'], () => {
+            new FileSave().show(self.view);
+            return false;
         });
         
         $("#BrowseSkills, #editorBrowseSkills").on("click", () => {
-            new BrowseSkillsDialog().show(this.view);
+            new BrowseSkillsDialog().show(self.view);
+        });
+        Mousetrap.bindGlobal(['ctrl+b', 'command+b'], () => {
+            new BrowseSkillsDialog().show(self.view);
+            return false;
         });
 
         $("#showPalette").on("click", () => {
@@ -69,13 +83,26 @@ class Application {
                 $('.toolbar').animate({'left':'10px'});
                 $('.content').animate({'left':'10px'});
                 $('#probe_window').animate({'left':'10px'});
+                $('#canvas_config').animate({'left':'15px'});
+                $('#canvas_config_items').animate({'left':'15px'});
             } else {
                 panel.addClass('visible').animate({'margin-left':'0px'});
                 $('.toolbar').animate({'left':'250px'});
                 $('.content').animate({'left':'250px'});
                 $('#probe_window').animate({'left':'250px'});
+                $('#canvas_config').animate({'left':'255px'});
+                $('#canvas_config_items').animate({'left':'255px'});
             }   
             return false;
+        });
+
+        // enable the tooltip for all buttons
+        //
+        $('*[data-toggle="tooltip"]').tooltip({
+            placement: "bottom",
+            container: "body",
+            delay: {show: 1000, hide: 10},
+            html: true
         });
 
         /*

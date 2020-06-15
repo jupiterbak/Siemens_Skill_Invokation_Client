@@ -63,6 +63,11 @@ body {
             width: @leftPaneWidth;
             padding: 0;
 
+            background-color: @layerPaneBgColor;
+            text-align: center;
+            box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.3);
+            z-index: 1000;
+
             .title {
               left: 10px;
               right:0px;
@@ -138,6 +143,34 @@ body {
                 width:6000px;
                 height:6000px;
             }
+
+            #canvas_config{
+              position: fixed;
+              width:40px;
+              top:@toolbarHeight+5;
+              left:@leftPaneWidth+5px;
+              cursor:pointer;
+              border:1px solid transparent;
+              background-color:fadeout(@toolbarBackground,70%);
+              &:hover {
+                border:1px solid @tintColor  !important;
+              }
+            }
+            
+            #canvas_config:hover{
+              color:@tintColor;
+            }
+
+            #canvas_config_items{
+              position: fixed;
+              top:@toolbarHeight+30;
+              left:@leftPaneWidth+5px;
+              cursor:pointer;
+              padding:10px;
+              white-space:nowrap;
+              min-width:250px;
+            }
+            
           }
         }
       }

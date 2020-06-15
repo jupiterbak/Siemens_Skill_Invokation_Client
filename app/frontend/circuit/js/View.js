@@ -96,7 +96,15 @@ export default draw2d.Canvas.extend({
         // nice grid decoration for the canvas paint area
         //
         this.grid = new draw2d.policy.canvas.ShowGridEditPolicy(20);
-        this.installEditPolicy(this.grid);
+        this.installEditPolicy(_this.grid);
+        $('#canvas_config_grid').on('change', () => {
+            if ($('#canvas_config_grid').prop('checked')) {
+                this.installEditPolicy(_this.grid);
+            }
+            else {
+                this.uninstallEditPolicy(_this.grid);
+            }
+        });
 
         // add some SnapTo policy for better shape/figure alignment
         //
@@ -233,9 +241,17 @@ export default draw2d.Canvas.extend({
         $(".toolbar").delegate("#editUndo:not(.disabled)", "click", function() {
             _this.getCommandStack().undo();
         });
+        Mousetrap.bindGlobal(['ctrl+z', 'command+z'], () => {
+            _this.getCommandStack().undo();
+            return false;
+        });
 
         $(".toolbar").delegate("#editRedo:not(.disabled)", "click", function() {
             _this.getCommandStack().redo();
+        });
+        Mousetrap.bindGlobal(['ctrl+y', 'command+y'], () => {
+            _this.getCommandStack().redo();
+            return false;
         });
 
         $("#simulationStartStop").on("click", function() {

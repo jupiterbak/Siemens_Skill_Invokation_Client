@@ -67,39 +67,37 @@
                         </div>
                     </div>
                     <div class="toolbar">
-                        <span class="group">
-                        </span>
-                        <span class="group">
-                            <span class="image-button"  id="editorBrowseSkills">
-                            <img  title="Browse OPC UA Server" src="./images/search-24px.svg"/>
-                            <div>Browse</div>
+                        <span class="group" >
+                            <span class="image-button"  id="editorBrowseSkills" data-toggle="tooltip" title="Browse OPC UA Server <span class=\'highlight\'> [ Ctrl+B ]</span>">
+                                <img src="./images/search-24px.svg"/>
+                                <div>Browse</div>
                             </span>
                         </span>
-                        <span class="group" id="editorgroup_fileoperations">
-                            <span class="image-button"  id="editorFileOpen">
-                                <img title="Open circuit" src="./images/toolbar_download.svg"/>
+                        <span class="group" id="editorgroup_fileoperations" >
+                            <span class="image-button"  id="editorFileOpen" data-toggle="tooltip" title="Load Sequence <span class=\'highlight\'> [ Ctrl+O ]</span>">
+                                <img src="./images/toolbar_download.svg"/>
                                 <div>Open</div>
                             </span>
-                            <span class="image-button" id="editorFileSave">
-                            <img title="Save circuit" src="./images/toolbar_upload.svg"/>
-                            <div>Save</div>
+                            <span class="image-button" id="editorFileSave" data-toggle="tooltip" title="Save Sequence <span class=\'highlight\'> [ Ctrl+S ]</span>">
+                                <img src="./images/toolbar_upload.svg"/>
+                                <div>Save</div>
                             </span>
                         </span>
-                        <span class="group">
-                            <span class="image-button disabled"  id="editDelete">
+                        <span class="group" >
+                            <span class="image-button disabled"  id="editDelete" data-toggle="tooltip" title="Delete <span class=\'highlight\'> [ Del ]</span>">
                             <img  src="./images/toolbar_delete.svg"/>
                             <div>Delete</div>
                             </span>
                         </span>
 
-                        <span class="group">
-                            <span class="image-button disabled" id="editUndo">
-                            <img src="./images/toolbar_undo.svg"/>
-                            <div>Undo</div>
+                        <span class="group" >
+                            <span class="image-button disabled" id="editUndo" data-toggle="tooltip" title="Undo <span class=\'highlight\'> [ Ctrl+Z ]</span>">
+                                <img src="./images/toolbar_undo.svg"/>
+                                <div>Undo</div>
                             </span>
-                        <span class="image-button disabled" id="editRedo">
-                            <img src="./images/toolbar_redo.svg"/>
-                            <div>Redo</div>
+                            <span class="image-button disabled" id="editRedo" data-toggle="tooltip" title="Redo <span class=\'highlight\'> [ Ctrl+Y ]</span>">
+                                <img src="./images/toolbar_redo.svg"/>
+                                <div>Redo</div>
                             </span>
                         </span>
 
@@ -149,6 +147,16 @@
                             <button type="button" id="canvas_zoom_normal" class="btn highlight">100%</button>
                             <button type="button" id="canvas_zoom_out" class="btn highlight">&#xFF0B</button>
                         </div>
+                        <div class="btn-group dropdown">
+                            <img id="canvas_config" src="./images/canvas_configure.svg" class="dropdown-toggle" data-toggle="dropdown">
+                            <div class="dropdown-menu" id="canvas_config_items">
+                               <div class="">
+                                 <label class="">Grid
+                                     <input id="canvas_config_grid" type="checkbox" checked="checked" data-toggle="toggle">
+                                 </label>
+                               </div>
+                            </div>
+                         </div>
                     </div>
                     <div id='probe_window'>
                         <div id="probe_window_stick" class="ion-ios-eye-outline" title="Stick Window"><img src="./images/slideout_bottom.svg" /></div>
@@ -167,7 +175,7 @@
 
     <script id="shapeTemplate" type="text/x-jsrender">
         {{#categories}}
-        <div class="row">
+        <div class="">
             <div data-name='{{name}}' data-file='{{filePath}}' class="col-md-12 pallete-bg">
                 <h5 class="font-weight-bold text-center">{{name}}</h5>
             </div>

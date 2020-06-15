@@ -40,10 +40,10 @@ export default class Application {
 
     $( "body" )
       .delegate( ".mousetrap-pause", "focus", function() {
-        Mousetrap.pause()
+        Mousetrap.pause();
       })
       .delegate(".mousetrap-pause", "blur", function (){
-        Mousetrap.unpause()
+        Mousetrap.unpause();
       });
 
     // automatic add the configuration to the very first shape
@@ -64,10 +64,10 @@ export default class Application {
     //
     let file = this.getParam("file")
     if (file) {
-      this._load(file)
+      this._load(file);
     }
     else {
-      this.fileNew()
+      this.fileNew();
     }
 
     // listen on the history object to load files
@@ -75,9 +75,9 @@ export default class Application {
     window.addEventListener('popstate', (event) => {
       if (event.state && event.state.id === 'editor') {
         // Render new content for the hompage
-        this._load(event.state.file)
+        this._load(event.state.file);
       }
-    })
+    });
   }
 
   _load(file){
