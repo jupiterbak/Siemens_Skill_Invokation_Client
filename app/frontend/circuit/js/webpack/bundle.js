@@ -473,7 +473,10 @@ exports.default = {
       save: '/backend/skill/save',
       getDescription: '/backend/skill/getDescription',
       call: '/backend/skill/call',
+      callNode: '/backend/skill/callNode',
       monitorResultTigger: '/backend/skill/MonitorResultTrigger',
+      writeRequestTrigger: '/backend/skill/writeRequestTrigger',
+      readResultVariables: '/backend/skill/readResultVariables',
       monitorNode: '/backend/skill/monitorNode'
     }
   },
@@ -5145,6 +5148,32 @@ var BackendSkills = function () {
       });
     }
   }, {
+    key: "callSkill",
+    value: function callSkill(_ip, _port, _skill_name, method_node, _parameters) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.callNode,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          actionNode: method_node,
+          parameters: _parameters
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
     key: "monitorSkillResultsTrigger",
     value: function monitorSkillResultsTrigger(_ip, _port, _skill_name, _node) {
       var self = this;
@@ -5159,6 +5188,57 @@ var BackendSkills = function () {
           port: _port,
           skillName: _skill_name,
           node: _node
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "writeRequestTrigger",
+    value: function writeRequestTrigger(_ip, _port, _skill_name, _node, _value) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.writeRequestTrigger,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          node: _node,
+          value: _value
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "readResultVariables",
+    value: function readResultVariables(_ip, _port, _skill_name, _nodes) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.readResultVariables,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          nodes: _nodes
         }
       }).then(function (resp) {
         if (resp.err) {

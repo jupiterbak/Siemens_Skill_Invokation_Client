@@ -96,7 +96,7 @@ testShape = testShape.extend({
                   self.layerAttr("Skill_State", {text: 'State: Connected'});
                   
                   socket.on("opcua_serverstatus", function(msg){
-                    console.log("####### Serverstatus");
+                    // console.log("####### Serverstatus");
                   });
                   
                   socket.on("SkillStatesChanged", function(data){

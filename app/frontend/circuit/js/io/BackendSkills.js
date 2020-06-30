@@ -210,6 +210,31 @@ class BackendSkills {
     });
   }
 
+  callSkill(_ip, _port, _skill_name, method_node, _parameters) {
+    const self = this;
+    self.skillList = [];
+    return $.ajax({
+      url: conf.backend.skill.callNode,
+      xhrFields: {
+        withCredentials: true
+      },
+      data: {
+        ip: _ip,
+        port: _port,
+        skillName: _skill_name,
+        actionNode: method_node,
+        parameters: _parameters
+      }
+    }).then((resp) => {
+      if (resp.err){
+        return {err: resp.err};
+      }else{
+        return {err: resp.err, results: resp.results};
+      }        
+      return {err: "Unknown response."};
+    });
+  }
+
   monitorSkillResultsTrigger(_ip, _port, _skill_name, _node) {
     const self = this;
     self.skillList = [];
@@ -223,6 +248,55 @@ class BackendSkills {
         port: _port,
         skillName: _skill_name,
         node: _node
+      }
+    }).then((resp) => {
+      if (resp.err){
+        return {err: resp.err};
+      }else{
+        return {err: resp.err, results: resp.results};
+      }        
+      return {err: "Unknown response."};
+    });
+  }
+
+  writeRequestTrigger(_ip, _port, _skill_name, _node, _value) {
+    const self = this;
+    self.skillList = [];
+    return $.ajax({
+      url: conf.backend.skill.writeRequestTrigger,
+      xhrFields: {
+        withCredentials: true
+      },
+      data: {
+        ip: _ip,
+        port: _port,
+        skillName: _skill_name,
+        node: _node,
+        value: _value
+      }
+    }).then((resp) => {
+      if (resp.err){
+        return {err: resp.err};
+      }else{
+        return {err: resp.err, results: resp.results};
+      }        
+      return {err: "Unknown response."};
+    });
+  }
+
+  readResultVariables(_ip, _port, _skill_name, _nodes) {
+    const self = this;
+    self.skillList = [];
+    return $.ajax({
+      url: conf.backend.skill.readResultVariables,
+      xhrFields: {
+        withCredentials: true
+      },
+      data: {
+        ip: _ip,
+        port: _port,
+        skillName: _skill_name,
+        nodes: _nodes
       }
     }).then((resp) => {
       if (resp.err){

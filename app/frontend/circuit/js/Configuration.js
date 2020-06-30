@@ -25,7 +25,10 @@ export default {
       save: '/backend/skill/save',
       getDescription: '/backend/skill/getDescription',
       call: '/backend/skill/call',
+      callNode: '/backend/skill/callNode',
       monitorResultTigger: '/backend/skill/MonitorResultTrigger',
+      writeRequestTrigger: '/backend/skill/writeRequestTrigger',
+      readResultVariables: '/backend/skill/readResultVariables',
       monitorNode: '/backend/skill/monitorNode'
     }
   },

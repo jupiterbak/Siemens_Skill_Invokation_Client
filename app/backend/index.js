@@ -9,9 +9,25 @@ const childProcess = require('child_process')
 const phantomjs = require('phantomjs')
 const bodyParser = require('body-parser');
 const glob = require("glob");
-const uuidv4 = require('uuid/v4');
 const template7 = require('template7');
 const superagent = require('superagent');
+const cliTruncate = require('cli-truncate');
+
+const winston = require('winston');
+const logger = winston.createLogger({
+    transports: [new winston.transports.Console()],
+    format: winston.format.combine(
+        winston.format.timestamp({
+            format: 'YYYY-MM-DD HH:mm:ss'
+        }),
+        winston.format.colorize({ all: true }),
+        winston.format.printf((log) => {
+            return `${log.timestamp} - [${log.level}] | [${log.service}] : ${log.message}`;
+        })
+    ),
+    defaultMeta: { service: 'Dummy Server' },
+});
+
 
 template7.registerHelper('add', function(arg_1, arg_2, options) {
     return eval(arg_1 + " + " + arg_2);
@@ -28,7 +44,9 @@ template7.registerHelper('BoxHeight', function(inputs, outputs, options) {
         return 120;
     }
 });
-
+template7.registerHelper('getLocalizedTextNodeID', function(nodeIdTxt) {
+    return cliTruncate((""+ nodeIdTxt).replace(new RegExp('"', 'g'),""), 10);
+});
 
 // Initialize SocketIO
 const OPCUA_BACKEND_URL = process.env.OPCUA_BACKEND_URL || 'http://0.0.0.0:8080/';
@@ -42,6 +60,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 // application specific configuration settings
 //
 const storage = require("./src/storage.js");
+const skillParser = require("./src/skill_parser.js");
 const shapeDirApp = path.normalize(__dirname + '/../shapes/');
 const shape2CodeDir = path.normalize(__dirname + '/../shape2code/');
 const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
@@ -154,63 +173,24 @@ function runServer() {
     app.post('/backend/skill/save', (req, res) => {
         fs.readFile(path.normalize(skillTemplateDir + '/skill_template.shape'), "utf8", (err, data) => {
             if (err) throw err;            
-            var _skill = req.body.skill;
-            _skill["parameters"] = { "inputs": [], "outputs": [] };
-            var compiledTemplate = template7.compile(data);
+            let _skill = req.body.skill;
 
-            // Extract the parameters with the schema of a skill from ats
-            // Input parameter from the parameters of the start function
-            if(_skill.skillModel.Invokation.Start.parameters.inputArguments){
-                _skill.skillModel.Invokation.Start.parameters.inputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.inputs.push(param);
-                });
-            }
+            // Parse the skill object to determine the version and the parameters
+            let _skill_parser = new skillParser(_skill, logger);
+            let _parsed_skill = _skill_parser.getParsedObject();
             
-
-            // Input parameter from the parameters of the GetResult function
-            if(_skill.skillModel.Invokation.GetResult.parameters.inputArguments){
-                _skill.skillModel.Invokation.GetResult.parameters.inputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.inputs.push(param);
-                });
-            }
-           
-
-            // Output parameter from the parameters of the start function
-            if(_skill.skillModel.Invokation.Start.parameters.outputArguments){
-                _skill.skillModel.Invokation.Start.parameters.outputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.outputs.push(param);
-                });
-            }
-
-            // Output parameter from the parameters of the GetResult function
-            if(_skill.skillModel.Invokation.GetResult.parameters.outputArguments){
-                _skill.skillModel.Invokation.GetResult.parameters.outputArguments.forEach(param => {
-                    param["id_circle"] = uuidv4();
-                    param["id_label"] = uuidv4();
-                    param["id_port"] = uuidv4();
-                    _skill.parameters.outputs.push(param);
-                });
-            }
-            
-            let _content = compiledTemplate(_skill);
+            // Comile the template object
+            let compiledTemplate = template7.compile(data);
+            let _content = compiledTemplate(_parsed_skill);
             // console.log(_content);
-            // Add Custom Code
-            let _content_json = JSON.parse(_content);
-            _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code.txt'), "utf8");
+            // Add Custom Code depending on the version of the skill
+            let _content_json = JSON.parse(_content);           
+            _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code_' +  _parsed_skill.version +'.txt'), "utf8");         
 
             // Generate the JSON file path, which describe the skill (OPC UA)
             let skillDesriptionFile = path.normalize(shapeDirApp + req.body.filePath);
             skillDesriptionFile = skillDesriptionFile.replace(".shape", ".json");
-            let skillDesriptionFileContent = JSON.stringify(_skill,null, 4);
+            let skillDesriptionFileContent = JSON.stringify(_parsed_skill,null, 4);
             
             fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
                 if (err){                    
@@ -374,6 +354,35 @@ function runServer() {
                 }
             });
     });
+
+    app.get('/backend/skill/callNode', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'ExecuteMethodNode')
+            .query(
+                    {
+                        action: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            actionNode: _params.actionNode,
+                            parameters: _params.parameters
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
   
     app.get('/backend/skill/monitorNode', (req, res) => {
 
@@ -416,6 +425,63 @@ function runServer() {
                             serverName: "INVOCATION_CLIENT",
                             skillName: _params.skillName,
                             node: _params.node
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
+
+    app.get('/backend/skill/writeRequestTrigger', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'writeVariableNode')
+            .query(
+                    {
+                        node: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            node: _params.node,
+                            value: _params.value
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
+
+    app.get('/backend/skill/readResultVariables', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'readVariableNodes')
+            .query(
+                    {
+                        node: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            nodes: _params.nodes
                         })
                     }
             )
