@@ -2,7 +2,7 @@
   "name": "skill_invocation_client",
   "version": "0.0.1",
   "description": "A simple client to browse and invoke skills on a CPPS.",
-  "main": "index.html",
+  "main": "./app/backend/index.js",
   "private": true,
   "scripts": {
     "build": "npx webpack --env dev && npx webpack --env build",
@@ -16,9 +16,12 @@
     "diagramming",
     "canvas",
     "HTML5",
-    "js"
+    "js",
+    "siemens",
+    "skills",
+    "cyber-physical systems"
   ],
-  "author": "Jupiter Bakakeu",
+  "author": "Jupiter Bakakeu and Simon Meierhofer",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -45,14 +48,14 @@
     "imports-loader": "^0.8.0",
     "jshint-stylish": "latest",
     "less-loader": "^4.1.0",
-    "mocha": "^4.0.1",
+    "mocha": "^8.0.1",
     "octicons": "4.3.0",
     "remarkable": "^1.7.1",
     "script-loader": "^0.7.2",
     "storage-helper": "^1.4.1",
     "style-loader": "^0.21.0",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
     "yargs": "^15.3.0"
   },
   "dependencies": {
