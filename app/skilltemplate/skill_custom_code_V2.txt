@@ -228,7 +228,6 @@ testShape = testShape.extend({
             var _offset = (self.start_call_results.results.outputArguments || []).length;
 
             var _param_nodeids = [];
-
             
             for (var _i = _offset; _i < self.description.parameters.outputs.length; _i++) {
               var _param_o = self.description.parameters.outputs[_i];
@@ -236,7 +235,6 @@ testShape = testShape.extend({
               console.log("test");
             }
             
-
             // Call the emthod
             skillproxy.readResultVariables(self.description.ip, self.description.port, self.description.skill.name, _param_nodeids).then(function (resp_getResults) {
               self.get_results_call_results = resp_getResults;

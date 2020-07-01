@@ -1557,7 +1557,13 @@ START = START.extend({
         this._super(attr, setter, getter);
         this.attr({resizeable:false});
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
-         // your special code here
+        
+        // your special code here
+        this.current_state = 0;
+        
+        // Initialize default values
+        this.getOutputPort(0).setValue(false);
+        this.layerAttr("Circle_", { fill: "#303030" });
     },
 
     /**
@@ -1567,9 +1573,27 @@ START = START.extend({
      **/
     calculate:function()
     {
-        this.getOutputPort(0).setValue(true);
-        this.layerAttr("Circle_", { fill: "#faa50a" });
-        
+        var self = this;
+        switch(this.current_state) {
+          case 0: // STOPPED
+            this.getOutputPort(0).setValue(false);
+            this.layerAttr("Circle_", { fill: "#303030" });
+            this.current_state = 1;
+            break;
+          case 1: // SIGNAL_UP
+            this.getOutputPort(0).setValue(true);
+            this.layerAttr("Circle_", { fill: "#faa50a" });
+            setTimeout(function(){
+                self.current_state = 2;
+            }, 1000);
+            break;
+          case 2: //SIGNAL_DOWN
+            this.getOutputPort(0).setValue(false);
+            this.layerAttr("Circle_", { fill: "#303030" });
+            break;
+          default:
+            break;
+        }
     },
 
 
@@ -1581,6 +1605,7 @@ START = START.extend({
     {
         this.getOutputPort(0).setValue(false);
         this.layerAttr("Circle_", { fill: "#303030" });
+        this.current_state = 0;
     },
 
     /**
@@ -1591,6 +1616,7 @@ START = START.extend({
     {
         this.getOutputPort(0).setValue(false);
         this.layerAttr("Circle_", { fill: "#303030" });
+        this.current_state = 0;
     },
 
     /**
