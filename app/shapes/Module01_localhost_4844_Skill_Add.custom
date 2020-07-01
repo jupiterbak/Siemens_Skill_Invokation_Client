@@ -100,7 +100,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                   });
 
                   socket.on("ResultTriggerChanged", function(data){
-                    console.log("####### ResultTriggerChanged");
+                    //console.log("####### ResultTriggerChanged");
                     // Filter the event for the state changes related to this skill.
                     for (var prop in data) {
                         if (Object.prototype.hasOwnProperty.call(data, prop)) {
@@ -228,15 +228,12 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             var _offset = (self.start_call_results.results.outputArguments || []).length;
 
             var _param_nodeids = [];
-
             
             for (var _i = _offset; _i < self.description.parameters.outputs.length; _i++) {
               var _param_o = self.description.parameters.outputs[_i];
               _param_nodeids.push(_param_o.nodeId);
-              console.log("test");
             }
             
-
             // Call the emthod
             skillproxy.readResultVariables(self.description.ip, self.description.port, self.description.skill.name, _param_nodeids).then(function (resp_getResults) {
               self.get_results_call_results = resp_getResults;

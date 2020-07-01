@@ -476,6 +476,7 @@ exports.default = {
       callNode: '/backend/skill/callNode',
       monitorResultTigger: '/backend/skill/MonitorResultTrigger',
       writeRequestTrigger: '/backend/skill/writeRequestTrigger',
+      writeRequestParameters: '/backend/skill/writeRequestParameters',
       readResultVariables: '/backend/skill/readResultVariables',
       monitorNode: '/backend/skill/monitorNode'
     }
@@ -5214,6 +5215,32 @@ var BackendSkills = function () {
           skillName: _skill_name,
           node: _node,
           value: _value
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
+    key: "writeRequestParameters",
+    value: function writeRequestParameters(_ip, _port, _skill_name, _nodes, _values) {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.writeRequestParameters,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          skillName: _skill_name,
+          nodes: _nodes,
+          values: _values
         }
       }).then(function (resp) {
         if (resp.err) {

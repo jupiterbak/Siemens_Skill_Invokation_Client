@@ -4,9 +4,9 @@
 // created with http://www.draw2d.org
 //
 //
-var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
+var Module01_localhost_4843_Skill_Add = CircuitFigure.extend({
 
-   NAME: "Module01_localhost_4844_Skill_Add",
+   NAME: "Module01_localhost_4843_Skill_Add",
 
    init:function(attr, setter, getter)
    {
@@ -44,18 +44,6 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
      port.setBackgroundColor("#1C9BAB");
      port.setName("Port_OUT_0");
      port.setMaxFanOut(20);
-     // Port_OUT_1
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(97.61336515513126, 49.09502262443439));
-     port.setConnectionDirection(1);
-     port.setBackgroundColor("#1C9BAB");
-     port.setName("Port_OUT_1");
-     port.setMaxFanOut(20);
-     // Port_OUT_2
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(97.61336515513126, 54.97737556561086));
-     port.setConnectionDirection(1);
-     port.setBackgroundColor("#1C9BAB");
-     port.setName("Port_OUT_2");
-     port.setMaxFanOut(20);
    },
 
    createShapeElement : function()
@@ -81,8 +69,8 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
        shape.data("name","circle");
        
        // Name
-       shape = this.canvas.paper.text(0,0,'Skill_Add (V2)');
-       shape.attr({"x":62.45282499999939,"y":13.5,"text-anchor":"start","text":"Skill_Add (V2)","font-family":"\"Arial\"","font-size":16,"stroke":"#FF0000","fill":"#00979D","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'Skill_Add (V3)');
+       shape.attr({"x":62.45282499999939,"y":13.5,"text-anchor":"start","text":"Skill_Add (V3)","font-family":"\"Arial\"","font-size":16,"stroke":"#FF0000","fill":"#00979D","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Name");
        
        // Circle_en
@@ -111,8 +99,8 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
        shape.data("name","Circle_IN_0");
        
        // Label_IN_0
-       shape = this.canvas.paper.text(0,0,'value1');
-       shape.attr({"x":13.5,"y":95.1171875,"text-anchor":"start","text":"value1","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'Value1');
+       shape.attr({"x":13.5,"y":95.1171875,"text-anchor":"start","text":"Value1","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_IN_0");
        
        // Circle_IN_1
@@ -121,8 +109,8 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
        shape.data("name","Circle_IN_1");
        
        // Label_IN_1
-       shape = this.canvas.paper.text(0,0,'value2');
-       shape.attr({"x":13.5,"y":108.1171875,"text-anchor":"start","text":"value2","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'Value2');
+       shape.attr({"x":13.5,"y":108.1171875,"text-anchor":"start","text":"Value2","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_IN_1");
        
        // Circle_OUT_0
@@ -131,29 +119,9 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
        shape.data("name","Circle_OUT_0");
        
        // Label_OUT_0
-       shape = this.canvas.paper.text(0,0,'ErrorId');
-       shape.attr({"x":146.5,"y":95.1171875,"text-anchor":"start","text":"ErrorId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'ValueOut');
+       shape.attr({"x":146.5,"y":95.1171875,"text-anchor":"start","text":"ValueOut","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Label_OUT_0");
-       
-       // Circle_OUT_1
-       shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":5,"ry":5,"cx":204.5,"cy":108.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
-       shape.data("name","Circle_OUT_1");
-       
-       // Label_OUT_1
-       shape = this.canvas.paper.text(0,0,'ErrorId');
-       shape.attr({"x":146.5,"y":108.1171875,"text-anchor":"start","text":"ErrorId","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
-       shape.data("name","Label_OUT_1");
-       
-       // Circle_OUT_2
-       shape = this.canvas.paper.ellipse();
-       shape.attr({"rx":5,"ry":5,"cx":204.5,"cy":121.5,"stroke":"#1B1B1B","stroke-width":1,"fill":"#F2F2F2","dasharray":null,"opacity":1});
-       shape.data("name","Circle_OUT_2");
-       
-       // Label_OUT_2
-       shape = this.canvas.paper.text(0,0,'valueOut');
-       shape.attr({"x":146.5,"y":121.1171875,"text-anchor":"start","text":"valueOut","font-family":"\"Arial\"","font-size":8,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
-       shape.data("name","Label_OUT_2");
        
        // led_connected
        shape = this.canvas.paper.ellipse();
@@ -166,8 +134,8 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
        shape.data("name","led_power");
        
        // Skill_IP
-       shape = this.canvas.paper.text(0,0,'localhost:4844');
-       shape.attr({"x":48.5,"y":42,"text-anchor":"start","text":"localhost:4844","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'localhost:4843');
+       shape.attr({"x":48.5,"y":42,"text-anchor":"start","text":"localhost:4843","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Skill_IP");
        
        // Skill_State
@@ -176,8 +144,8 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
        shape.data("name","Skill_State");
        
        // Skill_NodeID
-       shape = this.canvas.paper.text(0,0,'NodeID: ns=3;s=Sk…');
-       shape.attr({"x":48.5,"y":78,"text-anchor":"start","text":"NodeID: ns=3;s=Sk…","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape = this.canvas.paper.text(0,0,'NodeID: ns=4;i=50…');
+       shape.attr({"x":48.5,"y":78,"text-anchor":"start","text":"NodeID: ns=4;i=50…","font-family":"\"Arial\"","font-size":12,"stroke":"none","fill":"#080808","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
        shape.data("name","Skill_NodeID");
        
 
@@ -190,7 +158,7 @@ var Module01_localhost_4844_Skill_Add = CircuitFigure.extend({
  *
  *
  */
-Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
+Module01_localhost_4843_Skill_Add = Module01_localhost_4843_Skill_Add.extend({
 
     init: function(attr, setter, getter){
       this._super(attr, setter, getter);
@@ -285,9 +253,36 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                   socket.on("opcua_serverstatus", function(msg){
                     // console.log("####### Serverstatus");
                   });
+                  
+                  socket.on("SkillStatesChanged", function(data){
+                    console.log("####### StatesChanged");
+                    // Filter the event for the state changes related to this skill.
+                    var _changed_states = [];
+                    for (var prop in data) {
+                        if (Object.prototype.hasOwnProperty.call(data, prop)) {
+                            var el = data[prop];
+                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {
+                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});
+                                // filter with the nodeId
+                                if (candidates.length == 0) {
+                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {
+                                        var src = el.state.value;
+                                        var target = item.nid;
+                                        var rslt = ("" + src).indexOf(target);
+                                        return rslt >= 0;
+                                    });
+                                }
+                                if (candidates.length > 0) {
+                                    _changed_states.push(candidates[0].id);
+                                }
+                            }
+                        }
+                    }
+                    self.skill_current_state = _changed_states;
+                  });
 
                   socket.on("ResultTriggerChanged", function(data){
-                    //console.log("####### ResultTriggerChanged");
+                    console.log("####### ResultTriggerChanged");
                     // Filter the event for the state changes related to this skill.
                     for (var prop in data) {
                         if (Object.prototype.hasOwnProperty.call(data, prop)) {
@@ -300,9 +295,11 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                   });
                   
                   // Make transition
-                  if (self.description.skillModel.xRequestProvided && self.description.skillModel.xResultAcknowledge){
-                    self.state = 111; // Call the skill directly
-                  }                 
+                  if (self.description.skillModel.StateMachine){
+                    self.state = 12; // Call the skill directly
+                  }else{
+                    self.state = 130; // monitor result trigger before calling the skill
+                  }                  
                 }
             }); 
             self.state = 110;               
@@ -310,27 +307,9 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
           case 110: // Wait for result of connect skill
             this.currentTimer=0;
             break;
-          case 111: // Write xRequestProvided flag
-            self.layerAttr("Skill_State", {text: 'State: Set xRequestProvided.'});
-            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xRequestProvided, true).then(function (resp_rq) {
-              
-              if(resp_rq.err){
-                // Make transition to err
-                self.state = 6;
-                self.err_msg = "Error while monitoring result trigger!";
-              }else{
-                
-                // Make transition to subscribe to the result trigger
-                self.state = 120;
-              }
-            });
-            self.state = 115;
-            break;
-          case 115: // Wait for write results
-            break;
-          case 120: // Subscribe to result trigger before calling the skill
+          case 130: // Subscribe to result trigger before calling the skill
             self.layerAttr("Skill_State", {text: 'State: Subscribing to result trigger.'});
-            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xRequestProvided).then(function (resp_rt) {
+            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.Invokation.ResultTrigger).then(function (resp_rt) {
               self.monitor_rt_call_results = resp_rt;
               if(resp_rt.err){
                 // Make transition to err
@@ -343,14 +322,14 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                   self.initial_result_trigger_value = 0;
                 }
                 // Make transition to call the skill
-                self.state = 13;
+                self.state = 12;
               }
             });
-            self.state = 125;
+            self.state = 135;
             break;
-          case 125: // Wait for call 
+          case 135: // Wait for call 
             break;
-          case 13: // Call the skill (Model with state machine)
+          case 12: // Call the skill (Model with state machine)
             this.layerAttr("Circle_en",{fill:"#faa50a"});
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
@@ -359,8 +338,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             
             // sample the input values
             var _params = [];
-            var _name = this.description.skill.name;
-            var _inputs = this.description.skillModel[_name + "_DB"].parameters.inputArguments || [];
+            var _inputs = this.description.skillModel.Invokation.Start.parameters.inputArguments || [];
             for (var index = 0; index < _inputs.length; index++) {              
               self.layerAttr("Circle_IN_" + (index) ,{fill:"#faa50a"});
               var el = _inputs[index];
@@ -372,15 +350,15 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             }
 
             // Call the skill
-            skillproxy.callSkill(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel[_name + "_DB"], _params).then(function (resp_call) {
-              self.start_call_results = resp_call;
-              if(resp_call.err){
+            skillproxy.startSkill(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_start) {
+              self.start_call_results = resp_start;
+              if(resp_start.err){
                 // Make transition to err
                 self.state = 6;
                 self.err_msg = "Error while starting the skill!";
               }else{
                 // Set Synchronous Output
-                var _outputs = resp_call.results.outputArguments;
+                var _outputs = resp_start.results.outputArguments;
                 for (var index = 0; index < _outputs.length; index++) {
                   self.getOutputPort(index + 1).setValue(_outputs[index].value);
                   self.layerAttr("Circle_OUT_" + (index) ,{fill:"#faa50a"});
@@ -391,38 +369,50 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
               }
             });
 
-            this.state = 130;               
+            this.state = 120;               
             break;
-          case 130: // Wait for the callback
+          case 120: // Wait for the callback
             this.currentTimer=0;
             break;
           case 2: // Wait for the  skill to be done
-            self.layerAttr("Skill_State", {text: 'State: Executing'});            
-            if(self.initial_result_trigger_value === true && self.last_result_trigger_value === false){
-              // Make transition
-              this.state = 3;
-              this.layerAttr("Skill_State", {text: 'State: Completed'});
-            }                      
+            self.layerAttr("Skill_State", {text: 'State: Executing'});
+            if (self.description.skillModel.StateMachine){              
+              if(self.skill_current_state.includes('completed')){
+                // Make transition
+                this.state = 3;
+                this.layerAttr("Skill_State", {text: 'State: Completed'});
+              }
+            }else{
+              if(self.last_result_trigger_value > self.initial_result_trigger_value){
+                // Make transition
+                this.state = 3;
+                this.layerAttr("Skill_State", {text: 'State: Completed'});
+              }
+            }            
             break;
-          case 3: // Read the results
+          case 3: // Call Get results
             this.layerAttr("Circle_en",{fill:"#faa50a"});
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
             this.layerAttr("Skill_State", {text: 'State: Getting results'});
 
-            // sample the outputs parameters
-            var _offset = (self.start_call_results.results.outputArguments || []).length;
-
-            var _param_nodeids = [];
-            
-            for (var _i = _offset; _i < self.description.parameters.outputs.length; _i++) {
-              var _param_o = self.description.parameters.outputs[_i];
-              _param_nodeids.push(_param_o.nodeId);
+            // sample the input values
+            var _params = [];
+            var _inputs = this.description.skillModel.Invokation.GetResult.parameters.inputArguments || [];
+            var _offset = (this.description.skillModel.Invokation.Start.parameters.inputArguments || []).length;
+            for (var index = 0; index < _inputs.length; index++) {              
+              self.layerAttr("Circle_IN_" + (index + _offset) ,{fill:"#faa50a"});
+              var el = _inputs[index];
+              _params.push({
+                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25
+                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02
+                  value: this.getInputPort(index + 1 + _offset).getValue()?this.getInputPort(index + 1 + _offset).getValue():0
+              });
             }
-            
+
             // Call the emthod
-            skillproxy.readResultVariables(self.description.ip, self.description.port, self.description.skill.name, _param_nodeids).then(function (resp_getResults) {
+            skillproxy.getResultsOfSkillCall(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_getResults) {
               self.get_results_call_results = resp_getResults;
               if(resp_getResults.err){
                 // Make transition to err
@@ -430,9 +420,10 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                 self.err_msg = "Error while fetching the results of the skill!";
               }else{
                 // Set Synchronous Output
-                var _outputs = resp_getResults.results;
+                var _offset = (self.start_call_results.results.outputArguments || []).length;
+                var _outputs = resp_getResults.results.outputArguments;
                 for (var index = 0; index < _outputs.length; index++) {
-                  self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value.value);
+                  self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value);
                   self.layerAttr("Circle_OUT_" + (index + _offset) ,{fill:"#faa50a"});
                 }
                 // Make transition
@@ -445,22 +436,17 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             break;
           case 300: // Wait call getResults
             break;
-          case 310: // Write xResultAcknowledge
-            self.layerAttr("Skill_State", {text: 'State: Set xRequestProvided.'});
-            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xResultAcknowledge, true).then(function (resp_rq) {
-              if(resp_rq.err){
-                // Make transition to err
-                self.state = 6;
-                self.err_msg = "Error while monitoring result trigger!";
-              }else{
-                self.layerAttr("Skill_State", {text: 'State: Done'});
+          case 310: // Wait until skill is ready again
+            if (self.description.skillModel.StateMachine){              
+              if(self.skill_current_state.includes('skill_ready')){
                 // Make transition
-                self.state = 4;
+                this.state = 4;
+                this.layerAttr("Skill_State", {text: 'State: Done'});
               }
-            });
-            self.state = 315;
-            break;
-          case 315: // Wait for the write results
+            }else{
+              this.state = 4;
+              this.layerAttr("Skill_State", {text: 'State: Done'});
+            }            
             break;
           case 4: // Set the done signal
             this.getOutputPort(0).setValue(true);

@@ -284,6 +284,31 @@ class BackendSkills {
     });
   }
 
+  writeRequestParameters(_ip, _port, _skill_name, _nodes, _values) {
+    const self = this;
+    self.skillList = [];
+    return $.ajax({
+      url: conf.backend.skill.writeRequestParameters,
+      xhrFields: {
+        withCredentials: true
+      },
+      data: {
+        ip: _ip,
+        port: _port,
+        skillName: _skill_name,
+        nodes: _nodes,
+        values: _values
+      }
+    }).then((resp) => {
+      if (resp.err){
+        return {err: resp.err};
+      }else{
+        return {err: resp.err, results: resp.results};
+      }        
+      return {err: "Unknown response."};
+    });
+  }
+
   readResultVariables(_ip, _port, _skill_name, _nodes) {
     const self = this;
     self.skillList = [];

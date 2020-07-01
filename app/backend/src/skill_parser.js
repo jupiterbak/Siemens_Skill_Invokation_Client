@@ -37,9 +37,13 @@ SkillParser.prototype.parse = function(skill_object) {
                 self.version = 'V2';
                 self.start_method = _skill_object_model[ _skill_name + '_DB'];
             }else{
+                _skill_object["version"] = 'V0';
+                self.version = 'V0';
+            }
+        }else if(hasOwnProperty(_skill_object_model, 'Result') && hasOwnProperty(_skill_object_model, 'Request') && hasOwnProperty(_skill_object_model, 'RequestProvided') && hasOwnProperty(_skill_object_model, 'ResultAcknowledge') ){
                 _skill_object["version"] = 'V1';
                 self.version = 'V1';
-            }
+                self.start_method = null;
         }else{
             _skill_object["version"] = 'V0';
             self.version = 'V0';
@@ -127,6 +131,33 @@ SkillParser.prototype.parse = function(skill_object) {
                     param["id_label"] = uuidv4();
                     param["id_port"] = uuidv4();
                     _skill_object.parameters.outputs.push(param);
+                }
+            }
+        }
+    }else if (self.version === 'V1'){
+        // Extract the parameters with the schema of a skill from ats
+        // Output parameter from the parameters of the Result variable
+        if(_skill_object.skillModel.Request){
+            for (const [key, value] of Object.entries(_skill_object.skillModel.Request)) {
+                if(value.nodeId){
+                    var param = value;
+                    param["id_circle"] = uuidv4();
+                    param["id_label"] = uuidv4();
+                    param["id_port"] = uuidv4();
+                    _skill_object.parameters.inputs.push(param);
+                }
+            }
+        }
+
+        // Output parameter from the parameters of the Result variable
+        if(_skill_object.skillModel.Result){
+            for (const [key, value] of Object.entries(_skill_object.skillModel.Result)) {
+                if(value.nodeId){
+                    var _param = value;
+                    _param["id_circle"] = uuidv4();
+                    _param["id_label"] = uuidv4();
+                    _param["id_port"] = uuidv4();
+                    _skill_object.parameters.outputs.push(_param);
                 }
             }
         }

@@ -28,6 +28,7 @@ export default {
       callNode: '/backend/skill/callNode',
       monitorResultTigger: '/backend/skill/MonitorResultTrigger',
       writeRequestTrigger: '/backend/skill/writeRequestTrigger',
+      writeRequestParameters: '/backend/skill/writeRequestParameters',
       readResultVariables: '/backend/skill/readResultVariables',
       monitorNode: '/backend/skill/monitorNode'
     }

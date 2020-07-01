@@ -144,8 +144,11 @@ function runServer() {
 
             console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
             childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-                if (err) throw err
-                console.log(`stdout: ${stdout}`);
+                if (err) {
+                    console.log(`stdout: ${stdout}`);
+                    throw err;
+                }
+                
                 console.error(`stderr: ${stderr}`);
 
                 let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
@@ -218,15 +221,15 @@ function runServer() {
                 });
                 
                 // console.log("Generating skill images...");
-                // console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
                 childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
                     if (err){
+                        console.error(`stderr: ${stderr}`);
                         // file could be saved but the index were not properly generated.
                         //
                         res.send(JSON.stringify({err:"Skill could be saved but the index were not properly generated."}));
                         throw err;
                     }else{
-
                         // Write the skill description as JSON
                         fs.writeFileSync(skillDesriptionFile, skillDesriptionFileContent);
                         
@@ -250,6 +253,7 @@ function runServer() {
                             imagePath: req.body.filePath.replace(".shape", ".png"),
                             jsPath: req.body.filePath.replace(".shape", ".js")
                         });
+                        console.log(`stdout: ${stdout}`);
                     }
                 })
             });
@@ -454,6 +458,35 @@ function runServer() {
                             skillName: _params.skillName,
                             node: _params.node,
                             value: _params.value
+                        })
+                    }
+            )
+            .set('accept', 'json')
+            .end( (_err, _res) => {
+                if(_err){
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
+                }else{
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(_res.text);
+                }
+            });
+    });
+
+    app.get('/backend/skill/writeRequestParameters', (req, res) => {
+
+        const _params = req.query;
+        superagent.get(OPCUA_BACKEND_URL + 'writeVariableNodes')
+            .query(
+                    {
+                        node: JSON.stringify({ 
+                            socketID: "INVOCATION_CLIENT", 
+                            ip: _params.ip, 
+                            port: _params.port, 
+                            serverName: "INVOCATION_CLIENT",
+                            skillName: _params.skillName,
+                            nodes: _params.nodes,
+                            values: _params.values
                         })
                     }
             )
