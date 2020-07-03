@@ -360,11 +360,11 @@ testShape = testShape.extend({
         this.last_en_value = 0;
         
         socket.off("opcua_serverstatus", function(msg){
-          console.log("####### Serverstatus");
+          //console.log("####### Serverstatus");
         });
         
         socket.off("SkillStatesChanged", function(msg){
-          console.log("####### StatesChanged");
+          //console.log("####### StatesChanged");
         });
     },
     
