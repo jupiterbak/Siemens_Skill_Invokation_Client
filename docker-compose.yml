@@ -36,8 +36,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      backend:
-        ipv4_address: '172.31.0.100'   
+      backend:  
   skill_invocation_client:
     image: "jupiterbak2002/skill_invocation_client:latest"
     restart: always
@@ -65,11 +64,11 @@ networks:
 
 volumes:
   skill_invocation_client-shapes:
-    driver: host
+    driver: local
     driver_opts:
       source: /tmp/data
   skill_invocation_client-sequences:
-    driver: host
+    driver: local
     driver_opts:
       source: /tmp/data
   # driver: local

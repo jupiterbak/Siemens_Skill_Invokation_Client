@@ -326,7 +326,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "ba8b3358-c678-4c9f-8f2e-0dbefdbf752a",
+            "id": "87e4f3cc-0c84-42c1-8181-7f2bc9d68dc9",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -361,7 +361,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "3df94e16-fc25-4338-b812-e4082ccd00fc",
+            "id": "a035972f-37c2-4813-87c0-624065a30a85",
             "x": 7905,
             "y": 7974,
             "width": 100,
@@ -399,7 +399,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "f4956130-d028-45c1-a7dc-47c957ce178f",
+            "id": "88e12967-a184-4fbf-b54d-3c29b056a9c1",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -437,7 +437,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "bb3d0aa1-0d7c-4a0f-a23b-18359fd35c82",
+            "id": "c886d85e-ff59-437a-9ba2-085291ae6bbd",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -472,7 +472,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "c036184d-04ef-4eed-ac03-3fd5137792f3",
+            "id": "2d2bbdb6-4b51-441b-86bd-6e5d64b29802",
             "x": 7905,
             "y": 7987,
             "width": 100,
@@ -510,7 +510,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "bda60be1-365b-4b2f-a58b-7a3c46257c07",
+            "id": "14f8ddac-2628-4db9-bbfb-672edae5efe8",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -548,7 +548,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "f6296e15-a76a-4308-b91b-5bb99e56168b",
+            "id": "25a53bf0-185d-46fe-a399-98631ca513e8",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -583,7 +583,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "74dfdcc2-8e84-4640-a794-ff564ae1d1a8",
+            "id": "a79efae1-1cd0-4192-bb31-ae65295a5cb5",
             "x": 8038,
             "y": 7974,
             "width": 60,
@@ -621,7 +621,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "01066150-4022-4ccd-b1f9-c36adfe8c176",
+            "id": "10a49573-fed8-4793-95ed-a34572468192",
             "x": 8095,
             "y": 7980,
             "width": 10,

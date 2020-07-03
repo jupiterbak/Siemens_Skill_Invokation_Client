@@ -1121,7 +1121,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             break;
           case 120: // Subscribe to result trigger before calling the skill
             self.layerAttr("Skill_State", {text: 'State: Subscribing to result trigger.'});
-            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xRequestProvided).then(function (resp_rt) {
+            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xResultAcknowledge).then(function (resp_rt) {
               self.monitor_rt_call_results = resp_rt;
               if(resp_rt.err){
                 // Make transition to err
@@ -1131,7 +1131,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                 if(resp_rt.results){
                   self.initial_result_trigger_value = resp_rt.results.value.value;
                 }else{
-                  self.initial_result_trigger_value = 0;
+                  self.initial_result_trigger_value = false;
                 }
                 // Make transition to call the skill
                 self.state = 13;
@@ -1139,7 +1139,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             });
             self.state = 125;
             break;
-          case 125: // Wait for call 
+          case 125: // Wait for subscription
             break;
           case 13: // Call the skill (Model with state machine)
             this.layerAttr("Circle_en",{fill:"#faa50a"});
@@ -1189,7 +1189,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             break;
           case 2: // Wait for the  skill to be done
             self.layerAttr("Skill_State", {text: 'State: Executing'});            
-            if(self.initial_result_trigger_value === true && self.last_result_trigger_value === false){
+            if(self.initial_result_trigger_value === false && self.last_result_trigger_value === true){
               // Make transition
               this.state = 3;
               this.layerAttr("Skill_State", {text: 'State: Completed'});
@@ -1238,7 +1238,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             break;
           case 310: // Write xResultAcknowledge
             self.layerAttr("Skill_State", {text: 'State: Set xRequestProvided.'});
-            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xResultAcknowledge, true).then(function (resp_rq) {
+            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xResultAcknowledge, false).then(function (resp_rq) {
               if(resp_rq.err){
                 // Make transition to err
                 self.state = 6;
@@ -1679,34 +1679,16 @@ Module01_localhost_4845_Skill_Add_DB = Module01_localhost_4845_Skill_Add_DB.exte
                 self.err_msg = "Error while monitoring result trigger!";
               }else{
                 // Make transition to subscribe to the result trigger
-                self.state = 130;
+                self.state = 140;
               }
             });
             self.state = 125;
             break;
           case 125: // Wait for write results
             break;
-          case 130: // Write RequestProvided flag
-            self.layerAttr("Skill_State", {text: 'State: Set RequestProvided.'});
-            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.RequestProvided, true).then(function (resp_rq) {
-              if(resp_rq.err){
-                // Make transition to err
-                self.state = 6;
-                self.err_msg = "Error while monitoring result trigger!";
-              }else{
-                self.initial_result_trigger_value = true;
-                // Make transition to subscribe to the signal
-                self.state = 140;
-              }
-            });
-            this.currentTimer=0;
-            self.state = 135;
-            break;
-          case 135: // Wait for write results
-            break;
-          case 140: // Subscribe to result trigger before calling the skill
-            self.layerAttr("Skill_State", {text: 'State: Subscribing to result trigger.'});
-            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.RequestProvided).then(function (resp_rt) {
+          case 140: // Monitor the result trigger before calling the skill
+            self.layerAttr("Skill_State", {text: 'State: Monitoring the result trigger.'});
+            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.ResultAcknowledge).then(function (resp_rt) {
               self.monitor_rt_call_results = resp_rt;
               if(resp_rt.err){
                 // Make transition to err
@@ -1716,19 +1698,37 @@ Module01_localhost_4845_Skill_Add_DB = Module01_localhost_4845_Skill_Add_DB.exte
                 if(resp_rt.results){
                   self.initial_result_trigger_value = resp_rt.results.value.value;
                 }else{
-                  self.initial_result_trigger_value = 0;
+                  self.initial_result_trigger_value = false;
                 }
                 // Make transition to wait for the completion of the skill
-                self.state = 2;
+                self.state = 130;
               }
             });
             self.state = 145;
             break;
           case 145: // Wait for result of subscription 
             break;
+          case 130: // Write RequestProvided flag to call the skill
+            self.layerAttr("Skill_State", {text: 'State: Set RequestProvided.'});
+            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.RequestProvided, true).then(function (resp_rq) {
+              if(resp_rq.err){
+                // Make transition to err
+                self.state = 6;
+                self.err_msg = "Error while monitoring result trigger!";
+              }else{
+                self.initial_result_trigger_value = true;
+                // Make transition to subscribe to the signal
+                self.state = 2;
+              }
+            });
+            this.currentTimer=0;
+            self.state = 135;
+            break;
+          case 135: // Wait for write results
+            break;
           case 2: // Wait for the  skill to be done
             self.layerAttr("Skill_State", {text: 'State: Executing'});            
-            if(self.initial_result_trigger_value === true && self.last_result_trigger_value === false){
+            if(self.last_result_trigger_value === true){
               // Make transition
               this.state = 3;
               this.layerAttr("Skill_State", {text: 'State: Completed'});
@@ -1774,7 +1774,7 @@ Module01_localhost_4845_Skill_Add_DB = Module01_localhost_4845_Skill_Add_DB.exte
             break;
           case 310: // Write ResultAcknowledge
             self.layerAttr("Skill_State", {text: 'State: Set RequestProvided.'});
-            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.ResultAcknowledge, true).then(function (resp_rq) {
+            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.ResultAcknowledge, false).then(function (resp_rq) {
               if(resp_rq.err){
                 // Make transition to err
                 self.state = 6;

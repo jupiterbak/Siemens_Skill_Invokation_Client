@@ -20,9 +20,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Request\".\"value1\""
                 },
                 "type": "Variable",
-                "id_circle": "b1617f67-a900-4195-94b5-f0b05c4d8e03",
-                "id_label": "b90bacc2-a74d-4b84-8071-2c2847722577",
-                "id_port": "4b33da36-329e-4046-a7d3-bf21317c6a32"
+                "id_circle": "a46d382b-29da-4089-a920-3b9ada4ff4cf",
+                "id_label": "7555a7bb-bdfc-4155-8e61-14e8c39e002d",
+                "id_port": "a011737c-852b-407e-b0cf-22d3cd946844"
             },
             "value2": {
                 "name": "value2",
@@ -31,9 +31,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Request\".\"value2\""
                 },
                 "type": "Variable",
-                "id_circle": "2130d7a2-959d-4cf9-98ff-5c96e462ee4c",
-                "id_label": "18e0856f-2ce4-45e7-b593-6409bf15fde3",
-                "id_port": "32c0b25a-5ffa-4843-8446-874157f16d2f"
+                "id_circle": "b34a3a3c-8859-4b8a-b4bd-d9058d95991d",
+                "id_label": "16f14592-7c66-448c-b969-840f158cf4a2",
+                "id_port": "eef2ae97-4129-4083-b868-234fffec5b02"
             }
         },
         "Result": {
@@ -50,9 +50,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
                 },
                 "type": "Variable",
-                "id_circle": "b065fb21-f025-4e84-9757-a14c8a3cd3d9",
-                "id_label": "93b750e8-29cc-4cc9-ada4-3d51e997afc5",
-                "id_port": "aa6d006d-298b-4458-a106-60491fcbe8a0"
+                "id_circle": "60d08d41-46b8-46eb-81af-ca7ddf084645",
+                "id_label": "f77b63ac-6b7f-4b8f-8ee6-ed1a1e182a34",
+                "id_port": "3aa46e33-f544-4ba9-8599-c68ffe2ed8d1"
             },
             "valueOut": {
                 "name": "valueOut",
@@ -61,9 +61,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
                 },
                 "type": "Variable",
-                "id_circle": "b609ba6b-d492-4ab2-a055-1df59b690a57",
-                "id_label": "4c529db5-38b4-4d6c-81f9-52ea6361957f",
-                "id_port": "b17ff321-59f1-4523-aa0c-124487839552"
+                "id_circle": "d2621510-cff1-4c5c-83ca-0b0a0fa27167",
+                "id_label": "934444e7-db32-4495-9ce1-c46b3a68c6ac",
+                "id_port": "127ea193-3ba3-4acc-b9fe-55c40b03a7e7"
             }
         },
         "RequestProvided": {
@@ -93,9 +93,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Request\".\"value1\""
                 },
                 "type": "Variable",
-                "id_circle": "b1617f67-a900-4195-94b5-f0b05c4d8e03",
-                "id_label": "b90bacc2-a74d-4b84-8071-2c2847722577",
-                "id_port": "4b33da36-329e-4046-a7d3-bf21317c6a32"
+                "id_circle": "a46d382b-29da-4089-a920-3b9ada4ff4cf",
+                "id_label": "7555a7bb-bdfc-4155-8e61-14e8c39e002d",
+                "id_port": "a011737c-852b-407e-b0cf-22d3cd946844"
             },
             {
                 "name": "value2",
@@ -104,9 +104,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Request\".\"value2\""
                 },
                 "type": "Variable",
-                "id_circle": "2130d7a2-959d-4cf9-98ff-5c96e462ee4c",
-                "id_label": "18e0856f-2ce4-45e7-b593-6409bf15fde3",
-                "id_port": "32c0b25a-5ffa-4843-8446-874157f16d2f"
+                "id_circle": "b34a3a3c-8859-4b8a-b4bd-d9058d95991d",
+                "id_label": "16f14592-7c66-448c-b969-840f158cf4a2",
+                "id_port": "eef2ae97-4129-4083-b868-234fffec5b02"
             }
         ],
         "outputs": [
@@ -117,9 +117,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
                 },
                 "type": "Variable",
-                "id_circle": "b065fb21-f025-4e84-9757-a14c8a3cd3d9",
-                "id_label": "93b750e8-29cc-4cc9-ada4-3d51e997afc5",
-                "id_port": "aa6d006d-298b-4458-a106-60491fcbe8a0"
+                "id_circle": "60d08d41-46b8-46eb-81af-ca7ddf084645",
+                "id_label": "f77b63ac-6b7f-4b8f-8ee6-ed1a1e182a34",
+                "id_port": "3aa46e33-f544-4ba9-8599-c68ffe2ed8d1"
             },
             {
                 "name": "valueOut",
@@ -128,9 +128,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
                 },
                 "type": "Variable",
-                "id_circle": "b609ba6b-d492-4ab2-a055-1df59b690a57",
-                "id_label": "4c529db5-38b4-4d6c-81f9-52ea6361957f",
-                "id_port": "b17ff321-59f1-4523-aa0c-124487839552"
+                "id_circle": "d2621510-cff1-4c5c-83ca-0b0a0fa27167",
+                "id_label": "934444e7-db32-4495-9ce1-c46b3a68c6ac",
+                "id_port": "127ea193-3ba3-4acc-b9fe-55c40b03a7e7"
             }
         ]
     }
