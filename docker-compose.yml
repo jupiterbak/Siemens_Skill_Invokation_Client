@@ -5,6 +5,7 @@ services:
     image: "jupiterbak2002/skill_load_unload:latest"
     restart: always
     container_name: skill_load_unload
+    hostname: skill_load_unload
     ports:
       - "4842:4842"
     networks: 
@@ -13,6 +14,7 @@ services:
     image: "jupiterbak2002/skill_insert:latest"
     restart: always
     container_name: skill_insert
+    hostname: skill_insert
     ports:
       - "4840:4840"
     networks: 
@@ -21,6 +23,7 @@ services:
     image: "jupiterbak2002/skill_add:latest"
     restart: always
     container_name: skill_add
+    hostname: skill_add
     ports:
       - "4843:4843"
     networks: 
@@ -29,11 +32,9 @@ services:
     image: "jupiterbak2002/skill_monitoring:latest"
     restart: always
     container_name: skill_monitoring
+    hostname: skill_monitoring
     ports:
       - "8080:8080"
-    dns:
-      - 127.0.0.1
-      - 1.1.1.1
     networks:
       backend:
         ipv4_address: '172.31.0.100'   
@@ -41,6 +42,7 @@ services:
     image: "jupiterbak2002/skill_invocation_client:latest"
     restart: always
     container_name: skill_invocation_client
+    hostname: skill_invocation_client
     environment:
       - OPCUA_BACKEND_URL=http://skill_monitoring:8080/
     ports:
