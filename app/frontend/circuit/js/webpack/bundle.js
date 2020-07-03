@@ -477,6 +477,7 @@ exports.default = {
       monitorResultTigger: '/backend/skill/MonitorResultTrigger',
       writeRequestTrigger: '/backend/skill/writeRequestTrigger',
       writeRequestParameters: '/backend/skill/writeRequestParameters',
+      checkBackendSkill: '/backend/skill/checkBackendSkill',
       readResultVariables: '/backend/skill/readResultVariables',
       monitorNode: '/backend/skill/monitorNode'
     }
@@ -2411,49 +2412,60 @@ exports.default = draw2d.Canvas.extend({
         }
 
         this.hardwareChanged();
+        this.connectionStatusChanged();
     },
 
     hardwareChanged: function hardwareChanged() {
         // check if a new element is added which requires or provides special hardware
         // support. In this case we can update the UI with some status indicator
         //
-        var elements = this.getFigures().clone().asArray();
-        elements = elements.filter(function (element) {
-            return element.getRequiredHardware;
-        });
-        var arduinoRequired = elements.reduce(function (sum, cur) {
-            return sum || cur.getRequiredHardware().arduino;
-        }, false);
-        var raspiRequired = elements.reduce(function (sum, cur) {
-            return sum || cur.getRequiredHardware().raspi;
-        }, false);
-        var raspiConnected = _hardware2.default.raspi.connected;
-        var arduinoConnected = _hardware2.default.arduino.connected;
-
-        // Det the status of top button for the pulldown menu.
+        // NOTE: Jupiter Remove Aduino support
+        /*
+        let elements = this.getFigures().clone().asArray()
+        elements = elements.filter(element => element.getRequiredHardware)
+        let arduinoRequired = elements.reduce((sum, cur) => sum || cur.getRequiredHardware().arduino, false)
+        let raspiRequired = elements.reduce((sum, cur) => sum || cur.getRequiredHardware().raspi, false)
+        let raspiConnected = hardware.raspi.connected
+        let arduinoConnected = hardware.arduino.connected
+          // Det the status of top button for the pulldown menu.
         //
         if (arduinoRequired === false && raspiRequired === false) {
-            $("#editConnections").attr("src", _status_index2.default);
+            $("#editConnections").attr("src", imgConnectionStatusNeutral)
         } else {
-            var error = raspiRequired === true && raspiConnected === false || arduinoRequired === true && arduinoConnected === false;
-            $("#editConnections").attr("src", error ? _status_index_false2.default : _status_index_true2.default);
+            let error =
+                (raspiRequired === true && raspiConnected === false) ||
+                (arduinoRequired === true && arduinoConnected === false)
+            $("#editConnections").attr("src", error ? imgConnectionStatusFalse : imgConnectionStatusTrue)
         }
-
-        // set the status indicator for the arduino webusb connections
+          // set the status indicator for the arduino webusb connections
         //
         if (arduinoConnected) {
-            $("#statusWebUSB").removeClass("error");
+            $("#statusWebUSB").removeClass("error")
         } else {
-            $("#statusWebUSB").addClass("error");
+            $("#statusWebUSB").addClass("error")
         }
-
-        // set the status indicator for the arduino webusb connections
+          // set the status indicator for the arduino webusb connections
         //
         if (raspiConnected) {
-            $("#statusRaspi").removeClass("error");
+            $("#statusRaspi").removeClass("error")
         } else {
-            $("#statusRaspi").addClass("error");
+            $("#statusRaspi").addClass("error")
         }
+        */
+    },
+
+    connectionStatusChanged: function connectionStatusChanged() {
+        // check if a connection to the skill monitoring is avialable
+        // In this case we can update the UI with some status indicator
+        //
+
+        // Set connection status to normal first
+        $("#editConnections").attr("src", _status_index2.default);
+
+        // set the status depending to the results of the backend call
+        skillproxy.checkBackendSkill().then(function (resp_call) {
+            $("#editConnections").attr("src", resp_call.err ? _status_index_false2.default : _status_index_true2.default);
+        });
     },
 
     getBoundingBox: function getBoundingBox() {
@@ -5012,6 +5024,25 @@ var BackendSkills = function () {
   }
 
   _createClass(BackendSkills, [{
+    key: "checkBackendSkill",
+    value: function checkBackendSkill() {
+      var self = this;
+      self.skillList = [];
+      return $.ajax({
+        url: _Configuration2.default.backend.skill.checkBackendSkill,
+        xhrFields: {
+          withCredentials: true
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+        return { err: "Unknown response." };
+      });
+    }
+  }, {
     key: "getSkillStateConfig",
     value: function getSkillStateConfig() {
       return {

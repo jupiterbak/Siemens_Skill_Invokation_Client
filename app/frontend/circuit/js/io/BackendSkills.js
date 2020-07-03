@@ -14,6 +14,24 @@ class BackendSkills {
     Object.preventExtensions(this);
   }
 
+  checkBackendSkill() {
+    const self = this;
+    self.skillList = [];
+    return $.ajax({
+      url: conf.backend.skill.checkBackendSkill,
+      xhrFields: {
+        withCredentials: true
+      }
+    }).then((resp) => {
+      if (resp.err){
+        return {err: resp.err};
+      }else{
+        return {err: resp.err, results: resp.results};
+      }        
+      return {err: "Unknown response."};
+    });
+  }
+
   get allSkills() {
     return this.skillList;
   }

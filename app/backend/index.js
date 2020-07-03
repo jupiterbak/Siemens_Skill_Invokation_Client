@@ -530,6 +530,19 @@ function runServer() {
             });
     });
 
+    app.get('/backend/skill/checkBackendSkill', (req, res) => {
+        superagent.get(OPCUA_BACKEND_URL + 'checkConnection')
+        .end( (_err, _res) => {
+            if(_err){
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify({err:"Backend is not connected."}));
+            }else{
+                res.setHeader('Content-Type', 'application/json');
+                res.send(_res.text);
+            }
+        });
+    });
+
     //  Start the web server
     http.listen(port, function() {
         console.log('using phantomJS for server side rendering of shape previews:', phantomjs.path)

@@ -101,6 +101,13 @@
                             </span>
                         </span>
 
+                        <span class="group" >
+                            <span class="image-button"  id="connectionStatusElem" data-toggle="tooltip" title="Backend Connection Status">
+                                <img id="editConnections" src=".\images\status_index_false.svg"/>
+                                <div>Backend Con.</div>
+                            </span>
+                        </span>
+
                         <ul class="dropdown-menu" role="menu">
                             <form class="form-horizontal" role="form">
                                 <label class="statusIndicator" id="statusRaspi">
@@ -115,20 +122,20 @@
                         </label>
                         </span>
 
-            <span class="group simulationBase" style="display: none;">
-                <label>Simulation Speed</label>
-                <input id="simulationBaseTimer"
-                       type="text"
-                       value="100"
-                       data-slider-min="50"
-                       data-slider-max="500"
-                       data-slider-step="1"
-                       data-slider-value="100"
-                       data-slider-handle="round"
-                       data-slider-tooltip="hide"
-                       data-slider-id="simulationBaseTimerSlider"
-                       data-slider-orientation="horizontal">
-            </span>
+                        <span class="group simulationBase" style="display: none;">
+                            <label>Simulation Speed</label>
+                            <input id="simulationBaseTimer"
+                                type="text"
+                                value="100"
+                                data-slider-min="50"
+                                data-slider-max="500"
+                                data-slider-step="1"
+                                data-slider-value="100"
+                                data-slider-handle="round"
+                                data-slider-tooltip="hide"
+                                data-slider-id="simulationBaseTimerSlider"
+                                data-slider-orientation="horizontal">
+                        </span>
 
                         <a href="#" class="morph_btn play" id="simulationStartStop">
                             <span>

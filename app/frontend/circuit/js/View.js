@@ -603,13 +603,16 @@ export default draw2d.Canvas.extend({
             $("#editRedo").removeClass("disabled")
         }
 
-        this.hardwareChanged()
+        this.hardwareChanged();
+        this.connectionStatusChanged();
     },
 
     hardwareChanged: function() {
         // check if a new element is added which requires or provides special hardware
         // support. In this case we can update the UI with some status indicator
         //
+        // NOTE: Jupiter Remove Aduino support
+        /*
         let elements = this.getFigures().clone().asArray()
         elements = elements.filter(element => element.getRequiredHardware)
         let arduinoRequired = elements.reduce((sum, cur) => sum || cur.getRequiredHardware().arduino, false)
@@ -643,6 +646,21 @@ export default draw2d.Canvas.extend({
         } else {
             $("#statusRaspi").addClass("error")
         }
+        */
+    },
+
+    connectionStatusChanged: function() {
+        // check if a connection to the skill monitoring is avialable
+        // In this case we can update the UI with some status indicator
+        //
+
+        // Set connection status to normal first
+        $("#editConnections").attr("src", imgConnectionStatusNeutral)
+
+        // set the status depending to the results of the backend call
+        skillproxy.checkBackendSkill().then(function (resp_call) {
+            $("#editConnections").attr("src", resp_call.err ? imgConnectionStatusFalse : imgConnectionStatusTrue);           
+        });
     },
 
     getBoundingBox: function() {

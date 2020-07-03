@@ -398,7 +398,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             break;
           case 2: // Wait for the  skill to be done
             self.layerAttr("Skill_State", {text: 'State: Executing'});            
-            if(self.initial_result_trigger_value === false && self.last_result_trigger_value === true){
+            if(self.last_result_trigger_value === true){
               // Make transition
               this.state = 3;
               this.layerAttr("Skill_State", {text: 'State: Completed'});

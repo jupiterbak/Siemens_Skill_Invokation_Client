@@ -20,9 +20,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
                 },
                 "type": "Variable",
-                "id_circle": "8cd5f201-71db-485e-99ff-27b43e45a12c",
-                "id_label": "63976da8-c026-41e0-accf-318fd13db611",
-                "id_port": "f426b309-03bb-4645-895d-82b496d99339"
+                "id_circle": "bed6f4eb-b8bc-4910-97cf-42d751d09f35",
+                "id_label": "a87a1378-635b-4fb1-8053-99587559b51f",
+                "id_port": "9facbfde-46a5-44bb-aca0-f82b2774ed10"
             },
             "valueOut": {
                 "name": "valueOut",
@@ -31,9 +31,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
                 },
                 "type": "Variable",
-                "id_circle": "1c8f94cd-9ff0-4297-bca1-cc08f8dd1f53",
-                "id_label": "2ee1ef03-f7c3-45b4-aa8a-7186e9af7f18",
-                "id_port": "167db93f-b3de-4698-b073-096800f636a9"
+                "id_circle": "85b7443b-655a-4148-b9f7-1cfac7e987d3",
+                "id_label": "f4d5cb73-8468-401c-93b0-a14b5003a0d6",
+                "id_port": "b92a2406-a79f-4792-b913-8cbe41bdf299"
             }
         },
         "xResultAcknowledge": {
@@ -43,7 +43,9 @@
                 "nid": "\"Skill_Insert_DB\".\"xResultAcknowledge\""
             },
             "type": "Variable",
-            "interval": "50"
+            "interval": "50",
+            "value": "false",
+            "ID": "ns=3;i=\"Skill_Insert_DB\".\"xResultAcknowledge\""
         },
         "xRequestProvided": {
             "name": "xRequestProvided",
@@ -52,7 +54,9 @@
                 "nid": "\"Skill_Insert_DB\".\"xRequestProvided\""
             },
             "type": "Variable",
-            "interval": "50"
+            "interval": "50",
+            "value": "false",
+            "ID": "ns=3;i=\"Skill_Insert_DB\".\"xRequestProvided\""
         },
         "Skill_Add_DB": {
             "name": "Skill_Add_DB",
@@ -74,9 +78,9 @@
                         "arrayDimensions": [
                             "0"
                         ],
-                        "id_circle": "daddbaf8-7b5e-4a3a-9cc2-bc9d237bcda6",
-                        "id_label": "f156425f-2554-4941-858f-12a4609d2487",
-                        "id_port": "50715607-e809-406f-aa7a-c4d9d98ff2cc"
+                        "id_circle": "1d6659bd-208a-4d81-b8b0-41a4fae0d220",
+                        "id_label": "65d589f7-3011-4c63-86ff-b61240bd2072",
+                        "id_port": "bad52972-26ae-40d8-9475-5a7e64ac7a0e"
                     },
                     {
                         "name": "value2",
@@ -85,9 +89,9 @@
                         "arrayDimensions": [
                             "0"
                         ],
-                        "id_circle": "a974fd55-0ba6-4926-a255-7e1bf5bd6e88",
-                        "id_label": "4e9093df-8faf-42ca-92a4-47729aa6034a",
-                        "id_port": "f7d92326-e070-481b-9d85-9198b5ffad73"
+                        "id_circle": "cd033097-29de-49f9-929d-0d29023af515",
+                        "id_label": "871c8e7e-1742-4f01-a683-836255636b40",
+                        "id_port": "616804a8-b328-43ea-a879-d4e78deb6e7c"
                     }
                 ],
                 "outputArguments": [
@@ -98,9 +102,9 @@
                         "arrayDimensions": [
                             "0"
                         ],
-                        "id_circle": "d95a91ed-1589-4f19-8d3f-e3840c0746a1",
-                        "id_label": "b395066a-4565-422a-abe6-807f41f1806a",
-                        "id_port": "5a479296-11a7-47b3-bff4-6388e4a17453"
+                        "id_circle": "9748eb68-c6c7-49bd-a6d6-5260f9ef5b51",
+                        "id_label": "572556bd-6c4d-434f-a21e-f5177ff29bad",
+                        "id_port": "cad0bb88-d9aa-4306-96b0-d85e84f3fbd0"
                     }
                 ]
             },
@@ -131,7 +135,9 @@
                     "nid": "\"Skill_Insert_DB\".\"xResultAcknowledge\""
                 },
                 "type": "Variable",
-                "interval": "50"
+                "interval": "50",
+                "value": "false",
+                "ID": "ns=3;i=\"Skill_Insert_DB\".\"xResultAcknowledge\""
             },
             {
                 "name": "xRequestProvided",
@@ -140,9 +146,12 @@
                     "nid": "\"Skill_Insert_DB\".\"xRequestProvided\""
                 },
                 "type": "Variable",
-                "interval": "50"
+                "interval": "50",
+                "value": "false",
+                "ID": "ns=3;i=\"Skill_Insert_DB\".\"xRequestProvided\""
             }
-        ]
+        ],
+        "CURRENT_STATE_VALUE": "false"
     },
     "version": "V2",
     "parameters": {
@@ -154,9 +163,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "daddbaf8-7b5e-4a3a-9cc2-bc9d237bcda6",
-                "id_label": "f156425f-2554-4941-858f-12a4609d2487",
-                "id_port": "50715607-e809-406f-aa7a-c4d9d98ff2cc"
+                "id_circle": "1d6659bd-208a-4d81-b8b0-41a4fae0d220",
+                "id_label": "65d589f7-3011-4c63-86ff-b61240bd2072",
+                "id_port": "bad52972-26ae-40d8-9475-5a7e64ac7a0e"
             },
             {
                 "name": "value2",
@@ -165,9 +174,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "a974fd55-0ba6-4926-a255-7e1bf5bd6e88",
-                "id_label": "4e9093df-8faf-42ca-92a4-47729aa6034a",
-                "id_port": "f7d92326-e070-481b-9d85-9198b5ffad73"
+                "id_circle": "cd033097-29de-49f9-929d-0d29023af515",
+                "id_label": "871c8e7e-1742-4f01-a683-836255636b40",
+                "id_port": "616804a8-b328-43ea-a879-d4e78deb6e7c"
             }
         ],
         "outputs": [
@@ -178,9 +187,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "d95a91ed-1589-4f19-8d3f-e3840c0746a1",
-                "id_label": "b395066a-4565-422a-abe6-807f41f1806a",
-                "id_port": "5a479296-11a7-47b3-bff4-6388e4a17453"
+                "id_circle": "9748eb68-c6c7-49bd-a6d6-5260f9ef5b51",
+                "id_label": "572556bd-6c4d-434f-a21e-f5177ff29bad",
+                "id_port": "cad0bb88-d9aa-4306-96b0-d85e84f3fbd0"
             },
             {
                 "name": "ErrorId",
@@ -189,9 +198,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
                 },
                 "type": "Variable",
-                "id_circle": "8cd5f201-71db-485e-99ff-27b43e45a12c",
-                "id_label": "63976da8-c026-41e0-accf-318fd13db611",
-                "id_port": "f426b309-03bb-4645-895d-82b496d99339"
+                "id_circle": "bed6f4eb-b8bc-4910-97cf-42d751d09f35",
+                "id_label": "a87a1378-635b-4fb1-8053-99587559b51f",
+                "id_port": "9facbfde-46a5-44bb-aca0-f82b2774ed10"
             },
             {
                 "name": "valueOut",
@@ -200,9 +209,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
                 },
                 "type": "Variable",
-                "id_circle": "1c8f94cd-9ff0-4297-bca1-cc08f8dd1f53",
-                "id_label": "2ee1ef03-f7c3-45b4-aa8a-7186e9af7f18",
-                "id_port": "167db93f-b3de-4698-b073-096800f636a9"
+                "id_circle": "85b7443b-655a-4148-b9f7-1cfac7e987d3",
+                "id_label": "f4d5cb73-8468-401c-93b0-a14b5003a0d6",
+                "id_port": "b92a2406-a79f-4792-b913-8cbe41bdf299"
             }
         ]
     }
