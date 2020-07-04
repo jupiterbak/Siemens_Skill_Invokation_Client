@@ -20,9 +20,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
                 },
                 "type": "Variable",
-                "id_circle": "bed6f4eb-b8bc-4910-97cf-42d751d09f35",
-                "id_label": "a87a1378-635b-4fb1-8053-99587559b51f",
-                "id_port": "9facbfde-46a5-44bb-aca0-f82b2774ed10"
+                "id_circle": "871dbd57-51c6-40d5-aeed-312cefa41227",
+                "id_label": "c11625b3-dc6b-4da3-b14a-11e5b9ef4f79",
+                "id_port": "a019c745-962f-4c9a-b08a-dbd410e6a88b"
             },
             "valueOut": {
                 "name": "valueOut",
@@ -31,9 +31,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
                 },
                 "type": "Variable",
-                "id_circle": "85b7443b-655a-4148-b9f7-1cfac7e987d3",
-                "id_label": "f4d5cb73-8468-401c-93b0-a14b5003a0d6",
-                "id_port": "b92a2406-a79f-4792-b913-8cbe41bdf299"
+                "id_circle": "a4943c24-1547-4a5b-be99-303b41665fe6",
+                "id_label": "346d6101-10b2-49e7-9be5-5c23ffdabcef",
+                "id_port": "5fe2e691-6d5d-4a65-b954-10911a2eea9b"
             }
         },
         "xResultAcknowledge": {
@@ -78,9 +78,9 @@
                         "arrayDimensions": [
                             "0"
                         ],
-                        "id_circle": "1d6659bd-208a-4d81-b8b0-41a4fae0d220",
-                        "id_label": "65d589f7-3011-4c63-86ff-b61240bd2072",
-                        "id_port": "bad52972-26ae-40d8-9475-5a7e64ac7a0e"
+                        "id_circle": "0063332d-45e5-428c-b6ce-22149398a055",
+                        "id_label": "47345830-9afa-44b1-945c-3a0bbc6c66c8",
+                        "id_port": "f943904f-c8e9-488d-9d81-b8fa523b942d"
                     },
                     {
                         "name": "value2",
@@ -89,9 +89,9 @@
                         "arrayDimensions": [
                             "0"
                         ],
-                        "id_circle": "cd033097-29de-49f9-929d-0d29023af515",
-                        "id_label": "871c8e7e-1742-4f01-a683-836255636b40",
-                        "id_port": "616804a8-b328-43ea-a879-d4e78deb6e7c"
+                        "id_circle": "58b30ba4-948a-4c11-9184-6c62a6982717",
+                        "id_label": "72fa55fb-6aee-40a1-9382-61599ab4e6c7",
+                        "id_port": "0f0f1e10-fbd8-46cd-a1a5-30f0655a837e"
                     }
                 ],
                 "outputArguments": [
@@ -102,9 +102,9 @@
                         "arrayDimensions": [
                             "0"
                         ],
-                        "id_circle": "9748eb68-c6c7-49bd-a6d6-5260f9ef5b51",
-                        "id_label": "572556bd-6c4d-434f-a21e-f5177ff29bad",
-                        "id_port": "cad0bb88-d9aa-4306-96b0-d85e84f3fbd0"
+                        "id_circle": "3c0f1bc4-583b-4897-ae3d-738bd1421240",
+                        "id_label": "fc10d66b-f3ca-4882-bb57-76505fb33f8a",
+                        "id_port": "36b32b91-c314-4988-9883-56f3ec602df1"
                     }
                 ]
             },
@@ -163,9 +163,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "1d6659bd-208a-4d81-b8b0-41a4fae0d220",
-                "id_label": "65d589f7-3011-4c63-86ff-b61240bd2072",
-                "id_port": "bad52972-26ae-40d8-9475-5a7e64ac7a0e"
+                "id_circle": "0063332d-45e5-428c-b6ce-22149398a055",
+                "id_label": "47345830-9afa-44b1-945c-3a0bbc6c66c8",
+                "id_port": "f943904f-c8e9-488d-9d81-b8fa523b942d"
             },
             {
                 "name": "value2",
@@ -174,9 +174,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "cd033097-29de-49f9-929d-0d29023af515",
-                "id_label": "871c8e7e-1742-4f01-a683-836255636b40",
-                "id_port": "616804a8-b328-43ea-a879-d4e78deb6e7c"
+                "id_circle": "58b30ba4-948a-4c11-9184-6c62a6982717",
+                "id_label": "72fa55fb-6aee-40a1-9382-61599ab4e6c7",
+                "id_port": "0f0f1e10-fbd8-46cd-a1a5-30f0655a837e"
             }
         ],
         "outputs": [
@@ -187,9 +187,9 @@
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "9748eb68-c6c7-49bd-a6d6-5260f9ef5b51",
-                "id_label": "572556bd-6c4d-434f-a21e-f5177ff29bad",
-                "id_port": "cad0bb88-d9aa-4306-96b0-d85e84f3fbd0"
+                "id_circle": "3c0f1bc4-583b-4897-ae3d-738bd1421240",
+                "id_label": "fc10d66b-f3ca-4882-bb57-76505fb33f8a",
+                "id_port": "36b32b91-c314-4988-9883-56f3ec602df1"
             },
             {
                 "name": "ErrorId",
@@ -198,9 +198,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
                 },
                 "type": "Variable",
-                "id_circle": "bed6f4eb-b8bc-4910-97cf-42d751d09f35",
-                "id_label": "a87a1378-635b-4fb1-8053-99587559b51f",
-                "id_port": "9facbfde-46a5-44bb-aca0-f82b2774ed10"
+                "id_circle": "871dbd57-51c6-40d5-aeed-312cefa41227",
+                "id_label": "c11625b3-dc6b-4da3-b14a-11e5b9ef4f79",
+                "id_port": "a019c745-962f-4c9a-b08a-dbd410e6a88b"
             },
             {
                 "name": "valueOut",
@@ -209,9 +209,9 @@
                     "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
                 },
                 "type": "Variable",
-                "id_circle": "85b7443b-655a-4148-b9f7-1cfac7e987d3",
-                "id_label": "f4d5cb73-8468-401c-93b0-a14b5003a0d6",
-                "id_port": "b92a2406-a79f-4792-b913-8cbe41bdf299"
+                "id_circle": "a4943c24-1547-4a5b-be99-303b41665fe6",
+                "id_label": "346d6101-10b2-49e7-9be5-5c23ffdabcef",
+                "id_port": "5fe2e691-6d5d-4a65-b954-10911a2eea9b"
             }
         ]
     }

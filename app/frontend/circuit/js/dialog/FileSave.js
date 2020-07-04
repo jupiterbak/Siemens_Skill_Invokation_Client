@@ -8,6 +8,7 @@ export default class FileSave {
    *
    */
   constructor() {
+    this.log = application_log;
   }
 
   /**
@@ -21,31 +22,33 @@ export default class FileSave {
    * @since 4.0.0
    */
   show(canvas) {
+    let self = this;
     Mousetrap.pause()
-    $("#fileSaveDialog .githubFileName").val(storage.currentFile)
+    $("#fileSaveDialog .githubFileName").val(storage.currentFile);
 
     $('#fileSaveDialog').off('shown.bs.modal').on('shown.bs.modal', (event) => {
-      $(event.currentTarget).find('input:first').focus()
+      $(event.currentTarget).find('input:first').focus();
     })
-    $("#fileSaveDialog").modal("show")
+    $("#fileSaveDialog").modal("show");
 
     // Button: Commit to GitHub
     //
     $("#fileSaveDialog .okButton").off("click").on("click", () => {
       canvas.setCurrentSelection(null)
       new draw2d.io.png.Writer().marshal(canvas, imageDataUrl => {
-        let writer = new draw2d.io.json.Writer()
+        let writer = new draw2d.io.json.Writer();
         writer.marshal(canvas, json => {
-          let name = $("#fileSaveDialog .githubFileName").val()
-          name = storage.sanitize(name)
+          let name = $("#fileSaveDialog .githubFileName").val();
+          name = storage.sanitize(name);
           storage.saveFile(json, imageDataUrl, name)
             .then(function () {
-              Mousetrap.unpause()
-              storage.currentFile = name
-              $('#fileSaveDialog').modal('hide')
+              Mousetrap.unpause();
+              storage.currentFile = name;
+              $('#fileSaveDialog').modal('hide');
+              self.log.info('[Storage] File ' + name + ' saved sucessfully.');
           })
         })
-      }, canvas.getBoundingBox().scale(10, 10))
+      }, canvas.getBoundingBox().scale(10, 10));
     })
   }
 }

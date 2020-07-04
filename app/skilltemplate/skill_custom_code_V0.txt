@@ -12,7 +12,7 @@ testShape = testShape.extend({
       this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
       // get the skill description from the backend.
-      this.description = null;       
+      this.description = null;
       
       var _this= this;
       this.currentTimer=0;
@@ -66,6 +66,7 @@ testShape = testShape.extend({
             this.layerAttr("led_connected",{fill:"#FF3C00"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
             this.layerAttr("Skill_State", {text: 'State: Getting descr.'});
+            application_log.info("[" + self.NAME + "] Getting skill description.");
             skillproxy.getSkillDescription(this.NAME).then(function (desc) {
                 if (desc.skill_descp){
                     self.description = desc.skill_descp;
@@ -77,6 +78,7 @@ testShape = testShape.extend({
                   // Make transition to err
                   self.state = 6;
                   self.err_msg = "Could not fetch the skill description";
+                  application_log.error("[" + self.NAME + "] Could not fetch the skill description.");
                 }
             });
             this.state = 100;                       
@@ -87,20 +89,22 @@ testShape = testShape.extend({
           case 11: // Connect to the skill
             this.layerAttr("Skill_State", {text: 'State: Connecting'});
             this.layerAttr("led_connected",{fill:"#ffb300"}); // Orange
+            application_log.info("[" + self.NAME + "] connecting to the OPCUA server...");
             skillproxy.connectSkill(self.description.ip, self.description.port).then(function (resp_con) {
                 if(resp_con.err){
                   // Make transition to err
                   self.state = 6;
                   self.err_msg = "Error while connecting to the skill!";
+                  application_log.error("[" + self.NAME + "] Error while connecting to the OPCUA server: " + JSON.stringify(resp_con.err));
                 }else{
                   self.layerAttr("Skill_State", {text: 'State: Connected'});
-                  
+                  application_log.info("[" + self.NAME + "] connected to the OPCUA server.");
                   socket.on("opcua_serverstatus", function(msg){
                     // console.log("####### Serverstatus");
                   });
                   
                   socket.on("SkillStatesChanged", function(data){
-                    console.log("####### StatesChanged");
+                    // console.log("####### StatesChanged");
                     // Filter the event for the state changes related to this skill.
                     var _changed_states = [];
                     for (var prop in data) {
@@ -127,7 +131,7 @@ testShape = testShape.extend({
                   });
 
                   socket.on("ResultTriggerChanged", function(data){
-                    console.log("####### ResultTriggerChanged");
+                    // console.log("####### ResultTriggerChanged");
                     // Filter the event for the state changes related to this skill.
                     for (var prop in data) {
                         if (Object.prototype.hasOwnProperty.call(data, prop)) {
@@ -154,12 +158,14 @@ testShape = testShape.extend({
             break;
           case 130: // Subscribe to result trigger before calling the skill
             self.layerAttr("Skill_State", {text: 'State: Subscribing to result trigger.'});
+            application_log.info("[" + self.NAME + "] Subscribing to result trigger.");
             skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.Invokation.ResultTrigger).then(function (resp_rt) {
               self.monitor_rt_call_results = resp_rt;
               if(resp_rt.err){
                 // Make transition to err
                 self.state = 6;
                 self.err_msg = "Error while monitoring result trigger!";
+                application_log.error("[" + self.NAME + "] Error while monitoring result trigger: " + JSON.stringify(resp_rt.err));
               }else{
                 if(resp_rt.results){
                   self.initial_result_trigger_value = resp_rt.results.value.value;
@@ -168,6 +174,7 @@ testShape = testShape.extend({
                 }
                 // Make transition to call the skill
                 self.state = 12;
+                application_log.info("[" + self.NAME + "] successfully monitoring the result trigger." );
               }
             });
             self.state = 135;
@@ -180,7 +187,7 @@ testShape = testShape.extend({
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
             this.layerAttr("Skill_State", {text: 'State: Starting'});
-            
+            application_log.info("[" + self.NAME + "] starting the skill." );
             // sample the input values
             var _params = [];
             var _inputs = this.description.skillModel.Invokation.Start.parameters.inputArguments || [];
@@ -201,6 +208,7 @@ testShape = testShape.extend({
                 // Make transition to err
                 self.state = 6;
                 self.err_msg = "Error while starting the skill!";
+                application_log.error("[" + self.NAME + "] Error while starting the skill: " + JSON.stringify(resp_start.err));
               }else{
                 // Set Synchronous Output
                 var _outputs = resp_start.results.outputArguments;
@@ -211,6 +219,7 @@ testShape = testShape.extend({
                 // Make transition
                 self.state = 2;
                 self.layerAttr("Skill_State", {text: 'State: Executing'});
+                application_log.info("[" + self.NAME + "] successfully executing the skill. Waiting for the skill to complete..." );
               }
             });
 
@@ -226,12 +235,14 @@ testShape = testShape.extend({
                 // Make transition
                 this.state = 3;
                 this.layerAttr("Skill_State", {text: 'State: Completed'});
+                application_log.info("[" + self.NAME + "] skill execution completed." );
               }
             }else{
               if(self.last_result_trigger_value > self.initial_result_trigger_value){
                 // Make transition
                 this.state = 3;
                 this.layerAttr("Skill_State", {text: 'State: Completed'});
+                application_log.info("[" + self.NAME + "] skill execution completed." );
               }
             }            
             break;
@@ -241,7 +252,7 @@ testShape = testShape.extend({
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
             this.layerAttr("Skill_State", {text: 'State: Getting results'});
-
+            application_log.info("[" + self.NAME + "] fetching the skill execution results..." );
             // sample the input values
             var _params = [];
             var _inputs = this.description.skillModel.Invokation.GetResult.parameters.inputArguments || [];
@@ -263,6 +274,7 @@ testShape = testShape.extend({
                 // Make transition to err
                 self.state = 6;
                 self.err_msg = "Error while fetching the results of the skill!";
+                application_log.error("[" + self.NAME + "] Error while fetching the results of the skill: " + JSON.stringify(resp_getResults.err));
               }else{
                 // Set Synchronous Output
                 var _offset = (self.start_call_results.results.outputArguments || []).length;
@@ -273,6 +285,7 @@ testShape = testShape.extend({
                 }
                 // Make transition
                 self.state = 310;
+                application_log.info("[" + self.NAME + "] results fetched sucessfully." );
               }
             });
 
@@ -287,10 +300,12 @@ testShape = testShape.extend({
                 // Make transition
                 this.state = 4;
                 this.layerAttr("Skill_State", {text: 'State: Done'});
+                application_log.info("[" + self.NAME + "] skill execusion is done." );
               }
             }else{
               this.state = 4;
               this.layerAttr("Skill_State", {text: 'State: Done'});
+              application_log.info("[" + self.NAME + "] skill execusion is done." );
             }            
             break;
           case 4: // Set the done signal
@@ -350,6 +365,7 @@ testShape = testShape.extend({
           self.getOutputPort(index).setValue(0);                
         }
         this.layerAttr("Skill_State", {text: 'State: not connected'});
+        application_log.info("[" + self.NAME + "] skill execusion started." );
         this.state = 5; // STOPPED
         this.last_en_value = 0;
     },
@@ -366,6 +382,7 @@ testShape = testShape.extend({
         this.layerAttr("Circle_done",{fill:"#f0f0f0"});
         this.layerAttr("circle",{fill:"#ffffff"});
         this.layerAttr("Skill_State", {text: 'State: not connected'});
+        application_log.info("[" + self.NAME + "] skill execusion stopped." );
         for (var index = 0; index < this.getInputPorts().length - 1; index++) {
           self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
@@ -378,11 +395,11 @@ testShape = testShape.extend({
         this.last_en_value = 0;
         
         socket.off("opcua_serverstatus", function(msg){
-          console.log("####### Serverstatus");
+          // console.log("####### Serverstatus");
         });
         
         socket.off("SkillStatesChanged", function(msg){
-          console.log("####### StatesChanged");
+          // console.log("####### StatesChanged");
         });
     },
     

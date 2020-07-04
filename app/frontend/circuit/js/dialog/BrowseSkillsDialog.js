@@ -8,6 +8,7 @@ export default class BrowseSkillsDialog {
    *
    */
   constructor() {
+    this.log = application_log;
   }
 
   /**
@@ -21,7 +22,8 @@ export default class BrowseSkillsDialog {
    * @since 4.0.0
    */
   show(canvas) {
-    Mousetrap.pause()
+    var self = this;
+    Mousetrap.pause();
     $("#skillBrowseDialog .opcuaip").val("localhost");
     $("#skillBrowseDialog .opcuaport").val("4840");
     $("#skillBrowseDialog .opcua_module_name").val("Module 01");
@@ -50,13 +52,14 @@ export default class BrowseSkillsDialog {
         .then(function (obj) {
           if(obj.err){
             $("#skillBrowseDialog .alert").text("Error while browsing the opc ua server.").show();
+            self.log.error('[OPCUA] Error while browsing the opc ua server: ' + JSON.stringify(obj.err));
           }else{
             // Get the skill objects
             const _skills =obj.skills;
 
             // Show the results
             $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
-
+            self.log.info("[OPCUA] Found " + _skills.length + " skill(s). saving ...");
             // Save the found skills
             for (var i = 0, len = _skills.length; i < len; i++) {
               var _skill = _skills[i];
@@ -69,8 +72,10 @@ export default class BrowseSkillsDialog {
                 if(s_data.err){
                   $("#skillBrowseDialog .alert").text("Error while saving the skill " + _skill.skill.name + ":" + s_data.err).show();
                   $("#skillBrowseDialog .alert").removeClass("spinner");
+                  self.log.error("[OPCUA] Error while saving the skill"  + _skill.skill.name + ":" + s_data.err);
                 }else{
                   $("#skillBrowseDialog .alert").text("Skill " + _skill.skill.name + "saved successfully.").show();
+                  self.log.info("[OPCUA] Skill " + _skill.skill.name + "saved successfully.");
                   $("#skillBrowseDialog .alert").removeClass("spinner");
                   if(i=== (len -1)){
                     $('#skillBrowseDialog').modal('hide');

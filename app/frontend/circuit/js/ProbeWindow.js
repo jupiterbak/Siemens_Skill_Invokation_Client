@@ -84,7 +84,7 @@ export default class ProbeWindow {
     });
 
     $("#probeSortable").remove();
-    $("#probe_window").append('<ul id="probeSortable"></ul>');
+    $("#probe_window_tick").append('<ul id="probeSortable"></ul>');
 
 
     probes.forEach(function (probe) {
@@ -96,6 +96,7 @@ export default class ProbeWindow {
     else
       $("#probe_hint").show();
     $("#probe_window").show().animate({height: '200px'}, 300);
+    $("#canvas_zoom").animate({bottom: '220px'}, 300);    
     $("#draw2dCanvasWrapper").animate({bottom: '200px'}, 300);
     $("#probeSortable").sortable({
       update: function (event, ui) {
@@ -113,6 +114,7 @@ export default class ProbeWindow {
 
   hide() {
     $("#probe_window").animate({height: '0'}, 300);
+    $("#canvas_zoom").animate({bottom: '20px'}, 300);
     $("#draw2dCanvasWrapper").animate({bottom: '0'}, 300, () => {
       $("#probeSortable").remove();
     });
@@ -120,7 +122,7 @@ export default class ProbeWindow {
   }
 
   resize() {
-    this.channelWidth = $("#probe_window").width()
+    this.channelWidth = $("#probe_window").width();
     this.xScale = d3.scaleLinear().domain([0, this.channelBufferSize - 1]).range([0, this.channelWidth])
     this.yScale = d3.scaleLinear().domain([0, 5]).range([this.channelHeight, 0])
 

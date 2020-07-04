@@ -18,6 +18,7 @@ import "./util/mousetrap-pause"
 import inlineSVG from "../lib/inlineSVG"
 import hardware from "./hardware"
 import skillproxy from "./io/BackendSkills"
+import application_log from "./WindowLogger"
 
 
 export default {
@@ -36,5 +37,6 @@ export default {
   LabelInplaceEditor,
   ConnectionRouter,
   CircuitFigure,
-  skillproxy
+  skillproxy,
+  application_log
 }

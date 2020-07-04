@@ -32,6 +32,7 @@ export default draw2d.Canvas.extend({
         this._super(id, 6000, 6000);
 
         this.probeWindow = new ProbeWindow(this);
+        this.log = application_log;
 
         // global context where objects can store data during different simulation steps.
         // OTHER object can read them. Useful for signal handover
@@ -405,6 +406,8 @@ export default draw2d.Canvas.extend({
                     _this.timerBase = parseInt(11 - ((event.value - 100) * (10 - 2) / (500 - 100) + 2))
                 }
             });
+        
+            this.connectionStatusChanged();
     },
 
     isSimulationRunning: function() {
@@ -497,9 +500,12 @@ export default draw2d.Canvas.extend({
 
     simulationStart: function() {
         let self = this;
+        this.log.info('[Scheduler] Simulation startet');
+
         if (this.simulate === true) {
             return // silently
         }
+
 
         this.simulate = true
 
@@ -551,6 +557,7 @@ export default draw2d.Canvas.extend({
         //     $(".editBase").fadeIn("slow")
         // })
         $("#paletteElementsOverlay").fadeOut("fast")
+        this.log.info('[Scheduler] Simulation stopped.');
     },
 
     _calculate: function() {
@@ -575,7 +582,7 @@ export default draw2d.Canvas.extend({
             setTimeout(this.animationFrameFunc, this.timerBase)
         }
 
-        this.probeWindow.tick(this.timerBase)
+        this.probeWindow.tick(this.timerBase);
     },
 
     /**
@@ -653,13 +660,16 @@ export default draw2d.Canvas.extend({
         // check if a connection to the skill monitoring is avialable
         // In this case we can update the UI with some status indicator
         //
-
+        var self = this;
         // Set connection status to normal first
         $("#editConnections").attr("src", imgConnectionStatusNeutral)
 
         // set the status depending to the results of the backend call
         skillproxy.checkBackendSkill().then(function (resp_call) {
-            $("#editConnections").attr("src", resp_call.err ? imgConnectionStatusFalse : imgConnectionStatusTrue);           
+            $("#editConnections").attr("src", resp_call.err ? imgConnectionStatusFalse : imgConnectionStatusTrue);
+            if(resp_call.err){
+                self.log.error('[View] Backend not connected: ' + resp_call.err);
+            }          
         });
     },
 

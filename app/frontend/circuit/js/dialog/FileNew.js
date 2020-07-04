@@ -5,6 +5,7 @@ export default class FileNew {
    *
    */
   constructor() {
+    this.log = application_log;
   }
 
   /**
@@ -18,16 +19,18 @@ export default class FileNew {
    * @since 4.0.0
    */
   show() {
-    $("#fileNewDialog .githubFileName").val("NewDocument")
+    var self = this;
+    $("#fileNewDialog .githubFileName").val("NewDocument");
     $('#fileNewDialog').on('shown.bs.modal', function () {
-      $(this).find('input:first').focus()
-    })
-    $("#fileNewDialog").modal("show")
+      $(this).find('input:first').focus();
+    });
+    $("#fileNewDialog").modal("show");
 
     $("#fileNewDialog .okButton").on("click", function () {
-      var name = $("#fileNewDialog .githubFileName").val()
-      $('#fileNewDialog').modal('hide')
-      app.fileNew(undefined, name)
-    })
+      var name = $("#fileNewDialog .githubFileName").val();
+      $('#fileNewDialog').modal('hide');
+      app.fileNew(undefined, name);
+      self.log.info('[Storage] File ' + name + ' saved sucessfully.');
+    });
   }
 }

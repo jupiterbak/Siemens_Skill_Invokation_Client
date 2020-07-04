@@ -58,9 +58,9 @@ services:
 
 networks:
   backend:
-    ipam:
-      config:
-        - subnet: 172.31.0.0/16
+    # ipam:
+    #   config:
+    #     - subnet: 172.31.0.0/16
 
 volumes:
   skill_invocation_client-shapes:
