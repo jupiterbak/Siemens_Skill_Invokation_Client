@@ -1,4 +1,4 @@
- /**
+/**
  * Generated Code for the Draw2D touch HTML5 lib.
  * File will be generated if you save the *.shape file.
  *
@@ -17,6 +17,9 @@ Signals_DataTarget = Signals_DataTarget.extend({
 
          // your special code here
         this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"data"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         var _this = this;
@@ -124,27 +127,27 @@ Signals_DataTarget = Signals_DataTarget.extend({
     },
     
     
-    /**
-     * @private
-     */
-    applyTransformation: function () {
-        let s =
-        // override the base implementation and do not scale the internal SVG elements....this let the arrow looks a like streche...we
-        // calculate the path in the event handler. A lot more code....but the result is much cleaner
-        //"S" + this.scaleX + "," + this.scaleY + ",0,0 " +
-        "R" + this.rotationAngle + "," + ((this.getWidth() / 2) | 0) + "," + ((this.getHeight() / 2) | 0) +
-        "T" + this.getAbsoluteX() + "," + this.getAbsoluteY() +
-        ""
-        this.svgNodes.transform(s)
-        if (this.rotationAngle === 90 || this.rotationAngle === 270) {
-        let before = this.svgNodes.getBBox(true)
-        let ratio = before.height / before.width
-        let reverseRatio = before.width / before.height
-        let rs = "...S" + ratio + "," + reverseRatio + "," + (this.getAbsoluteX() + this.getWidth() / 2) + "," + (this.getAbsoluteY() + this.getHeight() / 2)
-        this.svgNodes.transform(rs)
-        }
-
-        return this
+  /**
+   * @private
+   */
+  applyTransformation: function () {
+    let s =
+      // override the base implementation and do not scale the internal SVG elements....this let the arrow looks a like streche...we
+      // calculate the path in the event handler. A lot more code....but the result is much cleaner
+      //"S" + this.scaleX + "," + this.scaleY + ",0,0 " +
+      "R" + this.rotationAngle + "," + ((this.getWidth() / 2) | 0) + "," + ((this.getHeight() / 2) | 0) +
+      "T" + this.getAbsoluteX() + "," + this.getAbsoluteY() +
+      ""
+    this.svgNodes.transform(s)
+    if (this.rotationAngle === 90 || this.rotationAngle === 270) {
+      let before = this.svgNodes.getBBox(true)
+      let ratio = before.height / before.width
+      let reverseRatio = before.width / before.height
+      let rs = "...S" + ratio + "," + reverseRatio + "," + (this.getAbsoluteX() + this.getWidth() / 2) + "," + (this.getAbsoluteY() + this.getHeight() / 2)
+      this.svgNodes.transform(rs)
     }
+
+    return this
+  }
 
 });

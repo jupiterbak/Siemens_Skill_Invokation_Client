@@ -825,6 +825,14 @@ exports.default = draw2d.policy.canvas.DropInterceptorPolicy.extend({
       return connectIntent;
     }
 
+    // Ports accepts only Ports from the same semanticGroup as DropTarget
+    //
+    if (connectIntent instanceof draw2d.Port && connectInquirer instanceof draw2d.Port) {
+      if (connectIntent.getSemanticGroup() !== connectInquirer.getSemanticGroup()) {
+        return null;
+      }
+    }
+
     // Ports accepts only Ports as DropTarget
     //
     if (!(connectIntent instanceof draw2d.Port) || !(connectInquirer instanceof draw2d.Port)) {
@@ -1888,6 +1896,9 @@ exports.default = draw2d.Canvas.extend({
                 c.setSource(sourcePort);
                 c.setTarget(targetPort);
             }
+            c.on("connect", function (emitter, event) {
+                emitter.attr("stroke", event.port.getSemanticGroup() === "data" ? 4 : 1.5);
+            });
             return c;
         };
 

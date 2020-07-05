@@ -41,6 +41,14 @@ export default draw2d.policy.canvas.DropInterceptorPolicy.extend({
       return connectIntent
     }
 
+    // Ports accepts only Ports from the same semanticGroup as DropTarget
+    //
+    if ((connectIntent instanceof draw2d.Port) && (connectInquirer instanceof draw2d.Port)) {
+      if(connectIntent.getSemanticGroup() !== connectInquirer.getSemanticGroup()) {
+        return null
+      }
+    }
+
     // Ports accepts only Ports as DropTarget
     //
     if (!(connectIntent instanceof draw2d.Port) || !(connectInquirer instanceof draw2d.Port)) {

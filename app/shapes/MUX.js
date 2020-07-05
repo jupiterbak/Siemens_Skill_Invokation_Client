@@ -80,6 +80,15 @@ MUX = MUX.extend({
          this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(1).attr({
+            semanticGroup:"signal"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
     },
     

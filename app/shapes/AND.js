@@ -80,6 +80,15 @@ AND = AND.extend({
         this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(1).attr({
+            semanticGroup:"signal"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
     },

@@ -73,6 +73,9 @@ Signals_DataSource = Signals_DataSource.extend({
          this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"data"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         var _this = this;

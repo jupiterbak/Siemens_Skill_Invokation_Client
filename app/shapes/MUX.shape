@@ -4,14 +4,14 @@
       "type": "shape_designer.figure.PolyRect",
       "id": "c55dd135-15db-7c71-5efa-f6761c073e66",
       "x": 7980,
-      "y": 7974.2235125,
+      "y": 7975,
       "width": 40,
       "height": 50,
       "alpha": 1,
       "angle": 0,
       "userData": {
         "baseClass": "draw2d.SetFigure",
-        "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n    },\n    \n    calculate:function()\n    {\n        var i1 = this.getInputPort(0);\n        var o2 = this.getOutputPort(1);\n        var o1 = this.getOutputPort(0);\n        \n        o1.setValue(i1.getValue());\n        o2.setValue(i1.getValue());\n    }\n});",
+        "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.getInputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getOutputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getOutputPort(1).attr({\n            semanticGroup:\"signal\"\n        });\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n    },\n    \n    calculate:function()\n    {\n        var i1 = this.getInputPort(0);\n        var o2 = this.getOutputPort(1);\n        var o1 = this.getOutputPort(0);\n        \n        o1.setValue(i1.getValue());\n        o2.setValue(i1.getValue());\n    }\n});",
         "name": "Rectangle",
         "markdown": "# T-FlipFlop\n\n## Description\n\nThe D FlipFLop is widely used. It is also known as a \n*toggle*  flip-flop.\n\nA T flip-flop is a device which swaps or **toggles** state \nevery time it is triggered if the T input is asserted, \notherwise it holds the current output.\n\n\nThe toggle flip-flop is also a frequency divider."
       },
@@ -25,19 +25,19 @@
       "vertices": [
         {
           "x": 7980,
-          "y": 7974.2235125
+          "y": 7975
         },
         {
           "x": 8020,
-          "y": 7974.2235125
+          "y": 7975
         },
         {
           "x": 8020,
-          "y": 8024.2235125
+          "y": 8025
         },
         {
           "x": 7980,
-          "y": 8024.2235125
+          "y": 8025
         }
       ],
       "blur": 0,
@@ -63,8 +63,8 @@
       "type": "shape_designer.figure.ExtLabel",
       "id": "08459b5e-14e9-38d5-14dc-4b24f166cd2d",
       "x": 7983.51696,
-      "y": 7988.299825,
-      "width": 28.328125,
+      "y": 7989.0763125,
+      "width": 30.578125,
       "height": 21.359375,
       "alpha": 1,
       "angle": 0,
@@ -101,7 +101,7 @@
       "type": "shape_designer.figure.ExtPort",
       "id": "7c8a6215-ce17-6a10-c85b-b97fd0de466c",
       "x": 8016.008125,
-      "y": 7979.1135125,
+      "y": 7979.89,
       "width": 10,
       "height": 10,
       "alpha": 1,
@@ -139,7 +139,7 @@
       "type": "shape_designer.figure.ExtPort",
       "id": "078497de-04ae-57d8-a141-a3d4afacfe39",
       "x": 8016.008125,
-      "y": 8010.6592,
+      "y": 8011.4356875,
       "width": 10,
       "height": 10,
       "alpha": 1,
@@ -177,7 +177,7 @@
       "type": "shape_designer.figure.ExtPort",
       "id": "5fc48f01-fecb-0d5f-ed4f-81a4bc26ae63",
       "x": 7972.51696,
-      "y": 7994.2235125,
+      "y": 7995,
       "width": 10,
       "height": 10,
       "alpha": 1,
@@ -212,5 +212,5 @@
       ]
     }
   ],
-  "image": "data:image/png;base64,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"
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABGCAYAAACQRffVAAAAkUlEQVR4Xu3UAREAIAzEsM2/aQTgoAsO+Oa2c+ztsf+OD9eLK6xwbAGkY0G/7yiscGwBpGNBHS2kkY4tgHQsqCuNNNKxBZCOBXWlkUY6tgDSsaCuNNJIxxZAOhbUlUYa6dgCSMeCutJIIx1bAOlYUFcaaaRjCyAdC+pKI410bAGkY0FdaaSRji2AdCyoK32O9ANl0gBHW+JDOgAAAABJRU5ErkJggg=="
 }

@@ -74,6 +74,9 @@ Signals_DataTarget = Signals_DataTarget.extend({
 
          // your special code here
         this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"data"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         var _this = this;

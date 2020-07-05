@@ -80,6 +80,15 @@ AND = AND.extend({
         this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(1).attr({
+            semanticGroup:"signal"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
     },
@@ -221,6 +230,9 @@ End = End.extend({
          this._super(attr, setter, getter);
 
          this.attr({resizeable:false});
+         this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
          this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
     },
     
@@ -403,6 +415,33 @@ Module01_localhost_4843_Skill_Add = Module01_localhost_4843_Skill_Add.extend({
       this._super(attr, setter, getter);
 
       this.attr({resizeable:false});
+
+      // Input control signal types
+      this.getOutputPort(0).attr({
+        semanticGroup:"signal"
+      });
+      this.getInputPort(0).attr({
+          semanticGroup:"signal"
+      });
+
+      // Other signals
+      var i_ports = this.getInputPorts().data.length;
+      for (var index = 0; index < i_ports; index++) {
+        if(index > 0){
+          this.getInputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      var o_ports = this.getOutputPorts().data.length;
+      for (var index = 0; index < o_ports; index++) {
+        if(index > 0){
+          this.getOutputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+
       this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
       // get the skill description from the backend.
@@ -1004,6 +1043,33 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
       this._super(attr, setter, getter);
 
       this.attr({resizeable:false});
+      
+      // Input control signal types
+      this.getOutputPort(0).attr({
+        semanticGroup:"signal"
+      });
+      this.getInputPort(0).attr({
+          semanticGroup:"signal"
+      });
+
+      // Other signals
+      var i_ports = this.getInputPorts().data.length;
+      for (var index = 0; index < i_ports; index++) {
+        if(index > 0){
+          this.getInputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      var o_ports = this.getOutputPorts().data.length;
+      for (var index = 0; index < o_ports; index++) {
+        if(index > 0){
+          this.getOutputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      
       this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
       // get the skill description from the backend.
@@ -1574,6 +1640,33 @@ Module01_localhost_4845_Skill_Add_DB = Module01_localhost_4845_Skill_Add_DB.exte
       this._super(attr, setter, getter);
 
       this.attr({resizeable:false});
+      
+      // Input control signal types
+      this.getOutputPort(0).attr({
+        semanticGroup:"signal"
+      });
+      this.getInputPort(0).attr({
+          semanticGroup:"signal"
+      });
+
+      // Other signals
+      var i_ports = this.getInputPorts().data.length;
+      for (var index = 0; index < i_ports; index++) {
+        if(index > 0){
+          this.getInputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      var o_ports = this.getOutputPorts().data.length;
+      for (var index = 0; index < o_ports; index++) {
+        if(index > 0){
+          this.getOutputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      
       this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
       // get the skill description from the backend.
@@ -2032,6 +2125,15 @@ MUX = MUX.extend({
          this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(1).attr({
+            semanticGroup:"signal"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
     },
     
@@ -2129,6 +2231,15 @@ OR = OR.extend({
         this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(1).attr({
+            semanticGroup:"signal"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
     },
@@ -2219,6 +2330,9 @@ Signals_DataSource = Signals_DataSource.extend({
          this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"data"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         var _this = this;
@@ -2482,6 +2596,9 @@ Signals_DataTarget = Signals_DataTarget.extend({
 
          // your special code here
         this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"data"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         var _this = this;
@@ -2700,6 +2817,9 @@ START = START.extend({
     init: function(attr, setter, getter){
         this._super(attr, setter, getter);
         this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         // your special code here

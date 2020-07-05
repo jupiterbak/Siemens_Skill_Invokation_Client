@@ -66,6 +66,9 @@ export default draw2d.Canvas.extend({
                 c.setSource(sourcePort);
                 c.setTarget(targetPort);
             }
+            c.on("connect", (emitter, event)=>{
+                emitter.attr("stroke", event.port.getSemanticGroup()==="data"?4:1.5);
+            });
             return c;
         };
 
@@ -233,7 +236,7 @@ export default draw2d.Canvas.extend({
                 })
                 // execute all single commands at once.
             _this.getCommandStack().commitTransaction();
-        }
+        };
 
         $(".toolbar").delegate("#editDelete:not(.disabled)", "click", this.deleteSelectionCallback);
         Mousetrap.bindGlobal(['del', 'backspace'], this.deleteSelectionCallback);

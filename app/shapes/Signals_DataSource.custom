@@ -1,4 +1,4 @@
- /**
+/**
  * Generated Code for the Draw2D touch HTML5 lib.
  * File will be generated if you save the *.shape file.
  *
@@ -12,10 +12,13 @@
  */
 Signals_DataSource = Signals_DataSource.extend({
 
-    init: function(attr, setter, getter){
+init: function(attr, setter, getter){
          this._super(attr, setter, getter);
 
         this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"data"
+        });
         this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
         
         var _this = this;
@@ -46,7 +49,7 @@ Signals_DataSource = Signals_DataSource.extend({
             _this.layerAttr("label", {text: dataId})
             adjustWidth()
             var dataValue = _this.attr("userData.dataValue");
-            if(dataValue){
+            if( dataValue){
                 _this.constSignalValue = dataValue;
             }
         })
@@ -92,7 +95,7 @@ Signals_DataSource = Signals_DataSource.extend({
                 context.signalPorts[dataId] = _this.getOutputPort(0);
             }
         }
-    },
+            },
 
     /**
      *  Called if the simulation mode is starting
@@ -164,4 +167,5 @@ Signals_DataSource = Signals_DataSource.extend({
 
         return this
     }
+
 });

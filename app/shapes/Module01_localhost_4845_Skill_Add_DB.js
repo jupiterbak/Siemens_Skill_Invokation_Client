@@ -180,6 +180,33 @@ Module01_localhost_4845_Skill_Add_DB = Module01_localhost_4845_Skill_Add_DB.exte
       this._super(attr, setter, getter);
 
       this.attr({resizeable:false});
+      
+      // Input control signal types
+      this.getOutputPort(0).attr({
+        semanticGroup:"signal"
+      });
+      this.getInputPort(0).attr({
+          semanticGroup:"signal"
+      });
+
+      // Other signals
+      var i_ports = this.getInputPorts().data.length;
+      for (var index = 0; index < i_ports; index++) {
+        if(index > 0){
+          this.getInputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      var o_ports = this.getOutputPorts().data.length;
+      for (var index = 0; index < o_ports; index++) {
+        if(index > 0){
+          this.getOutputPort(index).attr({
+            semanticGroup:"data"
+          });
+        }        
+      }
+      
       this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
 
       // get the skill description from the backend.
