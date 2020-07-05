@@ -57,8 +57,11 @@
                         <div id="probe_window_palette" class="ion-ios-eye-outline" title="Stick Pallette"><img id="showPalette" src="./images/slideout_left.svg"/></div>
                         <div class="title">
                             <a href="https://siemens.com/" target="_blank"><img src="./images/siemens-logo-en-2x.png"></a>                            
-                          </div>
-                        <input type="text" id="filter" placeholder="Filter..." autofocus>
+                        </div>
+                        <div class="panetitle">
+                            <input type="text" id="search" placeholder="Filter..." autofocus>
+                        </div>
+                        
                         <div id="paletteElementsScroll">
                             <div id="paletteElements" class="row">
 
@@ -107,6 +110,17 @@
                                 <div>Backend Con.</div>
                             </span>
                         </span>
+
+                        <div class="group" style="float:right">
+                            <div class="image-button" data-toggle="tooltip" title="" data-original-title="Run">
+                                <img src="./images/toolbar_element_test.svg">
+                                <div>Run</div>
+                            </div>
+                            <div class="image-button" data-toggle="tooltip" title="" data-original-title="Annalyse your orchestration</span>">
+                                <img src="./images/toolbar_element_doc.svg">
+                                <div>Analyse</div>
+                            </div>
+                        </div>
 
                         <ul class="dropdown-menu" role="menu">
                             <form class="form-horizontal" role="form">
@@ -165,14 +179,28 @@
                             </div>
                          </div>
                     </div>
-                    <div id='probe_window'>
+                    <div id="filter" class="navbar-default">
+                        <div class="filter_actions"></div>
+                            <div class="highlight filter_header">Properties</div>
+                            <div class="filter_toolbar">
+                    
+                            <div class="btn-group dropup">
+                                <button id="add_filter_button" class="disabled btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                    Add
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu" id="add_filter_action_menu"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='probe_window' class="hidden">
                         <div id="probe_window_stick" class="ion-ios-eye-outline" title="Stick Window"><img src="./images/slideout_bottom.svg" /></div>
                         <div class=row>
-                            <!-- <div  id='probe_window_tick' class="col-md-6">
+                            <div  id='probe_window_tick' class="col-md-6 hidden">
                                 <div id="probe_hint"><span class="ion-ios-information-outline"></span>Add probe to trace the signals.
                                 </div>
-                            </div> -->
-                            <div  id="probe_window_log_container" class="col-md-12">
+                            </div>
+                            <div  id="probe_window_log_container" class="col-md-6">
                                 <p id="probe_window_log"></p>
                             </div>
                             

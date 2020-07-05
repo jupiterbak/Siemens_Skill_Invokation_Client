@@ -100,13 +100,27 @@ body {
               }
             }
 
-            #filter{
-              position: absolute;
-              top: @layerTitleHeight;
-              font-size: 20px;
-              width: (@leftPaneWidth)-5;
+            #search{
+              font-size: 14px;
+              width: (@leftPaneWidth)-10;
               left: 2px;
               height: @layerPaneFilterHeight;
+              border: 1px solid #222222;
+              //box-sizing: border-box;
+              border-radius: 2px;
+            }
+
+            .panetitle {
+              position: absolute;
+              top: @layerTitleHeight;
+              border-bottom: 1px solid #222222;
+              font-weight: 500;
+              font-size: 12px;
+              padding: 4px 4px 4px 4px;
+              letter-spacing: 5px;
+              text-align: left;
+              //color: @tintColor;
+              box-shadow: 0 4px 2px -2px rgba(31, 73, 125, 0.3);
             }
 
             #paletteElementsScroll {
@@ -134,7 +148,7 @@ body {
           }
           .content {
             position:absolute;
-            right: 0;
+            right: @filterPaneWidth;
             top:@toolbarHeight;
             bottom:0;
             left: @leftPaneWidth;

@@ -34,9 +34,9 @@ export default class Palette {
             $("#paletteElements").html(html);
 
             // Advanced filtering
-            $('#filter').on('keyup change', function(event) {
+            $('#search').on('keyup change', function(event) {
                 if (event.keyCode === 27) {
-                    $('#filter').val("");
+                    $('#search').val("");
                 }
                 let val = this.value.toLowerCase();
 

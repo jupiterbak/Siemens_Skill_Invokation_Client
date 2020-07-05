@@ -571,7 +571,7 @@ export default draw2d.Canvas.extend({
             figure.calculate(self.simulationContext)
         })
 
-        // transport the value from oututPort to inputPort
+        // transport the value from outputPort to inputPort
         //
         this.getLines().each(function(i, line) {
             let outPort = line.getSource()
