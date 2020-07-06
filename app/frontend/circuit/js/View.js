@@ -551,8 +551,14 @@ export default draw2d.Canvas.extend({
 
         this.getFigures().each( (index, shape) =>{
             shape.onStop(this.simulationContext)
-          })
+          });
         this.simulationContext = {}
+
+        // NOTE: Jupiter
+        // change the line colors to black again
+        this.getLines().each(function(i, line) {
+            line.setColor("#000000");
+        });
 
         $("#simulationStartStop").addClass("play")
         $("#simulationStartStop").removeClass("pause")

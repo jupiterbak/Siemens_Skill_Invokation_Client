@@ -2371,6 +2371,12 @@ exports.default = draw2d.Canvas.extend({
         });
         this.simulationContext = {};
 
+        // NOTE: Jupiter
+        // change the line colors to black again
+        this.getLines().each(function (i, line) {
+            line.setColor("#000000");
+        });
+
         $("#simulationStartStop").addClass("play");
         $("#simulationStartStop").removeClass("pause");
         // $(".simulationBase").fadeOut("slow", () => {
