@@ -32,6 +32,9 @@ export default {
       checkBackendSkill: '/backend/skill/checkBackendSkill',
       readResultVariables: '/backend/skill/readResultVariables',
       monitorNode: '/backend/skill/monitorNode'
+    },
+    model_checker:{
+      check: '/backend/orchestration/checkModel'
     }
   },
   monitor: {

@@ -52,6 +52,8 @@ template7.registerHelper('getLocalizedTextNodeID', function(nodeIdTxt) {
 const OPCUA_BACKEND_URL = process.env.OPCUA_BACKEND_URL || 'http://0.0.0.0:8080/';
 const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, OPCUA_BACKEND_URL);
 
+// Initialize the model checker api endpoint
+const MODEL_CHECKER_BACKEND_URL = process.env.MODEL_CHECKER_BACKEND_URL || 'http://0.0.0.0:5000/';
 
 // Tell the bodyparser middleware to accept more data
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -543,6 +545,23 @@ function runServer() {
         });
     });
 
+    app.get('/backend/orchestration/checkModel', (req, res) => {
+        const _params = req.query;
+        superagent.get(MODEL_CHECKER_BACKEND_URL + '/ctl/api/v1.0/check')
+        .set('Content-Type', 'application/json')
+        .send(JSON.stringify(_params))
+        .set('accept', 'json')
+        .end( (_err, _res) => {
+            if(_err){
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify({err:"Error while forwarding request to the model checker: " + JSON.stringify(_err)}));
+            }else{
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(_res.body));
+            }
+        });
+    });
+
     //  Start the web server
     http.listen(port, function() {
         console.log('using phantomJS for server side rendering of shape previews:', phantomjs.path)
@@ -550,7 +569,7 @@ function runServer() {
         console.log('| Welcome to the SP347 Skill Invokation Client               |');
         console.log('|------------------------------------------------------------|');
         console.log('| System is up and running. Copy the URL below and open this |');
-        console.log('| in your browser: http://' + address + ':' + port + '/                |');
+        console.log('| in your browser: http://' + address + ':' + port + '/               |');
         console.log('|                  http://localhost:' + port + '/                    |');
         console.log('+------------------------------------------------------------+');
     });

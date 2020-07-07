@@ -26,6 +26,7 @@
     <script src="./lib/shufflejs/jquery.shuffle.modernizr.min.js"></script>
 
     <script src="./lib/draw2d.js"></script>
+    <script src="./lib/ace-noconflict/ace.js"></script>
     <script src="../socket.io/socket.io.js"></script>
     <script src="./js/webpack/bundle.js"></script>
 
@@ -50,7 +51,7 @@
 
 <body class="mousetrap">
     <div id="layout">
-        <div class="tab-content panel">
+        <div class="panel tab-content">
             <div class="tab-pane active" id="editor">
                 <div class="workspace">
                     <div class="palette visible">
@@ -108,15 +109,8 @@
                             <span class="image-button"  id="connectionStatusElem" data-toggle="tooltip" title="Backend Connection Status">
                                 <img id="editConnections" src=".\images\status_index_false.svg"/>
                                 <div>Backend Con.</div>
-                            </span>
-                        </span>
-
-                        <div class="group" style="float:right">
-                            <div class="image-button" data-toggle="tooltip" title="" data-original-title="Run">
-                                <img src="./images/toolbar_element_test.svg">
-                                <div>Run</div>
-                            </div>
-                            <div class="image-button" data-toggle="tooltip" title="" data-original-title="Annalyse your orchestration</span>">
+                            </span>                            
+                            <div id="editorAnalyseOrchestration" class="image-button" data-toggle="tooltip" title="Analyse your orchestration <span class=\'highlight\'> [ Ctrl+Q ]</span>">
                                 <img src="./images/toolbar_element_doc.svg">
                                 <div>Analyse</div>
                             </div>
@@ -233,7 +227,27 @@
             {{/shapes}}
         </div>
         {{/categories}}
+    </script>
 
+    <script id="markdownTemplate" type="text/x-jsrender">
+## Kripke Structure
+- Initial State: {{model.S0}}
+- State: \[{{model.S}}\]
+- Transitions: \[{{model.T}}\]
+- Property labels: \[{{model.L}}\]
+
+## Petri Net Visualisation
+![](https://dummyimage.com/600x400/f6f6f6/0000) 
+
+## Test Results
+- Formula: `{{formula}}`
+{{#err}}
+- Error: {{err}}
+{{/err}}
+{{^err}}
+- Result: \[{{result}}\]
+{{/err}}
+- Solution: {{solution}}        
     </script>
 
     <script id="filesTemplate" type="text/x-jsrender">

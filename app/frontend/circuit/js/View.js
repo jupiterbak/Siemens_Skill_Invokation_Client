@@ -34,6 +34,12 @@ export default draw2d.Canvas.extend({
         this.probeWindow = new ProbeWindow(this);
         this.log = application_log;
 
+        // Orchestration graph
+        this.orchestration_graph = {
+            nodes:{},
+            transitions:{}
+        };
+
         // global context where objects can store data during different simulation steps.
         // OTHER object can read them. Useful for signal handover
         this.simulationContext = {};
@@ -175,7 +181,7 @@ export default draw2d.Canvas.extend({
             let bb = this.getBoundingBox().getCenter();
             let c = $("#draw2dCanvasWrapper");
             this.setZoom(newZoom);
-            this.scrollTo((bb.y / newZoom - c.height() / 2), (bb.x / newZoom - c.width() / 2))
+            this.scrollTo((bb.y / newZoom - c.height() / 2), (bb.x / newZoom - c.width() / 2));
         };
 
         //  ZoomIn Button and the callbacks
@@ -554,6 +560,12 @@ export default draw2d.Canvas.extend({
           })
         this.simulationContext = {}
 
+        // NOTE: Jupiter
+        // change the line colors to black again
+        this.getLines().each(function(i, line) {
+            line.setColor("#000000");
+        });
+
         $("#simulationStartStop").addClass("play")
         $("#simulationStartStop").removeClass("pause")
         // $(".simulationBase").fadeOut("slow", () => {
@@ -750,5 +762,95 @@ export default draw2d.Canvas.extend({
         return new draw2d.geo.Point(
             ((x * (1 / this.zoomFactor)) + this.getAbsoluteX()),
             ((y * (1 / this.zoomFactor)) + this.getAbsoluteY()))
+    },
+    
+    /**
+     * @method
+     * Ger the orchestration sequence as a graph.
+     *
+     * @returns a JSON object specify the orchestration graph
+     */
+    getOrchestrationGraph: function() {
+        var self = this;
+        // Reinitialize the graph
+        self.orchestration_graph = {
+            nodes:{},
+            transitions:{}
+        };
+
+        // Get all 'START' Nodes
+        var start_nodes = self.getStartNodes();
+        start_nodes.forEach(function(node, i) {
+            self.folowNode(node);
+        });
+
+        return self.orchestration_graph;
+    },
+
+    folowNode: function(node, _callback) {
+        var self = this;
+
+        // Add Node to graph nodes
+        self.orchestration_graph.nodes[node.id] = {
+            id:node.id,
+            name:node.NAME,
+        }
+        
+        // Complete with the graph description
+        // skillproxy.getSkillDescription(node.NAME).then(function (desc) {
+        //     if (desc.skill_descp){
+        //         self.orchestration_graph.nodes[node.id]['formulas'] = [node.NAME];                
+        //     }else{
+        //         self.orchestration_graph.nodes[node.id]['formulas'] = [];
+        //     }
+        // });
+
+        // Filter all transitions of type 'signals'
+        let transitions = node.getOutputPorts().data.filter(_trans => _trans.getSemanticGroup()==="signal")
+        .map(function callback(_o_port) {
+            return _o_port.connections.data;
+        }).reduce(function callback(acc, cur) {
+            acc = acc || [];
+            return acc.concat(cur);
+        },[]);
+
+        // Get all transitions that haven been added
+        let new_transitions = transitions.filter(function(_e_trans, i) {
+            return !(self.orchestration_graph.transitions[_e_trans.id])
+        });
+
+        // Add the new transitions
+        new_transitions.forEach(function(_n_trans, i) {
+            var _t = _n_trans.getTarget()
+            var _r = _t.getRoot();
+
+            self.orchestration_graph.transitions[_n_trans.id] = {
+                id:_n_trans.getId(),
+                source: {
+                    id: node.getId(),
+                    name: node.NAME
+                },
+                target:{
+                    id:_r.id,
+                    name:_r.NAME
+                }
+            }
+            if(!(self.orchestration_graph.nodes[_r.id])){
+                self.folowNode(_r);
+            }            
+        });
+    },
+
+    /**
+     * @method
+     * Filter all the figures to get the 'START' nodes.
+     *
+     * @returns Array of 'START' nodes figures
+     */
+    getStartNodes: function() {
+        var self = this;
+        return this.getFigures().data.filter(function(figure, i) {
+            return figure.NAME === 'START';
+        });      
     }
 })

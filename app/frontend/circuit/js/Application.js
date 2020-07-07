@@ -9,6 +9,7 @@ import View from "./View";
 import Files from "./Files";
 import FileOpen from "./dialog/FileOpen";
 import FileSave from "./dialog/FileSave";
+import FigureMarkdownEdit from "./dialog/FigureMarkdownEdit";
 import BrowseSkillsDialog from "./dialog/BrowseSkillsDialog";
 import storage from './io/BackendStorage';
 import conf from "./Configuration";
@@ -79,6 +80,15 @@ class Application {
             new BrowseSkillsDialog().show(self.view);
             return false;
         });
+
+        $("#AnalyseOrchestration, #editorAnalyseOrchestration").on("click", () => {
+            new FigureMarkdownEdit().show(self.view);
+        });
+        Mousetrap.bindGlobal(['ctrl+q', 'command+q'], () => {
+            new FigureMarkdownEdit().show(self.view);
+            return false;
+        });
+
 
         $("#showPalette").on("click", () => {
             var panel = $('.palette');
