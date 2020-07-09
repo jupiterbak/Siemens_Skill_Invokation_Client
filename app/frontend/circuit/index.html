@@ -114,7 +114,7 @@
                                 <img src="./images/toolbar_element_doc.svg">
                                 <div>Analyse</div>
                             </div>
-                        </div>
+                        </span>
 
                         <ul class="dropdown-menu" role="menu">
                             <form class="form-horizontal" role="form">
@@ -231,23 +231,36 @@
 
     <script id="markdownTemplate" type="text/x-jsrender">
 ## Kripke Structure
-- Initial State: {{model.S0}}
-- State: \[{{model.S}}\]
-- Transitions: \[{{model.T}}\]
-- Property labels: \[{{model.L}}\]
+#### Initial State
+{{#model.S0}}
+- {{.}}
+{{/model.S0}}
+#### State
+- {{model.S}}
+#### Transitions
+- {{model.T}}
+#### Property labels
+{{#model.L}}
+- {{.}}
+{{/model.L}}
 
-## Petri Net Visualisation
-![](https://dummyimage.com/600x400/f6f6f6/0000) 
-
-## Test Results
+## Results
 - Formula: `{{formula}}`
 {{#err}}
 - Error: {{err}}
 {{/err}}
 {{^err}}
-- Result: \[{{result}}\]
+- Result: `{{result}}`
 {{/err}}
-- Solution: {{solution}}        
+- Solution
+{{#solution}}   
+  - {{.}}
+{{/solution}}
+
+## Visualisation
+![](https://dummyimage.com/600x400/f6f6f6/0000) 
+
+
     </script>
 
     <script id="filesTemplate" type="text/x-jsrender">

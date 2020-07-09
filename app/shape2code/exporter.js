@@ -5,12 +5,12 @@ var json=[
     "x": 7900.241887499999,
     "y": 7889.5,
     "width": 200,
-    "height": 146,
+    "height": 211,
     "alpha": 1,
     "angle": 0,
     "userData": {
       "baseClass": "draw2d.SetFigure",
-      "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    init: function(attr, setter, getter){\r\n      this._super(attr, setter, getter);\r\n\r\n      this.attr({resizeable:false});\r\n      \r\n      // Input control signal types\r\n      this.getOutputPort(0).attr({\r\n        semanticGroup:\"signal\"\r\n      });\r\n      this.getInputPort(0).attr({\r\n          semanticGroup:\"signal\"\r\n      });\r\n\r\n      // Other signals\r\n      var i_ports = this.getInputPorts().data.length;\r\n      for (var index = 0; index < i_ports; index++) {\r\n        if(index > 0){\r\n          this.getInputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n      var o_ports = this.getOutputPorts().data.length;\r\n      for (var index = 0; index < o_ports; index++) {\r\n        if(index > 0){\r\n          this.getOutputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n      \r\n      this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n      // get the skill description from the backend.\r\n      this.description = null;       \r\n      \r\n      var _this= this;\r\n      this.currentTimer=0;\r\n      this.state = 5; // STOPPED\r\n      this.last_en_value = 0;\r\n      this.err_msg = \"\";\r\n      this.skill_current_state = \"Ready\";\r\n\r\n      this.initial_result_trigger_value = 0;\r\n      this.last_result_trigger_value = 0;\r\n\r\n      this.monitor_rt_call_results = null;\r\n      this.start_call_results = null;\r\n      this.get_results_call_results = null;\r\n\r\n      for (var index = 0; index < this.getInputPorts().length -1 ; index++) {\r\n        this.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n      for (var index = 0; index < this.getOutputPorts().length -1; index++) {\r\n        this.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n            }\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);               \r\n            }\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The skill description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting descr.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Getting skill description.\");\r\n            skillproxy.getSkillDescription(this.NAME).then(function (desc) {\r\n                if (desc.skill_descp){\r\n                    self.description = desc.skill_descp;\r\n                }\r\n                if(self.description){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Could not fetch the skill description.\");\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the skill\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Connecting'});\r\n            this.layerAttr(\"led_connected\",{fill:\"#ffb300\"}); // Orange\r\n            application_log.info(\"[\" + self.NAME + \"] connecting to the OPCUA server...\");\r\n            skillproxy.connectSkill(self.description.ip, self.description.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while connecting to the skill!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while connecting to the OPCUA server: \" + JSON.stringify(resp_con.err));\r\n                }else{\r\n                  self.layerAttr(\"Skill_State\", {text: 'State: Connected'});\r\n                  application_log.info(\"[\" + self.NAME + \"] connected to the OPCUA server.\");\r\n                  socket.on(\"opcua_serverstatus\", function(msg){\r\n                    // console.log(\"####### Serverstatus\");\r\n                  });\r\n\r\n                  socket.on(\"ResultTriggerChanged\", function(data){\r\n                    //console.log(\"####### ResultTriggerChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                self.last_result_trigger_value = el.value.value;\r\n                            }\r\n                        }\r\n                    }\r\n                  });\r\n                  \r\n                  // Make transition\r\n                  if (self.description.skillModel.RequestProvided && self.description.skillModel.ResultAcknowledge){\r\n                    self.state = 12; // Monitor request provided flag\r\n                  }                 \r\n                }\r\n            }); \r\n            self.state = 110;               \r\n            break;\r\n          case 110: // Wait for result of connect skill\r\n            this.currentTimer=0;\r\n            break;          \r\n          case 12: // Write request parameters\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            application_log.info(\"[\" + self.NAME + \"] starting the skill.\" );\r\n            // sample the input values\r\n            var _nodeIds = [];\r\n            var _values = [];\r\n\r\n            var _name = this.description.skill.name;\r\n            var _inputs = this.description.parameters.inputs || [];\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _nodeIds.push(el.nodeId);\r\n              _values.push(this.getInputPort(index + 1).getValue()?this.getInputPort(index + 1).getValue():0);\r\n            }\r\n\r\n            // Write the parameters\r\n            application_log.info(\"[\" + self.NAME + \"] Writing the request parameters.\" );\r\n            skillproxy.writeRequestParameters(self.description.ip, self.description.port, self.description.skill.name, _nodeIds, _values).then(function (resp_rq) {\r\n              if(resp_rq.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while writing the request parameters.\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while writing the request parameters: \" + JSON.stringify(resp_rq.err));\r\n              }else{\r\n                // Make transition to subscribe to the result trigger\r\n                self.state = 140;\r\n                application_log.info(\"[\" + self.NAME + \"] request parameters written.\" );\r\n              }\r\n            });\r\n            self.state = 125;\r\n            break;\r\n          case 125: // Wait for write results\r\n            break;\r\n          case 140: // Monitor the result trigger before calling the skill\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Monitoring the result trigger.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Subscribing to result trigger.\");\r\n            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.ResultAcknowledge).then(function (resp_rt) {\r\n              self.monitor_rt_call_results = resp_rt;\r\n              if(resp_rt.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while monitoring result trigger!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while monitoring result trigger: \" + JSON.stringify(resp_rt.err));\r\n              }else{\r\n                if(resp_rt.results){\r\n                  self.initial_result_trigger_value = resp_rt.results.value.value;\r\n                }else{\r\n                  self.initial_result_trigger_value = false;\r\n                }\r\n                // Make transition to wait for the completion of the skill\r\n                self.state = 130;\r\n                application_log.info(\"[\" + self.NAME + \"] successfully monitoring the result trigger.\" );\r\n              }\r\n            });\r\n            self.state = 145;\r\n            break;\r\n          case 145: // Wait for result of subscription \r\n            break;\r\n          case 130: // Write RequestProvided flag to call the skill\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Set RequestProvided.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Setting RequestProvided...\");\r\n            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.RequestProvided, true).then(function (resp_rq) {\r\n              if(resp_rq.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while monitoring result trigger!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while Setting xRequestProvided: \" + JSON.stringify(resp_rq.err));\r\n              }else{\r\n                application_log.info(\"[\" + self.NAME + \"] RequestProvided set.\");\r\n                application_log.info(\"[\" + self.NAME + \"] successfully executing the skill. Waiting for the skill to complete...\" );\r\n                self.initial_result_trigger_value = true;\r\n                // Make transition to subscribe to the signal\r\n                self.state = 2;\r\n              }\r\n            });\r\n            this.currentTimer=0;\r\n            self.state = 135;\r\n            break;\r\n          case 135: // Wait for write results\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Executing'});            \r\n            if(self.last_result_trigger_value === true){\r\n              // Make transition\r\n              this.state = 3;\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n              application_log.info(\"[\" + self.NAME + \"] skill execution completed.\" );\r\n            }                      \r\n            break;\r\n          case 3: // Read the results\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting results'});\r\n            application_log.info(\"[\" + self.NAME + \"] fetching the skill execution results...\" );\r\n            // sample the outputs parameters\r\n            var _offset = 0; // No Sync outputs\r\n            var _param_nodeids = [];            \r\n            for (var _i = _offset; _i < self.description.parameters.outputs.length; _i++) {\r\n              var _param_o = self.description.parameters.outputs[_i];\r\n              _param_nodeids.push(_param_o.nodeId);\r\n            }            \r\n            // Call the emthod\r\n            skillproxy.readResultVariables(self.description.ip, self.description.port, self.description.skill.name, _param_nodeids).then(function (resp_getResults) {\r\n              self.get_results_call_results = resp_getResults;\r\n              if(resp_getResults.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while fetching the results of the skill!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while fetching the results of the skill: \" + JSON.stringify(resp_getResults.err));\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _outputs = resp_getResults.results;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value.value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n                  application_log.info(\"[\" + self.NAME + \"] results fetched sucessfully.\" );\r\n                }\r\n                // Make transition\r\n                self.state = 310;\r\n              }\r\n            });\r\n\r\n            // Wait\r\n            this.state = 300;\r\n            break;\r\n          case 300: // Wait call getResults\r\n            break;\r\n          case 310: // Write ResultAcknowledge\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Set RequestProvided.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Unsetting ResultAcknowledge...\" );\r\n            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.ResultAcknowledge, false).then(function (resp_rq) {\r\n              if(resp_rq.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while unsetting ResultAcknowledge.\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while unsetting xResultAcknowledge: \" + JSON.stringify(resp_rq.err));\r\n              }else{\r\n                self.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n                application_log.info(\"[\" + self.NAME + \"] xResultAcknowledge unset sucessfully.\" );\r\n                application_log.info(\"[\" + self.NAME + \"] skill execusion is done.\" );\r\n                // Make transition\r\n                self.state = 4;\r\n              }\r\n            });\r\n            self.state = 315;\r\n            break;\r\n          case 315: // Wait for the write results\r\n            break;\r\n          case 4: // Set the done signal\r\n            this.getOutputPort(0).setValue(true);\r\n\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);                \r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Ready'});\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Error'});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);                \r\n        }\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] skill execusion started.\" );\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] skill execusion stopped.\" );\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);              \r\n        }\r\n\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n        \r\n        socket.off(\"opcua_serverstatus\", function(msg){\r\n          //console.log(\"####### Serverstatus\");\r\n        });\r\n        \r\n        socket.off(\"SkillStatesChanged\", function(msg){\r\n          //console.log(\"####### StatesChanged\");\r\n        });\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      };\r\n    }\r\n});",
+      "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    init: function(attr, setter, getter){\r\n      this._super(attr, setter, getter);\r\n\r\n      this.attr({resizeable:false});\r\n\r\n      // Input control signal types\r\n      this.getOutputPort(0).attr({\r\n        semanticGroup:\"signal\"\r\n      });\r\n      this.getInputPort(0).attr({\r\n          semanticGroup:\"signal\"\r\n      });\r\n\r\n      // Other signals\r\n      var i_ports = this.getInputPorts().data.length;\r\n      for (var index = 0; index < i_ports; index++) {\r\n        if(index > 0){\r\n          this.getInputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n      var o_ports = this.getOutputPorts().data.length;\r\n      for (var index = 0; index < o_ports; index++) {\r\n        if(index > 0){\r\n          this.getOutputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n\r\n      this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n      // get the skill description from the backend.\r\n      this.description = null;\r\n      \r\n      var _this= this;\r\n      this.currentTimer=0;\r\n      this.state = 5; // STOPPED\r\n      this.last_en_value = 0;\r\n      this.err_msg = \"\";\r\n      this.skill_current_state = \"Ready\";\r\n\r\n      this.initial_result_trigger_value = 0;\r\n      this.last_result_trigger_value = 0;\r\n\r\n      this.monitor_rt_call_results = null;\r\n      this.start_call_results = null;\r\n      this.get_results_call_results = null;\r\n\r\n      for (var index = 0; index < this.getInputPorts().length -1 ; index++) {\r\n        this.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n      for (var index = 0; index < this.getOutputPorts().length -1; index++) {\r\n        this.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n            }\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);               \r\n            }\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The skill description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting descr.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Getting skill description.\");\r\n            skillproxy.getSkillDescription(this.NAME).then(function (desc) {\r\n                if (desc.skill_descp){\r\n                    self.description = desc.skill_descp;\r\n                }\r\n                if(self.description){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Could not fetch the skill description.\");\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the skill\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Connecting'});\r\n            this.layerAttr(\"led_connected\",{fill:\"#ffb300\"}); // Orange\r\n            application_log.info(\"[\" + self.NAME + \"] connecting to the OPCUA server...\");\r\n            skillproxy.connectSkill(self.description.ip, self.description.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while connecting to the skill!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while connecting to the OPCUA server: \" + JSON.stringify(resp_con.err));\r\n                }else{\r\n                  self.layerAttr(\"Skill_State\", {text: 'State: Connected'});\r\n                  application_log.info(\"[\" + self.NAME + \"] connected to the OPCUA server.\");\r\n                  socket.on(\"opcua_serverstatus\", function(msg){\r\n                    // console.log(\"####### Serverstatus\");\r\n                  });\r\n                  \r\n                  socket.on(\"SkillStatesChanged\", function(data){\r\n                    // console.log(\"####### StatesChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    var _changed_states = [];\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});\r\n                                // filter with the nodeId\r\n                                if (candidates.length == 0) {\r\n                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {\r\n                                        var src = el.state.value;\r\n                                        var target = item.nid;\r\n                                        var rslt = (\"\" + src).indexOf(target);\r\n                                        return rslt >= 0;\r\n                                    });\r\n                                }\r\n                                if (candidates.length > 0) {\r\n                                    _changed_states.push(candidates[0].id);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                    self.skill_current_state = _changed_states;\r\n                  });\r\n\r\n                  socket.on(\"ResultTriggerChanged\", function(data){\r\n                    // console.log(\"####### ResultTriggerChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                self.last_result_trigger_value = el.value.value;\r\n                            }\r\n                        }\r\n                    }\r\n                  });\r\n                  \r\n                  // Make transition\r\n                  if (self.description.skillModel.StateMachine){\r\n                    self.state = 12; // Call the skill directly\r\n                  }else{\r\n                    self.state = 130; // monitor result trigger before calling the skill\r\n                  }                  \r\n                }\r\n            }); \r\n            self.state = 110;               \r\n            break;\r\n          case 110: // Wait for result of connect skill\r\n            this.currentTimer=0;\r\n            break;\r\n          case 130: // Subscribe to result trigger before calling the skill\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Subscribing to result trigger.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Subscribing to result trigger.\");\r\n            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.Invokation.ResultTrigger).then(function (resp_rt) {\r\n              self.monitor_rt_call_results = resp_rt;\r\n              if(resp_rt.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while monitoring result trigger!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while monitoring result trigger: \" + JSON.stringify(resp_rt.err));\r\n              }else{\r\n                if(resp_rt.results){\r\n                  self.initial_result_trigger_value = resp_rt.results.value.value;\r\n                }else{\r\n                  self.initial_result_trigger_value = 0;\r\n                }\r\n                // Make transition to call the skill\r\n                self.state = 12;\r\n                application_log.info(\"[\" + self.NAME + \"] successfully monitoring the result trigger.\" );\r\n              }\r\n            });\r\n            self.state = 135;\r\n            break;\r\n          case 135: // Wait for call \r\n            break;\r\n          case 12: // Call the skill (Model with state machine)\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Starting'});\r\n            application_log.info(\"[\" + self.NAME + \"] starting the skill.\" );\r\n            // sample the input values\r\n            var _params = [];\r\n            var _inputs = this.description.skillModel.Invokation.Start.parameters.inputArguments || [];\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _params.push({\r\n                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25\r\n                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02\r\n                  value: this.getInputPort(index + 1).getValue()?this.getInputPort(index + 1).getValue():0\r\n              });\r\n            }\r\n\r\n            // Call the skill\r\n            skillproxy.startSkill(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_start) {\r\n              self.start_call_results = resp_start;\r\n              if(resp_start.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while starting the skill!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while starting the skill: \" + JSON.stringify(resp_start.err));\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _outputs = resp_start.results.outputArguments;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1).setValue(_outputs[index].value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index) ,{fill:\"#faa50a\"});\r\n                }\r\n                // Make transition\r\n                self.state = 2;\r\n                self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n                application_log.info(\"[\" + self.NAME + \"] successfully executing the skill. Waiting for the skill to complete...\" );\r\n              }\r\n            });\r\n\r\n            this.state = 120;               \r\n            break;\r\n          case 120: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n            if (self.description.skillModel.StateMachine){              \r\n              if(self.skill_current_state.includes('completed')){\r\n                // Make transition\r\n                this.state = 3;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n                application_log.info(\"[\" + self.NAME + \"] skill execution completed.\" );\r\n              }\r\n            }else{\r\n              if(self.last_result_trigger_value > self.initial_result_trigger_value){\r\n                // Make transition\r\n                this.state = 3;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n                application_log.info(\"[\" + self.NAME + \"] skill execution completed.\" );\r\n              }\r\n            }            \r\n            break;\r\n          case 3: // Call Get results\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting results'});\r\n            application_log.info(\"[\" + self.NAME + \"] fetching the skill execution results...\" );\r\n            // sample the input values\r\n            var _params = [];\r\n            var _inputs = this.description.skillModel.Invokation.GetResult.parameters.inputArguments || [];\r\n            var _offset = (this.description.skillModel.Invokation.Start.parameters.inputArguments || []).length;\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _params.push({\r\n                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25\r\n                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02\r\n                  value: this.getInputPort(index + 1 + _offset).getValue()?this.getInputPort(index + 1 + _offset).getValue():0\r\n              });\r\n            }\r\n\r\n            // Call the emthod\r\n            skillproxy.getResultsOfSkillCall(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_getResults) {\r\n              self.get_results_call_results = resp_getResults;\r\n              if(resp_getResults.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while fetching the results of the skill!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while fetching the results of the skill: \" + JSON.stringify(resp_getResults.err));\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _offset = (self.start_call_results.results.outputArguments || []).length;\r\n                var _outputs = resp_getResults.results.outputArguments;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n                }\r\n                // Make transition\r\n                self.state = 310;\r\n                application_log.info(\"[\" + self.NAME + \"] results fetched sucessfully.\" );\r\n              }\r\n            });\r\n\r\n            // Wait\r\n            this.state = 300;\r\n            break;\r\n          case 300: // Wait call getResults\r\n            break;\r\n          case 310: // Wait until skill is ready again\r\n            if (self.description.skillModel.StateMachine){              \r\n              if(self.skill_current_state.includes('skill_ready')){\r\n                // Make transition\r\n                this.state = 4;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n                application_log.info(\"[\" + self.NAME + \"] skill execusion is done.\" );\r\n              }\r\n            }else{\r\n              this.state = 4;\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n              application_log.info(\"[\" + self.NAME + \"] skill execusion is done.\" );\r\n            }            \r\n            break;\r\n          case 4: // Set the done signal\r\n            this.getOutputPort(0).setValue(true);\r\n\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);                \r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Ready'});\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Error'});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);                \r\n        }\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] skill execusion started.\" );\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] skill execusion stopped.\" );\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);              \r\n        }\r\n\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n        \r\n        socket.off(\"opcua_serverstatus\", function(msg){\r\n          // console.log(\"####### Serverstatus\");\r\n        });\r\n        \r\n        socket.off(\"SkillStatesChanged\", function(msg){\r\n          // console.log(\"####### StatesChanged\");\r\n        });\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      };\r\n    }\r\n});",
       "name": "circle",
       "markdown": "#Skill Template"
     },
@@ -77,7 +77,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "Skill_Add_DB (V1)",
+    "text": "InsertSkill (V3)",
     "outlineStroke": 0,
     "outlineColor": "#FF0000",
     "fontSize": 16,
@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "a45de0cc-85af-4d61-ab46-786c63ca9fd8",
+    "id": "6ebe10fb-b708-4a78-89a7-221edea366ba",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "6ce10bee-1388-4aa5-b48a-e098e9847d55",
+    "id": "459577e8-ff1d-4553-a049-9ebd23a7cb9e",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -377,7 +377,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "value1",
+    "text": "Position",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "e371ae36-2c4f-47e8-8a3a-3b696bb6c4d6",
+    "id": "5f9bde30-3bd9-4f96-8920-aca27934c04c",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "41b13e1c-87dd-4c92-8167-e52e42fbe558",
+    "id": "7e27ccfe-66e8-48e7-a5a7-d343989ab4d2",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "c612ad46-dcff-40d9-89c3-595a38f08166",
+    "id": "7789a832-ae36-4c9a-820f-92f4b8537e2f",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -488,7 +488,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "value2",
+    "text": "BuildingBlockTypeId",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "b393d501-c6f1-4bfd-829b-6fbffd1c6823",
+    "id": "75263001-f52f-44f9-ab89-a471aa60f387",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,7 +547,562 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "aeb91cc0-a46b-43b4-a907-abbb5c998a02",
+    "id": "8d0dfc7d-45aa-4bc9-8add-0fc2c8c01f24",
+    "x": 7896,
+    "y": 8006,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_2"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "bac860c3-a7d6-4c1a-85ea-8f77c0924008",
+    "x": 7905,
+    "y": 8000,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_2"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "Orientation",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "2bc4cb75-6fd8-4748-83c1-60f4379320f9",
+    "x": 7896,
+    "y": 8006,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_2",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "608a41be-ce91-450e-82ab-d477ad56e77b",
+    "x": 7896,
+    "y": 8019,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_3"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "e8bb562c-a37a-40d4-93a5-b0915da3aaa8",
+    "x": 7905,
+    "y": 8013,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_3"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "RFID",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "38a1fb6e-6901-483c-8998-2b1876fa134f",
+    "x": 7896,
+    "y": 8019,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_3",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "c568df77-0b33-4758-b9ca-c71ec575c9ea",
+    "x": 7896,
+    "y": 8032,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_4"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "2f281d48-beef-44ee-bec6-7de6370e8f22",
+    "x": 7905,
+    "y": 8026,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_4"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "CurrentConfiguration_BuildingBlockTypeId",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "367edb6a-5c72-4c77-8e2f-4f3e953cee33",
+    "x": 7896,
+    "y": 8032,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_4",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "71721830-82bf-4cbc-9504-0df06c359fa2",
+    "x": 7896,
+    "y": 8045,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_5"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "69b1efa7-29b5-4617-a7f9-bd339ef5f511",
+    "x": 7905,
+    "y": 8039,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_5"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "CurrentConfiguration_Orientation",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "01e69606-b01f-4880-bf37-4ee5d2387090",
+    "x": 7896,
+    "y": 8045,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_5",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "1d8268e5-2b50-4bec-b888-ca329a989ff2",
+    "x": 7896,
+    "y": 8058,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Circle_IN_6"
+    },
+    "cssClass": "shape_designer_figure_PolyCircle",
+    "ports": [],
+    "bgColor": "#F2F2F2",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "radius": 0,
+    "dasharray": null,
+    "blur": 0,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.SizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.StrokeFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "9ea77e75-3ff3-4244-ae37-262209431e91",
+    "x": 7905,
+    "y": 8052,
+    "width": 100,
+    "height": 21.234375,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label_IN_6"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": "RFID",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 8,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "4b682a3d-f38c-47fa-a6f4-a918da0ba5c9",
+    "x": 7896,
+    "y": 8058,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Port_IN_6",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.PolyCircle",
+    "id": "bf56aeb4-dc56-4ed5-85ab-0414f389f2da",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -582,7 +1137,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "eefa3d4c-0d94-43d2-8ee3-2c0a92ecacd2",
+    "id": "fef180a0-4c16-4ac7-975a-a639fc82175a",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -620,7 +1175,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "9fea0b65-8303-4148-abcd-35e0cda2976f",
+    "id": "bb4c80ea-e650-4158-b3a4-85c920dd5bea",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -658,7 +1213,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "cad1db9d-4354-4aa5-88e9-284ef257f7ee",
+    "id": "c48cdd5a-18e0-4c66-b6aa-6558a28cb03c",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -693,7 +1248,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "8b502c1f-2e99-493b-8055-5321a2a31436",
+    "id": "8f009950-41f5-4462-9a29-35ffa3e1f4a7",
     "x": 8038,
     "y": 7987,
     "width": 60,
@@ -710,7 +1265,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "valueOut",
+    "text": "ErrorId",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 8,
@@ -731,7 +1286,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "853b6a84-4347-432b-a70d-76195d6a1d47",
+    "id": "167a41ff-6df1-4d07-ab86-634da8b5b621",
     "x": 8095,
     "y": 7993,
     "width": 10,
@@ -856,7 +1411,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "localhost:4845",
+    "text": "localhost:4840",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -932,7 +1487,7 @@ var json=[
     "stroke": 0,
     "radius": 0,
     "dasharray": null,
-    "text": "NodeID: ns=4;s=Sk…",
+    "text": "NodeID: ns=4;i=10…",
     "outlineStroke": 0,
     "outlineColor": "none",
     "fontSize": 12,
@@ -952,7 +1507,7 @@ var json=[
     ]
   }
 ];
-var pkg='Module01_localhost_4845_Skill_Add_DB';
+var pkg='Module01_localhost_4840_InsertSkill';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();

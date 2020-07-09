@@ -1,0 +1,835 @@
+{
+    "ip": "localhost",
+    "port": "4842",
+    "skill": {
+        "name": "Load",
+        "nodeId": "ns=4;i=1010"
+    },
+    "skillModel": {
+        "Description": {
+            "name": "Description",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1011"
+            },
+            "type": "Object"
+        },
+        "Invokation": {
+            "name": "Invokation",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1012"
+            },
+            "type": "Object",
+            "GetResult": {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1012"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1014"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "RFID",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "236a5127-ef42-45c6-b8ec-400e8be0b299",
+                            "id_label": "0559b5b6-8cc4-49a8-afc5-0ae9b37f2412",
+                            "id_port": "4f4eb603-3c0b-41d4-8702-8f2fb3b10089"
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "882ebc0d-2b95-4853-bb4b-39238bd50dfe",
+                            "id_label": "b2a2b0c8-31ad-48b6-a0aa-a9d6c951c4ba",
+                            "id_port": "227f434e-a3c2-410f-aff1-e44cf2ad37a3"
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1022"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1023"
+                    },
+                    "type": "Variable"
+                }
+            },
+            "ResultTrigger": {
+                "name": "ResultTrigger",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1015"
+                },
+                "type": "Variable"
+            },
+            "Start": {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1012"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1016"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Orientation",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "b401e87c-c927-4894-9b38-8273478705d8",
+                            "id_label": "1f822cbc-4e4f-49fa-acd9-aa9fe99034a1",
+                            "id_port": "2ad9dd67-7ad5-4f31-8801-225642b8121c"
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "98b2846f-afe4-457b-91e7-aefb3b4c480a",
+                            "id_label": "5ca6ce45-f937-47a3-8281-ceb1ec915069",
+                            "id_port": "1e7136b7-b567-417d-87a1-6a4799b96349"
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1024"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1025"
+                    },
+                    "type": "Variable"
+                }
+            }
+        },
+        "StateMachine": {
+            "name": "StateMachine",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1013"
+            },
+            "type": "StateMachineType",
+            "AvailableStates": {
+                "name": "AvailableStates",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1017"
+                },
+                "type": "Variable"
+            },
+            "AvailableTransitions": {
+                "name": "AvailableTransitions",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1018"
+                },
+                "type": "Variable"
+            },
+            "ClearedStateMachine": {
+                "name": "ClearedStateMachine",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1019"
+                },
+                "type": "StateMachineType",
+                "AvailableStates": {
+                    "name": "AvailableStates",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1026"
+                    },
+                    "type": "Variable"
+                },
+                "AvailableTransitions": {
+                    "name": "AvailableTransitions",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1082"
+                    },
+                    "type": "Variable"
+                },
+                "CurrentState": {
+                    "name": "CurrentState",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1083"
+                    },
+                    "type": "Variable",
+                    "Id": {
+                        "name": "Id",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1088"
+                        },
+                        "type": "Variable",
+                        "interval": "50"
+                    }
+                },
+                "LastTransition": {
+                    "name": "LastTransition",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1084"
+                    },
+                    "type": "Variable",
+                    "Id": {
+                        "name": "Id",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1089"
+                        },
+                        "type": "Variable",
+                        "interval": "50"
+                    }
+                },
+                "RunningStateMachine": {
+                    "name": "RunningStateMachine",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1085"
+                    },
+                    "type": "StateMachineType",
+                    "AvailableStates": {
+                        "name": "AvailableStates",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1090"
+                        },
+                        "type": "Variable"
+                    },
+                    "AvailableTransitions": {
+                        "name": "AvailableTransitions",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1095"
+                        },
+                        "type": "Variable"
+                    },
+                    "CurrentState": {
+                        "name": "CurrentState",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1096"
+                        },
+                        "type": "Variable",
+                        "Id": {
+                            "name": "Id",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1102"
+                            },
+                            "type": "Variable",
+                            "interval": "50"
+                        }
+                    },
+                    "ExecuteStateMachine": {
+                        "name": "ExecuteStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1097"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1103"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1104"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1105"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1120"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1106"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1121"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    },
+                    "HoldStateMachine": {
+                        "name": "HoldStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1098"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1107"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1108"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1109"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1122"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1110"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1123"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    },
+                    "IdleStateMachine": {
+                        "name": "IdleStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1099"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1111"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1112"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1113"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1124"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1114"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1125"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    },
+                    "LastTransition": {
+                        "name": "LastTransition",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1100"
+                        },
+                        "type": "Variable",
+                        "Id": {
+                            "name": "Id",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1115"
+                            },
+                            "type": "Variable",
+                            "interval": "50"
+                        }
+                    },
+                    "ResettingStateMachine": {
+                        "name": "ResettingStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1101"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1116"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1117"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1118"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1126"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1119"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1127"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    }
+                }
+            },
+            "CurrentState": {
+                "name": "CurrentState",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1020"
+                },
+                "type": "Variable",
+                "Id": {
+                    "name": "Id",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1086"
+                    },
+                    "type": "Variable",
+                    "interval": "50"
+                }
+            },
+            "LastTransition": {
+                "name": "LastTransition",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1021"
+                },
+                "type": "Variable",
+                "Id": {
+                    "name": "Id",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1087"
+                    },
+                    "type": "Variable",
+                    "interval": "50"
+                }
+            }
+        }
+    },
+    "objectMonitor": {
+        "CURRENT_STATES": [
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1088"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1089"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1102"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1120"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1121"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1122"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1123"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1124"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1125"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1115"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1126"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1127"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1086"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1087"
+                },
+                "type": "Variable",
+                "interval": "50"
+            }
+        ],
+        "ACTIONS": [
+            {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1012"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1014"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "RFID",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1022"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1023"
+                    },
+                    "type": "Variable"
+                }
+            },
+            {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1012"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1016"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Orientation",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1024"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1025"
+                    },
+                    "type": "Variable"
+                }
+            }
+        ]
+    },
+    "version": "V3",
+    "parameters": {
+        "inputs": [
+            {
+                "name": "Orientation",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "b401e87c-c927-4894-9b38-8273478705d8",
+                "id_label": "1f822cbc-4e4f-49fa-acd9-aa9fe99034a1",
+                "id_port": "2ad9dd67-7ad5-4f31-8801-225642b8121c"
+            },
+            {
+                "name": "RFID",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "236a5127-ef42-45c6-b8ec-400e8be0b299",
+                "id_label": "0559b5b6-8cc4-49a8-afc5-0ae9b37f2412",
+                "id_port": "4f4eb603-3c0b-41d4-8702-8f2fb3b10089"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "ErrorId",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "98b2846f-afe4-457b-91e7-aefb3b4c480a",
+                "id_label": "5ca6ce45-f937-47a3-8281-ceb1ec915069",
+                "id_port": "1e7136b7-b567-417d-87a1-6a4799b96349"
+            },
+            {
+                "name": "ErrorId",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "882ebc0d-2b95-4853-bb4b-39238bd50dfe",
+                "id_label": "b2a2b0c8-31ad-48b6-a0aa-a9d6c951c4ba",
+                "id_port": "227f434e-a3c2-410f-aff1-e44cf2ad37a3"
+            }
+        ]
+    }
+}
