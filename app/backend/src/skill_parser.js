@@ -31,7 +31,7 @@ SkillParser.prototype.parse = function(skill_object) {
             self.version = 'V3';
             _skill_object["version"] = "V3";
             self.start_method = _skill_object_model.Invokation.Start;
-        }else if(hasOwnProperty(_skill_object_model, 'Result') && hasOwnProperty(_skill_object_model, 'xRequestProvided') && hasOwnProperty(_skill_object_model, 'xResultAcknowledge') ){
+        }else if(hasOwnProperty(_skill_object_model, 'Result') && hasOwnProperty(_skill_object_model, 'xResultAcknowledge') ){
             if(hasOwnProperty(_skill_object_model, _skill_name + '_DB')){
                 _skill_object["version"] = 'V2';
                 self.version = 'V2';
