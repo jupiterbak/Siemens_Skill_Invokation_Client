@@ -3095,7 +3095,7 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
                   
                   // Make transition
                   if (self.description.skillModel.xRequestProvided && self.description.skillModel.xResultAcknowledge){
-                    self.state = 111; // Call the skill directly
+                    self.state = 120; // Call the skill directly
                   }                 
                 }
             }); 
@@ -3103,26 +3103,6 @@ Module01_localhost_4844_Skill_Add = Module01_localhost_4844_Skill_Add.extend({
             break;
           case 110: // Wait for result of connect skill
             this.currentTimer=0;
-            break;
-          case 111: // Write xRequestProvided flag
-            self.layerAttr("Skill_State", {text: 'State: Set xRequestProvided.'});
-            application_log.info("[" + self.NAME + "] Setting xRequestProvided...");
-            skillproxy.writeRequestTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.xRequestProvided, true).then(function (resp_rq) {
-              
-              if(resp_rq.err){
-                // Make transition to err
-                self.state = 6;
-                self.err_msg = "Error while monitoring result trigger!";
-                application_log.error("[" + self.NAME + "] Error while Setting xRequestProvided: " + JSON.stringify(resp_rq.err));
-              }else{
-                application_log.info("[" + self.NAME + "] xRequestProvided set.");
-                // Make transition to subscribe to the result trigger
-                self.state = 120;
-              }
-            });
-            self.state = 115;
-            break;
-          case 115: // Wait for write results
             break;
           case 120: // Subscribe to result trigger before calling the skill
             self.layerAttr("Skill_State", {text: 'State: Subscribing to result trigger.'});
