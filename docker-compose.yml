@@ -8,7 +8,7 @@ services:
     container_name: skill_load_unload
     hostname: skill_load_unload
     # environment:
-    #  - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
+    #  - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "4842:4842"
     networks: 
@@ -20,7 +20,7 @@ services:
     container_name: skill_insert
     hostname: skill_insert
     # environment:
-    #   - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
+    #   - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "4840:4840"
     networks: 
@@ -32,7 +32,7 @@ services:
     container_name: skill_add
     hostname: skill_add
     # environment:
-    #   - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
+    #   - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "4843:4843"
     networks: 
@@ -44,7 +44,7 @@ services:
     container_name: skill_monitoring
     hostname: skill_monitoring
     # environment:
-    #   - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
+    #   - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "8080:8080"
     networks:
@@ -57,7 +57,7 @@ services:
     hostname: skill_invocation_client
     environment:
       - OPCUA_BACKEND_URL=http://skill_monitoring:8080/
-      - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
+      - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "7400:7400"
     depends_on:
