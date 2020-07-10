@@ -65,6 +65,10 @@ const shapeDirApp = path.normalize(__dirname + '/../shapes/');
 const shape2CodeDir = path.normalize(__dirname + '/../shape2code/');
 const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
 
+// Application specific services
+const kg_enpoints = require("./src/sparql_endpoint");
+const OPCUAClientService = require("./src/OPCUAClientService");
+
 
 // Determine the IP:PORT to use for the http server
 //
