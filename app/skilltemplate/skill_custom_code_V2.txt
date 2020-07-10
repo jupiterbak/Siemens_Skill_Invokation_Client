@@ -144,7 +144,7 @@ testShape = testShape.extend({
                   });
                   
                   // Make transition
-                  if (self.description.skillModel.xRequestProvided && self.description.skillModel.xResultAcknowledge){
+                  if (self.description.skillModel.xResultAcknowledge){
                     self.state = 120; // Call the skill directly
                   }                 
                 }
