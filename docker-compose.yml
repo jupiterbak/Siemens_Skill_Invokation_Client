@@ -4,8 +4,11 @@ services:
   skill_load_unload:
     image: "jupiterbak2002/skill_load_unload:latest"
     restart: always
+    pull: true
     container_name: skill_load_unload
     hostname: skill_load_unload
+    # environment:
+    #  - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "4842:4842"
     networks: 
@@ -13,8 +16,11 @@ services:
   skill_insert:
     image: "jupiterbak2002/skill_insert:latest"
     restart: always
+    pull: true
     container_name: skill_insert
     hostname: skill_insert
+    # environment:
+    #   - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "4840:4840"
     networks: 
@@ -22,8 +28,11 @@ services:
   skill_add:
     image: "jupiterbak2002/skill_add:latest"
     restart: always
+    pull: true
     container_name: skill_add
     hostname: skill_add
+    # environment:
+    #   - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "4843:4843"
     networks: 
@@ -31,8 +40,11 @@ services:
   skill_monitoring:
     image: "jupiterbak2002/skill_monitoring:latest"
     restart: always
+    pull: true
     container_name: skill_monitoring
     hostname: skill_monitoring
+    # environment:
+    #   - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "8080:8080"
     networks:
@@ -40,10 +52,12 @@ services:
   skill_invocation_client:
     image: "jupiterbak2002/skill_invocation_client:latest"
     restart: always
+    pull: true
     container_name: skill_invocation_client
     hostname: skill_invocation_client
     environment:
       - OPCUA_BACKEND_URL=http://skill_monitoring:8080/
+      - DNS_IP="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "7400:7400"
     depends_on:

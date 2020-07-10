@@ -18,12 +18,14 @@ RUN npm install
 # RUN npm ci --only=production
 RUN npm run build
 
+# TODO: replace this environment variable before compiling
+ENV OPCUA_BACKEND_URL="http://skill_monitoring:8080/"
+ENV DNS_ADDRESS="8.8.8.8"
+RUN eval 'echo „nameserver $DNS_ADDRESS“ > /etc/resolv.conf'
+
 # Define the volume
 VOLUME /usr/src/app/shapes
 VOLUME /usr/src/app/.skillInvocationClient
-
-# TODO: replace this environment variable before compiling
-ENV OPCUA_BACKEND_URL="http://skill_monitoring:8080/"
 
 EXPOSE 7400
 
