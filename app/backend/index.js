@@ -10,9 +10,7 @@ const phantomjs = require('phantomjs')
 const bodyParser = require('body-parser');
 const glob = require("glob");
 const template7 = require('template7');
-const superagent = require('superagent');
 const cliTruncate = require('cli-truncate');
-
 const winston = require('winston');
 const logger = winston.createLogger({
     transports: [new winston.transports.Console()],
@@ -25,7 +23,7 @@ const logger = winston.createLogger({
             return `${log.timestamp} - [${log.level}] | [${log.service}] : ${log.message}`;
         })
     ),
-    defaultMeta: { service: 'Dummy Server' },
+    defaultMeta: { service: 'Backend' },
 });
 
 
@@ -48,17 +46,13 @@ template7.registerHelper('getLocalizedTextNodeID', function(nodeIdTxt) {
     return cliTruncate((""+ nodeIdTxt).replace(new RegExp('"', 'g'),""), 10);
 });
 
-// Initialize SocketIO
-const OPCUA_BACKEND_URL = process.env.OPCUA_BACKEND_URL || 'http://0.0.0.0:8080/';
-const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, OPCUA_BACKEND_URL);
-
-
 // Tell the bodyparser middleware to accept more data
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // application specific configuration settings
 //
+const defaultSettings = require("./settings/default_settings");
 const storage = require("./src/storage.js");
 const skillParser = require("./src/skill_parser.js");
 const shapeDirApp = path.normalize(__dirname + '/../shapes/');
@@ -69,12 +63,18 @@ const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
 const kg_enpoints = require("./src/sparql_endpoint");
 const OPCUAClientService = require("./src/OPCUAClientService");
 
-
 // Determine the IP:PORT to use for the http server
 //
 const address = require("./src/network");
-const port = 7400;
+const port = defaultSettings.uiPort || 7400;
 
+// =======================================================================
+// Socket IO Adapter to intercept all notifications to the client
+// NOTE: Jupiter --> This implementation should be optimized. 
+// At this point we just want to make it work.
+// =======================================================================
+// Initialize SocketIO
+const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, logger);
 
 // =======================================================================
 //
@@ -84,6 +84,12 @@ const port = 7400;
 //
 // =======================================================================
 function runServer() {
+    // Instantiate and start the OPC UA Backend service
+    let opcua_settings = defaultSettings.service.opcuaclient || {};
+    let opcuaclientservice = new OPCUAClientService();
+    opcuaclientservice.init(io, opcua_settings, logger);
+    opcuaclientservice.start();
+
     // provide the  WebApp with this very simple
     // HTTP server. Good enough for an private raspi access
     //
@@ -105,7 +111,7 @@ function runServer() {
     app.post('/backend/brain/save', (req, res) => {
         fs.writeFile(storage.brainDirUserHOME + req.body.filePath, req.body.content, (err) => {
             res.send('true');
-            io.sockets.emit("brain:generated", {
+            io.emit("brain:generated", {
                 filePath: req.body.filePath
             });
         });
@@ -142,7 +148,7 @@ function runServer() {
             // inform the browser that the processing of the
             // code generation is ongoing
             //
-            io.sockets.emit("shape:generating", {
+            io.emit("shape:generating", {
                 filePath: req.body.filePath
             });
 
@@ -164,7 +170,7 @@ function runServer() {
                     });
                 });
 
-                io.sockets.emit("shape:generated", {
+                io.emit("shape:generated", {
                     filePath: req.body.filePath,
                     imagePath: req.body.filePath.replace(".shape", ".png"),
                     jsPath: req.body.filePath.replace(".shape", ".js")
@@ -220,7 +226,7 @@ function runServer() {
                 // inform the browser that the processing of the
                 // code generation is ongoing
                 //
-                io.sockets.emit("shape:generating", {
+                io.emit("shape:generating", {
                     filePath: req.body.filePath
                 });
                 
@@ -252,7 +258,7 @@ function runServer() {
                         res.send(JSON.stringify({err:null}));
 
                         // SocketIO
-                        io.sockets.emit("shape:generated", {
+                        io.emit("shape:generated", {
                             filePath: req.body.filePath,
                             imagePath: req.body.filePath.replace(".shape", ".png"),
                             jsPath: req.body.filePath.replace(".shape", ".js")
@@ -263,34 +269,33 @@ function runServer() {
             });
         });
     });
-    
-    app.get('/backend/skill/browse', (req, res) => {
 
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'connect')
-            .query(
-                    {
-                        parameter: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT"
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+
+    // =================================================================
+    // Handle OPC UA Interfaces
+    //
+    // =================================================================
+    // Browse the OPC UA Server
+    app.get('/backend/skill/browse', (req, res) => {
+        logger.info("Browse called.", { service: 'Backend'});
+        var params = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT"
+        };
+        opcuaclientservice.ConnectPLC(params, io, function(err, client, results) {
+            // SockeiIO feedback
+            //io.emit("serverstatus", connectionMsg);
+            // io.emit("skillModels", gFoundedSkills);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
+    // Get a skill description
     app.get('/backend/skill/getDescription', (req, res) => {
+        logger.info("getDescription called.", { service: 'Backend'});
         var _skill_desc = req.query.skill_name;
         if(_skill_desc){
             try {
@@ -308,243 +313,154 @@ function runServer() {
         }
     });
 
+    // Connect to a skill during the execution of a sequence
     app.get('/backend/skill/connect', (req, res) => {
-
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'connect')
-            .query(
-                    {
-                        parameter: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT"
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        logger.info("Skill connect called.", { service: 'Backend'});
+        var params = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT"
+        };
+        opcuaclientservice.ConnectPLC(params, io, function(err, client, results) {
+            // SockeiIO feedback
+            //io.emit("serverstatus", connectionMsg);
+            // io.emit("skillModels", gFoundedSkills);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
     app.get('/backend/skill/call', (req, res) => {
-
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'ExecuteMethod')
-            .query(
-                    {
-                        action: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            actionName: _params.method,
-                            parameters: _params.parameters
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        logger.info("Skill call started execution.", { service: 'Backend'});
+        let action = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.query.skillName,
+            actionName: req.query.method,
+            parameters: req.query.parameters
+        }
+        opcuaclientservice.ExecuteMethod(action, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
     app.get('/backend/skill/callNode', (req, res) => {
-
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'ExecuteMethodNode')
-            .query(
-                    {
-                        action: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            actionNode: _params.actionNode,
-                            parameters: _params.parameters
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        logger.info("Skill call(Node) started execution.", { service: 'Backend'});
+        let action = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.query.skillName,
+            actionNode: req.query.actionNode,
+            parameters: req.query.parameters
+        }
+        opcuaclientservice.ExecuteMethodNode(action, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
-  
+    
+    // Monitor an OPC UA Node
     app.get('/backend/skill/monitorNode', (req, res) => {
+        logger.info("monitorNode called.", { service: 'Backend'});
+        var param = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.query.skillName,
+            node: req.query.node
+        };
 
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'MonitorNode')
-            .query(
-                    {
-                        node: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            node: _params.node
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        opcuaclientservice.monitorNode(param, io, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     }); 
+    
 
+    // Monitor a skill result trigger node
     app.get('/backend/skill/monitorResultTrigger', (req, res) => {
+        logger.info("monitorResultTrigger called.", { service: 'Backend'});
+        var param = { 
+                socketID: "INVOCATION_CLIENT", 
+                ip: req.query.ip, 
+                port: req.query.port, 
+                serverName: "INVOCATION_CLIENT",
+                skillName: req.query.skillName,
+                node: req.query.node
+            };
 
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'monitorResultTrigger')
-            .query(
-                    {
-                        node: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            node: _params.node
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        opcuaclientservice.monitorResultTrigger(param, io, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
+    // Write a skill triggervariable
     app.get('/backend/skill/writeRequestTrigger', (req, res) => {
+        logger.info("writeRequestTrigger called.", { service: 'Backend'});
+        let variable = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.query.skillName,
+            node: req.query.node,
+            value: req.query.value
+        }
 
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'writeVariableNode')
-            .query(
-                    {
-                        node: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            node: _params.node,
-                            value: _params.value
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        opcuaclientservice.WriteVariableNode(variable, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
+    // Write skills parameters
     app.get('/backend/skill/writeRequestParameters', (req, res) => {
+        logger.info("writeRequestParameters called.", { service: 'Backend'});
+        let variable = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.query.skillName,
+            nodes: req.query.nodes,
+            values: req.query.values
+        };
 
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'writeVariableNodes')
-            .query(
-                    {
-                        node: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            nodes: _params.nodes,
-                            values: _params.values
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        opcuaclientservice.WriteVariableNodes(variable, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
     app.get('/backend/skill/readResultVariables', (req, res) => {
+        logger.info("readResultVariables called.", { service: 'Backend'});
+        let variables = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.query.skillName,
+            nodes: req.query.nodes
+        };
 
-        const _params = req.query;
-        superagent.get(OPCUA_BACKEND_URL + 'readVariableNodes')
-            .query(
-                    {
-                        node: JSON.stringify({ 
-                            socketID: "INVOCATION_CLIENT", 
-                            ip: _params.ip, 
-                            port: _params.port, 
-                            serverName: "INVOCATION_CLIENT",
-                            skillName: _params.skillName,
-                            nodes: _params.nodes
-                        })
-                    }
-            )
-            .set('accept', 'json')
-            .end( (_err, _res) => {
-                if(_err){
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(JSON.stringify({err:"Error while forwarding request to OPC UA Backend."}));
-                }else{
-                    res.setHeader('Content-Type', 'application/json');
-                    res.send(_res.text);
-                }
-            });
+        opcuaclientservice.readVariableNodes(variables, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
     });
 
     app.get('/backend/skill/checkBackendSkill', (req, res) => {
-        superagent.get(OPCUA_BACKEND_URL + 'checkConnection')
-        .end( (_err, _res) => {
-            if(_err){
-                res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify({err:"Backend is not connected."}));
-            }else{
-                res.setHeader('Content-Type', 'application/json');
-                res.send(_res.text);
-            }
-        });
+        logger.info("checkBackendSkill ....", { service: 'Backend'});
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ err: null, results: 'OK' }));
     });
 
     //  Start the web server

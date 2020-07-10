@@ -76,7 +76,7 @@
     "prompt": "1.0.0",
     "sanitize-filename": "^1.6.1",
     "socket.io": "2.1.1",
-    "superagent": "^5.2.2",
+    "clone": "^2.1.1",
     "system": "2.0.1",
     "template7": "^1.4.2",
     "uuid": "^3.3.3",

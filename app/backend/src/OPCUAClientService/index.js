@@ -27,17 +27,20 @@
 var when = require('when');
 var async = require("async");
 var opcua = require("node-opcua");
+var util = require("../util");
 
 
 var DAISYOPCClientManager = require('./OPCUAClient/DAISYOPCClientManager');
 
-var OPCUAClientInterface = function() {};
-OPCUAClientInterface.prototype.init = function(_app, sio, _settings) {
+var OPCUAClientInterface = function() {
+    this.util = util;
+};
+OPCUAClientInterface.prototype.init = function(sio, _settings, _logger) {
     var self = this;
-    this.app = _app;
+    this.logger = _logger;
     self.settings = _settings;
     self.settings.name = self.settings.name || "OPC UA Client Manager";
-    self.settings.id = self.settings.id || this.app.util.generateId();
+    self.settings.id = self.settings.id || this.util.generateId();
     self.settings.level = self.settings.level || "info";
     self.settings.modulesetting = self.settings.modulesetting || {
         interval: 10,
@@ -50,18 +53,18 @@ OPCUAClientInterface.prototype.init = function(_app, sio, _settings) {
 
     self.started = false;
     self.manager = new DAISYOPCClientManager(sio);
-    self.app.log.info("MICROSERVICE[" + self.settings.name + "] initialized successfully!");
+    self.logger.info("MICROSERVICE[" + self.settings.name + "] initialized successfully!");
     self.current_state_objects = [];
     self.current_state_object_types = {};
 };
 OPCUAClientInterface.prototype.start = function() {
     var self = this;
     if (self.started) {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] already started !");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] already started !");
         return when.resolve();
     } else {
         self.started = true;
-        self.app.log.info("MICROSERVICE[" + self.settings.name + "] started successfully!");
+        self.logger.info("MICROSERVICE[" + self.settings.name + "] started successfully!");
     }
     return when.resolve();
 };
@@ -70,7 +73,7 @@ OPCUAClientInterface.prototype.stop = function() {
     var self = this;
     self.started = false;
     self.manager.close(function() {
-        self.app.log.info("MICROSERVICE[" + self.settings.name + "] stopped successfully!");
+        self.logger.info("MICROSERVICE[" + self.settings.name + "] stopped successfully!");
     });
     return when.resolve();
 };
@@ -86,10 +89,10 @@ OPCUAClientInterface.prototype.ConnectPLC = function(arg, sio, fCallBack) {
             function(callback) { // Get the client
                 var client = self.manager.getClient(self.manager.getClientID(arg.ip, arg.port, arg.serverName, arg.socketID));
                 if (client) {
-                    self.app.log.warn("MICROSERVICE[" + self.settings.name + "] client already exist.");
+                    self.logger.warn("MICROSERVICE[" + self.settings.name + "] client already exist.");
                 } else {
                     client = self.manager.addNewOPCClient(arg.ip, arg.port, arg.serverName, arg.socketID);
-                    self.app.log.info("MICROSERVICE[" + self.settings.name + "] new client initialized.");
+                    self.logger.info("MICROSERVICE[" + self.settings.name + "] new client initialized.");
                 }
                 if (client) {
                     callback(null, client);
@@ -101,15 +104,15 @@ OPCUAClientInterface.prototype.ConnectPLC = function(arg, sio, fCallBack) {
                 if (client.connected === false) {
                     client.connect(arg.ip, arg.port, arg.serverName, arg.socketID, function(err) {
                         if (err) {
-                            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] new client could connect to server: " + client.url);
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] new client could connect to server: " + client.url);
                             callback(err, null);
                         } else {
-                            self.app.log.info("MICROSERVICE[" + self.settings.name + "] new client connected to server: " + client.url);
+                            self.logger.info("MICROSERVICE[" + self.settings.name + "] new client connected to server: " + client.url);
                             callback(null, client);
                         }
                     });
                 } else {
-                    self.app.log.info("MICROSERVICE[" + self.settings.name + "] client is already connected to " + client.url);
+                    self.logger.info("MICROSERVICE[" + self.settings.name + "] client is already connected to " + client.url);
                     callback(null, client);
                 }
             },
@@ -118,17 +121,17 @@ OPCUAClientInterface.prototype.ConnectPLC = function(arg, sio, fCallBack) {
                     // Check Server Model
                     checkServerModel(self, client, sio, function(err, skillArray) {
                         if (err) {
-                            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] PLC Server is not compatible to the Skill model.");
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] PLC Server is not compatible to the Skill model.");
                             callback(err, client, []);
                         } else {
-                            self.app.log.info("MICROSERVICE[" + self.settings.name + "] PLC Server implements compatible Automation Skill. Client will start monitoring.");
+                            self.logger.info("MICROSERVICE[" + self.settings.name + "] PLC Server implements compatible Automation Skill. Client will start monitoring.");
                             client.skill_array = skillArray;
                             client.information_model_checked = true;
                             callback(null, client, skillArray);
                         }
                     });
                 }else{
-                    self.app.log.info("MICROSERVICE[" + self.settings.name + "] client information model is already checked." );
+                    self.logger.info("MICROSERVICE[" + self.settings.name + "] client information model is already checked." );
                     callback(null, client, client.skill_array);
                 }
                 
@@ -137,16 +140,16 @@ OPCUAClientInterface.prototype.ConnectPLC = function(arg, sio, fCallBack) {
                 if (client.monitored  === false) {
                     monitorServerInformationModel(self, client, sio, skillArray, function(err) {
                         if (err) {
-                            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] PLC Server Information model could not be monitored.");
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] PLC Server Information model could not be monitored.");
                             callback(err, client, []);
                         } else {
-                            self.app.log.info("MICROSERVICE[" + self.settings.name + "] PLC Server Information model is being monitored.");
+                            self.logger.info("MICROSERVICE[" + self.settings.name + "] PLC Server Information model is being monitored.");
                             client.monitored = true;
                             callback(null, client, skillArray);
                         }
                     });
                 }else{
-                    self.app.log.info("MICROSERVICE[" + self.settings.name + "] client information model is already monitored." );
+                    self.logger.info("MICROSERVICE[" + self.settings.name + "] client information model is already monitored." );
                     callback(null, client, client.skill_array);
                 }                
             }
@@ -154,7 +157,7 @@ OPCUAClientInterface.prototype.ConnectPLC = function(arg, sio, fCallBack) {
             fCallBack(err, client, results);
         });
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] invalid Argument for method ConnectPLC.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] invalid Argument for method ConnectPLC.");
         fCallBack({ text: "Invalid Arguments" }, null, []);
     }
 };
@@ -169,16 +172,16 @@ OPCUAClientInterface.prototype.DisconnectPLC = function(arg, fCallBack) {
             if (client.connected === true) {
                 client.disconnect(function(err) {
                     if (err) {
-                        self.app.log.info("MICROSERVICE[" + self.settings.name + "] client could disconnect from server.");
+                        self.logger.info("MICROSERVICE[" + self.settings.name + "] client could disconnect from server.");
                         fCallBack(null, false);
                     } else {
-                        self.app.log.info("MICROSERVICE[" + self.settings.name + "] client disconnected from server.");
+                        self.logger.info("MICROSERVICE[" + self.settings.name + "] client disconnected from server.");
                         fCallBack(null, true);
                     }
                 });
             }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not disconnect client.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not disconnect client.");
             fCallBack({ text: "Invalid Arguments" }, false);
         }
     } else {
@@ -238,33 +241,33 @@ OPCUAClientInterface.prototype.ExecuteMethod = function(arg, fCallBack) {
 
                         client.callMethod(action.objectId.ns, action.objectId.nid, action.methodId.ns, action.methodId.nid, inputArguments, function(err, response) {
                             if (err) {
-                                self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] : " + err);
+                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] : " + err);
                                 fCallBack({ text: "Could not execute action.", err: err }, null);
                             } else {
                                 if (response[0].statusCode == 0) {
-                                    self.app.log.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.actionName + "] successfully with errorCode: " + response[0].statusCode);
+                                    self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.actionName + "] successfully with errorCode: " + response[0].statusCode);
                                     fCallBack(null, response[0]);
                                 } else {
-                                    self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode);
+                                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode);
                                     fCallBack({ text: "Could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode }, response[0]);
                                 }
                             }
                         });
                     } else {
                         fCallBack({ text: "Could not execute action. Parameters not provided." }, null);
-                        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Parameters not provided.");
+                        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Parameters not provided.");
                     }
                 } else {
                     fCallBack({ text: "Could not execute action. Action was not found on OPC UA Server." }, null);
-                    self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Action was not found on OPC UA Server.");
+                    self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Action was not found on OPC UA Server.");
                 }
             }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Invalid Arguments.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Invalid Arguments.");
         fCallBack({ text: "Invalid Arguments" }, null);
     }
 };
@@ -303,33 +306,33 @@ OPCUAClientInterface.prototype.ExecuteMethodNode = function(arg, fCallBack) {
 
                     client.callMethod(action.objectId.ns, action.objectId.nid, action.methodId.ns, action.methodId.nid, inputArguments, function(err, response) {
                         if (err) {
-                            self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] : " + err);
+                            self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] : " + err);
                             fCallBack({ text: "Could not execute action.", err: err }, null);
                         } else {
                             if (response[0].statusCode == 0) {
-                                self.app.log.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.actionName + "] successfully with errorCode: " + response[0].statusCode);
+                                self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.skillName + "] successfully with errorCode: " + response[0].statusCode);
                                 fCallBack(null, response[0]);
                             } else {
-                                self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode);
-                                fCallBack({ text: "Could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode }, response[0]);
+                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] with errorCode: " + response[0].statusCode);
+                                fCallBack({ text: "Could not execute action [" + arg.skillName+ "] with errorCode: " + response[0].statusCode }, response[0]);
                             }
                         }
                     });
                 } else {
                     fCallBack({ text: "Could not execute action. Parameters not provided." }, null);
-                    self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Parameters not provided.");
+                    self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Parameters not provided.");
                 }
                 
             }else {
-                self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Client is disconnected.");
+                self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Client is disconnected.");
                 fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
             }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Invalid Arguments.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Invalid Arguments.");
         fCallBack({ text: "Invalid Arguments" }, null);
     }
 };
@@ -363,23 +366,23 @@ OPCUAClientInterface.prototype.WriteVariable = function(arg, fCallBack) {
                     };
                     client.write(_variable.nodeId.ns, _variable.nodeId.nid, _value, function(err, statusCode) {
                         if (err) {
-                            self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not write variable [" + arg.name + "] : " + err);
+                            self.logger.error("MICROSERVICE[" + self.settings.name + "] could not write variable [" + arg.name + "] : " + err);
                             fCallBack({ text: "Could not write variable [" + arg.name + "] : ", err: err }, null);
                         } else {
-                            self.app.log.log("MICROSERVICE[" + self.settings.name + "] write variable [" + arg.name + "] : executed with : " + statusCode);
+                            self.logger.info("MICROSERVICE[" + self.settings.name + "] write variable [" + arg.name + "] : executed with : " + statusCode);
                             fCallBack(null, statusCode);
                         }
                     });
                 }else {
-                    self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Variable not found.");
+                    self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Variable not found.");
                     fCallBack({ text: "Could not write variable. Variable not found" }, null);
                 }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client and skills are not defined.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client and skills are not defined.");
         fCallBack({ text: "Could not execute action. Client and skill are not defined." }, null);
     }    
 };
@@ -411,30 +414,30 @@ OPCUAClientInterface.prototype.WriteVariableNode = function(arg, fCallBack) {
                                 client.write(_variable.nodeId.ns, _variable.nodeId.nid, _value, function(err, statusCode) {
                                     var _statuscode = statusCode[0];
                                     if (err) {
-                                        self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not write variable [" + arg.name + "] : " + err);
+                                        self.logger.error("MICROSERVICE[" + self.settings.name + "] could not write variable [" + arg.name + "] : " + err);
                                         fCallBack({ text: "Could not write variable [" + arg.name + "] : ", err: err }, null);
                                     } else {
-                                        self.app.log.log("MICROSERVICE[" + self.settings.name + "] write variable [" + arg.name + "] : executed with : " + _statuscode);
+                                        self.logger.info("MICROSERVICE[" + self.settings.name + "] write variable [" + arg.name + "] : executed with : " + _statuscode);
                                         fCallBack(null, _statuscode);
                                     }
                                 });
                             }
                         });
                     }catch(ex_err) {
-                        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Unkown exception.");
+                        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Unkown exception.");
                         fCallBack({ text: "Could not write variable. Unkown exception." }, null);
                     }                    
                     
                 }else {
-                    self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Variable not found.");
+                    self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Variable not found.");
                     fCallBack({ text: "Could not write variable. Variable not found" }, null);
                 }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client and skills are not defined.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client and skills are not defined.");
         fCallBack({ text: "Could not execute action. Client and skill are not defined." }, null);
     }    
 };
@@ -481,18 +484,18 @@ OPCUAClientInterface.prototype.WriteVariableNodes = function(arg, fCallBack) {
                         }
                     }, function (err) {
                         if (err){
-                            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variables. Please check the input values.");
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variables. Please check the input values.");
                             fCallBack({ text: "Could not write variables. Please check the input values. : ", err: err }, null);
                         }else{
                             fCallBack(null, _resultstatuses);
                         }
                     });
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client and skills are not defined.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not write variable. Client and skills are not defined.");
         fCallBack({ text: "Could not execute action. Client and skill are not defined." }, null);
     }    
 };
@@ -505,7 +508,7 @@ OPCUAClientInterface.prototype.monitorNode = function(arg, fCallBack) {
             if (arg.ResultTriggerNodeID) {
                 client.monitorNode(arg.node.nodeId.ns, arg.node.nodeId.nid, arg.name, self.settings.modulesetting.interval, function(err) {
                     if (err) {
-                        self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + arg.node.name + "] - [" + arg.node.nodeId.ns + ":" + arg.node.nodeId.nid + "]: " + err);
+                        self.logger.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + arg.node.name + "] - [" + arg.node.nodeId.ns + ":" + arg.node.nodeId.nid + "]: " + err);
                         fCallBack({ text: "Could not monitor variable.", err: err }, null);
                     }
                 }, function(dataValue) {
@@ -529,15 +532,15 @@ OPCUAClientInterface.prototype.monitorNode = function(arg, fCallBack) {
                     sio.emit("MonitoringNodeChanged",_rslt);
                 });
             }else {
-                self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Variable not found.");
+                self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Variable not found.");
                 fCallBack({ text: "Could not monitor variable. Variable not found" }, null);
             }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client and skills are not defined.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client and skills are not defined.");
         fCallBack({ text: "Could not execute action. Client and skill are not defined." }, null);
     }    
 };
@@ -550,18 +553,18 @@ OPCUAClientInterface.prototype.readVariableNodes = function(arg, fCallBack) {
             // Prepare the nodes to read
             client.readNodesDataByNodeIds(arg.nodes, function(err, dataValues) {
                 if (err) {
-                    self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not read the nodes data variables: " + err);
+                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not read the nodes data variables: " + err);
                     fCallBack({ text: "Could not read the value of the variables.", err: err }, null);
                 }else{
                     fCallBack(null, dataValues);
                 }
             });
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client and skills are not defined.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client and skills are not defined.");
         fCallBack({ text: "Could not execute action. Client and skill are not defined." }, null);
     }    
 };
@@ -575,7 +578,7 @@ OPCUAClientInterface.prototype.monitorResultTrigger = function(arg, sio, fCallBa
             if (arg.node) {
                 client.monitorNode(arg.node.nodeId.ns, arg.node.nodeId.nid, arg.name, self.settings.modulesetting.interval, function(err) {
                     if (err) {
-                        self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + arg.node.name + "] - [" + arg.node.nodeId.ns + ":" + arg.node.nodeId.nid + "]: " + err);
+                        self.logger.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + arg.node.name + "] - [" + arg.node.nodeId.ns + ":" + arg.node.nodeId.nid + "]: " + err);
                         fCallBack({ text: "Could not monitor variable.", err: err }, null);
                     }
                 }, function(dataValue) {
@@ -602,15 +605,15 @@ OPCUAClientInterface.prototype.monitorResultTrigger = function(arg, sio, fCallBa
                     }
                 });
             }else {
-                self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Variable not found.");
+                self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Variable not found.");
                 fCallBack({ text: "Could not monitor variable. Variable not found" }, null);
             }
         } else {
-            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client is disconnected.");
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client is disconnected.");
             fCallBack({ text: "Could not execute action. Client is disconnected." }, null);
         }
     } else {
-        self.app.log.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client and skills are not defined.");
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not monitor variable. Client and skills are not defined.");
         fCallBack({ text: "Could not execute action. Client and skill are not defined." }, null);
     }    
 };
@@ -620,7 +623,7 @@ OPCUAClientInterface.prototype.monitorResultTrigger = function(arg, sio, fCallBa
 function monitorServerInformationModel(self, client, sio, skillArray, fCallBack) {
     async.series([
         function(callback) { // Monitor the current state Machines
-            self.app.log.info("MICROSERVICE[" + self.settings.name + "] started monitoring CURRENT STATES.");
+            self.logger.info("MICROSERVICE[" + self.settings.name + "] started monitoring CURRENT STATES.");
             // For each skill collect the states
             skillArray.forEach(_skill => {
                 var _current_states = _skill.objectMonitor.CURRENT_STATES || [];
@@ -630,7 +633,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
                         if (el.nodeId && client) {
                             client.monitorNode(el.nodeId.ns, el.nodeId.nid, el.name, el.interval, function(err) {
                                 if (err) {
-                                    self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + el.name + "] - [" + el.nodeId.ns + ":" + el.nodeId.nid + "]: " + err);
+                                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + el.name + "] - [" + el.nodeId.ns + ":" + el.nodeId.nid + "]: " + err);
                                 }
                             }, function(dataValue) {
                                 if (self.started) {
@@ -702,7 +705,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
             callback();
         },
         function(callback) { // Monitor KPI
-            self.app.log.info("MICROSERVICE[" + self.settings.name + "] started monitoring KPIS.");
+            self.logger.info("MICROSERVICE[" + self.settings.name + "] started monitoring KPIS.");
             // For each skills monitor the KPIs
             skillArray.forEach(_skill => {
                 var _kpis = _skill.objectMonitor.KPI;
@@ -711,7 +714,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
                         if (el.nodeId && client) {
                             client.monitorNode(el.nodeId.ns, el.nodeId.nid, el.name, 20, function(err) { //el.interval
                                 if (err) {
-                                    self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + el.name + "] - [" + el.nodeId.ns + ":" + el.nodeId.nid + "]: " + err);
+                                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + el.name + "] - [" + el.nodeId.ns + ":" + el.nodeId.nid + "]: " + err);
                                 }
                             }, function(dataValue) {
                                 if (dataValue.value) {
@@ -735,7 +738,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
             callback();
         },
         function(callback) { // Monitor all STATES DESCRIPTIONS
-            self.app.log.info("MICROSERVICE[" + self.settings.name + "] started monitoring possibles STATES.");
+            self.logger.info("MICROSERVICE[" + self.settings.name + "] started monitoring possibles STATES.");
             // For each skill monitor the skill descriptions
             skillArray.forEach(_skill => {
                 var statesObj = _skill.objectMonitor.STATES;
@@ -750,7 +753,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
                                     if (eStateProp.type === "Variable") {
                                         client.monitorNode(eStateProp.nodeId.ns, eStateProp.nodeId.nid, eStateProp.name, eStateProp.interval, function(err) {
                                             if (err) {
-                                                self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + eStateProp.name + "] - [" + eStateProp.nodeId.ns + ":" + eStateProp.nodeId.nid + "]: " + err);
+                                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + eStateProp.name + "] - [" + eStateProp.nodeId.ns + ":" + eStateProp.nodeId.nid + "]: " + err);
                                             }
                                         }, function(dataValue) {
                                             if (dataValue.value) {
@@ -777,7 +780,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
             callback();
         },
         function(callback) { // Monitor all TRANSITION DESCRIPTIONS
-            self.app.log.info("MICROSERVICE[" + self.settings.name + "] started monitoring possibles TRANSITIONS.");
+            self.logger.info("MICROSERVICE[" + self.settings.name + "] started monitoring possibles TRANSITIONS.");
             // For Each Skill monitor the skill transitions
             skillArray.forEach(_skill => {
                 let transitionObj = _skill.objectMonitor.TRANSITIONS;
@@ -792,7 +795,7 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
                                     if (eTransitionProp.type === "Variable") {
                                         client.monitorNode(eTransitionProp.nodeId.ns, eTransitionProp.nodeId.nid, eTransitionProp.name, eTransitionProp.interval, function(err) {
                                             if (err) {
-                                                self.app.log.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + eTransitionProp.name + "] - [" + eTransitionProp.nodeId.ns + ":" + eTransitionProp.nodeId.nid + "]: " + err);
+                                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not monitor item [" + eTransitionProp.name + "] - [" + eTransitionProp.nodeId.ns + ":" + eTransitionProp.nodeId.nid + "]: " + err);
                                             }
                                         }, function(dataValue) {
                                             if (dataValue.value) {
@@ -827,14 +830,14 @@ function monitorServerInformationModel(self, client, sio, skillArray, fCallBack)
 function checkServerModel(self, client, sio, fCallBack) {
     async.waterfall([
             function(callback) { // Check if a SkillMLObject exist
-                self.app.log.warn("MICROSERVICE[" + self.settings.name + "] Client starts parsing PLC information model....");
+                self.logger.warn("MICROSERVICE[" + self.settings.name + "] Client starts parsing PLC information model....");
                 getSkillObject(client, { ns: 0, nid: 85 }, []).then(
                     function(foundedObjects) {
                         if (foundedObjects.length > 0) {
-                            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] Client found at least one skill object with the nodeId: " + JSON.stringify(foundedObjects[0]));
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] Client found at least one skill object with the nodeId: " + JSON.stringify(foundedObjects[0]));
                             callback(null, foundedObjects);
                         } else {
-                            self.app.log.warn("MICROSERVICE[" + self.settings.name + "] No SkillObject exists in the PLC information model.");
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] No SkillObject exists in the PLC information model.");
                             callback({ text: "No Skill Object founded." }, []);
                         }
                     });
@@ -875,7 +878,7 @@ function checkServerModel(self, client, sio, fCallBack) {
                     Promise.all(FindTasks)
                         .then(values => {
                             // console.log(JSON.stringify(values, 4));
-                            self.app.log.info("MICROSERVICE[" + self.settings.name + "] Client validated the Skill Object and extracted STATES, KPI and METHODS successfully.");
+                            self.logger.info("MICROSERVICE[" + self.settings.name + "] Client validated the Skill Object and extracted STATES, KPI and METHODS successfully.");
                             callback(null, values);
                         });
                 }
