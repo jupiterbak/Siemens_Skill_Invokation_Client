@@ -224,7 +224,7 @@ testShape = testShape.extend({
                 // Make transition to err
                 self.state = 6;
                 self.err_msg = "Error while monitoring result trigger!";
-                application_log.error("[" + self.NAME + "] Error while Setting xRequestProvided: " + JSON.stringify(resp_rq.err));
+                application_log.error("[" + self.NAME + "] Error while Setting RequestProvided: " + JSON.stringify(resp_rq.err));
               }else{
                 application_log.info("[" + self.NAME + "] RequestProvided set.");
                 application_log.info("[" + self.NAME + "] successfully executing the skill. Waiting for the skill to complete..." );
