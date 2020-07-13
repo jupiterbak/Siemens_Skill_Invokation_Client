@@ -57,7 +57,7 @@ services:
     hostname: skill_invocation_client
     environment:
       - OPCUA_BACKEND_URL=http://skill_monitoring:8080/
-      - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
+    #   - DNS_ADDRESS="8.8.8.8" # TODO: Please change the DNS default address if needed, otherwise remove this variable
     ports:
       - "7400:7400"
     depends_on:
@@ -72,9 +72,6 @@ services:
 
 networks:
   backend:
-    # ipam:
-    #   config:
-    #     - subnet: 172.31.0.0/16
 
 volumes:
   skill_invocation_client-shapes:
@@ -85,8 +82,3 @@ volumes:
     # driver: local
     # driver_opts:
     #   source: /tmp/data
-  # driver: local
-  # driver_opts:
-  #   type: none
-  #   device: ${WEB_APP_PATH}
-  #   o: bind

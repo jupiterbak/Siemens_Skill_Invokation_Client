@@ -24,7 +24,7 @@ ENV DNS_ADDRESS="8.8.8.8"
 RUN eval 'echo „nameserver $DNS_ADDRESS“ > /etc/resolv.conf'
 
 # Define the volume
-VOLUME /usr/src/app/shapes
+VOLUME /usr/src/app/app/shapes
 VOLUME /usr/src/app/.skillInvocationClient
 
 EXPOSE 7400
