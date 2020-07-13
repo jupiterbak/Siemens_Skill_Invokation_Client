@@ -1,7 +1,6 @@
 
 // Global variable to hold the last events
 module.exports = {
-  KGEnpoints : {},
   gFoundedSkills: {},
   connectionMsg: {},
   lastStateChangeEvent:{},
@@ -10,7 +9,7 @@ module.exports = {
   lastSTATESDescriptionChangedEvent: null,
   lastTRANSITIONDescriptionChangedEvent : null,
 
-  connect: function( http, params, logger){
+  connect: function( http, params, logger, _KGEnpoints){
     var self = this;
     this.sockets={};
     this.logger = logger;
@@ -29,11 +28,13 @@ module.exports = {
       
       // Get KGEndponts
       var end_points = [];
-      for (var prop in self.KGEnpoints) {
-          var el = self.KGEnpoints[prop];
+      for (var prop in _KGEnpoints) {
+          var el = _KGEnpoints[prop];
           end_points.push({ip:el.ip, port:el.port});
       }      
       socket.emit("KGConnected", self.end_points);
+
+      // Informs all connected client 
       socket.emit("StatesChanged", self.lastStateChangeEvent);
       socket.emit("KPIChanged", self.lastKPIChangedEvent);
       socket.emit("STATESDescriptionChanged", self.lastSTATESDescriptionChangedEvent);

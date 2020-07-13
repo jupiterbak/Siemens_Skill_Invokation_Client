@@ -5,8 +5,8 @@ const fs = require('fs');
 const app = express();
 const http = require('http').Server(app);
 const path = require('path');
-const childProcess = require('child_process')
-const phantomjs = require('phantomjs')
+const childProcess = require('child_process');
+const phantomjs = require('phantomjs');
 const bodyParser = require('body-parser');
 const glob = require("glob");
 const template7 = require('template7');
@@ -61,6 +61,7 @@ const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
 
 // Application specific services
 const kg_enpoints = require("./src/sparql_endpoint");
+var KGEnpoints = {};
 const OPCUAClientService = require("./src/OPCUAClientService");
 
 // Determine the IP:PORT to use for the http server
@@ -74,7 +75,7 @@ const port = defaultSettings.uiPort || 7400;
 // At this point we just want to make it work.
 // =======================================================================
 // Initialize SocketIO
-const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, logger);
+const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, logger, KGEnpoints);
 
 // =======================================================================
 //
@@ -381,8 +382,7 @@ function runServer() {
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({ err: err, results: results }));
         });
-    }); 
-    
+    });     
 
     // Monitor a skill result trigger node
     app.get('/backend/skill/monitorResultTrigger', (req, res) => {
@@ -463,6 +463,105 @@ function runServer() {
         res.send(JSON.stringify({ err: null, results: 'OK' }));
     });
 
+    // =================================================================
+    // SPARQL ENDPOINT
+    //
+    // =================================================================
+    
+    // Conect to knowlege graph
+    app.get('/backend/graph/connectKG', (req, res) => {
+        let kg_ip = req.query.ip;
+        let kg_port = req.query.port;
+        var _endpoint = new kg_enpoints(kg_ip, kg_port);
+        KGEnpoints["" + _endpoint.ID] = _endpoint;
+
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ err: null, ID: "" + _endpoint.ID }));
+    });
+
+    // get all Processes from the knowledge graph
+    app.get('/backend/graph/getAllProcess', function(req, res) {
+        var ID = req.query.ID;
+        var parentID = req.query.parent.id;
+        var _endpoint = KGEnpoints[ID];
+        if (_endpoint) {
+            if (parentID && parentID === "#") {
+                _endpoint.getAllProcess(res);
+            } else {
+                _endpoint.getChildBySubType(res, parentID);
+            }
+        } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify([]));
+        }
+    });
+
+    // get all product from the knowledge graph
+    app.get('/backend/graph/getAllProduct', function(req, res) {
+        var ID = req.query.ID;
+        var parentID = req.query.parent.id;
+        var _endpoint = KGEnpoints[ID];
+        if (_endpoint) {
+            if (parentID && parentID === "#") {
+                _endpoint.getAllProduct(res);
+            } else {
+                _endpoint.getChildBySubType(res, parentID);
+            }
+        } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify([]));
+        }
+    });
+
+    // get all ressources from the knowledge graph
+    app.get('/backend/graph/getAllResource', function(req, res) {
+        var ID = req.query.ID;
+        var _endpoint = KGEnpoints[ID];
+        var parentID = req.query.parent.id;
+        if (_endpoint) {
+            if (parentID && parentID === "#") {
+                _endpoint.getAllResource(res);
+            } else {
+                _endpoint.getChildBySubType(res, parentID);
+            }
+
+        } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify([]));
+        }
+    });
+
+    // Browse child
+    app.get('/backend/graph/getChildBySubType', function(req, res) {
+        var ID = req.query.ID;
+        var parentID = req.query.parentID;
+
+        var _endpoint = KGEnpoints[ID];
+        if (_endpoint) {
+            _endpoint.getChildBySubType(res, parentID);
+        } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify([]));
+        }
+    });
+
+    // Get all Skill instances
+    app.get('/backend/graph/getAllSkillKGInstances', function(req, res) {
+        var ID = req.query.ID;
+        var _endpoint = KGEnpoints[ID];
+        var parentID = req.query.parent.id;
+        if (_endpoint) {
+            if (parentID && parentID === "#") {
+                _endpoint.getAllSkillInstances(res);
+            } else {
+                _endpoint.getChildBySubType(res, parentID);
+            }            
+        } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify([]));
+        }
+    });
+
     //  Start the web server
     http.listen(port, function() {
         console.log('using phantomJS for server side rendering of shape previews:', phantomjs.path)
@@ -470,7 +569,7 @@ function runServer() {
         console.log('| Welcome to the SP347 Skill Invokation Client               |');
         console.log('|------------------------------------------------------------|');
         console.log('| System is up and running. Copy the URL below and open this |');
-        console.log('| in your browser: http://' + address + ':' + port + '/                |');
+        console.log('| in your browser: http://' + address + ':' + port + '/                 |');
         console.log('|                  http://localhost:' + port + '/                    |');
         console.log('+------------------------------------------------------------+');
     });
