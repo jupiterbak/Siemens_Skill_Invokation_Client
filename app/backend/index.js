@@ -145,11 +145,12 @@ function runServer() {
             console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
             childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
                 if (err) {
-                    console.log(`stdout: ${stdout}`);
+                    console.error(`stderr: ${stderr}`);
                     throw err;
                 }
+                console.log(`stdout: ${stdout}`);
                 
-                console.error(`stderr: ${stderr}`);
+               
 
                 let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
                 glob(pattern, {}, function(er, files) {

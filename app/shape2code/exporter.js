@@ -1,62 +1,44 @@
 var json=[
   {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "23e1591b-1ccc-930d-7bb3-fea4d6f0707b",
-    "x": 7985,
-    "y": 7985,
+    "type": "shape_designer.figure.PolyRect",
+    "id": "c55dd135-15db-7c71-5efa-f6761c073e66",
+    "x": 7984.59375,
+    "y": 7980,
     "width": 30,
-    "height": 30,
+    "height": 40,
     "alpha": 1,
     "angle": 0,
     "userData": {
       "baseClass": "draw2d.SetFigure",
-      "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n        this._super(attr, setter, getter);\n        this.attr({resizeable:false});\n        this.getOutputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n        \n        // your special code here\n        this.current_state = 0;\n        \n        // Initialize default values\n        this.getOutputPort(0).setValue(false);\n        this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function()\n    {\n        var self = this;\n        switch(this.current_state) {\n          case 0: // STOPPED\n            this.getOutputPort(0).setValue(false);\n            this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n            this.current_state = 1;\n            break;\n          case 1: // SIGNAL_UP\n            this.getOutputPort(0).setValue(true);\n            this.layerAttr(\"Circle_\", { fill: \"#faa50a\" });\n            setTimeout(function(){\n                self.current_state = 2;\n            }, 1000);\n            break;\n          case 2: //SIGNAL_DOWN\n            this.getOutputPort(0).setValue(false);\n            this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n            break;\n          default:\n            break;\n        }\n    },\n\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function()\n    {\n        this.getOutputPort(0).setValue(false);\n        this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n        this.current_state = 0;\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function()\n    {\n        this.getOutputPort(0).setValue(false);\n        this.layerAttr(\"Circle_\", { fill: \"#303030\" });\n        this.current_state = 0;\n    },\n\n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    }\n\n});",
-      "name": "Circle",
-      "markdown": "# T-FlipFlop\n\n## Description\n\nThe D FlipFLop is widely used. It is also known as a \n*toggle*  flip-flop.\n\nA T flip-flop is a device which swaps or **toggles** state \nevery time it is triggered if the T input is asserted, \notherwise it holds the current output.\n\n\nThe toggle flip-flop is also a frequency divider.",
-      "type": "Output",
-      "direction": 1
+      "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n        this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.getInputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getOutputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getInputPort(1).attr({\n            semanticGroup:\"signal\"\n        });\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n\n    },\n    \n    calculate:function()\n    {\n        var i1 = this.getInputPort(0);\n        var i2 = this.getInputPort(1);\n        var o1 = this.getOutputPort(0);\n        \n        o1.setValue(i1.getValue() || i2.getValue());\n    }\n});",
+      "name": "Rectangle",
+      "markdown": "# OR Gate\n\n## Description\nThe `OR gate` is a digital logic gate that implements logical \ndisjunction - it behaves according to the truth table to the\n \n \n\n**Therefore, A `High` output results if one or both the \ninputs to the gate are `High`**\n\n## Logic table\n\n| INPUT 1   | INPUT   |  OUTPUT    |\n|:---------:|:-------:|:----------:|\n| Low       | Low     |  Low       |\n| `High`      | Low     |  `High`       |\n| Low       | `High`    |  `High`       |\n| `High`      | `High`    |  `High`    |\n\n"
     },
-    "cssClass": "shape_designer_figure_PolyCircle",
+    "cssClass": "shape_designer_figure_PolyRect",
     "ports": [],
-    "bgColor": "#303030",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
+    "bgColor": "#FFFFFF",
+    "color": "#303030",
+    "stroke": 1,
+    "radius": 3,
     "dasharray": null,
-    "blur": 0,
-    "filters": [
+    "vertices": [
       {
-        "name": "shape_designer.filter.PositionFilter"
+        "x": 7984.59375,
+        "y": 7980
       },
       {
-        "name": "shape_designer.filter.SizeFilter"
+        "x": 8014.59375,
+        "y": 7980
       },
       {
-        "name": "shape_designer.filter.FillColorFilter"
+        "x": 8014.59375,
+        "y": 8020
+      },
+      {
+        "x": 7984.59375,
+        "y": 8020
       }
-    ]
-  },
-  {
-    "type": "shape_designer.figure.PolyCircle",
-    "id": "6564a81a-b89f-5e40-4f67-77280b2e29bf",
-    "x": 7990,
-    "y": 7989.83222784,
-    "width": 20,
-    "height": 20,
-    "alpha": 1,
-    "angle": 0,
-    "userData": {
-      "baseClass": "draw2d.SetFigure",
-      "code": "/**\n * Generated Code for the Draw2D touch HTML5 lib.\n * File will be generated if you save the *.shape file.\n *\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custom code and event handler here.\n *\n * Looks disconcerting - extending my own class. But this is a good method to\n * merge basic code and override them with custom methods.\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n         // your special code here\n    },\n\n    /**\n     *  Called by the simulator for every calculation\n     *  loop\n     *  @required\n     **/\n    calculate:function()\n    {\n        this.getOutputPort(0).setValue(true);\n        this.layerAttr(\"Circle_\", { fill: \"#faa50a\" });\n    },\n\n\n    /**\n     *  Called if the simulation mode is starting\n     *  @required\n     **/\n    onStart:function()\n    {\n    },\n\n    /**\n     *  Called if the simulation mode is stopping\n     *  @required\n     **/\n    onStop:function()\n    {\n    },\n\n    /**\n     * Get the simulator a hint which kind of hardware the shapes requires or supports\n     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost\n     * and your are running a circuit which needs this kind of hardware...\n     **/\n    getRequiredHardware: function(){\n      return {\n        raspi: false,\n        arduino: false\n      }\n    }\n\n});",
-      "name": "Circle_"
-    },
-    "cssClass": "shape_designer_figure_PolyCircle",
-    "ports": [],
-    "bgColor": "#303030",
-    "color": "#1B1B1B",
-    "stroke": 0,
-    "radius": 0,
-    "dasharray": null,
+    ],
     "blur": 0,
     "filters": [
       {
@@ -66,28 +48,33 @@ var json=[
         "name": "shape_designer.filter.SizeFilter"
       },
       {
+        "name": "shape_designer.filter.StrokeFilter"
+      },
+      {
         "name": "shape_designer.filter.FillColorFilter"
+      },
+      {
+        "name": "shape_designer.filter.RadiusFilter"
       }
     ]
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "be07df8d-47d7-5e42-bb1a-576c53d9ddf5",
-    "x": 8011,
-    "y": 7994.83222784,
+    "id": "592a8604-e0a9-8913-445d-621078e5ae97",
+    "x": 7978.59375,
+    "y": 7984,
     "width": 10,
     "height": 10,
     "alpha": 1,
     "angle": 0,
     "userData": {
-      "name": "Port",
-      "type": "Output",
-      "direction": 1,
-      "fanout": 20
+      "name": "input01",
+      "type": "Input",
+      "direction": 3
     },
     "cssClass": "shape_designer_figure_ExtPort",
     "ports": [],
-    "bgColor": "#37B1DE",
+    "bgColor": "#1C9BAB",
     "color": "#1B1B1B",
     "stroke": 1,
     "dasharray": null,
@@ -103,11 +90,128 @@ var json=[
       },
       {
         "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "5fc48f01-fecb-0d5f-ed4f-81a4bc26ae63",
+    "x": 7978.59375,
+    "y": 8006.5,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "input02",
+      "type": "Input",
+      "direction": 3
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtPort",
+    "id": "7c8a6215-ce17-6a10-c85b-b97fd0de466c",
+    "x": 8015.59375,
+    "y": 7995,
+    "width": 10,
+    "height": 10,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "output",
+      "type": "Output",
+      "direction": 1
+    },
+    "cssClass": "shape_designer_figure_ExtPort",
+    "ports": [],
+    "bgColor": "#1C9BAB",
+    "color": "#1B1B1B",
+    "stroke": 1,
+    "dasharray": null,
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FanoutFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortDirectionFilter"
+      },
+      {
+        "name": "shape_designer.filter.PortTypeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FillColorFilter"
+      }
+    ]
+  },
+  {
+    "type": "shape_designer.figure.ExtLabel",
+    "id": "0a4705bb-c6fd-7a26-332f-6972e8683949",
+    "x": 7984.59375,
+    "y": 7984.5,
+    "width": 30.350000381469727,
+    "height": 23,
+    "alpha": 1,
+    "angle": 0,
+    "userData": {
+      "name": "Label"
+    },
+    "cssClass": "shape_designer_figure_ExtLabel",
+    "ports": [],
+    "bgColor": "none",
+    "color": "#1B1B1B",
+    "stroke": 0,
+    "radius": 0,
+    "dasharray": null,
+    "text": ">1",
+    "outlineStroke": 0,
+    "outlineColor": "none",
+    "fontSize": 20,
+    "fontColor": "#080808",
+    "fontFamily": null,
+    "editor": "LabelInplaceEditor",
+    "filters": [
+      {
+        "name": "shape_designer.filter.PositionFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontSizeFilter"
+      },
+      {
+        "name": "shape_designer.filter.FontColorFilter"
       }
     ]
   }
 ];
-var pkg='START';
+var pkg='OR';
 app.fileNew();
 
 var reader = new draw2d.io.json.Reader();
