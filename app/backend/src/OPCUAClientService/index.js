@@ -28,6 +28,7 @@ var when = require('when');
 var async = require("async");
 var opcua = require("node-opcua");
 var util = require("../util");
+var ValueParser = require('./VaueParser');
 
 
 var DAISYOPCClientManager = require('./OPCUAClient/DAISYOPCClientManager');
@@ -191,7 +192,7 @@ OPCUAClientInterface.prototype.DisconnectPLC = function(arg, fCallBack) {
 
 OPCUAClientInterface.prototype.ExecuteMethod = function(arg, fCallBack) {
     var self = this;
-    //Initialize a new client
+    var _parser = new ValueParser();    //Initialize a new client
     if (arg.ip && arg.socketID && arg.port && arg.serverName && arg.skillName && arg.actionName) {
         var client = self.manager.getClient(self.manager.getClientID(arg.ip, arg.port, arg.serverName, arg.socketID));
         if (client) {
@@ -214,45 +215,41 @@ OPCUAClientInterface.prototype.ExecuteMethod = function(arg, fCallBack) {
                 if (action) {
                     if (action.objectId && action.methodId && client) {
                         // Initialize the parameters
-                        var inputArguments = [];
-                        if (action.parameters) {
-                            if (action.parameters.inputArguments && action.parameters.inputArguments.length > 0) {
-                                var k = 0;
-                                action.parameters.inputArguments.forEach(function(el, index) {
-                                    // Filter Datatype
-                                    // TODO: Only basic datatypes are supported
-                                    //const keys = Object.keys(opcua.DataType).filter(k => opcua.DataType[k] === el.dataType.value);
-                                    /*
-                                    *     nodeId = opcua.coerceNodeId("ns=2;s=Scalar_Static_ImagePNG");
-                                    *     session.getBuildInDataType(nodeId,function(err,dataType) {
-                                    *        assert(dataType === opcua.DataType.ByteString);
-                                    *     });
-                                    * */
-
-                                    inputArguments.push({
-                                        dataType: el.dataType.value, // only basic datatypes are supported
-                                        arrayType: el.valueRank !== -1 ? opcua.VariantArrayType.Array : opcua.VariantArrayType.Scalar,
-                                        value: el.valueRank !== -1 ? [0] : arg.parameters[index]?arg.parameters[index].value:0
+                        try { 
+                            var inputArguments = [];
+                            if (action.parameters) {
+                                if (action.parameters.inputArguments && action.parameters.inputArguments.length > 0) {
+                                    var k = 0;
+                                    action.parameters.inputArguments.forEach(function(el, index) {
+                                        // Filter Datatype
+                                        // TODO: Only basic datatypes are supported
+                                        // TODO: For complex datatypes refer to: https://github.com/node-opcua/node-opcua/issues/320
+                                                                        
+                                        var _param = _parser.parse(el.dataType,el.valueRank,arg.parameters[index]?arg.parameters[index].value:null);
+                                        inputArguments.push(_param);
+                                        k++;
                                     });
-                                    k++;
-                                });
-                            }                            
-                        }
-
-                        client.callMethod(action.objectId.ns, action.objectId.nid, action.methodId.ns, action.methodId.nid, inputArguments, function(err, response) {
-                            if (err) {
-                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] : " + err);
-                                fCallBack({ text: "Could not execute action.", err: err }, null);
-                            } else {
-                                if (response[0].statusCode == 0) {
-                                    self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.actionName + "] successfully with errorCode: " + response[0].statusCode);
-                                    fCallBack(null, response[0]);
-                                } else {
-                                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode);
-                                    fCallBack({ text: "Could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode }, response[0]);
-                                }
+                                }                            
                             }
-                        });
+
+                            client.callMethod(action.objectId.ns, action.objectId.nid, action.methodId.ns, action.methodId.nid, inputArguments, function(err, response) {
+                                if (err) {
+                                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] : " + err);
+                                    fCallBack({ text: "Could not execute action.", err: err }, null);
+                                } else {
+                                    if (response[0].statusCode == 0) {
+                                        self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.actionName + "] successfully with errorCode: " + response[0].statusCode);
+                                        fCallBack(null, response[0]);
+                                    } else {
+                                        self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode);
+                                        fCallBack({ text: "Could not execute action [" + arg.actionName + "] with errorCode: " + response[0].statusCode }, response[0]);
+                                    }
+                                }
+                            });
+                        } catch (_exp) {
+                            self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "]. Exception found : " + _exp);
+                            fCallBack({ text: "Could not execute action. OPC UA Exception found: " + _exp, err: _exp }, null);
+                        }
                     } else {
                         fCallBack({ text: "Could not execute action. Parameters not provided." }, null);
                         self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Parameters not provided.");
@@ -274,6 +271,7 @@ OPCUAClientInterface.prototype.ExecuteMethod = function(arg, fCallBack) {
 
 OPCUAClientInterface.prototype.ExecuteMethodNode = function(arg, fCallBack) {
     var self = this;
+    var _parser = new ValueParser();
     //Initialize a new client
     if (arg.ip && arg.socketID && arg.port && arg.serverName && arg.skillName && arg.actionNode) {
         var client = self.manager.getClient(self.manager.getClientID(arg.ip, arg.port, arg.serverName, arg.socketID));
@@ -283,41 +281,40 @@ OPCUAClientInterface.prototype.ExecuteMethodNode = function(arg, fCallBack) {
                 var action = arg.actionNode;
 
                 if (action.objectId && action.methodId && client) {
-                    // Initialize the parameters
-                    var inputArguments = [];
-                    if (action.parameters) {
-                        if (action.parameters.inputArguments && action.parameters.inputArguments.length > 0) {
-                            var k = 0;
-                            action.parameters.inputArguments.forEach(function(el, index) {
-                                // Filter Datatype
-                                // TODO: Only basic datatypes are supported
-                               
-                                var _val = (el.valueRank !== -1) && (el.valueRank !== "-1") ? [0] : arg.parameters[index]?arg.parameters[index].value:0;
-                                var _dtype = opcua.coerceNodeId(el.dataType).value;
-                                inputArguments.push({
-                                    dataType: _dtype, // only basic datatypes are supported
-                                    arrayType: (el.valueRank !== -1) && (el.valueRank !== "-1") ? opcua.VariantArrayType.Array : opcua.VariantArrayType.Scalar,
-                                    value: JSON.parse(_val) 
+                    try{
+                        // Initialize the parameters
+                        var inputArguments = [];
+                        if (action.parameters) {
+                            if (action.parameters.inputArguments && action.parameters.inputArguments.length > 0) {
+                                var k = 0;
+                                action.parameters.inputArguments.forEach(function(el, index) {
+                                    // Filter Datatype
+                                    // TODO: Only basic datatypes are supported
+                                    // TODO: For complex datatypes refer to: https://github.com/node-opcua/node-opcua/issues/320
+                                    var _param = _parser.parse(el.dataType,el.valueRank,arg.parameters[index]?arg.parameters[index].value:null);
+                                    inputArguments.push(_param);
+                                    k++;
                                 });
-                                k++;
-                            });
-                        }                            
-                    }
-
-                    client.callMethod(action.objectId.ns, action.objectId.nid, action.methodId.ns, action.methodId.nid, inputArguments, function(err, response) {
-                        if (err) {
-                            self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] : " + err);
-                            fCallBack({ text: "Could not execute action.", err: err }, null);
-                        } else {
-                            if (response[0].statusCode == 0) {
-                                self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.skillName + "] successfully with errorCode: " + response[0].statusCode);
-                                fCallBack(null, response[0]);
-                            } else {
-                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] with errorCode: " + response[0].statusCode);
-                                fCallBack({ text: "Could not execute action [" + arg.skillName+ "] with errorCode: " + response[0].statusCode }, response[0]);
-                            }
+                            }                            
                         }
-                    });
+                        client.callMethod(action.objectId.ns, action.objectId.nid, action.methodId.ns, action.methodId.nid, inputArguments, function(err, response) {
+                            if (err) {
+                                self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] : " + err);
+                                fCallBack({ text: "Could not execute action.", err: err }, null);
+                            } else {
+                                if (response[0].statusCode == 0) {
+                                    self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.skillName + "] successfully with errorCode: " + response[0].statusCode);
+                                    fCallBack(null, response[0]);
+                                } else {
+                                    self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] with errorCode: " + response[0].statusCode);
+                                    fCallBack({ text: "Could not execute action [" + arg.skillName+ "] with errorCode: " + response[0].statusCode }, response[0]);
+                                }
+                            }
+                        });
+                    } catch (_exp) {
+                        self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "]. Exception found: " + _exp);
+                        fCallBack({ text: "Could not execute action. OPC UA Exception found: " + _exp, err: _exp }, null);
+                    }
                 } else {
                     fCallBack({ text: "Could not execute action. Parameters not provided." }, null);
                     self.logger.warn("MICROSERVICE[" + self.settings.name + "] could not execute action. Parameters not provided.");

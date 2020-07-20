@@ -36,25 +36,25 @@
                     "inputArguments": [
                         {
                             "name": "Value1",
-                            "dataType": "ns=0;i=4",
+                            "dataType": "ns=0;i=10",
                             "valueRank": "-1",
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "0488605a-1345-414e-9b36-0e9c8fcf2364",
-                            "id_label": "2d452ce7-1a76-48bf-9ede-49db1c524647",
-                            "id_port": "535c5a12-9999-48d5-927d-6b32d0b5bc01"
+                            "id_circle": "e5bca439-7bf5-4f74-8906-add4d38869f2",
+                            "id_label": "0c13acca-6605-4fa9-98f4-27904bd6ea3a",
+                            "id_port": "8ca753bc-faab-43f9-bd55-f89e0759ef00"
                         },
                         {
                             "name": "Value2",
-                            "dataType": "ns=0;i=4",
+                            "dataType": "ns=0;i=10",
                             "valueRank": "-1",
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "f9efffa6-43f2-46d5-abed-a73488c47519",
-                            "id_label": "74218ee1-4c8f-40ac-bf33-392d73889719",
-                            "id_port": "e069edd0-46b8-40c9-b7d5-b67b16086dc9"
+                            "id_circle": "5eb313d4-81ec-45fb-8bb1-f926f574795c",
+                            "id_label": "b40a4efe-b8ba-462b-a318-bdff4664dc51",
+                            "id_port": "12c872cc-904d-40d8-92fd-282c361439d8"
                         }
                     ],
                     "outputArguments": ""
@@ -92,14 +92,14 @@
                     "outputArguments": [
                         {
                             "name": "ValueOut",
-                            "dataType": "ns=0;i=4",
+                            "dataType": "ns=0;i=10",
                             "valueRank": "-1",
                             "arrayDimensions": [
                                 "0"
                             ],
-                            "id_circle": "33d17001-a7d2-44f8-a208-b498429157d2",
-                            "id_label": "8a34fda8-a4f1-4c4d-822e-eca3c73d43f6",
-                            "id_port": "16c92a97-1cce-4526-9f9a-d715b63758f2"
+                            "id_circle": "de466ad4-2c1f-41f8-88a1-e3daf0b9a474",
+                            "id_label": "157f30a6-e2e4-4909-b9b8-bd492535b5f3",
+                            "id_port": "daa9cd31-1b75-4060-abb4-341e98e1b480"
                         }
                     ]
                 },
@@ -147,7 +147,7 @@
                     "inputArguments": [
                         {
                             "name": "Value1",
-                            "dataType": "ns=0;i=4",
+                            "dataType": "ns=0;i=10",
                             "valueRank": "-1",
                             "arrayDimensions": [
                                 "0"
@@ -155,7 +155,7 @@
                         },
                         {
                             "name": "Value2",
-                            "dataType": "ns=0;i=4",
+                            "dataType": "ns=0;i=10",
                             "valueRank": "-1",
                             "arrayDimensions": [
                                 "0"
@@ -197,7 +197,7 @@
                     "outputArguments": [
                         {
                             "name": "ValueOut",
-                            "dataType": "ns=0;i=4",
+                            "dataType": "ns=0;i=10",
                             "valueRank": "-1",
                             "arrayDimensions": [
                                 "0"
@@ -229,38 +229,38 @@
         "inputs": [
             {
                 "name": "Value1",
-                "dataType": "ns=0;i=4",
+                "dataType": "ns=0;i=10",
                 "valueRank": "-1",
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "0488605a-1345-414e-9b36-0e9c8fcf2364",
-                "id_label": "2d452ce7-1a76-48bf-9ede-49db1c524647",
-                "id_port": "535c5a12-9999-48d5-927d-6b32d0b5bc01"
+                "id_circle": "e5bca439-7bf5-4f74-8906-add4d38869f2",
+                "id_label": "0c13acca-6605-4fa9-98f4-27904bd6ea3a",
+                "id_port": "8ca753bc-faab-43f9-bd55-f89e0759ef00"
             },
             {
                 "name": "Value2",
-                "dataType": "ns=0;i=4",
+                "dataType": "ns=0;i=10",
                 "valueRank": "-1",
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "f9efffa6-43f2-46d5-abed-a73488c47519",
-                "id_label": "74218ee1-4c8f-40ac-bf33-392d73889719",
-                "id_port": "e069edd0-46b8-40c9-b7d5-b67b16086dc9"
+                "id_circle": "5eb313d4-81ec-45fb-8bb1-f926f574795c",
+                "id_label": "b40a4efe-b8ba-462b-a318-bdff4664dc51",
+                "id_port": "12c872cc-904d-40d8-92fd-282c361439d8"
             }
         ],
         "outputs": [
             {
                 "name": "ValueOut",
-                "dataType": "ns=0;i=4",
+                "dataType": "ns=0;i=10",
                 "valueRank": "-1",
                 "arrayDimensions": [
                     "0"
                 ],
-                "id_circle": "33d17001-a7d2-44f8-a208-b498429157d2",
-                "id_label": "8a34fda8-a4f1-4c4d-822e-eca3c73d43f6",
-                "id_port": "16c92a97-1cce-4526-9f9a-d715b63758f2"
+                "id_circle": "de466ad4-2c1f-41f8-88a1-e3daf0b9a474",
+                "id_label": "157f30a6-e2e4-4909-b9b8-bd492535b5f3",
+                "id_port": "daa9cd31-1b75-4060-abb4-341e98e1b480"
             }
         ]
     }
