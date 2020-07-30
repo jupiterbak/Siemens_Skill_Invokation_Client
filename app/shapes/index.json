@@ -7,12 +7,12 @@
     "filePath": "AND.shape"
   },
   {
-    "name": "documentation_Text",
+    "name": "Documentation_Text",
     "tags": [
       "documentation",
       "Text"
     ],
-    "filePath": "documentation_Text.shape"
+    "filePath": "Documentation_Text.shape"
   },
   {
     "name": "End",

@@ -325,7 +325,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "e5bca439-7bf5-4f74-8906-add4d38869f2",
+    "id": "efe4efba-f1e4-412a-80aa-e5a6c3c8ddd1",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -360,7 +360,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "0c13acca-6605-4fa9-98f4-27904bd6ea3a",
+    "id": "81b5e83c-0edf-415e-b2db-c3d3ca83d72c",
     "x": 7905,
     "y": 7974,
     "width": 100,
@@ -398,7 +398,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "8ca753bc-faab-43f9-bd55-f89e0759ef00",
+    "id": "9f1064a8-3bf1-4958-add4-ed1f0266e8d8",
     "x": 7896,
     "y": 7980,
     "width": 10,
@@ -436,7 +436,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "5eb313d4-81ec-45fb-8bb1-f926f574795c",
+    "id": "19f3749c-5753-43c0-9d85-ad050a30dd35",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -471,7 +471,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "b40a4efe-b8ba-462b-a318-bdff4664dc51",
+    "id": "8e1eef5a-45ee-4ea8-9080-b8718e38e191",
     "x": 7905,
     "y": 7987,
     "width": 100,
@@ -509,7 +509,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "12c872cc-904d-40d8-92fd-282c361439d8",
+    "id": "b84d71e9-12e1-4988-a4a7-8619a8435a09",
     "x": 7896,
     "y": 7993,
     "width": 10,
@@ -547,7 +547,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.PolyCircle",
-    "id": "de466ad4-2c1f-41f8-88a1-e3daf0b9a474",
+    "id": "7612cdb3-6903-4e3b-9af2-7407e07eb767",
     "x": 8095,
     "y": 7980,
     "width": 10,
@@ -582,7 +582,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtLabel",
-    "id": "157f30a6-e2e4-4909-b9b8-bd492535b5f3",
+    "id": "addc0c1d-e1f9-4917-bba9-853e5d3c91f8",
     "x": 8038,
     "y": 7974,
     "width": 60,
@@ -620,7 +620,7 @@ var json=[
   },
   {
     "type": "shape_designer.figure.ExtPort",
-    "id": "daa9cd31-1b75-4060-abb4-341e98e1b480",
+    "id": "dac1b635-43db-457e-b718-83988e1829a0",
     "x": 8095,
     "y": 7980,
     "width": 10,

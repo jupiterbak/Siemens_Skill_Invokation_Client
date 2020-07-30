@@ -4,9 +4,9 @@ import FigureConfigDialog from "./dialog/FigureConfigDialog"
 export default draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
 
   init: function () {
-    this._super()
-    this.mouseMoveProxy = this._onMouseMoveCallback.bind(this)
-    this.configIcon = null
+    this._super();
+    this.mouseMoveProxy = this._onMouseMoveCallback.bind(this);
+    this.configIcon = null;
   },
 
   /**
@@ -26,38 +26,38 @@ export default draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
     // default
     // lt in the edit mode as well.
     if (figure instanceof MarkerFigure) {
-      this._super(figure, mouseX, mouseY, shiftKey, ctrlKey)
+      this._super(figure, mouseX, mouseY, shiftKey, ctrlKey);
     }
   },
 
   onInstall: function (canvas) {
-    this._super(canvas)
+    this._super(canvas);
 
     // provide configuration menu if the mouse is close to a shape
     //
-    canvas.on("mousemove", this.mouseMoveProxy)
+    canvas.on("mousemove", this.mouseMoveProxy);
   },
 
   onUninstall: function (canvas) {
-    this._super(canvas)
+    this._super(canvas);
 
-    canvas.off(this.mouseMoveProxy)
+    canvas.off(this.mouseMoveProxy);
   },
 
   onMouseUp: function (canvas, x, y, shiftKey, ctrlKey) {
     if (shiftKey === true && this.mouseDownElement === null) {
-      let rx = Math.min(x, this.x)
-      let ry = Math.min(y, this.y)
-      let rh = Math.abs(y - this.y)
-      let rw = Math.abs(x - this.x)
-      let raftFigure = new Raft()
+      let rx = Math.min(x, this.x);
+      let ry = Math.min(y, this.y);
+      let rh = Math.abs(y - this.y);
+      let rw = Math.abs(x - this.x);
+      let raftFigure = new Raft();
       raftFigure.attr({
         x: rx,
         y: ry,
         width: rw,
         height: rh,
         color: "#1c9bab"
-      })
+      });
       canvas.getCommandStack().execute(new draw2d.command.CommandAdd(canvas, raftFigure, rx, ry))
       this.boundingBoxFigure1.setCanvas(null)
       this.boundingBoxFigure1 = null
