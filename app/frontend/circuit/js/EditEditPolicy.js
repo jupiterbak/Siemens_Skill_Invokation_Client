@@ -59,13 +59,13 @@ export default draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
         color: "#1c9bab"
       });
       canvas.getCommandStack().execute(new draw2d.command.CommandAdd(canvas, raftFigure, rx, ry))
-      this.boundingBoxFigure1.setCanvas(null)
-      this.boundingBoxFigure1 = null
-      this.boundingBoxFigure2.setCanvas(null)
-      this.boundingBoxFigure2 = null
+      this.boundingBoxFigure1.setCanvas(null);
+      this.boundingBoxFigure1 = null;
+      this.boundingBoxFigure2.setCanvas(null);
+      this.boundingBoxFigure2 = null;
     }
     else {
-      this._super(canvas, x, y, shiftKey, ctrlKey)
+      this._super(canvas, x, y, shiftKey, ctrlKey);
     }
   },
 
@@ -75,48 +75,48 @@ export default draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
     var _this = this;
     if (this.mouseMovedDuringMouseDown === true) {
       if (this.configIcon !== null) {
-        this.configIcon.remove()
-        this.configIcon = null
+        this.configIcon.remove();
+        this.configIcon = null;
       }
-      return
+      return;
     }
 
-    let hit = null
+    let hit = null;
 
     emitter.getFigures().each( (index, figure) =>{
       if (figure.getParameterSettings &&
         figure.getParameterSettings().length>0 &&
         figure.hitTest(event.x, event.y, 40)) {
-        hit = figure
-        return false
+        hit = figure;
+        return false;
       }
-    })
+    });
 
     if (hit !== null && hit.getParameterSettings && hit.getParameterSettings().length > 0) {
-      let pos = hit.getBoundingBox().getTopLeft()
-      pos = emitter.fromCanvasToDocumentCoordinate(pos.x, pos.y)
-      pos.y -= 30
+      let pos = hit.getBoundingBox().getTopLeft();
+      pos = emitter.fromCanvasToDocumentCoordinate(pos.x, pos.y);
+      pos.y -= 30;
 
       if (this.configIcon === null) {
-        this.configIcon = $("<div class='fa fa-cog' id='configMenuIcon'></div>")
-        $("body").append(this.configIcon)
+        this.configIcon = $("<div class='fa fa-cog' id='configMenuIcon'></div>");
+        $("body").append(this.configIcon);
         this.configIcon.on("click", function () {
-          FigureConfigDialog.show(hit, pos)
-          _this.configFigure = hit
+          FigureConfigDialog.show(hit, pos);
+          _this.configFigure = hit;
           if (_this.configIcon !== null) {
-            _this.configIcon.remove()
-            _this.configIcon = null
+            _this.configIcon.remove();
+            _this.configIcon = null;
           }
-        })
+        });
       }
-      this.configIcon.css({top: pos.y, left: pos.x, position: 'absolute'})
+      this.configIcon.css({top: pos.y, left: pos.x, position: 'absolute'});
     }
     else {
       if (this.configIcon !== null) {
-        let x = this.configIcon
-        this.configIcon = null
-        x.fadeOut(500, () => x.remove())
+        let x = this.configIcon;
+        this.configIcon = null;
+        x.fadeOut(500, () => x.remove());
       }
     }
   }
-})
+});

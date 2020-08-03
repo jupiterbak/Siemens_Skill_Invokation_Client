@@ -11,13 +11,13 @@ export default dialog= new class FigureConfigDialog {
   }
 
   show(figure, pos) {
-    Mousetrap.pause()
-    currentFigure = figure
+    Mousetrap.pause();
+    currentFigure = figure;
 
-    var settings = figure.getParameterSettings().slice(0)
+    var settings = figure.getParameterSettings().slice(0);
     $.each(settings, function (i, el) {
-      el.value = currentFigure.attr("userData." + el.name)
-    })
+      el.value = currentFigure.attr("userData." + el.name);
+    });
     var compiled = Hogan.compile(
       '  <div class="header">Object Configuration</div>   ' +
       '  {{#settings}}               ' +
@@ -30,42 +30,42 @@ export default dialog= new class FigureConfigDialog {
     )
     var output = compiled.render({
       settings: settings
-    })
+    });
 
-    $("#figureConfigDialog").html(output)
-    $("#figureConfigDialog").show().css({top: pos.y, left: pos.x, position: 'absolute'})
-    $("#figureConfigDialog input, #figureConfigDialog select").focus()
+    $("#figureConfigDialog").html(output);
+    $("#figureConfigDialog").show().css({top: pos.y, left: pos.x, position: 'absolute'});
+    $("#figureConfigDialog input, #figureConfigDialog select").focus();
 
     $("#figureConfigDialog input").keypress((e) => {
       if (e.which == 13) {
-        this.hide()
+        this.hide();
       }
     })
     $("#figureConfigDialog .submit").on("click",  () => {
-      this.hide()
-    })
+      this.hide();
+    });
 
     $.each(settings, (index, setting) =>{
-      var figureValue = currentFigure.attr("userData." + setting.name)
+      var figureValue = currentFigure.attr("userData." + setting.name);
       $('#figureConfigDialog select[data-name="' + setting.name + '"] option[value="' + figureValue + '"]').attr('selected', 'selected')
-    })
+    });
   }
 
   hide() {
     Mousetrap.unpause()
     if (currentFigure !== null) {
       $("#figureConfigDialog input, #figureConfigDialog select").each(function (i, element) {
-        element = $(element)
-        var value = element.val()
-        var name = element.data("name")
+        element = $(element);
+        var value = element.val();
+        var name = element.data("name");
 
-        currentFigure.attr("userData." + name, value)
-      })
+        currentFigure.attr("userData." + name, value);
+      });
     }
-    $("#figureConfigDialog").hide()
-    $("#figureConfigDialog").html("")
+    $("#figureConfigDialog").hide();
+    $("#figureConfigDialog").html("");
 
-    currentFigure = null
+    currentFigure = null;
   }
-}()
+}();
 
