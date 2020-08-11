@@ -278,7 +278,7 @@ function runServer() {
     // =================================================================
     // Browse the OPC UA Server
     app.get('/backend/skill/browse', (req, res) => {
-        logger.info("Browse called.", { service: 'Backend'});
+        logger.debug("Browse called.", { service: 'Backend'});
         var params = { 
             socketID: "INVOCATION_CLIENT", 
             ip: req.query.ip, 
@@ -296,7 +296,7 @@ function runServer() {
 
     // Get a skill description
     app.get('/backend/skill/getDescription', (req, res) => {
-        logger.info("getDescription called.", { service: 'Backend'});
+        logger.debug("getDescription called.", { service: 'Backend'});
         var _skill_desc = req.query.skill_name;
         if(_skill_desc){
             try {
@@ -316,7 +316,7 @@ function runServer() {
 
     // Connect to a skill during the execution of a sequence
     app.get('/backend/skill/connect', (req, res) => {
-        logger.info("Skill connect called.", { service: 'Backend'});
+        logger.debug("Skill connect called.", { service: 'Backend'});
         var params = { 
             socketID: "INVOCATION_CLIENT", 
             ip: req.query.ip, 
@@ -368,7 +368,7 @@ function runServer() {
     
     // Monitor an OPC UA Node
     app.get('/backend/skill/monitorNode', (req, res) => {
-        logger.info("monitorNode called.", { service: 'Backend'});
+        logger.debug("monitorNode called.", { service: 'Backend'});
         var param = { 
             socketID: "INVOCATION_CLIENT", 
             ip: req.query.ip, 
@@ -386,7 +386,7 @@ function runServer() {
 
     // Monitor a skill result trigger node
     app.get('/backend/skill/monitorResultTrigger', (req, res) => {
-        logger.info("monitorResultTrigger called.", { service: 'Backend'});
+        logger.debug("monitorResultTrigger called.", { service: 'Backend'});
         var param = { 
                 socketID: "INVOCATION_CLIENT", 
                 ip: req.query.ip, 
@@ -404,7 +404,7 @@ function runServer() {
 
     // Write a skill triggervariable
     app.get('/backend/skill/writeRequestTrigger', (req, res) => {
-        logger.info("writeRequestTrigger called.", { service: 'Backend'});
+        logger.debug("writeRequestTrigger called.", { service: 'Backend'});
         let variable = { 
             socketID: "INVOCATION_CLIENT", 
             ip: req.query.ip, 
@@ -423,7 +423,7 @@ function runServer() {
 
     // Write skills parameters
     app.get('/backend/skill/writeRequestParameters', (req, res) => {
-        logger.info("writeRequestParameters called.", { service: 'Backend'});
+        logger.debug("writeRequestParameters called.", { service: 'Backend'});
         let variable = { 
             socketID: "INVOCATION_CLIENT", 
             ip: req.query.ip, 
@@ -441,7 +441,7 @@ function runServer() {
     });
 
     app.get('/backend/skill/readResultVariables', (req, res) => {
-        logger.info("readResultVariables called.", { service: 'Backend'});
+        logger.debug("readResultVariables called.", { service: 'Backend'});
         let variables = { 
             socketID: "INVOCATION_CLIENT", 
             ip: req.query.ip, 
@@ -458,7 +458,7 @@ function runServer() {
     });
 
     app.get('/backend/skill/checkBackendSkill', (req, res) => {
-        logger.info("checkBackendSkill ....", { service: 'Backend'});
+        logger.debug("checkBackendSkill ....", { service: 'Backend'});
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ err: null, results: 'OK' }));
     });
