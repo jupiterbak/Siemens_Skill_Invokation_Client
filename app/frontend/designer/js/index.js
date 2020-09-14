@@ -75,8 +75,8 @@ $(window).load(function () {
   });
 
   socket.on("connect", () => {
-    app = shape_designer.app = new Application()
+    app = shape_designer.app = new Application();
   });
 
 
-})
+});

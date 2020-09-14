@@ -64,29 +64,36 @@ function waitFor($config) {
     setTimeout(waitFor, $config.interval || 0, $config);
 }
 
+page.viewportSize = { width: 900, height: 900 };
 page.onConsoleMessage = function(msg, lineNum, sourceId) {
     console.log('CONSOLE: ' + msg + ' (from line #' + lineNum + ' in "' + sourceId + '")');
 };
-
-page.viewportSize = { width: 900, height: 900 };
-
+page.onError = function(msg, trace) {
+    var msgStack = ['ERROR: ' + msg];  
+    if (trace && trace.length) {
+      msgStack.push('TRACE:');
+      trace.forEach(function(t) {
+        msgStack.push(' -> ' + t.file + ': ' + t.line + (t.function ? ' (in function "' + t.function +'")' : ''));
+      });
+    }  
+    console.error(msgStack.join('\n'));  
+};
 page.open('http://localhost:7400/designer', function(status) {
-
-
-    console.log(status)
+    console.log('Status: ' + status);
     if (status === "success") {
         console.log("Processing: " + file);
         var json = JSON.parse(fs.read(file));
         var pkg = fileToPackage(file);
 
         if (json.draw2d) {
-            json = json.draw2d
+            json = json.draw2d;
         }
         json = JSON.stringify(json, undefined, 2)
         var code = fs.read(shape2CodePath("template.js"));
         fs.write(shape2CodePath("exporter.js"),
             "var json=" + json + ";\n" +
             "var pkg='" + pkg + "';\n" +
+            "console.log('App -->' + app);\n" +
             code);
         if (page.injectJs(shape2CodePath('exporter.js'))) {
             waitFor({
@@ -122,13 +129,20 @@ page.open('http://localhost:7400/designer', function(status) {
 
                         phantom.exit(0);
                     } catch (exc) {
-                        console.log(exc)
+                        console.log(exc);
+                        phantom.exit(0);
                     }
                 },
                 error: function() {
                         console.log("error found");
                     } // optional
             });
+        }else{
+            console.log("PhatomJS could not execute exporter.js");
+            phantom.exit(1);
         }
+    }else{
+        console.log("PhatomJS could not open the URL");
+        phantom.exit(1);
     }
 });

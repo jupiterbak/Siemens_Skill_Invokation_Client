@@ -233,7 +233,21 @@ function runServer() {
                 
                 // console.log("Generating skill images...");
                 console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                // childProcess.on('close', (code) => {
+                //     console.log(`child process close all stdio with code ${code}`);
+                // });
+                
+                // childProcess.on('exit', (code) => {
+                //     console.log(`child process exited with code ${code}`);
+                // });
+
+                // childProcess.on('disconnect', (code) => {
+                //     console.log(`child process exited with code ${code}`);
+                // });
+
                 childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+                    console.log(`stdout: ${stdout}`);
+                    
                     if (err){
                         console.error(`stderr: ${stderr}`);
                         // file could be saved but the index were not properly generated.
@@ -266,7 +280,7 @@ function runServer() {
                         });
                         console.log(`stdout: ${stdout}`);
                     }
-                })
+                });
             });
         });
     });

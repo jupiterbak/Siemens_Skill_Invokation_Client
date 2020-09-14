@@ -11,7 +11,7 @@ var Documentation_Text = draw2d.shape.basic.Text.extend({
             this.setText(event.value);
         });
 
-        this.attr("userData.text", "A simple text");
+        this.attr("userData.text", "A simple text description");
     },
 
     calculate: function( context )

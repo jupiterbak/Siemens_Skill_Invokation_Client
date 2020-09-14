@@ -100,10 +100,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************************************************!*\
   !*** ./app/frontend/circuit/images/status_index.svg ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/315422ff2631bcd8eb4d7936af8e5221.svg";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/d5bea5b2ddadc5903a542a07861b5eaf.svg");
 
 /***/ }),
 
@@ -111,10 +113,12 @@ module.exports = "js/webpack/315422ff2631bcd8eb4d7936af8e5221.svg";
 /*!************************************************************!*\
   !*** ./app/frontend/circuit/images/status_index_false.svg ***!
   \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/2e42a38742d659d0194903b051b31bfe.svg";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/0531baece5841b87554b28b6ea3a24c5.svg");
 
 /***/ }),
 
@@ -122,10 +126,12 @@ module.exports = "js/webpack/2e42a38742d659d0194903b051b31bfe.svg";
 /*!***********************************************************!*\
   !*** ./app/frontend/circuit/images/status_index_true.svg ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/f88fe1c86ab2d5c3755475105f478a14.svg";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/70dfa7b3577bd398e3102101cf42b2cd.svg");
 
 /***/ }),
 
@@ -423,7 +429,7 @@ var Application = function () {
 
 var app = new Application();
 exports.default = app;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -496,7 +502,7 @@ exports.default = {
     low: "#0078F2"
   }
 };
-module.exports = exports['default'];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -646,7 +652,7 @@ exports.default = draw2d.layout.connection.InteractiveManhattanConnectionRouter.
         conn.svgPathString = path.join("");
     }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -766,7 +772,7 @@ exports.default = draw2d.policy.line.OrthogonalSelectionFeedbackPolicy.extend({
     });
   }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -875,7 +881,7 @@ exports.default = draw2d.policy.canvas.DropInterceptorPolicy.extend({
   }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -1020,7 +1026,7 @@ exports.default = draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
     }
   }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -1198,7 +1204,7 @@ var Files = function () {
 }();
 
 exports.default = Files;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -1237,7 +1243,7 @@ exports.default = draw2d.ui.LabelInplaceEditor.extend({
     }, setter, getter);
   }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -1403,7 +1409,7 @@ var Palette = function () {
 }();
 
 exports.default = Palette;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -1652,7 +1658,7 @@ var ProbeWindow = function () {
 }();
 
 exports.default = ProbeWindow;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -1767,7 +1773,7 @@ exports.default = draw2d.policy.canvas.ReadOnlySelectionPolicy.extend({
     }
   }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -2570,7 +2576,7 @@ exports.default = draw2d.Canvas.extend({
         return new draw2d.geo.Point(x * (1 / this.zoomFactor) + this.getAbsoluteX(), y * (1 / this.zoomFactor) + this.getAbsoluteY());
     }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -2664,7 +2670,7 @@ var WindowLogger = function () {
 
 var application_log = new WindowLogger();
 exports.default = application_log;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -2798,7 +2804,7 @@ var BrowseSkillsDialog = function () {
 }();
 
 exports.default = BrowseSkillsDialog;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -2894,7 +2900,7 @@ exports.default = dialog = new (function () {
 
   return FigureConfigDialog;
 }())();
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -2963,7 +2969,7 @@ var FileNew = function () {
 }();
 
 exports.default = FileNew;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3084,7 +3090,7 @@ var FileOpen = function () {
 }();
 
 exports.default = FileOpen;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3173,7 +3179,7 @@ var FileSave = function () {
 }();
 
 exports.default = FileSave;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3193,7 +3199,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _remarkable = __webpack_require__(/*! remarkable */ "./node_modules/remarkable/index.js");
+var _remarkable = __webpack_require__(/*! remarkable */ "./node_modules/remarkable/dist/esm/index.browser.js");
 
 var _remarkable2 = _interopRequireDefault(_remarkable);
 
@@ -3229,7 +3235,7 @@ var MarkdownDialog = function () {
 }();
 
 exports.default = MarkdownDialog;
-module.exports = exports['default'];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3417,7 +3423,7 @@ var WebUSBHelpDialog = function () {
 }();
 
 exports.default = WebUSBHelpDialog;
-module.exports = exports['default'];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3682,7 +3688,7 @@ exports.default = draw2d.SetFigure.extend({
     }, this));
   }
 });
-module.exports = exports['default'];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3836,7 +3842,7 @@ exports.default = draw2d.Connection.extend({
 
 }); /*jshint evil:true */
 
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -3921,7 +3927,7 @@ exports.default = draw2d.InputPort.extend({
         return this.hasChangedValue() && !this.getValue();
     }
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4007,7 +4013,7 @@ exports.default = draw2d.OutputPort.extend({
   }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4186,7 +4192,7 @@ exports.default = draw2d.shape.layout.VerticalLayout.extend({
      *
      */
 
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4235,7 +4241,7 @@ exports.default = draw2d.shape.basic.Label.extend({
     }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4425,7 +4431,7 @@ exports.default = draw2d.shape.layout.HorizontalLayout.extend({
     }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4495,7 +4501,7 @@ var Locator = draw2d.layout.locator.Locator.extend(
 
 var locator = new Locator();
 exports.default = locator;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4577,7 +4583,7 @@ exports.default = draw2d.shape.basic.Label.extend({
     }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4677,7 +4683,7 @@ exports.default = draw2d.shape.composite.Raft.extend({
     }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -4788,7 +4794,7 @@ exports.default = {
   skillproxy: _BackendSkills2.default,
   application_log: _WindowLogger2.default
 };
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -5018,7 +5024,7 @@ exports.default = {
   }(_EventEmitter4.default))()
 
 };
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -5490,7 +5496,7 @@ var BackendSkills = function () {
 
 var skillproxy = new BackendSkills();
 exports.default = skillproxy;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -5674,7 +5680,7 @@ var BackendStorage = function () {
 
 var storage = new BackendStorage();
 exports.default = storage;
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -5696,7 +5702,7 @@ exports.default = {
     high: "#C21B7A",
     low: "#0078F2"
 };
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -5875,7 +5881,7 @@ exports.default = draw2d.shape.layout.VerticalLayout.extend({
      *
      */
 
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -5924,7 +5930,7 @@ exports.default = draw2d.shape.basic.Label.extend({
     }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -6112,7 +6118,7 @@ exports.default = draw2d.shape.layout.HorizontalLayout.extend({
     }
 
 });
-module.exports = exports["default"];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -6234,7 +6240,7 @@ var Serial = function () {
 }();
 
 exports.default = Serial;
-module.exports = exports['default'];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -6315,7 +6321,7 @@ var EventEmitter = function () {
 }();
 
 exports.default = EventEmitter;
-module.exports = exports['default'];
+module.exports = exports.default;
 
 /***/ }),
 
@@ -6426,26 +6432,25 @@ module.exports = exports['default'];
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var api = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/less-loader/dist/cjs.js!./index.less */ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./app/frontend/circuit/less/index.less");
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/less-loader/dist/cjs.js!./index.less */ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./app/frontend/circuit/less/index.less");
+            content = content.__esModule ? content.default : content;
 
-if(typeof content === 'string') content = [[module.i, content, '']];
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
 
-var transform;
-var insertInto;
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
 
 
 
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
+module.exports = content.locals || {};
 
 /***/ }),
 
@@ -6677,3786 +6682,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 /***/ }),
 
-/***/ "./node_modules/autolinker/dist/Autolinker.js":
-/*!****************************************************!*\
-  !*** ./node_modules/autolinker/dist/Autolinker.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * Autolinker.js
- * 0.28.1
- *
- * Copyright(c) 2016 Gregory Jacobs <greg@greg-jacobs.com>
- * MIT License
- *
- * https://github.com/gregjacobs/Autolinker.js
- */
-;(function(root, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
-}(this, function() {
-/**
- * @class Autolinker
- * @extends Object
- *
- * Utility class used to process a given string of text, and wrap the matches in
- * the appropriate anchor (&lt;a&gt;) tags to turn them into links.
- *
- * Any of the configuration options may be provided in an Object (map) provided
- * to the Autolinker constructor, which will configure how the {@link #link link()}
- * method will process the links.
- *
- * For example:
- *
- *     var autolinker = new Autolinker( {
- *         newWindow : false,
- *         truncate  : 30
- *     } );
- *
- *     var html = autolinker.link( "Joe went to www.yahoo.com" );
- *     // produces: 'Joe went to <a href="http://www.yahoo.com">yahoo.com</a>'
- *
- *
- * The {@link #static-link static link()} method may also be used to inline
- * options into a single call, which may be more convenient for one-off uses.
- * For example:
- *
- *     var html = Autolinker.link( "Joe went to www.yahoo.com", {
- *         newWindow : false,
- *         truncate  : 30
- *     } );
- *     // produces: 'Joe went to <a href="http://www.yahoo.com">yahoo.com</a>'
- *
- *
- * ## Custom Replacements of Links
- *
- * If the configuration options do not provide enough flexibility, a {@link #replaceFn}
- * may be provided to fully customize the output of Autolinker. This function is
- * called once for each URL/Email/Phone#/Twitter Handle/Hashtag match that is
- * encountered.
- *
- * For example:
- *
- *     var input = "...";  // string with URLs, Email Addresses, Phone #s, Twitter Handles, and Hashtags
- *
- *     var linkedText = Autolinker.link( input, {
- *         replaceFn : function( autolinker, match ) {
- *             console.log( "href = ", match.getAnchorHref() );
- *             console.log( "text = ", match.getAnchorText() );
- *
- *             switch( match.getType() ) {
- *                 case 'url' :
- *                     console.log( "url: ", match.getUrl() );
- *
- *                     if( match.getUrl().indexOf( 'mysite.com' ) === -1 ) {
- *                         var tag = autolinker.getTagBuilder().build( match );  // returns an `Autolinker.HtmlTag` instance, which provides mutator methods for easy changes
- *                         tag.setAttr( 'rel', 'nofollow' );
- *                         tag.addClass( 'external-link' );
- *
- *                         return tag;
- *
- *                     } else {
- *                         return true;  // let Autolinker perform its normal anchor tag replacement
- *                     }
- *
- *                 case 'email' :
- *                     var email = match.getEmail();
- *                     console.log( "email: ", email );
- *
- *                     if( email === "my@own.address" ) {
- *                         return false;  // don't auto-link this particular email address; leave as-is
- *                     } else {
- *                         return;  // no return value will have Autolinker perform its normal anchor tag replacement (same as returning `true`)
- *                     }
- *
- *                 case 'phone' :
- *                     var phoneNumber = match.getPhoneNumber();
- *                     console.log( phoneNumber );
- *
- *                     return '<a href="http://newplace.to.link.phone.numbers.to/">' + phoneNumber + '</a>';
- *
- *                 case 'twitter' :
- *                     var twitterHandle = match.getTwitterHandle();
- *                     console.log( twitterHandle );
- *
- *                     return '<a href="http://newplace.to.link.twitter.handles.to/">' + twitterHandle + '</a>';
- *
- *                 case 'hashtag' :
- *                     var hashtag = match.getHashtag();
- *                     console.log( hashtag );
- *
- *                     return '<a href="http://newplace.to.link.hashtag.handles.to/">' + hashtag + '</a>';
- *             }
- *         }
- *     } );
- *
- *
- * The function may return the following values:
- *
- * - `true` (Boolean): Allow Autolinker to replace the match as it normally
- *   would.
- * - `false` (Boolean): Do not replace the current match at all - leave as-is.
- * - Any String: If a string is returned from the function, the string will be
- *   used directly as the replacement HTML for the match.
- * - An {@link Autolinker.HtmlTag} instance, which can be used to build/modify
- *   an HTML tag before writing out its HTML text.
- *
- * @constructor
- * @param {Object} [cfg] The configuration options for the Autolinker instance,
- *   specified in an Object (map).
- */
-var Autolinker = function( cfg ) {
-	cfg = cfg || {};
-
-	this.version = Autolinker.version;
-
-	this.urls = this.normalizeUrlsCfg( cfg.urls );
-	this.email = typeof cfg.email === 'boolean' ? cfg.email : true;
-	this.twitter = typeof cfg.twitter === 'boolean' ? cfg.twitter : true;
-	this.phone = typeof cfg.phone === 'boolean' ? cfg.phone : true;
-	this.hashtag = cfg.hashtag || false;
-	this.newWindow = typeof cfg.newWindow === 'boolean' ? cfg.newWindow : true;
-	this.stripPrefix = typeof cfg.stripPrefix === 'boolean' ? cfg.stripPrefix : true;
-
-	// Validate the value of the `hashtag` cfg.
-	var hashtag = this.hashtag;
-	if( hashtag !== false && hashtag !== 'twitter' && hashtag !== 'facebook' && hashtag !== 'instagram' ) {
-		throw new Error( "invalid `hashtag` cfg - see docs" );
-	}
-
-	this.truncate = this.normalizeTruncateCfg( cfg.truncate );
-	this.className = cfg.className || '';
-	this.replaceFn = cfg.replaceFn || null;
-
-	this.htmlParser = null;
-	this.matchers = null;
-	this.tagBuilder = null;
-};
-
-
-
-/**
- * Automatically links URLs, Email addresses, Phone Numbers, Twitter handles,
- * and Hashtags found in the given chunk of HTML. Does not link URLs found
- * within HTML tags.
- *
- * For instance, if given the text: `You should go to http://www.yahoo.com`,
- * then the result will be `You should go to &lt;a href="http://www.yahoo.com"&gt;http://www.yahoo.com&lt;/a&gt;`
- *
- * Example:
- *
- *     var linkedText = Autolinker.link( "Go to google.com", { newWindow: false } );
- *     // Produces: "Go to <a href="http://google.com">google.com</a>"
- *
- * @static
- * @param {String} textOrHtml The HTML or text to find matches within (depending
- *   on if the {@link #urls}, {@link #email}, {@link #phone}, {@link #twitter},
- *   and {@link #hashtag} options are enabled).
- * @param {Object} [options] Any of the configuration options for the Autolinker
- *   class, specified in an Object (map). See the class description for an
- *   example call.
- * @return {String} The HTML text, with matches automatically linked.
- */
-Autolinker.link = function( textOrHtml, options ) {
-	var autolinker = new Autolinker( options );
-	return autolinker.link( textOrHtml );
-};
-
-
-/**
- * @static
- * @property {String} version (readonly)
- *
- * The Autolinker version number in the form major.minor.patch
- *
- * Ex: 0.25.1
- */
-Autolinker.version = '0.28.1';
-
-
-Autolinker.prototype = {
-	constructor : Autolinker,  // fix constructor property
-
-	/**
-	 * @cfg {Boolean/Object} [urls=true]
-	 *
-	 * `true` if URLs should be automatically linked, `false` if they should not
-	 * be.
-	 *
-	 * This option also accepts an Object form with 3 properties, to allow for
-	 * more customization of what exactly gets linked. All default to `true`:
-	 *
-	 * @param {Boolean} schemeMatches `true` to match URLs found prefixed with a
-	 *   scheme, i.e. `http://google.com`, or `other+scheme://google.com`,
-	 *   `false` to prevent these types of matches.
-	 * @param {Boolean} wwwMatches `true` to match urls found prefixed with
-	 *   `'www.'`, i.e. `www.google.com`. `false` to prevent these types of
-	 *   matches. Note that if the URL had a prefixed scheme, and
-	 *   `schemeMatches` is true, it will still be linked.
-	 * @param {Boolean} tldMatches `true` to match URLs with known top level
-	 *   domains (.com, .net, etc.) that are not prefixed with a scheme or
-	 *   `'www.'`. This option attempts to match anything that looks like a URL
-	 *   in the given text. Ex: `google.com`, `asdf.org/?page=1`, etc. `false`
-	 *   to prevent these types of matches.
-	 */
-
-	/**
-	 * @cfg {Boolean} [email=true]
-	 *
-	 * `true` if email addresses should be automatically linked, `false` if they
-	 * should not be.
-	 */
-
-	/**
-	 * @cfg {Boolean} [twitter=true]
-	 *
-	 * `true` if Twitter handles ("@example") should be automatically linked,
-	 * `false` if they should not be.
-	 */
-
-	/**
-	 * @cfg {Boolean} [phone=true]
-	 *
-	 * `true` if Phone numbers ("(555)555-5555") should be automatically linked,
-	 * `false` if they should not be.
-	 */
-
-	/**
-	 * @cfg {Boolean/String} [hashtag=false]
-	 *
-	 * A string for the service name to have hashtags (ex: "#myHashtag")
-	 * auto-linked to. The currently-supported values are:
-	 *
-	 * - 'twitter'
-	 * - 'facebook'
-	 * - 'instagram'
-	 *
-	 * Pass `false` to skip auto-linking of hashtags.
-	 */
-
-	/**
-	 * @cfg {Boolean} [newWindow=true]
-	 *
-	 * `true` if the links should open in a new window, `false` otherwise.
-	 */
-
-	/**
-	 * @cfg {Boolean} [stripPrefix=true]
-	 *
-	 * `true` if 'http://' or 'https://' and/or the 'www.' should be stripped
-	 * from the beginning of URL links' text, `false` otherwise.
-	 */
-
-	/**
-	 * @cfg {Number/Object} [truncate=0]
-	 *
-	 * ## Number Form
-	 *
-	 * A number for how many characters matched text should be truncated to
-	 * inside the text of a link. If the matched text is over this number of
-	 * characters, it will be truncated to this length by adding a two period
-	 * ellipsis ('..') to the end of the string.
-	 *
-	 * For example: A url like 'http://www.yahoo.com/some/long/path/to/a/file'
-	 * truncated to 25 characters might look something like this:
-	 * 'yahoo.com/some/long/pat..'
-	 *
-	 * Example Usage:
-	 *
-	 *     truncate: 25
-	 *
-	 *
-	 *  Defaults to `0` for "no truncation."
-	 *
-	 *
-	 * ## Object Form
-	 *
-	 * An Object may also be provided with two properties: `length` (Number) and
-	 * `location` (String). `location` may be one of the following: 'end'
-	 * (default), 'middle', or 'smart'.
-	 *
-	 * Example Usage:
-	 *
-	 *     truncate: { length: 25, location: 'middle' }
-	 *
-	 * @cfg {Number} [truncate.length=0] How many characters to allow before
-	 *   truncation will occur. Defaults to `0` for "no truncation."
-	 * @cfg {"end"/"middle"/"smart"} [truncate.location="end"]
-	 *
-	 * - 'end' (default): will truncate up to the number of characters, and then
-	 *   add an ellipsis at the end. Ex: 'yahoo.com/some/long/pat..'
-	 * - 'middle': will truncate and add the ellipsis in the middle. Ex:
-	 *   'yahoo.com/s..th/to/a/file'
-	 * - 'smart': for URLs where the algorithm attempts to strip out unnecessary
-	 *   parts first (such as the 'www.', then URL scheme, hash, etc.),
-	 *   attempting to make the URL human-readable before looking for a good
-	 *   point to insert the ellipsis if it is still too long. Ex:
-	 *   'yahoo.com/some..to/a/file'. For more details, see
-	 *   {@link Autolinker.truncate.TruncateSmart}.
-	 */
-
-	/**
-	 * @cfg {String} className
-	 *
-	 * A CSS class name to add to the generated links. This class will be added
-	 * to all links, as well as this class plus match suffixes for styling
-	 * url/email/phone/twitter/hashtag links differently.
-	 *
-	 * For example, if this config is provided as "myLink", then:
-	 *
-	 * - URL links will have the CSS classes: "myLink myLink-url"
-	 * - Email links will have the CSS classes: "myLink myLink-email", and
-	 * - Twitter links will have the CSS classes: "myLink myLink-twitter"
-	 * - Phone links will have the CSS classes: "myLink myLink-phone"
-	 * - Hashtag links will have the CSS classes: "myLink myLink-hashtag"
-	 */
-
-	/**
-	 * @cfg {Function} replaceFn
-	 *
-	 * A function to individually process each match found in the input string.
-	 *
-	 * See the class's description for usage.
-	 *
-	 * This function is called with the following parameters:
-	 *
-	 * @cfg {Autolinker} replaceFn.autolinker The Autolinker instance, which may
-	 *   be used to retrieve child objects from (such as the instance's
-	 *   {@link #getTagBuilder tag builder}).
-	 * @cfg {Autolinker.match.Match} replaceFn.match The Match instance which
-	 *   can be used to retrieve information about the match that the `replaceFn`
-	 *   is currently processing. See {@link Autolinker.match.Match} subclasses
-	 *   for details.
-	 */
-
-
-	/**
-	 * @property {String} version (readonly)
-	 *
-	 * The Autolinker version number in the form major.minor.patch
-	 *
-	 * Ex: 0.25.1
-	 */
-
-	/**
-	 * @private
-	 * @property {Autolinker.htmlParser.HtmlParser} htmlParser
-	 *
-	 * The HtmlParser instance used to skip over HTML tags, while finding text
-	 * nodes to process. This is lazily instantiated in the {@link #getHtmlParser}
-	 * method.
-	 */
-
-	/**
-	 * @private
-	 * @property {Autolinker.matcher.Matcher[]} matchers
-	 *
-	 * The {@link Autolinker.matcher.Matcher} instances for this Autolinker
-	 * instance.
-	 *
-	 * This is lazily created in {@link #getMatchers}.
-	 */
-
-	/**
-	 * @private
-	 * @property {Autolinker.AnchorTagBuilder} tagBuilder
-	 *
-	 * The AnchorTagBuilder instance used to build match replacement anchor tags.
-	 * Note: this is lazily instantiated in the {@link #getTagBuilder} method.
-	 */
-
-
-	/**
-	 * Normalizes the {@link #urls} config into an Object with 3 properties:
-	 * `schemeMatches`, `wwwMatches`, and `tldMatches`, all Booleans.
-	 *
-	 * See {@link #urls} config for details.
-	 *
-	 * @private
-	 * @param {Boolean/Object} urls
-	 * @return {Object}
-	 */
-	normalizeUrlsCfg : function( urls ) {
-		if( urls == null ) urls = true;  // default to `true`
-
-		if( typeof urls === 'boolean' ) {
-			return { schemeMatches: urls, wwwMatches: urls, tldMatches: urls };
-
-		} else {  // object form
-			return {
-				schemeMatches : typeof urls.schemeMatches === 'boolean' ? urls.schemeMatches : true,
-				wwwMatches    : typeof urls.wwwMatches === 'boolean'    ? urls.wwwMatches    : true,
-				tldMatches    : typeof urls.tldMatches === 'boolean'    ? urls.tldMatches    : true
-			};
-		}
-	},
-
-
-	/**
-	 * Normalizes the {@link #truncate} config into an Object with 2 properties:
-	 * `length` (Number), and `location` (String).
-	 *
-	 * See {@link #truncate} config for details.
-	 *
-	 * @private
-	 * @param {Number/Object} truncate
-	 * @return {Object}
-	 */
-	normalizeTruncateCfg : function( truncate ) {
-		if( typeof truncate === 'number' ) {
-			return { length: truncate, location: 'end' };
-
-		} else {  // object, or undefined/null
-			return Autolinker.Util.defaults( truncate || {}, {
-				length   : Number.POSITIVE_INFINITY,
-				location : 'end'
-			} );
-		}
-	},
-
-
-	/**
-	 * Parses the input `textOrHtml` looking for URLs, email addresses, phone
-	 * numbers, username handles, and hashtags (depending on the configuration
-	 * of the Autolinker instance), and returns an array of {@link Autolinker.match.Match}
-	 * objects describing those matches.
-	 *
-	 * This method is used by the {@link #link} method, but can also be used to
-	 * simply do parsing of the input in order to discover what kinds of links
-	 * there are and how many.
-	 *
-	 * @param {String} textOrHtml The HTML or text to find matches within
-	 *   (depending on if the {@link #urls}, {@link #email}, {@link #phone},
-	 *   {@link #twitter}, and {@link #hashtag} options are enabled).
-	 * @return {Autolinker.match.Match[]} The array of Matches found in the
-	 *   given input `textOrHtml`.
-	 */
-	parse : function( textOrHtml ) {
-		var htmlParser = this.getHtmlParser(),
-		    htmlNodes = htmlParser.parse( textOrHtml ),
-		    anchorTagStackCount = 0,  // used to only process text around anchor tags, and any inner text/html they may have;
-		    matches = [];
-
-		// Find all matches within the `textOrHtml` (but not matches that are
-		// already nested within <a> tags)
-		for( var i = 0, len = htmlNodes.length; i < len; i++ ) {
-			var node = htmlNodes[ i ],
-			    nodeType = node.getType();
-
-			if( nodeType === 'element' && node.getTagName() === 'a' ) {  // Process HTML anchor element nodes in the input `textOrHtml` to find out when we're within an <a> tag
-				if( !node.isClosing() ) {  // it's the start <a> tag
-					anchorTagStackCount++;
-				} else {  // it's the end </a> tag
-					anchorTagStackCount = Math.max( anchorTagStackCount - 1, 0 );  // attempt to handle extraneous </a> tags by making sure the stack count never goes below 0
-				}
-
-			} else if( nodeType === 'text' && anchorTagStackCount === 0 ) {  // Process text nodes that are not within an <a> tag
-				var textNodeMatches = this.parseText( node.getText(), node.getOffset() );
-
-				matches.push.apply( matches, textNodeMatches );
-			}
-		}
-
-
-		// After we have found all matches, remove subsequent matches that
-		// overlap with a previous match. This can happen for instance with URLs,
-		// where the url 'google.com/#link' would match '#link' as a hashtag.
-		matches = this.compactMatches( matches );
-
-		// And finally, remove matches for match types that have been turned
-		// off. We needed to have all match types turned on initially so that
-		// things like hashtags could be filtered out if they were really just
-		// part of a URL match (for instance, as a named anchor).
-		matches = this.removeUnwantedMatches( matches );
-
-		return matches;
-	},
-
-
-	/**
-	 * After we have found all matches, we need to remove subsequent matches
-	 * that overlap with a previous match. This can happen for instance with
-	 * URLs, where the url 'google.com/#link' would match '#link' as a hashtag.
-	 *
-	 * @private
-	 * @param {Autolinker.match.Match[]} matches
-	 * @return {Autolinker.match.Match[]}
-	 */
-	compactMatches : function( matches ) {
-		// First, the matches need to be sorted in order of offset
-		matches.sort( function( a, b ) { return a.getOffset() - b.getOffset(); } );
-
-		for( var i = 0; i < matches.length - 1; i++ ) {
-			var match = matches[ i ],
-			    endIdx = match.getOffset() + match.getMatchedText().length;
-
-			// Remove subsequent matches that overlap with the current match
-			while( i + 1 < matches.length && matches[ i + 1 ].getOffset() <= endIdx ) {
-				matches.splice( i + 1, 1 );
-			}
-		}
-
-		return matches;
-	},
-
-
-	/**
-	 * Removes matches for matchers that were turned off in the options. For
-	 * example, if {@link #hashtag hashtags} were not to be matched, we'll
-	 * remove them from the `matches` array here.
-	 *
-	 * @private
-	 * @param {Autolinker.match.Match[]} matches The array of matches to remove
-	 *   the unwanted matches from. Note: this array is mutated for the
-	 *   removals.
-	 * @return {Autolinker.match.Match[]} The mutated input `matches` array.
-	 */
-	removeUnwantedMatches : function( matches ) {
-		var remove = Autolinker.Util.remove;
-
-		if( !this.hashtag ) remove( matches, function( match ) { return match.getType() === 'hashtag'; } );
-		if( !this.email )   remove( matches, function( match ) { return match.getType() === 'email'; } );
-		if( !this.phone )   remove( matches, function( match ) { return match.getType() === 'phone'; } );
-		if( !this.twitter ) remove( matches, function( match ) { return match.getType() === 'twitter'; } );
-		if( !this.urls.schemeMatches ) {
-			remove( matches, function( m ) { return m.getType() === 'url' && m.getUrlMatchType() === 'scheme'; } );
-		}
-		if( !this.urls.wwwMatches ) {
-			remove( matches, function( m ) { return m.getType() === 'url' && m.getUrlMatchType() === 'www'; } );
-		}
-		if( !this.urls.tldMatches ) {
-			remove( matches, function( m ) { return m.getType() === 'url' && m.getUrlMatchType() === 'tld'; } );
-		}
-
-		return matches;
-	},
-
-
-	/**
-	 * Parses the input `text` looking for URLs, email addresses, phone
-	 * numbers, username handles, and hashtags (depending on the configuration
-	 * of the Autolinker instance), and returns an array of {@link Autolinker.match.Match}
-	 * objects describing those matches.
-	 *
-	 * This method processes a **non-HTML string**, and is used to parse and
-	 * match within the text nodes of an HTML string. This method is used
-	 * internally by {@link #parse}.
-	 *
-	 * @private
-	 * @param {String} text The text to find matches within (depending on if the
-	 *   {@link #urls}, {@link #email}, {@link #phone}, {@link #twitter}, and
-	 *   {@link #hashtag} options are enabled). This must be a non-HTML string.
-	 * @param {Number} [offset=0] The offset of the text node within the
-	 *   original string. This is used when parsing with the {@link #parse}
-	 *   method to generate correct offsets within the {@link Autolinker.match.Match}
-	 *   instances, but may be omitted if calling this method publicly.
-	 * @return {Autolinker.match.Match[]} The array of Matches found in the
-	 *   given input `text`.
-	 */
-	parseText : function( text, offset ) {
-		offset = offset || 0;
-		var matchers = this.getMatchers(),
-		    matches = [];
-
-		for( var i = 0, numMatchers = matchers.length; i < numMatchers; i++ ) {
-			var textMatches = matchers[ i ].parseMatches( text );
-
-			// Correct the offset of each of the matches. They are originally
-			// the offset of the match within the provided text node, but we
-			// need to correct them to be relative to the original HTML input
-			// string (i.e. the one provided to #parse).
-			for( var j = 0, numTextMatches = textMatches.length; j < numTextMatches; j++ ) {
-				textMatches[ j ].setOffset( offset + textMatches[ j ].getOffset() );
-			}
-
-			matches.push.apply( matches, textMatches );
-		}
-		return matches;
-	},
-
-
-	/**
-	 * Automatically links URLs, Email addresses, Phone numbers, Twitter
-	 * handles, and Hashtags found in the given chunk of HTML. Does not link
-	 * URLs found within HTML tags.
-	 *
-	 * For instance, if given the text: `You should go to http://www.yahoo.com`,
-	 * then the result will be `You should go to
-	 * &lt;a href="http://www.yahoo.com"&gt;http://www.yahoo.com&lt;/a&gt;`
-	 *
-	 * This method finds the text around any HTML elements in the input
-	 * `textOrHtml`, which will be the text that is processed. Any original HTML
-	 * elements will be left as-is, as well as the text that is already wrapped
-	 * in anchor (&lt;a&gt;) tags.
-	 *
-	 * @param {String} textOrHtml The HTML or text to autolink matches within
-	 *   (depending on if the {@link #urls}, {@link #email}, {@link #phone},
-	 *   {@link #twitter}, and {@link #hashtag} options are enabled).
-	 * @return {String} The HTML, with matches automatically linked.
-	 */
-	link : function( textOrHtml ) {
-		if( !textOrHtml ) { return ""; }  // handle `null` and `undefined`
-
-		var matches = this.parse( textOrHtml ),
-			newHtml = [],
-			lastIndex = 0;
-
-		for( var i = 0, len = matches.length; i < len; i++ ) {
-			var match = matches[ i ];
-
-			newHtml.push( textOrHtml.substring( lastIndex, match.getOffset() ) );
-			newHtml.push( this.createMatchReturnVal( match ) );
-
-			lastIndex = match.getOffset() + match.getMatchedText().length;
-		}
-		newHtml.push( textOrHtml.substring( lastIndex ) );  // handle the text after the last match
-
-		return newHtml.join( '' );
-	},
-
-
-	/**
-	 * Creates the return string value for a given match in the input string.
-	 *
-	 * This method handles the {@link #replaceFn}, if one was provided.
-	 *
-	 * @private
-	 * @param {Autolinker.match.Match} match The Match object that represents
-	 *   the match.
-	 * @return {String} The string that the `match` should be replaced with.
-	 *   This is usually the anchor tag string, but may be the `matchStr` itself
-	 *   if the match is not to be replaced.
-	 */
-	createMatchReturnVal : function( match ) {
-		// Handle a custom `replaceFn` being provided
-		var replaceFnResult;
-		if( this.replaceFn ) {
-			replaceFnResult = this.replaceFn.call( this, this, match );  // Autolinker instance is the context, and the first arg
-		}
-
-		if( typeof replaceFnResult === 'string' ) {
-			return replaceFnResult;  // `replaceFn` returned a string, use that
-
-		} else if( replaceFnResult === false ) {
-			return match.getMatchedText();  // no replacement for the match
-
-		} else if( replaceFnResult instanceof Autolinker.HtmlTag ) {
-			return replaceFnResult.toAnchorString();
-
-		} else {  // replaceFnResult === true, or no/unknown return value from function
-			// Perform Autolinker's default anchor tag generation
-			var anchorTag = match.buildTag();  // returns an Autolinker.HtmlTag instance
-
-			return anchorTag.toAnchorString();
-		}
-	},
-
-
-	/**
-	 * Lazily instantiates and returns the {@link #htmlParser} instance for this
-	 * Autolinker instance.
-	 *
-	 * @protected
-	 * @return {Autolinker.htmlParser.HtmlParser}
-	 */
-	getHtmlParser : function() {
-		var htmlParser = this.htmlParser;
-
-		if( !htmlParser ) {
-			htmlParser = this.htmlParser = new Autolinker.htmlParser.HtmlParser();
-		}
-
-		return htmlParser;
-	},
-
-
-	/**
-	 * Lazily instantiates and returns the {@link Autolinker.matcher.Matcher}
-	 * instances for this Autolinker instance.
-	 *
-	 * @protected
-	 * @return {Autolinker.matcher.Matcher[]}
-	 */
-	getMatchers : function() {
-		if( !this.matchers ) {
-			var matchersNs = Autolinker.matcher,
-			    tagBuilder = this.getTagBuilder();
-
-			var matchers = [
-				new matchersNs.Hashtag( { tagBuilder: tagBuilder, serviceName: this.hashtag } ),
-				new matchersNs.Email( { tagBuilder: tagBuilder } ),
-				new matchersNs.Phone( { tagBuilder: tagBuilder } ),
-				new matchersNs.Twitter( { tagBuilder: tagBuilder } ),
-				new matchersNs.Url( { tagBuilder: tagBuilder, stripPrefix: this.stripPrefix } )
-			];
-
-			return ( this.matchers = matchers );
-
-		} else {
-			return this.matchers;
-		}
-	},
-
-
-	/**
-	 * Returns the {@link #tagBuilder} instance for this Autolinker instance, lazily instantiating it
-	 * if it does not yet exist.
-	 *
-	 * This method may be used in a {@link #replaceFn} to generate the {@link Autolinker.HtmlTag HtmlTag} instance that
-	 * Autolinker would normally generate, and then allow for modifications before returning it. For example:
-	 *
-	 *     var html = Autolinker.link( "Test google.com", {
-	 *         replaceFn : function( autolinker, match ) {
-	 *             var tag = autolinker.getTagBuilder().build( match );  // returns an {@link Autolinker.HtmlTag} instance
-	 *             tag.setAttr( 'rel', 'nofollow' );
-	 *
-	 *             return tag;
-	 *         }
-	 *     } );
-	 *
-	 *     // generated html:
-	 *     //   Test <a href="http://google.com" target="_blank" rel="nofollow">google.com</a>
-	 *
-	 * @return {Autolinker.AnchorTagBuilder}
-	 */
-	getTagBuilder : function() {
-		var tagBuilder = this.tagBuilder;
-
-		if( !tagBuilder ) {
-			tagBuilder = this.tagBuilder = new Autolinker.AnchorTagBuilder( {
-				newWindow   : this.newWindow,
-				truncate    : this.truncate,
-				className   : this.className
-			} );
-		}
-
-		return tagBuilder;
-	}
-
-};
-
-
-// Autolinker Namespaces
-
-Autolinker.match = {};
-Autolinker.matcher = {};
-Autolinker.htmlParser = {};
-Autolinker.truncate = {};
-
-/*global Autolinker */
-/*jshint eqnull:true, boss:true */
-/**
- * @class Autolinker.Util
- * @singleton
- *
- * A few utility methods for Autolinker.
- */
-Autolinker.Util = {
-
-	/**
-	 * @property {Function} abstractMethod
-	 *
-	 * A function object which represents an abstract method.
-	 */
-	abstractMethod : function() { throw "abstract"; },
-
-
-	/**
-	 * @private
-	 * @property {RegExp} trimRegex
-	 *
-	 * The regular expression used to trim the leading and trailing whitespace
-	 * from a string.
-	 */
-	trimRegex : /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
-
-
-	/**
-	 * Assigns (shallow copies) the properties of `src` onto `dest`.
-	 *
-	 * @param {Object} dest The destination object.
-	 * @param {Object} src The source object.
-	 * @return {Object} The destination object (`dest`)
-	 */
-	assign : function( dest, src ) {
-		for( var prop in src ) {
-			if( src.hasOwnProperty( prop ) ) {
-				dest[ prop ] = src[ prop ];
-			}
-		}
-
-		return dest;
-	},
-
-
-	/**
-	 * Assigns (shallow copies) the properties of `src` onto `dest`, if the
-	 * corresponding property on `dest` === `undefined`.
-	 *
-	 * @param {Object} dest The destination object.
-	 * @param {Object} src The source object.
-	 * @return {Object} The destination object (`dest`)
-	 */
-	defaults : function( dest, src ) {
-		for( var prop in src ) {
-			if( src.hasOwnProperty( prop ) && dest[ prop ] === undefined ) {
-				dest[ prop ] = src[ prop ];
-			}
-		}
-
-		return dest;
-	},
-
-
-	/**
-	 * Extends `superclass` to create a new subclass, adding the `protoProps` to the new subclass's prototype.
-	 *
-	 * @param {Function} superclass The constructor function for the superclass.
-	 * @param {Object} protoProps The methods/properties to add to the subclass's prototype. This may contain the
-	 *   special property `constructor`, which will be used as the new subclass's constructor function.
-	 * @return {Function} The new subclass function.
-	 */
-	extend : function( superclass, protoProps ) {
-		var superclassProto = superclass.prototype;
-
-		var F = function() {};
-		F.prototype = superclassProto;
-
-		var subclass;
-		if( protoProps.hasOwnProperty( 'constructor' ) ) {
-			subclass = protoProps.constructor;
-		} else {
-			subclass = function() { superclassProto.constructor.apply( this, arguments ); };
-		}
-
-		var subclassProto = subclass.prototype = new F();  // set up prototype chain
-		subclassProto.constructor = subclass;  // fix constructor property
-		subclassProto.superclass = superclassProto;
-
-		delete protoProps.constructor;  // don't re-assign constructor property to the prototype, since a new function may have been created (`subclass`), which is now already there
-		Autolinker.Util.assign( subclassProto, protoProps );
-
-		return subclass;
-	},
-
-
-	/**
-	 * Truncates the `str` at `len - ellipsisChars.length`, and adds the `ellipsisChars` to the
-	 * end of the string (by default, two periods: '..'). If the `str` length does not exceed
-	 * `len`, the string will be returned unchanged.
-	 *
-	 * @param {String} str The string to truncate and add an ellipsis to.
-	 * @param {Number} truncateLen The length to truncate the string at.
-	 * @param {String} [ellipsisChars=..] The ellipsis character(s) to add to the end of `str`
-	 *   when truncated. Defaults to '..'
-	 */
-	ellipsis : function( str, truncateLen, ellipsisChars ) {
-		if( str.length > truncateLen ) {
-			ellipsisChars = ( ellipsisChars == null ) ? '..' : ellipsisChars;
-			str = str.substring( 0, truncateLen - ellipsisChars.length ) + ellipsisChars;
-		}
-		return str;
-	},
-
-
-	/**
-	 * Supports `Array.prototype.indexOf()` functionality for old IE (IE8 and below).
-	 *
-	 * @param {Array} arr The array to find an element of.
-	 * @param {*} element The element to find in the array, and return the index of.
-	 * @return {Number} The index of the `element`, or -1 if it was not found.
-	 */
-	indexOf : function( arr, element ) {
-		if( Array.prototype.indexOf ) {
-			return arr.indexOf( element );
-
-		} else {
-			for( var i = 0, len = arr.length; i < len; i++ ) {
-				if( arr[ i ] === element ) return i;
-			}
-			return -1;
-		}
-	},
-
-
-	/**
-	 * Removes array elements based on a filtering function. Mutates the input
-	 * array.
-	 *
-	 * Using this instead of the ES5 Array.prototype.filter() function, to allow
-	 * Autolinker compatibility with IE8, and also to prevent creating many new
-	 * arrays in memory for filtering.
-	 *
-	 * @param {Array} arr The array to remove elements from. This array is
-	 *   mutated.
-	 * @param {Function} fn A function which should return `true` to
-	 *   remove an element.
-	 * @return {Array} The mutated input `arr`.
-	 */
-	remove : function( arr, fn ) {
-		for( var i = arr.length - 1; i >= 0; i-- ) {
-			if( fn( arr[ i ] ) === true ) {
-				arr.splice( i, 1 );
-			}
-		}
-	},
-
-
-	/**
-	 * Performs the functionality of what modern browsers do when `String.prototype.split()` is called
-	 * with a regular expression that contains capturing parenthesis.
-	 *
-	 * For example:
-	 *
-	 *     // Modern browsers:
-	 *     "a,b,c".split( /(,)/ );  // --> [ 'a', ',', 'b', ',', 'c' ]
-	 *
-	 *     // Old IE (including IE8):
-	 *     "a,b,c".split( /(,)/ );  // --> [ 'a', 'b', 'c' ]
-	 *
-	 * This method emulates the functionality of modern browsers for the old IE case.
-	 *
-	 * @param {String} str The string to split.
-	 * @param {RegExp} splitRegex The regular expression to split the input `str` on. The splitting
-	 *   character(s) will be spliced into the array, as in the "modern browsers" example in the
-	 *   description of this method.
-	 *   Note #1: the supplied regular expression **must** have the 'g' flag specified.
-	 *   Note #2: for simplicity's sake, the regular expression does not need
-	 *   to contain capturing parenthesis - it will be assumed that any match has them.
-	 * @return {String[]} The split array of strings, with the splitting character(s) included.
-	 */
-	splitAndCapture : function( str, splitRegex ) {
-		if( !splitRegex.global ) throw new Error( "`splitRegex` must have the 'g' flag set" );
-
-		var result = [],
-		    lastIdx = 0,
-		    match;
-
-		while( match = splitRegex.exec( str ) ) {
-			result.push( str.substring( lastIdx, match.index ) );
-			result.push( match[ 0 ] );  // push the splitting char(s)
-
-			lastIdx = match.index + match[ 0 ].length;
-		}
-		result.push( str.substring( lastIdx ) );
-
-		return result;
-	},
-
-
-	/**
-	 * Trims the leading and trailing whitespace from a string.
-	 *
-	 * @param {String} str The string to trim.
-	 * @return {String}
-	 */
-	trim : function( str ) {
-		return str.replace( this.trimRegex, '' );
-	}
-
-};
-/*global Autolinker */
-/*jshint boss:true */
-/**
- * @class Autolinker.HtmlTag
- * @extends Object
- *
- * Represents an HTML tag, which can be used to easily build/modify HTML tags programmatically.
- *
- * Autolinker uses this abstraction to create HTML tags, and then write them out as strings. You may also use
- * this class in your code, especially within a {@link Autolinker#replaceFn replaceFn}.
- *
- * ## Examples
- *
- * Example instantiation:
- *
- *     var tag = new Autolinker.HtmlTag( {
- *         tagName : 'a',
- *         attrs   : { 'href': 'http://google.com', 'class': 'external-link' },
- *         innerHtml : 'Google'
- *     } );
- *
- *     tag.toAnchorString();  // <a href="http://google.com" class="external-link">Google</a>
- *
- *     // Individual accessor methods
- *     tag.getTagName();                 // 'a'
- *     tag.getAttr( 'href' );            // 'http://google.com'
- *     tag.hasClass( 'external-link' );  // true
- *
- *
- * Using mutator methods (which may be used in combination with instantiation config properties):
- *
- *     var tag = new Autolinker.HtmlTag();
- *     tag.setTagName( 'a' );
- *     tag.setAttr( 'href', 'http://google.com' );
- *     tag.addClass( 'external-link' );
- *     tag.setInnerHtml( 'Google' );
- *
- *     tag.getTagName();                 // 'a'
- *     tag.getAttr( 'href' );            // 'http://google.com'
- *     tag.hasClass( 'external-link' );  // true
- *
- *     tag.toAnchorString();  // <a href="http://google.com" class="external-link">Google</a>
- *
- *
- * ## Example use within a {@link Autolinker#replaceFn replaceFn}
- *
- *     var html = Autolinker.link( "Test google.com", {
- *         replaceFn : function( autolinker, match ) {
- *             var tag = match.buildTag();  // returns an {@link Autolinker.HtmlTag} instance, configured with the Match's href and anchor text
- *             tag.setAttr( 'rel', 'nofollow' );
- *
- *             return tag;
- *         }
- *     } );
- *
- *     // generated html:
- *     //   Test <a href="http://google.com" target="_blank" rel="nofollow">google.com</a>
- *
- *
- * ## Example use with a new tag for the replacement
- *
- *     var html = Autolinker.link( "Test google.com", {
- *         replaceFn : function( autolinker, match ) {
- *             var tag = new Autolinker.HtmlTag( {
- *                 tagName : 'button',
- *                 attrs   : { 'title': 'Load URL: ' + match.getAnchorHref() },
- *                 innerHtml : 'Load URL: ' + match.getAnchorText()
- *             } );
- *
- *             return tag;
- *         }
- *     } );
- *
- *     // generated html:
- *     //   Test <button title="Load URL: http://google.com">Load URL: google.com</button>
- */
-Autolinker.HtmlTag = Autolinker.Util.extend( Object, {
-
-	/**
-	 * @cfg {String} tagName
-	 *
-	 * The tag name. Ex: 'a', 'button', etc.
-	 *
-	 * Not required at instantiation time, but should be set using {@link #setTagName} before {@link #toAnchorString}
-	 * is executed.
-	 */
-
-	/**
-	 * @cfg {Object.<String, String>} attrs
-	 *
-	 * An key/value Object (map) of attributes to create the tag with. The keys are the attribute names, and the
-	 * values are the attribute values.
-	 */
-
-	/**
-	 * @cfg {String} innerHtml
-	 *
-	 * The inner HTML for the tag.
-	 *
-	 * Note the camel case name on `innerHtml`. Acronyms are camelCased in this utility (such as not to run into the acronym
-	 * naming inconsistency that the DOM developers created with `XMLHttpRequest`). You may alternatively use {@link #innerHTML}
-	 * if you prefer, but this one is recommended.
-	 */
-
-	/**
-	 * @cfg {String} innerHTML
-	 *
-	 * Alias of {@link #innerHtml}, accepted for consistency with the browser DOM api, but prefer the camelCased version
-	 * for acronym names.
-	 */
-
-
-	/**
-	 * @protected
-	 * @property {RegExp} whitespaceRegex
-	 *
-	 * Regular expression used to match whitespace in a string of CSS classes.
-	 */
-	whitespaceRegex : /\s+/,
-
-
-	/**
-	 * @constructor
-	 * @param {Object} [cfg] The configuration properties for this class, in an Object (map)
-	 */
-	constructor : function( cfg ) {
-		Autolinker.Util.assign( this, cfg );
-
-		this.innerHtml = this.innerHtml || this.innerHTML;  // accept either the camelCased form or the fully capitalized acronym
-	},
-
-
-	/**
-	 * Sets the tag name that will be used to generate the tag with.
-	 *
-	 * @param {String} tagName
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	setTagName : function( tagName ) {
-		this.tagName = tagName;
-		return this;
-	},
-
-
-	/**
-	 * Retrieves the tag name.
-	 *
-	 * @return {String}
-	 */
-	getTagName : function() {
-		return this.tagName || "";
-	},
-
-
-	/**
-	 * Sets an attribute on the HtmlTag.
-	 *
-	 * @param {String} attrName The attribute name to set.
-	 * @param {String} attrValue The attribute value to set.
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	setAttr : function( attrName, attrValue ) {
-		var tagAttrs = this.getAttrs();
-		tagAttrs[ attrName ] = attrValue;
-
-		return this;
-	},
-
-
-	/**
-	 * Retrieves an attribute from the HtmlTag. If the attribute does not exist, returns `undefined`.
-	 *
-	 * @param {String} attrName The attribute name to retrieve.
-	 * @return {String} The attribute's value, or `undefined` if it does not exist on the HtmlTag.
-	 */
-	getAttr : function( attrName ) {
-		return this.getAttrs()[ attrName ];
-	},
-
-
-	/**
-	 * Sets one or more attributes on the HtmlTag.
-	 *
-	 * @param {Object.<String, String>} attrs A key/value Object (map) of the attributes to set.
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	setAttrs : function( attrs ) {
-		var tagAttrs = this.getAttrs();
-		Autolinker.Util.assign( tagAttrs, attrs );
-
-		return this;
-	},
-
-
-	/**
-	 * Retrieves the attributes Object (map) for the HtmlTag.
-	 *
-	 * @return {Object.<String, String>} A key/value object of the attributes for the HtmlTag.
-	 */
-	getAttrs : function() {
-		return this.attrs || ( this.attrs = {} );
-	},
-
-
-	/**
-	 * Sets the provided `cssClass`, overwriting any current CSS classes on the HtmlTag.
-	 *
-	 * @param {String} cssClass One or more space-separated CSS classes to set (overwrite).
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	setClass : function( cssClass ) {
-		return this.setAttr( 'class', cssClass );
-	},
-
-
-	/**
-	 * Convenience method to add one or more CSS classes to the HtmlTag. Will not add duplicate CSS classes.
-	 *
-	 * @param {String} cssClass One or more space-separated CSS classes to add.
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	addClass : function( cssClass ) {
-		var classAttr = this.getClass(),
-		    whitespaceRegex = this.whitespaceRegex,
-		    indexOf = Autolinker.Util.indexOf,  // to support IE8 and below
-		    classes = ( !classAttr ) ? [] : classAttr.split( whitespaceRegex ),
-		    newClasses = cssClass.split( whitespaceRegex ),
-		    newClass;
-
-		while( newClass = newClasses.shift() ) {
-			if( indexOf( classes, newClass ) === -1 ) {
-				classes.push( newClass );
-			}
-		}
-
-		this.getAttrs()[ 'class' ] = classes.join( " " );
-		return this;
-	},
-
-
-	/**
-	 * Convenience method to remove one or more CSS classes from the HtmlTag.
-	 *
-	 * @param {String} cssClass One or more space-separated CSS classes to remove.
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	removeClass : function( cssClass ) {
-		var classAttr = this.getClass(),
-		    whitespaceRegex = this.whitespaceRegex,
-		    indexOf = Autolinker.Util.indexOf,  // to support IE8 and below
-		    classes = ( !classAttr ) ? [] : classAttr.split( whitespaceRegex ),
-		    removeClasses = cssClass.split( whitespaceRegex ),
-		    removeClass;
-
-		while( classes.length && ( removeClass = removeClasses.shift() ) ) {
-			var idx = indexOf( classes, removeClass );
-			if( idx !== -1 ) {
-				classes.splice( idx, 1 );
-			}
-		}
-
-		this.getAttrs()[ 'class' ] = classes.join( " " );
-		return this;
-	},
-
-
-	/**
-	 * Convenience method to retrieve the CSS class(es) for the HtmlTag, which will each be separated by spaces when
-	 * there are multiple.
-	 *
-	 * @return {String}
-	 */
-	getClass : function() {
-		return this.getAttrs()[ 'class' ] || "";
-	},
-
-
-	/**
-	 * Convenience method to check if the tag has a CSS class or not.
-	 *
-	 * @param {String} cssClass The CSS class to check for.
-	 * @return {Boolean} `true` if the HtmlTag has the CSS class, `false` otherwise.
-	 */
-	hasClass : function( cssClass ) {
-		return ( ' ' + this.getClass() + ' ' ).indexOf( ' ' + cssClass + ' ' ) !== -1;
-	},
-
-
-	/**
-	 * Sets the inner HTML for the tag.
-	 *
-	 * @param {String} html The inner HTML to set.
-	 * @return {Autolinker.HtmlTag} This HtmlTag instance, so that method calls may be chained.
-	 */
-	setInnerHtml : function( html ) {
-		this.innerHtml = html;
-
-		return this;
-	},
-
-
-	/**
-	 * Retrieves the inner HTML for the tag.
-	 *
-	 * @return {String}
-	 */
-	getInnerHtml : function() {
-		return this.innerHtml || "";
-	},
-
-
-	/**
-	 * Override of superclass method used to generate the HTML string for the tag.
-	 *
-	 * @return {String}
-	 */
-	toAnchorString : function() {
-		var tagName = this.getTagName(),
-		    attrsStr = this.buildAttrsStr();
-
-		attrsStr = ( attrsStr ) ? ' ' + attrsStr : '';  // prepend a space if there are actually attributes
-
-		return [ '<', tagName, attrsStr, '>', this.getInnerHtml(), '</', tagName, '>' ].join( "" );
-	},
-
-
-	/**
-	 * Support method for {@link #toAnchorString}, returns the string space-separated key="value" pairs, used to populate
-	 * the stringified HtmlTag.
-	 *
-	 * @protected
-	 * @return {String} Example return: `attr1="value1" attr2="value2"`
-	 */
-	buildAttrsStr : function() {
-		if( !this.attrs ) return "";  // no `attrs` Object (map) has been set, return empty string
-
-		var attrs = this.getAttrs(),
-		    attrsArr = [];
-
-		for( var prop in attrs ) {
-			if( attrs.hasOwnProperty( prop ) ) {
-				attrsArr.push( prop + '="' + attrs[ prop ] + '"' );
-			}
-		}
-		return attrsArr.join( " " );
-	}
-
-} );
-
-/*global Autolinker */
-/**
- * @class Autolinker.RegexLib
- * @singleton
- *
- * Builds and stores a library of the common regular expressions used by the
- * Autolinker utility.
- *
- * Other regular expressions may exist ad-hoc, but these are generally the
- * regular expressions that are shared between source files.
- */
-Autolinker.RegexLib = (function() {
-
-	/**
-	 * The string form of a regular expression that would match all of the
-	 * alphabetic ("letter") chars in the unicode character set when placed in a
-	 * RegExp character class (`[]`). This includes all international alphabetic
-	 * characters.
-	 *
-	 * These would be the characters matched by unicode regex engines `\p{L}`
-	 * escape ("all letters").
-	 *
-	 * Taken from the XRegExp library: http://xregexp.com/
-	 * Specifically: http://xregexp.com/v/3.0.0/unicode-categories.js
-	 *
-	 * @private
-	 * @type {String}
-	 */
-	var alphaCharsStr = 'A-Za-z\\xAA\\xB5\\xBA\\xC0-\\xD6\\xD8-\\xF6\\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0-\u08B4\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16F1-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FD5\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788\uA78B-\uA7AD\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB65\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC';
-
-	/**
-	 * The string form of a regular expression that would match all of the
-	 * decimal number chars in the unicode character set when placed in a RegExp
-	 * character class (`[]`).
-	 *
-	 * These would be the characters matched by unicode regex engines `\p{Nd}`
-	 * escape ("all decimal numbers")
-	 *
-	 * Taken from the XRegExp library: http://xregexp.com/
-	 * Specifically: http://xregexp.com/v/3.0.0/unicode-categories.js
-	 *
-	 * @private
-	 * @type {String}
-	 */
-	var decimalNumbersStr = '0-9\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0BE6-\u0BEF\u0C66-\u0C6F\u0CE6-\u0CEF\u0D66-\u0D6F\u0DE6-\u0DEF\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F29\u1040-\u1049\u1090-\u1099\u17E0-\u17E9\u1810-\u1819\u1946-\u194F\u19D0-\u19D9\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\uA620-\uA629\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uA9F0-\uA9F9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19';
-
-
-	// See documentation below
-	var alphaNumericCharsStr = alphaCharsStr + decimalNumbersStr;
-
-
-	// See documentation below
-	var domainNameRegex = new RegExp( '[' + alphaNumericCharsStr + '.\\-]*[' + alphaNumericCharsStr + '\\-]' );
-
-
-	// See documentation below
-	var tldRegex = /(?:travelersinsurance|sandvikcoromant|kerryproperties|cancerresearch|weatherchannel|kerrylogistics|spreadbetting|international|wolterskluwer|lifeinsurance|construction|pamperedchef|scholarships|versicherung|bridgestone|creditunion|kerryhotels|investments|productions|blackfriday|enterprises|lamborghini|photography|motorcycles|williamhill|playstation|contractors|barclaycard|accountants|redumbrella|engineering|management|telefonica|protection|consulting|tatamotors|creditcard|vlaanderen|schaeffler|associates|properties|foundation|republican|bnpparibas|boehringer|eurovision|extraspace|industries|immobilien|university|technology|volkswagen|healthcare|restaurant|cuisinella|vistaprint|apartments|accountant|travelers|homedepot|institute|vacations|furniture|fresenius|insurance|christmas|bloomberg|solutions|barcelona|firestone|financial|kuokgroup|fairwinds|community|passagens|goldpoint|equipment|lifestyle|yodobashi|aquarelle|marketing|analytics|education|amsterdam|statefarm|melbourne|allfinanz|directory|microsoft|stockholm|montblanc|accenture|lancaster|landrover|everbank|istanbul|graphics|grainger|ipiranga|softbank|attorney|pharmacy|saarland|catering|airforce|yokohama|mortgage|frontier|mutuelle|stcgroup|memorial|pictures|football|symantec|cipriani|ventures|telecity|cityeats|verisign|flsmidth|boutique|cleaning|firmdale|clinique|clothing|redstone|infiniti|deloitte|feedback|services|broadway|plumbing|commbank|training|barclays|exchange|computer|brussels|software|delivery|barefoot|builders|business|bargains|engineer|holdings|download|security|helsinki|lighting|movistar|discount|hdfcbank|supplies|marriott|property|diamonds|capetown|partners|democrat|jpmorgan|bradesco|budapest|rexroth|zuerich|shriram|academy|science|support|youtube|singles|surgery|alibaba|statoil|dentist|schwarz|android|cruises|cricket|digital|markets|starhub|systems|courses|coupons|netbank|country|domains|corsica|network|neustar|realtor|lincoln|limited|schmidt|yamaxun|cooking|contact|auction|spiegel|liaison|leclerc|latrobe|lasalle|abogado|compare|lanxess|exposed|express|company|cologne|college|avianca|lacaixa|fashion|recipes|ferrero|komatsu|storage|wanggou|clubmed|sandvik|fishing|fitness|bauhaus|kitchen|flights|florist|flowers|watches|weather|temasek|samsung|bentley|forsale|channel|theater|frogans|theatre|okinawa|website|tickets|jewelry|gallery|tiffany|iselect|shiksha|brother|organic|wedding|genting|toshiba|origins|philips|hyundai|hotmail|hoteles|hosting|rentals|windows|cartier|bugatti|holiday|careers|whoswho|hitachi|panerai|caravan|reviews|guitars|capital|trading|hamburg|hangout|finance|stream|family|abbott|health|review|travel|report|hermes|hiphop|gratis|career|toyota|hockey|dating|repair|google|social|soccer|reisen|global|otsuka|giving|unicom|casino|photos|center|broker|rocher|orange|bostik|garden|insure|ryukyu|bharti|safety|physio|sakura|oracle|online|jaguar|gallup|piaget|tienda|futbol|pictet|joburg|webcam|berlin|office|juegos|kaufen|chanel|chrome|xihuan|church|tennis|circle|kinder|flickr|bayern|claims|clinic|viajes|nowruz|xperia|norton|yachts|studio|coffee|camera|sanofi|nissan|author|expert|events|comsec|lawyer|tattoo|viking|estate|villas|condos|realty|yandex|energy|emerck|virgin|vision|durban|living|school|coupon|london|taobao|natura|taipei|nagoya|luxury|walter|aramco|sydney|madrid|credit|maison|makeup|schule|market|anquan|direct|design|swatch|suzuki|alsace|vuelos|dental|alipay|voyage|shouji|voting|airtel|mutual|degree|supply|agency|museum|mobily|dealer|monash|select|mormon|active|moscow|racing|datsun|quebec|nissay|rodeo|email|gifts|works|photo|chloe|edeka|cheap|earth|vista|tushu|koeln|glass|shoes|globo|tunes|gmail|nokia|space|kyoto|black|ricoh|seven|lamer|sener|epson|cisco|praxi|trust|citic|crown|shell|lease|green|legal|lexus|ninja|tatar|gripe|nikon|group|video|wales|autos|gucci|party|nexus|guide|linde|adult|parts|amica|lixil|boats|azure|loans|locus|cymru|lotte|lotto|stada|click|poker|quest|dabur|lupin|nadex|paris|faith|dance|canon|place|gives|trade|skype|rocks|mango|cloud|boots|smile|final|swiss|homes|honda|media|horse|cards|deals|watch|bosch|house|pizza|miami|osaka|tours|total|xerox|coach|sucks|style|delta|toray|iinet|tools|money|codes|beats|tokyo|salon|archi|movie|baidu|study|actor|yahoo|store|apple|world|forex|today|bible|tmall|tirol|irish|tires|forum|reise|vegas|vodka|sharp|omega|weber|jetzt|audio|promo|build|bingo|chase|gallo|drive|dubai|rehab|press|solar|sale|beer|bbva|bank|band|auto|sapo|sarl|saxo|audi|asia|arte|arpa|army|yoga|ally|zara|scor|scot|sexy|seat|zero|seek|aero|adac|zone|aarp|maif|meet|meme|menu|surf|mini|mobi|mtpc|porn|desi|star|ltda|name|talk|navy|love|loan|live|link|news|limo|like|spot|life|nico|lidl|lgbt|land|taxi|team|tech|kred|kpmg|sony|song|kiwi|kddi|jprs|jobs|sohu|java|itau|tips|info|immo|icbc|hsbc|town|host|page|toys|here|help|pars|haus|guru|guge|tube|goog|golf|gold|sncf|gmbh|gift|ggee|gent|gbiz|game|vana|pics|fund|ford|ping|pink|fish|film|fast|farm|play|fans|fail|plus|skin|pohl|fage|moda|post|erni|dvag|prod|doha|prof|docs|viva|diet|luxe|site|dell|sina|dclk|show|qpon|date|vote|cyou|voto|read|coop|cool|wang|club|city|chat|cern|cash|reit|rent|casa|cars|care|camp|rest|call|cafe|weir|wien|rich|wiki|buzz|wine|book|bond|room|work|rsvp|shia|ruhr|blue|bing|shaw|bike|safe|xbox|best|pwc|mtn|lds|aig|boo|fyi|nra|nrw|ntt|car|gal|obi|zip|aeg|vin|how|one|ong|onl|dad|ooo|bet|esq|org|htc|bar|uol|ibm|ovh|gdn|ice|icu|uno|gea|ifm|bot|top|wtf|lol|day|pet|eus|wtc|ubs|tvs|aco|ing|ltd|ink|tab|abb|afl|cat|int|pid|pin|bid|cba|gle|com|cbn|ads|man|wed|ceb|gmo|sky|ist|gmx|tui|mba|fan|ski|iwc|app|pro|med|ceo|jcb|jcp|goo|dev|men|aaa|meo|pub|jlc|bom|jll|gop|jmp|mil|got|gov|win|jot|mma|joy|trv|red|cfa|cfd|bio|moe|moi|mom|ren|biz|aws|xin|bbc|dnp|buy|kfh|mov|thd|xyz|fit|kia|rio|rip|kim|dog|vet|nyc|bcg|mtr|bcn|bms|bmw|run|bzh|rwe|tel|stc|axa|kpn|fly|krd|cab|bnl|foo|crs|eat|tci|sap|srl|nec|sas|net|cal|sbs|sfr|sca|scb|csc|edu|new|xxx|hiv|fox|wme|ngo|nhk|vip|sex|frl|lat|yun|law|you|tax|soy|sew|om|ac|hu|se|sc|sg|sh|sb|sa|rw|ru|rs|ro|re|qa|py|si|pw|pt|ps|sj|sk|pr|pn|pm|pl|sl|sm|pk|sn|ph|so|pg|pf|pe|pa|zw|nz|nu|nr|np|no|nl|ni|ng|nf|sr|ne|st|nc|na|mz|my|mx|mw|mv|mu|mt|ms|mr|mq|mp|mo|su|mn|mm|ml|mk|mh|mg|me|sv|md|mc|sx|sy|ma|ly|lv|sz|lu|lt|ls|lr|lk|li|lc|lb|la|tc|kz|td|ky|kw|kr|kp|kn|km|ki|kh|tf|tg|th|kg|ke|jp|jo|jm|je|it|is|ir|tj|tk|tl|tm|iq|tn|to|io|in|im|il|ie|ad|sd|ht|hr|hn|hm|tr|hk|gy|gw|gu|gt|gs|gr|gq|tt|gp|gn|gm|gl|tv|gi|tw|tz|ua|gh|ug|uk|gg|gf|ge|gd|us|uy|uz|va|gb|ga|vc|ve|fr|fo|fm|fk|fj|vg|vi|fi|eu|et|es|er|eg|ee|ec|dz|do|dm|dk|vn|dj|de|cz|cy|cx|cw|vu|cv|cu|cr|co|cn|cm|cl|ck|ci|ch|cg|cf|cd|cc|ca|wf|bz|by|bw|bv|bt|bs|br|bo|bn|bm|bj|bi|ws|bh|bg|bf|be|bd|bb|ba|az|ax|aw|au|at|as|ye|ar|aq|ao|am|al|yt|ai|za|ag|af|ae|zm|id)\b/;
-
-
-	return {
-
-		/**
-		 * The string form of a regular expression that would match all of the
-		 * letters and decimal number chars in the unicode character set when placed
-		 * in a RegExp character class (`[]`).
-		 *
-		 * These would be the characters matched by unicode regex engines `[\p{L}\p{Nd}]`
-		 * escape ("all letters and decimal numbers")
-		 *
-		 * @property {String} alphaNumericCharsStr
-		 */
-		alphaNumericCharsStr : alphaNumericCharsStr,
-
-		/**
-		 * A regular expression to match domain names of a URL or email address.
-		 * Ex: 'google', 'yahoo', 'some-other-company', etc.
-		 *
-		 * @property {RegExp} domainNameRegex
-		 */
-		domainNameRegex : domainNameRegex,
-
-		/**
-		 * A regular expression to match top level domains (TLDs) for a URL or
-		 * email address. Ex: 'com', 'org', 'net', etc.
-		 *
-		 * @property {RegExp} tldRegex
-		 */
-		tldRegex : tldRegex
-
-	};
-
-
-}() );
-/*global Autolinker */
-/*jshint sub:true */
-/**
- * @protected
- * @class Autolinker.AnchorTagBuilder
- * @extends Object
- *
- * Builds anchor (&lt;a&gt;) tags for the Autolinker utility when a match is
- * found.
- *
- * Normally this class is instantiated, configured, and used internally by an
- * {@link Autolinker} instance, but may actually be retrieved in a {@link Autolinker#replaceFn replaceFn}
- * to create {@link Autolinker.HtmlTag HtmlTag} instances which may be modified
- * before returning from the {@link Autolinker#replaceFn replaceFn}. For
- * example:
- *
- *     var html = Autolinker.link( "Test google.com", {
- *         replaceFn : function( autolinker, match ) {
- *             var tag = autolinker.getTagBuilder().build( match );  // returns an {@link Autolinker.HtmlTag} instance
- *             tag.setAttr( 'rel', 'nofollow' );
- *
- *             return tag;
- *         }
- *     } );
- *
- *     // generated html:
- *     //   Test <a href="http://google.com" target="_blank" rel="nofollow">google.com</a>
- */
-Autolinker.AnchorTagBuilder = Autolinker.Util.extend( Object, {
-
-	/**
-	 * @cfg {Boolean} newWindow
-	 * @inheritdoc Autolinker#newWindow
-	 */
-
-	/**
-	 * @cfg {Object} truncate
-	 * @inheritdoc Autolinker#truncate
-	 */
-
-	/**
-	 * @cfg {String} className
-	 * @inheritdoc Autolinker#className
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} [cfg] The configuration options for the AnchorTagBuilder instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.Util.assign( this, cfg );
-	},
-
-
-	/**
-	 * Generates the actual anchor (&lt;a&gt;) tag to use in place of the
-	 * matched text, via its `match` object.
-	 *
-	 * @param {Autolinker.match.Match} match The Match instance to generate an
-	 *   anchor tag from.
-	 * @return {Autolinker.HtmlTag} The HtmlTag instance for the anchor tag.
-	 */
-	build : function( match ) {
-		return new Autolinker.HtmlTag( {
-			tagName   : 'a',
-			attrs     : this.createAttrs( match.getType(), match.getAnchorHref() ),
-			innerHtml : this.processAnchorText( match.getAnchorText() )
-		} );
-	},
-
-
-	/**
-	 * Creates the Object (map) of the HTML attributes for the anchor (&lt;a&gt;)
-	 *   tag being generated.
-	 *
-	 * @protected
-	 * @param {"url"/"email"/"phone"/"twitter"/"hashtag"} matchType The type of
-	 *   match that an anchor tag is being generated for.
-	 * @param {String} anchorHref The href for the anchor tag.
-	 * @return {Object} A key/value Object (map) of the anchor tag's attributes.
-	 */
-	createAttrs : function( matchType, anchorHref ) {
-		var attrs = {
-			'href' : anchorHref  // we'll always have the `href` attribute
-		};
-
-		var cssClass = this.createCssClass( matchType );
-		if( cssClass ) {
-			attrs[ 'class' ] = cssClass;
-		}
-		if( this.newWindow ) {
-			attrs[ 'target' ] = "_blank";
-			attrs[ 'rel' ] = "noopener noreferrer";
-		}
-
-		return attrs;
-	},
-
-
-	/**
-	 * Creates the CSS class that will be used for a given anchor tag, based on
-	 * the `matchType` and the {@link #className} config.
-	 *
-	 * @private
-	 * @param {"url"/"email"/"phone"/"twitter"/"hashtag"} matchType The type of
-	 *   match that an anchor tag is being generated for.
-	 * @return {String} The CSS class string for the link. Example return:
-	 *   "myLink myLink-url". If no {@link #className} was configured, returns
-	 *   an empty string.
-	 */
-	createCssClass : function( matchType ) {
-		var className = this.className;
-
-		if( !className )
-			return "";
-		else
-			return className + " " + className + "-" + matchType;  // ex: "myLink myLink-url", "myLink myLink-email", "myLink myLink-phone", "myLink myLink-twitter", or "myLink myLink-hashtag"
-	},
-
-
-	/**
-	 * Processes the `anchorText` by truncating the text according to the
-	 * {@link #truncate} config.
-	 *
-	 * @private
-	 * @param {String} anchorText The anchor tag's text (i.e. what will be
-	 *   displayed).
-	 * @return {String} The processed `anchorText`.
-	 */
-	processAnchorText : function( anchorText ) {
-		anchorText = this.doTruncate( anchorText );
-
-		return anchorText;
-	},
-
-
-	/**
-	 * Performs the truncation of the `anchorText` based on the {@link #truncate}
-	 * option. If the `anchorText` is longer than the length specified by the
-	 * {@link #truncate} option, the truncation is performed based on the
-	 * `location` property. See {@link #truncate} for details.
-	 *
-	 * @private
-	 * @param {String} anchorText The anchor tag's text (i.e. what will be
-	 *   displayed).
-	 * @return {String} The truncated anchor text.
-	 */
-	doTruncate : function( anchorText ) {
-		var truncate = this.truncate;
-		if( !truncate || !truncate.length ) return anchorText;
-
-		var truncateLength = truncate.length,
-			truncateLocation = truncate.location;
-
-		if( truncateLocation === 'smart' ) {
-			return Autolinker.truncate.TruncateSmart( anchorText, truncateLength, '..' );
-
-		} else if( truncateLocation === 'middle' ) {
-			return Autolinker.truncate.TruncateMiddle( anchorText, truncateLength, '..' );
-
-		} else {
-			return Autolinker.truncate.TruncateEnd( anchorText, truncateLength, '..' );
-		}
-	}
-
-} );
-
-/*global Autolinker */
-/**
- * @class Autolinker.htmlParser.HtmlParser
- * @extends Object
- *
- * An HTML parser implementation which simply walks an HTML string and returns an array of
- * {@link Autolinker.htmlParser.HtmlNode HtmlNodes} that represent the basic HTML structure of the input string.
- *
- * Autolinker uses this to only link URLs/emails/Twitter handles within text nodes, effectively ignoring / "walking
- * around" HTML tags.
- */
-Autolinker.htmlParser.HtmlParser = Autolinker.Util.extend( Object, {
-
-	/**
-	 * @private
-	 * @property {RegExp} htmlRegex
-	 *
-	 * The regular expression used to pull out HTML tags from a string. Handles namespaced HTML tags and
-	 * attribute names, as specified by http://www.w3.org/TR/html-markup/syntax.html.
-	 *
-	 * Capturing groups:
-	 *
-	 * 1. The "!DOCTYPE" tag name, if a tag is a &lt;!DOCTYPE&gt; tag.
-	 * 2. If it is an end tag, this group will have the '/'.
-	 * 3. If it is a comment tag, this group will hold the comment text (i.e.
-	 *    the text inside the `&lt;!--` and `--&gt;`.
-	 * 4. The tag name for all tags (other than the &lt;!DOCTYPE&gt; tag)
-	 */
-	htmlRegex : (function() {
-		var commentTagRegex = /!--([\s\S]+?)--/,
-		    tagNameRegex = /[0-9a-zA-Z][0-9a-zA-Z:]*/,
-		    attrNameRegex = /[^\s"'>\/=\x00-\x1F\x7F]+/,   // the unicode range accounts for excluding control chars, and the delete char
-		    attrValueRegex = /(?:"[^"]*?"|'[^']*?'|[^'"=<>`\s]+)/, // double quoted, single quoted, or unquoted attribute values
-		    nameEqualsValueRegex = attrNameRegex.source + '(?:\\s*=\\s*' + attrValueRegex.source + ')?';  // optional '=[value]'
-
-		return new RegExp( [
-			// for <!DOCTYPE> tag. Ex: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">)
-			'(?:',
-				'<(!DOCTYPE)',  // *** Capturing Group 1 - If it's a doctype tag
-
-					// Zero or more attributes following the tag name
-					'(?:',
-						'\\s+',  // one or more whitespace chars before an attribute
-
-						// Either:
-						// A. attr="value", or
-						// B. "value" alone (To cover example doctype tag: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">)
-						'(?:', nameEqualsValueRegex, '|', attrValueRegex.source + ')',
-					')*',
-				'>',
-			')',
-
-			'|',
-
-			// All other HTML tags (i.e. tags that are not <!DOCTYPE>)
-			'(?:',
-				'<(/)?',  // Beginning of a tag or comment. Either '<' for a start tag, or '</' for an end tag.
-				          // *** Capturing Group 2: The slash or an empty string. Slash ('/') for end tag, empty string for start or self-closing tag.
-
-					'(?:',
-						commentTagRegex.source,  // *** Capturing Group 3 - A Comment Tag's Text
-
-						'|',
-
-						'(?:',
-
-							// *** Capturing Group 4 - The tag name
-							'(' + tagNameRegex.source + ')',
-
-							// Zero or more attributes following the tag name
-							'(?:',
-								'(?:\\s+|\\b)',        // any number of whitespace chars before an attribute. NOTE: Using \s* here throws Chrome into an infinite loop for some reason, so using \s+|\b instead
-								nameEqualsValueRegex,  // attr="value" (with optional ="value" part)
-							')*',
-
-							'\\s*/?',  // any trailing spaces and optional '/' before the closing '>'
-
-						')',
-					')',
-				'>',
-			')'
-		].join( "" ), 'gi' );
-	} )(),
-
-	/**
-	 * @private
-	 * @property {RegExp} htmlCharacterEntitiesRegex
-	 *
-	 * The regular expression that matches common HTML character entities.
-	 *
-	 * Ignoring &amp; as it could be part of a query string -- handling it separately.
-	 */
-	htmlCharacterEntitiesRegex: /(&nbsp;|&#160;|&lt;|&#60;|&gt;|&#62;|&quot;|&#34;|&#39;)/gi,
-
-
-	/**
-	 * Parses an HTML string and returns a simple array of {@link Autolinker.htmlParser.HtmlNode HtmlNodes}
-	 * to represent the HTML structure of the input string.
-	 *
-	 * @param {String} html The HTML to parse.
-	 * @return {Autolinker.htmlParser.HtmlNode[]}
-	 */
-	parse : function( html ) {
-		var htmlRegex = this.htmlRegex,
-		    currentResult,
-		    lastIndex = 0,
-		    textAndEntityNodes,
-		    nodes = [];  // will be the result of the method
-
-		while( ( currentResult = htmlRegex.exec( html ) ) !== null ) {
-			var tagText = currentResult[ 0 ],
-			    commentText = currentResult[ 3 ], // if we've matched a comment
-			    tagName = currentResult[ 1 ] || currentResult[ 4 ],  // The <!DOCTYPE> tag (ex: "!DOCTYPE"), or another tag (ex: "a" or "img")
-			    isClosingTag = !!currentResult[ 2 ],
-			    offset = currentResult.index,
-			    inBetweenTagsText = html.substring( lastIndex, offset );
-
-			// Push TextNodes and EntityNodes for any text found between tags
-			if( inBetweenTagsText ) {
-				textAndEntityNodes = this.parseTextAndEntityNodes( lastIndex, inBetweenTagsText );
-				nodes.push.apply( nodes, textAndEntityNodes );
-			}
-
-			// Push the CommentNode or ElementNode
-			if( commentText ) {
-				nodes.push( this.createCommentNode( offset, tagText, commentText ) );
-			} else {
-				nodes.push( this.createElementNode( offset, tagText, tagName, isClosingTag ) );
-			}
-
-			lastIndex = offset + tagText.length;
-		}
-
-		// Process any remaining text after the last HTML element. Will process all of the text if there were no HTML elements.
-		if( lastIndex < html.length ) {
-			var text = html.substring( lastIndex );
-
-			// Push TextNodes and EntityNodes for any text found between tags
-			if( text ) {
-				textAndEntityNodes = this.parseTextAndEntityNodes( lastIndex, text );
-				nodes.push.apply( nodes, textAndEntityNodes );
-			}
-		}
-
-		return nodes;
-	},
-
-
-	/**
-	 * Parses text and HTML entity nodes from a given string. The input string
-	 * should not have any HTML tags (elements) within it.
-	 *
-	 * @private
-	 * @param {Number} offset The offset of the text node match within the
-	 *   original HTML string.
-	 * @param {String} text The string of text to parse. This is from an HTML
-	 *   text node.
-	 * @return {Autolinker.htmlParser.HtmlNode[]} An array of HtmlNodes to
-	 *   represent the {@link Autolinker.htmlParser.TextNode TextNodes} and
-	 *   {@link Autolinker.htmlParser.EntityNode EntityNodes} found.
-	 */
-	parseTextAndEntityNodes : function( offset, text ) {
-		var nodes = [],
-		    textAndEntityTokens = Autolinker.Util.splitAndCapture( text, this.htmlCharacterEntitiesRegex );  // split at HTML entities, but include the HTML entities in the results array
-
-		// Every even numbered token is a TextNode, and every odd numbered token is an EntityNode
-		// For example: an input `text` of "Test &quot;this&quot; today" would turn into the
-		//   `textAndEntityTokens`: [ 'Test ', '&quot;', 'this', '&quot;', ' today' ]
-		for( var i = 0, len = textAndEntityTokens.length; i < len; i += 2 ) {
-			var textToken = textAndEntityTokens[ i ],
-			    entityToken = textAndEntityTokens[ i + 1 ];
-
-			if( textToken ) {
-				nodes.push( this.createTextNode( offset, textToken ) );
-				offset += textToken.length;
-			}
-			if( entityToken ) {
-				nodes.push( this.createEntityNode( offset, entityToken ) );
-				offset += entityToken.length;
-			}
-		}
-		return nodes;
-	},
-
-
-	/**
-	 * Factory method to create an {@link Autolinker.htmlParser.CommentNode CommentNode}.
-	 *
-	 * @private
-	 * @param {Number} offset The offset of the match within the original HTML
-	 *   string.
-	 * @param {String} tagText The full text of the tag (comment) that was
-	 *   matched, including its &lt;!-- and --&gt;.
-	 * @param {String} commentText The full text of the comment that was matched.
-	 */
-	createCommentNode : function( offset, tagText, commentText ) {
-		return new Autolinker.htmlParser.CommentNode( {
-			offset : offset,
-			text   : tagText,
-			comment: Autolinker.Util.trim( commentText )
-		} );
-	},
-
-
-	/**
-	 * Factory method to create an {@link Autolinker.htmlParser.ElementNode ElementNode}.
-	 *
-	 * @private
-	 * @param {Number} offset The offset of the match within the original HTML
-	 *   string.
-	 * @param {String} tagText The full text of the tag (element) that was
-	 *   matched, including its attributes.
-	 * @param {String} tagName The name of the tag. Ex: An &lt;img&gt; tag would
-	 *   be passed to this method as "img".
-	 * @param {Boolean} isClosingTag `true` if it's a closing tag, false
-	 *   otherwise.
-	 * @return {Autolinker.htmlParser.ElementNode}
-	 */
-	createElementNode : function( offset, tagText, tagName, isClosingTag ) {
-		return new Autolinker.htmlParser.ElementNode( {
-			offset  : offset,
-			text    : tagText,
-			tagName : tagName.toLowerCase(),
-			closing : isClosingTag
-		} );
-	},
-
-
-	/**
-	 * Factory method to create a {@link Autolinker.htmlParser.EntityNode EntityNode}.
-	 *
-	 * @private
-	 * @param {Number} offset The offset of the match within the original HTML
-	 *   string.
-	 * @param {String} text The text that was matched for the HTML entity (such
-	 *   as '&amp;nbsp;').
-	 * @return {Autolinker.htmlParser.EntityNode}
-	 */
-	createEntityNode : function( offset, text ) {
-		return new Autolinker.htmlParser.EntityNode( { offset: offset, text: text } );
-	},
-
-
-	/**
-	 * Factory method to create a {@link Autolinker.htmlParser.TextNode TextNode}.
-	 *
-	 * @private
-	 * @param {Number} offset The offset of the match within the original HTML
-	 *   string.
-	 * @param {String} text The text that was matched.
-	 * @return {Autolinker.htmlParser.TextNode}
-	 */
-	createTextNode : function( offset, text ) {
-		return new Autolinker.htmlParser.TextNode( { offset: offset, text: text } );
-	}
-
-} );
-/*global Autolinker */
-/**
- * @abstract
- * @class Autolinker.htmlParser.HtmlNode
- *
- * Represents an HTML node found in an input string. An HTML node is one of the
- * following:
- *
- * 1. An {@link Autolinker.htmlParser.ElementNode ElementNode}, which represents
- *    HTML tags.
- * 2. A {@link Autolinker.htmlParser.CommentNode CommentNode}, which represents
- *    HTML comments.
- * 3. A {@link Autolinker.htmlParser.TextNode TextNode}, which represents text
- *    outside or within HTML tags.
- * 4. A {@link Autolinker.htmlParser.EntityNode EntityNode}, which represents
- *    one of the known HTML entities that Autolinker looks for. This includes
- *    common ones such as &amp;quot; and &amp;nbsp;
- */
-Autolinker.htmlParser.HtmlNode = Autolinker.Util.extend( Object, {
-
-	/**
-	 * @cfg {Number} offset (required)
-	 *
-	 * The offset of the HTML node in the original text that was parsed.
-	 */
-	offset : undefined,
-
-	/**
-	 * @cfg {String} text (required)
-	 *
-	 * The text that was matched for the HtmlNode.
-	 *
-	 * - In the case of an {@link Autolinker.htmlParser.ElementNode ElementNode},
-	 *   this will be the tag's text.
-	 * - In the case of an {@link Autolinker.htmlParser.CommentNode CommentNode},
-	 *   this will be the comment's text.
-	 * - In the case of a {@link Autolinker.htmlParser.TextNode TextNode}, this
-	 *   will be the text itself.
-	 * - In the case of a {@link Autolinker.htmlParser.EntityNode EntityNode},
-	 *   this will be the text of the HTML entity.
-	 */
-	text : undefined,
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match instance,
-	 * specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.Util.assign( this, cfg );
-
-		if( this.offset == null ) throw new Error( '`offset` cfg required' );
-		if( this.text == null ) throw new Error( '`text` cfg required' );
-	},
-
-
-	/**
-	 * Returns a string name for the type of node that this class represents.
-	 *
-	 * @abstract
-	 * @return {String}
-	 */
-	getType : Autolinker.Util.abstractMethod,
-
-
-	/**
-	 * Retrieves the {@link #offset} of the HtmlNode. This is the offset of the
-	 * HTML node in the original string that was parsed.
-	 *
-	 * @return {Number}
-	 */
-	getOffset : function() {
-		return this.offset;
-	},
-
-
-	/**
-	 * Retrieves the {@link #text} for the HtmlNode.
-	 *
-	 * @return {String}
-	 */
-	getText : function() {
-		return this.text;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.htmlParser.CommentNode
- * @extends Autolinker.htmlParser.HtmlNode
- *
- * Represents an HTML comment node that has been parsed by the
- * {@link Autolinker.htmlParser.HtmlParser}.
- *
- * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more
- * details.
- */
-Autolinker.htmlParser.CommentNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
-	/**
-	 * @cfg {String} comment (required)
-	 *
-	 * The text inside the comment tag. This text is stripped of any leading or
-	 * trailing whitespace.
-	 */
-	comment : '',
-
-
-	/**
-	 * Returns a string name for the type of node that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'comment';
-	},
-
-
-	/**
-	 * Returns the comment inside the comment tag.
-	 *
-	 * @return {String}
-	 */
-	getComment : function() {
-		return this.comment;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.htmlParser.ElementNode
- * @extends Autolinker.htmlParser.HtmlNode
- *
- * Represents an HTML element node that has been parsed by the {@link Autolinker.htmlParser.HtmlParser}.
- *
- * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more
- * details.
- */
-Autolinker.htmlParser.ElementNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
-	/**
-	 * @cfg {String} tagName (required)
-	 *
-	 * The name of the tag that was matched.
-	 */
-	tagName : '',
-
-	/**
-	 * @cfg {Boolean} closing (required)
-	 *
-	 * `true` if the element (tag) is a closing tag, `false` if its an opening
-	 * tag.
-	 */
-	closing : false,
-
-
-	/**
-	 * Returns a string name for the type of node that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'element';
-	},
-
-
-	/**
-	 * Returns the HTML element's (tag's) name. Ex: for an &lt;img&gt; tag,
-	 * returns "img".
-	 *
-	 * @return {String}
-	 */
-	getTagName : function() {
-		return this.tagName;
-	},
-
-
-	/**
-	 * Determines if the HTML element (tag) is a closing tag. Ex: &lt;div&gt;
-	 * returns `false`, while &lt;/div&gt; returns `true`.
-	 *
-	 * @return {Boolean}
-	 */
-	isClosing : function() {
-		return this.closing;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.htmlParser.EntityNode
- * @extends Autolinker.htmlParser.HtmlNode
- *
- * Represents a known HTML entity node that has been parsed by the {@link Autolinker.htmlParser.HtmlParser}.
- * Ex: '&amp;nbsp;', or '&amp#160;' (which will be retrievable from the {@link #getText}
- * method.
- *
- * Note that this class will only be returned from the HtmlParser for the set of
- * checked HTML entity nodes  defined by the {@link Autolinker.htmlParser.HtmlParser#htmlCharacterEntitiesRegex}.
- *
- * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more
- * details.
- */
-Autolinker.htmlParser.EntityNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
-	/**
-	 * Returns a string name for the type of node that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'entity';
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.htmlParser.TextNode
- * @extends Autolinker.htmlParser.HtmlNode
- *
- * Represents a text node that has been parsed by the {@link Autolinker.htmlParser.HtmlParser}.
- *
- * See this class's superclass ({@link Autolinker.htmlParser.HtmlNode}) for more
- * details.
- */
-Autolinker.htmlParser.TextNode = Autolinker.Util.extend( Autolinker.htmlParser.HtmlNode, {
-
-	/**
-	 * Returns a string name for the type of node that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'text';
-	}
-
-} );
-/*global Autolinker */
-/**
- * @abstract
- * @class Autolinker.match.Match
- *
- * Represents a match found in an input string which should be Autolinked. A Match object is what is provided in a
- * {@link Autolinker#replaceFn replaceFn}, and may be used to query for details about the match.
- *
- * For example:
- *
- *     var input = "...";  // string with URLs, Email Addresses, and Twitter Handles
- *
- *     var linkedText = Autolinker.link( input, {
- *         replaceFn : function( autolinker, match ) {
- *             console.log( "href = ", match.getAnchorHref() );
- *             console.log( "text = ", match.getAnchorText() );
- *
- *             switch( match.getType() ) {
- *                 case 'url' :
- *                     console.log( "url: ", match.getUrl() );
- *
- *                 case 'email' :
- *                     console.log( "email: ", match.getEmail() );
- *
- *                 case 'twitter' :
- *                     console.log( "twitter: ", match.getTwitterHandle() );
- *             }
- *         }
- *     } );
- *
- * See the {@link Autolinker} class for more details on using the {@link Autolinker#replaceFn replaceFn}.
- */
-Autolinker.match.Match = Autolinker.Util.extend( Object, {
-
-	/**
-	 * @cfg {Autolinker.AnchorTagBuilder} tagBuilder (required)
-	 *
-	 * Reference to the AnchorTagBuilder instance to use to generate an anchor
-	 * tag for the Match.
-	 */
-
-	/**
-	 * @cfg {String} matchedText (required)
-	 *
-	 * The original text that was matched by the {@link Autolinker.matcher.Matcher}.
-	 */
-
-	/**
-	 * @cfg {Number} offset (required)
-	 *
-	 * The offset of where the match was made in the input string.
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		if( cfg.tagBuilder == null ) throw new Error( '`tagBuilder` cfg required' );
-		if( cfg.matchedText == null ) throw new Error( '`matchedText` cfg required' );
-		if( cfg.offset == null ) throw new Error( '`offset` cfg required' );
-
-		this.tagBuilder = cfg.tagBuilder;
-		this.matchedText = cfg.matchedText;
-		this.offset = cfg.offset;
-	},
-
-
-	/**
-	 * Returns a string name for the type of match that this class represents.
-	 *
-	 * @abstract
-	 * @return {String}
-	 */
-	getType : Autolinker.Util.abstractMethod,
-
-
-	/**
-	 * Returns the original text that was matched.
-	 *
-	 * @return {String}
-	 */
-	getMatchedText : function() {
-		return this.matchedText;
-	},
-
-
-	/**
-	 * Sets the {@link #offset} of where the match was made in the input string.
-	 *
-	 * A {@link Autolinker.matcher.Matcher} will be fed only HTML text nodes,
-	 * and will therefore set an original offset that is relative to the HTML
-	 * text node itself. However, we want this offset to be relative to the full
-	 * HTML input string, and thus if using {@link Autolinker#parse} (rather
-	 * than calling a {@link Autolinker.matcher.Matcher} directly), then this
-	 * offset is corrected after the Matcher itself has done its job.
-	 *
-	 * @param {Number} offset
-	 */
-	setOffset : function( offset ) {
-		this.offset = offset;
-	},
-
-
-	/**
-	 * Returns the offset of where the match was made in the input string. This
-	 * is the 0-based index of the match.
-	 *
-	 * @return {Number}
-	 */
-	getOffset : function() {
-		return this.offset;
-	},
-
-
-	/**
-	 * Returns the anchor href that should be generated for the match.
-	 *
-	 * @abstract
-	 * @return {String}
-	 */
-	getAnchorHref : Autolinker.Util.abstractMethod,
-
-
-	/**
-	 * Returns the anchor text that should be generated for the match.
-	 *
-	 * @abstract
-	 * @return {String}
-	 */
-	getAnchorText : Autolinker.Util.abstractMethod,
-
-
-	/**
-	 * Builds and returns an {@link Autolinker.HtmlTag} instance based on the
-	 * Match.
-	 *
-	 * This can be used to easily generate anchor tags from matches, and either
-	 * return their HTML string, or modify them before doing so.
-	 *
-	 * Example Usage:
-	 *
-	 *     var tag = match.buildTag();
-	 *     tag.addClass( 'cordova-link' );
-	 *     tag.setAttr( 'target', '_system' );
-	 *
-	 *     tag.toAnchorString();  // <a href="http://google.com" class="cordova-link" target="_system">Google</a>
-	 */
-	buildTag : function() {
-		return this.tagBuilder.build( this );
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.match.Email
- * @extends Autolinker.match.Match
- *
- * Represents a Email match found in an input string which should be Autolinked.
- *
- * See this class's superclass ({@link Autolinker.match.Match}) for more details.
- */
-Autolinker.match.Email = Autolinker.Util.extend( Autolinker.match.Match, {
-
-	/**
-	 * @cfg {String} email (required)
-	 *
-	 * The email address that was matched.
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.match.Match.prototype.constructor.call( this, cfg );
-
-		if( !cfg.email ) throw new Error( '`email` cfg required' );
-
-		this.email = cfg.email;
-	},
-
-
-	/**
-	 * Returns a string name for the type of match that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'email';
-	},
-
-
-	/**
-	 * Returns the email address that was matched.
-	 *
-	 * @return {String}
-	 */
-	getEmail : function() {
-		return this.email;
-	},
-
-
-	/**
-	 * Returns the anchor href that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorHref : function() {
-		return 'mailto:' + this.email;
-	},
-
-
-	/**
-	 * Returns the anchor text that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorText : function() {
-		return this.email;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.match.Hashtag
- * @extends Autolinker.match.Match
- *
- * Represents a Hashtag match found in an input string which should be
- * Autolinked.
- *
- * See this class's superclass ({@link Autolinker.match.Match}) for more
- * details.
- */
-Autolinker.match.Hashtag = Autolinker.Util.extend( Autolinker.match.Match, {
-
-	/**
-	 * @cfg {String} serviceName
-	 *
-	 * The service to point hashtag matches to. See {@link Autolinker#hashtag}
-	 * for available values.
-	 */
-
-	/**
-	 * @cfg {String} hashtag (required)
-	 *
-	 * The Hashtag that was matched, without the '#'.
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.match.Match.prototype.constructor.call( this, cfg );
-
-		// TODO: if( !serviceName ) throw new Error( '`serviceName` cfg required' );
-		if( !cfg.hashtag ) throw new Error( '`hashtag` cfg required' );
-
-		this.serviceName = cfg.serviceName;
-		this.hashtag = cfg.hashtag;
-	},
-
-
-	/**
-	 * Returns the type of match that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'hashtag';
-	},
-
-
-	/**
-	 * Returns the configured {@link #serviceName} to point the Hashtag to.
-	 * Ex: 'facebook', 'twitter'.
-	 *
-	 * @return {String}
-	 */
-	getServiceName : function() {
-		return this.serviceName;
-	},
-
-
-	/**
-	 * Returns the matched hashtag, without the '#' character.
-	 *
-	 * @return {String}
-	 */
-	getHashtag : function() {
-		return this.hashtag;
-	},
-
-
-	/**
-	 * Returns the anchor href that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorHref : function() {
-		var serviceName = this.serviceName,
-		    hashtag = this.hashtag;
-
-		switch( serviceName ) {
-			case 'twitter' :
-				return 'https://twitter.com/hashtag/' + hashtag;
-			case 'facebook' :
-				return 'https://www.facebook.com/hashtag/' + hashtag;
-			case 'instagram' :
-				return 'https://instagram.com/explore/tags/' + hashtag;
-
-			default :  // Shouldn't happen because Autolinker's constructor should block any invalid values, but just in case.
-				throw new Error( 'Unknown service name to point hashtag to: ', serviceName );
-		}
-	},
-
-
-	/**
-	 * Returns the anchor text that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorText : function() {
-		return '#' + this.hashtag;
-	}
-
-} );
-
-/*global Autolinker */
-/**
- * @class Autolinker.match.Phone
- * @extends Autolinker.match.Match
- *
- * Represents a Phone number match found in an input string which should be
- * Autolinked.
- *
- * See this class's superclass ({@link Autolinker.match.Match}) for more
- * details.
- */
-Autolinker.match.Phone = Autolinker.Util.extend( Autolinker.match.Match, {
-
-	/**
-	 * @protected
-	 * @property {String} number (required)
-	 *
-	 * The phone number that was matched, without any delimiter characters.
-	 *
-	 * Note: This is a string to allow for prefixed 0's.
-	 */
-
-	/**
-	 * @protected
-	 * @property  {Boolean} plusSign (required)
-	 *
-	 * `true` if the matched phone number started with a '+' sign. We'll include
-	 * it in the `tel:` URL if so, as this is needed for international numbers.
-	 *
-	 * Ex: '+1 (123) 456 7879'
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.match.Match.prototype.constructor.call( this, cfg );
-
-		if( !cfg.number ) throw new Error( '`number` cfg required' );
-		if( cfg.plusSign == null ) throw new Error( '`plusSign` cfg required' );
-
-		this.number = cfg.number;
-		this.plusSign = cfg.plusSign;
-	},
-
-
-	/**
-	 * Returns a string name for the type of match that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'phone';
-	},
-
-
-	/**
-	 * Returns the phone number that was matched as a string, without any
-	 * delimiter characters.
-	 *
-	 * Note: This is a string to allow for prefixed 0's.
-	 *
-	 * @return {String}
-	 */
-	getNumber: function() {
-		return this.number;
-	},
-
-
-	/**
-	 * Returns the anchor href that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorHref : function() {
-		return 'tel:' + ( this.plusSign ? '+' : '' ) + this.number;
-	},
-
-
-	/**
-	 * Returns the anchor text that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorText : function() {
-		return this.matchedText;
-	}
-
-} );
-
-/*global Autolinker */
-/**
- * @class Autolinker.match.Twitter
- * @extends Autolinker.match.Match
- *
- * Represents a Twitter match found in an input string which should be Autolinked.
- *
- * See this class's superclass ({@link Autolinker.match.Match}) for more details.
- */
-Autolinker.match.Twitter = Autolinker.Util.extend( Autolinker.match.Match, {
-
-	/**
-	 * @cfg {String} twitterHandle (required)
-	 *
-	 * The Twitter handle that was matched, without the '@' character.
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg) {
-		Autolinker.match.Match.prototype.constructor.call( this, cfg );
-
-		if( !cfg.twitterHandle ) throw new Error( '`twitterHandle` cfg required' );
-
-		this.twitterHandle = cfg.twitterHandle;
-	},
-
-
-	/**
-	 * Returns the type of match that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'twitter';
-	},
-
-
-	/**
-	 * Returns the twitter handle, without the '@' character.
-	 *
-	 * @return {String}
-	 */
-	getTwitterHandle : function() {
-		return this.twitterHandle;
-	},
-
-
-	/**
-	 * Returns the anchor href that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorHref : function() {
-		return 'https://twitter.com/' + this.twitterHandle;
-	},
-
-
-	/**
-	 * Returns the anchor text that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorText : function() {
-		return '@' + this.twitterHandle;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.match.Url
- * @extends Autolinker.match.Match
- *
- * Represents a Url match found in an input string which should be Autolinked.
- *
- * See this class's superclass ({@link Autolinker.match.Match}) for more details.
- */
-Autolinker.match.Url = Autolinker.Util.extend( Autolinker.match.Match, {
-
-	/**
-	 * @cfg {String} url (required)
-	 *
-	 * The url that was matched.
-	 */
-
-	/**
-	 * @cfg {"scheme"/"www"/"tld"} urlMatchType (required)
-	 *
-	 * The type of URL match that this class represents. This helps to determine
-	 * if the match was made in the original text with a prefixed scheme (ex:
-	 * 'http://www.google.com'), a prefixed 'www' (ex: 'www.google.com'), or
-	 * was matched by a known top-level domain (ex: 'google.com').
-	 */
-
-	/**
-	 * @cfg {Boolean} protocolUrlMatch (required)
-	 *
-	 * `true` if the URL is a match which already has a protocol (i.e.
-	 * 'http://'), `false` if the match was from a 'www' or known TLD match.
-	 */
-
-	/**
-	 * @cfg {Boolean} protocolRelativeMatch (required)
-	 *
-	 * `true` if the URL is a protocol-relative match. A protocol-relative match
-	 * is a URL that starts with '//', and will be either http:// or https://
-	 * based on the protocol that the site is loaded under.
-	 */
-
-	/**
-	 * @cfg {Boolean} stripPrefix (required)
-	 * @inheritdoc Autolinker#cfg-stripPrefix
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.match.Match.prototype.constructor.call( this, cfg );
-
-		if( cfg.urlMatchType !== 'scheme' && cfg.urlMatchType !== 'www' && cfg.urlMatchType !== 'tld' ) throw new Error( '`urlMatchType` cfg must be one of: "scheme", "www", or "tld"' );
-		if( !cfg.url ) throw new Error( '`url` cfg required' );
-		if( cfg.protocolUrlMatch == null ) throw new Error( '`protocolUrlMatch` cfg required' );
-		if( cfg.protocolRelativeMatch == null ) throw new Error( '`protocolRelativeMatch` cfg required' );
-		if( cfg.stripPrefix == null ) throw new Error( '`stripPrefix` cfg required' );
-
-		this.urlMatchType = cfg.urlMatchType;
-		this.url = cfg.url;
-		this.protocolUrlMatch = cfg.protocolUrlMatch;
-		this.protocolRelativeMatch = cfg.protocolRelativeMatch;
-		this.stripPrefix = cfg.stripPrefix;
-	},
-
-
-	/**
-	 * @private
-	 * @property {RegExp} urlPrefixRegex
-	 *
-	 * A regular expression used to remove the 'http://' or 'https://' and/or the 'www.' from URLs.
-	 */
-	urlPrefixRegex: /^(https?:\/\/)?(www\.)?/i,
-
-	/**
-	 * @private
-	 * @property {RegExp} protocolRelativeRegex
-	 *
-	 * The regular expression used to remove the protocol-relative '//' from the {@link #url} string, for purposes
-	 * of {@link #getAnchorText}. A protocol-relative URL is, for example, "//yahoo.com"
-	 */
-	protocolRelativeRegex : /^\/\//,
-
-	/**
-	 * @private
-	 * @property {Boolean} protocolPrepended
-	 *
-	 * Will be set to `true` if the 'http://' protocol has been prepended to the {@link #url} (because the
-	 * {@link #url} did not have a protocol)
-	 */
-	protocolPrepended : false,
-
-
-	/**
-	 * Returns a string name for the type of match that this class represents.
-	 *
-	 * @return {String}
-	 */
-	getType : function() {
-		return 'url';
-	},
-
-
-	/**
-	 * Returns a string name for the type of URL match that this class
-	 * represents.
-	 *
-	 * This helps to determine if the match was made in the original text with a
-	 * prefixed scheme (ex: 'http://www.google.com'), a prefixed 'www' (ex:
-	 * 'www.google.com'), or was matched by a known top-level domain (ex:
-	 * 'google.com').
-	 *
-	 * @return {"scheme"/"www"/"tld"}
-	 */
-	getUrlMatchType : function() {
-		return this.urlMatchType;
-	},
-
-
-	/**
-	 * Returns the url that was matched, assuming the protocol to be 'http://' if the original
-	 * match was missing a protocol.
-	 *
-	 * @return {String}
-	 */
-	getUrl : function() {
-		var url = this.url;
-
-		// if the url string doesn't begin with a protocol, assume 'http://'
-		if( !this.protocolRelativeMatch && !this.protocolUrlMatch && !this.protocolPrepended ) {
-			url = this.url = 'http://' + url;
-
-			this.protocolPrepended = true;
-		}
-
-		return url;
-	},
-
-
-	/**
-	 * Returns the anchor href that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorHref : function() {
-		var url = this.getUrl();
-
-		return url.replace( /&amp;/g, '&' );  // any &amp;'s in the URL should be converted back to '&' if they were displayed as &amp; in the source html
-	},
-
-
-	/**
-	 * Returns the anchor text that should be generated for the match.
-	 *
-	 * @return {String}
-	 */
-	getAnchorText : function() {
-		var anchorText = this.getMatchedText();
-
-		if( this.protocolRelativeMatch ) {
-			// Strip off any protocol-relative '//' from the anchor text
-			anchorText = this.stripProtocolRelativePrefix( anchorText );
-		}
-		if( this.stripPrefix ) {
-			anchorText = this.stripUrlPrefix( anchorText );
-		}
-		anchorText = this.removeTrailingSlash( anchorText );  // remove trailing slash, if there is one
-
-		return anchorText;
-	},
-
-
-	// ---------------------------------------
-
-	// Utility Functionality
-
-	/**
-	 * Strips the URL prefix (such as "http://" or "https://") from the given text.
-	 *
-	 * @private
-	 * @param {String} text The text of the anchor that is being generated, for which to strip off the
-	 *   url prefix (such as stripping off "http://")
-	 * @return {String} The `anchorText`, with the prefix stripped.
-	 */
-	stripUrlPrefix : function( text ) {
-		return text.replace( this.urlPrefixRegex, '' );
-	},
-
-
-	/**
-	 * Strips any protocol-relative '//' from the anchor text.
-	 *
-	 * @private
-	 * @param {String} text The text of the anchor that is being generated, for which to strip off the
-	 *   protocol-relative prefix (such as stripping off "//")
-	 * @return {String} The `anchorText`, with the protocol-relative prefix stripped.
-	 */
-	stripProtocolRelativePrefix : function( text ) {
-		return text.replace( this.protocolRelativeRegex, '' );
-	},
-
-
-	/**
-	 * Removes any trailing slash from the given `anchorText`, in preparation for the text to be displayed.
-	 *
-	 * @private
-	 * @param {String} anchorText The text of the anchor that is being generated, for which to remove any trailing
-	 *   slash ('/') that may exist.
-	 * @return {String} The `anchorText`, with the trailing slash removed.
-	 */
-	removeTrailingSlash : function( anchorText ) {
-		if( anchorText.charAt( anchorText.length - 1 ) === '/' ) {
-			anchorText = anchorText.slice( 0, -1 );
-		}
-		return anchorText;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @abstract
- * @class Autolinker.matcher.Matcher
- *
- * An abstract class and interface for individual matchers to find matches in
- * an input string with linkified versions of them.
- *
- * Note that Matchers do not take HTML into account - they must be fed the text
- * nodes of any HTML string, which is handled by {@link Autolinker#parse}.
- */
-Autolinker.matcher.Matcher = Autolinker.Util.extend( Object, {
-
-	/**
-	 * @cfg {Autolinker.AnchorTagBuilder} tagBuilder (required)
-	 *
-	 * Reference to the AnchorTagBuilder instance to use to generate HTML tags
-	 * for {@link Autolinker.match.Match Matches}.
-	 */
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Matcher
-	 *   instance, specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		if( !cfg.tagBuilder ) throw new Error( '`tagBuilder` cfg required' );
-
-		this.tagBuilder = cfg.tagBuilder;
-	},
-
-
-	/**
-	 * Parses the input `text` and returns the array of {@link Autolinker.match.Match Matches}
-	 * for the matcher.
-	 *
-	 * @abstract
-	 * @param {String} text The text to scan and replace matches in.
-	 * @return {Autolinker.match.Match[]}
-	 */
-	parseMatches : Autolinker.Util.abstractMethod
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.matcher.Email
- * @extends Autolinker.matcher.Matcher
- *
- * Matcher to find email matches in an input string.
- *
- * See this class's superclass ({@link Autolinker.matcher.Matcher}) for more details.
- */
-Autolinker.matcher.Email = Autolinker.Util.extend( Autolinker.matcher.Matcher, {
-
-	/**
-	 * The regular expression to match email addresses. Example match:
-	 *
-	 *     person@place.com
-	 *
-	 * @private
-	 * @property {RegExp} matcherRegex
-	 */
-	matcherRegex : (function() {
-		var alphaNumericChars = Autolinker.RegexLib.alphaNumericCharsStr,
-		    emailRegex = new RegExp( '[' + alphaNumericChars + '\\-_\';:&=+$.,]+@' ),  // something@ for email addresses (a.k.a. local-part)
-			domainNameRegex = Autolinker.RegexLib.domainNameRegex,
-			tldRegex = Autolinker.RegexLib.tldRegex;  // match our known top level domains (TLDs)
-
-		return new RegExp( [
-			emailRegex.source,
-			domainNameRegex.source,
-			'\\.', tldRegex.source   // '.com', '.net', etc
-		].join( "" ), 'gi' );
-	} )(),
-
-
-	/**
-	 * @inheritdoc
-	 */
-	parseMatches : function( text ) {
-		var matcherRegex = this.matcherRegex,
-		    tagBuilder = this.tagBuilder,
-		    matches = [],
-		    match;
-
-		while( ( match = matcherRegex.exec( text ) ) !== null ) {
-			var matchedText = match[ 0 ];
-
-			matches.push( new Autolinker.match.Email( {
-				tagBuilder  : tagBuilder,
-				matchedText : matchedText,
-				offset      : match.index,
-				email       : matchedText
-			} ) );
-		}
-
-		return matches;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.matcher.Hashtag
- * @extends Autolinker.matcher.Matcher
- *
- * Matcher to find Hashtag matches in an input string.
- */
-Autolinker.matcher.Hashtag = Autolinker.Util.extend( Autolinker.matcher.Matcher, {
-
-	/**
-	 * @cfg {String} serviceName
-	 *
-	 * The service to point hashtag matches to. See {@link Autolinker#hashtag}
-	 * for available values.
-	 */
-
-
-	/**
-	 * The regular expression to match Hashtags. Example match:
-	 *
-	 *     #asdf
-	 *
-	 * @private
-	 * @property {RegExp} matcherRegex
-	 */
-	matcherRegex : new RegExp( '#[_' + Autolinker.RegexLib.alphaNumericCharsStr + ']{1,139}', 'g' ),
-
-	/**
-	 * The regular expression to use to check the character before a username match to
-	 * make sure we didn't accidentally match an email address.
-	 *
-	 * For example, the string "asdf@asdf.com" should not match "@asdf" as a username.
-	 *
-	 * @private
-	 * @property {RegExp} nonWordCharRegex
-	 */
-	nonWordCharRegex : new RegExp( '[^' + Autolinker.RegexLib.alphaNumericCharsStr + ']' ),
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match instance,
-	 *   specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.matcher.Matcher.prototype.constructor.call( this, cfg );
-
-		this.serviceName = cfg.serviceName;
-	},
-
-
-	/**
-	 * @inheritdoc
-	 */
-	parseMatches : function( text ) {
-		var matcherRegex = this.matcherRegex,
-		    nonWordCharRegex = this.nonWordCharRegex,
-		    serviceName = this.serviceName,
-		    tagBuilder = this.tagBuilder,
-		    matches = [],
-		    match;
-
-		while( ( match = matcherRegex.exec( text ) ) !== null ) {
-			var offset = match.index,
-			    prevChar = text.charAt( offset - 1 );
-
-			// If we found the match at the beginning of the string, or we found the match
-			// and there is a whitespace char in front of it (meaning it is not a '#' char
-			// in the middle of a word), then it is a hashtag match.
-			if( offset === 0 || nonWordCharRegex.test( prevChar ) ) {
-				var matchedText = match[ 0 ],
-				    hashtag = match[ 0 ].slice( 1 );  // strip off the '#' character at the beginning
-
-				matches.push( new Autolinker.match.Hashtag( {
-					tagBuilder  : tagBuilder,
-					matchedText : matchedText,
-					offset      : offset,
-					serviceName : serviceName,
-					hashtag     : hashtag
-				} ) );
-			}
-		}
-
-		return matches;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.matcher.Phone
- * @extends Autolinker.matcher.Matcher
- *
- * Matcher to find Phone number matches in an input string.
- *
- * See this class's superclass ({@link Autolinker.matcher.Matcher}) for more
- * details.
- */
-Autolinker.matcher.Phone = Autolinker.Util.extend( Autolinker.matcher.Matcher, {
-
-	/**
-	 * The regular expression to match Phone numbers. Example match:
-	 *
-	 *     (123) 456-7890
-	 *
-	 * This regular expression has the following capturing groups:
-	 *
-	 * 1. The prefixed '+' sign, if there is one.
-	 *
-	 * @private
-	 * @property {RegExp} matcherRegex
-	 */
-	matcherRegex : /(?:(\+)?\d{1,3}[-\040.])?\(?\d{3}\)?[-\040.]?\d{3}[-\040.]\d{4}/g,  // ex: (123) 456-7890, 123 456 7890, 123-456-7890, etc.
-
-	/**
-	 * @inheritdoc
-	 */
-	parseMatches : function( text ) {
-		var matcherRegex = this.matcherRegex,
-		    tagBuilder = this.tagBuilder,
-		    matches = [],
-		    match;
-
-		while( ( match = matcherRegex.exec( text ) ) !== null ) {
-			// Remove non-numeric values from phone number string
-			var matchedText = match[ 0 ],
-			    cleanNumber = matchedText.replace( /\D/g, '' ),  // strip out non-digit characters
-			    plusSign = !!match[ 1 ];  // match[ 1 ] is the prefixed plus sign, if there is one
-
-			matches.push( new Autolinker.match.Phone( {
-				tagBuilder  : tagBuilder,
-				matchedText : matchedText,
-				offset      : match.index,
-				number      : cleanNumber,
-				plusSign    : plusSign
-			} ) );
-		}
-
-		return matches;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.matcher.Twitter
- * @extends Autolinker.matcher.Matcher
- *
- * Matcher to find/replace username matches in an input string.
- */
-Autolinker.matcher.Twitter = Autolinker.Util.extend( Autolinker.matcher.Matcher, {
-
-	/**
-	 * The regular expression to match username handles. Example match:
-	 *
-	 *     @asdf
-	 *
-	 * @private
-	 * @property {RegExp} matcherRegex
-	 */
-	matcherRegex : new RegExp( '@[_' + Autolinker.RegexLib.alphaNumericCharsStr + ']{1,20}', 'g' ),
-
-	/**
-	 * The regular expression to use to check the character before a username match to
-	 * make sure we didn't accidentally match an email address.
-	 *
-	 * For example, the string "asdf@asdf.com" should not match "@asdf" as a username.
-	 *
-	 * @private
-	 * @property {RegExp} nonWordCharRegex
-	 */
-	nonWordCharRegex : new RegExp( '[^' + Autolinker.RegexLib.alphaNumericCharsStr + ']' ),
-
-
-	/**
-	 * @inheritdoc
-	 */
-	parseMatches : function( text ) {
-		var matcherRegex = this.matcherRegex,
-		    nonWordCharRegex = this.nonWordCharRegex,
-		    tagBuilder = this.tagBuilder,
-		    matches = [],
-		    match;
-
-		while( ( match = matcherRegex.exec( text ) ) !== null ) {
-			var offset = match.index,
-			    prevChar = text.charAt( offset - 1 );
-
-			// If we found the match at the beginning of the string, or we found the match
-			// and there is a whitespace char in front of it (meaning it is not an email
-			// address), then it is a username match.
-			if( offset === 0 || nonWordCharRegex.test( prevChar ) ) {
-				var matchedText = match[ 0 ],
-				    twitterHandle = match[ 0 ].slice( 1 );  // strip off the '@' character at the beginning
-
-				matches.push( new Autolinker.match.Twitter( {
-					tagBuilder    : tagBuilder,
-					matchedText   : matchedText,
-					offset        : offset,
-					twitterHandle : twitterHandle
-				} ) );
-			}
-		}
-
-		return matches;
-	}
-
-} );
-/*global Autolinker */
-/**
- * @class Autolinker.matcher.Url
- * @extends Autolinker.matcher.Matcher
- *
- * Matcher to find URL matches in an input string.
- *
- * See this class's superclass ({@link Autolinker.matcher.Matcher}) for more details.
- */
-Autolinker.matcher.Url = Autolinker.Util.extend( Autolinker.matcher.Matcher, {
-
-	/**
-	 * @cfg {Boolean} stripPrefix (required)
-	 * @inheritdoc Autolinker#stripPrefix
-	 */
-
-
-	/**
-	 * @private
-	 * @property {RegExp} matcherRegex
-	 *
-	 * The regular expression to match URLs with an optional scheme, port
-	 * number, path, query string, and hash anchor.
-	 *
-	 * Example matches:
-	 *
-	 *     http://google.com
-	 *     www.google.com
-	 *     google.com/path/to/file?q1=1&q2=2#myAnchor
-	 *
-	 *
-	 * This regular expression will have the following capturing groups:
-	 *
-	 * 1.  Group that matches a scheme-prefixed URL (i.e. 'http://google.com').
-	 *     This is used to match scheme URLs with just a single word, such as
-	 *     'http://localhost', where we won't double check that the domain name
-	 *     has at least one dot ('.') in it.
-	 * 2.  Group that matches a 'www.' prefixed URL. This is only matched if the
-	 *     'www.' text was not prefixed by a scheme (i.e.: not prefixed by
-	 *     'http://', 'ftp:', etc.)
-	 * 3.  A protocol-relative ('//') match for the case of a 'www.' prefixed
-	 *     URL. Will be an empty string if it is not a protocol-relative match.
-	 *     We need to know the character before the '//' in order to determine
-	 *     if it is a valid match or the // was in a string we don't want to
-	 *     auto-link.
-	 * 4.  Group that matches a known TLD (top level domain), when a scheme
-	 *     or 'www.'-prefixed domain is not matched.
-	 * 5.  A protocol-relative ('//') match for the case of a known TLD prefixed
-	 *     URL. Will be an empty string if it is not a protocol-relative match.
-	 *     See #3 for more info.
-	 */
-	matcherRegex : (function() {
-		var schemeRegex = /(?:[A-Za-z][-.+A-Za-z0-9]*:(?![A-Za-z][-.+A-Za-z0-9]*:\/\/)(?!\d+\/?)(?:\/\/)?)/,  // match protocol, allow in format "http://" or "mailto:". However, do not match the first part of something like 'link:http://www.google.com' (i.e. don't match "link:"). Also, make sure we don't interpret 'google.com:8000' as if 'google.com' was a protocol here (i.e. ignore a trailing port number in this regex)
-		    wwwRegex = /(?:www\.)/,                  // starting with 'www.'
-		    domainNameRegex = Autolinker.RegexLib.domainNameRegex,
-		    tldRegex = Autolinker.RegexLib.tldRegex,  // match our known top level domains (TLDs)
-		    alphaNumericCharsStr = Autolinker.RegexLib.alphaNumericCharsStr,
-
-		    // Allow optional path, query string, and hash anchor, not ending in the following characters: "?!:,.;"
-		    // http://blog.codinghorror.com/the-problem-with-urls/
-		    urlSuffixRegex = new RegExp( '[' + alphaNumericCharsStr + '\\-+&@#/%=~_()|\'$*\\[\\]?!:,.;]*[' + alphaNumericCharsStr + '\\-+&@#/%=~_()|\'$*\\[\\]]' );
-
-		return new RegExp( [
-			'(?:', // parens to cover match for scheme (optional), and domain
-				'(',  // *** Capturing group $1, for a scheme-prefixed url (ex: http://google.com)
-					schemeRegex.source,
-					domainNameRegex.source,
-				')',
-
-				'|',
-
-				'(',  // *** Capturing group $2, for a 'www.' prefixed url (ex: www.google.com)
-					'(//)?',  // *** Capturing group $3 for an optional protocol-relative URL. Must be at the beginning of the string or start with a non-word character (handled later)
-					wwwRegex.source,
-					domainNameRegex.source,
-				')',
-
-				'|',
-
-				'(',  // *** Capturing group $4, for known a TLD url (ex: google.com)
-					'(//)?',  // *** Capturing group $5 for an optional protocol-relative URL. Must be at the beginning of the string or start with a non-word character (handled later)
-					domainNameRegex.source + '\\.',
-					tldRegex.source,
-				')',
-			')',
-
-			'(?:' + urlSuffixRegex.source + ')?'  // match for path, query string, and/or hash anchor - optional
-		].join( "" ), 'gi' );
-	} )(),
-
-
-	/**
-	 * A regular expression to use to check the character before a protocol-relative
-	 * URL match. We don't want to match a protocol-relative URL if it is part
-	 * of another word.
-	 *
-	 * For example, we want to match something like "Go to: //google.com",
-	 * but we don't want to match something like "abc//google.com"
-	 *
-	 * This regular expression is used to test the character before the '//'.
-	 *
-	 * @private
-	 * @type {RegExp} wordCharRegExp
-	 */
-	wordCharRegExp : /\w/,
-
-
-	/**
-	 * The regular expression to match opening parenthesis in a URL match.
-	 *
-	 * This is to determine if we have unbalanced parenthesis in the URL, and to
-	 * drop the final parenthesis that was matched if so.
-	 *
-	 * Ex: The text "(check out: wikipedia.com/something_(disambiguation))"
-	 * should only autolink the inner "wikipedia.com/something_(disambiguation)"
-	 * part, so if we find that we have unbalanced parenthesis, we will drop the
-	 * last one for the match.
-	 *
-	 * @private
-	 * @property {RegExp}
-	 */
-	openParensRe : /\(/g,
-
-	/**
-	 * The regular expression to match closing parenthesis in a URL match. See
-	 * {@link #openParensRe} for more information.
-	 *
-	 * @private
-	 * @property {RegExp}
-	 */
-	closeParensRe : /\)/g,
-
-
-	/**
-	 * @constructor
-	 * @param {Object} cfg The configuration properties for the Match instance,
-	 *   specified in an Object (map).
-	 */
-	constructor : function( cfg ) {
-		Autolinker.matcher.Matcher.prototype.constructor.call( this, cfg );
-
-		this.stripPrefix = cfg.stripPrefix;
-
-		if( this.stripPrefix == null ) throw new Error( '`stripPrefix` cfg required' );
-	},
-
-
-	/**
-	 * @inheritdoc
-	 */
-	parseMatches : function( text ) {
-		var matcherRegex = this.matcherRegex,
-		    stripPrefix = this.stripPrefix,
-		    tagBuilder = this.tagBuilder,
-		    matches = [],
-		    match;
-
-		while( ( match = matcherRegex.exec( text ) ) !== null ) {
-			var matchStr = match[ 0 ],
-			    schemeUrlMatch = match[ 1 ],
-			    wwwUrlMatch = match[ 2 ],
-			    wwwProtocolRelativeMatch = match[ 3 ],
-			    //tldUrlMatch = match[ 4 ],  -- not needed at the moment
-			    tldProtocolRelativeMatch = match[ 5 ],
-			    offset = match.index,
-			    protocolRelativeMatch = wwwProtocolRelativeMatch || tldProtocolRelativeMatch,
-				prevChar = text.charAt( offset - 1 );
-
-			if( !Autolinker.matcher.UrlMatchValidator.isValid( matchStr, schemeUrlMatch ) ) {
-				continue;
-			}
-
-			// If the match is preceded by an '@' character, then it is either
-			// an email address or a username. Skip these types of matches.
-			if( offset > 0 && prevChar === '@' ) {
-				continue;
-			}
-
-			// If it's a protocol-relative '//' match, but the character before the '//'
-			// was a word character (i.e. a letter/number), then we found the '//' in the
-			// middle of another word (such as "asdf//asdf.com"). In this case, skip the
-			// match.
-			if( offset > 0 && protocolRelativeMatch && this.wordCharRegExp.test( prevChar ) ) {
-				continue;
-			}
-
-			// Handle a closing parenthesis at the end of the match, and exclude
-			// it if there is not a matching open parenthesis in the match
-			// itself.
-			if( this.matchHasUnbalancedClosingParen( matchStr ) ) {
-				matchStr = matchStr.substr( 0, matchStr.length - 1 );  // remove the trailing ")"
-			} else {
-				// Handle an invalid character after the TLD
-				var pos = this.matchHasInvalidCharAfterTld( matchStr, schemeUrlMatch );
-				if( pos > -1 ) {
-					matchStr = matchStr.substr( 0, pos ); // remove the trailing invalid chars
-				}
-			}
-
-			var urlMatchType = schemeUrlMatch ? 'scheme' : ( wwwUrlMatch ? 'www' : 'tld' ),
-			    protocolUrlMatch = !!schemeUrlMatch;
-
-			matches.push( new Autolinker.match.Url( {
-				tagBuilder            : tagBuilder,
-				matchedText           : matchStr,
-				offset                : offset,
-				urlMatchType          : urlMatchType,
-				url                   : matchStr,
-				protocolUrlMatch      : protocolUrlMatch,
-				protocolRelativeMatch : !!protocolRelativeMatch,
-				stripPrefix           : stripPrefix
-			} ) );
-		}
-
-		return matches;
-	},
-
-
-	/**
-	 * Determines if a match found has an unmatched closing parenthesis. If so,
-	 * this parenthesis will be removed from the match itself, and appended
-	 * after the generated anchor tag.
-	 *
-	 * A match may have an extra closing parenthesis at the end of the match
-	 * because the regular expression must include parenthesis for URLs such as
-	 * "wikipedia.com/something_(disambiguation)", which should be auto-linked.
-	 *
-	 * However, an extra parenthesis *will* be included when the URL itself is
-	 * wrapped in parenthesis, such as in the case of "(wikipedia.com/something_(disambiguation))".
-	 * In this case, the last closing parenthesis should *not* be part of the
-	 * URL itself, and this method will return `true`.
-	 *
-	 * @private
-	 * @param {String} matchStr The full match string from the {@link #matcherRegex}.
-	 * @return {Boolean} `true` if there is an unbalanced closing parenthesis at
-	 *   the end of the `matchStr`, `false` otherwise.
-	 */
-	matchHasUnbalancedClosingParen : function( matchStr ) {
-		var lastChar = matchStr.charAt( matchStr.length - 1 );
-
-		if( lastChar === ')' ) {
-			var openParensMatch = matchStr.match( this.openParensRe ),
-			    closeParensMatch = matchStr.match( this.closeParensRe ),
-			    numOpenParens = ( openParensMatch && openParensMatch.length ) || 0,
-			    numCloseParens = ( closeParensMatch && closeParensMatch.length ) || 0;
-
-			if( numOpenParens < numCloseParens ) {
-				return true;
-			}
-		}
-
-		return false;
-	},
-
-
-	/**
-	 * Determine if there's an invalid character after the TLD in a URL. Valid
-	 * characters after TLD are ':/?#'. Exclude scheme matched URLs from this
-	 * check.
-	 *
-	 * @private
-	 * @param {String} urlMatch The matched URL, if there was one. Will be an
-	 *   empty string if the match is not a URL match.
-	 * @param {String} schemeUrlMatch The match URL string for a scheme
-	 *   match. Ex: 'http://yahoo.com'. This is used to match something like
-	 *   'http://localhost', where we won't double check that the domain name
-	 *   has at least one '.' in it.
-	 * @return {Number} the position where the invalid character was found. If
-	 *   no such character was found, returns -1
-	 */
-	matchHasInvalidCharAfterTld : function( urlMatch, schemeUrlMatch ) {
-		if( !urlMatch ) {
-			return -1;
-		}
-
-		var offset = 0;
-		if ( schemeUrlMatch ) {
-			offset = urlMatch.indexOf(':');
-			urlMatch = urlMatch.slice(offset);
-		}
-
-		var re = /^((.?\/\/)?[A-Za-z0-9\u00C0-\u017F\.\-]*[A-Za-z0-9\u00C0-\u017F\-]\.[A-Za-z]+)/;
-		var res = re.exec( urlMatch );
-		if ( res === null ) {
-			return -1;
-		}
-
-		offset += res[1].length;
-		urlMatch = urlMatch.slice(res[1].length);
-		if (/^[^.A-Za-z:\/?#]/.test(urlMatch)) {
-			return offset;
-		}
-
-		return -1;
-	}
-
-} );
-/*global Autolinker */
-/*jshint scripturl:true */
-/**
- * @private
- * @class Autolinker.matcher.UrlMatchValidator
- * @singleton
- *
- * Used by Autolinker to filter out false URL positives from the
- * {@link Autolinker.matcher.Url UrlMatcher}.
- *
- * Due to the limitations of regular expressions (including the missing feature
- * of look-behinds in JS regular expressions), we cannot always determine the
- * validity of a given match. This class applies a bit of additional logic to
- * filter out any false positives that have been matched by the
- * {@link Autolinker.matcher.Url UrlMatcher}.
- */
-Autolinker.matcher.UrlMatchValidator = {
-
-	/**
-	 * Regex to test for a full protocol, with the two trailing slashes. Ex: 'http://'
-	 *
-	 * @private
-	 * @property {RegExp} hasFullProtocolRegex
-	 */
-	hasFullProtocolRegex : /^[A-Za-z][-.+A-Za-z0-9]*:\/\//,
-
-	/**
-	 * Regex to find the URI scheme, such as 'mailto:'.
-	 *
-	 * This is used to filter out 'javascript:' and 'vbscript:' schemes.
-	 *
-	 * @private
-	 * @property {RegExp} uriSchemeRegex
-	 */
-	uriSchemeRegex : /^[A-Za-z][-.+A-Za-z0-9]*:/,
-
-	/**
-	 * Regex to determine if at least one word char exists after the protocol (i.e. after the ':')
-	 *
-	 * @private
-	 * @property {RegExp} hasWordCharAfterProtocolRegex
-	 */
-	hasWordCharAfterProtocolRegex : /:[^\s]*?[A-Za-z\u00C0-\u017F]/,
-
-	/**
-	 * Regex to determine if the string is a valid IP address
-	 *
-	 * @private
-	 * @property {RegExp} ipRegex
-	 */
-	ipRegex: /[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?(:[0-9]*)?\/?$/,
-
-	/**
-	 * Determines if a given URL match found by the {@link Autolinker.matcher.Url UrlMatcher}
-	 * is valid. Will return `false` for:
-	 *
-	 * 1) URL matches which do not have at least have one period ('.') in the
-	 *    domain name (effectively skipping over matches like "abc:def").
-	 *    However, URL matches with a protocol will be allowed (ex: 'http://localhost')
-	 * 2) URL matches which do not have at least one word character in the
-	 *    domain name (effectively skipping over matches like "git:1.0").
-	 * 3) A protocol-relative url match (a URL beginning with '//') whose
-	 *    previous character is a word character (effectively skipping over
-	 *    strings like "abc//google.com")
-	 *
-	 * Otherwise, returns `true`.
-	 *
-	 * @param {String} urlMatch The matched URL, if there was one. Will be an
-	 *   empty string if the match is not a URL match.
-	 * @param {String} protocolUrlMatch The match URL string for a protocol
-	 *   match. Ex: 'http://yahoo.com'. This is used to match something like
-	 *   'http://localhost', where we won't double check that the domain name
-	 *   has at least one '.' in it.
-	 * @return {Boolean} `true` if the match given is valid and should be
-	 *   processed, or `false` if the match is invalid and/or should just not be
-	 *   processed.
-	 */
-	isValid : function( urlMatch, protocolUrlMatch ) {
-		if(
-			( protocolUrlMatch && !this.isValidUriScheme( protocolUrlMatch ) ) ||
-			this.urlMatchDoesNotHaveProtocolOrDot( urlMatch, protocolUrlMatch ) ||    // At least one period ('.') must exist in the URL match for us to consider it an actual URL, *unless* it was a full protocol match (like 'http://localhost')
-			(this.urlMatchDoesNotHaveAtLeastOneWordChar( urlMatch, protocolUrlMatch ) && // At least one letter character must exist in the domain name after a protocol match. Ex: skip over something like "git:1.0"
-			 !this.isValidIpAddress( urlMatch ) // Except if it's an IP address
-			)
-		) {
-			return false;
-		}
-
-		return true;
-	},
-
-
-	isValidIpAddress : function ( uriSchemeMatch ) {
-		var newRegex = new RegExp(this.hasFullProtocolRegex.source + this.ipRegex.source);
-		var uriScheme = uriSchemeMatch.match( newRegex );
-
-		return uriScheme !== null;
-	},
-
-	/**
-	 * Determines if the URI scheme is a valid scheme to be autolinked. Returns
-	 * `false` if the scheme is 'javascript:' or 'vbscript:'
-	 *
-	 * @private
-	 * @param {String} uriSchemeMatch The match URL string for a full URI scheme
-	 *   match. Ex: 'http://yahoo.com' or 'mailto:a@a.com'.
-	 * @return {Boolean} `true` if the scheme is a valid one, `false` otherwise.
-	 */
-	isValidUriScheme : function( uriSchemeMatch ) {
-		var uriScheme = uriSchemeMatch.match( this.uriSchemeRegex )[ 0 ].toLowerCase();
-
-		return ( uriScheme !== 'javascript:' && uriScheme !== 'vbscript:' );
-	},
-
-
-	/**
-	 * Determines if a URL match does not have either:
-	 *
-	 * a) a full protocol (i.e. 'http://'), or
-	 * b) at least one dot ('.') in the domain name (for a non-full-protocol
-	 *    match).
-	 *
-	 * Either situation is considered an invalid URL (ex: 'git:d' does not have
-	 * either the '://' part, or at least one dot in the domain name. If the
-	 * match was 'git:abc.com', we would consider this valid.)
-	 *
-	 * @private
-	 * @param {String} urlMatch The matched URL, if there was one. Will be an
-	 *   empty string if the match is not a URL match.
-	 * @param {String} protocolUrlMatch The match URL string for a protocol
-	 *   match. Ex: 'http://yahoo.com'. This is used to match something like
-	 *   'http://localhost', where we won't double check that the domain name
-	 *   has at least one '.' in it.
-	 * @return {Boolean} `true` if the URL match does not have a full protocol,
-	 *   or at least one dot ('.') in a non-full-protocol match.
-	 */
-	urlMatchDoesNotHaveProtocolOrDot : function( urlMatch, protocolUrlMatch ) {
-		return ( !!urlMatch && ( !protocolUrlMatch || !this.hasFullProtocolRegex.test( protocolUrlMatch ) ) && urlMatch.indexOf( '.' ) === -1 );
-	},
-
-
-	/**
-	 * Determines if a URL match does not have at least one word character after
-	 * the protocol (i.e. in the domain name).
-	 *
-	 * At least one letter character must exist in the domain name after a
-	 * protocol match. Ex: skip over something like "git:1.0"
-	 *
-	 * @private
-	 * @param {String} urlMatch The matched URL, if there was one. Will be an
-	 *   empty string if the match is not a URL match.
-	 * @param {String} protocolUrlMatch The match URL string for a protocol
-	 *   match. Ex: 'http://yahoo.com'. This is used to know whether or not we
-	 *   have a protocol in the URL string, in order to check for a word
-	 *   character after the protocol separator (':').
-	 * @return {Boolean} `true` if the URL match does not have at least one word
-	 *   character in it after the protocol, `false` otherwise.
-	 */
-	urlMatchDoesNotHaveAtLeastOneWordChar : function( urlMatch, protocolUrlMatch ) {
-		if( urlMatch && protocolUrlMatch ) {
-			return !this.hasWordCharAfterProtocolRegex.test( urlMatch );
-		} else {
-			return false;
-		}
-	}
-
-};
-/*global Autolinker */
-/**
- * A truncation feature where the ellipsis will be placed at the end of the URL.
- *
- * @param {String} anchorText
- * @param {Number} truncateLen The maximum length of the truncated output URL string.
- * @param {String} ellipsisChars The characters to place within the url, e.g. "..".
- * @return {String} The truncated URL.
- */
-Autolinker.truncate.TruncateEnd = function(anchorText, truncateLen, ellipsisChars){
-	return Autolinker.Util.ellipsis( anchorText, truncateLen, ellipsisChars );
-};
-
-/*global Autolinker */
-/**
- * Date: 2015-10-05
- * Author: Kasper Søfren <soefritz@gmail.com> (https://github.com/kafoso)
- *
- * A truncation feature, where the ellipsis will be placed in the dead-center of the URL.
- *
- * @param {String} url             A URL.
- * @param {Number} truncateLen     The maximum length of the truncated output URL string.
- * @param {String} ellipsisChars   The characters to place within the url, e.g. "..".
- * @return {String} The truncated URL.
- */
-Autolinker.truncate.TruncateMiddle = function(url, truncateLen, ellipsisChars){
-  if (url.length <= truncateLen) {
-    return url;
-  }
-  var availableLength = truncateLen - ellipsisChars.length;
-  var end = "";
-  if (availableLength > 0) {
-    end = url.substr((-1)*Math.floor(availableLength/2));
-  }
-  return (url.substr(0, Math.ceil(availableLength/2)) + ellipsisChars + end).substr(0, truncateLen);
-};
-
-/*global Autolinker */
-/**
- * Date: 2015-10-05
- * Author: Kasper Søfren <soefritz@gmail.com> (https://github.com/kafoso)
- *
- * A truncation feature, where the ellipsis will be placed at a section within
- * the URL making it still somewhat human readable.
- *
- * @param {String} url						 A URL.
- * @param {Number} truncateLen		 The maximum length of the truncated output URL string.
- * @param {String} ellipsisChars	 The characters to place within the url, e.g. "..".
- * @return {String} The truncated URL.
- */
-Autolinker.truncate.TruncateSmart = function(url, truncateLen, ellipsisChars){
-	var parse_url = function(url){ // Functionality inspired by PHP function of same name
-		var urlObj = {};
-		var urlSub = url;
-		var match = urlSub.match(/^([a-z]+):\/\//i);
-		if (match) {
-			urlObj.scheme = match[1];
-			urlSub = urlSub.substr(match[0].length);
-		}
-		match = urlSub.match(/^(.*?)(?=(\?|#|\/|$))/i);
-		if (match) {
-			urlObj.host = match[1];
-			urlSub = urlSub.substr(match[0].length);
-		}
-		match = urlSub.match(/^\/(.*?)(?=(\?|#|$))/i);
-		if (match) {
-			urlObj.path = match[1];
-			urlSub = urlSub.substr(match[0].length);
-		}
-		match = urlSub.match(/^\?(.*?)(?=(#|$))/i);
-		if (match) {
-			urlObj.query = match[1];
-			urlSub = urlSub.substr(match[0].length);
-		}
-		match = urlSub.match(/^#(.*?)$/i);
-		if (match) {
-			urlObj.fragment = match[1];
-			//urlSub = urlSub.substr(match[0].length);  -- not used. Uncomment if adding another block.
-		}
-		return urlObj;
-	};
-
-	var buildUrl = function(urlObj){
-		var url = "";
-		if (urlObj.scheme && urlObj.host) {
-			url += urlObj.scheme + "://";
-		}
-		if (urlObj.host) {
-			url += urlObj.host;
-		}
-		if (urlObj.path) {
-			url += "/" + urlObj.path;
-		}
-		if (urlObj.query) {
-			url += "?" + urlObj.query;
-		}
-		if (urlObj.fragment) {
-			url += "#" + urlObj.fragment;
-		}
-		return url;
-	};
-
-	var buildSegment = function(segment, remainingAvailableLength){
-		var remainingAvailableLengthHalf = remainingAvailableLength/ 2,
-				startOffset = Math.ceil(remainingAvailableLengthHalf),
-				endOffset = (-1)*Math.floor(remainingAvailableLengthHalf),
-				end = "";
-		if (endOffset < 0) {
-			end = segment.substr(endOffset);
-		}
-		return segment.substr(0, startOffset) + ellipsisChars + end;
-	};
-	if (url.length <= truncateLen) {
-		return url;
-	}
-	var availableLength = truncateLen - ellipsisChars.length;
-	var urlObj = parse_url(url);
-	// Clean up the URL
-	if (urlObj.query) {
-		var matchQuery = urlObj.query.match(/^(.*?)(?=(\?|\#))(.*?)$/i);
-		if (matchQuery) {
-			// Malformed URL; two or more "?". Removed any content behind the 2nd.
-			urlObj.query = urlObj.query.substr(0, matchQuery[1].length);
-			url = buildUrl(urlObj);
-		}
-	}
-	if (url.length <= truncateLen) {
-		return url;
-	}
-	if (urlObj.host) {
-		urlObj.host = urlObj.host.replace(/^www\./, "");
-		url = buildUrl(urlObj);
-	}
-	if (url.length <= truncateLen) {
-		return url;
-	}
-	// Process and build the URL
-	var str = "";
-	if (urlObj.host) {
-		str += urlObj.host;
-	}
-	if (str.length >= availableLength) {
-		if (urlObj.host.length == truncateLen) {
-			return (urlObj.host.substr(0, (truncateLen - ellipsisChars.length)) + ellipsisChars).substr(0, truncateLen);
-		}
-		return buildSegment(str, availableLength).substr(0, truncateLen);
-	}
-	var pathAndQuery = "";
-	if (urlObj.path) {
-		pathAndQuery += "/" + urlObj.path;
-	}
-	if (urlObj.query) {
-		pathAndQuery += "?" + urlObj.query;
-	}
-	if (pathAndQuery) {
-		if ((str+pathAndQuery).length >= availableLength) {
-			if ((str+pathAndQuery).length == truncateLen) {
-				return (str + pathAndQuery).substr(0, truncateLen);
-			}
-			var remainingAvailableLength = availableLength - str.length;
-			return (str + buildSegment(pathAndQuery, remainingAvailableLength)).substr(0, truncateLen);
-		} else {
-			str += pathAndQuery;
-		}
-	}
-	if (urlObj.fragment) {
-		var fragment = "#"+urlObj.fragment;
-		if ((str+fragment).length >= availableLength) {
-			if ((str+fragment).length == truncateLen) {
-				return (str + fragment).substr(0, truncateLen);
-			}
-			var remainingAvailableLength2 = availableLength - str.length;
-			return (str + buildSegment(fragment, remainingAvailableLength2)).substr(0, truncateLen);
-		} else {
-			str += fragment;
-		}
-	}
-	if (urlObj.scheme && urlObj.host) {
-		var scheme = urlObj.scheme + "://";
-		if ((str+scheme).length < availableLength) {
-			return (scheme + str).substr(0, truncateLen);
-		}
-	}
-	if (str.length <= truncateLen) {
-		return str;
-	}
-	var end = "";
-	if (availableLength > 0) {
-		end = str.substr((-1)*Math.floor(availableLength/2));
-	}
-	return (str.substr(0, Math.ceil(availableLength/2)) + ellipsisChars + end).substr(0, truncateLen);
-};
-
-return Autolinker;
-}));
-
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css":
 /*!********************************************************************!*\
   !*** ./node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css ***!
@@ -10464,26 +6689,25 @@ return Autolinker;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var api = __webpack_require__(/*! ../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js!./bootstrap-toggle.min.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css");
 
-var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js!./bootstrap-toggle.min.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css");
+            content = content.__esModule ? content.default : content;
 
-if(typeof content === 'string') content = [[module.i, content, '']];
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
 
-var transform;
-var insertInto;
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
 
 
 
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
+module.exports = content.locals || {};
 
 /***/ }),
 
@@ -10510,16 +6734,20 @@ if(false) {}
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css ***!
   \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-exports = ___CSS_LOADER_API_IMPORT___(false);
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(true);
 // Module
-exports.push([module.i, "/*! ========================================================================\n * Bootstrap Toggle: bootstrap-toggle.css v2.2.0\n * http://www.bootstraptoggle.com\n * ========================================================================\n * Copyright 2014 Min Hur, The New York Times Company\n * Licensed under MIT\n * ======================================================================== */\n.checkbox label .toggle,.checkbox-inline .toggle{margin-left:-20px;margin-right:5px}\n.toggle{position:relative;overflow:hidden}\n.toggle input[type=checkbox]{display:none}\n.toggle-group{position:absolute;width:200%;top:0;bottom:0;left:0;transition:left .35s;-webkit-transition:left .35s;-moz-user-select:none;-webkit-user-select:none}\n.toggle.off .toggle-group{left:-100%}\n.toggle-on{position:absolute;top:0;bottom:0;left:0;right:50%;margin:0;border:0;border-radius:0}\n.toggle-off{position:absolute;top:0;bottom:0;left:50%;right:0;margin:0;border:0;border-radius:0}\n.toggle-handle{position:relative;margin:0 auto;padding-top:0;padding-bottom:0;height:100%;width:0;border-width:0 1px}\n.toggle.btn{min-width:59px;min-height:34px}\n.toggle-on.btn{padding-right:24px}\n.toggle-off.btn{padding-left:24px}\n.toggle.btn-lg{min-width:79px;min-height:45px}\n.toggle-on.btn-lg{padding-right:31px}\n.toggle-off.btn-lg{padding-left:31px}\n.toggle-handle.btn-lg{width:40px}\n.toggle.btn-sm{min-width:50px;min-height:30px}\n.toggle-on.btn-sm{padding-right:20px}\n.toggle-off.btn-sm{padding-left:20px}\n.toggle.btn-xs{min-width:35px;min-height:22px}\n.toggle-on.btn-xs{padding-right:12px}\n.toggle-off.btn-xs{padding-left:12px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "/*! ========================================================================\n * Bootstrap Toggle: bootstrap-toggle.css v2.2.0\n * http://www.bootstraptoggle.com\n * ========================================================================\n * Copyright 2014 Min Hur, The New York Times Company\n * Licensed under MIT\n * ======================================================================== */\n.checkbox label .toggle,.checkbox-inline .toggle{margin-left:-20px;margin-right:5px}\n.toggle{position:relative;overflow:hidden}\n.toggle input[type=checkbox]{display:none}\n.toggle-group{position:absolute;width:200%;top:0;bottom:0;left:0;transition:left .35s;-webkit-transition:left .35s;-moz-user-select:none;-webkit-user-select:none}\n.toggle.off .toggle-group{left:-100%}\n.toggle-on{position:absolute;top:0;bottom:0;left:0;right:50%;margin:0;border:0;border-radius:0}\n.toggle-off{position:absolute;top:0;bottom:0;left:50%;right:0;margin:0;border:0;border-radius:0}\n.toggle-handle{position:relative;margin:0 auto;padding-top:0;padding-bottom:0;height:100%;width:0;border-width:0 1px}\n.toggle.btn{min-width:59px;min-height:34px}\n.toggle-on.btn{padding-right:24px}\n.toggle-off.btn{padding-left:24px}\n.toggle.btn-lg{min-width:79px;min-height:45px}\n.toggle-on.btn-lg{padding-right:31px}\n.toggle-off.btn-lg{padding-left:31px}\n.toggle-handle.btn-lg{width:40px}\n.toggle.btn-sm{min-width:50px;min-height:30px}\n.toggle-on.btn-sm{padding-right:20px}\n.toggle-off.btn-sm{padding-left:20px}\n.toggle.btn-xs{min-width:35px;min-height:22px}\n.toggle-on.btn-xs{padding-right:12px}\n.toggle-off.btn-xs{padding-left:12px}", "",{"version":3,"sources":["bootstrap-toggle.min.css"],"names":[],"mappings":"AAAA;;;;;;6EAM6E;AAC7E,iDAAiD,iBAAiB,CAAC,gBAAgB;AACnF,QAAQ,iBAAiB,CAAC,eAAe;AACzC,6BAA6B,YAAY;AACzC,cAAc,iBAAiB,CAAC,UAAU,CAAC,KAAK,CAAC,QAAQ,CAAC,MAAM,CAAC,oBAAoB,CAAC,4BAA4B,CAAC,qBAAqB,CAAC,wBAAwB;AACjK,0BAA0B,UAAU;AACpC,WAAW,iBAAiB,CAAC,KAAK,CAAC,QAAQ,CAAC,MAAM,CAAC,SAAS,CAAC,QAAQ,CAAC,QAAQ,CAAC,eAAe;AAC9F,YAAY,iBAAiB,CAAC,KAAK,CAAC,QAAQ,CAAC,QAAQ,CAAC,OAAO,CAAC,QAAQ,CAAC,QAAQ,CAAC,eAAe;AAC/F,eAAe,iBAAiB,CAAC,aAAa,CAAC,aAAa,CAAC,gBAAgB,CAAC,WAAW,CAAC,OAAO,CAAC,kBAAkB;AACpH,YAAY,cAAc,CAAC,eAAe;AAC1C,eAAe,kBAAkB;AACjC,gBAAgB,iBAAiB;AACjC,eAAe,cAAc,CAAC,eAAe;AAC7C,kBAAkB,kBAAkB;AACpC,mBAAmB,iBAAiB;AACpC,sBAAsB,UAAU;AAChC,eAAe,cAAc,CAAC,eAAe;AAC7C,kBAAkB,kBAAkB;AACpC,mBAAmB,iBAAiB;AACpC,eAAe,cAAc,CAAC,eAAe;AAC7C,kBAAkB,kBAAkB;AACpC,mBAAmB,iBAAiB","file":"bootstrap-toggle.min.css","sourcesContent":["/*! ========================================================================\n * Bootstrap Toggle: bootstrap-toggle.css v2.2.0\n * http://www.bootstraptoggle.com\n * ========================================================================\n * Copyright 2014 Min Hur, The New York Times Company\n * Licensed under MIT\n * ======================================================================== */\n.checkbox label .toggle,.checkbox-inline .toggle{margin-left:-20px;margin-right:5px}\n.toggle{position:relative;overflow:hidden}\n.toggle input[type=checkbox]{display:none}\n.toggle-group{position:absolute;width:200%;top:0;bottom:0;left:0;transition:left .35s;-webkit-transition:left .35s;-moz-user-select:none;-webkit-user-select:none}\n.toggle.off .toggle-group{left:-100%}\n.toggle-on{position:absolute;top:0;bottom:0;left:0;right:50%;margin:0;border:0;border-radius:0}\n.toggle-off{position:absolute;top:0;bottom:0;left:50%;right:0;margin:0;border:0;border-radius:0}\n.toggle-handle{position:relative;margin:0 auto;padding-top:0;padding-bottom:0;height:100%;width:0;border-width:0 1px}\n.toggle.btn{min-width:59px;min-height:34px}\n.toggle-on.btn{padding-right:24px}\n.toggle-off.btn{padding-left:24px}\n.toggle.btn-lg{min-width:79px;min-height:45px}\n.toggle-on.btn-lg{padding-right:31px}\n.toggle-off.btn-lg{padding-left:31px}\n.toggle-handle.btn-lg{width:40px}\n.toggle.btn-sm{min-width:50px;min-height:30px}\n.toggle-on.btn-sm{padding-right:20px}\n.toggle-off.btn-sm{padding-left:20px}\n.toggle.btn-xs{min-width:35px;min-height:22px}\n.toggle-on.btn-xs{padding-right:12px}\n.toggle-off.btn-xs{padding-left:12px}"]}]);
 // Exports
-module.exports = exports;
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -10528,29 +6756,41 @@ module.exports = exports;
 /*!**********************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/font-awesome/css/font-awesome.css ***!
   \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fonts_fontawesome_webfont_eot_v_4_7_0__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fonts/fontawesome-webfont.eot?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0");
+/* harmony import */ var _fonts_fontawesome_webfont_eot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fonts/fontawesome-webfont.eot */ "./node_modules/font-awesome/fonts/fontawesome-webfont.eot");
+/* harmony import */ var _fonts_fontawesome_webfont_woff2_v_4_7_0__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../fonts/fontawesome-webfont.woff2?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0");
+/* harmony import */ var _fonts_fontawesome_webfont_woff_v_4_7_0__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../fonts/fontawesome-webfont.woff?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0");
+/* harmony import */ var _fonts_fontawesome_webfont_ttf_v_4_7_0__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../fonts/fontawesome-webfont.ttf?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0");
+/* harmony import */ var _fonts_fontawesome_webfont_svg_v_4_7_0__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fonts/fontawesome-webfont.svg?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0");
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../fonts/fontawesome-webfont.eot?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0");
-var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(/*! ../fonts/fontawesome-webfont.eot */ "./node_modules/font-awesome/fonts/fontawesome-webfont.eot");
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(/*! ../fonts/fontawesome-webfont.woff2?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0");
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(/*! ../fonts/fontawesome-webfont.woff?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0");
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(/*! ../fonts/fontawesome-webfont.ttf?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0");
-var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__(/*! ../fonts/fontawesome-webfont.svg?v=4.7.0 */ "./node_modules/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix&v=4.7.0" });
-var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
-var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
-var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#fontawesomeregular" });
+
+
+
+
+
+
+
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(true);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fontawesome_webfont_eot_v_4_7_0__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fontawesome_webfont_eot__WEBPACK_IMPORTED_MODULE_3__["default"], { hash: "?#iefix&v=4.7.0" });
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fontawesome_webfont_woff2_v_4_7_0__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fontawesome_webfont_woff_v_4_7_0__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fontawesome_webfont_ttf_v_4_7_0__WEBPACK_IMPORTED_MODULE_6__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_fontawesome_webfont_svg_v_4_7_0__WEBPACK_IMPORTED_MODULE_7__["default"], { hash: "#fontawesomeregular" });
 // Module
-exports.push([module.i, "/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */\n/* FONT PATH\n * -------------------------- */\n@font-face {\n  font-family: 'FontAwesome';\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format('embedded-opentype'), url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format('woff2'), url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format('woff'), url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format('truetype'), url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n.fa {\n  display: inline-block;\n  font: normal normal normal 14px/1 FontAwesome;\n  font-size: inherit;\n  text-rendering: auto;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n/* makes the font 33% larger relative to the icon container */\n.fa-lg {\n  font-size: 1.33333333em;\n  line-height: 0.75em;\n  vertical-align: -15%;\n}\n.fa-2x {\n  font-size: 2em;\n}\n.fa-3x {\n  font-size: 3em;\n}\n.fa-4x {\n  font-size: 4em;\n}\n.fa-5x {\n  font-size: 5em;\n}\n.fa-fw {\n  width: 1.28571429em;\n  text-align: center;\n}\n.fa-ul {\n  padding-left: 0;\n  margin-left: 2.14285714em;\n  list-style-type: none;\n}\n.fa-ul > li {\n  position: relative;\n}\n.fa-li {\n  position: absolute;\n  left: -2.14285714em;\n  width: 2.14285714em;\n  top: 0.14285714em;\n  text-align: center;\n}\n.fa-li.fa-lg {\n  left: -1.85714286em;\n}\n.fa-border {\n  padding: .2em .25em .15em;\n  border: solid 0.08em #eeeeee;\n  border-radius: .1em;\n}\n.fa-pull-left {\n  float: left;\n}\n.fa-pull-right {\n  float: right;\n}\n.fa.fa-pull-left {\n  margin-right: .3em;\n}\n.fa.fa-pull-right {\n  margin-left: .3em;\n}\n/* Deprecated as of 4.4.0 */\n.pull-right {\n  float: right;\n}\n.pull-left {\n  float: left;\n}\n.fa.pull-left {\n  margin-right: .3em;\n}\n.fa.pull-right {\n  margin-left: .3em;\n}\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n  animation: fa-spin 2s infinite linear;\n}\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n  animation: fa-spin 1s infinite steps(8);\n}\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg);\n}\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n  -ms-transform: scale(-1, 1);\n  transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n  -ms-transform: scale(1, -1);\n  transform: scale(1, -1);\n}\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical {\n  filter: none;\n}\n.fa-stack {\n  position: relative;\n  display: inline-block;\n  width: 2em;\n  height: 2em;\n  line-height: 2em;\n  vertical-align: middle;\n}\n.fa-stack-1x,\n.fa-stack-2x {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  text-align: center;\n}\n.fa-stack-1x {\n  line-height: inherit;\n}\n.fa-stack-2x {\n  font-size: 2em;\n}\n.fa-inverse {\n  color: #ffffff;\n}\n/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen\n   readers do not read off random characters that represent icons */\n.fa-glass:before {\n  content: \"\\f000\";\n}\n.fa-music:before {\n  content: \"\\f001\";\n}\n.fa-search:before {\n  content: \"\\f002\";\n}\n.fa-envelope-o:before {\n  content: \"\\f003\";\n}\n.fa-heart:before {\n  content: \"\\f004\";\n}\n.fa-star:before {\n  content: \"\\f005\";\n}\n.fa-star-o:before {\n  content: \"\\f006\";\n}\n.fa-user:before {\n  content: \"\\f007\";\n}\n.fa-film:before {\n  content: \"\\f008\";\n}\n.fa-th-large:before {\n  content: \"\\f009\";\n}\n.fa-th:before {\n  content: \"\\f00a\";\n}\n.fa-th-list:before {\n  content: \"\\f00b\";\n}\n.fa-check:before {\n  content: \"\\f00c\";\n}\n.fa-remove:before,\n.fa-close:before,\n.fa-times:before {\n  content: \"\\f00d\";\n}\n.fa-search-plus:before {\n  content: \"\\f00e\";\n}\n.fa-search-minus:before {\n  content: \"\\f010\";\n}\n.fa-power-off:before {\n  content: \"\\f011\";\n}\n.fa-signal:before {\n  content: \"\\f012\";\n}\n.fa-gear:before,\n.fa-cog:before {\n  content: \"\\f013\";\n}\n.fa-trash-o:before {\n  content: \"\\f014\";\n}\n.fa-home:before {\n  content: \"\\f015\";\n}\n.fa-file-o:before {\n  content: \"\\f016\";\n}\n.fa-clock-o:before {\n  content: \"\\f017\";\n}\n.fa-road:before {\n  content: \"\\f018\";\n}\n.fa-download:before {\n  content: \"\\f019\";\n}\n.fa-arrow-circle-o-down:before {\n  content: \"\\f01a\";\n}\n.fa-arrow-circle-o-up:before {\n  content: \"\\f01b\";\n}\n.fa-inbox:before {\n  content: \"\\f01c\";\n}\n.fa-play-circle-o:before {\n  content: \"\\f01d\";\n}\n.fa-rotate-right:before,\n.fa-repeat:before {\n  content: \"\\f01e\";\n}\n.fa-refresh:before {\n  content: \"\\f021\";\n}\n.fa-list-alt:before {\n  content: \"\\f022\";\n}\n.fa-lock:before {\n  content: \"\\f023\";\n}\n.fa-flag:before {\n  content: \"\\f024\";\n}\n.fa-headphones:before {\n  content: \"\\f025\";\n}\n.fa-volume-off:before {\n  content: \"\\f026\";\n}\n.fa-volume-down:before {\n  content: \"\\f027\";\n}\n.fa-volume-up:before {\n  content: \"\\f028\";\n}\n.fa-qrcode:before {\n  content: \"\\f029\";\n}\n.fa-barcode:before {\n  content: \"\\f02a\";\n}\n.fa-tag:before {\n  content: \"\\f02b\";\n}\n.fa-tags:before {\n  content: \"\\f02c\";\n}\n.fa-book:before {\n  content: \"\\f02d\";\n}\n.fa-bookmark:before {\n  content: \"\\f02e\";\n}\n.fa-print:before {\n  content: \"\\f02f\";\n}\n.fa-camera:before {\n  content: \"\\f030\";\n}\n.fa-font:before {\n  content: \"\\f031\";\n}\n.fa-bold:before {\n  content: \"\\f032\";\n}\n.fa-italic:before {\n  content: \"\\f033\";\n}\n.fa-text-height:before {\n  content: \"\\f034\";\n}\n.fa-text-width:before {\n  content: \"\\f035\";\n}\n.fa-align-left:before {\n  content: \"\\f036\";\n}\n.fa-align-center:before {\n  content: \"\\f037\";\n}\n.fa-align-right:before {\n  content: \"\\f038\";\n}\n.fa-align-justify:before {\n  content: \"\\f039\";\n}\n.fa-list:before {\n  content: \"\\f03a\";\n}\n.fa-dedent:before,\n.fa-outdent:before {\n  content: \"\\f03b\";\n}\n.fa-indent:before {\n  content: \"\\f03c\";\n}\n.fa-video-camera:before {\n  content: \"\\f03d\";\n}\n.fa-photo:before,\n.fa-image:before,\n.fa-picture-o:before {\n  content: \"\\f03e\";\n}\n.fa-pencil:before {\n  content: \"\\f040\";\n}\n.fa-map-marker:before {\n  content: \"\\f041\";\n}\n.fa-adjust:before {\n  content: \"\\f042\";\n}\n.fa-tint:before {\n  content: \"\\f043\";\n}\n.fa-edit:before,\n.fa-pencil-square-o:before {\n  content: \"\\f044\";\n}\n.fa-share-square-o:before {\n  content: \"\\f045\";\n}\n.fa-check-square-o:before {\n  content: \"\\f046\";\n}\n.fa-arrows:before {\n  content: \"\\f047\";\n}\n.fa-step-backward:before {\n  content: \"\\f048\";\n}\n.fa-fast-backward:before {\n  content: \"\\f049\";\n}\n.fa-backward:before {\n  content: \"\\f04a\";\n}\n.fa-play:before {\n  content: \"\\f04b\";\n}\n.fa-pause:before {\n  content: \"\\f04c\";\n}\n.fa-stop:before {\n  content: \"\\f04d\";\n}\n.fa-forward:before {\n  content: \"\\f04e\";\n}\n.fa-fast-forward:before {\n  content: \"\\f050\";\n}\n.fa-step-forward:before {\n  content: \"\\f051\";\n}\n.fa-eject:before {\n  content: \"\\f052\";\n}\n.fa-chevron-left:before {\n  content: \"\\f053\";\n}\n.fa-chevron-right:before {\n  content: \"\\f054\";\n}\n.fa-plus-circle:before {\n  content: \"\\f055\";\n}\n.fa-minus-circle:before {\n  content: \"\\f056\";\n}\n.fa-times-circle:before {\n  content: \"\\f057\";\n}\n.fa-check-circle:before {\n  content: \"\\f058\";\n}\n.fa-question-circle:before {\n  content: \"\\f059\";\n}\n.fa-info-circle:before {\n  content: \"\\f05a\";\n}\n.fa-crosshairs:before {\n  content: \"\\f05b\";\n}\n.fa-times-circle-o:before {\n  content: \"\\f05c\";\n}\n.fa-check-circle-o:before {\n  content: \"\\f05d\";\n}\n.fa-ban:before {\n  content: \"\\f05e\";\n}\n.fa-arrow-left:before {\n  content: \"\\f060\";\n}\n.fa-arrow-right:before {\n  content: \"\\f061\";\n}\n.fa-arrow-up:before {\n  content: \"\\f062\";\n}\n.fa-arrow-down:before {\n  content: \"\\f063\";\n}\n.fa-mail-forward:before,\n.fa-share:before {\n  content: \"\\f064\";\n}\n.fa-expand:before {\n  content: \"\\f065\";\n}\n.fa-compress:before {\n  content: \"\\f066\";\n}\n.fa-plus:before {\n  content: \"\\f067\";\n}\n.fa-minus:before {\n  content: \"\\f068\";\n}\n.fa-asterisk:before {\n  content: \"\\f069\";\n}\n.fa-exclamation-circle:before {\n  content: \"\\f06a\";\n}\n.fa-gift:before {\n  content: \"\\f06b\";\n}\n.fa-leaf:before {\n  content: \"\\f06c\";\n}\n.fa-fire:before {\n  content: \"\\f06d\";\n}\n.fa-eye:before {\n  content: \"\\f06e\";\n}\n.fa-eye-slash:before {\n  content: \"\\f070\";\n}\n.fa-warning:before,\n.fa-exclamation-triangle:before {\n  content: \"\\f071\";\n}\n.fa-plane:before {\n  content: \"\\f072\";\n}\n.fa-calendar:before {\n  content: \"\\f073\";\n}\n.fa-random:before {\n  content: \"\\f074\";\n}\n.fa-comment:before {\n  content: \"\\f075\";\n}\n.fa-magnet:before {\n  content: \"\\f076\";\n}\n.fa-chevron-up:before {\n  content: \"\\f077\";\n}\n.fa-chevron-down:before {\n  content: \"\\f078\";\n}\n.fa-retweet:before {\n  content: \"\\f079\";\n}\n.fa-shopping-cart:before {\n  content: \"\\f07a\";\n}\n.fa-folder:before {\n  content: \"\\f07b\";\n}\n.fa-folder-open:before {\n  content: \"\\f07c\";\n}\n.fa-arrows-v:before {\n  content: \"\\f07d\";\n}\n.fa-arrows-h:before {\n  content: \"\\f07e\";\n}\n.fa-bar-chart-o:before,\n.fa-bar-chart:before {\n  content: \"\\f080\";\n}\n.fa-twitter-square:before {\n  content: \"\\f081\";\n}\n.fa-facebook-square:before {\n  content: \"\\f082\";\n}\n.fa-camera-retro:before {\n  content: \"\\f083\";\n}\n.fa-key:before {\n  content: \"\\f084\";\n}\n.fa-gears:before,\n.fa-cogs:before {\n  content: \"\\f085\";\n}\n.fa-comments:before {\n  content: \"\\f086\";\n}\n.fa-thumbs-o-up:before {\n  content: \"\\f087\";\n}\n.fa-thumbs-o-down:before {\n  content: \"\\f088\";\n}\n.fa-star-half:before {\n  content: \"\\f089\";\n}\n.fa-heart-o:before {\n  content: \"\\f08a\";\n}\n.fa-sign-out:before {\n  content: \"\\f08b\";\n}\n.fa-linkedin-square:before {\n  content: \"\\f08c\";\n}\n.fa-thumb-tack:before {\n  content: \"\\f08d\";\n}\n.fa-external-link:before {\n  content: \"\\f08e\";\n}\n.fa-sign-in:before {\n  content: \"\\f090\";\n}\n.fa-trophy:before {\n  content: \"\\f091\";\n}\n.fa-github-square:before {\n  content: \"\\f092\";\n}\n.fa-upload:before {\n  content: \"\\f093\";\n}\n.fa-lemon-o:before {\n  content: \"\\f094\";\n}\n.fa-phone:before {\n  content: \"\\f095\";\n}\n.fa-square-o:before {\n  content: \"\\f096\";\n}\n.fa-bookmark-o:before {\n  content: \"\\f097\";\n}\n.fa-phone-square:before {\n  content: \"\\f098\";\n}\n.fa-twitter:before {\n  content: \"\\f099\";\n}\n.fa-facebook-f:before,\n.fa-facebook:before {\n  content: \"\\f09a\";\n}\n.fa-github:before {\n  content: \"\\f09b\";\n}\n.fa-unlock:before {\n  content: \"\\f09c\";\n}\n.fa-credit-card:before {\n  content: \"\\f09d\";\n}\n.fa-feed:before,\n.fa-rss:before {\n  content: \"\\f09e\";\n}\n.fa-hdd-o:before {\n  content: \"\\f0a0\";\n}\n.fa-bullhorn:before {\n  content: \"\\f0a1\";\n}\n.fa-bell:before {\n  content: \"\\f0f3\";\n}\n.fa-certificate:before {\n  content: \"\\f0a3\";\n}\n.fa-hand-o-right:before {\n  content: \"\\f0a4\";\n}\n.fa-hand-o-left:before {\n  content: \"\\f0a5\";\n}\n.fa-hand-o-up:before {\n  content: \"\\f0a6\";\n}\n.fa-hand-o-down:before {\n  content: \"\\f0a7\";\n}\n.fa-arrow-circle-left:before {\n  content: \"\\f0a8\";\n}\n.fa-arrow-circle-right:before {\n  content: \"\\f0a9\";\n}\n.fa-arrow-circle-up:before {\n  content: \"\\f0aa\";\n}\n.fa-arrow-circle-down:before {\n  content: \"\\f0ab\";\n}\n.fa-globe:before {\n  content: \"\\f0ac\";\n}\n.fa-wrench:before {\n  content: \"\\f0ad\";\n}\n.fa-tasks:before {\n  content: \"\\f0ae\";\n}\n.fa-filter:before {\n  content: \"\\f0b0\";\n}\n.fa-briefcase:before {\n  content: \"\\f0b1\";\n}\n.fa-arrows-alt:before {\n  content: \"\\f0b2\";\n}\n.fa-group:before,\n.fa-users:before {\n  content: \"\\f0c0\";\n}\n.fa-chain:before,\n.fa-link:before {\n  content: \"\\f0c1\";\n}\n.fa-cloud:before {\n  content: \"\\f0c2\";\n}\n.fa-flask:before {\n  content: \"\\f0c3\";\n}\n.fa-cut:before,\n.fa-scissors:before {\n  content: \"\\f0c4\";\n}\n.fa-copy:before,\n.fa-files-o:before {\n  content: \"\\f0c5\";\n}\n.fa-paperclip:before {\n  content: \"\\f0c6\";\n}\n.fa-save:before,\n.fa-floppy-o:before {\n  content: \"\\f0c7\";\n}\n.fa-square:before {\n  content: \"\\f0c8\";\n}\n.fa-navicon:before,\n.fa-reorder:before,\n.fa-bars:before {\n  content: \"\\f0c9\";\n}\n.fa-list-ul:before {\n  content: \"\\f0ca\";\n}\n.fa-list-ol:before {\n  content: \"\\f0cb\";\n}\n.fa-strikethrough:before {\n  content: \"\\f0cc\";\n}\n.fa-underline:before {\n  content: \"\\f0cd\";\n}\n.fa-table:before {\n  content: \"\\f0ce\";\n}\n.fa-magic:before {\n  content: \"\\f0d0\";\n}\n.fa-truck:before {\n  content: \"\\f0d1\";\n}\n.fa-pinterest:before {\n  content: \"\\f0d2\";\n}\n.fa-pinterest-square:before {\n  content: \"\\f0d3\";\n}\n.fa-google-plus-square:before {\n  content: \"\\f0d4\";\n}\n.fa-google-plus:before {\n  content: \"\\f0d5\";\n}\n.fa-money:before {\n  content: \"\\f0d6\";\n}\n.fa-caret-down:before {\n  content: \"\\f0d7\";\n}\n.fa-caret-up:before {\n  content: \"\\f0d8\";\n}\n.fa-caret-left:before {\n  content: \"\\f0d9\";\n}\n.fa-caret-right:before {\n  content: \"\\f0da\";\n}\n.fa-columns:before {\n  content: \"\\f0db\";\n}\n.fa-unsorted:before,\n.fa-sort:before {\n  content: \"\\f0dc\";\n}\n.fa-sort-down:before,\n.fa-sort-desc:before {\n  content: \"\\f0dd\";\n}\n.fa-sort-up:before,\n.fa-sort-asc:before {\n  content: \"\\f0de\";\n}\n.fa-envelope:before {\n  content: \"\\f0e0\";\n}\n.fa-linkedin:before {\n  content: \"\\f0e1\";\n}\n.fa-rotate-left:before,\n.fa-undo:before {\n  content: \"\\f0e2\";\n}\n.fa-legal:before,\n.fa-gavel:before {\n  content: \"\\f0e3\";\n}\n.fa-dashboard:before,\n.fa-tachometer:before {\n  content: \"\\f0e4\";\n}\n.fa-comment-o:before {\n  content: \"\\f0e5\";\n}\n.fa-comments-o:before {\n  content: \"\\f0e6\";\n}\n.fa-flash:before,\n.fa-bolt:before {\n  content: \"\\f0e7\";\n}\n.fa-sitemap:before {\n  content: \"\\f0e8\";\n}\n.fa-umbrella:before {\n  content: \"\\f0e9\";\n}\n.fa-paste:before,\n.fa-clipboard:before {\n  content: \"\\f0ea\";\n}\n.fa-lightbulb-o:before {\n  content: \"\\f0eb\";\n}\n.fa-exchange:before {\n  content: \"\\f0ec\";\n}\n.fa-cloud-download:before {\n  content: \"\\f0ed\";\n}\n.fa-cloud-upload:before {\n  content: \"\\f0ee\";\n}\n.fa-user-md:before {\n  content: \"\\f0f0\";\n}\n.fa-stethoscope:before {\n  content: \"\\f0f1\";\n}\n.fa-suitcase:before {\n  content: \"\\f0f2\";\n}\n.fa-bell-o:before {\n  content: \"\\f0a2\";\n}\n.fa-coffee:before {\n  content: \"\\f0f4\";\n}\n.fa-cutlery:before {\n  content: \"\\f0f5\";\n}\n.fa-file-text-o:before {\n  content: \"\\f0f6\";\n}\n.fa-building-o:before {\n  content: \"\\f0f7\";\n}\n.fa-hospital-o:before {\n  content: \"\\f0f8\";\n}\n.fa-ambulance:before {\n  content: \"\\f0f9\";\n}\n.fa-medkit:before {\n  content: \"\\f0fa\";\n}\n.fa-fighter-jet:before {\n  content: \"\\f0fb\";\n}\n.fa-beer:before {\n  content: \"\\f0fc\";\n}\n.fa-h-square:before {\n  content: \"\\f0fd\";\n}\n.fa-plus-square:before {\n  content: \"\\f0fe\";\n}\n.fa-angle-double-left:before {\n  content: \"\\f100\";\n}\n.fa-angle-double-right:before {\n  content: \"\\f101\";\n}\n.fa-angle-double-up:before {\n  content: \"\\f102\";\n}\n.fa-angle-double-down:before {\n  content: \"\\f103\";\n}\n.fa-angle-left:before {\n  content: \"\\f104\";\n}\n.fa-angle-right:before {\n  content: \"\\f105\";\n}\n.fa-angle-up:before {\n  content: \"\\f106\";\n}\n.fa-angle-down:before {\n  content: \"\\f107\";\n}\n.fa-desktop:before {\n  content: \"\\f108\";\n}\n.fa-laptop:before {\n  content: \"\\f109\";\n}\n.fa-tablet:before {\n  content: \"\\f10a\";\n}\n.fa-mobile-phone:before,\n.fa-mobile:before {\n  content: \"\\f10b\";\n}\n.fa-circle-o:before {\n  content: \"\\f10c\";\n}\n.fa-quote-left:before {\n  content: \"\\f10d\";\n}\n.fa-quote-right:before {\n  content: \"\\f10e\";\n}\n.fa-spinner:before {\n  content: \"\\f110\";\n}\n.fa-circle:before {\n  content: \"\\f111\";\n}\n.fa-mail-reply:before,\n.fa-reply:before {\n  content: \"\\f112\";\n}\n.fa-github-alt:before {\n  content: \"\\f113\";\n}\n.fa-folder-o:before {\n  content: \"\\f114\";\n}\n.fa-folder-open-o:before {\n  content: \"\\f115\";\n}\n.fa-smile-o:before {\n  content: \"\\f118\";\n}\n.fa-frown-o:before {\n  content: \"\\f119\";\n}\n.fa-meh-o:before {\n  content: \"\\f11a\";\n}\n.fa-gamepad:before {\n  content: \"\\f11b\";\n}\n.fa-keyboard-o:before {\n  content: \"\\f11c\";\n}\n.fa-flag-o:before {\n  content: \"\\f11d\";\n}\n.fa-flag-checkered:before {\n  content: \"\\f11e\";\n}\n.fa-terminal:before {\n  content: \"\\f120\";\n}\n.fa-code:before {\n  content: \"\\f121\";\n}\n.fa-mail-reply-all:before,\n.fa-reply-all:before {\n  content: \"\\f122\";\n}\n.fa-star-half-empty:before,\n.fa-star-half-full:before,\n.fa-star-half-o:before {\n  content: \"\\f123\";\n}\n.fa-location-arrow:before {\n  content: \"\\f124\";\n}\n.fa-crop:before {\n  content: \"\\f125\";\n}\n.fa-code-fork:before {\n  content: \"\\f126\";\n}\n.fa-unlink:before,\n.fa-chain-broken:before {\n  content: \"\\f127\";\n}\n.fa-question:before {\n  content: \"\\f128\";\n}\n.fa-info:before {\n  content: \"\\f129\";\n}\n.fa-exclamation:before {\n  content: \"\\f12a\";\n}\n.fa-superscript:before {\n  content: \"\\f12b\";\n}\n.fa-subscript:before {\n  content: \"\\f12c\";\n}\n.fa-eraser:before {\n  content: \"\\f12d\";\n}\n.fa-puzzle-piece:before {\n  content: \"\\f12e\";\n}\n.fa-microphone:before {\n  content: \"\\f130\";\n}\n.fa-microphone-slash:before {\n  content: \"\\f131\";\n}\n.fa-shield:before {\n  content: \"\\f132\";\n}\n.fa-calendar-o:before {\n  content: \"\\f133\";\n}\n.fa-fire-extinguisher:before {\n  content: \"\\f134\";\n}\n.fa-rocket:before {\n  content: \"\\f135\";\n}\n.fa-maxcdn:before {\n  content: \"\\f136\";\n}\n.fa-chevron-circle-left:before {\n  content: \"\\f137\";\n}\n.fa-chevron-circle-right:before {\n  content: \"\\f138\";\n}\n.fa-chevron-circle-up:before {\n  content: \"\\f139\";\n}\n.fa-chevron-circle-down:before {\n  content: \"\\f13a\";\n}\n.fa-html5:before {\n  content: \"\\f13b\";\n}\n.fa-css3:before {\n  content: \"\\f13c\";\n}\n.fa-anchor:before {\n  content: \"\\f13d\";\n}\n.fa-unlock-alt:before {\n  content: \"\\f13e\";\n}\n.fa-bullseye:before {\n  content: \"\\f140\";\n}\n.fa-ellipsis-h:before {\n  content: \"\\f141\";\n}\n.fa-ellipsis-v:before {\n  content: \"\\f142\";\n}\n.fa-rss-square:before {\n  content: \"\\f143\";\n}\n.fa-play-circle:before {\n  content: \"\\f144\";\n}\n.fa-ticket:before {\n  content: \"\\f145\";\n}\n.fa-minus-square:before {\n  content: \"\\f146\";\n}\n.fa-minus-square-o:before {\n  content: \"\\f147\";\n}\n.fa-level-up:before {\n  content: \"\\f148\";\n}\n.fa-level-down:before {\n  content: \"\\f149\";\n}\n.fa-check-square:before {\n  content: \"\\f14a\";\n}\n.fa-pencil-square:before {\n  content: \"\\f14b\";\n}\n.fa-external-link-square:before {\n  content: \"\\f14c\";\n}\n.fa-share-square:before {\n  content: \"\\f14d\";\n}\n.fa-compass:before {\n  content: \"\\f14e\";\n}\n.fa-toggle-down:before,\n.fa-caret-square-o-down:before {\n  content: \"\\f150\";\n}\n.fa-toggle-up:before,\n.fa-caret-square-o-up:before {\n  content: \"\\f151\";\n}\n.fa-toggle-right:before,\n.fa-caret-square-o-right:before {\n  content: \"\\f152\";\n}\n.fa-euro:before,\n.fa-eur:before {\n  content: \"\\f153\";\n}\n.fa-gbp:before {\n  content: \"\\f154\";\n}\n.fa-dollar:before,\n.fa-usd:before {\n  content: \"\\f155\";\n}\n.fa-rupee:before,\n.fa-inr:before {\n  content: \"\\f156\";\n}\n.fa-cny:before,\n.fa-rmb:before,\n.fa-yen:before,\n.fa-jpy:before {\n  content: \"\\f157\";\n}\n.fa-ruble:before,\n.fa-rouble:before,\n.fa-rub:before {\n  content: \"\\f158\";\n}\n.fa-won:before,\n.fa-krw:before {\n  content: \"\\f159\";\n}\n.fa-bitcoin:before,\n.fa-btc:before {\n  content: \"\\f15a\";\n}\n.fa-file:before {\n  content: \"\\f15b\";\n}\n.fa-file-text:before {\n  content: \"\\f15c\";\n}\n.fa-sort-alpha-asc:before {\n  content: \"\\f15d\";\n}\n.fa-sort-alpha-desc:before {\n  content: \"\\f15e\";\n}\n.fa-sort-amount-asc:before {\n  content: \"\\f160\";\n}\n.fa-sort-amount-desc:before {\n  content: \"\\f161\";\n}\n.fa-sort-numeric-asc:before {\n  content: \"\\f162\";\n}\n.fa-sort-numeric-desc:before {\n  content: \"\\f163\";\n}\n.fa-thumbs-up:before {\n  content: \"\\f164\";\n}\n.fa-thumbs-down:before {\n  content: \"\\f165\";\n}\n.fa-youtube-square:before {\n  content: \"\\f166\";\n}\n.fa-youtube:before {\n  content: \"\\f167\";\n}\n.fa-xing:before {\n  content: \"\\f168\";\n}\n.fa-xing-square:before {\n  content: \"\\f169\";\n}\n.fa-youtube-play:before {\n  content: \"\\f16a\";\n}\n.fa-dropbox:before {\n  content: \"\\f16b\";\n}\n.fa-stack-overflow:before {\n  content: \"\\f16c\";\n}\n.fa-instagram:before {\n  content: \"\\f16d\";\n}\n.fa-flickr:before {\n  content: \"\\f16e\";\n}\n.fa-adn:before {\n  content: \"\\f170\";\n}\n.fa-bitbucket:before {\n  content: \"\\f171\";\n}\n.fa-bitbucket-square:before {\n  content: \"\\f172\";\n}\n.fa-tumblr:before {\n  content: \"\\f173\";\n}\n.fa-tumblr-square:before {\n  content: \"\\f174\";\n}\n.fa-long-arrow-down:before {\n  content: \"\\f175\";\n}\n.fa-long-arrow-up:before {\n  content: \"\\f176\";\n}\n.fa-long-arrow-left:before {\n  content: \"\\f177\";\n}\n.fa-long-arrow-right:before {\n  content: \"\\f178\";\n}\n.fa-apple:before {\n  content: \"\\f179\";\n}\n.fa-windows:before {\n  content: \"\\f17a\";\n}\n.fa-android:before {\n  content: \"\\f17b\";\n}\n.fa-linux:before {\n  content: \"\\f17c\";\n}\n.fa-dribbble:before {\n  content: \"\\f17d\";\n}\n.fa-skype:before {\n  content: \"\\f17e\";\n}\n.fa-foursquare:before {\n  content: \"\\f180\";\n}\n.fa-trello:before {\n  content: \"\\f181\";\n}\n.fa-female:before {\n  content: \"\\f182\";\n}\n.fa-male:before {\n  content: \"\\f183\";\n}\n.fa-gittip:before,\n.fa-gratipay:before {\n  content: \"\\f184\";\n}\n.fa-sun-o:before {\n  content: \"\\f185\";\n}\n.fa-moon-o:before {\n  content: \"\\f186\";\n}\n.fa-archive:before {\n  content: \"\\f187\";\n}\n.fa-bug:before {\n  content: \"\\f188\";\n}\n.fa-vk:before {\n  content: \"\\f189\";\n}\n.fa-weibo:before {\n  content: \"\\f18a\";\n}\n.fa-renren:before {\n  content: \"\\f18b\";\n}\n.fa-pagelines:before {\n  content: \"\\f18c\";\n}\n.fa-stack-exchange:before {\n  content: \"\\f18d\";\n}\n.fa-arrow-circle-o-right:before {\n  content: \"\\f18e\";\n}\n.fa-arrow-circle-o-left:before {\n  content: \"\\f190\";\n}\n.fa-toggle-left:before,\n.fa-caret-square-o-left:before {\n  content: \"\\f191\";\n}\n.fa-dot-circle-o:before {\n  content: \"\\f192\";\n}\n.fa-wheelchair:before {\n  content: \"\\f193\";\n}\n.fa-vimeo-square:before {\n  content: \"\\f194\";\n}\n.fa-turkish-lira:before,\n.fa-try:before {\n  content: \"\\f195\";\n}\n.fa-plus-square-o:before {\n  content: \"\\f196\";\n}\n.fa-space-shuttle:before {\n  content: \"\\f197\";\n}\n.fa-slack:before {\n  content: \"\\f198\";\n}\n.fa-envelope-square:before {\n  content: \"\\f199\";\n}\n.fa-wordpress:before {\n  content: \"\\f19a\";\n}\n.fa-openid:before {\n  content: \"\\f19b\";\n}\n.fa-institution:before,\n.fa-bank:before,\n.fa-university:before {\n  content: \"\\f19c\";\n}\n.fa-mortar-board:before,\n.fa-graduation-cap:before {\n  content: \"\\f19d\";\n}\n.fa-yahoo:before {\n  content: \"\\f19e\";\n}\n.fa-google:before {\n  content: \"\\f1a0\";\n}\n.fa-reddit:before {\n  content: \"\\f1a1\";\n}\n.fa-reddit-square:before {\n  content: \"\\f1a2\";\n}\n.fa-stumbleupon-circle:before {\n  content: \"\\f1a3\";\n}\n.fa-stumbleupon:before {\n  content: \"\\f1a4\";\n}\n.fa-delicious:before {\n  content: \"\\f1a5\";\n}\n.fa-digg:before {\n  content: \"\\f1a6\";\n}\n.fa-pied-piper-pp:before {\n  content: \"\\f1a7\";\n}\n.fa-pied-piper-alt:before {\n  content: \"\\f1a8\";\n}\n.fa-drupal:before {\n  content: \"\\f1a9\";\n}\n.fa-joomla:before {\n  content: \"\\f1aa\";\n}\n.fa-language:before {\n  content: \"\\f1ab\";\n}\n.fa-fax:before {\n  content: \"\\f1ac\";\n}\n.fa-building:before {\n  content: \"\\f1ad\";\n}\n.fa-child:before {\n  content: \"\\f1ae\";\n}\n.fa-paw:before {\n  content: \"\\f1b0\";\n}\n.fa-spoon:before {\n  content: \"\\f1b1\";\n}\n.fa-cube:before {\n  content: \"\\f1b2\";\n}\n.fa-cubes:before {\n  content: \"\\f1b3\";\n}\n.fa-behance:before {\n  content: \"\\f1b4\";\n}\n.fa-behance-square:before {\n  content: \"\\f1b5\";\n}\n.fa-steam:before {\n  content: \"\\f1b6\";\n}\n.fa-steam-square:before {\n  content: \"\\f1b7\";\n}\n.fa-recycle:before {\n  content: \"\\f1b8\";\n}\n.fa-automobile:before,\n.fa-car:before {\n  content: \"\\f1b9\";\n}\n.fa-cab:before,\n.fa-taxi:before {\n  content: \"\\f1ba\";\n}\n.fa-tree:before {\n  content: \"\\f1bb\";\n}\n.fa-spotify:before {\n  content: \"\\f1bc\";\n}\n.fa-deviantart:before {\n  content: \"\\f1bd\";\n}\n.fa-soundcloud:before {\n  content: \"\\f1be\";\n}\n.fa-database:before {\n  content: \"\\f1c0\";\n}\n.fa-file-pdf-o:before {\n  content: \"\\f1c1\";\n}\n.fa-file-word-o:before {\n  content: \"\\f1c2\";\n}\n.fa-file-excel-o:before {\n  content: \"\\f1c3\";\n}\n.fa-file-powerpoint-o:before {\n  content: \"\\f1c4\";\n}\n.fa-file-photo-o:before,\n.fa-file-picture-o:before,\n.fa-file-image-o:before {\n  content: \"\\f1c5\";\n}\n.fa-file-zip-o:before,\n.fa-file-archive-o:before {\n  content: \"\\f1c6\";\n}\n.fa-file-sound-o:before,\n.fa-file-audio-o:before {\n  content: \"\\f1c7\";\n}\n.fa-file-movie-o:before,\n.fa-file-video-o:before {\n  content: \"\\f1c8\";\n}\n.fa-file-code-o:before {\n  content: \"\\f1c9\";\n}\n.fa-vine:before {\n  content: \"\\f1ca\";\n}\n.fa-codepen:before {\n  content: \"\\f1cb\";\n}\n.fa-jsfiddle:before {\n  content: \"\\f1cc\";\n}\n.fa-life-bouy:before,\n.fa-life-buoy:before,\n.fa-life-saver:before,\n.fa-support:before,\n.fa-life-ring:before {\n  content: \"\\f1cd\";\n}\n.fa-circle-o-notch:before {\n  content: \"\\f1ce\";\n}\n.fa-ra:before,\n.fa-resistance:before,\n.fa-rebel:before {\n  content: \"\\f1d0\";\n}\n.fa-ge:before,\n.fa-empire:before {\n  content: \"\\f1d1\";\n}\n.fa-git-square:before {\n  content: \"\\f1d2\";\n}\n.fa-git:before {\n  content: \"\\f1d3\";\n}\n.fa-y-combinator-square:before,\n.fa-yc-square:before,\n.fa-hacker-news:before {\n  content: \"\\f1d4\";\n}\n.fa-tencent-weibo:before {\n  content: \"\\f1d5\";\n}\n.fa-qq:before {\n  content: \"\\f1d6\";\n}\n.fa-wechat:before,\n.fa-weixin:before {\n  content: \"\\f1d7\";\n}\n.fa-send:before,\n.fa-paper-plane:before {\n  content: \"\\f1d8\";\n}\n.fa-send-o:before,\n.fa-paper-plane-o:before {\n  content: \"\\f1d9\";\n}\n.fa-history:before {\n  content: \"\\f1da\";\n}\n.fa-circle-thin:before {\n  content: \"\\f1db\";\n}\n.fa-header:before {\n  content: \"\\f1dc\";\n}\n.fa-paragraph:before {\n  content: \"\\f1dd\";\n}\n.fa-sliders:before {\n  content: \"\\f1de\";\n}\n.fa-share-alt:before {\n  content: \"\\f1e0\";\n}\n.fa-share-alt-square:before {\n  content: \"\\f1e1\";\n}\n.fa-bomb:before {\n  content: \"\\f1e2\";\n}\n.fa-soccer-ball-o:before,\n.fa-futbol-o:before {\n  content: \"\\f1e3\";\n}\n.fa-tty:before {\n  content: \"\\f1e4\";\n}\n.fa-binoculars:before {\n  content: \"\\f1e5\";\n}\n.fa-plug:before {\n  content: \"\\f1e6\";\n}\n.fa-slideshare:before {\n  content: \"\\f1e7\";\n}\n.fa-twitch:before {\n  content: \"\\f1e8\";\n}\n.fa-yelp:before {\n  content: \"\\f1e9\";\n}\n.fa-newspaper-o:before {\n  content: \"\\f1ea\";\n}\n.fa-wifi:before {\n  content: \"\\f1eb\";\n}\n.fa-calculator:before {\n  content: \"\\f1ec\";\n}\n.fa-paypal:before {\n  content: \"\\f1ed\";\n}\n.fa-google-wallet:before {\n  content: \"\\f1ee\";\n}\n.fa-cc-visa:before {\n  content: \"\\f1f0\";\n}\n.fa-cc-mastercard:before {\n  content: \"\\f1f1\";\n}\n.fa-cc-discover:before {\n  content: \"\\f1f2\";\n}\n.fa-cc-amex:before {\n  content: \"\\f1f3\";\n}\n.fa-cc-paypal:before {\n  content: \"\\f1f4\";\n}\n.fa-cc-stripe:before {\n  content: \"\\f1f5\";\n}\n.fa-bell-slash:before {\n  content: \"\\f1f6\";\n}\n.fa-bell-slash-o:before {\n  content: \"\\f1f7\";\n}\n.fa-trash:before {\n  content: \"\\f1f8\";\n}\n.fa-copyright:before {\n  content: \"\\f1f9\";\n}\n.fa-at:before {\n  content: \"\\f1fa\";\n}\n.fa-eyedropper:before {\n  content: \"\\f1fb\";\n}\n.fa-paint-brush:before {\n  content: \"\\f1fc\";\n}\n.fa-birthday-cake:before {\n  content: \"\\f1fd\";\n}\n.fa-area-chart:before {\n  content: \"\\f1fe\";\n}\n.fa-pie-chart:before {\n  content: \"\\f200\";\n}\n.fa-line-chart:before {\n  content: \"\\f201\";\n}\n.fa-lastfm:before {\n  content: \"\\f202\";\n}\n.fa-lastfm-square:before {\n  content: \"\\f203\";\n}\n.fa-toggle-off:before {\n  content: \"\\f204\";\n}\n.fa-toggle-on:before {\n  content: \"\\f205\";\n}\n.fa-bicycle:before {\n  content: \"\\f206\";\n}\n.fa-bus:before {\n  content: \"\\f207\";\n}\n.fa-ioxhost:before {\n  content: \"\\f208\";\n}\n.fa-angellist:before {\n  content: \"\\f209\";\n}\n.fa-cc:before {\n  content: \"\\f20a\";\n}\n.fa-shekel:before,\n.fa-sheqel:before,\n.fa-ils:before {\n  content: \"\\f20b\";\n}\n.fa-meanpath:before {\n  content: \"\\f20c\";\n}\n.fa-buysellads:before {\n  content: \"\\f20d\";\n}\n.fa-connectdevelop:before {\n  content: \"\\f20e\";\n}\n.fa-dashcube:before {\n  content: \"\\f210\";\n}\n.fa-forumbee:before {\n  content: \"\\f211\";\n}\n.fa-leanpub:before {\n  content: \"\\f212\";\n}\n.fa-sellsy:before {\n  content: \"\\f213\";\n}\n.fa-shirtsinbulk:before {\n  content: \"\\f214\";\n}\n.fa-simplybuilt:before {\n  content: \"\\f215\";\n}\n.fa-skyatlas:before {\n  content: \"\\f216\";\n}\n.fa-cart-plus:before {\n  content: \"\\f217\";\n}\n.fa-cart-arrow-down:before {\n  content: \"\\f218\";\n}\n.fa-diamond:before {\n  content: \"\\f219\";\n}\n.fa-ship:before {\n  content: \"\\f21a\";\n}\n.fa-user-secret:before {\n  content: \"\\f21b\";\n}\n.fa-motorcycle:before {\n  content: \"\\f21c\";\n}\n.fa-street-view:before {\n  content: \"\\f21d\";\n}\n.fa-heartbeat:before {\n  content: \"\\f21e\";\n}\n.fa-venus:before {\n  content: \"\\f221\";\n}\n.fa-mars:before {\n  content: \"\\f222\";\n}\n.fa-mercury:before {\n  content: \"\\f223\";\n}\n.fa-intersex:before,\n.fa-transgender:before {\n  content: \"\\f224\";\n}\n.fa-transgender-alt:before {\n  content: \"\\f225\";\n}\n.fa-venus-double:before {\n  content: \"\\f226\";\n}\n.fa-mars-double:before {\n  content: \"\\f227\";\n}\n.fa-venus-mars:before {\n  content: \"\\f228\";\n}\n.fa-mars-stroke:before {\n  content: \"\\f229\";\n}\n.fa-mars-stroke-v:before {\n  content: \"\\f22a\";\n}\n.fa-mars-stroke-h:before {\n  content: \"\\f22b\";\n}\n.fa-neuter:before {\n  content: \"\\f22c\";\n}\n.fa-genderless:before {\n  content: \"\\f22d\";\n}\n.fa-facebook-official:before {\n  content: \"\\f230\";\n}\n.fa-pinterest-p:before {\n  content: \"\\f231\";\n}\n.fa-whatsapp:before {\n  content: \"\\f232\";\n}\n.fa-server:before {\n  content: \"\\f233\";\n}\n.fa-user-plus:before {\n  content: \"\\f234\";\n}\n.fa-user-times:before {\n  content: \"\\f235\";\n}\n.fa-hotel:before,\n.fa-bed:before {\n  content: \"\\f236\";\n}\n.fa-viacoin:before {\n  content: \"\\f237\";\n}\n.fa-train:before {\n  content: \"\\f238\";\n}\n.fa-subway:before {\n  content: \"\\f239\";\n}\n.fa-medium:before {\n  content: \"\\f23a\";\n}\n.fa-yc:before,\n.fa-y-combinator:before {\n  content: \"\\f23b\";\n}\n.fa-optin-monster:before {\n  content: \"\\f23c\";\n}\n.fa-opencart:before {\n  content: \"\\f23d\";\n}\n.fa-expeditedssl:before {\n  content: \"\\f23e\";\n}\n.fa-battery-4:before,\n.fa-battery:before,\n.fa-battery-full:before {\n  content: \"\\f240\";\n}\n.fa-battery-3:before,\n.fa-battery-three-quarters:before {\n  content: \"\\f241\";\n}\n.fa-battery-2:before,\n.fa-battery-half:before {\n  content: \"\\f242\";\n}\n.fa-battery-1:before,\n.fa-battery-quarter:before {\n  content: \"\\f243\";\n}\n.fa-battery-0:before,\n.fa-battery-empty:before {\n  content: \"\\f244\";\n}\n.fa-mouse-pointer:before {\n  content: \"\\f245\";\n}\n.fa-i-cursor:before {\n  content: \"\\f246\";\n}\n.fa-object-group:before {\n  content: \"\\f247\";\n}\n.fa-object-ungroup:before {\n  content: \"\\f248\";\n}\n.fa-sticky-note:before {\n  content: \"\\f249\";\n}\n.fa-sticky-note-o:before {\n  content: \"\\f24a\";\n}\n.fa-cc-jcb:before {\n  content: \"\\f24b\";\n}\n.fa-cc-diners-club:before {\n  content: \"\\f24c\";\n}\n.fa-clone:before {\n  content: \"\\f24d\";\n}\n.fa-balance-scale:before {\n  content: \"\\f24e\";\n}\n.fa-hourglass-o:before {\n  content: \"\\f250\";\n}\n.fa-hourglass-1:before,\n.fa-hourglass-start:before {\n  content: \"\\f251\";\n}\n.fa-hourglass-2:before,\n.fa-hourglass-half:before {\n  content: \"\\f252\";\n}\n.fa-hourglass-3:before,\n.fa-hourglass-end:before {\n  content: \"\\f253\";\n}\n.fa-hourglass:before {\n  content: \"\\f254\";\n}\n.fa-hand-grab-o:before,\n.fa-hand-rock-o:before {\n  content: \"\\f255\";\n}\n.fa-hand-stop-o:before,\n.fa-hand-paper-o:before {\n  content: \"\\f256\";\n}\n.fa-hand-scissors-o:before {\n  content: \"\\f257\";\n}\n.fa-hand-lizard-o:before {\n  content: \"\\f258\";\n}\n.fa-hand-spock-o:before {\n  content: \"\\f259\";\n}\n.fa-hand-pointer-o:before {\n  content: \"\\f25a\";\n}\n.fa-hand-peace-o:before {\n  content: \"\\f25b\";\n}\n.fa-trademark:before {\n  content: \"\\f25c\";\n}\n.fa-registered:before {\n  content: \"\\f25d\";\n}\n.fa-creative-commons:before {\n  content: \"\\f25e\";\n}\n.fa-gg:before {\n  content: \"\\f260\";\n}\n.fa-gg-circle:before {\n  content: \"\\f261\";\n}\n.fa-tripadvisor:before {\n  content: \"\\f262\";\n}\n.fa-odnoklassniki:before {\n  content: \"\\f263\";\n}\n.fa-odnoklassniki-square:before {\n  content: \"\\f264\";\n}\n.fa-get-pocket:before {\n  content: \"\\f265\";\n}\n.fa-wikipedia-w:before {\n  content: \"\\f266\";\n}\n.fa-safari:before {\n  content: \"\\f267\";\n}\n.fa-chrome:before {\n  content: \"\\f268\";\n}\n.fa-firefox:before {\n  content: \"\\f269\";\n}\n.fa-opera:before {\n  content: \"\\f26a\";\n}\n.fa-internet-explorer:before {\n  content: \"\\f26b\";\n}\n.fa-tv:before,\n.fa-television:before {\n  content: \"\\f26c\";\n}\n.fa-contao:before {\n  content: \"\\f26d\";\n}\n.fa-500px:before {\n  content: \"\\f26e\";\n}\n.fa-amazon:before {\n  content: \"\\f270\";\n}\n.fa-calendar-plus-o:before {\n  content: \"\\f271\";\n}\n.fa-calendar-minus-o:before {\n  content: \"\\f272\";\n}\n.fa-calendar-times-o:before {\n  content: \"\\f273\";\n}\n.fa-calendar-check-o:before {\n  content: \"\\f274\";\n}\n.fa-industry:before {\n  content: \"\\f275\";\n}\n.fa-map-pin:before {\n  content: \"\\f276\";\n}\n.fa-map-signs:before {\n  content: \"\\f277\";\n}\n.fa-map-o:before {\n  content: \"\\f278\";\n}\n.fa-map:before {\n  content: \"\\f279\";\n}\n.fa-commenting:before {\n  content: \"\\f27a\";\n}\n.fa-commenting-o:before {\n  content: \"\\f27b\";\n}\n.fa-houzz:before {\n  content: \"\\f27c\";\n}\n.fa-vimeo:before {\n  content: \"\\f27d\";\n}\n.fa-black-tie:before {\n  content: \"\\f27e\";\n}\n.fa-fonticons:before {\n  content: \"\\f280\";\n}\n.fa-reddit-alien:before {\n  content: \"\\f281\";\n}\n.fa-edge:before {\n  content: \"\\f282\";\n}\n.fa-credit-card-alt:before {\n  content: \"\\f283\";\n}\n.fa-codiepie:before {\n  content: \"\\f284\";\n}\n.fa-modx:before {\n  content: \"\\f285\";\n}\n.fa-fort-awesome:before {\n  content: \"\\f286\";\n}\n.fa-usb:before {\n  content: \"\\f287\";\n}\n.fa-product-hunt:before {\n  content: \"\\f288\";\n}\n.fa-mixcloud:before {\n  content: \"\\f289\";\n}\n.fa-scribd:before {\n  content: \"\\f28a\";\n}\n.fa-pause-circle:before {\n  content: \"\\f28b\";\n}\n.fa-pause-circle-o:before {\n  content: \"\\f28c\";\n}\n.fa-stop-circle:before {\n  content: \"\\f28d\";\n}\n.fa-stop-circle-o:before {\n  content: \"\\f28e\";\n}\n.fa-shopping-bag:before {\n  content: \"\\f290\";\n}\n.fa-shopping-basket:before {\n  content: \"\\f291\";\n}\n.fa-hashtag:before {\n  content: \"\\f292\";\n}\n.fa-bluetooth:before {\n  content: \"\\f293\";\n}\n.fa-bluetooth-b:before {\n  content: \"\\f294\";\n}\n.fa-percent:before {\n  content: \"\\f295\";\n}\n.fa-gitlab:before {\n  content: \"\\f296\";\n}\n.fa-wpbeginner:before {\n  content: \"\\f297\";\n}\n.fa-wpforms:before {\n  content: \"\\f298\";\n}\n.fa-envira:before {\n  content: \"\\f299\";\n}\n.fa-universal-access:before {\n  content: \"\\f29a\";\n}\n.fa-wheelchair-alt:before {\n  content: \"\\f29b\";\n}\n.fa-question-circle-o:before {\n  content: \"\\f29c\";\n}\n.fa-blind:before {\n  content: \"\\f29d\";\n}\n.fa-audio-description:before {\n  content: \"\\f29e\";\n}\n.fa-volume-control-phone:before {\n  content: \"\\f2a0\";\n}\n.fa-braille:before {\n  content: \"\\f2a1\";\n}\n.fa-assistive-listening-systems:before {\n  content: \"\\f2a2\";\n}\n.fa-asl-interpreting:before,\n.fa-american-sign-language-interpreting:before {\n  content: \"\\f2a3\";\n}\n.fa-deafness:before,\n.fa-hard-of-hearing:before,\n.fa-deaf:before {\n  content: \"\\f2a4\";\n}\n.fa-glide:before {\n  content: \"\\f2a5\";\n}\n.fa-glide-g:before {\n  content: \"\\f2a6\";\n}\n.fa-signing:before,\n.fa-sign-language:before {\n  content: \"\\f2a7\";\n}\n.fa-low-vision:before {\n  content: \"\\f2a8\";\n}\n.fa-viadeo:before {\n  content: \"\\f2a9\";\n}\n.fa-viadeo-square:before {\n  content: \"\\f2aa\";\n}\n.fa-snapchat:before {\n  content: \"\\f2ab\";\n}\n.fa-snapchat-ghost:before {\n  content: \"\\f2ac\";\n}\n.fa-snapchat-square:before {\n  content: \"\\f2ad\";\n}\n.fa-pied-piper:before {\n  content: \"\\f2ae\";\n}\n.fa-first-order:before {\n  content: \"\\f2b0\";\n}\n.fa-yoast:before {\n  content: \"\\f2b1\";\n}\n.fa-themeisle:before {\n  content: \"\\f2b2\";\n}\n.fa-google-plus-circle:before,\n.fa-google-plus-official:before {\n  content: \"\\f2b3\";\n}\n.fa-fa:before,\n.fa-font-awesome:before {\n  content: \"\\f2b4\";\n}\n.fa-handshake-o:before {\n  content: \"\\f2b5\";\n}\n.fa-envelope-open:before {\n  content: \"\\f2b6\";\n}\n.fa-envelope-open-o:before {\n  content: \"\\f2b7\";\n}\n.fa-linode:before {\n  content: \"\\f2b8\";\n}\n.fa-address-book:before {\n  content: \"\\f2b9\";\n}\n.fa-address-book-o:before {\n  content: \"\\f2ba\";\n}\n.fa-vcard:before,\n.fa-address-card:before {\n  content: \"\\f2bb\";\n}\n.fa-vcard-o:before,\n.fa-address-card-o:before {\n  content: \"\\f2bc\";\n}\n.fa-user-circle:before {\n  content: \"\\f2bd\";\n}\n.fa-user-circle-o:before {\n  content: \"\\f2be\";\n}\n.fa-user-o:before {\n  content: \"\\f2c0\";\n}\n.fa-id-badge:before {\n  content: \"\\f2c1\";\n}\n.fa-drivers-license:before,\n.fa-id-card:before {\n  content: \"\\f2c2\";\n}\n.fa-drivers-license-o:before,\n.fa-id-card-o:before {\n  content: \"\\f2c3\";\n}\n.fa-quora:before {\n  content: \"\\f2c4\";\n}\n.fa-free-code-camp:before {\n  content: \"\\f2c5\";\n}\n.fa-telegram:before {\n  content: \"\\f2c6\";\n}\n.fa-thermometer-4:before,\n.fa-thermometer:before,\n.fa-thermometer-full:before {\n  content: \"\\f2c7\";\n}\n.fa-thermometer-3:before,\n.fa-thermometer-three-quarters:before {\n  content: \"\\f2c8\";\n}\n.fa-thermometer-2:before,\n.fa-thermometer-half:before {\n  content: \"\\f2c9\";\n}\n.fa-thermometer-1:before,\n.fa-thermometer-quarter:before {\n  content: \"\\f2ca\";\n}\n.fa-thermometer-0:before,\n.fa-thermometer-empty:before {\n  content: \"\\f2cb\";\n}\n.fa-shower:before {\n  content: \"\\f2cc\";\n}\n.fa-bathtub:before,\n.fa-s15:before,\n.fa-bath:before {\n  content: \"\\f2cd\";\n}\n.fa-podcast:before {\n  content: \"\\f2ce\";\n}\n.fa-window-maximize:before {\n  content: \"\\f2d0\";\n}\n.fa-window-minimize:before {\n  content: \"\\f2d1\";\n}\n.fa-window-restore:before {\n  content: \"\\f2d2\";\n}\n.fa-times-rectangle:before,\n.fa-window-close:before {\n  content: \"\\f2d3\";\n}\n.fa-times-rectangle-o:before,\n.fa-window-close-o:before {\n  content: \"\\f2d4\";\n}\n.fa-bandcamp:before {\n  content: \"\\f2d5\";\n}\n.fa-grav:before {\n  content: \"\\f2d6\";\n}\n.fa-etsy:before {\n  content: \"\\f2d7\";\n}\n.fa-imdb:before {\n  content: \"\\f2d8\";\n}\n.fa-ravelry:before {\n  content: \"\\f2d9\";\n}\n.fa-eercast:before {\n  content: \"\\f2da\";\n}\n.fa-microchip:before {\n  content: \"\\f2db\";\n}\n.fa-snowflake-o:before {\n  content: \"\\f2dc\";\n}\n.fa-superpowers:before {\n  content: \"\\f2dd\";\n}\n.fa-wpexplorer:before {\n  content: \"\\f2de\";\n}\n.fa-meetup:before {\n  content: \"\\f2e0\";\n}\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n.sr-only-focusable:active,\n.sr-only-focusable:focus {\n  position: static;\n  width: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  clip: auto;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */\n/* FONT PATH\n * -------------------------- */\n@font-face {\n  font-family: 'FontAwesome';\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format('embedded-opentype'), url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format('woff2'), url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format('woff'), url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format('truetype'), url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n.fa {\n  display: inline-block;\n  font: normal normal normal 14px/1 FontAwesome;\n  font-size: inherit;\n  text-rendering: auto;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n/* makes the font 33% larger relative to the icon container */\n.fa-lg {\n  font-size: 1.33333333em;\n  line-height: 0.75em;\n  vertical-align: -15%;\n}\n.fa-2x {\n  font-size: 2em;\n}\n.fa-3x {\n  font-size: 3em;\n}\n.fa-4x {\n  font-size: 4em;\n}\n.fa-5x {\n  font-size: 5em;\n}\n.fa-fw {\n  width: 1.28571429em;\n  text-align: center;\n}\n.fa-ul {\n  padding-left: 0;\n  margin-left: 2.14285714em;\n  list-style-type: none;\n}\n.fa-ul > li {\n  position: relative;\n}\n.fa-li {\n  position: absolute;\n  left: -2.14285714em;\n  width: 2.14285714em;\n  top: 0.14285714em;\n  text-align: center;\n}\n.fa-li.fa-lg {\n  left: -1.85714286em;\n}\n.fa-border {\n  padding: .2em .25em .15em;\n  border: solid 0.08em #eeeeee;\n  border-radius: .1em;\n}\n.fa-pull-left {\n  float: left;\n}\n.fa-pull-right {\n  float: right;\n}\n.fa.fa-pull-left {\n  margin-right: .3em;\n}\n.fa.fa-pull-right {\n  margin-left: .3em;\n}\n/* Deprecated as of 4.4.0 */\n.pull-right {\n  float: right;\n}\n.pull-left {\n  float: left;\n}\n.fa.pull-left {\n  margin-right: .3em;\n}\n.fa.pull-right {\n  margin-left: .3em;\n}\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n  animation: fa-spin 2s infinite linear;\n}\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n  animation: fa-spin 1s infinite steps(8);\n}\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg);\n}\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n  -ms-transform: scale(-1, 1);\n  transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n  -ms-transform: scale(1, -1);\n  transform: scale(1, -1);\n}\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical {\n  filter: none;\n}\n.fa-stack {\n  position: relative;\n  display: inline-block;\n  width: 2em;\n  height: 2em;\n  line-height: 2em;\n  vertical-align: middle;\n}\n.fa-stack-1x,\n.fa-stack-2x {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  text-align: center;\n}\n.fa-stack-1x {\n  line-height: inherit;\n}\n.fa-stack-2x {\n  font-size: 2em;\n}\n.fa-inverse {\n  color: #ffffff;\n}\n/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen\n   readers do not read off random characters that represent icons */\n.fa-glass:before {\n  content: \"\\f000\";\n}\n.fa-music:before {\n  content: \"\\f001\";\n}\n.fa-search:before {\n  content: \"\\f002\";\n}\n.fa-envelope-o:before {\n  content: \"\\f003\";\n}\n.fa-heart:before {\n  content: \"\\f004\";\n}\n.fa-star:before {\n  content: \"\\f005\";\n}\n.fa-star-o:before {\n  content: \"\\f006\";\n}\n.fa-user:before {\n  content: \"\\f007\";\n}\n.fa-film:before {\n  content: \"\\f008\";\n}\n.fa-th-large:before {\n  content: \"\\f009\";\n}\n.fa-th:before {\n  content: \"\\f00a\";\n}\n.fa-th-list:before {\n  content: \"\\f00b\";\n}\n.fa-check:before {\n  content: \"\\f00c\";\n}\n.fa-remove:before,\n.fa-close:before,\n.fa-times:before {\n  content: \"\\f00d\";\n}\n.fa-search-plus:before {\n  content: \"\\f00e\";\n}\n.fa-search-minus:before {\n  content: \"\\f010\";\n}\n.fa-power-off:before {\n  content: \"\\f011\";\n}\n.fa-signal:before {\n  content: \"\\f012\";\n}\n.fa-gear:before,\n.fa-cog:before {\n  content: \"\\f013\";\n}\n.fa-trash-o:before {\n  content: \"\\f014\";\n}\n.fa-home:before {\n  content: \"\\f015\";\n}\n.fa-file-o:before {\n  content: \"\\f016\";\n}\n.fa-clock-o:before {\n  content: \"\\f017\";\n}\n.fa-road:before {\n  content: \"\\f018\";\n}\n.fa-download:before {\n  content: \"\\f019\";\n}\n.fa-arrow-circle-o-down:before {\n  content: \"\\f01a\";\n}\n.fa-arrow-circle-o-up:before {\n  content: \"\\f01b\";\n}\n.fa-inbox:before {\n  content: \"\\f01c\";\n}\n.fa-play-circle-o:before {\n  content: \"\\f01d\";\n}\n.fa-rotate-right:before,\n.fa-repeat:before {\n  content: \"\\f01e\";\n}\n.fa-refresh:before {\n  content: \"\\f021\";\n}\n.fa-list-alt:before {\n  content: \"\\f022\";\n}\n.fa-lock:before {\n  content: \"\\f023\";\n}\n.fa-flag:before {\n  content: \"\\f024\";\n}\n.fa-headphones:before {\n  content: \"\\f025\";\n}\n.fa-volume-off:before {\n  content: \"\\f026\";\n}\n.fa-volume-down:before {\n  content: \"\\f027\";\n}\n.fa-volume-up:before {\n  content: \"\\f028\";\n}\n.fa-qrcode:before {\n  content: \"\\f029\";\n}\n.fa-barcode:before {\n  content: \"\\f02a\";\n}\n.fa-tag:before {\n  content: \"\\f02b\";\n}\n.fa-tags:before {\n  content: \"\\f02c\";\n}\n.fa-book:before {\n  content: \"\\f02d\";\n}\n.fa-bookmark:before {\n  content: \"\\f02e\";\n}\n.fa-print:before {\n  content: \"\\f02f\";\n}\n.fa-camera:before {\n  content: \"\\f030\";\n}\n.fa-font:before {\n  content: \"\\f031\";\n}\n.fa-bold:before {\n  content: \"\\f032\";\n}\n.fa-italic:before {\n  content: \"\\f033\";\n}\n.fa-text-height:before {\n  content: \"\\f034\";\n}\n.fa-text-width:before {\n  content: \"\\f035\";\n}\n.fa-align-left:before {\n  content: \"\\f036\";\n}\n.fa-align-center:before {\n  content: \"\\f037\";\n}\n.fa-align-right:before {\n  content: \"\\f038\";\n}\n.fa-align-justify:before {\n  content: \"\\f039\";\n}\n.fa-list:before {\n  content: \"\\f03a\";\n}\n.fa-dedent:before,\n.fa-outdent:before {\n  content: \"\\f03b\";\n}\n.fa-indent:before {\n  content: \"\\f03c\";\n}\n.fa-video-camera:before {\n  content: \"\\f03d\";\n}\n.fa-photo:before,\n.fa-image:before,\n.fa-picture-o:before {\n  content: \"\\f03e\";\n}\n.fa-pencil:before {\n  content: \"\\f040\";\n}\n.fa-map-marker:before {\n  content: \"\\f041\";\n}\n.fa-adjust:before {\n  content: \"\\f042\";\n}\n.fa-tint:before {\n  content: \"\\f043\";\n}\n.fa-edit:before,\n.fa-pencil-square-o:before {\n  content: \"\\f044\";\n}\n.fa-share-square-o:before {\n  content: \"\\f045\";\n}\n.fa-check-square-o:before {\n  content: \"\\f046\";\n}\n.fa-arrows:before {\n  content: \"\\f047\";\n}\n.fa-step-backward:before {\n  content: \"\\f048\";\n}\n.fa-fast-backward:before {\n  content: \"\\f049\";\n}\n.fa-backward:before {\n  content: \"\\f04a\";\n}\n.fa-play:before {\n  content: \"\\f04b\";\n}\n.fa-pause:before {\n  content: \"\\f04c\";\n}\n.fa-stop:before {\n  content: \"\\f04d\";\n}\n.fa-forward:before {\n  content: \"\\f04e\";\n}\n.fa-fast-forward:before {\n  content: \"\\f050\";\n}\n.fa-step-forward:before {\n  content: \"\\f051\";\n}\n.fa-eject:before {\n  content: \"\\f052\";\n}\n.fa-chevron-left:before {\n  content: \"\\f053\";\n}\n.fa-chevron-right:before {\n  content: \"\\f054\";\n}\n.fa-plus-circle:before {\n  content: \"\\f055\";\n}\n.fa-minus-circle:before {\n  content: \"\\f056\";\n}\n.fa-times-circle:before {\n  content: \"\\f057\";\n}\n.fa-check-circle:before {\n  content: \"\\f058\";\n}\n.fa-question-circle:before {\n  content: \"\\f059\";\n}\n.fa-info-circle:before {\n  content: \"\\f05a\";\n}\n.fa-crosshairs:before {\n  content: \"\\f05b\";\n}\n.fa-times-circle-o:before {\n  content: \"\\f05c\";\n}\n.fa-check-circle-o:before {\n  content: \"\\f05d\";\n}\n.fa-ban:before {\n  content: \"\\f05e\";\n}\n.fa-arrow-left:before {\n  content: \"\\f060\";\n}\n.fa-arrow-right:before {\n  content: \"\\f061\";\n}\n.fa-arrow-up:before {\n  content: \"\\f062\";\n}\n.fa-arrow-down:before {\n  content: \"\\f063\";\n}\n.fa-mail-forward:before,\n.fa-share:before {\n  content: \"\\f064\";\n}\n.fa-expand:before {\n  content: \"\\f065\";\n}\n.fa-compress:before {\n  content: \"\\f066\";\n}\n.fa-plus:before {\n  content: \"\\f067\";\n}\n.fa-minus:before {\n  content: \"\\f068\";\n}\n.fa-asterisk:before {\n  content: \"\\f069\";\n}\n.fa-exclamation-circle:before {\n  content: \"\\f06a\";\n}\n.fa-gift:before {\n  content: \"\\f06b\";\n}\n.fa-leaf:before {\n  content: \"\\f06c\";\n}\n.fa-fire:before {\n  content: \"\\f06d\";\n}\n.fa-eye:before {\n  content: \"\\f06e\";\n}\n.fa-eye-slash:before {\n  content: \"\\f070\";\n}\n.fa-warning:before,\n.fa-exclamation-triangle:before {\n  content: \"\\f071\";\n}\n.fa-plane:before {\n  content: \"\\f072\";\n}\n.fa-calendar:before {\n  content: \"\\f073\";\n}\n.fa-random:before {\n  content: \"\\f074\";\n}\n.fa-comment:before {\n  content: \"\\f075\";\n}\n.fa-magnet:before {\n  content: \"\\f076\";\n}\n.fa-chevron-up:before {\n  content: \"\\f077\";\n}\n.fa-chevron-down:before {\n  content: \"\\f078\";\n}\n.fa-retweet:before {\n  content: \"\\f079\";\n}\n.fa-shopping-cart:before {\n  content: \"\\f07a\";\n}\n.fa-folder:before {\n  content: \"\\f07b\";\n}\n.fa-folder-open:before {\n  content: \"\\f07c\";\n}\n.fa-arrows-v:before {\n  content: \"\\f07d\";\n}\n.fa-arrows-h:before {\n  content: \"\\f07e\";\n}\n.fa-bar-chart-o:before,\n.fa-bar-chart:before {\n  content: \"\\f080\";\n}\n.fa-twitter-square:before {\n  content: \"\\f081\";\n}\n.fa-facebook-square:before {\n  content: \"\\f082\";\n}\n.fa-camera-retro:before {\n  content: \"\\f083\";\n}\n.fa-key:before {\n  content: \"\\f084\";\n}\n.fa-gears:before,\n.fa-cogs:before {\n  content: \"\\f085\";\n}\n.fa-comments:before {\n  content: \"\\f086\";\n}\n.fa-thumbs-o-up:before {\n  content: \"\\f087\";\n}\n.fa-thumbs-o-down:before {\n  content: \"\\f088\";\n}\n.fa-star-half:before {\n  content: \"\\f089\";\n}\n.fa-heart-o:before {\n  content: \"\\f08a\";\n}\n.fa-sign-out:before {\n  content: \"\\f08b\";\n}\n.fa-linkedin-square:before {\n  content: \"\\f08c\";\n}\n.fa-thumb-tack:before {\n  content: \"\\f08d\";\n}\n.fa-external-link:before {\n  content: \"\\f08e\";\n}\n.fa-sign-in:before {\n  content: \"\\f090\";\n}\n.fa-trophy:before {\n  content: \"\\f091\";\n}\n.fa-github-square:before {\n  content: \"\\f092\";\n}\n.fa-upload:before {\n  content: \"\\f093\";\n}\n.fa-lemon-o:before {\n  content: \"\\f094\";\n}\n.fa-phone:before {\n  content: \"\\f095\";\n}\n.fa-square-o:before {\n  content: \"\\f096\";\n}\n.fa-bookmark-o:before {\n  content: \"\\f097\";\n}\n.fa-phone-square:before {\n  content: \"\\f098\";\n}\n.fa-twitter:before {\n  content: \"\\f099\";\n}\n.fa-facebook-f:before,\n.fa-facebook:before {\n  content: \"\\f09a\";\n}\n.fa-github:before {\n  content: \"\\f09b\";\n}\n.fa-unlock:before {\n  content: \"\\f09c\";\n}\n.fa-credit-card:before {\n  content: \"\\f09d\";\n}\n.fa-feed:before,\n.fa-rss:before {\n  content: \"\\f09e\";\n}\n.fa-hdd-o:before {\n  content: \"\\f0a0\";\n}\n.fa-bullhorn:before {\n  content: \"\\f0a1\";\n}\n.fa-bell:before {\n  content: \"\\f0f3\";\n}\n.fa-certificate:before {\n  content: \"\\f0a3\";\n}\n.fa-hand-o-right:before {\n  content: \"\\f0a4\";\n}\n.fa-hand-o-left:before {\n  content: \"\\f0a5\";\n}\n.fa-hand-o-up:before {\n  content: \"\\f0a6\";\n}\n.fa-hand-o-down:before {\n  content: \"\\f0a7\";\n}\n.fa-arrow-circle-left:before {\n  content: \"\\f0a8\";\n}\n.fa-arrow-circle-right:before {\n  content: \"\\f0a9\";\n}\n.fa-arrow-circle-up:before {\n  content: \"\\f0aa\";\n}\n.fa-arrow-circle-down:before {\n  content: \"\\f0ab\";\n}\n.fa-globe:before {\n  content: \"\\f0ac\";\n}\n.fa-wrench:before {\n  content: \"\\f0ad\";\n}\n.fa-tasks:before {\n  content: \"\\f0ae\";\n}\n.fa-filter:before {\n  content: \"\\f0b0\";\n}\n.fa-briefcase:before {\n  content: \"\\f0b1\";\n}\n.fa-arrows-alt:before {\n  content: \"\\f0b2\";\n}\n.fa-group:before,\n.fa-users:before {\n  content: \"\\f0c0\";\n}\n.fa-chain:before,\n.fa-link:before {\n  content: \"\\f0c1\";\n}\n.fa-cloud:before {\n  content: \"\\f0c2\";\n}\n.fa-flask:before {\n  content: \"\\f0c3\";\n}\n.fa-cut:before,\n.fa-scissors:before {\n  content: \"\\f0c4\";\n}\n.fa-copy:before,\n.fa-files-o:before {\n  content: \"\\f0c5\";\n}\n.fa-paperclip:before {\n  content: \"\\f0c6\";\n}\n.fa-save:before,\n.fa-floppy-o:before {\n  content: \"\\f0c7\";\n}\n.fa-square:before {\n  content: \"\\f0c8\";\n}\n.fa-navicon:before,\n.fa-reorder:before,\n.fa-bars:before {\n  content: \"\\f0c9\";\n}\n.fa-list-ul:before {\n  content: \"\\f0ca\";\n}\n.fa-list-ol:before {\n  content: \"\\f0cb\";\n}\n.fa-strikethrough:before {\n  content: \"\\f0cc\";\n}\n.fa-underline:before {\n  content: \"\\f0cd\";\n}\n.fa-table:before {\n  content: \"\\f0ce\";\n}\n.fa-magic:before {\n  content: \"\\f0d0\";\n}\n.fa-truck:before {\n  content: \"\\f0d1\";\n}\n.fa-pinterest:before {\n  content: \"\\f0d2\";\n}\n.fa-pinterest-square:before {\n  content: \"\\f0d3\";\n}\n.fa-google-plus-square:before {\n  content: \"\\f0d4\";\n}\n.fa-google-plus:before {\n  content: \"\\f0d5\";\n}\n.fa-money:before {\n  content: \"\\f0d6\";\n}\n.fa-caret-down:before {\n  content: \"\\f0d7\";\n}\n.fa-caret-up:before {\n  content: \"\\f0d8\";\n}\n.fa-caret-left:before {\n  content: \"\\f0d9\";\n}\n.fa-caret-right:before {\n  content: \"\\f0da\";\n}\n.fa-columns:before {\n  content: \"\\f0db\";\n}\n.fa-unsorted:before,\n.fa-sort:before {\n  content: \"\\f0dc\";\n}\n.fa-sort-down:before,\n.fa-sort-desc:before {\n  content: \"\\f0dd\";\n}\n.fa-sort-up:before,\n.fa-sort-asc:before {\n  content: \"\\f0de\";\n}\n.fa-envelope:before {\n  content: \"\\f0e0\";\n}\n.fa-linkedin:before {\n  content: \"\\f0e1\";\n}\n.fa-rotate-left:before,\n.fa-undo:before {\n  content: \"\\f0e2\";\n}\n.fa-legal:before,\n.fa-gavel:before {\n  content: \"\\f0e3\";\n}\n.fa-dashboard:before,\n.fa-tachometer:before {\n  content: \"\\f0e4\";\n}\n.fa-comment-o:before {\n  content: \"\\f0e5\";\n}\n.fa-comments-o:before {\n  content: \"\\f0e6\";\n}\n.fa-flash:before,\n.fa-bolt:before {\n  content: \"\\f0e7\";\n}\n.fa-sitemap:before {\n  content: \"\\f0e8\";\n}\n.fa-umbrella:before {\n  content: \"\\f0e9\";\n}\n.fa-paste:before,\n.fa-clipboard:before {\n  content: \"\\f0ea\";\n}\n.fa-lightbulb-o:before {\n  content: \"\\f0eb\";\n}\n.fa-exchange:before {\n  content: \"\\f0ec\";\n}\n.fa-cloud-download:before {\n  content: \"\\f0ed\";\n}\n.fa-cloud-upload:before {\n  content: \"\\f0ee\";\n}\n.fa-user-md:before {\n  content: \"\\f0f0\";\n}\n.fa-stethoscope:before {\n  content: \"\\f0f1\";\n}\n.fa-suitcase:before {\n  content: \"\\f0f2\";\n}\n.fa-bell-o:before {\n  content: \"\\f0a2\";\n}\n.fa-coffee:before {\n  content: \"\\f0f4\";\n}\n.fa-cutlery:before {\n  content: \"\\f0f5\";\n}\n.fa-file-text-o:before {\n  content: \"\\f0f6\";\n}\n.fa-building-o:before {\n  content: \"\\f0f7\";\n}\n.fa-hospital-o:before {\n  content: \"\\f0f8\";\n}\n.fa-ambulance:before {\n  content: \"\\f0f9\";\n}\n.fa-medkit:before {\n  content: \"\\f0fa\";\n}\n.fa-fighter-jet:before {\n  content: \"\\f0fb\";\n}\n.fa-beer:before {\n  content: \"\\f0fc\";\n}\n.fa-h-square:before {\n  content: \"\\f0fd\";\n}\n.fa-plus-square:before {\n  content: \"\\f0fe\";\n}\n.fa-angle-double-left:before {\n  content: \"\\f100\";\n}\n.fa-angle-double-right:before {\n  content: \"\\f101\";\n}\n.fa-angle-double-up:before {\n  content: \"\\f102\";\n}\n.fa-angle-double-down:before {\n  content: \"\\f103\";\n}\n.fa-angle-left:before {\n  content: \"\\f104\";\n}\n.fa-angle-right:before {\n  content: \"\\f105\";\n}\n.fa-angle-up:before {\n  content: \"\\f106\";\n}\n.fa-angle-down:before {\n  content: \"\\f107\";\n}\n.fa-desktop:before {\n  content: \"\\f108\";\n}\n.fa-laptop:before {\n  content: \"\\f109\";\n}\n.fa-tablet:before {\n  content: \"\\f10a\";\n}\n.fa-mobile-phone:before,\n.fa-mobile:before {\n  content: \"\\f10b\";\n}\n.fa-circle-o:before {\n  content: \"\\f10c\";\n}\n.fa-quote-left:before {\n  content: \"\\f10d\";\n}\n.fa-quote-right:before {\n  content: \"\\f10e\";\n}\n.fa-spinner:before {\n  content: \"\\f110\";\n}\n.fa-circle:before {\n  content: \"\\f111\";\n}\n.fa-mail-reply:before,\n.fa-reply:before {\n  content: \"\\f112\";\n}\n.fa-github-alt:before {\n  content: \"\\f113\";\n}\n.fa-folder-o:before {\n  content: \"\\f114\";\n}\n.fa-folder-open-o:before {\n  content: \"\\f115\";\n}\n.fa-smile-o:before {\n  content: \"\\f118\";\n}\n.fa-frown-o:before {\n  content: \"\\f119\";\n}\n.fa-meh-o:before {\n  content: \"\\f11a\";\n}\n.fa-gamepad:before {\n  content: \"\\f11b\";\n}\n.fa-keyboard-o:before {\n  content: \"\\f11c\";\n}\n.fa-flag-o:before {\n  content: \"\\f11d\";\n}\n.fa-flag-checkered:before {\n  content: \"\\f11e\";\n}\n.fa-terminal:before {\n  content: \"\\f120\";\n}\n.fa-code:before {\n  content: \"\\f121\";\n}\n.fa-mail-reply-all:before,\n.fa-reply-all:before {\n  content: \"\\f122\";\n}\n.fa-star-half-empty:before,\n.fa-star-half-full:before,\n.fa-star-half-o:before {\n  content: \"\\f123\";\n}\n.fa-location-arrow:before {\n  content: \"\\f124\";\n}\n.fa-crop:before {\n  content: \"\\f125\";\n}\n.fa-code-fork:before {\n  content: \"\\f126\";\n}\n.fa-unlink:before,\n.fa-chain-broken:before {\n  content: \"\\f127\";\n}\n.fa-question:before {\n  content: \"\\f128\";\n}\n.fa-info:before {\n  content: \"\\f129\";\n}\n.fa-exclamation:before {\n  content: \"\\f12a\";\n}\n.fa-superscript:before {\n  content: \"\\f12b\";\n}\n.fa-subscript:before {\n  content: \"\\f12c\";\n}\n.fa-eraser:before {\n  content: \"\\f12d\";\n}\n.fa-puzzle-piece:before {\n  content: \"\\f12e\";\n}\n.fa-microphone:before {\n  content: \"\\f130\";\n}\n.fa-microphone-slash:before {\n  content: \"\\f131\";\n}\n.fa-shield:before {\n  content: \"\\f132\";\n}\n.fa-calendar-o:before {\n  content: \"\\f133\";\n}\n.fa-fire-extinguisher:before {\n  content: \"\\f134\";\n}\n.fa-rocket:before {\n  content: \"\\f135\";\n}\n.fa-maxcdn:before {\n  content: \"\\f136\";\n}\n.fa-chevron-circle-left:before {\n  content: \"\\f137\";\n}\n.fa-chevron-circle-right:before {\n  content: \"\\f138\";\n}\n.fa-chevron-circle-up:before {\n  content: \"\\f139\";\n}\n.fa-chevron-circle-down:before {\n  content: \"\\f13a\";\n}\n.fa-html5:before {\n  content: \"\\f13b\";\n}\n.fa-css3:before {\n  content: \"\\f13c\";\n}\n.fa-anchor:before {\n  content: \"\\f13d\";\n}\n.fa-unlock-alt:before {\n  content: \"\\f13e\";\n}\n.fa-bullseye:before {\n  content: \"\\f140\";\n}\n.fa-ellipsis-h:before {\n  content: \"\\f141\";\n}\n.fa-ellipsis-v:before {\n  content: \"\\f142\";\n}\n.fa-rss-square:before {\n  content: \"\\f143\";\n}\n.fa-play-circle:before {\n  content: \"\\f144\";\n}\n.fa-ticket:before {\n  content: \"\\f145\";\n}\n.fa-minus-square:before {\n  content: \"\\f146\";\n}\n.fa-minus-square-o:before {\n  content: \"\\f147\";\n}\n.fa-level-up:before {\n  content: \"\\f148\";\n}\n.fa-level-down:before {\n  content: \"\\f149\";\n}\n.fa-check-square:before {\n  content: \"\\f14a\";\n}\n.fa-pencil-square:before {\n  content: \"\\f14b\";\n}\n.fa-external-link-square:before {\n  content: \"\\f14c\";\n}\n.fa-share-square:before {\n  content: \"\\f14d\";\n}\n.fa-compass:before {\n  content: \"\\f14e\";\n}\n.fa-toggle-down:before,\n.fa-caret-square-o-down:before {\n  content: \"\\f150\";\n}\n.fa-toggle-up:before,\n.fa-caret-square-o-up:before {\n  content: \"\\f151\";\n}\n.fa-toggle-right:before,\n.fa-caret-square-o-right:before {\n  content: \"\\f152\";\n}\n.fa-euro:before,\n.fa-eur:before {\n  content: \"\\f153\";\n}\n.fa-gbp:before {\n  content: \"\\f154\";\n}\n.fa-dollar:before,\n.fa-usd:before {\n  content: \"\\f155\";\n}\n.fa-rupee:before,\n.fa-inr:before {\n  content: \"\\f156\";\n}\n.fa-cny:before,\n.fa-rmb:before,\n.fa-yen:before,\n.fa-jpy:before {\n  content: \"\\f157\";\n}\n.fa-ruble:before,\n.fa-rouble:before,\n.fa-rub:before {\n  content: \"\\f158\";\n}\n.fa-won:before,\n.fa-krw:before {\n  content: \"\\f159\";\n}\n.fa-bitcoin:before,\n.fa-btc:before {\n  content: \"\\f15a\";\n}\n.fa-file:before {\n  content: \"\\f15b\";\n}\n.fa-file-text:before {\n  content: \"\\f15c\";\n}\n.fa-sort-alpha-asc:before {\n  content: \"\\f15d\";\n}\n.fa-sort-alpha-desc:before {\n  content: \"\\f15e\";\n}\n.fa-sort-amount-asc:before {\n  content: \"\\f160\";\n}\n.fa-sort-amount-desc:before {\n  content: \"\\f161\";\n}\n.fa-sort-numeric-asc:before {\n  content: \"\\f162\";\n}\n.fa-sort-numeric-desc:before {\n  content: \"\\f163\";\n}\n.fa-thumbs-up:before {\n  content: \"\\f164\";\n}\n.fa-thumbs-down:before {\n  content: \"\\f165\";\n}\n.fa-youtube-square:before {\n  content: \"\\f166\";\n}\n.fa-youtube:before {\n  content: \"\\f167\";\n}\n.fa-xing:before {\n  content: \"\\f168\";\n}\n.fa-xing-square:before {\n  content: \"\\f169\";\n}\n.fa-youtube-play:before {\n  content: \"\\f16a\";\n}\n.fa-dropbox:before {\n  content: \"\\f16b\";\n}\n.fa-stack-overflow:before {\n  content: \"\\f16c\";\n}\n.fa-instagram:before {\n  content: \"\\f16d\";\n}\n.fa-flickr:before {\n  content: \"\\f16e\";\n}\n.fa-adn:before {\n  content: \"\\f170\";\n}\n.fa-bitbucket:before {\n  content: \"\\f171\";\n}\n.fa-bitbucket-square:before {\n  content: \"\\f172\";\n}\n.fa-tumblr:before {\n  content: \"\\f173\";\n}\n.fa-tumblr-square:before {\n  content: \"\\f174\";\n}\n.fa-long-arrow-down:before {\n  content: \"\\f175\";\n}\n.fa-long-arrow-up:before {\n  content: \"\\f176\";\n}\n.fa-long-arrow-left:before {\n  content: \"\\f177\";\n}\n.fa-long-arrow-right:before {\n  content: \"\\f178\";\n}\n.fa-apple:before {\n  content: \"\\f179\";\n}\n.fa-windows:before {\n  content: \"\\f17a\";\n}\n.fa-android:before {\n  content: \"\\f17b\";\n}\n.fa-linux:before {\n  content: \"\\f17c\";\n}\n.fa-dribbble:before {\n  content: \"\\f17d\";\n}\n.fa-skype:before {\n  content: \"\\f17e\";\n}\n.fa-foursquare:before {\n  content: \"\\f180\";\n}\n.fa-trello:before {\n  content: \"\\f181\";\n}\n.fa-female:before {\n  content: \"\\f182\";\n}\n.fa-male:before {\n  content: \"\\f183\";\n}\n.fa-gittip:before,\n.fa-gratipay:before {\n  content: \"\\f184\";\n}\n.fa-sun-o:before {\n  content: \"\\f185\";\n}\n.fa-moon-o:before {\n  content: \"\\f186\";\n}\n.fa-archive:before {\n  content: \"\\f187\";\n}\n.fa-bug:before {\n  content: \"\\f188\";\n}\n.fa-vk:before {\n  content: \"\\f189\";\n}\n.fa-weibo:before {\n  content: \"\\f18a\";\n}\n.fa-renren:before {\n  content: \"\\f18b\";\n}\n.fa-pagelines:before {\n  content: \"\\f18c\";\n}\n.fa-stack-exchange:before {\n  content: \"\\f18d\";\n}\n.fa-arrow-circle-o-right:before {\n  content: \"\\f18e\";\n}\n.fa-arrow-circle-o-left:before {\n  content: \"\\f190\";\n}\n.fa-toggle-left:before,\n.fa-caret-square-o-left:before {\n  content: \"\\f191\";\n}\n.fa-dot-circle-o:before {\n  content: \"\\f192\";\n}\n.fa-wheelchair:before {\n  content: \"\\f193\";\n}\n.fa-vimeo-square:before {\n  content: \"\\f194\";\n}\n.fa-turkish-lira:before,\n.fa-try:before {\n  content: \"\\f195\";\n}\n.fa-plus-square-o:before {\n  content: \"\\f196\";\n}\n.fa-space-shuttle:before {\n  content: \"\\f197\";\n}\n.fa-slack:before {\n  content: \"\\f198\";\n}\n.fa-envelope-square:before {\n  content: \"\\f199\";\n}\n.fa-wordpress:before {\n  content: \"\\f19a\";\n}\n.fa-openid:before {\n  content: \"\\f19b\";\n}\n.fa-institution:before,\n.fa-bank:before,\n.fa-university:before {\n  content: \"\\f19c\";\n}\n.fa-mortar-board:before,\n.fa-graduation-cap:before {\n  content: \"\\f19d\";\n}\n.fa-yahoo:before {\n  content: \"\\f19e\";\n}\n.fa-google:before {\n  content: \"\\f1a0\";\n}\n.fa-reddit:before {\n  content: \"\\f1a1\";\n}\n.fa-reddit-square:before {\n  content: \"\\f1a2\";\n}\n.fa-stumbleupon-circle:before {\n  content: \"\\f1a3\";\n}\n.fa-stumbleupon:before {\n  content: \"\\f1a4\";\n}\n.fa-delicious:before {\n  content: \"\\f1a5\";\n}\n.fa-digg:before {\n  content: \"\\f1a6\";\n}\n.fa-pied-piper-pp:before {\n  content: \"\\f1a7\";\n}\n.fa-pied-piper-alt:before {\n  content: \"\\f1a8\";\n}\n.fa-drupal:before {\n  content: \"\\f1a9\";\n}\n.fa-joomla:before {\n  content: \"\\f1aa\";\n}\n.fa-language:before {\n  content: \"\\f1ab\";\n}\n.fa-fax:before {\n  content: \"\\f1ac\";\n}\n.fa-building:before {\n  content: \"\\f1ad\";\n}\n.fa-child:before {\n  content: \"\\f1ae\";\n}\n.fa-paw:before {\n  content: \"\\f1b0\";\n}\n.fa-spoon:before {\n  content: \"\\f1b1\";\n}\n.fa-cube:before {\n  content: \"\\f1b2\";\n}\n.fa-cubes:before {\n  content: \"\\f1b3\";\n}\n.fa-behance:before {\n  content: \"\\f1b4\";\n}\n.fa-behance-square:before {\n  content: \"\\f1b5\";\n}\n.fa-steam:before {\n  content: \"\\f1b6\";\n}\n.fa-steam-square:before {\n  content: \"\\f1b7\";\n}\n.fa-recycle:before {\n  content: \"\\f1b8\";\n}\n.fa-automobile:before,\n.fa-car:before {\n  content: \"\\f1b9\";\n}\n.fa-cab:before,\n.fa-taxi:before {\n  content: \"\\f1ba\";\n}\n.fa-tree:before {\n  content: \"\\f1bb\";\n}\n.fa-spotify:before {\n  content: \"\\f1bc\";\n}\n.fa-deviantart:before {\n  content: \"\\f1bd\";\n}\n.fa-soundcloud:before {\n  content: \"\\f1be\";\n}\n.fa-database:before {\n  content: \"\\f1c0\";\n}\n.fa-file-pdf-o:before {\n  content: \"\\f1c1\";\n}\n.fa-file-word-o:before {\n  content: \"\\f1c2\";\n}\n.fa-file-excel-o:before {\n  content: \"\\f1c3\";\n}\n.fa-file-powerpoint-o:before {\n  content: \"\\f1c4\";\n}\n.fa-file-photo-o:before,\n.fa-file-picture-o:before,\n.fa-file-image-o:before {\n  content: \"\\f1c5\";\n}\n.fa-file-zip-o:before,\n.fa-file-archive-o:before {\n  content: \"\\f1c6\";\n}\n.fa-file-sound-o:before,\n.fa-file-audio-o:before {\n  content: \"\\f1c7\";\n}\n.fa-file-movie-o:before,\n.fa-file-video-o:before {\n  content: \"\\f1c8\";\n}\n.fa-file-code-o:before {\n  content: \"\\f1c9\";\n}\n.fa-vine:before {\n  content: \"\\f1ca\";\n}\n.fa-codepen:before {\n  content: \"\\f1cb\";\n}\n.fa-jsfiddle:before {\n  content: \"\\f1cc\";\n}\n.fa-life-bouy:before,\n.fa-life-buoy:before,\n.fa-life-saver:before,\n.fa-support:before,\n.fa-life-ring:before {\n  content: \"\\f1cd\";\n}\n.fa-circle-o-notch:before {\n  content: \"\\f1ce\";\n}\n.fa-ra:before,\n.fa-resistance:before,\n.fa-rebel:before {\n  content: \"\\f1d0\";\n}\n.fa-ge:before,\n.fa-empire:before {\n  content: \"\\f1d1\";\n}\n.fa-git-square:before {\n  content: \"\\f1d2\";\n}\n.fa-git:before {\n  content: \"\\f1d3\";\n}\n.fa-y-combinator-square:before,\n.fa-yc-square:before,\n.fa-hacker-news:before {\n  content: \"\\f1d4\";\n}\n.fa-tencent-weibo:before {\n  content: \"\\f1d5\";\n}\n.fa-qq:before {\n  content: \"\\f1d6\";\n}\n.fa-wechat:before,\n.fa-weixin:before {\n  content: \"\\f1d7\";\n}\n.fa-send:before,\n.fa-paper-plane:before {\n  content: \"\\f1d8\";\n}\n.fa-send-o:before,\n.fa-paper-plane-o:before {\n  content: \"\\f1d9\";\n}\n.fa-history:before {\n  content: \"\\f1da\";\n}\n.fa-circle-thin:before {\n  content: \"\\f1db\";\n}\n.fa-header:before {\n  content: \"\\f1dc\";\n}\n.fa-paragraph:before {\n  content: \"\\f1dd\";\n}\n.fa-sliders:before {\n  content: \"\\f1de\";\n}\n.fa-share-alt:before {\n  content: \"\\f1e0\";\n}\n.fa-share-alt-square:before {\n  content: \"\\f1e1\";\n}\n.fa-bomb:before {\n  content: \"\\f1e2\";\n}\n.fa-soccer-ball-o:before,\n.fa-futbol-o:before {\n  content: \"\\f1e3\";\n}\n.fa-tty:before {\n  content: \"\\f1e4\";\n}\n.fa-binoculars:before {\n  content: \"\\f1e5\";\n}\n.fa-plug:before {\n  content: \"\\f1e6\";\n}\n.fa-slideshare:before {\n  content: \"\\f1e7\";\n}\n.fa-twitch:before {\n  content: \"\\f1e8\";\n}\n.fa-yelp:before {\n  content: \"\\f1e9\";\n}\n.fa-newspaper-o:before {\n  content: \"\\f1ea\";\n}\n.fa-wifi:before {\n  content: \"\\f1eb\";\n}\n.fa-calculator:before {\n  content: \"\\f1ec\";\n}\n.fa-paypal:before {\n  content: \"\\f1ed\";\n}\n.fa-google-wallet:before {\n  content: \"\\f1ee\";\n}\n.fa-cc-visa:before {\n  content: \"\\f1f0\";\n}\n.fa-cc-mastercard:before {\n  content: \"\\f1f1\";\n}\n.fa-cc-discover:before {\n  content: \"\\f1f2\";\n}\n.fa-cc-amex:before {\n  content: \"\\f1f3\";\n}\n.fa-cc-paypal:before {\n  content: \"\\f1f4\";\n}\n.fa-cc-stripe:before {\n  content: \"\\f1f5\";\n}\n.fa-bell-slash:before {\n  content: \"\\f1f6\";\n}\n.fa-bell-slash-o:before {\n  content: \"\\f1f7\";\n}\n.fa-trash:before {\n  content: \"\\f1f8\";\n}\n.fa-copyright:before {\n  content: \"\\f1f9\";\n}\n.fa-at:before {\n  content: \"\\f1fa\";\n}\n.fa-eyedropper:before {\n  content: \"\\f1fb\";\n}\n.fa-paint-brush:before {\n  content: \"\\f1fc\";\n}\n.fa-birthday-cake:before {\n  content: \"\\f1fd\";\n}\n.fa-area-chart:before {\n  content: \"\\f1fe\";\n}\n.fa-pie-chart:before {\n  content: \"\\f200\";\n}\n.fa-line-chart:before {\n  content: \"\\f201\";\n}\n.fa-lastfm:before {\n  content: \"\\f202\";\n}\n.fa-lastfm-square:before {\n  content: \"\\f203\";\n}\n.fa-toggle-off:before {\n  content: \"\\f204\";\n}\n.fa-toggle-on:before {\n  content: \"\\f205\";\n}\n.fa-bicycle:before {\n  content: \"\\f206\";\n}\n.fa-bus:before {\n  content: \"\\f207\";\n}\n.fa-ioxhost:before {\n  content: \"\\f208\";\n}\n.fa-angellist:before {\n  content: \"\\f209\";\n}\n.fa-cc:before {\n  content: \"\\f20a\";\n}\n.fa-shekel:before,\n.fa-sheqel:before,\n.fa-ils:before {\n  content: \"\\f20b\";\n}\n.fa-meanpath:before {\n  content: \"\\f20c\";\n}\n.fa-buysellads:before {\n  content: \"\\f20d\";\n}\n.fa-connectdevelop:before {\n  content: \"\\f20e\";\n}\n.fa-dashcube:before {\n  content: \"\\f210\";\n}\n.fa-forumbee:before {\n  content: \"\\f211\";\n}\n.fa-leanpub:before {\n  content: \"\\f212\";\n}\n.fa-sellsy:before {\n  content: \"\\f213\";\n}\n.fa-shirtsinbulk:before {\n  content: \"\\f214\";\n}\n.fa-simplybuilt:before {\n  content: \"\\f215\";\n}\n.fa-skyatlas:before {\n  content: \"\\f216\";\n}\n.fa-cart-plus:before {\n  content: \"\\f217\";\n}\n.fa-cart-arrow-down:before {\n  content: \"\\f218\";\n}\n.fa-diamond:before {\n  content: \"\\f219\";\n}\n.fa-ship:before {\n  content: \"\\f21a\";\n}\n.fa-user-secret:before {\n  content: \"\\f21b\";\n}\n.fa-motorcycle:before {\n  content: \"\\f21c\";\n}\n.fa-street-view:before {\n  content: \"\\f21d\";\n}\n.fa-heartbeat:before {\n  content: \"\\f21e\";\n}\n.fa-venus:before {\n  content: \"\\f221\";\n}\n.fa-mars:before {\n  content: \"\\f222\";\n}\n.fa-mercury:before {\n  content: \"\\f223\";\n}\n.fa-intersex:before,\n.fa-transgender:before {\n  content: \"\\f224\";\n}\n.fa-transgender-alt:before {\n  content: \"\\f225\";\n}\n.fa-venus-double:before {\n  content: \"\\f226\";\n}\n.fa-mars-double:before {\n  content: \"\\f227\";\n}\n.fa-venus-mars:before {\n  content: \"\\f228\";\n}\n.fa-mars-stroke:before {\n  content: \"\\f229\";\n}\n.fa-mars-stroke-v:before {\n  content: \"\\f22a\";\n}\n.fa-mars-stroke-h:before {\n  content: \"\\f22b\";\n}\n.fa-neuter:before {\n  content: \"\\f22c\";\n}\n.fa-genderless:before {\n  content: \"\\f22d\";\n}\n.fa-facebook-official:before {\n  content: \"\\f230\";\n}\n.fa-pinterest-p:before {\n  content: \"\\f231\";\n}\n.fa-whatsapp:before {\n  content: \"\\f232\";\n}\n.fa-server:before {\n  content: \"\\f233\";\n}\n.fa-user-plus:before {\n  content: \"\\f234\";\n}\n.fa-user-times:before {\n  content: \"\\f235\";\n}\n.fa-hotel:before,\n.fa-bed:before {\n  content: \"\\f236\";\n}\n.fa-viacoin:before {\n  content: \"\\f237\";\n}\n.fa-train:before {\n  content: \"\\f238\";\n}\n.fa-subway:before {\n  content: \"\\f239\";\n}\n.fa-medium:before {\n  content: \"\\f23a\";\n}\n.fa-yc:before,\n.fa-y-combinator:before {\n  content: \"\\f23b\";\n}\n.fa-optin-monster:before {\n  content: \"\\f23c\";\n}\n.fa-opencart:before {\n  content: \"\\f23d\";\n}\n.fa-expeditedssl:before {\n  content: \"\\f23e\";\n}\n.fa-battery-4:before,\n.fa-battery:before,\n.fa-battery-full:before {\n  content: \"\\f240\";\n}\n.fa-battery-3:before,\n.fa-battery-three-quarters:before {\n  content: \"\\f241\";\n}\n.fa-battery-2:before,\n.fa-battery-half:before {\n  content: \"\\f242\";\n}\n.fa-battery-1:before,\n.fa-battery-quarter:before {\n  content: \"\\f243\";\n}\n.fa-battery-0:before,\n.fa-battery-empty:before {\n  content: \"\\f244\";\n}\n.fa-mouse-pointer:before {\n  content: \"\\f245\";\n}\n.fa-i-cursor:before {\n  content: \"\\f246\";\n}\n.fa-object-group:before {\n  content: \"\\f247\";\n}\n.fa-object-ungroup:before {\n  content: \"\\f248\";\n}\n.fa-sticky-note:before {\n  content: \"\\f249\";\n}\n.fa-sticky-note-o:before {\n  content: \"\\f24a\";\n}\n.fa-cc-jcb:before {\n  content: \"\\f24b\";\n}\n.fa-cc-diners-club:before {\n  content: \"\\f24c\";\n}\n.fa-clone:before {\n  content: \"\\f24d\";\n}\n.fa-balance-scale:before {\n  content: \"\\f24e\";\n}\n.fa-hourglass-o:before {\n  content: \"\\f250\";\n}\n.fa-hourglass-1:before,\n.fa-hourglass-start:before {\n  content: \"\\f251\";\n}\n.fa-hourglass-2:before,\n.fa-hourglass-half:before {\n  content: \"\\f252\";\n}\n.fa-hourglass-3:before,\n.fa-hourglass-end:before {\n  content: \"\\f253\";\n}\n.fa-hourglass:before {\n  content: \"\\f254\";\n}\n.fa-hand-grab-o:before,\n.fa-hand-rock-o:before {\n  content: \"\\f255\";\n}\n.fa-hand-stop-o:before,\n.fa-hand-paper-o:before {\n  content: \"\\f256\";\n}\n.fa-hand-scissors-o:before {\n  content: \"\\f257\";\n}\n.fa-hand-lizard-o:before {\n  content: \"\\f258\";\n}\n.fa-hand-spock-o:before {\n  content: \"\\f259\";\n}\n.fa-hand-pointer-o:before {\n  content: \"\\f25a\";\n}\n.fa-hand-peace-o:before {\n  content: \"\\f25b\";\n}\n.fa-trademark:before {\n  content: \"\\f25c\";\n}\n.fa-registered:before {\n  content: \"\\f25d\";\n}\n.fa-creative-commons:before {\n  content: \"\\f25e\";\n}\n.fa-gg:before {\n  content: \"\\f260\";\n}\n.fa-gg-circle:before {\n  content: \"\\f261\";\n}\n.fa-tripadvisor:before {\n  content: \"\\f262\";\n}\n.fa-odnoklassniki:before {\n  content: \"\\f263\";\n}\n.fa-odnoklassniki-square:before {\n  content: \"\\f264\";\n}\n.fa-get-pocket:before {\n  content: \"\\f265\";\n}\n.fa-wikipedia-w:before {\n  content: \"\\f266\";\n}\n.fa-safari:before {\n  content: \"\\f267\";\n}\n.fa-chrome:before {\n  content: \"\\f268\";\n}\n.fa-firefox:before {\n  content: \"\\f269\";\n}\n.fa-opera:before {\n  content: \"\\f26a\";\n}\n.fa-internet-explorer:before {\n  content: \"\\f26b\";\n}\n.fa-tv:before,\n.fa-television:before {\n  content: \"\\f26c\";\n}\n.fa-contao:before {\n  content: \"\\f26d\";\n}\n.fa-500px:before {\n  content: \"\\f26e\";\n}\n.fa-amazon:before {\n  content: \"\\f270\";\n}\n.fa-calendar-plus-o:before {\n  content: \"\\f271\";\n}\n.fa-calendar-minus-o:before {\n  content: \"\\f272\";\n}\n.fa-calendar-times-o:before {\n  content: \"\\f273\";\n}\n.fa-calendar-check-o:before {\n  content: \"\\f274\";\n}\n.fa-industry:before {\n  content: \"\\f275\";\n}\n.fa-map-pin:before {\n  content: \"\\f276\";\n}\n.fa-map-signs:before {\n  content: \"\\f277\";\n}\n.fa-map-o:before {\n  content: \"\\f278\";\n}\n.fa-map:before {\n  content: \"\\f279\";\n}\n.fa-commenting:before {\n  content: \"\\f27a\";\n}\n.fa-commenting-o:before {\n  content: \"\\f27b\";\n}\n.fa-houzz:before {\n  content: \"\\f27c\";\n}\n.fa-vimeo:before {\n  content: \"\\f27d\";\n}\n.fa-black-tie:before {\n  content: \"\\f27e\";\n}\n.fa-fonticons:before {\n  content: \"\\f280\";\n}\n.fa-reddit-alien:before {\n  content: \"\\f281\";\n}\n.fa-edge:before {\n  content: \"\\f282\";\n}\n.fa-credit-card-alt:before {\n  content: \"\\f283\";\n}\n.fa-codiepie:before {\n  content: \"\\f284\";\n}\n.fa-modx:before {\n  content: \"\\f285\";\n}\n.fa-fort-awesome:before {\n  content: \"\\f286\";\n}\n.fa-usb:before {\n  content: \"\\f287\";\n}\n.fa-product-hunt:before {\n  content: \"\\f288\";\n}\n.fa-mixcloud:before {\n  content: \"\\f289\";\n}\n.fa-scribd:before {\n  content: \"\\f28a\";\n}\n.fa-pause-circle:before {\n  content: \"\\f28b\";\n}\n.fa-pause-circle-o:before {\n  content: \"\\f28c\";\n}\n.fa-stop-circle:before {\n  content: \"\\f28d\";\n}\n.fa-stop-circle-o:before {\n  content: \"\\f28e\";\n}\n.fa-shopping-bag:before {\n  content: \"\\f290\";\n}\n.fa-shopping-basket:before {\n  content: \"\\f291\";\n}\n.fa-hashtag:before {\n  content: \"\\f292\";\n}\n.fa-bluetooth:before {\n  content: \"\\f293\";\n}\n.fa-bluetooth-b:before {\n  content: \"\\f294\";\n}\n.fa-percent:before {\n  content: \"\\f295\";\n}\n.fa-gitlab:before {\n  content: \"\\f296\";\n}\n.fa-wpbeginner:before {\n  content: \"\\f297\";\n}\n.fa-wpforms:before {\n  content: \"\\f298\";\n}\n.fa-envira:before {\n  content: \"\\f299\";\n}\n.fa-universal-access:before {\n  content: \"\\f29a\";\n}\n.fa-wheelchair-alt:before {\n  content: \"\\f29b\";\n}\n.fa-question-circle-o:before {\n  content: \"\\f29c\";\n}\n.fa-blind:before {\n  content: \"\\f29d\";\n}\n.fa-audio-description:before {\n  content: \"\\f29e\";\n}\n.fa-volume-control-phone:before {\n  content: \"\\f2a0\";\n}\n.fa-braille:before {\n  content: \"\\f2a1\";\n}\n.fa-assistive-listening-systems:before {\n  content: \"\\f2a2\";\n}\n.fa-asl-interpreting:before,\n.fa-american-sign-language-interpreting:before {\n  content: \"\\f2a3\";\n}\n.fa-deafness:before,\n.fa-hard-of-hearing:before,\n.fa-deaf:before {\n  content: \"\\f2a4\";\n}\n.fa-glide:before {\n  content: \"\\f2a5\";\n}\n.fa-glide-g:before {\n  content: \"\\f2a6\";\n}\n.fa-signing:before,\n.fa-sign-language:before {\n  content: \"\\f2a7\";\n}\n.fa-low-vision:before {\n  content: \"\\f2a8\";\n}\n.fa-viadeo:before {\n  content: \"\\f2a9\";\n}\n.fa-viadeo-square:before {\n  content: \"\\f2aa\";\n}\n.fa-snapchat:before {\n  content: \"\\f2ab\";\n}\n.fa-snapchat-ghost:before {\n  content: \"\\f2ac\";\n}\n.fa-snapchat-square:before {\n  content: \"\\f2ad\";\n}\n.fa-pied-piper:before {\n  content: \"\\f2ae\";\n}\n.fa-first-order:before {\n  content: \"\\f2b0\";\n}\n.fa-yoast:before {\n  content: \"\\f2b1\";\n}\n.fa-themeisle:before {\n  content: \"\\f2b2\";\n}\n.fa-google-plus-circle:before,\n.fa-google-plus-official:before {\n  content: \"\\f2b3\";\n}\n.fa-fa:before,\n.fa-font-awesome:before {\n  content: \"\\f2b4\";\n}\n.fa-handshake-o:before {\n  content: \"\\f2b5\";\n}\n.fa-envelope-open:before {\n  content: \"\\f2b6\";\n}\n.fa-envelope-open-o:before {\n  content: \"\\f2b7\";\n}\n.fa-linode:before {\n  content: \"\\f2b8\";\n}\n.fa-address-book:before {\n  content: \"\\f2b9\";\n}\n.fa-address-book-o:before {\n  content: \"\\f2ba\";\n}\n.fa-vcard:before,\n.fa-address-card:before {\n  content: \"\\f2bb\";\n}\n.fa-vcard-o:before,\n.fa-address-card-o:before {\n  content: \"\\f2bc\";\n}\n.fa-user-circle:before {\n  content: \"\\f2bd\";\n}\n.fa-user-circle-o:before {\n  content: \"\\f2be\";\n}\n.fa-user-o:before {\n  content: \"\\f2c0\";\n}\n.fa-id-badge:before {\n  content: \"\\f2c1\";\n}\n.fa-drivers-license:before,\n.fa-id-card:before {\n  content: \"\\f2c2\";\n}\n.fa-drivers-license-o:before,\n.fa-id-card-o:before {\n  content: \"\\f2c3\";\n}\n.fa-quora:before {\n  content: \"\\f2c4\";\n}\n.fa-free-code-camp:before {\n  content: \"\\f2c5\";\n}\n.fa-telegram:before {\n  content: \"\\f2c6\";\n}\n.fa-thermometer-4:before,\n.fa-thermometer:before,\n.fa-thermometer-full:before {\n  content: \"\\f2c7\";\n}\n.fa-thermometer-3:before,\n.fa-thermometer-three-quarters:before {\n  content: \"\\f2c8\";\n}\n.fa-thermometer-2:before,\n.fa-thermometer-half:before {\n  content: \"\\f2c9\";\n}\n.fa-thermometer-1:before,\n.fa-thermometer-quarter:before {\n  content: \"\\f2ca\";\n}\n.fa-thermometer-0:before,\n.fa-thermometer-empty:before {\n  content: \"\\f2cb\";\n}\n.fa-shower:before {\n  content: \"\\f2cc\";\n}\n.fa-bathtub:before,\n.fa-s15:before,\n.fa-bath:before {\n  content: \"\\f2cd\";\n}\n.fa-podcast:before {\n  content: \"\\f2ce\";\n}\n.fa-window-maximize:before {\n  content: \"\\f2d0\";\n}\n.fa-window-minimize:before {\n  content: \"\\f2d1\";\n}\n.fa-window-restore:before {\n  content: \"\\f2d2\";\n}\n.fa-times-rectangle:before,\n.fa-window-close:before {\n  content: \"\\f2d3\";\n}\n.fa-times-rectangle-o:before,\n.fa-window-close-o:before {\n  content: \"\\f2d4\";\n}\n.fa-bandcamp:before {\n  content: \"\\f2d5\";\n}\n.fa-grav:before {\n  content: \"\\f2d6\";\n}\n.fa-etsy:before {\n  content: \"\\f2d7\";\n}\n.fa-imdb:before {\n  content: \"\\f2d8\";\n}\n.fa-ravelry:before {\n  content: \"\\f2d9\";\n}\n.fa-eercast:before {\n  content: \"\\f2da\";\n}\n.fa-microchip:before {\n  content: \"\\f2db\";\n}\n.fa-snowflake-o:before {\n  content: \"\\f2dc\";\n}\n.fa-superpowers:before {\n  content: \"\\f2dd\";\n}\n.fa-wpexplorer:before {\n  content: \"\\f2de\";\n}\n.fa-meetup:before {\n  content: \"\\f2e0\";\n}\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n.sr-only-focusable:active,\n.sr-only-focusable:focus {\n  position: static;\n  width: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  clip: auto;\n}\n", "",{"version":3,"sources":["font-awesome.css"],"names":[],"mappings":"AAAA;;;EAGE;AACF;+BAC+B;AAC/B;EACE,0BAA0B;EAC1B,4CAAoD;EACpD,4SAAiX;EACjX,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,qBAAqB;EACrB,6CAA6C;EAC7C,kBAAkB;EAClB,oBAAoB;EACpB,mCAAmC;EACnC,kCAAkC;AACpC;AACA,6DAA6D;AAC7D;EACE,uBAAuB;EACvB,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE,cAAc;AAChB;AACA;EACE,cAAc;AAChB;AACA;EACE,cAAc;AAChB;AACA;EACE,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,eAAe;EACf,yBAAyB;EACzB,qBAAqB;AACvB;AACA;EACE,kBAAkB;AACpB;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,mBAAmB;EACnB,iBAAiB;EACjB,kBAAkB;AACpB;AACA;EACE,mBAAmB;AACrB;AACA;EACE,yBAAyB;EACzB,4BAA4B;EAC5B,mBAAmB;AACrB;AACA;EACE,WAAW;AACb;AACA;EACE,YAAY;AACd;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;AACnB;AACA,2BAA2B;AAC3B;EACE,YAAY;AACd;AACA;EACE,WAAW;AACb;AACA;EACE,kBAAkB;AACpB;AACA;EACE,iBAAiB;AACnB;AACA;EACE,6CAA6C;EAC7C,qCAAqC;AACvC;AACA;EACE,+CAA+C;EAC/C,uCAAuC;AACzC;AACA;EACE;IACE,+BAA+B;IAC/B,uBAAuB;EACzB;EACA;IACE,iCAAiC;IACjC,yBAAyB;EAC3B;AACF;AACA;EACE;IACE,+BAA+B;IAC/B,uBAAuB;EACzB;EACA;IACE,iCAAiC;IACjC,yBAAyB;EAC3B;AACF;AACA;EACE,sEAAsE;EACtE,gCAAgC;EAChC,4BAA4B;EAC5B,wBAAwB;AAC1B;AACA;EACE,sEAAsE;EACtE,iCAAiC;EACjC,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,sEAAsE;EACtE,iCAAiC;EACjC,6BAA6B;EAC7B,yBAAyB;AAC3B;AACA;EACE,gFAAgF;EAChF,+BAA+B;EAC/B,2BAA2B;EAC3B,uBAAuB;AACzB;AACA;EACE,gFAAgF;EAChF,+BAA+B;EAC/B,2BAA2B;EAC3B,uBAAuB;AACzB;AACA;;;;;EAKE,YAAY;AACd;AACA;EACE,kBAAkB;EAClB,qBAAqB;EACrB,UAAU;EACV,WAAW;EACX,gBAAgB;EAChB,sBAAsB;AACxB;AACA;;EAEE,kBAAkB;EAClB,OAAO;EACP,WAAW;EACX,kBAAkB;AACpB;AACA;EACE,oBAAoB;AACtB;AACA;EACE,cAAc;AAChB;AACA;EACE,cAAc;AAChB;AACA;mEACmE;AACnE;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;;;EAIE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;;;EAKE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;;EAGE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;;EAEE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,gBAAgB;AAClB;AACA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,UAAU;EACV,YAAY;EACZ,gBAAgB;EAChB,sBAAsB;EACtB,SAAS;AACX;AACA;;EAEE,gBAAgB;EAChB,WAAW;EACX,YAAY;EACZ,SAAS;EACT,iBAAiB;EACjB,UAAU;AACZ","file":"font-awesome.css","sourcesContent":["/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */\n/* FONT PATH\n * -------------------------- */\n@font-face {\n  font-family: 'FontAwesome';\n  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');\n  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n.fa {\n  display: inline-block;\n  font: normal normal normal 14px/1 FontAwesome;\n  font-size: inherit;\n  text-rendering: auto;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n/* makes the font 33% larger relative to the icon container */\n.fa-lg {\n  font-size: 1.33333333em;\n  line-height: 0.75em;\n  vertical-align: -15%;\n}\n.fa-2x {\n  font-size: 2em;\n}\n.fa-3x {\n  font-size: 3em;\n}\n.fa-4x {\n  font-size: 4em;\n}\n.fa-5x {\n  font-size: 5em;\n}\n.fa-fw {\n  width: 1.28571429em;\n  text-align: center;\n}\n.fa-ul {\n  padding-left: 0;\n  margin-left: 2.14285714em;\n  list-style-type: none;\n}\n.fa-ul > li {\n  position: relative;\n}\n.fa-li {\n  position: absolute;\n  left: -2.14285714em;\n  width: 2.14285714em;\n  top: 0.14285714em;\n  text-align: center;\n}\n.fa-li.fa-lg {\n  left: -1.85714286em;\n}\n.fa-border {\n  padding: .2em .25em .15em;\n  border: solid 0.08em #eeeeee;\n  border-radius: .1em;\n}\n.fa-pull-left {\n  float: left;\n}\n.fa-pull-right {\n  float: right;\n}\n.fa.fa-pull-left {\n  margin-right: .3em;\n}\n.fa.fa-pull-right {\n  margin-left: .3em;\n}\n/* Deprecated as of 4.4.0 */\n.pull-right {\n  float: right;\n}\n.pull-left {\n  float: left;\n}\n.fa.pull-left {\n  margin-right: .3em;\n}\n.fa.pull-right {\n  margin-left: .3em;\n}\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n  animation: fa-spin 2s infinite linear;\n}\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n  animation: fa-spin 1s infinite steps(8);\n}\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  transform: rotate(270deg);\n}\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n  -ms-transform: scale(-1, 1);\n  transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n  -ms-transform: scale(1, -1);\n  transform: scale(1, -1);\n}\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical {\n  filter: none;\n}\n.fa-stack {\n  position: relative;\n  display: inline-block;\n  width: 2em;\n  height: 2em;\n  line-height: 2em;\n  vertical-align: middle;\n}\n.fa-stack-1x,\n.fa-stack-2x {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  text-align: center;\n}\n.fa-stack-1x {\n  line-height: inherit;\n}\n.fa-stack-2x {\n  font-size: 2em;\n}\n.fa-inverse {\n  color: #ffffff;\n}\n/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen\n   readers do not read off random characters that represent icons */\n.fa-glass:before {\n  content: \"\\f000\";\n}\n.fa-music:before {\n  content: \"\\f001\";\n}\n.fa-search:before {\n  content: \"\\f002\";\n}\n.fa-envelope-o:before {\n  content: \"\\f003\";\n}\n.fa-heart:before {\n  content: \"\\f004\";\n}\n.fa-star:before {\n  content: \"\\f005\";\n}\n.fa-star-o:before {\n  content: \"\\f006\";\n}\n.fa-user:before {\n  content: \"\\f007\";\n}\n.fa-film:before {\n  content: \"\\f008\";\n}\n.fa-th-large:before {\n  content: \"\\f009\";\n}\n.fa-th:before {\n  content: \"\\f00a\";\n}\n.fa-th-list:before {\n  content: \"\\f00b\";\n}\n.fa-check:before {\n  content: \"\\f00c\";\n}\n.fa-remove:before,\n.fa-close:before,\n.fa-times:before {\n  content: \"\\f00d\";\n}\n.fa-search-plus:before {\n  content: \"\\f00e\";\n}\n.fa-search-minus:before {\n  content: \"\\f010\";\n}\n.fa-power-off:before {\n  content: \"\\f011\";\n}\n.fa-signal:before {\n  content: \"\\f012\";\n}\n.fa-gear:before,\n.fa-cog:before {\n  content: \"\\f013\";\n}\n.fa-trash-o:before {\n  content: \"\\f014\";\n}\n.fa-home:before {\n  content: \"\\f015\";\n}\n.fa-file-o:before {\n  content: \"\\f016\";\n}\n.fa-clock-o:before {\n  content: \"\\f017\";\n}\n.fa-road:before {\n  content: \"\\f018\";\n}\n.fa-download:before {\n  content: \"\\f019\";\n}\n.fa-arrow-circle-o-down:before {\n  content: \"\\f01a\";\n}\n.fa-arrow-circle-o-up:before {\n  content: \"\\f01b\";\n}\n.fa-inbox:before {\n  content: \"\\f01c\";\n}\n.fa-play-circle-o:before {\n  content: \"\\f01d\";\n}\n.fa-rotate-right:before,\n.fa-repeat:before {\n  content: \"\\f01e\";\n}\n.fa-refresh:before {\n  content: \"\\f021\";\n}\n.fa-list-alt:before {\n  content: \"\\f022\";\n}\n.fa-lock:before {\n  content: \"\\f023\";\n}\n.fa-flag:before {\n  content: \"\\f024\";\n}\n.fa-headphones:before {\n  content: \"\\f025\";\n}\n.fa-volume-off:before {\n  content: \"\\f026\";\n}\n.fa-volume-down:before {\n  content: \"\\f027\";\n}\n.fa-volume-up:before {\n  content: \"\\f028\";\n}\n.fa-qrcode:before {\n  content: \"\\f029\";\n}\n.fa-barcode:before {\n  content: \"\\f02a\";\n}\n.fa-tag:before {\n  content: \"\\f02b\";\n}\n.fa-tags:before {\n  content: \"\\f02c\";\n}\n.fa-book:before {\n  content: \"\\f02d\";\n}\n.fa-bookmark:before {\n  content: \"\\f02e\";\n}\n.fa-print:before {\n  content: \"\\f02f\";\n}\n.fa-camera:before {\n  content: \"\\f030\";\n}\n.fa-font:before {\n  content: \"\\f031\";\n}\n.fa-bold:before {\n  content: \"\\f032\";\n}\n.fa-italic:before {\n  content: \"\\f033\";\n}\n.fa-text-height:before {\n  content: \"\\f034\";\n}\n.fa-text-width:before {\n  content: \"\\f035\";\n}\n.fa-align-left:before {\n  content: \"\\f036\";\n}\n.fa-align-center:before {\n  content: \"\\f037\";\n}\n.fa-align-right:before {\n  content: \"\\f038\";\n}\n.fa-align-justify:before {\n  content: \"\\f039\";\n}\n.fa-list:before {\n  content: \"\\f03a\";\n}\n.fa-dedent:before,\n.fa-outdent:before {\n  content: \"\\f03b\";\n}\n.fa-indent:before {\n  content: \"\\f03c\";\n}\n.fa-video-camera:before {\n  content: \"\\f03d\";\n}\n.fa-photo:before,\n.fa-image:before,\n.fa-picture-o:before {\n  content: \"\\f03e\";\n}\n.fa-pencil:before {\n  content: \"\\f040\";\n}\n.fa-map-marker:before {\n  content: \"\\f041\";\n}\n.fa-adjust:before {\n  content: \"\\f042\";\n}\n.fa-tint:before {\n  content: \"\\f043\";\n}\n.fa-edit:before,\n.fa-pencil-square-o:before {\n  content: \"\\f044\";\n}\n.fa-share-square-o:before {\n  content: \"\\f045\";\n}\n.fa-check-square-o:before {\n  content: \"\\f046\";\n}\n.fa-arrows:before {\n  content: \"\\f047\";\n}\n.fa-step-backward:before {\n  content: \"\\f048\";\n}\n.fa-fast-backward:before {\n  content: \"\\f049\";\n}\n.fa-backward:before {\n  content: \"\\f04a\";\n}\n.fa-play:before {\n  content: \"\\f04b\";\n}\n.fa-pause:before {\n  content: \"\\f04c\";\n}\n.fa-stop:before {\n  content: \"\\f04d\";\n}\n.fa-forward:before {\n  content: \"\\f04e\";\n}\n.fa-fast-forward:before {\n  content: \"\\f050\";\n}\n.fa-step-forward:before {\n  content: \"\\f051\";\n}\n.fa-eject:before {\n  content: \"\\f052\";\n}\n.fa-chevron-left:before {\n  content: \"\\f053\";\n}\n.fa-chevron-right:before {\n  content: \"\\f054\";\n}\n.fa-plus-circle:before {\n  content: \"\\f055\";\n}\n.fa-minus-circle:before {\n  content: \"\\f056\";\n}\n.fa-times-circle:before {\n  content: \"\\f057\";\n}\n.fa-check-circle:before {\n  content: \"\\f058\";\n}\n.fa-question-circle:before {\n  content: \"\\f059\";\n}\n.fa-info-circle:before {\n  content: \"\\f05a\";\n}\n.fa-crosshairs:before {\n  content: \"\\f05b\";\n}\n.fa-times-circle-o:before {\n  content: \"\\f05c\";\n}\n.fa-check-circle-o:before {\n  content: \"\\f05d\";\n}\n.fa-ban:before {\n  content: \"\\f05e\";\n}\n.fa-arrow-left:before {\n  content: \"\\f060\";\n}\n.fa-arrow-right:before {\n  content: \"\\f061\";\n}\n.fa-arrow-up:before {\n  content: \"\\f062\";\n}\n.fa-arrow-down:before {\n  content: \"\\f063\";\n}\n.fa-mail-forward:before,\n.fa-share:before {\n  content: \"\\f064\";\n}\n.fa-expand:before {\n  content: \"\\f065\";\n}\n.fa-compress:before {\n  content: \"\\f066\";\n}\n.fa-plus:before {\n  content: \"\\f067\";\n}\n.fa-minus:before {\n  content: \"\\f068\";\n}\n.fa-asterisk:before {\n  content: \"\\f069\";\n}\n.fa-exclamation-circle:before {\n  content: \"\\f06a\";\n}\n.fa-gift:before {\n  content: \"\\f06b\";\n}\n.fa-leaf:before {\n  content: \"\\f06c\";\n}\n.fa-fire:before {\n  content: \"\\f06d\";\n}\n.fa-eye:before {\n  content: \"\\f06e\";\n}\n.fa-eye-slash:before {\n  content: \"\\f070\";\n}\n.fa-warning:before,\n.fa-exclamation-triangle:before {\n  content: \"\\f071\";\n}\n.fa-plane:before {\n  content: \"\\f072\";\n}\n.fa-calendar:before {\n  content: \"\\f073\";\n}\n.fa-random:before {\n  content: \"\\f074\";\n}\n.fa-comment:before {\n  content: \"\\f075\";\n}\n.fa-magnet:before {\n  content: \"\\f076\";\n}\n.fa-chevron-up:before {\n  content: \"\\f077\";\n}\n.fa-chevron-down:before {\n  content: \"\\f078\";\n}\n.fa-retweet:before {\n  content: \"\\f079\";\n}\n.fa-shopping-cart:before {\n  content: \"\\f07a\";\n}\n.fa-folder:before {\n  content: \"\\f07b\";\n}\n.fa-folder-open:before {\n  content: \"\\f07c\";\n}\n.fa-arrows-v:before {\n  content: \"\\f07d\";\n}\n.fa-arrows-h:before {\n  content: \"\\f07e\";\n}\n.fa-bar-chart-o:before,\n.fa-bar-chart:before {\n  content: \"\\f080\";\n}\n.fa-twitter-square:before {\n  content: \"\\f081\";\n}\n.fa-facebook-square:before {\n  content: \"\\f082\";\n}\n.fa-camera-retro:before {\n  content: \"\\f083\";\n}\n.fa-key:before {\n  content: \"\\f084\";\n}\n.fa-gears:before,\n.fa-cogs:before {\n  content: \"\\f085\";\n}\n.fa-comments:before {\n  content: \"\\f086\";\n}\n.fa-thumbs-o-up:before {\n  content: \"\\f087\";\n}\n.fa-thumbs-o-down:before {\n  content: \"\\f088\";\n}\n.fa-star-half:before {\n  content: \"\\f089\";\n}\n.fa-heart-o:before {\n  content: \"\\f08a\";\n}\n.fa-sign-out:before {\n  content: \"\\f08b\";\n}\n.fa-linkedin-square:before {\n  content: \"\\f08c\";\n}\n.fa-thumb-tack:before {\n  content: \"\\f08d\";\n}\n.fa-external-link:before {\n  content: \"\\f08e\";\n}\n.fa-sign-in:before {\n  content: \"\\f090\";\n}\n.fa-trophy:before {\n  content: \"\\f091\";\n}\n.fa-github-square:before {\n  content: \"\\f092\";\n}\n.fa-upload:before {\n  content: \"\\f093\";\n}\n.fa-lemon-o:before {\n  content: \"\\f094\";\n}\n.fa-phone:before {\n  content: \"\\f095\";\n}\n.fa-square-o:before {\n  content: \"\\f096\";\n}\n.fa-bookmark-o:before {\n  content: \"\\f097\";\n}\n.fa-phone-square:before {\n  content: \"\\f098\";\n}\n.fa-twitter:before {\n  content: \"\\f099\";\n}\n.fa-facebook-f:before,\n.fa-facebook:before {\n  content: \"\\f09a\";\n}\n.fa-github:before {\n  content: \"\\f09b\";\n}\n.fa-unlock:before {\n  content: \"\\f09c\";\n}\n.fa-credit-card:before {\n  content: \"\\f09d\";\n}\n.fa-feed:before,\n.fa-rss:before {\n  content: \"\\f09e\";\n}\n.fa-hdd-o:before {\n  content: \"\\f0a0\";\n}\n.fa-bullhorn:before {\n  content: \"\\f0a1\";\n}\n.fa-bell:before {\n  content: \"\\f0f3\";\n}\n.fa-certificate:before {\n  content: \"\\f0a3\";\n}\n.fa-hand-o-right:before {\n  content: \"\\f0a4\";\n}\n.fa-hand-o-left:before {\n  content: \"\\f0a5\";\n}\n.fa-hand-o-up:before {\n  content: \"\\f0a6\";\n}\n.fa-hand-o-down:before {\n  content: \"\\f0a7\";\n}\n.fa-arrow-circle-left:before {\n  content: \"\\f0a8\";\n}\n.fa-arrow-circle-right:before {\n  content: \"\\f0a9\";\n}\n.fa-arrow-circle-up:before {\n  content: \"\\f0aa\";\n}\n.fa-arrow-circle-down:before {\n  content: \"\\f0ab\";\n}\n.fa-globe:before {\n  content: \"\\f0ac\";\n}\n.fa-wrench:before {\n  content: \"\\f0ad\";\n}\n.fa-tasks:before {\n  content: \"\\f0ae\";\n}\n.fa-filter:before {\n  content: \"\\f0b0\";\n}\n.fa-briefcase:before {\n  content: \"\\f0b1\";\n}\n.fa-arrows-alt:before {\n  content: \"\\f0b2\";\n}\n.fa-group:before,\n.fa-users:before {\n  content: \"\\f0c0\";\n}\n.fa-chain:before,\n.fa-link:before {\n  content: \"\\f0c1\";\n}\n.fa-cloud:before {\n  content: \"\\f0c2\";\n}\n.fa-flask:before {\n  content: \"\\f0c3\";\n}\n.fa-cut:before,\n.fa-scissors:before {\n  content: \"\\f0c4\";\n}\n.fa-copy:before,\n.fa-files-o:before {\n  content: \"\\f0c5\";\n}\n.fa-paperclip:before {\n  content: \"\\f0c6\";\n}\n.fa-save:before,\n.fa-floppy-o:before {\n  content: \"\\f0c7\";\n}\n.fa-square:before {\n  content: \"\\f0c8\";\n}\n.fa-navicon:before,\n.fa-reorder:before,\n.fa-bars:before {\n  content: \"\\f0c9\";\n}\n.fa-list-ul:before {\n  content: \"\\f0ca\";\n}\n.fa-list-ol:before {\n  content: \"\\f0cb\";\n}\n.fa-strikethrough:before {\n  content: \"\\f0cc\";\n}\n.fa-underline:before {\n  content: \"\\f0cd\";\n}\n.fa-table:before {\n  content: \"\\f0ce\";\n}\n.fa-magic:before {\n  content: \"\\f0d0\";\n}\n.fa-truck:before {\n  content: \"\\f0d1\";\n}\n.fa-pinterest:before {\n  content: \"\\f0d2\";\n}\n.fa-pinterest-square:before {\n  content: \"\\f0d3\";\n}\n.fa-google-plus-square:before {\n  content: \"\\f0d4\";\n}\n.fa-google-plus:before {\n  content: \"\\f0d5\";\n}\n.fa-money:before {\n  content: \"\\f0d6\";\n}\n.fa-caret-down:before {\n  content: \"\\f0d7\";\n}\n.fa-caret-up:before {\n  content: \"\\f0d8\";\n}\n.fa-caret-left:before {\n  content: \"\\f0d9\";\n}\n.fa-caret-right:before {\n  content: \"\\f0da\";\n}\n.fa-columns:before {\n  content: \"\\f0db\";\n}\n.fa-unsorted:before,\n.fa-sort:before {\n  content: \"\\f0dc\";\n}\n.fa-sort-down:before,\n.fa-sort-desc:before {\n  content: \"\\f0dd\";\n}\n.fa-sort-up:before,\n.fa-sort-asc:before {\n  content: \"\\f0de\";\n}\n.fa-envelope:before {\n  content: \"\\f0e0\";\n}\n.fa-linkedin:before {\n  content: \"\\f0e1\";\n}\n.fa-rotate-left:before,\n.fa-undo:before {\n  content: \"\\f0e2\";\n}\n.fa-legal:before,\n.fa-gavel:before {\n  content: \"\\f0e3\";\n}\n.fa-dashboard:before,\n.fa-tachometer:before {\n  content: \"\\f0e4\";\n}\n.fa-comment-o:before {\n  content: \"\\f0e5\";\n}\n.fa-comments-o:before {\n  content: \"\\f0e6\";\n}\n.fa-flash:before,\n.fa-bolt:before {\n  content: \"\\f0e7\";\n}\n.fa-sitemap:before {\n  content: \"\\f0e8\";\n}\n.fa-umbrella:before {\n  content: \"\\f0e9\";\n}\n.fa-paste:before,\n.fa-clipboard:before {\n  content: \"\\f0ea\";\n}\n.fa-lightbulb-o:before {\n  content: \"\\f0eb\";\n}\n.fa-exchange:before {\n  content: \"\\f0ec\";\n}\n.fa-cloud-download:before {\n  content: \"\\f0ed\";\n}\n.fa-cloud-upload:before {\n  content: \"\\f0ee\";\n}\n.fa-user-md:before {\n  content: \"\\f0f0\";\n}\n.fa-stethoscope:before {\n  content: \"\\f0f1\";\n}\n.fa-suitcase:before {\n  content: \"\\f0f2\";\n}\n.fa-bell-o:before {\n  content: \"\\f0a2\";\n}\n.fa-coffee:before {\n  content: \"\\f0f4\";\n}\n.fa-cutlery:before {\n  content: \"\\f0f5\";\n}\n.fa-file-text-o:before {\n  content: \"\\f0f6\";\n}\n.fa-building-o:before {\n  content: \"\\f0f7\";\n}\n.fa-hospital-o:before {\n  content: \"\\f0f8\";\n}\n.fa-ambulance:before {\n  content: \"\\f0f9\";\n}\n.fa-medkit:before {\n  content: \"\\f0fa\";\n}\n.fa-fighter-jet:before {\n  content: \"\\f0fb\";\n}\n.fa-beer:before {\n  content: \"\\f0fc\";\n}\n.fa-h-square:before {\n  content: \"\\f0fd\";\n}\n.fa-plus-square:before {\n  content: \"\\f0fe\";\n}\n.fa-angle-double-left:before {\n  content: \"\\f100\";\n}\n.fa-angle-double-right:before {\n  content: \"\\f101\";\n}\n.fa-angle-double-up:before {\n  content: \"\\f102\";\n}\n.fa-angle-double-down:before {\n  content: \"\\f103\";\n}\n.fa-angle-left:before {\n  content: \"\\f104\";\n}\n.fa-angle-right:before {\n  content: \"\\f105\";\n}\n.fa-angle-up:before {\n  content: \"\\f106\";\n}\n.fa-angle-down:before {\n  content: \"\\f107\";\n}\n.fa-desktop:before {\n  content: \"\\f108\";\n}\n.fa-laptop:before {\n  content: \"\\f109\";\n}\n.fa-tablet:before {\n  content: \"\\f10a\";\n}\n.fa-mobile-phone:before,\n.fa-mobile:before {\n  content: \"\\f10b\";\n}\n.fa-circle-o:before {\n  content: \"\\f10c\";\n}\n.fa-quote-left:before {\n  content: \"\\f10d\";\n}\n.fa-quote-right:before {\n  content: \"\\f10e\";\n}\n.fa-spinner:before {\n  content: \"\\f110\";\n}\n.fa-circle:before {\n  content: \"\\f111\";\n}\n.fa-mail-reply:before,\n.fa-reply:before {\n  content: \"\\f112\";\n}\n.fa-github-alt:before {\n  content: \"\\f113\";\n}\n.fa-folder-o:before {\n  content: \"\\f114\";\n}\n.fa-folder-open-o:before {\n  content: \"\\f115\";\n}\n.fa-smile-o:before {\n  content: \"\\f118\";\n}\n.fa-frown-o:before {\n  content: \"\\f119\";\n}\n.fa-meh-o:before {\n  content: \"\\f11a\";\n}\n.fa-gamepad:before {\n  content: \"\\f11b\";\n}\n.fa-keyboard-o:before {\n  content: \"\\f11c\";\n}\n.fa-flag-o:before {\n  content: \"\\f11d\";\n}\n.fa-flag-checkered:before {\n  content: \"\\f11e\";\n}\n.fa-terminal:before {\n  content: \"\\f120\";\n}\n.fa-code:before {\n  content: \"\\f121\";\n}\n.fa-mail-reply-all:before,\n.fa-reply-all:before {\n  content: \"\\f122\";\n}\n.fa-star-half-empty:before,\n.fa-star-half-full:before,\n.fa-star-half-o:before {\n  content: \"\\f123\";\n}\n.fa-location-arrow:before {\n  content: \"\\f124\";\n}\n.fa-crop:before {\n  content: \"\\f125\";\n}\n.fa-code-fork:before {\n  content: \"\\f126\";\n}\n.fa-unlink:before,\n.fa-chain-broken:before {\n  content: \"\\f127\";\n}\n.fa-question:before {\n  content: \"\\f128\";\n}\n.fa-info:before {\n  content: \"\\f129\";\n}\n.fa-exclamation:before {\n  content: \"\\f12a\";\n}\n.fa-superscript:before {\n  content: \"\\f12b\";\n}\n.fa-subscript:before {\n  content: \"\\f12c\";\n}\n.fa-eraser:before {\n  content: \"\\f12d\";\n}\n.fa-puzzle-piece:before {\n  content: \"\\f12e\";\n}\n.fa-microphone:before {\n  content: \"\\f130\";\n}\n.fa-microphone-slash:before {\n  content: \"\\f131\";\n}\n.fa-shield:before {\n  content: \"\\f132\";\n}\n.fa-calendar-o:before {\n  content: \"\\f133\";\n}\n.fa-fire-extinguisher:before {\n  content: \"\\f134\";\n}\n.fa-rocket:before {\n  content: \"\\f135\";\n}\n.fa-maxcdn:before {\n  content: \"\\f136\";\n}\n.fa-chevron-circle-left:before {\n  content: \"\\f137\";\n}\n.fa-chevron-circle-right:before {\n  content: \"\\f138\";\n}\n.fa-chevron-circle-up:before {\n  content: \"\\f139\";\n}\n.fa-chevron-circle-down:before {\n  content: \"\\f13a\";\n}\n.fa-html5:before {\n  content: \"\\f13b\";\n}\n.fa-css3:before {\n  content: \"\\f13c\";\n}\n.fa-anchor:before {\n  content: \"\\f13d\";\n}\n.fa-unlock-alt:before {\n  content: \"\\f13e\";\n}\n.fa-bullseye:before {\n  content: \"\\f140\";\n}\n.fa-ellipsis-h:before {\n  content: \"\\f141\";\n}\n.fa-ellipsis-v:before {\n  content: \"\\f142\";\n}\n.fa-rss-square:before {\n  content: \"\\f143\";\n}\n.fa-play-circle:before {\n  content: \"\\f144\";\n}\n.fa-ticket:before {\n  content: \"\\f145\";\n}\n.fa-minus-square:before {\n  content: \"\\f146\";\n}\n.fa-minus-square-o:before {\n  content: \"\\f147\";\n}\n.fa-level-up:before {\n  content: \"\\f148\";\n}\n.fa-level-down:before {\n  content: \"\\f149\";\n}\n.fa-check-square:before {\n  content: \"\\f14a\";\n}\n.fa-pencil-square:before {\n  content: \"\\f14b\";\n}\n.fa-external-link-square:before {\n  content: \"\\f14c\";\n}\n.fa-share-square:before {\n  content: \"\\f14d\";\n}\n.fa-compass:before {\n  content: \"\\f14e\";\n}\n.fa-toggle-down:before,\n.fa-caret-square-o-down:before {\n  content: \"\\f150\";\n}\n.fa-toggle-up:before,\n.fa-caret-square-o-up:before {\n  content: \"\\f151\";\n}\n.fa-toggle-right:before,\n.fa-caret-square-o-right:before {\n  content: \"\\f152\";\n}\n.fa-euro:before,\n.fa-eur:before {\n  content: \"\\f153\";\n}\n.fa-gbp:before {\n  content: \"\\f154\";\n}\n.fa-dollar:before,\n.fa-usd:before {\n  content: \"\\f155\";\n}\n.fa-rupee:before,\n.fa-inr:before {\n  content: \"\\f156\";\n}\n.fa-cny:before,\n.fa-rmb:before,\n.fa-yen:before,\n.fa-jpy:before {\n  content: \"\\f157\";\n}\n.fa-ruble:before,\n.fa-rouble:before,\n.fa-rub:before {\n  content: \"\\f158\";\n}\n.fa-won:before,\n.fa-krw:before {\n  content: \"\\f159\";\n}\n.fa-bitcoin:before,\n.fa-btc:before {\n  content: \"\\f15a\";\n}\n.fa-file:before {\n  content: \"\\f15b\";\n}\n.fa-file-text:before {\n  content: \"\\f15c\";\n}\n.fa-sort-alpha-asc:before {\n  content: \"\\f15d\";\n}\n.fa-sort-alpha-desc:before {\n  content: \"\\f15e\";\n}\n.fa-sort-amount-asc:before {\n  content: \"\\f160\";\n}\n.fa-sort-amount-desc:before {\n  content: \"\\f161\";\n}\n.fa-sort-numeric-asc:before {\n  content: \"\\f162\";\n}\n.fa-sort-numeric-desc:before {\n  content: \"\\f163\";\n}\n.fa-thumbs-up:before {\n  content: \"\\f164\";\n}\n.fa-thumbs-down:before {\n  content: \"\\f165\";\n}\n.fa-youtube-square:before {\n  content: \"\\f166\";\n}\n.fa-youtube:before {\n  content: \"\\f167\";\n}\n.fa-xing:before {\n  content: \"\\f168\";\n}\n.fa-xing-square:before {\n  content: \"\\f169\";\n}\n.fa-youtube-play:before {\n  content: \"\\f16a\";\n}\n.fa-dropbox:before {\n  content: \"\\f16b\";\n}\n.fa-stack-overflow:before {\n  content: \"\\f16c\";\n}\n.fa-instagram:before {\n  content: \"\\f16d\";\n}\n.fa-flickr:before {\n  content: \"\\f16e\";\n}\n.fa-adn:before {\n  content: \"\\f170\";\n}\n.fa-bitbucket:before {\n  content: \"\\f171\";\n}\n.fa-bitbucket-square:before {\n  content: \"\\f172\";\n}\n.fa-tumblr:before {\n  content: \"\\f173\";\n}\n.fa-tumblr-square:before {\n  content: \"\\f174\";\n}\n.fa-long-arrow-down:before {\n  content: \"\\f175\";\n}\n.fa-long-arrow-up:before {\n  content: \"\\f176\";\n}\n.fa-long-arrow-left:before {\n  content: \"\\f177\";\n}\n.fa-long-arrow-right:before {\n  content: \"\\f178\";\n}\n.fa-apple:before {\n  content: \"\\f179\";\n}\n.fa-windows:before {\n  content: \"\\f17a\";\n}\n.fa-android:before {\n  content: \"\\f17b\";\n}\n.fa-linux:before {\n  content: \"\\f17c\";\n}\n.fa-dribbble:before {\n  content: \"\\f17d\";\n}\n.fa-skype:before {\n  content: \"\\f17e\";\n}\n.fa-foursquare:before {\n  content: \"\\f180\";\n}\n.fa-trello:before {\n  content: \"\\f181\";\n}\n.fa-female:before {\n  content: \"\\f182\";\n}\n.fa-male:before {\n  content: \"\\f183\";\n}\n.fa-gittip:before,\n.fa-gratipay:before {\n  content: \"\\f184\";\n}\n.fa-sun-o:before {\n  content: \"\\f185\";\n}\n.fa-moon-o:before {\n  content: \"\\f186\";\n}\n.fa-archive:before {\n  content: \"\\f187\";\n}\n.fa-bug:before {\n  content: \"\\f188\";\n}\n.fa-vk:before {\n  content: \"\\f189\";\n}\n.fa-weibo:before {\n  content: \"\\f18a\";\n}\n.fa-renren:before {\n  content: \"\\f18b\";\n}\n.fa-pagelines:before {\n  content: \"\\f18c\";\n}\n.fa-stack-exchange:before {\n  content: \"\\f18d\";\n}\n.fa-arrow-circle-o-right:before {\n  content: \"\\f18e\";\n}\n.fa-arrow-circle-o-left:before {\n  content: \"\\f190\";\n}\n.fa-toggle-left:before,\n.fa-caret-square-o-left:before {\n  content: \"\\f191\";\n}\n.fa-dot-circle-o:before {\n  content: \"\\f192\";\n}\n.fa-wheelchair:before {\n  content: \"\\f193\";\n}\n.fa-vimeo-square:before {\n  content: \"\\f194\";\n}\n.fa-turkish-lira:before,\n.fa-try:before {\n  content: \"\\f195\";\n}\n.fa-plus-square-o:before {\n  content: \"\\f196\";\n}\n.fa-space-shuttle:before {\n  content: \"\\f197\";\n}\n.fa-slack:before {\n  content: \"\\f198\";\n}\n.fa-envelope-square:before {\n  content: \"\\f199\";\n}\n.fa-wordpress:before {\n  content: \"\\f19a\";\n}\n.fa-openid:before {\n  content: \"\\f19b\";\n}\n.fa-institution:before,\n.fa-bank:before,\n.fa-university:before {\n  content: \"\\f19c\";\n}\n.fa-mortar-board:before,\n.fa-graduation-cap:before {\n  content: \"\\f19d\";\n}\n.fa-yahoo:before {\n  content: \"\\f19e\";\n}\n.fa-google:before {\n  content: \"\\f1a0\";\n}\n.fa-reddit:before {\n  content: \"\\f1a1\";\n}\n.fa-reddit-square:before {\n  content: \"\\f1a2\";\n}\n.fa-stumbleupon-circle:before {\n  content: \"\\f1a3\";\n}\n.fa-stumbleupon:before {\n  content: \"\\f1a4\";\n}\n.fa-delicious:before {\n  content: \"\\f1a5\";\n}\n.fa-digg:before {\n  content: \"\\f1a6\";\n}\n.fa-pied-piper-pp:before {\n  content: \"\\f1a7\";\n}\n.fa-pied-piper-alt:before {\n  content: \"\\f1a8\";\n}\n.fa-drupal:before {\n  content: \"\\f1a9\";\n}\n.fa-joomla:before {\n  content: \"\\f1aa\";\n}\n.fa-language:before {\n  content: \"\\f1ab\";\n}\n.fa-fax:before {\n  content: \"\\f1ac\";\n}\n.fa-building:before {\n  content: \"\\f1ad\";\n}\n.fa-child:before {\n  content: \"\\f1ae\";\n}\n.fa-paw:before {\n  content: \"\\f1b0\";\n}\n.fa-spoon:before {\n  content: \"\\f1b1\";\n}\n.fa-cube:before {\n  content: \"\\f1b2\";\n}\n.fa-cubes:before {\n  content: \"\\f1b3\";\n}\n.fa-behance:before {\n  content: \"\\f1b4\";\n}\n.fa-behance-square:before {\n  content: \"\\f1b5\";\n}\n.fa-steam:before {\n  content: \"\\f1b6\";\n}\n.fa-steam-square:before {\n  content: \"\\f1b7\";\n}\n.fa-recycle:before {\n  content: \"\\f1b8\";\n}\n.fa-automobile:before,\n.fa-car:before {\n  content: \"\\f1b9\";\n}\n.fa-cab:before,\n.fa-taxi:before {\n  content: \"\\f1ba\";\n}\n.fa-tree:before {\n  content: \"\\f1bb\";\n}\n.fa-spotify:before {\n  content: \"\\f1bc\";\n}\n.fa-deviantart:before {\n  content: \"\\f1bd\";\n}\n.fa-soundcloud:before {\n  content: \"\\f1be\";\n}\n.fa-database:before {\n  content: \"\\f1c0\";\n}\n.fa-file-pdf-o:before {\n  content: \"\\f1c1\";\n}\n.fa-file-word-o:before {\n  content: \"\\f1c2\";\n}\n.fa-file-excel-o:before {\n  content: \"\\f1c3\";\n}\n.fa-file-powerpoint-o:before {\n  content: \"\\f1c4\";\n}\n.fa-file-photo-o:before,\n.fa-file-picture-o:before,\n.fa-file-image-o:before {\n  content: \"\\f1c5\";\n}\n.fa-file-zip-o:before,\n.fa-file-archive-o:before {\n  content: \"\\f1c6\";\n}\n.fa-file-sound-o:before,\n.fa-file-audio-o:before {\n  content: \"\\f1c7\";\n}\n.fa-file-movie-o:before,\n.fa-file-video-o:before {\n  content: \"\\f1c8\";\n}\n.fa-file-code-o:before {\n  content: \"\\f1c9\";\n}\n.fa-vine:before {\n  content: \"\\f1ca\";\n}\n.fa-codepen:before {\n  content: \"\\f1cb\";\n}\n.fa-jsfiddle:before {\n  content: \"\\f1cc\";\n}\n.fa-life-bouy:before,\n.fa-life-buoy:before,\n.fa-life-saver:before,\n.fa-support:before,\n.fa-life-ring:before {\n  content: \"\\f1cd\";\n}\n.fa-circle-o-notch:before {\n  content: \"\\f1ce\";\n}\n.fa-ra:before,\n.fa-resistance:before,\n.fa-rebel:before {\n  content: \"\\f1d0\";\n}\n.fa-ge:before,\n.fa-empire:before {\n  content: \"\\f1d1\";\n}\n.fa-git-square:before {\n  content: \"\\f1d2\";\n}\n.fa-git:before {\n  content: \"\\f1d3\";\n}\n.fa-y-combinator-square:before,\n.fa-yc-square:before,\n.fa-hacker-news:before {\n  content: \"\\f1d4\";\n}\n.fa-tencent-weibo:before {\n  content: \"\\f1d5\";\n}\n.fa-qq:before {\n  content: \"\\f1d6\";\n}\n.fa-wechat:before,\n.fa-weixin:before {\n  content: \"\\f1d7\";\n}\n.fa-send:before,\n.fa-paper-plane:before {\n  content: \"\\f1d8\";\n}\n.fa-send-o:before,\n.fa-paper-plane-o:before {\n  content: \"\\f1d9\";\n}\n.fa-history:before {\n  content: \"\\f1da\";\n}\n.fa-circle-thin:before {\n  content: \"\\f1db\";\n}\n.fa-header:before {\n  content: \"\\f1dc\";\n}\n.fa-paragraph:before {\n  content: \"\\f1dd\";\n}\n.fa-sliders:before {\n  content: \"\\f1de\";\n}\n.fa-share-alt:before {\n  content: \"\\f1e0\";\n}\n.fa-share-alt-square:before {\n  content: \"\\f1e1\";\n}\n.fa-bomb:before {\n  content: \"\\f1e2\";\n}\n.fa-soccer-ball-o:before,\n.fa-futbol-o:before {\n  content: \"\\f1e3\";\n}\n.fa-tty:before {\n  content: \"\\f1e4\";\n}\n.fa-binoculars:before {\n  content: \"\\f1e5\";\n}\n.fa-plug:before {\n  content: \"\\f1e6\";\n}\n.fa-slideshare:before {\n  content: \"\\f1e7\";\n}\n.fa-twitch:before {\n  content: \"\\f1e8\";\n}\n.fa-yelp:before {\n  content: \"\\f1e9\";\n}\n.fa-newspaper-o:before {\n  content: \"\\f1ea\";\n}\n.fa-wifi:before {\n  content: \"\\f1eb\";\n}\n.fa-calculator:before {\n  content: \"\\f1ec\";\n}\n.fa-paypal:before {\n  content: \"\\f1ed\";\n}\n.fa-google-wallet:before {\n  content: \"\\f1ee\";\n}\n.fa-cc-visa:before {\n  content: \"\\f1f0\";\n}\n.fa-cc-mastercard:before {\n  content: \"\\f1f1\";\n}\n.fa-cc-discover:before {\n  content: \"\\f1f2\";\n}\n.fa-cc-amex:before {\n  content: \"\\f1f3\";\n}\n.fa-cc-paypal:before {\n  content: \"\\f1f4\";\n}\n.fa-cc-stripe:before {\n  content: \"\\f1f5\";\n}\n.fa-bell-slash:before {\n  content: \"\\f1f6\";\n}\n.fa-bell-slash-o:before {\n  content: \"\\f1f7\";\n}\n.fa-trash:before {\n  content: \"\\f1f8\";\n}\n.fa-copyright:before {\n  content: \"\\f1f9\";\n}\n.fa-at:before {\n  content: \"\\f1fa\";\n}\n.fa-eyedropper:before {\n  content: \"\\f1fb\";\n}\n.fa-paint-brush:before {\n  content: \"\\f1fc\";\n}\n.fa-birthday-cake:before {\n  content: \"\\f1fd\";\n}\n.fa-area-chart:before {\n  content: \"\\f1fe\";\n}\n.fa-pie-chart:before {\n  content: \"\\f200\";\n}\n.fa-line-chart:before {\n  content: \"\\f201\";\n}\n.fa-lastfm:before {\n  content: \"\\f202\";\n}\n.fa-lastfm-square:before {\n  content: \"\\f203\";\n}\n.fa-toggle-off:before {\n  content: \"\\f204\";\n}\n.fa-toggle-on:before {\n  content: \"\\f205\";\n}\n.fa-bicycle:before {\n  content: \"\\f206\";\n}\n.fa-bus:before {\n  content: \"\\f207\";\n}\n.fa-ioxhost:before {\n  content: \"\\f208\";\n}\n.fa-angellist:before {\n  content: \"\\f209\";\n}\n.fa-cc:before {\n  content: \"\\f20a\";\n}\n.fa-shekel:before,\n.fa-sheqel:before,\n.fa-ils:before {\n  content: \"\\f20b\";\n}\n.fa-meanpath:before {\n  content: \"\\f20c\";\n}\n.fa-buysellads:before {\n  content: \"\\f20d\";\n}\n.fa-connectdevelop:before {\n  content: \"\\f20e\";\n}\n.fa-dashcube:before {\n  content: \"\\f210\";\n}\n.fa-forumbee:before {\n  content: \"\\f211\";\n}\n.fa-leanpub:before {\n  content: \"\\f212\";\n}\n.fa-sellsy:before {\n  content: \"\\f213\";\n}\n.fa-shirtsinbulk:before {\n  content: \"\\f214\";\n}\n.fa-simplybuilt:before {\n  content: \"\\f215\";\n}\n.fa-skyatlas:before {\n  content: \"\\f216\";\n}\n.fa-cart-plus:before {\n  content: \"\\f217\";\n}\n.fa-cart-arrow-down:before {\n  content: \"\\f218\";\n}\n.fa-diamond:before {\n  content: \"\\f219\";\n}\n.fa-ship:before {\n  content: \"\\f21a\";\n}\n.fa-user-secret:before {\n  content: \"\\f21b\";\n}\n.fa-motorcycle:before {\n  content: \"\\f21c\";\n}\n.fa-street-view:before {\n  content: \"\\f21d\";\n}\n.fa-heartbeat:before {\n  content: \"\\f21e\";\n}\n.fa-venus:before {\n  content: \"\\f221\";\n}\n.fa-mars:before {\n  content: \"\\f222\";\n}\n.fa-mercury:before {\n  content: \"\\f223\";\n}\n.fa-intersex:before,\n.fa-transgender:before {\n  content: \"\\f224\";\n}\n.fa-transgender-alt:before {\n  content: \"\\f225\";\n}\n.fa-venus-double:before {\n  content: \"\\f226\";\n}\n.fa-mars-double:before {\n  content: \"\\f227\";\n}\n.fa-venus-mars:before {\n  content: \"\\f228\";\n}\n.fa-mars-stroke:before {\n  content: \"\\f229\";\n}\n.fa-mars-stroke-v:before {\n  content: \"\\f22a\";\n}\n.fa-mars-stroke-h:before {\n  content: \"\\f22b\";\n}\n.fa-neuter:before {\n  content: \"\\f22c\";\n}\n.fa-genderless:before {\n  content: \"\\f22d\";\n}\n.fa-facebook-official:before {\n  content: \"\\f230\";\n}\n.fa-pinterest-p:before {\n  content: \"\\f231\";\n}\n.fa-whatsapp:before {\n  content: \"\\f232\";\n}\n.fa-server:before {\n  content: \"\\f233\";\n}\n.fa-user-plus:before {\n  content: \"\\f234\";\n}\n.fa-user-times:before {\n  content: \"\\f235\";\n}\n.fa-hotel:before,\n.fa-bed:before {\n  content: \"\\f236\";\n}\n.fa-viacoin:before {\n  content: \"\\f237\";\n}\n.fa-train:before {\n  content: \"\\f238\";\n}\n.fa-subway:before {\n  content: \"\\f239\";\n}\n.fa-medium:before {\n  content: \"\\f23a\";\n}\n.fa-yc:before,\n.fa-y-combinator:before {\n  content: \"\\f23b\";\n}\n.fa-optin-monster:before {\n  content: \"\\f23c\";\n}\n.fa-opencart:before {\n  content: \"\\f23d\";\n}\n.fa-expeditedssl:before {\n  content: \"\\f23e\";\n}\n.fa-battery-4:before,\n.fa-battery:before,\n.fa-battery-full:before {\n  content: \"\\f240\";\n}\n.fa-battery-3:before,\n.fa-battery-three-quarters:before {\n  content: \"\\f241\";\n}\n.fa-battery-2:before,\n.fa-battery-half:before {\n  content: \"\\f242\";\n}\n.fa-battery-1:before,\n.fa-battery-quarter:before {\n  content: \"\\f243\";\n}\n.fa-battery-0:before,\n.fa-battery-empty:before {\n  content: \"\\f244\";\n}\n.fa-mouse-pointer:before {\n  content: \"\\f245\";\n}\n.fa-i-cursor:before {\n  content: \"\\f246\";\n}\n.fa-object-group:before {\n  content: \"\\f247\";\n}\n.fa-object-ungroup:before {\n  content: \"\\f248\";\n}\n.fa-sticky-note:before {\n  content: \"\\f249\";\n}\n.fa-sticky-note-o:before {\n  content: \"\\f24a\";\n}\n.fa-cc-jcb:before {\n  content: \"\\f24b\";\n}\n.fa-cc-diners-club:before {\n  content: \"\\f24c\";\n}\n.fa-clone:before {\n  content: \"\\f24d\";\n}\n.fa-balance-scale:before {\n  content: \"\\f24e\";\n}\n.fa-hourglass-o:before {\n  content: \"\\f250\";\n}\n.fa-hourglass-1:before,\n.fa-hourglass-start:before {\n  content: \"\\f251\";\n}\n.fa-hourglass-2:before,\n.fa-hourglass-half:before {\n  content: \"\\f252\";\n}\n.fa-hourglass-3:before,\n.fa-hourglass-end:before {\n  content: \"\\f253\";\n}\n.fa-hourglass:before {\n  content: \"\\f254\";\n}\n.fa-hand-grab-o:before,\n.fa-hand-rock-o:before {\n  content: \"\\f255\";\n}\n.fa-hand-stop-o:before,\n.fa-hand-paper-o:before {\n  content: \"\\f256\";\n}\n.fa-hand-scissors-o:before {\n  content: \"\\f257\";\n}\n.fa-hand-lizard-o:before {\n  content: \"\\f258\";\n}\n.fa-hand-spock-o:before {\n  content: \"\\f259\";\n}\n.fa-hand-pointer-o:before {\n  content: \"\\f25a\";\n}\n.fa-hand-peace-o:before {\n  content: \"\\f25b\";\n}\n.fa-trademark:before {\n  content: \"\\f25c\";\n}\n.fa-registered:before {\n  content: \"\\f25d\";\n}\n.fa-creative-commons:before {\n  content: \"\\f25e\";\n}\n.fa-gg:before {\n  content: \"\\f260\";\n}\n.fa-gg-circle:before {\n  content: \"\\f261\";\n}\n.fa-tripadvisor:before {\n  content: \"\\f262\";\n}\n.fa-odnoklassniki:before {\n  content: \"\\f263\";\n}\n.fa-odnoklassniki-square:before {\n  content: \"\\f264\";\n}\n.fa-get-pocket:before {\n  content: \"\\f265\";\n}\n.fa-wikipedia-w:before {\n  content: \"\\f266\";\n}\n.fa-safari:before {\n  content: \"\\f267\";\n}\n.fa-chrome:before {\n  content: \"\\f268\";\n}\n.fa-firefox:before {\n  content: \"\\f269\";\n}\n.fa-opera:before {\n  content: \"\\f26a\";\n}\n.fa-internet-explorer:before {\n  content: \"\\f26b\";\n}\n.fa-tv:before,\n.fa-television:before {\n  content: \"\\f26c\";\n}\n.fa-contao:before {\n  content: \"\\f26d\";\n}\n.fa-500px:before {\n  content: \"\\f26e\";\n}\n.fa-amazon:before {\n  content: \"\\f270\";\n}\n.fa-calendar-plus-o:before {\n  content: \"\\f271\";\n}\n.fa-calendar-minus-o:before {\n  content: \"\\f272\";\n}\n.fa-calendar-times-o:before {\n  content: \"\\f273\";\n}\n.fa-calendar-check-o:before {\n  content: \"\\f274\";\n}\n.fa-industry:before {\n  content: \"\\f275\";\n}\n.fa-map-pin:before {\n  content: \"\\f276\";\n}\n.fa-map-signs:before {\n  content: \"\\f277\";\n}\n.fa-map-o:before {\n  content: \"\\f278\";\n}\n.fa-map:before {\n  content: \"\\f279\";\n}\n.fa-commenting:before {\n  content: \"\\f27a\";\n}\n.fa-commenting-o:before {\n  content: \"\\f27b\";\n}\n.fa-houzz:before {\n  content: \"\\f27c\";\n}\n.fa-vimeo:before {\n  content: \"\\f27d\";\n}\n.fa-black-tie:before {\n  content: \"\\f27e\";\n}\n.fa-fonticons:before {\n  content: \"\\f280\";\n}\n.fa-reddit-alien:before {\n  content: \"\\f281\";\n}\n.fa-edge:before {\n  content: \"\\f282\";\n}\n.fa-credit-card-alt:before {\n  content: \"\\f283\";\n}\n.fa-codiepie:before {\n  content: \"\\f284\";\n}\n.fa-modx:before {\n  content: \"\\f285\";\n}\n.fa-fort-awesome:before {\n  content: \"\\f286\";\n}\n.fa-usb:before {\n  content: \"\\f287\";\n}\n.fa-product-hunt:before {\n  content: \"\\f288\";\n}\n.fa-mixcloud:before {\n  content: \"\\f289\";\n}\n.fa-scribd:before {\n  content: \"\\f28a\";\n}\n.fa-pause-circle:before {\n  content: \"\\f28b\";\n}\n.fa-pause-circle-o:before {\n  content: \"\\f28c\";\n}\n.fa-stop-circle:before {\n  content: \"\\f28d\";\n}\n.fa-stop-circle-o:before {\n  content: \"\\f28e\";\n}\n.fa-shopping-bag:before {\n  content: \"\\f290\";\n}\n.fa-shopping-basket:before {\n  content: \"\\f291\";\n}\n.fa-hashtag:before {\n  content: \"\\f292\";\n}\n.fa-bluetooth:before {\n  content: \"\\f293\";\n}\n.fa-bluetooth-b:before {\n  content: \"\\f294\";\n}\n.fa-percent:before {\n  content: \"\\f295\";\n}\n.fa-gitlab:before {\n  content: \"\\f296\";\n}\n.fa-wpbeginner:before {\n  content: \"\\f297\";\n}\n.fa-wpforms:before {\n  content: \"\\f298\";\n}\n.fa-envira:before {\n  content: \"\\f299\";\n}\n.fa-universal-access:before {\n  content: \"\\f29a\";\n}\n.fa-wheelchair-alt:before {\n  content: \"\\f29b\";\n}\n.fa-question-circle-o:before {\n  content: \"\\f29c\";\n}\n.fa-blind:before {\n  content: \"\\f29d\";\n}\n.fa-audio-description:before {\n  content: \"\\f29e\";\n}\n.fa-volume-control-phone:before {\n  content: \"\\f2a0\";\n}\n.fa-braille:before {\n  content: \"\\f2a1\";\n}\n.fa-assistive-listening-systems:before {\n  content: \"\\f2a2\";\n}\n.fa-asl-interpreting:before,\n.fa-american-sign-language-interpreting:before {\n  content: \"\\f2a3\";\n}\n.fa-deafness:before,\n.fa-hard-of-hearing:before,\n.fa-deaf:before {\n  content: \"\\f2a4\";\n}\n.fa-glide:before {\n  content: \"\\f2a5\";\n}\n.fa-glide-g:before {\n  content: \"\\f2a6\";\n}\n.fa-signing:before,\n.fa-sign-language:before {\n  content: \"\\f2a7\";\n}\n.fa-low-vision:before {\n  content: \"\\f2a8\";\n}\n.fa-viadeo:before {\n  content: \"\\f2a9\";\n}\n.fa-viadeo-square:before {\n  content: \"\\f2aa\";\n}\n.fa-snapchat:before {\n  content: \"\\f2ab\";\n}\n.fa-snapchat-ghost:before {\n  content: \"\\f2ac\";\n}\n.fa-snapchat-square:before {\n  content: \"\\f2ad\";\n}\n.fa-pied-piper:before {\n  content: \"\\f2ae\";\n}\n.fa-first-order:before {\n  content: \"\\f2b0\";\n}\n.fa-yoast:before {\n  content: \"\\f2b1\";\n}\n.fa-themeisle:before {\n  content: \"\\f2b2\";\n}\n.fa-google-plus-circle:before,\n.fa-google-plus-official:before {\n  content: \"\\f2b3\";\n}\n.fa-fa:before,\n.fa-font-awesome:before {\n  content: \"\\f2b4\";\n}\n.fa-handshake-o:before {\n  content: \"\\f2b5\";\n}\n.fa-envelope-open:before {\n  content: \"\\f2b6\";\n}\n.fa-envelope-open-o:before {\n  content: \"\\f2b7\";\n}\n.fa-linode:before {\n  content: \"\\f2b8\";\n}\n.fa-address-book:before {\n  content: \"\\f2b9\";\n}\n.fa-address-book-o:before {\n  content: \"\\f2ba\";\n}\n.fa-vcard:before,\n.fa-address-card:before {\n  content: \"\\f2bb\";\n}\n.fa-vcard-o:before,\n.fa-address-card-o:before {\n  content: \"\\f2bc\";\n}\n.fa-user-circle:before {\n  content: \"\\f2bd\";\n}\n.fa-user-circle-o:before {\n  content: \"\\f2be\";\n}\n.fa-user-o:before {\n  content: \"\\f2c0\";\n}\n.fa-id-badge:before {\n  content: \"\\f2c1\";\n}\n.fa-drivers-license:before,\n.fa-id-card:before {\n  content: \"\\f2c2\";\n}\n.fa-drivers-license-o:before,\n.fa-id-card-o:before {\n  content: \"\\f2c3\";\n}\n.fa-quora:before {\n  content: \"\\f2c4\";\n}\n.fa-free-code-camp:before {\n  content: \"\\f2c5\";\n}\n.fa-telegram:before {\n  content: \"\\f2c6\";\n}\n.fa-thermometer-4:before,\n.fa-thermometer:before,\n.fa-thermometer-full:before {\n  content: \"\\f2c7\";\n}\n.fa-thermometer-3:before,\n.fa-thermometer-three-quarters:before {\n  content: \"\\f2c8\";\n}\n.fa-thermometer-2:before,\n.fa-thermometer-half:before {\n  content: \"\\f2c9\";\n}\n.fa-thermometer-1:before,\n.fa-thermometer-quarter:before {\n  content: \"\\f2ca\";\n}\n.fa-thermometer-0:before,\n.fa-thermometer-empty:before {\n  content: \"\\f2cb\";\n}\n.fa-shower:before {\n  content: \"\\f2cc\";\n}\n.fa-bathtub:before,\n.fa-s15:before,\n.fa-bath:before {\n  content: \"\\f2cd\";\n}\n.fa-podcast:before {\n  content: \"\\f2ce\";\n}\n.fa-window-maximize:before {\n  content: \"\\f2d0\";\n}\n.fa-window-minimize:before {\n  content: \"\\f2d1\";\n}\n.fa-window-restore:before {\n  content: \"\\f2d2\";\n}\n.fa-times-rectangle:before,\n.fa-window-close:before {\n  content: \"\\f2d3\";\n}\n.fa-times-rectangle-o:before,\n.fa-window-close-o:before {\n  content: \"\\f2d4\";\n}\n.fa-bandcamp:before {\n  content: \"\\f2d5\";\n}\n.fa-grav:before {\n  content: \"\\f2d6\";\n}\n.fa-etsy:before {\n  content: \"\\f2d7\";\n}\n.fa-imdb:before {\n  content: \"\\f2d8\";\n}\n.fa-ravelry:before {\n  content: \"\\f2d9\";\n}\n.fa-eercast:before {\n  content: \"\\f2da\";\n}\n.fa-microchip:before {\n  content: \"\\f2db\";\n}\n.fa-snowflake-o:before {\n  content: \"\\f2dc\";\n}\n.fa-superpowers:before {\n  content: \"\\f2dd\";\n}\n.fa-wpexplorer:before {\n  content: \"\\f2de\";\n}\n.fa-meetup:before {\n  content: \"\\f2e0\";\n}\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n.sr-only-focusable:active,\n.sr-only-focusable:focus {\n  position: static;\n  width: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  clip: auto;\n}\n"]}]);
 // Exports
-module.exports = exports;
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -10559,16 +6799,20 @@ module.exports = exports;
 /*!***************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./app/frontend/circuit/less/index.less ***!
   \***************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-exports = ___CSS_LOADER_API_IMPORT___(false);
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(true);
 // Module
-exports.push([module.i, ".toolbar {\n  margin: 0;\n  padding-top: 0;\n  padding-right: 10px;\n  top: 0;\n  right: 0;\n  left: 250px;\n  height: 60px;\n  overflow: visible;\n  z-index: 1000 !important;\n  position: absolute;\n  background-color: #ebf0f5;\n  border: none !important;\n}\n.toolbar * {\n  outline: none;\n}\n.toolbar .group {\n  padding-right: 20px;\n  display: inline-block;\n  vertical-align: top;\n}\n.toolbar .group .image-button {\n  display: inline-block;\n}\n.toolbar .group .image-button img {\n  margin: 5px;\n  margin-bottom: 0;\n  padding: 0;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  display: inline-block;\n  text-align: center;\n  color: #777;\n  font-size: 45px;\n  transition: all 0.5s;\n}\n.toolbar .group .image-button .img_span {\n  margin: 5px;\n  margin-bottom: 0;\n  padding: 0;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  display: inline-block;\n  text-align: center;\n  color: #777;\n  font-size: 45px;\n  transition: all 0.5s;\n}\n.toolbar .group .image-button div {\n  color: rgba(0, 0, 0, 0.5);\n  text-align: center;\n  font-size: 10px;\n}\n.toolbar .group .image-button.disabled {\n  opacity: 0.2;\n}\n.toolbar .group .image-button:not(.disabled) img {\n  cursor: pointer;\n}\n.toolbar .group .image-button:not(.disabled) img:hover {\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n}\n.modal-backdrop.in {\n  opacity: 0.7;\n  background-color: black;\n  transition: opacity 0.4s linear;\n}\n.genericDialog .modal-content {\n  border-radius: 4px;\n  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n  background-color: #ffffff;\n}\n.genericDialog .modal-content .modal-header {\n  border-bottom: 0;\n  font-weight: 400;\n  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);\n}\n.genericDialog .modal-content .modal-body {\n  padding: 1px;\n  min-height: 120px;\n}\n.genericDialog .modal-content .modal-body .form-control {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  box-sizing: border-box;\n  border-radius: 4px;\n  margin: 0;\n  padding: 0;\n  color: #4D4D4D;\n  display: inline-block;\n  font: inherit;\n  border: 1px solid #DFDFDF;\n  box-shadow: none;\n  height: 24px;\n  padding: 0 3px;\n}\n.genericDialog .modal-content .modal-body .form-control:focus {\n  background-color: #f5f5f5;\n}\n.genericDialog .modal-content .modal-body .list-group {\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"true\"] {\n  font-weight: bold;\n  color: #41aaaa;\n}\n.genericDialog .modal-content .modal-body .list-group .glyphicon,\n.genericDialog .modal-content .modal-body .list-group .fa {\n  font-size: 20px;\n  padding-right: 10px;\n  color: #41aaaa;\n}\n.genericDialog .modal-content .modal-body .list-group .list-group-item {\n  background-color: transparent;\n  font-weight: 300;\n}\n.genericDialog .modal-content .modal-body .list-group .list-group-item:hover {\n  text-decoration: underline;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"false\"][data-type=\"file\"] {\n  color: gray;\n  cursor: default;\n  text-decoration: none !important;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"false\"][data-type=\"file\"] .fa {\n  color: gray;\n}\n.genericDialog .modal-content .modal-footer {\n  background-color: transparent;\n  border-top: 0;\n}\n.genericDialog .modal-content .modal-footer .btn {\n  border: 0;\n  text-transform: uppercase;\n  background-color: transparent;\n  color: #41aaaa;\n  transition: all 0.5s;\n}\n.genericDialog .modal-content .modal-footer .btn:hover {\n  background-color: rgba(65, 170, 170, 0.04);\n  transition: all 0.5s;\n}\n.genericDialog .modal-content .modal-footer .btn-primary {\n  font-weight: bold;\n}\n#githubNewFileDialog .filePreview {\n  font-size: 115px;\n  color: #41aaaa;\n}\n#fileOpenDialog .list-group {\n  height: 60%;\n}\n#fileSaveDialog .filePreview {\n  max-width: 200px;\n  max-height: 200px;\n}\n#fileSaveDialog .modal-body .media {\n  padding: 20px;\n}\n#githubFileSaveAsDialog .filePreview {\n  max-width: 200px;\n  max-height: 200px;\n}\n#githubFileSaveAsDialog .list-group {\n  height: 250px;\n}\n#canvas_zoom {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  background-color: rgba(235, 240, 245, 0.3);\n  border-radius: 5px;\n}\n#canvas_zoom button {\n  background-color: transparent;\n  font-weight: 300;\n  padding: 5px;\n  padding-left: 10px;\n  padding-right: 10px;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all 0.5s;\n}\n#canvas_zoom button:hover {\n  border: 1px solid #41aaaa;\n}\nbody {\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\nbody #layout {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n}\nbody #layout .nav-tabs {\n  float: left;\n  border-bottom: 0;\n}\nbody #layout .nav-tabs li {\n  float: none;\n  margin: 0;\n}\nbody #layout .nav-tabs li a {\n  margin-right: 0;\n  border: 0;\n}\nbody #layout #leftTabStrip {\n  height: 100%;\n  position: absolute;\n  width: 0px;\n  padding-top: 0px;\n  overflow: hidden;\n}\nbody #layout #leftTabStrip .leftTab {\n  border-radius: 0 !important;\n  width: 0px;\n  height: 0px;\n}\nbody #layout .tab-content {\n  position: relative;\n  margin-left: 0px;\n  height: 100%;\n}\nbody #layout .tab-content .tab-pane {\n  display: none;\n  padding: 0;\n  height: 100%;\n  position: relative;\n}\nbody #layout .tab-content .tab-pane .workspace .palette {\n  position: absolute;\n  height: 100%;\n  width: 250px;\n  padding: 0;\n  background-color: #ffffff;\n  text-align: center;\n  box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.3);\n  z-index: 1000;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title {\n  left: 10px;\n  right: 0px;\n  top: 10px;\n  position: absolute;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title img {\n  padding-right: 20px;\n  position: absolute;\n  left: 10px;\n  max-height: 30px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div {\n  position: absolute;\n  left: 90px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div h1 {\n  font-size: 25px;\n  font-weight: 200;\n  line-height: 45px;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div h2 {\n  font-size: 15px;\n  font-weight: 200;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #filter {\n  font-size: 14px;\n  width: 240px;\n  left: 2px;\n  height: 34px;\n  border: 1px solid #222222;\n  border-radius: 2px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .panetitle {\n  position: absolute;\n  top: 66px;\n  border-bottom: 1px solid #222222;\n  font-weight: 500;\n  font-size: 12px;\n  padding: 4px 4px 4px 4px;\n  letter-spacing: 5px;\n  text-align: left;\n  box-shadow: 0 4px 2px -2px rgba(31, 73, 125, 0.3);\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll {\n  position: absolute;\n  width: 248px;\n  margin: 0;\n  padding: 0;\n  top: 110px;\n  bottom: 0px;\n  overflow: auto;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll #paletteElements {\n  position: absolute;\n  width: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll #paletteElements .mix {\n  height: 125px;\n  border: 1px solid #f0f0f0;\n  /* to avoid doubling the border of the grid */\n  margin: -1px 0 0 -1px;\n}\nbody #layout .tab-content .tab-pane .workspace .content {\n  position: absolute;\n  right: 0;\n  top: 60px;\n  bottom: 0;\n  left: 250px;\n  overflow: scroll;\n}\nbody #layout .tab-content .tab-pane .workspace .content .canvas {\n  width: 6000px;\n  height: 6000px;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config {\n  position: fixed;\n  width: 40px;\n  top: 65px;\n  left: 255px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  background-color: rgba(235, 240, 245, 0.3);\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config:hover {\n  border: 1px solid #41aaaa !important;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config:hover {\n  color: #41aaaa;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config_items {\n  position: fixed;\n  top: 90px;\n  left: 255px;\n  cursor: pointer;\n  padding: 10px;\n  white-space: nowrap;\n  min-width: 250px;\n}\nbody #layout .tab-content .active {\n  display: block;\n}\n.nav-tabs > li.active > a,\n.nav-tabs > li.active > a:hover,\n.nav-tabs > li.active > a:focus {\n  border: 0;\n}\n/* CSS from the cool website: http://cssarrowplease.com/ */\n.draw2d_tooltip {\n  position: absolute;\n  background: #88b7d5;\n  padding: 10px;\n  border-radius: 6px;\n}\n.draw2d_tooltip:after,\n.draw2d_tooltip:before {\n  bottom: 100%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.draw2d_tooltip:after {\n  border-color: rgba(136, 183, 213, 0);\n  border-bottom-color: #88b7d5;\n  border-width: 4px;\n  left: 50%;\n  margin-left: -4px;\n}\n#codePreviewDialog .prettyprint {\n  max-height: 250px;\n  overflow: scroll;\n  border-radius: 0;\n}\n#markdownDialog .html {\n  padding: 20px;\n}\n#markdownDialog .html table {\n  font-family: Arial, Helvetica, sans-serif;\n  color: #666;\n  font-size: 12px;\n  text-shadow: 1px 1px 0px #fff;\n  background: #eaebec;\n  margin: 20px;\n  margin-left: 0;\n  border: #ccc 1px solid;\n  -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n  border-radius: 3px;\n  -moz-box-shadow: 0 1px 2px #d1d1d1;\n  -webkit-box-shadow: 0 1px 2px #d1d1d1;\n  box-shadow: 0 1px 2px #d1d1d1;\n}\n#markdownDialog .html table th {\n  padding: 21px 25px 22px 25px;\n  border-top: 1px solid #fafafa;\n  border-bottom: 1px solid #e0e0e0;\n}\n#markdownDialog .html table th:first-child {\n  text-align: left;\n  padding-left: 20px;\n}\n#markdownDialog .html table tr:first-child th:first-child {\n  -moz-border-radius-topleft: 3px;\n  -webkit-border-top-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n#markdownDialog .html table tr:first-child th:last-child {\n  -moz-border-radius-topright: 3px;\n  -webkit-border-top-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n#markdownDialog .html table tr {\n  text-align: center;\n  padding-left: 20px;\n}\n#markdownDialog .html table tr td:first-child {\n  text-align: left;\n  padding-left: 20px;\n  border-left: 0;\n}\n#markdownDialog .html table tr td {\n  padding: 18px;\n  border-top: 1px solid #ffffff;\n  border-bottom: 1px solid #e0e0e0;\n  border-left: 1px solid #e0e0e0;\n}\n#markdownDialog .html tbody tr:nth-child(odd) {\n  background: #fafafa;\n}\n#markdownDialog .html tbody tr:nth-child(even) {\n  background: #f3f3f3;\n}\n#markdownDialog .html table tr:last-child td {\n  border-bottom: 0;\n}\n#markdownDialog .html table tr:last-child td:first-child {\n  -moz-border-radius-bottomleft: 3px;\n  -webkit-border-bottom-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n#markdownDialog .html table tr:last-child td:last-child {\n  -moz-border-radius-bottomright: 3px;\n  -webkit-border-bottom-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n#webUSBHelpDialog .modal-body {\n  min-height: 310px;\n}\n#webUSBHelpDialog .modal-body .html {\n  padding: 20px;\n  max-height: 310px;\n  overflow: auto;\n  border-radius: 0;\n}\n.confirm-dialog-btn-confirm {\n  background-color: #41aaaa;\n}\n.context-menu-list {\n  margin: 0;\n  padding: 0;\n  min-width: 120px;\n  max-width: 250px;\n  display: inline-block;\n  position: absolute;\n  list-style-type: none;\n  border: 1px solid #DDD;\n  background: white;\n  border-left: 2px solid #41aaaa;\n  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  font-size: 15px;\n  white-space: nowrap;\n}\n.context-menu-item {\n  padding: 5px 5px 5px 24px;\n  position: relative;\n  -webkit-user-select: none;\n  -moz-user-select: -moz-none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.context-menu-separator {\n  padding-bottom: 0;\n  border-bottom: 1px solid #DDD;\n}\n.context-menu-item > label > input,\n.context-menu-item > label > textarea {\n  -webkit-user-select: text;\n  -moz-user-select: text;\n  -ms-user-select: text;\n  user-select: text;\n}\n.context-menu-item.hover {\n  cursor: pointer;\n  background-color: #41aaaa;\n  color: white;\n}\n.context-menu-item.disabled {\n  color: #666;\n}\n.context-menu-input.hover,\n.context-menu-item.disabled.hover {\n  cursor: default;\n  background-color: #EEE;\n}\n.context-menu-submenu:after {\n  content: \">\";\n  color: #666;\n  position: absolute;\n  top: 0;\n  right: 3px;\n  z-index: 1;\n}\n/* icons\n    #protip:\n    In case you want to use sprites for icons (which I would suggest you do) have a look at\n    http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement\n    .context-menu-item.icon:before {}\n */\n.context-menu-item.icon {\n  min-height: 18px;\n}\n.context-menu-item.icon:before {\n  position: relative;\n  left: -15px;\n  font-size: 19px;\n}\n/* vertically align inside labels */\n.context-menu-input > label > * {\n  vertical-align: top;\n}\n/* position checkboxes and radios as icons */\n.context-menu-input > label > input[type=\"checkbox\"],\n.context-menu-input > label > input[type=\"radio\"] {\n  margin-left: -17px;\n}\n.context-menu-input > label > span {\n  margin-left: 5px;\n}\n.context-menu-input > label,\n.context-menu-input > label > input[type=\"text\"],\n.context-menu-input > label > textarea,\n.context-menu-input > label > select {\n  display: block;\n  width: 100%;\n  box-sizing: border-box;\n}\n.context-menu-input > label > textarea {\n  height: 100px;\n}\n.context-menu-item > .context-menu-list {\n  display: none;\n  /* re-positioned by js */\n  right: -5px;\n  top: 5px;\n}\n.context-menu-item.hover > .context-menu-list {\n  display: block;\n}\n.context-menu-accesskey {\n  text-decoration: underline;\n}\n#probe_hint {\n  display: block;\n  padding: 30px;\n  font-size: 20px;\n  font-weight: 100;\n}\n#probe_window {\n  bottom: 0;\n  height: 0;\n  position: absolute;\n  right: 0;\n  left: 250px;\n}\n#probe_window span {\n  font-size: 45px;\n  vertical-align: middle;\n  padding-right: 10px;\n}\n#probe_window #probe_window_log_container {\n  overflow: auto;\n  height: 200px;\n  padding: 10 10 10 30px ;\n}\n#probe_window #probe_window_log_container span {\n  font-size: 12px;\n  padding-right: 10px;\n}\n#probe_window .log-warn {\n  color: orange;\n}\n#probe_window .log-error {\n  color: red;\n}\n#probe_window .log-warn,\n#probe_window .log-error {\n  font-weight: bold;\n}\n#probe_window_stick {\n  position: absolute;\n  top: -30px;\n  cursor: pointer;\n  color: black;\n  width: 100%;\n  border-bottom: 2px solid #41aaaa;\n  text-align: center;\n}\n#probe_window_palette {\n  position: absolute;\n  display: inline-block;\n  top: 0px;\n  cursor: pointer;\n  color: black;\n  height: 100%;\n  right: 0px;\n  text-align: center;\n  vertical-align: middle;\n  z-index: 2000;\n}\n#probe_window_palette img {\n  display: block;\n  position: absolute;\n  top: 46%;\n}\n#probeSortable {\n  padding-left: 0;\n}\n#probeSortable li {\n  list-style-type: none;\n  padding-top: 10px;\n  padding-left: 0;\n}\n#probeSortable li path {\n  stroke: white;\n}\n#probeSortable li div {\n  cursor: pointer;\n  display: inline-block;\n  padding-left: 10px;\n  padding-right: 10px;\n  position: absolute;\n  background: rgba(0, 157, 172, 0.8);\n}\n#probeSortable li:nth-child(even) {\n  background: #04A9B9;\n}\n#probeSortable li:nth-child(even) div {\n  background: rgba(4, 169, 185, 0.5);\n}\n#probeSortable .inplaceEdit {\n  background: rgba(255, 255, 255, 0.1);\n}\nellipse.draw2d_shape_basic_LineStartResizeHandle,\nellipse.draw2d_shape_basic_LineEndResizeHandle,\nrect.draw2d_policy_line_OrthogonalSelectionFeedbackPolicy_ResizeHandle {\n  fill: #41aaaa;\n}\nellipse.draw2d_InputPort,\nellipse.DecoratedInputPort,\nellipse.draw2d_OutputPort {\n  fill: #41aaaa;\n}\n.vertical-text {\n  transform: rotate(-90deg);\n  white-space: nowrap;\n  top: 200px;\n  left: 20px;\n  font-size: 50px;\n  color: white;\n}\n#layout #leftTabStrip {\n  background-color: #41aaaa;\n}\n#layout #leftTabStrip:after {\n  content: \"BrainBox\";\n  -webkit-transform: rotate(-90deg) translate(-90px, -60px);\n  -moz-transform: rotate(-90deg) translate(-90px, -60px);\n  -ms-transform: rotate(-90deg) translate(-90px, -60px);\n  transform: rotate(-90deg) translate(-90px, -60px);\n  font-size: 50px;\n  color: white;\n  white-space: nowrap;\n  opacity: 0.4;\n}\n#layout #leftTabStrip li.active a:hover {\n  background-color: white;\n}\n#layout #leftTabStrip li.active svg path[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg rect[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg g[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg rect[fill] {\n  fill: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg circle[fill] {\n  fill: #41aaaa !important;\n}\n#layout #leftTabStrip li a {\n  padding: 4px;\n}\n#layout #leftTabStrip li a:hover {\n  background-color: rgba(0, 0, 0, 0.1);\n}\n#layout #leftTabStrip li a svg path[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg rect[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg g[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg rect[fill] {\n  fill: white !important;\n}\n#layout #leftTabStrip li a svg circle[fill] {\n  fill: white !important;\n}\n.shadow {\n  border: 1px solid #41aaaa;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n  background-color: white;\n}\n.ui-draggable-dragging {\n  z-index: 10000;\n}\ntext.highlightOnHover:hover {\n  cursor: pointer;\n  font-weight: bold;\n}\nellipse.highlightOnHover:hover {\n  cursor: pointer;\n}\nrect.Raft {\n  fill: rgba(28, 155, 171, 0.1);\n}\n#configMenuIcon {\n  font-size: 25px;\n  cursor: pointer;\n  opacity: 0.3;\n}\n#configMenuIcon:hover {\n  opacity: 1;\n  color: #41aaaa;\n}\n.pallete-bg {\n  background-color: #ebf0f5;\n}\n#paletteElementsOverlay {\n  bottom: 0;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(255, 255, 255, 0.7);\n  display: none;\n}\n#figureConfigDialog {\n  display: none;\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 10px;\n  margin-left: 30px;\n  border-left: 3px solid #41aaaa;\n  border-radius: 4px;\n}\n#figureConfigDialog .header {\n  font-size: 16px;\n  font-weight: 600;\n  padding-bottom: 15px;\n}\n#figureConfigDialog .figureAddLabel {\n  font-size: 12px;\n  font-weight: 200;\n  cursor: pointer;\n}\n#figureConfigDialog .figureAddLabel:hover {\n  color: #41aaaa;\n}\n#figureConfigDialog:after {\n  content: '';\n  display: block;\n  position: absolute;\n  left: -20px;\n  top: 10px;\n  width: 0;\n  height: 0;\n  border-right: 10px solid #41aaaa;\n  border-top: 10px solid transparent;\n  border-left: 10px solid transparent;\n  border-bottom: 10px solid transparent;\n}\n.pallette_item {\n  text-align: center;\n}\n/*\n@keyframes spinner {\n  to {transform: rotate(360deg);}\n}\n\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 20px;\n  height: 20px;\n  margin-top: -10px;\n  margin-left: -10px;\n  border-radius: 50%;\n  border: 2px solid transparent;\n  border-top-color: #07d;\n  border-bottom-color: #07d;\n  animation: spinner .8s ease infinite;\n}\n*/\n@keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 35%;\n  left: 50%;\n  width: 30px;\n  height: 30px;\n  margin-top: -15px;\n  margin-left: -15px;\n  border-radius: 50%;\n  border: 2px solid #ccc;\n  border-top-color: #07d;\n  animation: spinner 0.6s linear infinite;\n}\n.workspace .palette {\n  box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.1), -6px 0 20px -4px rgba(31, 73, 125, 0.1);\n  border-right: 1px solid rgba(74, 74, 74, 0.5);\n  border-left: 1px solid rgba(74, 74, 74, 0.5);\n}\n.workspace .palette #filter {\n  outline: none;\n}\n.workspace .palette .title {\n  left: 10px;\n  right: 0px;\n  top: 10px;\n  position: absolute;\n}\n.workspace .palette .title img {\n  padding-right: 20px;\n  position: absolute;\n  left: 10px;\n}\n.workspace .palette .title div {\n  position: absolute;\n  left: 90px;\n}\n.workspace .palette .title div h1 {\n  font-size: 25px;\n  font-weight: 200;\n  line-height: 45px;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\n.workspace .palette .title div h2 {\n  font-size: 15px;\n  font-weight: 200;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n  letter-spacing: 4px;\n}\n.workspace .palette .pallette_item {\n  padding: 0px;\n}\n.workspace .palette .pallette_item > div {\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  border: 1px solid transparent;\n}\n.workspace .palette .pallette_item > div img {\n  position: absolute;\n  top: 0px;\n  bottom: 0;\n  margin: auto;\n  left: 50%;\n  transform: translate(-50%, -10px);\n}\n.workspace .palette .pallette_item > div div {\n  position: absolute;\n  padding-bottom: 2px;\n  width: 100%;\n  bottom: 0;\n  padding-top: 2px;\n  background-color: rgba(0, 0, 0, 0.05);\n  cursor: default;\n}\n.workspace .palette .pallette_item .glowBorder {\n  border: 1px solid #41aaaa;\n}\n.workspace .palette .draw2d_droppable {\n  cursor: move;\n  max-height: 80px;\n}\n.workspace .palette .request {\n  font-size: 10px;\n  color: #41aaaa;\n}\n.workspace .palette .request .icon {\n  cursor: pointer;\n  font-size: 75px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n.workspace .content .canvas {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.nav-tabs > li.active > a,\n.nav-tabs > li.active > a:hover,\n.nav-tabs > li.active > a:focus {\n  border: 0;\n}\n#files {\n  overflow-y: scroll;\n  padding: 30px !important;\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n}\n#files .deleteIcon {\n  position: absolute;\n  right: 24px;\n  width: 24px;\n  color: #41aaaa;\n  top: 8px;\n  cursor: pointer;\n  border: 1px solid black;\n  border-radius: 50%;\n  background-color: rgba(255, 0, 0, 0.5);\n}\n#files .deleteIcon:hover {\n  background-color: rgba(255, 0, 0, 0.9);\n}\n#files .thumb .thumbnail img {\n  cursor: pointer;\n}\n#files .thumb .filenameInplaceEdit {\n  font-size: 18px;\n  color: #41aaaa;\n  margin-top: 5px;\n}\n#files .thumb h4 {\n  font-size: 18px;\n  color: #41aaaa;\n}\n#files .thumbAdd {\n  color: #41aaaa;\n  color: #0078f2;\n  border: 1px solid rgba(0, 120, 242, 0.33);\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 1s;\n  -webkit-transition: all 1s;\n}\n#files .thumbAdd div {\n  font-size: 160px;\n  text-align: center;\n}\n#files .thumbAdd h4 {\n  text-align: center;\n}\n#files .thumbAdd:hover {\n  border: 1px solid #0078f2;\n  transition: all 1s;\n  -webkit-transition: all 1s;\n}\n#home {\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n  padding: 40px !important;\n  overflow: auto;\n  background-size: cover;\n}\n#home .branding {\n  color: #41aaaa;\n}\n#home .hacksterProjectCard {\n  border: 1px solid black;\n}\n#home .paragraph h3 {\n  color: #41aaaa;\n  padding-top: 45px;\n}\n#home .paragraph .block {\n  padding-bottom: 30px;\n}\n#home .teaser {\n  margin-bottom: 30px;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 70%, #fff 100%), radial-gradient(ellipse at center, rgba(247, 249, 250, 0.7) 0%, rgba(247, 249, 250, 0) 60%), linear-gradient(to bottom, rgba(247, 249, 250, 0) 0%, #f7f9fa 100%);\n}\n#home .teaser .title {\n  color: #41aaaa;\n  font-weight: 200;\n  font-size: 4vw;\n  white-space: nowrap;\n  margin-bottom: 10px;\n}\n#home .teaser .title img {\n  padding-right: 40px;\n  height: 100px;\n}\n#home .teaser .slogan {\n  font-size: 2vw;\n  font-weight: 200;\n  color: #34495e;\n}\n#home .introText {\n  font-size: 20px;\n  font-weight: 200;\n  color: #34495e;\n}\n#home footer {\n  text-align: center;\n  margin-top: 100px;\n  color: #41aaaa;\n}\n#home footer a {\n  color: #41aaaa;\n  text-decoration: underline;\n}\n.raspiConnection {\n  color: red !important;\n  border: 1px solid red;\n  padding: 10px;\n  border-radius: 5px;\n}\n.drop {\n  display: block;\n  position: absolute;\n  background: #CCC;\n  border-radius: 100%;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n  pointer-events: none;\n  width: 100%;\n  height: 100%;\n}\n.drop:before {\n  display: block;\n  position: absolute;\n  content: \"\";\n  background-color: #EEE;\n  border-radius: 100%;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n}\n.slider-handle {\n  border-radius: 50%;\n  background-color: #41aaaa;\n}\n#simulationBaseTimer {\n  width: 200px;\n}\n.simulationBase label {\n  display: block;\n  opacity: 0.5;\n  font-size: 10px;\n}\n.toolbar .group .form-horizontal {\n  text-align: center;\n  display: flex;\n}\n.toolbar .group .form-horizontal .statusIndicator {\n  margin: 20px;\n}\n.toolbar .group .form-horizontal .statusIndicator img {\n  display: block;\n  cursor: pointer;\n  margin: auto;\n}\n.toolbar .group .form-horizontal .statusIndicator img:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n}\n.toolbar .group .form-horizontal .statusIndicator span {\n  font-size: 0.8em;\n  text-align: center;\n  width: 100%;\n  display: inline-block;\n  white-space: nowrap;\n}\n.toolbar .group .form-horizontal .statusIndicator .notSupported {\n  display: none;\n  font-weight: bold;\n}\n.toolbar .group .form-horizontal .statusIndicator .connected {\n  display: block;\n}\n.toolbar .group .form-horizontal .statusIndicator .disconnected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled img {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled img:hover {\n  box-shadow: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled span {\n  opacity: 0.5;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .notSupported {\n  display: block;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .connected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .disconnected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) span {\n  color: red;\n  font-weight: bold;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .notSupported {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .connected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .disconnected {\n  display: block;\n}\n#simulationStartStop {\n  position: absolute;\n  right: 30px;\n  top: 30px;\n  z-index: 1000;\n  display: inline-block;\n  width: 4em;\n  height: 4em;\n  background-color: #FFF;\n  color: #9e9e9e;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\n  border-radius: 2em;\n  overflow: hidden;\n  transform: translateZ(0);\n  transition: all 500ms ease;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n#simulationStartStop:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n}\n#simulationStartStop:active {\n  -webkit-transform: scale(1.1, 1.1);\n  transform: scale(1.1, 1.1);\n}\n#simulationStartStop:focus {\n  outline: 0;\n  border: none;\n  color: rgba(0, 0, 0, 0);\n}\n#simulationStartStop > span {\n  display: block;\n  position: relative;\n  width: 2em;\n  height: 2em;\n  transition: all 500ms ease;\n  overflow: hidden;\n  margin: 1em;\n}\n#simulationStartStop > span > span {\n  display: block;\n  background-color: #41aaaa;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 2em;\n  height: 2em;\n  transition: all 500ms ease;\n  border: 1px solid transparent;\n}\n#simulationStartStop.play > span {\n  -webkit-transform: translate(1em, 0) scale(1.6, 1);\n  transform: translate(1em, 0) scale(1.6, 1);\n}\n#simulationStartStop.play > span > span {\n  -webkit-transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n  transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n  background-color: #41aaaa;\n}\n#simulationStartStop.pause > span > span {\n  -webkit-transform: scale(0.4, 1) translate(-1.6em, 0);\n  transform: scale(0.4, 1) translate(-1.6em, 0);\n}\n#simulationStartStop.pause > span > span.s3 {\n  -webkit-transform: scale(0.4, 1) translate(1.6em, 0);\n  transform: scale(0.4, 1) translate(1.6em, 0);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".toolbar {\n  margin: 0;\n  padding-top: 0;\n  padding-right: 10px;\n  top: 0;\n  right: 0;\n  left: 250px;\n  height: 60px;\n  overflow: visible;\n  z-index: 1000 !important;\n  position: absolute;\n  background-color: #ebf0f5;\n  border: none !important;\n}\n.toolbar * {\n  outline: none;\n}\n.toolbar .group {\n  padding-right: 20px;\n  display: inline-block;\n  vertical-align: top;\n}\n.toolbar .group .image-button {\n  display: inline-block;\n}\n.toolbar .group .image-button img {\n  margin: 5px;\n  margin-bottom: 0;\n  padding: 0;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  display: inline-block;\n  text-align: center;\n  color: #777;\n  font-size: 45px;\n  transition: all 0.5s;\n}\n.toolbar .group .image-button .img_span {\n  margin: 5px;\n  margin-bottom: 0;\n  padding: 0;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  display: inline-block;\n  text-align: center;\n  color: #777;\n  font-size: 45px;\n  transition: all 0.5s;\n}\n.toolbar .group .image-button div {\n  color: rgba(0, 0, 0, 0.5);\n  text-align: center;\n  font-size: 10px;\n}\n.toolbar .group .image-button.disabled {\n  opacity: 0.2;\n}\n.toolbar .group .image-button:not(.disabled) img {\n  cursor: pointer;\n}\n.toolbar .group .image-button:not(.disabled) img:hover {\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n}\n.modal-backdrop.in {\n  opacity: 0.7;\n  background-color: black;\n  transition: opacity 0.4s linear;\n}\n.genericDialog .modal-content {\n  border-radius: 4px;\n  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n  background-color: #ffffff;\n}\n.genericDialog .modal-content .modal-header {\n  border-bottom: 0;\n  font-weight: 400;\n  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);\n}\n.genericDialog .modal-content .modal-body {\n  padding: 1px;\n  min-height: 120px;\n}\n.genericDialog .modal-content .modal-body .form-control {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  box-sizing: border-box;\n  border-radius: 4px;\n  margin: 0;\n  padding: 0;\n  color: #4D4D4D;\n  display: inline-block;\n  font: inherit;\n  border: 1px solid #DFDFDF;\n  box-shadow: none;\n  height: 24px;\n  padding: 0 3px;\n}\n.genericDialog .modal-content .modal-body .form-control:focus {\n  background-color: #f5f5f5;\n}\n.genericDialog .modal-content .modal-body .list-group {\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"true\"] {\n  font-weight: bold;\n  color: #41aaaa;\n}\n.genericDialog .modal-content .modal-body .list-group .glyphicon,\n.genericDialog .modal-content .modal-body .list-group .fa {\n  font-size: 20px;\n  padding-right: 10px;\n  color: #41aaaa;\n}\n.genericDialog .modal-content .modal-body .list-group .list-group-item {\n  background-color: transparent;\n  font-weight: 300;\n}\n.genericDialog .modal-content .modal-body .list-group .list-group-item:hover {\n  text-decoration: underline;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"false\"][data-type=\"file\"] {\n  color: gray;\n  cursor: default;\n  text-decoration: none !important;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"false\"][data-type=\"file\"] .fa {\n  color: gray;\n}\n.genericDialog .modal-content .modal-footer {\n  background-color: transparent;\n  border-top: 0;\n}\n.genericDialog .modal-content .modal-footer .btn {\n  border: 0;\n  text-transform: uppercase;\n  background-color: transparent;\n  color: #41aaaa;\n  transition: all 0.5s;\n}\n.genericDialog .modal-content .modal-footer .btn:hover {\n  background-color: rgba(65, 170, 170, 0.04);\n  transition: all 0.5s;\n}\n.genericDialog .modal-content .modal-footer .btn-primary {\n  font-weight: bold;\n}\n#githubNewFileDialog .filePreview {\n  font-size: 115px;\n  color: #41aaaa;\n}\n#fileOpenDialog .list-group {\n  height: 60%;\n}\n#fileSaveDialog .filePreview {\n  max-width: 200px;\n  max-height: 200px;\n}\n#fileSaveDialog .modal-body .media {\n  padding: 20px;\n}\n#githubFileSaveAsDialog .filePreview {\n  max-width: 200px;\n  max-height: 200px;\n}\n#githubFileSaveAsDialog .list-group {\n  height: 250px;\n}\n#canvas_zoom {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  background-color: rgba(235, 240, 245, 0.3);\n  border-radius: 5px;\n}\n#canvas_zoom button {\n  background-color: transparent;\n  font-weight: 300;\n  padding: 5px;\n  padding-left: 10px;\n  padding-right: 10px;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all 0.5s;\n}\n#canvas_zoom button:hover {\n  border: 1px solid #41aaaa;\n}\nbody {\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\nbody #layout {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n}\nbody #layout .nav-tabs {\n  float: left;\n  border-bottom: 0;\n}\nbody #layout .nav-tabs li {\n  float: none;\n  margin: 0;\n}\nbody #layout .nav-tabs li a {\n  margin-right: 0;\n  border: 0;\n}\nbody #layout #leftTabStrip {\n  height: 100%;\n  position: absolute;\n  width: 0px;\n  padding-top: 0px;\n  overflow: hidden;\n}\nbody #layout #leftTabStrip .leftTab {\n  border-radius: 0 !important;\n  width: 0px;\n  height: 0px;\n}\nbody #layout .tab-content {\n  position: relative;\n  margin-left: 0px;\n  height: 100%;\n}\nbody #layout .tab-content .tab-pane {\n  display: none;\n  padding: 0;\n  height: 100%;\n  position: relative;\n}\nbody #layout .tab-content .tab-pane .workspace .palette {\n  position: absolute;\n  height: 100%;\n  width: 250px;\n  padding: 0;\n  background-color: #ffffff;\n  text-align: center;\n  box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.3);\n  z-index: 1000;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title {\n  left: 10px;\n  right: 0px;\n  top: 10px;\n  position: absolute;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title img {\n  padding-right: 20px;\n  position: absolute;\n  left: 10px;\n  max-height: 30px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div {\n  position: absolute;\n  left: 90px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div h1 {\n  font-size: 25px;\n  font-weight: 200;\n  line-height: 45px;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div h2 {\n  font-size: 15px;\n  font-weight: 200;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #filter {\n  font-size: 14px;\n  width: 240px;\n  left: 2px;\n  height: 34px;\n  border: 1px solid #222222;\n  border-radius: 2px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .panetitle {\n  position: absolute;\n  top: 66px;\n  border-bottom: 1px solid #222222;\n  font-weight: 500;\n  font-size: 12px;\n  padding: 4px 4px 4px 4px;\n  letter-spacing: 5px;\n  text-align: left;\n  box-shadow: 0 4px 2px -2px rgba(31, 73, 125, 0.3);\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll {\n  position: absolute;\n  width: 248px;\n  margin: 0;\n  padding: 0;\n  top: 110px;\n  bottom: 0px;\n  overflow: auto;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll #paletteElements {\n  position: absolute;\n  width: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll #paletteElements .mix {\n  height: 125px;\n  border: 1px solid #f0f0f0;\n  /* to avoid doubling the border of the grid */\n  margin: -1px 0 0 -1px;\n}\nbody #layout .tab-content .tab-pane .workspace .content {\n  position: absolute;\n  right: 0;\n  top: 60px;\n  bottom: 0;\n  left: 250px;\n  overflow: scroll;\n}\nbody #layout .tab-content .tab-pane .workspace .content .canvas {\n  width: 6000px;\n  height: 6000px;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config {\n  position: fixed;\n  width: 40px;\n  top: 65px;\n  left: 255px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  background-color: rgba(235, 240, 245, 0.3);\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config:hover {\n  border: 1px solid #41aaaa !important;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config:hover {\n  color: #41aaaa;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config_items {\n  position: fixed;\n  top: 90px;\n  left: 255px;\n  cursor: pointer;\n  padding: 10px;\n  white-space: nowrap;\n  min-width: 250px;\n}\nbody #layout .tab-content .active {\n  display: block;\n}\n.nav-tabs > li.active > a,\n.nav-tabs > li.active > a:hover,\n.nav-tabs > li.active > a:focus {\n  border: 0;\n}\n/* CSS from the cool website: http://cssarrowplease.com/ */\n.draw2d_tooltip {\n  position: absolute;\n  background: #88b7d5;\n  padding: 10px;\n  border-radius: 6px;\n}\n.draw2d_tooltip:after,\n.draw2d_tooltip:before {\n  bottom: 100%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.draw2d_tooltip:after {\n  border-color: rgba(136, 183, 213, 0);\n  border-bottom-color: #88b7d5;\n  border-width: 4px;\n  left: 50%;\n  margin-left: -4px;\n}\n#codePreviewDialog .prettyprint {\n  max-height: 250px;\n  overflow: scroll;\n  border-radius: 0;\n}\n#markdownDialog .html {\n  padding: 20px;\n}\n#markdownDialog .html table {\n  font-family: Arial, Helvetica, sans-serif;\n  color: #666;\n  font-size: 12px;\n  text-shadow: 1px 1px 0px #fff;\n  background: #eaebec;\n  margin: 20px;\n  margin-left: 0;\n  border: #ccc 1px solid;\n  -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n  border-radius: 3px;\n  -moz-box-shadow: 0 1px 2px #d1d1d1;\n  -webkit-box-shadow: 0 1px 2px #d1d1d1;\n  box-shadow: 0 1px 2px #d1d1d1;\n}\n#markdownDialog .html table th {\n  padding: 21px 25px 22px 25px;\n  border-top: 1px solid #fafafa;\n  border-bottom: 1px solid #e0e0e0;\n}\n#markdownDialog .html table th:first-child {\n  text-align: left;\n  padding-left: 20px;\n}\n#markdownDialog .html table tr:first-child th:first-child {\n  -moz-border-radius-topleft: 3px;\n  -webkit-border-top-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n#markdownDialog .html table tr:first-child th:last-child {\n  -moz-border-radius-topright: 3px;\n  -webkit-border-top-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n#markdownDialog .html table tr {\n  text-align: center;\n  padding-left: 20px;\n}\n#markdownDialog .html table tr td:first-child {\n  text-align: left;\n  padding-left: 20px;\n  border-left: 0;\n}\n#markdownDialog .html table tr td {\n  padding: 18px;\n  border-top: 1px solid #ffffff;\n  border-bottom: 1px solid #e0e0e0;\n  border-left: 1px solid #e0e0e0;\n}\n#markdownDialog .html tbody tr:nth-child(odd) {\n  background: #fafafa;\n}\n#markdownDialog .html tbody tr:nth-child(even) {\n  background: #f3f3f3;\n}\n#markdownDialog .html table tr:last-child td {\n  border-bottom: 0;\n}\n#markdownDialog .html table tr:last-child td:first-child {\n  -moz-border-radius-bottomleft: 3px;\n  -webkit-border-bottom-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n#markdownDialog .html table tr:last-child td:last-child {\n  -moz-border-radius-bottomright: 3px;\n  -webkit-border-bottom-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n#webUSBHelpDialog .modal-body {\n  min-height: 310px;\n}\n#webUSBHelpDialog .modal-body .html {\n  padding: 20px;\n  max-height: 310px;\n  overflow: auto;\n  border-radius: 0;\n}\n.confirm-dialog-btn-confirm {\n  background-color: #41aaaa;\n}\n.context-menu-list {\n  margin: 0;\n  padding: 0;\n  min-width: 120px;\n  max-width: 250px;\n  display: inline-block;\n  position: absolute;\n  list-style-type: none;\n  border: 1px solid #DDD;\n  background: white;\n  border-left: 2px solid #41aaaa;\n  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  font-size: 15px;\n  white-space: nowrap;\n}\n.context-menu-item {\n  padding: 5px 5px 5px 24px;\n  position: relative;\n  -webkit-user-select: none;\n  -moz-user-select: -moz-none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.context-menu-separator {\n  padding-bottom: 0;\n  border-bottom: 1px solid #DDD;\n}\n.context-menu-item > label > input,\n.context-menu-item > label > textarea {\n  -webkit-user-select: text;\n  -moz-user-select: text;\n  -ms-user-select: text;\n  user-select: text;\n}\n.context-menu-item.hover {\n  cursor: pointer;\n  background-color: #41aaaa;\n  color: white;\n}\n.context-menu-item.disabled {\n  color: #666;\n}\n.context-menu-input.hover,\n.context-menu-item.disabled.hover {\n  cursor: default;\n  background-color: #EEE;\n}\n.context-menu-submenu:after {\n  content: \">\";\n  color: #666;\n  position: absolute;\n  top: 0;\n  right: 3px;\n  z-index: 1;\n}\n/* icons\n    #protip:\n    In case you want to use sprites for icons (which I would suggest you do) have a look at\n    http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement\n    .context-menu-item.icon:before {}\n */\n.context-menu-item.icon {\n  min-height: 18px;\n}\n.context-menu-item.icon:before {\n  position: relative;\n  left: -15px;\n  font-size: 19px;\n}\n/* vertically align inside labels */\n.context-menu-input > label > * {\n  vertical-align: top;\n}\n/* position checkboxes and radios as icons */\n.context-menu-input > label > input[type=\"checkbox\"],\n.context-menu-input > label > input[type=\"radio\"] {\n  margin-left: -17px;\n}\n.context-menu-input > label > span {\n  margin-left: 5px;\n}\n.context-menu-input > label,\n.context-menu-input > label > input[type=\"text\"],\n.context-menu-input > label > textarea,\n.context-menu-input > label > select {\n  display: block;\n  width: 100%;\n  box-sizing: border-box;\n}\n.context-menu-input > label > textarea {\n  height: 100px;\n}\n.context-menu-item > .context-menu-list {\n  display: none;\n  /* re-positioned by js */\n  right: -5px;\n  top: 5px;\n}\n.context-menu-item.hover > .context-menu-list {\n  display: block;\n}\n.context-menu-accesskey {\n  text-decoration: underline;\n}\n#probe_hint {\n  display: block;\n  padding: 30px;\n  font-size: 20px;\n  font-weight: 100;\n}\n#probe_window {\n  bottom: 0;\n  height: 0;\n  position: absolute;\n  right: 0;\n  left: 250px;\n}\n#probe_window span {\n  font-size: 45px;\n  vertical-align: middle;\n  padding-right: 10px;\n}\n#probe_window #probe_window_log_container {\n  overflow: auto;\n  height: 200px;\n  padding: 10 10 10 30px ;\n}\n#probe_window #probe_window_log_container span {\n  font-size: 12px;\n  padding-right: 10px;\n}\n#probe_window .log-warn {\n  color: orange;\n}\n#probe_window .log-error {\n  color: red;\n}\n#probe_window .log-warn,\n#probe_window .log-error {\n  font-weight: bold;\n}\n#probe_window_stick {\n  position: absolute;\n  top: -30px;\n  cursor: pointer;\n  color: black;\n  width: 100%;\n  border-bottom: 2px solid #41aaaa;\n  text-align: center;\n}\n#probe_window_palette {\n  position: absolute;\n  display: inline-block;\n  top: 0px;\n  cursor: pointer;\n  color: black;\n  height: 100%;\n  right: 0px;\n  text-align: center;\n  vertical-align: middle;\n  z-index: 2000;\n}\n#probe_window_palette img {\n  display: block;\n  position: absolute;\n  top: 46%;\n}\n#probeSortable {\n  padding-left: 0;\n}\n#probeSortable li {\n  list-style-type: none;\n  padding-top: 10px;\n  padding-left: 0;\n}\n#probeSortable li path {\n  stroke: white;\n}\n#probeSortable li div {\n  cursor: pointer;\n  display: inline-block;\n  padding-left: 10px;\n  padding-right: 10px;\n  position: absolute;\n  background: rgba(0, 157, 172, 0.8);\n}\n#probeSortable li:nth-child(even) {\n  background: #04A9B9;\n}\n#probeSortable li:nth-child(even) div {\n  background: rgba(4, 169, 185, 0.5);\n}\n#probeSortable .inplaceEdit {\n  background: rgba(255, 255, 255, 0.1);\n}\nellipse.draw2d_shape_basic_LineStartResizeHandle,\nellipse.draw2d_shape_basic_LineEndResizeHandle,\nrect.draw2d_policy_line_OrthogonalSelectionFeedbackPolicy_ResizeHandle {\n  fill: #41aaaa;\n}\nellipse.draw2d_InputPort,\nellipse.DecoratedInputPort,\nellipse.draw2d_OutputPort {\n  fill: #41aaaa;\n}\n.vertical-text {\n  transform: rotate(-90deg);\n  white-space: nowrap;\n  top: 200px;\n  left: 20px;\n  font-size: 50px;\n  color: white;\n}\n#layout #leftTabStrip {\n  background-color: #41aaaa;\n}\n#layout #leftTabStrip:after {\n  content: \"BrainBox\";\n  -webkit-transform: rotate(-90deg) translate(-90px, -60px);\n  -moz-transform: rotate(-90deg) translate(-90px, -60px);\n  -ms-transform: rotate(-90deg) translate(-90px, -60px);\n  transform: rotate(-90deg) translate(-90px, -60px);\n  font-size: 50px;\n  color: white;\n  white-space: nowrap;\n  opacity: 0.4;\n}\n#layout #leftTabStrip li.active a:hover {\n  background-color: white;\n}\n#layout #leftTabStrip li.active svg path[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg rect[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg g[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg rect[fill] {\n  fill: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg circle[fill] {\n  fill: #41aaaa !important;\n}\n#layout #leftTabStrip li a {\n  padding: 4px;\n}\n#layout #leftTabStrip li a:hover {\n  background-color: rgba(0, 0, 0, 0.1);\n}\n#layout #leftTabStrip li a svg path[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg rect[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg g[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg rect[fill] {\n  fill: white !important;\n}\n#layout #leftTabStrip li a svg circle[fill] {\n  fill: white !important;\n}\n.shadow {\n  border: 1px solid #41aaaa;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n  background-color: white;\n}\n.ui-draggable-dragging {\n  z-index: 10000;\n}\ntext.highlightOnHover:hover {\n  cursor: pointer;\n  font-weight: bold;\n}\nellipse.highlightOnHover:hover {\n  cursor: pointer;\n}\nrect.Raft {\n  fill: rgba(28, 155, 171, 0.1);\n}\n#configMenuIcon {\n  font-size: 25px;\n  cursor: pointer;\n  opacity: 0.3;\n}\n#configMenuIcon:hover {\n  opacity: 1;\n  color: #41aaaa;\n}\n.pallete-bg {\n  background-color: #ebf0f5;\n}\n#paletteElementsOverlay {\n  bottom: 0;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(255, 255, 255, 0.7);\n  display: none;\n}\n#figureConfigDialog {\n  display: none;\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 10px;\n  margin-left: 30px;\n  border-left: 3px solid #41aaaa;\n  border-radius: 4px;\n}\n#figureConfigDialog .header {\n  font-size: 16px;\n  font-weight: 600;\n  padding-bottom: 15px;\n}\n#figureConfigDialog .figureAddLabel {\n  font-size: 12px;\n  font-weight: 200;\n  cursor: pointer;\n}\n#figureConfigDialog .figureAddLabel:hover {\n  color: #41aaaa;\n}\n#figureConfigDialog:after {\n  content: '';\n  display: block;\n  position: absolute;\n  left: -20px;\n  top: 10px;\n  width: 0;\n  height: 0;\n  border-right: 10px solid #41aaaa;\n  border-top: 10px solid transparent;\n  border-left: 10px solid transparent;\n  border-bottom: 10px solid transparent;\n}\n.pallette_item {\n  text-align: center;\n}\n/*\n@keyframes spinner {\n  to {transform: rotate(360deg);}\n}\n\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 20px;\n  height: 20px;\n  margin-top: -10px;\n  margin-left: -10px;\n  border-radius: 50%;\n  border: 2px solid transparent;\n  border-top-color: #07d;\n  border-bottom-color: #07d;\n  animation: spinner .8s ease infinite;\n}\n*/\n@keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 35%;\n  left: 50%;\n  width: 30px;\n  height: 30px;\n  margin-top: -15px;\n  margin-left: -15px;\n  border-radius: 50%;\n  border: 2px solid #ccc;\n  border-top-color: #07d;\n  animation: spinner 0.6s linear infinite;\n}\n.workspace .palette {\n  box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.1), -6px 0 20px -4px rgba(31, 73, 125, 0.1);\n  border-right: 1px solid rgba(74, 74, 74, 0.5);\n  border-left: 1px solid rgba(74, 74, 74, 0.5);\n}\n.workspace .palette #filter {\n  outline: none;\n}\n.workspace .palette .title {\n  left: 10px;\n  right: 0px;\n  top: 10px;\n  position: absolute;\n}\n.workspace .palette .title img {\n  padding-right: 20px;\n  position: absolute;\n  left: 10px;\n}\n.workspace .palette .title div {\n  position: absolute;\n  left: 90px;\n}\n.workspace .palette .title div h1 {\n  font-size: 25px;\n  font-weight: 200;\n  line-height: 45px;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\n.workspace .palette .title div h2 {\n  font-size: 15px;\n  font-weight: 200;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n  letter-spacing: 4px;\n}\n.workspace .palette .pallette_item {\n  padding: 0px;\n}\n.workspace .palette .pallette_item > div {\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  border: 1px solid transparent;\n}\n.workspace .palette .pallette_item > div img {\n  position: absolute;\n  top: 0px;\n  bottom: 0;\n  margin: auto;\n  left: 50%;\n  transform: translate(-50%, -10px);\n}\n.workspace .palette .pallette_item > div div {\n  position: absolute;\n  padding-bottom: 2px;\n  width: 100%;\n  bottom: 0;\n  padding-top: 2px;\n  background-color: rgba(0, 0, 0, 0.05);\n  cursor: default;\n}\n.workspace .palette .pallette_item .glowBorder {\n  border: 1px solid #41aaaa;\n}\n.workspace .palette .draw2d_droppable {\n  cursor: move;\n  max-height: 80px;\n}\n.workspace .palette .request {\n  font-size: 10px;\n  color: #41aaaa;\n}\n.workspace .palette .request .icon {\n  cursor: pointer;\n  font-size: 75px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n.workspace .content .canvas {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.nav-tabs > li.active > a,\n.nav-tabs > li.active > a:hover,\n.nav-tabs > li.active > a:focus {\n  border: 0;\n}\n#files {\n  overflow-y: scroll;\n  padding: 30px !important;\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n}\n#files .deleteIcon {\n  position: absolute;\n  right: 24px;\n  width: 24px;\n  color: #41aaaa;\n  top: 8px;\n  cursor: pointer;\n  border: 1px solid black;\n  border-radius: 50%;\n  background-color: rgba(255, 0, 0, 0.5);\n}\n#files .deleteIcon:hover {\n  background-color: rgba(255, 0, 0, 0.9);\n}\n#files .thumb .thumbnail img {\n  cursor: pointer;\n}\n#files .thumb .filenameInplaceEdit {\n  font-size: 18px;\n  color: #41aaaa;\n  margin-top: 5px;\n}\n#files .thumb h4 {\n  font-size: 18px;\n  color: #41aaaa;\n}\n#files .thumbAdd {\n  color: #41aaaa;\n  color: #0078f2;\n  border: 1px solid rgba(0, 120, 242, 0.33);\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 1s;\n  -webkit-transition: all 1s;\n}\n#files .thumbAdd div {\n  font-size: 160px;\n  text-align: center;\n}\n#files .thumbAdd h4 {\n  text-align: center;\n}\n#files .thumbAdd:hover {\n  border: 1px solid #0078f2;\n  transition: all 1s;\n  -webkit-transition: all 1s;\n}\n#home {\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n  padding: 40px !important;\n  overflow: auto;\n  background-size: cover;\n}\n#home .branding {\n  color: #41aaaa;\n}\n#home .hacksterProjectCard {\n  border: 1px solid black;\n}\n#home .paragraph h3 {\n  color: #41aaaa;\n  padding-top: 45px;\n}\n#home .paragraph .block {\n  padding-bottom: 30px;\n}\n#home .teaser {\n  margin-bottom: 30px;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 70%, #fff 100%), radial-gradient(ellipse at center, rgba(247, 249, 250, 0.7) 0%, rgba(247, 249, 250, 0) 60%), linear-gradient(to bottom, rgba(247, 249, 250, 0) 0%, #f7f9fa 100%);\n}\n#home .teaser .title {\n  color: #41aaaa;\n  font-weight: 200;\n  font-size: 4vw;\n  white-space: nowrap;\n  margin-bottom: 10px;\n}\n#home .teaser .title img {\n  padding-right: 40px;\n  height: 100px;\n}\n#home .teaser .slogan {\n  font-size: 2vw;\n  font-weight: 200;\n  color: #34495e;\n}\n#home .introText {\n  font-size: 20px;\n  font-weight: 200;\n  color: #34495e;\n}\n#home footer {\n  text-align: center;\n  margin-top: 100px;\n  color: #41aaaa;\n}\n#home footer a {\n  color: #41aaaa;\n  text-decoration: underline;\n}\n.raspiConnection {\n  color: red !important;\n  border: 1px solid red;\n  padding: 10px;\n  border-radius: 5px;\n}\n.drop {\n  display: block;\n  position: absolute;\n  background: #CCC;\n  border-radius: 100%;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n  pointer-events: none;\n  width: 100%;\n  height: 100%;\n}\n.drop:before {\n  display: block;\n  position: absolute;\n  content: \"\";\n  background-color: #EEE;\n  border-radius: 100%;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n}\n.slider-handle {\n  border-radius: 50%;\n  background-color: #41aaaa;\n}\n#simulationBaseTimer {\n  width: 200px;\n}\n.simulationBase label {\n  display: block;\n  opacity: 0.5;\n  font-size: 10px;\n}\n.toolbar .group .form-horizontal {\n  text-align: center;\n  display: flex;\n}\n.toolbar .group .form-horizontal .statusIndicator {\n  margin: 20px;\n}\n.toolbar .group .form-horizontal .statusIndicator img {\n  display: block;\n  cursor: pointer;\n  margin: auto;\n}\n.toolbar .group .form-horizontal .statusIndicator img:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n}\n.toolbar .group .form-horizontal .statusIndicator span {\n  font-size: 0.8em;\n  text-align: center;\n  width: 100%;\n  display: inline-block;\n  white-space: nowrap;\n}\n.toolbar .group .form-horizontal .statusIndicator .notSupported {\n  display: none;\n  font-weight: bold;\n}\n.toolbar .group .form-horizontal .statusIndicator .connected {\n  display: block;\n}\n.toolbar .group .form-horizontal .statusIndicator .disconnected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled img {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled img:hover {\n  box-shadow: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled span {\n  opacity: 0.5;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .notSupported {\n  display: block;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .connected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .disconnected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) span {\n  color: red;\n  font-weight: bold;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .notSupported {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .connected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .disconnected {\n  display: block;\n}\n#simulationStartStop {\n  position: absolute;\n  right: 30px;\n  top: 30px;\n  z-index: 1000;\n  display: inline-block;\n  width: 4em;\n  height: 4em;\n  background-color: #FFF;\n  color: #9e9e9e;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\n  border-radius: 2em;\n  overflow: hidden;\n  transform: translateZ(0);\n  transition: all 500ms ease;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n#simulationStartStop:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n}\n#simulationStartStop:active {\n  -webkit-transform: scale(1.1, 1.1);\n  transform: scale(1.1, 1.1);\n}\n#simulationStartStop:focus {\n  outline: 0;\n  border: none;\n  color: rgba(0, 0, 0, 0);\n}\n#simulationStartStop > span {\n  display: block;\n  position: relative;\n  width: 2em;\n  height: 2em;\n  transition: all 500ms ease;\n  overflow: hidden;\n  margin: 1em;\n}\n#simulationStartStop > span > span {\n  display: block;\n  background-color: #41aaaa;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 2em;\n  height: 2em;\n  transition: all 500ms ease;\n  border: 1px solid transparent;\n}\n#simulationStartStop.play > span {\n  -webkit-transform: translate(1em, 0) scale(1.6, 1);\n  transform: translate(1em, 0) scale(1.6, 1);\n}\n#simulationStartStop.play > span > span {\n  -webkit-transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n  transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n  background-color: #41aaaa;\n}\n#simulationStartStop.pause > span > span {\n  -webkit-transform: scale(0.4, 1) translate(-1.6em, 0);\n  transform: scale(0.4, 1) translate(-1.6em, 0);\n}\n#simulationStartStop.pause > span > span.s3 {\n  -webkit-transform: scale(0.4, 1) translate(1.6em, 0);\n  transform: scale(0.4, 1) translate(1.6em, 0);\n}\n", "",{"version":3,"sources":["C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/toolbar.less","index.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/file_new_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/file_open_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/file_save_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/file_saveas_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/_common/less/canvas_zoom.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/layout.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/tooltip.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/code_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/markdown_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/webusbhelp_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/popconfirm_dialog.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/contextmenu.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/probe_window.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/shape.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/tabmenu.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/tabpane_editor.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/tabpane_files.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/tabpane_home.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/toolbar.less","C:/GitHub/Siemens_Skill_Invokation_Client_Restrukturierung/app/frontend/circuit/less/simulationStartStopButton.less"],"names":[],"mappings":"AAAA;EACE,SAAA;EACA,cAAA;EACA,mBAAA;EACA,MAAA;EACA,QAAA;EACA,WAAA;EACA,YAAA;EACA,iBAAA;EACA,wBAAA;EACA,kBAAA;EACA,yBAAA;EACA,uBAAA;ACCF;ADbA;EAeI,aAAA;ACCJ;ADhBA;EAmBI,mBAAA;EACA,qBAAA;EACA,mBAAA;ACAJ;ADrBA;EAwBM,qBAAA;ACAN;ADxBA;EA0BQ,WAAA;EACA,gBAAA;EACA,UAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;EACA,qBAAA;EACA,kBAAA;EACA,WAAA;EACA,eAAA;EACA,oBAAA;ACCR;ADrCA;EAuCQ,WAAA;EACA,gBAAA;EACA,UAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;EACA,qBAAA;EACA,kBAAA;EACA,WAAA;EACA,eAAA;EACA,oBAAA;ACCR;ADlDA;EAqDQ,yBAAA;EACA,kBAAA;EACA,eAAA;ACAR;ADEM;EACE,YAAA;ACAR;ADEM;EAEI,eAAA;ACDV;ADEU;EACE,wEAAA;ACAZ;AChEA;EACE,YAAA;EACA,uBAAA;EACA,+BAAA;ADkEF;AC/DA;EAEI,kBAAA;EACA,2EAAA;EACA,yBAAA;ADgEJ;ACpEA;EAOM,gBAAA;EACA,gBAAA;EACA,2CAAA;ADgEN;ACzEA;EAaM,YAAA;EACA,iBAAA;AD+DN;AC7EA;EAiBS,wBAAA;EACD,qBAAA;EACA,gBAAA;EACA,sBAAA;EACA,kBAAA;EACA,SAAA;EACA,UAAA;EACA,cAAA;EACA,qBAAA;EACA,aAAA;EACA,yBAAA;EACA,gBAAA;EACA,YAAA;EACA,cAAA;AD+DR;AC9DQ;EACE,yBAAA;ADgEV;AChGA;EAqCQ,gBAAA;EACA,gBAAA;AD8DR;ACpGA;EAyCU,iBAAA;EACA,cAAA;AD8DV;ACxGA;;EA8CU,eAAA;EACA,mBAAA;EACA,cAAA;AD8DV;AC9GA;EAoDU,6BAAA;EACA,gBAAA;AD6DV;AC3DU;EACE,0BAAA;AD6DZ;ACrHA;EA6DU,WAAA;EACA,eAAA;EACA,gCAAA;AD2DV;AC1HA;EAiEY,WAAA;AD4DZ;AC7HA;EAwEM,6BAAA;EACA,aAAA;ADwDN;ACjIA;EA4EQ,SAAA;EACA,yBAAA;EACA,6BAAA;EACA,cAAA;EACA,oBAAA;ADwDR;ACtDQ;EACE,0CAAA;EACA,oBAAA;ADwDV;AC5IA;EAyFQ,iBAAA;ADsDR;AEpJA;EAGI,gBAAA;EACA,cAAA;AFoJJ;AGxJA;EAGI,WAAA;AHwJJ;AI3JA;EAGI,gBAAA;EACA,iBAAA;AJ2JJ;AI/JA;EASM,aAAA;AJyJN;AKlKA;EAGI,gBAAA;EACA,iBAAA;ALkKJ;AKtKA;EASI,aAAA;ALgKJ;AM1KA;EACE,eAAA;EACA,YAAA;EACA,WAAA;EACA,0CAAA;EACA,kBAAA;AN4KF;AMjLA;EAQI,6BAAA;EACA,gBAAA;EACA,YAAA;EACA,kBAAA;EACA,mBAAA;EACA,6BAAA;EACA,aAAA;EACA,oBAAA;AN4KJ;AM3KI;EACE,yBAAA;AN6KN;AO5LA;EACE,SAAA;EACA,UAAA;EACA,gBAAA;AP8LF;AOjMA;EAMI,WAAA;EACA,YAAA;EACA,UAAA;EACA,SAAA;AP8LJ;AOvMA;EAYM,WAAA;EACA,gBAAA;AP8LN;AO3MA;EAeQ,WAAA;EACA,SAAA;AP+LR;AO/MA;EAmBU,eAAA;EACA,SAAA;AP+LV;AOnNA;EAgCM,YAAA;EACA,kBAAA;EACA,UAAA;EACA,gBAAA;EACA,gBAAA;APsLN;AO1NA;EAsCQ,2BAAA;EACA,UAAA;EACA,WAAA;APuLR;AO/NA;EA6CM,kBAAA;EACA,gBAAA;EACA,YAAA;APqLN;AOpOA;EAkDQ,aAAA;EACA,UAAA;EACA,YAAA;EACA,kBAAA;APqLR;AO1OA;EA0DY,kBAAA;EACA,YAAA;EACA,YAAA;EACA,UAAA;EAEA,yBAAA;EACA,kBAAA;EACA,kDAAA;EACA,aAAA;APkLZ;AOpPA;EAqEc,UAAA;EACA,UAAA;EACA,SAAA;EACA,kBAAA;APkLd;AO1PA;EA0EgB,mBAAA;EACA,kBAAA;EACA,UAAA;EACA,gBAAA;APmLhB;AOhQA;EAgFgB,kBAAA;EACA,UAAA;APmLhB;AOpQA;EAmFkB,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,SAAA;EACA,UAAA;EACA,gBAAA;APoLlB;AO5QA;EA2FkB,eAAA;EACA,gBAAA;EACA,SAAA;EACA,UAAA;EACA,gBAAA;APoLlB;AOnRA;EAqGc,eAAA;EACA,YAAA;EACA,SAAA;EACA,YAAA;EACA,yBAAA;EAEA,kBAAA;APgLd;AO3RA;EA+Gc,kBAAA;EACA,SAAA;EACA,gCAAA;EACA,gBAAA;EACA,eAAA;EACA,wBAAA;EACA,mBAAA;EACA,gBAAA;EAEA,iDAAA;AP8Kd;AOtSA;EA4Hc,kBAAA;EACA,YAAA;EACA,SAAA;EACA,UAAA;EACA,UAAA;EACA,WAAA;EACA,cAAA;AP6Kd;AO/SA;EAoIgB,kBAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EACA,gBAAA;AP8KhB;AOtTA;EA0IkB,aAAA;EACA,yBAAA;EP+KhB,6CAA6C;EO7K7B,qBAAA;AP+KlB;AO5TA;EAmJY,kBAAA;EACA,QAAA;EACA,SAAA;EACA,SAAA;EACA,WAAA;EACA,gBAAA;AP4KZ;AOpUA;EA0JgB,aAAA;EACA,cAAA;AP6KhB;AOxUA;EA+Jc,eAAA;EACA,WAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,6BAAA;EACA,0CAAA;AP4Kd;AO3Kc;EACE,oCAAA;AP6KhB;AOpVA;EA4Kc,cAAA;AP2Kd;AOvVA;EAgLc,eAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,aAAA;EACA,mBAAA;EACA,gBAAA;AP0Kd;AOhWA;EA6LQ,cAAA;APsKR;AOhKA;;;EACE,SAAA;APoKF;AACA,0DAA0D;AQzW1D;EACE,kBAAA;EACA,mBAAA;EACA,aAAA;EACA,kBAAA;AR2WF;AQxWA;;EACE,YAAA;EACA,yBAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EACA,oBAAA;AR2WF;AQxWA;EACE,oCAAA;EACA,4BAAA;EACA,iBAAA;EACA,SAAA;EACA,iBAAA;AR0WF;ASlYA;EAGI,iBAAA;EACA,gBAAA;EACA,gBAAA;ATkYJ;AUtYA;EAGI,aAAA;AVsYJ;AUzYA;EAKM,yCAAA;EACA,WAAA;EACA,eAAA;EACA,6BAAA;EACA,mBAAA;EACA,YAAA;EACA,cAAA;EACA,sBAAA;EACA,uBAAA;EACA,0BAAA;EACA,kBAAA;EAEA,kCAAA;EACA,qCAAA;EACA,6BAAA;AVsYN;AUzZA;EAsBM,4BAAA;EACA,6BAAA;EACA,gCAAA;AVsYN;AU9ZA;EA4BM,gBAAA;EACA,kBAAA;AVqYN;AUlaA;EAgCM,+BAAA;EACA,mCAAA;EACA,2BAAA;AVqYN;AUvaA;EAqCM,gCAAA;EACA,oCAAA;EACA,4BAAA;AVqYN;AU5aA;EA0CM,kBAAA;EACA,kBAAA;AVqYN;AUhbA;EA8CM,gBAAA;EACA,kBAAA;EACA,cAAA;AVqYN;AUrbA;EAmDM,aAAA;EACA,6BAAA;EACA,gCAAA;EACA,8BAAA;AVqYN;AU3bA;EA0DM,mBAAA;AVoYN;AU9bA;EA8DM,mBAAA;AVmYN;AUjcA;EAkEM,gBAAA;AVkYN;AUpcA;EAsEM,kCAAA;EACA,sCAAA;EACA,8BAAA;AViYN;AUzcA;EA4EM,mCAAA;EACA,uCAAA;EACA,+BAAA;AVgYN;AW/cA;EAGI,iBAAA;AX+cJ;AWldA;EAKM,aAAA;EACA,iBAAA;EACA,cAAA;EACA,gBAAA;AXgdN;AYvdA;EACE,yBAAA;AZydF;Aa3dA;EACE,SAAA;EACA,UAAA;EAEA,gBAAA;EACA,gBAAA;EACA,qBAAA;EACA,kBAAA;EACA,qBAAA;EAEA,sBAAA;EACA,iBAAA;EACA,8BAAA;EACA,gDAAA;EACA,6CAAA;EACA,4CAAA;EACA,2CAAA;EACA,wCAAA;EAEA,eAAA;EACA,mBAAA;Ab0dF;AavdA;EACE,yBAAA;EACA,kBAAA;EACA,yBAAA;EACA,2BAAA;EACA,qBAAA;EACA,iBAAA;AbydF;AatdA;EACE,iBAAA;EACA,6BAAA;AbwdF;AardA;;EAEE,yBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;AbudF;AapdA;EACE,eAAA;EACA,yBAAA;EACA,YAAA;AbsdF;AandA;EACE,WAAA;AbqdF;AaldA;;EAEE,eAAA;EACA,sBAAA;AbodF;AajdA;EACE,YAAA;EACA,WAAA;EACA,kBAAA;EACA,MAAA;EACA,UAAA;EACA,UAAA;AbmdF;AACA;;;;;EAKE;AahdF;EAA0B,gBAAA;Abmd1B;AaldA;EACE,kBAAA;EACA,WAAA;EACA,eAAA;AbodF;AACA,mCAAmC;AajdnC;EAAkC,mBAAA;AbodlC;AACA,4CAA4C;Aald5C;;EAEE,kBAAA;AbodF;AaldA;EACE,gBAAA;AbodF;AajdA;;;;EAIE,cAAA;EACA,WAAA;EACA,sBAAA;AbmdF;AahdA;EACE,aAAA;AbkdF;AahdA;EACE,aAAA;EbkdA,wBAAwB;EahdxB,WAAA;EACA,QAAA;AbkdF;Aa/cA;EACE,cAAA;AbidF;Aa9cA;EACE,0BAAA;AbgdF;ActkBA;EAEE,cAAA;EACA,aAAA;EAEA,eAAA;EACA,gBAAA;AdskBF;AcnkBA;EAGE,SAAA;EACA,SAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;AdkkBF;Ac1kBA;EAUI,eAAA;EACA,sBAAA;EACA,mBAAA;AdmkBJ;Ac/kBA;EAgBI,cAAA;EACA,aAAA;EACA,uBAAA;AdkkBJ;AcplBA;EAoBM,eAAA;EACA,mBAAA;AdmkBN;AcxlBA;EAyBc,aAAA;AdkkBd;Ac3lBA;EA0Be,UAAA;AdokBf;Ac9lBA;;EA8B0B,iBAAA;AdokB1B;AchkBA;EACE,kBAAA;EACA,UAAA;EACA,eAAA;EACA,YAAA;EACA,WAAA;EACA,gCAAA;EACA,kBAAA;AdkkBF;Ac/jBA;EACE,kBAAA;EACA,qBAAA;EACA,QAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,UAAA;EACA,kBAAA;EACA,sBAAA;EACA,aAAA;AdikBF;Ac3kBA;EAYI,cAAA;EACA,kBAAA;EACA,QAAA;AdkkBJ;Ac9jBA;EAEE,eAAA;Ad+jBF;AcjkBA;EAII,qBAAA;EACA,iBAAA;EACA,eAAA;AdgkBJ;ActkBA;EAQM,aAAA;AdikBN;AczkBA;EAWM,eAAA;EACA,qBAAA;EACA,kBAAA;EACA,mBAAA;EACA,kBAAA;EACA,kCAAA;AdikBN;AcjlBA;EAqBI,mBAAA;Ad+jBJ;AcplBA;EAuBO,kCAAA;AdgkBP;AcvlBA;EA4BI,oCAAA;Ad8jBJ;AehqBA;;;EAIE,aAAA;AfiqBF;Ae9pBA;;;EAGE,aAAA;AfgqBF;AgB3qBA;EACE,yBAAA;EACA,mBAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,YAAA;AhB6qBF;AgB1qBA;EAEI,yBAAA;AhB2qBJ;AgB1qBI;EACE,mBAAA;EACA,yDAAA;EACA,sDAAA;EACA,qDAAA;EACA,iDAAA;EACA,eAAA;EACA,YAAA;EACA,mBAAA;EACA,YAAA;AhB4qBN;AgBtqBU;EACE,uBAAA;AhBwqBZ;AgB3qBM;EAQM,0BAAA;AhBsqBZ;AgB9qBM;EAWM,0BAAA;AhBsqBZ;AgBjrBM;EAcM,0BAAA;AhBsqBZ;AgBprBM;EAiBM,wBAAA;AhBsqBZ;AgBvrBM;EAoBM,wBAAA;AhBsqBZ;AgB1sBA;EA6CQ,YAAA;AhBgqBR;AgBnqBQ;EACE,oCAAA;AhBqqBV;AgBhtBA;EAgDY,wBAAA;AhBmqBZ;AgBntBA;EAmDY,wBAAA;AhBmqBZ;AgBttBA;EAsDY,wBAAA;AhBmqBZ;AgBztBA;EAyDY,sBAAA;AhBmqBZ;AgB5tBA;EA4DY,sBAAA;AhBmqBZ;AiBxuBA;EACE,yBAAA;EACA,yCAAA;EACA,uBAAA;AjB0uBF;AiBvuBA;EACE,cAAA;AjByuBF;AiBtuBA;EACE,eAAA;EACA,iBAAA;AjBwuBF;AiBruBA;EACE,eAAA;AjBuuBF;AiBpuBA;EACE,6BAAA;AjBsuBF;AiBnuBA;EACE,eAAA;EACA,eAAA;EACA,YAAA;AjBquBF;AiBpuBE;EACE,UAAA;EACA,cAAA;AjBsuBJ;AiBluBA;EACE,yBAAA;AjBouBF;AiBjuBA;EACI,SAAA;EACA,kBAAA;EACA,MAAA;EACA,OAAA;EACA,QAAA;EACA,0CAAA;EACA,aAAA;AjBmuBJ;AiB9tBA;EACE,aAAA;EACA,uBAAA;EACA,oCAAA;EACA,aAAA;EACA,iBAAA;EACA,8BAAA;EACA,kBAAA;AjBguBF;AiBvuBA;EASI,eAAA;EACA,gBAAA;EACA,oBAAA;AjBiuBJ;AiB5uBA;EAcI,eAAA;EACA,gBAAA;EACA,eAAA;AjBiuBJ;AiBhuBI;EACE,cAAA;AjBkuBN;AiB9tBE;EACE,WAAA;EACA,cAAA;EACA,kBAAA;EACA,WAAA;EACA,SAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;EACA,kCAAA;EACA,mCAAA;EACA,qCAAA;AjBguBJ;AiB3tBA;EAEE,kBAAA;AjB4tBF;AACA;;;;;;;;;;;;;;;;;;;;;CAqBC;AiBztBD;EACE;IAAI,yBAAA;EjB4tBJ;AACF;AiB1tBA;EACE,WAAA;EACA,sBAAA;EACA,kBAAA;EACA,QAAA;EACA,SAAA;EACA,WAAA;EACA,YAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,sBAAA;EACA,sBAAA;EACA,uCAAA;AjB4tBF;AiBztBA;EAGI,2FAAA;EACA,6CAAA;EACA,4CAAA;AjBytBJ;AiB9tBA;EAQM,aAAA;AjBytBN;AiBjuBA;EAYM,UAAA;EACA,UAAA;EACA,SAAA;EACA,kBAAA;AjBwtBN;AiBvuBA;EAiBQ,mBAAA;EACA,kBAAA;EACA,UAAA;AjBytBR;AiB5uBA;EAsBQ,kBAAA;EACA,UAAA;AjBytBR;AiBhvBA;EAyBU,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,SAAA;EACA,UAAA;EACA,gBAAA;AjB0tBV;AiBxvBA;EAiCU,eAAA;EACA,gBAAA;EACA,SAAA;EACA,UAAA;EACA,gBAAA;EACA,mBAAA;AjB0tBV;AiBhwBA;EA2CM,YAAA;AjBwtBN;AiBnwBA;EA6CQ,WAAA;EACA,YAAA;EACA,kBAAA;EACA,6BAAA;AjBytBR;AiBzwBA;EAkDU,kBAAA;EACA,QAAA;EACA,SAAA;EACA,YAAA;EACA,SAAA;EACA,iCAAA;AjB0tBV;AiBjxBA;EA0DU,kBAAA;EACA,mBAAA;EACA,WAAA;EACA,SAAA;EACA,gBAAA;EACA,qCAAA;EACA,eAAA;AjB0tBV;AiB1xBA;EAoEQ,yBAAA;AjBytBR;AiB7xBA;EAwEM,YAAA;EACA,gBAAA;AjBwtBN;AiBjyBA;EA6EM,eAAA;EACA,cAAA;AjButBN;AiBryBA;EAgFQ,eAAA;EACA,eAAA;EACA,gBAAA;EACA,mBAAA;AjBwtBR;AiB3yBA;EA6FQ,2BAAA;EACA,yBAAA;EACA,wBAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;AjBitBR;AiB1sBA;;;EACE,SAAA;AjB8sBF;AkB97BA;EACE,kBAAA;EACA,wBAAA;EACA,mDAAA;AlBg8BF;AkBn8BA;EAMI,kBAAA;EACA,WAAA;EACA,WAAA;EACA,cAAA;EACA,QAAA;EACA,eAAA;EACA,uBAAA;EACA,kBAAA;EACA,sCAAA;AlBg8BJ;AkB/7BI;EACE,sCAAA;AlBi8BN;AkBj9BA;EAuBQ,eAAA;AlB67BR;AkBp9BA;EA2BM,eAAA;EACA,cAAA;EACA,eAAA;AlB47BN;AkBz9BA;EAgCM,eAAA;EACA,cAAA;AlB47BN;AkB79BA;EAsCI,cAAA;EACA,cAAA;EACA,yCAAA;EACA,kBAAA;EACA,eAAA;EACA,kBAAA;EACA,0BAAA;AlB07BJ;AkBt+BA;EA8CM,gBAAA;EACA,kBAAA;AlB27BN;AkB1+BA;EAkDM,kBAAA;AlB27BN;AkBz7BI;EACE,yBAAA;EACA,kBAAA;EACA,0BAAA;AlB27BN;AmBl/BA;EACE,mDAAA;EACA,wBAAA;EAmBA,cAAA;EACA,sBAAA;AnBk+BF;AmBx/BA;EAII,cAAA;AnBu/BJ;AmB3/BA;EAQI,uBAAA;AnBs/BJ;AmB9/BA;EAaM,cAAA;EACA,iBAAA;AnBo/BN;AmBlgCA;EAiBM,oBAAA;AnBo/BN;AmBrgCA;EAyBI,mBAAA;EACA,mRAAA;AnB++BJ;AmBzgCA;EAgCM,cAAA;EACA,gBAAA;EACA,cAAA;EACA,mBAAA;EACA,mBAAA;AnB4+BN;AmBhhCA;EAsCQ,mBAAA;EACA,aAAA;AnB6+BR;AmBphCA;EA2CM,cAAA;EACA,gBAAA;EACA,cAAA;AnB4+BN;AmBzhCA;EAmDI,eAAA;EACA,gBAAA;EACA,cAAA;AnBy+BJ;AmB9hCA;EAyDI,kBAAA;EACA,iBAAA;EACA,cAAA;AnBw+BJ;AmBniCA;EA6DM,cAAA;EACA,0BAAA;AnBy+BN;AoBviCA;EACE,qBAAA;EACA,qBAAA;EACA,aAAA;EACA,kBAAA;ApByiCF;AoBpiCA;EACE,cAAA;EACA,kBAAA;EACA,gBAAA;EACA,mBAAA;EACA,2BAAA;EACA,mBAAA;EACA,oBAAA;EACA,WAAA;EACA,YAAA;ApBsiCF;AoBniCA;EACE,cAAA;EACA,kBAAA;EACA,WAAA;EACA,sBAAA;EACA,mBAAA;EACA,WAAA;EACA,YAAA;EACA,MAAA;EACA,OAAA;EACA,2BAAA;EACA,mBAAA;ApBqiCF;AoBliCA;EACE,kBAAA;EACA,yBAAA;ApBoiCF;AoBhiCA;EACE,YAAA;ApBkiCF;AoB/hCA;EAEI,cAAA;EACA,YAAA;EACA,eAAA;ApBgiCJ;AoB5hCA;EAGM,kBAAA;EACA,aAAA;ApB4hCN;AoBhiCA;EAMQ,YAAA;ApB6hCR;AoBniCA;EAQU,cAAA;EACA,eAAA;EACA,YAAA;ApB8hCV;AoB7hCU;EACE,uCAAA;ApB+hCZ;AoB3iCA;EAgBU,gBAAA;EACA,kBAAA;EACA,WAAA;EACA,qBAAA;EACA,mBAAA;ApB8hCV;AoBljCA;EAuBU,aAAA;EACA,iBAAA;ApB8hCV;AoBtjCA;EA2BU,cAAA;ApB8hCV;AoBzjCA;EA8BU,aAAA;ApB8hCV;AoB5jCA;EAmCU,YAAA;EACA,mBAAA;ApB4hCV;AoB3hCU;EACE,gBAAA;ApB6hCZ;AoBnkCA;EA0CU,YAAA;ApB4hCV;AoBtkCA;EA6CU,cAAA;ApB4hCV;AoBzkCA;EAgDU,aAAA;ApB4hCV;AoB5kCA;EAmDU,aAAA;ApB4hCV;AoB/kCA;EA0DU,UAAA;EACA,iBAAA;ApBwhCV;AoBnlCA;EA8DU,aAAA;ApBwhCV;AoBtlCA;EAiEU,aAAA;ApBwhCV;AoBzlCA;EAoEU,cAAA;ApBwhCV;AqBjpCA;EACE,kBAAA;EACA,WAAA;EACA,SAAA;EACA,aAAA;EAEA,qBAAA;EACA,UAAA;EACA,WAAA;EACA,sBAAA;EACA,cAAA;EACA,sCAAA;EACA,kBAAA;EACA,gBAAA;EACA,wBAAA;EACA,0BAAA;EAEA,6CAAA;ArBipCF;AqBhpCE;EACE,uCAAA;ArBkpCJ;AqB/oCE;EACE,kCAAA;EACA,0BAAA;ArBipCJ;AqB9oCE;EACE,UAAA;EACA,YAAA;EACA,uBAAA;ArBgpCJ;AqB7oCE;EACE,cAAA;EACA,kBAAA;EACA,UAAA;EACA,WAAA;EACA,0BAAA;EACA,gBAAA;EACA,WAAA;ArB+oCJ;AqB7oCI;EACE,cAAA;EACA,yBAAA;EACA,kBAAA;EACA,MAAA;EACA,OAAA;EACA,UAAA;EACA,WAAA;EACA,0BAAA;EACA,6BAAA;ArB+oCN;AqB1oCI;EACE,kDAAA;EACA,0CAAA;ArB4oCN;AqB1oCM;EACE,mEAAA;EACA,2DAAA;EACA,yBAAA;ArB4oCR;AqBnoCM;EACE,qDAAA;EACA,6CAAA;ArBqoCR;AqBnoCQ;EACE,oDAAA;EACA,4CAAA;ArBqoCV","file":"index.less","sourcesContent":[".toolbar {\n  margin:0;\n  padding-top:0;\n  padding-right:10px;\n  top:0;\n  right:0;\n  left:@leftPaneWidth;\n  height:@toolbarHeight;\n  overflow: visible;\n  z-index:1000 !important;\n  position:absolute;\n  background-color:@toolbarBackground;\n  border: none !important;\n\n  * {\n    outline:none;\n  }\n\n  .group{\n    padding-right:20px;\n    display: inline-block;\n    vertical-align: top;\n\n    .image-button{\n      display: inline-block;\n      img{\n        margin: 5px;\n        margin-bottom:0;\n        padding: 0;\n        width: @toolbarHeight - 20;\n        height: @toolbarHeight - 20;\n        position: relative;\n        display: inline-block;\n        text-align: center;\n        color:#777;\n        font-size:45px;\n        transition: all 0.5s;\n      }\n      .img_span{\n        margin: 5px;\n        margin-bottom:0;\n        padding: 0;\n        width: @toolbarHeight - 20;\n        height: @toolbarHeight - 20;\n        position: relative;\n        display: inline-block;\n        text-align: center;\n        color:#777;\n        font-size:45px;\n        transition: all 0.5s;\n      }\n\n      div{\n        color:@toolbarButtonFontColor;\n        text-align: center;\n        font-size: 10px;\n      }\n      &.disabled{\n        opacity:0.2;\n      }\n      &:not(.disabled){\n        img {\n          cursor:pointer;\n          &:hover{\n            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n          }\n        }\n      }\n    }\n  }\n}\n",".toolbar {\n  margin: 0;\n  padding-top: 0;\n  padding-right: 10px;\n  top: 0;\n  right: 0;\n  left: 250px;\n  height: 60px;\n  overflow: visible;\n  z-index: 1000 !important;\n  position: absolute;\n  background-color: #ebf0f5;\n  border: none !important;\n}\n.toolbar * {\n  outline: none;\n}\n.toolbar .group {\n  padding-right: 20px;\n  display: inline-block;\n  vertical-align: top;\n}\n.toolbar .group .image-button {\n  display: inline-block;\n}\n.toolbar .group .image-button img {\n  margin: 5px;\n  margin-bottom: 0;\n  padding: 0;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  display: inline-block;\n  text-align: center;\n  color: #777;\n  font-size: 45px;\n  transition: all 0.5s;\n}\n.toolbar .group .image-button .img_span {\n  margin: 5px;\n  margin-bottom: 0;\n  padding: 0;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  display: inline-block;\n  text-align: center;\n  color: #777;\n  font-size: 45px;\n  transition: all 0.5s;\n}\n.toolbar .group .image-button div {\n  color: rgba(0, 0, 0, 0.5);\n  text-align: center;\n  font-size: 10px;\n}\n.toolbar .group .image-button.disabled {\n  opacity: 0.2;\n}\n.toolbar .group .image-button:not(.disabled) img {\n  cursor: pointer;\n}\n.toolbar .group .image-button:not(.disabled) img:hover {\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n}\n.modal-backdrop.in {\n  opacity: 0.7;\n  background-color: black;\n  transition: opacity 0.4s linear;\n}\n.genericDialog .modal-content {\n  border-radius: 4px;\n  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n  background-color: #ffffff;\n}\n.genericDialog .modal-content .modal-header {\n  border-bottom: 0;\n  font-weight: 400;\n  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);\n}\n.genericDialog .modal-content .modal-body {\n  padding: 1px;\n  min-height: 120px;\n}\n.genericDialog .modal-content .modal-body .form-control {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n  box-sizing: border-box;\n  border-radius: 4px;\n  margin: 0;\n  padding: 0;\n  color: #4D4D4D;\n  display: inline-block;\n  font: inherit;\n  border: 1px solid #DFDFDF;\n  box-shadow: none;\n  height: 24px;\n  padding: 0 3px;\n}\n.genericDialog .modal-content .modal-body .form-control:focus {\n  background-color: #f5f5f5;\n}\n.genericDialog .modal-content .modal-body .list-group {\n  overflow-y: auto;\n  overflow-x: auto;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"true\"] {\n  font-weight: bold;\n  color: #41aaaa;\n}\n.genericDialog .modal-content .modal-body .list-group .glyphicon,\n.genericDialog .modal-content .modal-body .list-group .fa {\n  font-size: 20px;\n  padding-right: 10px;\n  color: #41aaaa;\n}\n.genericDialog .modal-content .modal-body .list-group .list-group-item {\n  background-color: transparent;\n  font-weight: 300;\n}\n.genericDialog .modal-content .modal-body .list-group .list-group-item:hover {\n  text-decoration: underline;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"false\"][data-type=\"file\"] {\n  color: gray;\n  cursor: default;\n  text-decoration: none !important;\n}\n.genericDialog .modal-content .modal-body .list-group *[data-draw2d=\"false\"][data-type=\"file\"] .fa {\n  color: gray;\n}\n.genericDialog .modal-content .modal-footer {\n  background-color: transparent;\n  border-top: 0;\n}\n.genericDialog .modal-content .modal-footer .btn {\n  border: 0;\n  text-transform: uppercase;\n  background-color: transparent;\n  color: #41aaaa;\n  transition: all 0.5s;\n}\n.genericDialog .modal-content .modal-footer .btn:hover {\n  background-color: rgba(65, 170, 170, 0.04);\n  transition: all 0.5s;\n}\n.genericDialog .modal-content .modal-footer .btn-primary {\n  font-weight: bold;\n}\n#githubNewFileDialog .filePreview {\n  font-size: 115px;\n  color: #41aaaa;\n}\n#fileOpenDialog .list-group {\n  height: 60%;\n}\n#fileSaveDialog .filePreview {\n  max-width: 200px;\n  max-height: 200px;\n}\n#fileSaveDialog .modal-body .media {\n  padding: 20px;\n}\n#githubFileSaveAsDialog .filePreview {\n  max-width: 200px;\n  max-height: 200px;\n}\n#githubFileSaveAsDialog .list-group {\n  height: 250px;\n}\n#canvas_zoom {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  background-color: rgba(235, 240, 245, 0.3);\n  border-radius: 5px;\n}\n#canvas_zoom button {\n  background-color: transparent;\n  font-weight: 300;\n  padding: 5px;\n  padding-left: 10px;\n  padding-right: 10px;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all 0.5s;\n}\n#canvas_zoom button:hover {\n  border: 1px solid #41aaaa;\n}\nbody {\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\nbody #layout {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n}\nbody #layout .nav-tabs {\n  float: left;\n  border-bottom: 0;\n}\nbody #layout .nav-tabs li {\n  float: none;\n  margin: 0;\n}\nbody #layout .nav-tabs li a {\n  margin-right: 0;\n  border: 0;\n}\nbody #layout #leftTabStrip {\n  height: 100%;\n  position: absolute;\n  width: 0px;\n  padding-top: 0px;\n  overflow: hidden;\n}\nbody #layout #leftTabStrip .leftTab {\n  border-radius: 0 !important;\n  width: 0px;\n  height: 0px;\n}\nbody #layout .tab-content {\n  position: relative;\n  margin-left: 0px;\n  height: 100%;\n}\nbody #layout .tab-content .tab-pane {\n  display: none;\n  padding: 0;\n  height: 100%;\n  position: relative;\n}\nbody #layout .tab-content .tab-pane .workspace .palette {\n  position: absolute;\n  height: 100%;\n  width: 250px;\n  padding: 0;\n  background-color: #ffffff;\n  text-align: center;\n  box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.3);\n  z-index: 1000;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title {\n  left: 10px;\n  right: 0px;\n  top: 10px;\n  position: absolute;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title img {\n  padding-right: 20px;\n  position: absolute;\n  left: 10px;\n  max-height: 30px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div {\n  position: absolute;\n  left: 90px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div h1 {\n  font-size: 25px;\n  font-weight: 200;\n  line-height: 45px;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .title div h2 {\n  font-size: 15px;\n  font-weight: 200;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #filter {\n  font-size: 14px;\n  width: 240px;\n  left: 2px;\n  height: 34px;\n  border: 1px solid #222222;\n  border-radius: 2px;\n}\nbody #layout .tab-content .tab-pane .workspace .palette .panetitle {\n  position: absolute;\n  top: 66px;\n  border-bottom: 1px solid #222222;\n  font-weight: 500;\n  font-size: 12px;\n  padding: 4px 4px 4px 4px;\n  letter-spacing: 5px;\n  text-align: left;\n  box-shadow: 0 4px 2px -2px rgba(31, 73, 125, 0.3);\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll {\n  position: absolute;\n  width: 248px;\n  margin: 0;\n  padding: 0;\n  top: 110px;\n  bottom: 0px;\n  overflow: auto;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll #paletteElements {\n  position: absolute;\n  width: 100%;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n}\nbody #layout .tab-content .tab-pane .workspace .palette #paletteElementsScroll #paletteElements .mix {\n  height: 125px;\n  border: 1px solid #f0f0f0;\n  /* to avoid doubling the border of the grid */\n  margin: -1px 0 0 -1px;\n}\nbody #layout .tab-content .tab-pane .workspace .content {\n  position: absolute;\n  right: 0;\n  top: 60px;\n  bottom: 0;\n  left: 250px;\n  overflow: scroll;\n}\nbody #layout .tab-content .tab-pane .workspace .content .canvas {\n  width: 6000px;\n  height: 6000px;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config {\n  position: fixed;\n  width: 40px;\n  top: 65px;\n  left: 255px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  background-color: rgba(235, 240, 245, 0.3);\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config:hover {\n  border: 1px solid #41aaaa !important;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config:hover {\n  color: #41aaaa;\n}\nbody #layout .tab-content .tab-pane .workspace .content #canvas_config_items {\n  position: fixed;\n  top: 90px;\n  left: 255px;\n  cursor: pointer;\n  padding: 10px;\n  white-space: nowrap;\n  min-width: 250px;\n}\nbody #layout .tab-content .active {\n  display: block;\n}\n.nav-tabs > li.active > a,\n.nav-tabs > li.active > a:hover,\n.nav-tabs > li.active > a:focus {\n  border: 0;\n}\n/* CSS from the cool website: http://cssarrowplease.com/ */\n.draw2d_tooltip {\n  position: absolute;\n  background: #88b7d5;\n  padding: 10px;\n  border-radius: 6px;\n}\n.draw2d_tooltip:after,\n.draw2d_tooltip:before {\n  bottom: 100%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.draw2d_tooltip:after {\n  border-color: rgba(136, 183, 213, 0);\n  border-bottom-color: #88b7d5;\n  border-width: 4px;\n  left: 50%;\n  margin-left: -4px;\n}\n#codePreviewDialog .prettyprint {\n  max-height: 250px;\n  overflow: scroll;\n  border-radius: 0;\n}\n#markdownDialog .html {\n  padding: 20px;\n}\n#markdownDialog .html table {\n  font-family: Arial, Helvetica, sans-serif;\n  color: #666;\n  font-size: 12px;\n  text-shadow: 1px 1px 0px #fff;\n  background: #eaebec;\n  margin: 20px;\n  margin-left: 0;\n  border: #ccc 1px solid;\n  -moz-border-radius: 3px;\n  -webkit-border-radius: 3px;\n  border-radius: 3px;\n  -moz-box-shadow: 0 1px 2px #d1d1d1;\n  -webkit-box-shadow: 0 1px 2px #d1d1d1;\n  box-shadow: 0 1px 2px #d1d1d1;\n}\n#markdownDialog .html table th {\n  padding: 21px 25px 22px 25px;\n  border-top: 1px solid #fafafa;\n  border-bottom: 1px solid #e0e0e0;\n}\n#markdownDialog .html table th:first-child {\n  text-align: left;\n  padding-left: 20px;\n}\n#markdownDialog .html table tr:first-child th:first-child {\n  -moz-border-radius-topleft: 3px;\n  -webkit-border-top-left-radius: 3px;\n  border-top-left-radius: 3px;\n}\n#markdownDialog .html table tr:first-child th:last-child {\n  -moz-border-radius-topright: 3px;\n  -webkit-border-top-right-radius: 3px;\n  border-top-right-radius: 3px;\n}\n#markdownDialog .html table tr {\n  text-align: center;\n  padding-left: 20px;\n}\n#markdownDialog .html table tr td:first-child {\n  text-align: left;\n  padding-left: 20px;\n  border-left: 0;\n}\n#markdownDialog .html table tr td {\n  padding: 18px;\n  border-top: 1px solid #ffffff;\n  border-bottom: 1px solid #e0e0e0;\n  border-left: 1px solid #e0e0e0;\n}\n#markdownDialog .html tbody tr:nth-child(odd) {\n  background: #fafafa;\n}\n#markdownDialog .html tbody tr:nth-child(even) {\n  background: #f3f3f3;\n}\n#markdownDialog .html table tr:last-child td {\n  border-bottom: 0;\n}\n#markdownDialog .html table tr:last-child td:first-child {\n  -moz-border-radius-bottomleft: 3px;\n  -webkit-border-bottom-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n#markdownDialog .html table tr:last-child td:last-child {\n  -moz-border-radius-bottomright: 3px;\n  -webkit-border-bottom-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n}\n#webUSBHelpDialog .modal-body {\n  min-height: 310px;\n}\n#webUSBHelpDialog .modal-body .html {\n  padding: 20px;\n  max-height: 310px;\n  overflow: auto;\n  border-radius: 0;\n}\n.confirm-dialog-btn-confirm {\n  background-color: #41aaaa;\n}\n.context-menu-list {\n  margin: 0;\n  padding: 0;\n  min-width: 120px;\n  max-width: 250px;\n  display: inline-block;\n  position: absolute;\n  list-style-type: none;\n  border: 1px solid #DDD;\n  background: white;\n  border-left: 2px solid #41aaaa;\n  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  font-size: 15px;\n  white-space: nowrap;\n}\n.context-menu-item {\n  padding: 5px 5px 5px 24px;\n  position: relative;\n  -webkit-user-select: none;\n  -moz-user-select: -moz-none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.context-menu-separator {\n  padding-bottom: 0;\n  border-bottom: 1px solid #DDD;\n}\n.context-menu-item > label > input,\n.context-menu-item > label > textarea {\n  -webkit-user-select: text;\n  -moz-user-select: text;\n  -ms-user-select: text;\n  user-select: text;\n}\n.context-menu-item.hover {\n  cursor: pointer;\n  background-color: #41aaaa;\n  color: white;\n}\n.context-menu-item.disabled {\n  color: #666;\n}\n.context-menu-input.hover,\n.context-menu-item.disabled.hover {\n  cursor: default;\n  background-color: #EEE;\n}\n.context-menu-submenu:after {\n  content: \">\";\n  color: #666;\n  position: absolute;\n  top: 0;\n  right: 3px;\n  z-index: 1;\n}\n/* icons\n    #protip:\n    In case you want to use sprites for icons (which I would suggest you do) have a look at\n    http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement\n    .context-menu-item.icon:before {}\n */\n.context-menu-item.icon {\n  min-height: 18px;\n}\n.context-menu-item.icon:before {\n  position: relative;\n  left: -15px;\n  font-size: 19px;\n}\n/* vertically align inside labels */\n.context-menu-input > label > * {\n  vertical-align: top;\n}\n/* position checkboxes and radios as icons */\n.context-menu-input > label > input[type=\"checkbox\"],\n.context-menu-input > label > input[type=\"radio\"] {\n  margin-left: -17px;\n}\n.context-menu-input > label > span {\n  margin-left: 5px;\n}\n.context-menu-input > label,\n.context-menu-input > label > input[type=\"text\"],\n.context-menu-input > label > textarea,\n.context-menu-input > label > select {\n  display: block;\n  width: 100%;\n  box-sizing: border-box;\n}\n.context-menu-input > label > textarea {\n  height: 100px;\n}\n.context-menu-item > .context-menu-list {\n  display: none;\n  /* re-positioned by js */\n  right: -5px;\n  top: 5px;\n}\n.context-menu-item.hover > .context-menu-list {\n  display: block;\n}\n.context-menu-accesskey {\n  text-decoration: underline;\n}\n#probe_hint {\n  display: block;\n  padding: 30px;\n  font-size: 20px;\n  font-weight: 100;\n}\n#probe_window {\n  bottom: 0;\n  height: 0;\n  position: absolute;\n  right: 0;\n  left: 250px;\n}\n#probe_window span {\n  font-size: 45px;\n  vertical-align: middle;\n  padding-right: 10px;\n}\n#probe_window #probe_window_log_container {\n  overflow: auto;\n  height: 200px;\n  padding: 10 10 10 30px ;\n}\n#probe_window #probe_window_log_container span {\n  font-size: 12px;\n  padding-right: 10px;\n}\n#probe_window .log-warn {\n  color: orange;\n}\n#probe_window .log-error {\n  color: red;\n}\n#probe_window .log-warn,\n#probe_window .log-error {\n  font-weight: bold;\n}\n#probe_window_stick {\n  position: absolute;\n  top: -30px;\n  cursor: pointer;\n  color: black;\n  width: 100%;\n  border-bottom: 2px solid #41aaaa;\n  text-align: center;\n}\n#probe_window_palette {\n  position: absolute;\n  display: inline-block;\n  top: 0px;\n  cursor: pointer;\n  color: black;\n  height: 100%;\n  right: 0px;\n  text-align: center;\n  vertical-align: middle;\n  z-index: 2000;\n}\n#probe_window_palette img {\n  display: block;\n  position: absolute;\n  top: 46%;\n}\n#probeSortable {\n  padding-left: 0;\n}\n#probeSortable li {\n  list-style-type: none;\n  padding-top: 10px;\n  padding-left: 0;\n}\n#probeSortable li path {\n  stroke: white;\n}\n#probeSortable li div {\n  cursor: pointer;\n  display: inline-block;\n  padding-left: 10px;\n  padding-right: 10px;\n  position: absolute;\n  background: rgba(0, 157, 172, 0.8);\n}\n#probeSortable li:nth-child(even) {\n  background: #04A9B9;\n}\n#probeSortable li:nth-child(even) div {\n  background: rgba(4, 169, 185, 0.5);\n}\n#probeSortable .inplaceEdit {\n  background: rgba(255, 255, 255, 0.1);\n}\nellipse.draw2d_shape_basic_LineStartResizeHandle,\nellipse.draw2d_shape_basic_LineEndResizeHandle,\nrect.draw2d_policy_line_OrthogonalSelectionFeedbackPolicy_ResizeHandle {\n  fill: #41aaaa;\n}\nellipse.draw2d_InputPort,\nellipse.DecoratedInputPort,\nellipse.draw2d_OutputPort {\n  fill: #41aaaa;\n}\n.vertical-text {\n  transform: rotate(-90deg);\n  white-space: nowrap;\n  top: 200px;\n  left: 20px;\n  font-size: 50px;\n  color: white;\n}\n#layout #leftTabStrip {\n  background-color: #41aaaa;\n}\n#layout #leftTabStrip:after {\n  content: \"BrainBox\";\n  -webkit-transform: rotate(-90deg) translate(-90px, -60px);\n  -moz-transform: rotate(-90deg) translate(-90px, -60px);\n  -ms-transform: rotate(-90deg) translate(-90px, -60px);\n  transform: rotate(-90deg) translate(-90px, -60px);\n  font-size: 50px;\n  color: white;\n  white-space: nowrap;\n  opacity: 0.4;\n}\n#layout #leftTabStrip li.active a:hover {\n  background-color: white;\n}\n#layout #leftTabStrip li.active svg path[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg rect[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg g[stroke] {\n  stroke: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg rect[fill] {\n  fill: #41aaaa !important;\n}\n#layout #leftTabStrip li.active svg circle[fill] {\n  fill: #41aaaa !important;\n}\n#layout #leftTabStrip li a {\n  padding: 4px;\n}\n#layout #leftTabStrip li a:hover {\n  background-color: rgba(0, 0, 0, 0.1);\n}\n#layout #leftTabStrip li a svg path[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg rect[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg g[stroke] {\n  stroke: white !important;\n}\n#layout #leftTabStrip li a svg rect[fill] {\n  fill: white !important;\n}\n#layout #leftTabStrip li a svg circle[fill] {\n  fill: white !important;\n}\n.shadow {\n  border: 1px solid #41aaaa;\n  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n  background-color: white;\n}\n.ui-draggable-dragging {\n  z-index: 10000;\n}\ntext.highlightOnHover:hover {\n  cursor: pointer;\n  font-weight: bold;\n}\nellipse.highlightOnHover:hover {\n  cursor: pointer;\n}\nrect.Raft {\n  fill: rgba(28, 155, 171, 0.1);\n}\n#configMenuIcon {\n  font-size: 25px;\n  cursor: pointer;\n  opacity: 0.3;\n}\n#configMenuIcon:hover {\n  opacity: 1;\n  color: #41aaaa;\n}\n.pallete-bg {\n  background-color: #ebf0f5;\n}\n#paletteElementsOverlay {\n  bottom: 0;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(255, 255, 255, 0.7);\n  display: none;\n}\n#figureConfigDialog {\n  display: none;\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 10px;\n  margin-left: 30px;\n  border-left: 3px solid #41aaaa;\n  border-radius: 4px;\n}\n#figureConfigDialog .header {\n  font-size: 16px;\n  font-weight: 600;\n  padding-bottom: 15px;\n}\n#figureConfigDialog .figureAddLabel {\n  font-size: 12px;\n  font-weight: 200;\n  cursor: pointer;\n}\n#figureConfigDialog .figureAddLabel:hover {\n  color: #41aaaa;\n}\n#figureConfigDialog:after {\n  content: '';\n  display: block;\n  position: absolute;\n  left: -20px;\n  top: 10px;\n  width: 0;\n  height: 0;\n  border-right: 10px solid #41aaaa;\n  border-top: 10px solid transparent;\n  border-left: 10px solid transparent;\n  border-bottom: 10px solid transparent;\n}\n.pallette_item {\n  text-align: center;\n}\n/*\n@keyframes spinner {\n  to {transform: rotate(360deg);}\n}\n\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 20px;\n  height: 20px;\n  margin-top: -10px;\n  margin-left: -10px;\n  border-radius: 50%;\n  border: 2px solid transparent;\n  border-top-color: #07d;\n  border-bottom-color: #07d;\n  animation: spinner .8s ease infinite;\n}\n*/\n@keyframes spinner {\n  to {\n    transform: rotate(360deg);\n  }\n}\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 35%;\n  left: 50%;\n  width: 30px;\n  height: 30px;\n  margin-top: -15px;\n  margin-left: -15px;\n  border-radius: 50%;\n  border: 2px solid #ccc;\n  border-top-color: #07d;\n  animation: spinner 0.6s linear infinite;\n}\n.workspace .palette {\n  box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.1), -6px 0 20px -4px rgba(31, 73, 125, 0.1);\n  border-right: 1px solid rgba(74, 74, 74, 0.5);\n  border-left: 1px solid rgba(74, 74, 74, 0.5);\n}\n.workspace .palette #filter {\n  outline: none;\n}\n.workspace .palette .title {\n  left: 10px;\n  right: 0px;\n  top: 10px;\n  position: absolute;\n}\n.workspace .palette .title img {\n  padding-right: 20px;\n  position: absolute;\n  left: 10px;\n}\n.workspace .palette .title div {\n  position: absolute;\n  left: 90px;\n}\n.workspace .palette .title div h1 {\n  font-size: 25px;\n  font-weight: 200;\n  line-height: 45px;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n}\n.workspace .palette .title div h2 {\n  font-size: 15px;\n  font-weight: 200;\n  margin: 0;\n  padding: 0;\n  text-align: left;\n  letter-spacing: 4px;\n}\n.workspace .palette .pallette_item {\n  padding: 0px;\n}\n.workspace .palette .pallette_item > div {\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  border: 1px solid transparent;\n}\n.workspace .palette .pallette_item > div img {\n  position: absolute;\n  top: 0px;\n  bottom: 0;\n  margin: auto;\n  left: 50%;\n  transform: translate(-50%, -10px);\n}\n.workspace .palette .pallette_item > div div {\n  position: absolute;\n  padding-bottom: 2px;\n  width: 100%;\n  bottom: 0;\n  padding-top: 2px;\n  background-color: rgba(0, 0, 0, 0.05);\n  cursor: default;\n}\n.workspace .palette .pallette_item .glowBorder {\n  border: 1px solid #41aaaa;\n}\n.workspace .palette .draw2d_droppable {\n  cursor: move;\n  max-height: 80px;\n}\n.workspace .palette .request {\n  font-size: 10px;\n  color: #41aaaa;\n}\n.workspace .palette .request .icon {\n  cursor: pointer;\n  font-size: 75px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n.workspace .content .canvas {\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.nav-tabs > li.active > a,\n.nav-tabs > li.active > a:hover,\n.nav-tabs > li.active > a:focus {\n  border: 0;\n}\n#files {\n  overflow-y: scroll;\n  padding: 30px !important;\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n}\n#files .deleteIcon {\n  position: absolute;\n  right: 24px;\n  width: 24px;\n  color: #41aaaa;\n  top: 8px;\n  cursor: pointer;\n  border: 1px solid black;\n  border-radius: 50%;\n  background-color: rgba(255, 0, 0, 0.5);\n}\n#files .deleteIcon:hover {\n  background-color: rgba(255, 0, 0, 0.9);\n}\n#files .thumb .thumbnail img {\n  cursor: pointer;\n}\n#files .thumb .filenameInplaceEdit {\n  font-size: 18px;\n  color: #41aaaa;\n  margin-top: 5px;\n}\n#files .thumb h4 {\n  font-size: 18px;\n  color: #41aaaa;\n}\n#files .thumbAdd {\n  color: #41aaaa;\n  color: #0078f2;\n  border: 1px solid rgba(0, 120, 242, 0.33);\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 1s;\n  -webkit-transition: all 1s;\n}\n#files .thumbAdd div {\n  font-size: 160px;\n  text-align: center;\n}\n#files .thumbAdd h4 {\n  text-align: center;\n}\n#files .thumbAdd:hover {\n  border: 1px solid #0078f2;\n  transition: all 1s;\n  -webkit-transition: all 1s;\n}\n#home {\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n  padding: 40px !important;\n  overflow: auto;\n  background-size: cover;\n}\n#home .branding {\n  color: #41aaaa;\n}\n#home .hacksterProjectCard {\n  border: 1px solid black;\n}\n#home .paragraph h3 {\n  color: #41aaaa;\n  padding-top: 45px;\n}\n#home .paragraph .block {\n  padding-bottom: 30px;\n}\n#home .teaser {\n  margin-bottom: 30px;\n  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 70%, #fff 100%), radial-gradient(ellipse at center, rgba(247, 249, 250, 0.7) 0%, rgba(247, 249, 250, 0) 60%), linear-gradient(to bottom, rgba(247, 249, 250, 0) 0%, #f7f9fa 100%);\n}\n#home .teaser .title {\n  color: #41aaaa;\n  font-weight: 200;\n  font-size: 4vw;\n  white-space: nowrap;\n  margin-bottom: 10px;\n}\n#home .teaser .title img {\n  padding-right: 40px;\n  height: 100px;\n}\n#home .teaser .slogan {\n  font-size: 2vw;\n  font-weight: 200;\n  color: #34495e;\n}\n#home .introText {\n  font-size: 20px;\n  font-weight: 200;\n  color: #34495e;\n}\n#home footer {\n  text-align: center;\n  margin-top: 100px;\n  color: #41aaaa;\n}\n#home footer a {\n  color: #41aaaa;\n  text-decoration: underline;\n}\n.raspiConnection {\n  color: red !important;\n  border: 1px solid red;\n  padding: 10px;\n  border-radius: 5px;\n}\n.drop {\n  display: block;\n  position: absolute;\n  background: #CCC;\n  border-radius: 100%;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n  pointer-events: none;\n  width: 100%;\n  height: 100%;\n}\n.drop:before {\n  display: block;\n  position: absolute;\n  content: \"\";\n  background-color: #EEE;\n  border-radius: 100%;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n}\n.slider-handle {\n  border-radius: 50%;\n  background-color: #41aaaa;\n}\n#simulationBaseTimer {\n  width: 200px;\n}\n.simulationBase label {\n  display: block;\n  opacity: 0.5;\n  font-size: 10px;\n}\n.toolbar .group .form-horizontal {\n  text-align: center;\n  display: flex;\n}\n.toolbar .group .form-horizontal .statusIndicator {\n  margin: 20px;\n}\n.toolbar .group .form-horizontal .statusIndicator img {\n  display: block;\n  cursor: pointer;\n  margin: auto;\n}\n.toolbar .group .form-horizontal .statusIndicator img:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n}\n.toolbar .group .form-horizontal .statusIndicator span {\n  font-size: 0.8em;\n  text-align: center;\n  width: 100%;\n  display: inline-block;\n  white-space: nowrap;\n}\n.toolbar .group .form-horizontal .statusIndicator .notSupported {\n  display: none;\n  font-weight: bold;\n}\n.toolbar .group .form-horizontal .statusIndicator .connected {\n  display: block;\n}\n.toolbar .group .form-horizontal .statusIndicator .disconnected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled img {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled img:hover {\n  box-shadow: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled span {\n  opacity: 0.5;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .notSupported {\n  display: block;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .connected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.disabled .disconnected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) span {\n  color: red;\n  font-weight: bold;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .notSupported {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .connected {\n  display: none;\n}\n.toolbar .group .form-horizontal .statusIndicator.error:not(.disabled) .disconnected {\n  display: block;\n}\n#simulationStartStop {\n  position: absolute;\n  right: 30px;\n  top: 30px;\n  z-index: 1000;\n  display: inline-block;\n  width: 4em;\n  height: 4em;\n  background-color: #FFF;\n  color: #9e9e9e;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\n  border-radius: 2em;\n  overflow: hidden;\n  transform: translateZ(0);\n  transition: all 500ms ease;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n#simulationStartStop:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n}\n#simulationStartStop:active {\n  -webkit-transform: scale(1.1, 1.1);\n  transform: scale(1.1, 1.1);\n}\n#simulationStartStop:focus {\n  outline: 0;\n  border: none;\n  color: rgba(0, 0, 0, 0);\n}\n#simulationStartStop > span {\n  display: block;\n  position: relative;\n  width: 2em;\n  height: 2em;\n  transition: all 500ms ease;\n  overflow: hidden;\n  margin: 1em;\n}\n#simulationStartStop > span > span {\n  display: block;\n  background-color: #41aaaa;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 2em;\n  height: 2em;\n  transition: all 500ms ease;\n  border: 1px solid transparent;\n}\n#simulationStartStop.play > span {\n  -webkit-transform: translate(1em, 0) scale(1.6, 1);\n  transform: translate(1em, 0) scale(1.6, 1);\n}\n#simulationStartStop.play > span > span {\n  -webkit-transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n  transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n  background-color: #41aaaa;\n}\n#simulationStartStop.pause > span > span {\n  -webkit-transform: scale(0.4, 1) translate(-1.6em, 0);\n  transform: scale(0.4, 1) translate(-1.6em, 0);\n}\n#simulationStartStop.pause > span > span.s3 {\n  -webkit-transform: scale(0.4, 1) translate(1.6em, 0);\n  transform: scale(0.4, 1) translate(1.6em, 0);\n}\n",".modal-backdrop.in{\n  opacity: 0.7;\n  background-color: black;\n  transition: opacity .4s linear;\n}\n\n.genericDialog {\n  .modal-content{\n    border-radius:4px;\n    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);\n    background-color: rgb(255,255,255);\n\n    .modal-header{\n      border-bottom:0;\n      font-weight:400;\n      box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);\n    }\n\n    .modal-body {\n      padding: 1px;\n      min-height:120px;\n\n      .form-control{\n         -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n        box-sizing: border-box;\n        border-radius: 4px;\n        margin: 0;\n        padding: 0;\n        color: #4D4D4D;\n        display: inline-block;\n        font: inherit;\n        border: 1px solid #DFDFDF;\n        box-shadow: none;\n        height: 24px;\n        padding: 0 3px;\n        &:focus{\n          background-color: rgb(245,245,245);\n        }\n      }\n\n      .list-group {\n        overflow-y: auto;\n        overflow-x: auto;\n\n        *[data-draw2d=\"true\"] {\n          font-weight: bold;\n          color: @tintColor;\n        }\n\n        .glyphicon, .fa {\n          font-size: 20px;\n          padding-right: 10px;\n          color: @tintColor;\n        }\n\n        .list-group-item {\n          background-color: transparent;\n          font-weight: 300;\n\n          &:hover {\n            text-decoration: underline;\n          }\n        }\n\n        *[data-draw2d=\"false\"][data-type=\"file\"] {\n          color: gray;\n          cursor: default;\n          text-decoration: none !important;\n          .fa {\n            color: gray;\n          }\n        }\n      }\n    }\n\n    .modal-footer {\n      background-color: transparent;\n      border-top:0;\n\n      .btn{\n        border:0;\n        text-transform: uppercase;\n        background-color:transparent;\n        color:@tintColor;\n        transition: all 0.5s;\n\n        &:hover{\n          background-color: fadeout(@tintColor,96);\n          transition: all 0.5s;\n        }\n      }\n\n      .btn-primary{\n        font-weight: bold;\n      }\n    }\n  }\n}\n\n","\n#githubNewFileDialog {\n\n  .filePreview{\n    font-size:115px;\n    color:@tintColor;\n  }\n\n}\n","\n#fileOpenDialog {\n\n  .list-group{\n    height:60%;\n  }\n}\n","\n#fileSaveDialog {\n\n  .filePreview{\n    max-width: 200px;\n    max-height: 200px;\n  }\n\n  .modal-body {\n    .media {\n      padding: 20px;\n    }\n  }\n}\n","\n#githubFileSaveAsDialog {\n\n  .filePreview{\n    max-width: 200px;\n    max-height: 200px;\n  }\n\n\n  .list-group{\n    height:250px;\n  }\n}\n","#canvas_zoom{\n  position: fixed;\n  bottom: 20px;\n  right: @rightMenuWidth + 20px;\n  background-color:fadeout(@toolbarBackground,70%);\n  border-radius:5px;\n\n  button {\n    background-color:transparent;\n    font-weight:300;\n    padding:5px;\n    padding-left:10px;\n    padding-right:10px;\n    border:1px solid transparent;\n    outline:none;\n    transition: all 0.5s;\n    &:hover {\n      border:1px solid @tintColor;\n    }\n  }\n}\n","\n\nbody {\n  margin: 0;\n  padding: 0;\n  overflow:hidden;\n\n  #layout {\n    width: 100%;\n    height: 100%;\n    padding: 0;\n    margin: 0;\n\n    .nav-tabs {\n      float: left;\n      border-bottom: 0;\n      li {\n        float: none;\n        margin: 0;\n\n        a {\n          margin-right: 0;\n          border: 0;\n\n          &:hover {\n          }\n        }\n      }\n\n      .active .glyphicon {\n      }\n    }\n\n    #leftTabStrip {\n      height: 100%;\n      position:absolute;\n      width: @tabSize;\n      padding-top: @tabSize;\n      overflow:hidden;\n      .leftTab {\n        border-radius: 0 !important;\n        width:@tabSize;\n        height:@tabSize;\n      }\n    }\n\n    .tab-content {\n      position: relative;\n      margin-left: @tabSize;\n      height: 100%;\n\n      .tab-pane {\n        display: none;\n        padding: 0;\n        height:100%;\n        position:relative;\n\n        .workspace {\n\n          .palette {\n            position:absolute;\n            height: 100%;\n            width: @leftPaneWidth;\n            padding: 0;\n\n            background-color: @layerPaneBgColor;\n            text-align: center;\n            box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.3);\n            z-index: 1000;\n\n            .title {\n              left: 10px;\n              right:0px;\n              top: 10px;\n              position: absolute;\n              img {\n                padding-right:20px;\n                position: absolute;\n                left:10px;\n                max-height: 30px;\n              }\n              div{\n                position: absolute;\n                left:90px;\n                h1{\n                  font-size: 25px;\n                  font-weight:200;\n                  line-height: 45px;\n                  margin:0;\n                  padding:0;\n                  text-align: left;\n                }\n                h2{\n                  font-size: 15px;\n                  font-weight:200;\n                  margin:0;\n                  padding:0;\n                  text-align: left;\n                }\n              }\n            }\n\n            #filter{\n              font-size: 14px;\n              width: (@leftPaneWidth)-10;\n              left: 2px;\n              height: @layerPaneFilterHeight;\n              border: 1px solid #222222;\n              //box-sizing: border-box;\n              border-radius: 2px;\n            }\n\n            .panetitle {\n              position: absolute;\n              top: @layerTitleHeight;\n              border-bottom: 1px solid #222222;\n              font-weight: 500;\n              font-size: 12px;\n              padding: 4px 4px 4px 4px;\n              letter-spacing: 5px;\n              text-align: left;\n              //color: @tintColor;\n              box-shadow: 0 4px 2px -2px rgba(31, 73, 125, 0.3);\n            }\n\n            #paletteElementsScroll {\n              position: absolute;\n              width: @leftPaneWidth - 2px;\n              margin: 0;\n              padding: 0;\n              top: @layerPaneFilterHeight + @layerTitleHeight + 10px;\n              bottom: 0px;\n              overflow: auto;\n              #paletteElements {\n                position: absolute;\n                width: 100%;\n                margin: 0;\n                padding: 0;\n                overflow: hidden;\n                .mix {\n                  height: @leftPaneWidth/2;\n                  border: 1px solid #f0f0f0;\n                  /* to avoid doubling the border of the grid */\n                  margin: -1px 0 0 -1px;\n                }\n              }\n            }\n          }\n          .content {\n            position:absolute;\n            right: 0;\n            top:@toolbarHeight;\n            bottom:0;\n            left: @leftPaneWidth;\n            overflow: scroll;\n            .canvas {\n                width:6000px;\n                height:6000px;\n            }\n\n            #canvas_config{\n              position: fixed;\n              width:40px;\n              top:@toolbarHeight+5;\n              left:@leftPaneWidth+5px;\n              cursor:pointer;\n              border:1px solid transparent;\n              background-color:fadeout(@toolbarBackground,70%);\n              &:hover {\n                border:1px solid @tintColor  !important;\n              }\n            }\n            \n            #canvas_config:hover{\n              color:@tintColor;\n            }\n\n            #canvas_config_items{\n              position: fixed;\n              top:@toolbarHeight+30;\n              left:@leftPaneWidth+5px;\n              cursor:pointer;\n              padding:10px;\n              white-space:nowrap;\n              min-width:250px;\n            }\n            \n          }\n        }\n      }\n      .active {\n        display: block;\n      }\n    }\n  }\n}\n\n.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {\n  border:0;\n}\n","/* CSS from the cool website: http://cssarrowplease.com/ */\n\n.draw2d_tooltip {\n  position: absolute;\n  background: #88b7d5;\n  padding:10px;\n  border-radius:6px;\n}\n\n.draw2d_tooltip:after,.draw2d_tooltip:before {\n  bottom: 100%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.draw2d_tooltip:after {\n  border-color: rgba(136, 183, 213, 0);\n  border-bottom-color: #88b7d5;\n  border-width: 4px;\n  left: 50%;\n  margin-left: -4px;\n}\n","#codePreviewDialog {\n\n  .prettyprint{\n    max-height:250px;\n    overflow:scroll;\n    border-radius:0;\n  }\n}\n","\n#markdownDialog {\n\n  .html{\n    padding:20px;\n    table {\n      font-family:Arial, Helvetica, sans-serif;\n      color:#666;\n      font-size:12px;\n      text-shadow: 1px 1px 0px #fff;\n      background:#eaebec;\n      margin:20px;\n      margin-left:0;\n      border:#ccc 1px solid;\n      -moz-border-radius:3px;\n      -webkit-border-radius:3px;\n      border-radius:3px;\n\n      -moz-box-shadow: 0 1px 2px #d1d1d1;\n      -webkit-box-shadow: 0 1px 2px #d1d1d1;\n      box-shadow: 0 1px 2px #d1d1d1;\n    }\n    table th {\n      padding:21px 25px 22px 25px;\n      border-top:1px solid #fafafa;\n      border-bottom:1px solid #e0e0e0;\n    }\n\n    table th:first-child{\n      text-align: left;\n      padding-left:20px;\n    }\n    table tr:first-child th:first-child{\n      -moz-border-radius-topleft:3px;\n      -webkit-border-top-left-radius:3px;\n      border-top-left-radius:3px;\n    }\n    table tr:first-child th:last-child{\n      -moz-border-radius-topright:3px;\n      -webkit-border-top-right-radius:3px;\n      border-top-right-radius:3px;\n    }\n    table tr{\n      text-align: center;\n      padding-left:20px;\n    }\n    table tr td:first-child{\n      text-align: left;\n      padding-left:20px;\n      border-left: 0;\n    }\n    table tr td {\n      padding:18px;\n      border-top: 1px solid #ffffff;\n      border-bottom:1px solid #e0e0e0;\n      border-left: 1px solid #e0e0e0;\n    }\n\n    tbody tr:nth-child(odd) {\n      background: #fafafa;\n    }\n\n    tbody tr:nth-child(even) {\n      background: #f3f3f3;\n    }\n\n    table tr:last-child td{\n      border-bottom:0;\n    }\n\n    table tr:last-child td:first-child{\n      -moz-border-radius-bottomleft:3px;\n      -webkit-border-bottom-left-radius:3px;\n      border-bottom-left-radius:3px;\n    }\n\n    table tr:last-child td:last-child{\n      -moz-border-radius-bottomright:3px;\n      -webkit-border-bottom-right-radius:3px;\n      border-bottom-right-radius:3px;\n    }\n  }\n}\n","#webUSBHelpDialog {\n\n  .modal-body{\n    min-height: 310px;\n    .html{\n      padding:20px;\n      max-height:310px;\n      overflow:auto;\n      border-radius:0;\n    }\n\n  }\n}\n","\n.confirm-dialog-btn-confirm{\n  background-color:@tintColorHIGH;\n}\n\n\n",".context-menu-list {\n  margin:0;\n  padding:0;\n\n  min-width: 120px;\n  max-width: 250px;\n  display: inline-block;\n  position: absolute;\n  list-style-type: none;\n\n  border: 1px solid #DDD;\n  background: white;\n  border-left: 2px solid @tintColor;\n  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  -o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);\n\n  font-size: 15px;\n  white-space: nowrap;\n}\n\n.context-menu-item {\n  padding: 5px 5px 5px 24px;\n  position: relative;\n  -webkit-user-select: none;\n  -moz-user-select: -moz-none;\n  -ms-user-select: none;\n  user-select: none;\n}\n\n.context-menu-separator {\n  padding-bottom:0;\n  border-bottom: 1px solid #DDD;\n}\n\n.context-menu-item > label > input,\n.context-menu-item > label > textarea {\n  -webkit-user-select: text;\n  -moz-user-select: text;\n  -ms-user-select: text;\n  user-select: text;\n}\n\n.context-menu-item.hover {\n  cursor: pointer;\n  background-color: @tintColor;\n  color:white;\n}\n\n.context-menu-item.disabled {\n  color: #666;\n}\n\n.context-menu-input.hover,\n.context-menu-item.disabled.hover {\n  cursor: default;\n  background-color: #EEE;\n}\n\n.context-menu-submenu:after {\n  content: \">\";\n  color: #666;\n  position: absolute;\n  top: 0;\n  right: 3px;\n  z-index: 1;\n}\n\n/* icons\n    #protip:\n    In case you want to use sprites for icons (which I would suggest you do) have a look at\n    http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement\n    .context-menu-item.icon:before {}\n */\n.context-menu-item.icon { min-height: 18px;}\n.context-menu-item.icon:before {\n  position:relative;\n  left: -15px;\n  font-size:19px;\n}\n\n/* vertically align inside labels */\n.context-menu-input > label > * { vertical-align: top; }\n\n/* position checkboxes and radios as icons */\n.context-menu-input > label > input[type=\"checkbox\"],\n.context-menu-input > label > input[type=\"radio\"] {\n  margin-left: -17px;\n}\n.context-menu-input > label > span {\n  margin-left: 5px;\n}\n\n.context-menu-input > label,\n.context-menu-input > label > input[type=\"text\"],\n.context-menu-input > label > textarea,\n.context-menu-input > label > select {\n  display: block;\n  width: 100%;\n  box-sizing: border-box;\n}\n\n.context-menu-input > label > textarea {\n  height: 100px;\n}\n.context-menu-item > .context-menu-list {\n  display: none;\n  /* re-positioned by js */\n  right: -5px;\n  top: 5px;\n}\n\n.context-menu-item.hover > .context-menu-list {\n  display: block;\n}\n\n.context-menu-accesskey {\n  text-decoration: underline;\n}\n","\n#probe_hint\n{\n  display: block;\n  padding: 30px;\n  //color: white;\n  font-size: 20px;\n  font-weight: 100;\n}\n\n#probe_window\n{\n  //background: @probeWindowBackground;\n  bottom: 0;\n  height:0;\n  //color: white;\n  position: absolute;\n  right: 0;\n  left:  @leftPaneWidth;\n  span{\n    font-size: 45px;\n    vertical-align: middle;\n    padding-right: 10px;\n  }\n\n  #probe_window_log_container{\n    overflow: auto; \n    height: 200px;\n    padding: 10 10 10 30px ;\n    span{\n      font-size: 12px;\n      padding-right: 10px;\n    }\n  }\n\n  .log-warn { color: orange }\n  .log-error { color: red }\n  //.log-info { color: skyblue }\n  //.log-log { color: silver }\n\n  .log-warn, .log-error { font-weight: bold; }\n\n}\n\n#probe_window_stick{\n  position: absolute;\n  top: -30px;\n  cursor: pointer;\n  color: black;\n  width: 100%;\n  border-bottom: 2px solid @probeWindowBackground;\n  text-align: center;\n}\n\n#probe_window_palette{\n  position: absolute;\n  display: inline-block; \n  top: 0px;\n  cursor: pointer;\n  color: black;\n  height: 100%;\n  right:0px;\n  text-align: center;\n  vertical-align: middle;\n  z-index: 2000;\n  img{\n    display: block;\n    position: absolute;\n    top:46%;\n  }\n}\n\n#probeSortable{\n\n  padding-left:0;\n  li{\n    list-style-type: none;\n    padding-top: 10px;\n    padding-left:0;\n    path{\n      stroke:white;\n    }\n    div{\n      cursor: pointer;\n      display: inline-block;\n      padding-left: 10px;\n      padding-right:10px;\n      position: absolute;\n      background: rgba(0, 157, 172,0.8);\n    }\n  }\n\n  li:nth-child(even) {\n    background: #04A9B9;\n    div{\n       background :rgba(4,169,185,0.5);\n    }\n  }\n\n  .inplaceEdit{\n    background:rgba(255,255,255,0.1);\n  }\n}\n","\n\nellipse.draw2d_shape_basic_LineStartResizeHandle,\nellipse.draw2d_shape_basic_LineEndResizeHandle,\nrect.draw2d_policy_line_OrthogonalSelectionFeedbackPolicy_ResizeHandle\n{\n  fill:@tintColor;\n}\n\nellipse.draw2d_InputPort,\nellipse.DecoratedInputPort,\nellipse.draw2d_OutputPort{\n  fill:@tintColorHIGH;\n}\n\n","\n.vertical-text {\n  transform: rotate(-90deg);\n  white-space: nowrap;\n  top: 200px;\n  left: 20px;\n  font-size: 50px;\n  color: white;\n}\n\n#layout {\n  #leftTabStrip {\n    background-color: @leftMenubarBackground;\n    &:after {\n      content: \"BrainBox\";\n      -webkit-transform: rotate(-90deg) translate(-90px, -60px);\n      -moz-transform: rotate(-90deg) translate(-90px, -60px);\n      -ms-transform: rotate(-90deg) translate(-90px, -60px);\n      transform: rotate(-90deg) translate(-90px, -60px);\n      font-size: 50px;\n      color: white;\n      white-space: nowrap;\n      opacity: 0.4;\n    }\n\n    li {\n      &.active {\n        a {\n          &:hover {\n            background-color: white;\n          }\n        }\n        svg {\n          path[stroke] {\n            stroke: @leftMenubarBackground !important;\n          }\n          rect[stroke] {\n            stroke: @leftMenubarBackground !important;\n          }\n          g[stroke] {\n            stroke: @leftMenubarBackground !important;\n          }\n          rect[fill]{\n            fill: @leftMenubarBackground !important;\n          }\n          circle[fill]{\n            fill: @leftMenubarBackground !important;\n          }\n        }\n      }\n\n      a {\n        &:hover{\n          background-color:rgba(0,0,0,0.1);\n        }\n        padding: 4px;\n        svg {\n          path[stroke] {\n            stroke: white !important;\n          }\n          rect[stroke] {\n            stroke: white !important;\n          }\n          g[stroke] {\n            stroke: white !important;\n          }\n          rect[fill]{\n            fill: white !important;\n          }\n          circle[fill]{\n            fill: white !important;\n          }\n        }\n      }\n\n    }\n  }\n}\n","\n.shadow{\n  border:1px solid @tintColor;\n  box-shadow: 0 5px 15px rgba(0,0,0,.2);\n  background-color:white;\n}\n\n.ui-draggable-dragging{\n  z-index:10000;\n}\n\ntext.highlightOnHover:hover{\n  cursor: pointer;\n  font-weight:bold;\n}\n\nellipse.highlightOnHover:hover{\n  cursor: pointer;\n}\n\nrect.Raft{\n  fill:rgba(28, 155, 171,0.1);\n}\n\n#configMenuIcon{\n  font-size: 25px;\n  cursor:pointer;\n  opacity: 0.3;\n  &:hover{\n    opacity: 1;\n    color:@tintColor;\n  }\n}\n\n.pallete-bg{\n  background-color: @toolbarBackground;\n}\n\n#paletteElementsOverlay{\n    bottom: 0;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    background-color: rgba(255,255,255,0.7);\n    display: none;\n}\n\n\n\n#figureConfigDialog{\n  display:none;\n  background-color:white;\n  border: 1px solid rgba(0,0,0,0.2);\n  padding: 10px;\n  margin-left:30px;\n  border-left: 3px solid @tintColor;\n  border-radius:4px;\n  .header{\n    font-size: 16px;\n    font-weight: 600;\n    padding-bottom: 15px;\n  }\n  .figureAddLabel{\n    font-size:12px;\n    font-weight: 200;\n    cursor:pointer;\n    &:hover{\n      color:@tintColor;\n    }\n  }\n\n  &:after {\n    content: '';\n    display: block;\n    position: absolute;\n    left: -20px;\n    top: 10px;\n    width: 0;\n    height: 0;\n    border-right: 10px solid @tintColor;\n    border-top: 10px solid transparent;\n    border-left: 10px solid transparent;\n    border-bottom: 10px solid transparent;\n  }\n}\n\n\n.pallette_item\n{\n  text-align:center;\n}\n\n/*\n@keyframes spinner {\n  to {transform: rotate(360deg);}\n}\n\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 20px;\n  height: 20px;\n  margin-top: -10px;\n  margin-left: -10px;\n  border-radius: 50%;\n  border: 2px solid transparent;\n  border-top-color: #07d;\n  border-bottom-color: #07d;\n  animation: spinner .8s ease infinite;\n}\n*/\n@keyframes spinner {\n  to {transform: rotate(360deg);}\n}\n\n.spinner:before {\n  content: '';\n  box-sizing: border-box;\n  position: absolute;\n  top: 35%;\n  left: 50%;\n  width: 30px;\n  height: 30px;\n  margin-top: -15px;\n  margin-left: -15px;\n  border-radius: 50%;\n  border: 2px solid #ccc;\n  border-top-color: #07d;\n  animation: spinner .6s linear infinite;\n}\n\n.workspace {\n\n  .palette {\n    box-shadow: 5px 0 20px -3px rgba(31, 73, 125, 0.1), -6px 0 20px -4px rgba(31, 73, 125, 0.1);\n    border-right: 1px solid rgba(74, 74, 74, 0.5);\n    border-left: 1px solid rgba(74, 74, 74, 0.5);\n\n    #filter{\n      outline:none;\n    }\n\n    .title {\n      left: 10px;\n      right:0px;\n      top: 10px;\n      position: absolute;\n      img {\n        padding-right:20px;\n        position: absolute;\n        left:10px;\n      }\n      div{\n        position: absolute;\n        left:90px;\n        h1{\n          font-size: 25px;\n          font-weight:200;\n          line-height: 45px;\n          margin:0;\n          padding:0;\n          text-align: left;\n        }\n        h2{\n          font-size: 15px;\n          font-weight:200;\n          margin:0;\n          padding:0;\n          text-align: left;\n          letter-spacing: 4px;\n        }\n      }\n    }\n    .pallette_item{\n      padding:0px;\n      >div{\n        width:100%;\n        height:100%;\n        text-align:center;\n        border:1px solid transparent;\n        img{\n          position: absolute;\n          top: 0px;\n          bottom: 0;\n          margin: auto;\n          left: 50%;\n          transform: translate(-50%,-10px);\n        }\n        div{\n          position: absolute;\n          padding-bottom: 2px;\n          width: 100%;\n          bottom: 0;\n          padding-top: 2px;\n          background-color:rgba(0,0,0,0.05);\n          cursor:default;\n        }\n      }\n      .glowBorder{\n        border: 1px solid @tintColor;\n      }\n    }\n    .draw2d_droppable{\n      cursor:move;\n      max-height:80px;\n    }\n\n    .request{\n      font-size:10px;\n      color: @tintColor;\n      .icon{\n        cursor:pointer;\n        font-size:75px;\n        margin-top:10px;\n        margin-bottom:10px;\n\n      }\n    }\n  }\n\n\n  .content {\n\n    .canvas {\n        -webkit-touch-callout: none;\n        -webkit-user-select: none;\n        -khtml-user-select: none;\n        -moz-user-select: none;\n        -ms-user-select: none;\n        user-select: none;\n\n    }\n    \n  }\n}\n\n.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {\n  border:0;\n}\n","\n#files{\n  overflow-y: scroll;\n  padding:30px !important;\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n\n  .deleteIcon{\n    position: absolute;\n    right: 24px;\n    width: 24px;\n    color:@tintColor;\n    top: 8px;\n    cursor:pointer;\n    border: 1px solid black;\n    border-radius: 50%;\n    background-color: rgba(255,0,0,0.5);\n    &:hover{\n      background-color: rgba(255,0,0,0.9);\n    }\n  }\n\n  .thumb{\n    .thumbnail{\n      img{\n        cursor:pointer;\n      }\n    }\n    .filenameInplaceEdit{\n      font-size:18px;\n      color:@tintColor;\n      margin-top:5px;\n    }\n    h4{\n      font-size:18px;\n      color:@tintColor;\n    }\n  }\n\n  .thumbAdd{\n    color:@tintColor;\n    color: #0078f2;\n    border: 1px solid rgba(0, 120, 242, 0.33);\n    border-radius: 6px;\n    cursor:pointer;\n    transition: all 1s;\n    -webkit-transition: all 1s;\n    div{\n      font-size: 160px;\n      text-align: center;\n    }\n    h4{\n      text-align: center;\n    }\n    &:hover{\n      border: 1px solid rgba(0, 120, 242, 1);\n      transition: all 1s;\n      -webkit-transition: all 1s;\n    }\n  }\n}\n","\n#home{\n  box-shadow: -6px 0 20px -4px rgba(31, 73, 125, 0.3);\n  padding:40px !important;\n  .branding{\n    color: @tintColor;\n  }\n\n  .hacksterProjectCard{\n    border:1px solid black;\n  }\n\n  .paragraph{\n    h3{\n      color: @tintColor;\n      padding-top:45px;\n    }\n    .block{\n      padding-bottom:30px;\n    }\n  }\n\n  overflow:auto;\n  background-size: cover;\n\n  .teaser {\n    margin-bottom:30px;\n    background-image:\n      linear-gradient(to bottom,rgba(255,255,255,0) 20%,rgba(255,255,255,.4) 70%,#fff 100%),\n      radial-gradient(ellipse at center,rgba(247,249,250,.7) 0%,rgba(247,249,250,0) 60%),\n      linear-gradient(to bottom,rgba(247,249,250,0) 0%,#f7f9fa 100%);\n\n    .title {\n      color: @tintColor;\n      font-weight: 200;\n      font-size: 4vw;\n      white-space: nowrap;\n      margin-bottom:10px;\n      img{\n        padding-right: 40px;\n        height: 100px;\n      }\n    }\n    .slogan {\n      font-size: 2vw;\n      font-weight: 200;\n      color: #34495e;\n    }\n  }\n\n\n  .introText{\n    font-size: 20px;\n    font-weight: 200;\n    color: #34495e;\n  }\n\n  footer{\n    text-align: center;\n    margin-top: 100px;\n    color:@tintColor;\n    a{\n      color: @tintColor;\n      text-decoration: underline;\n    }\n  }\n\n}\n","\n.raspiConnection {\n  color: red !important;\n  border: 1px solid red;\n  padding: 10px;\n  border-radius: 5px;\n}\n\n\n\n.drop {\n  display: block;\n  position: absolute;\n  background: #CCC;\n  border-radius: 100%;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n  pointer-events: none;\n  width: 100%;\n  height: 100%;\n}\n\n.drop:before {\n  display: block;\n  position: absolute;\n  content: \"\";\n  background-color: #EEE;\n  border-radius: 100%;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transform: scale(0);\n  transform: scale(0);\n}\n\n.slider-handle {\n  border-radius: 50%;\n  background-color: @tintColorHIGH;\n}\n\n\n#simulationBaseTimer{\n  width:200px;\n}\n\n.simulationBase{\n  label{\n    display:block;\n    opacity: 0.5;\n    font-size:10px;\n  }\n}\n\n.toolbar {\n  .group{\n    .form-horizontal {\n      text-align: center;\n      display:flex;\n      .statusIndicator {\n        margin: 20px;\n        img {\n          display: block;\n          cursor:pointer;\n          margin:auto;\n          &:hover {\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n          }\n        }\n        span {\n          font-size: .8em;\n          text-align: center;\n          width: 100%;\n          display: inline-block;\n          white-space: nowrap;\n        }\n        .notSupported{\n          display:none;\n          font-weight: bold;\n        }\n        .connected{\n          display: block;\n        }\n        .disconnected{\n          display: none;\n        }\n      }\n      .statusIndicator.disabled {\n        img {\n          opacity: 0.5;\n          cursor: not-allowed;\n          &:hover {\n            box-shadow: none;\n          }\n        }\n        span {\n          opacity: 0.5;\n        }\n        .notSupported{\n          display:block;\n        }\n        .connected{\n          display: none;\n        }\n        .disconnected{\n          display: none;\n        }\n      }\n      .statusIndicator.error:not(.disabled) {\n        img {\n        }\n        span {\n          color:red;\n          font-weight: bold;\n        }\n        .notSupported{\n          display:none;\n        }\n        .connected{\n          display: none;\n        }\n        .disconnected{\n          display: block;\n        }\n      }\n    }\n  }\n}\n","\n#simulationStartStop {\n  position: absolute;\n  right:30px;\n  top:30px;\n  z-index:1000;\n\n  display: inline-block;\n  width: 4em;\n  height: 4em;\n  background-color: #FFF;\n  color: #9e9e9e;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\n  border-radius: 2em;\n  overflow: hidden;\n  transform: translateZ(0);\n  transition: all 500ms ease;\n\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  &:hover {\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);\n  }\n\n  &:active {\n    -webkit-transform: scale(1.1, 1.1);\n    transform: scale(1.1, 1.1);\n  }\n\n  &:focus {\n    outline: 0;\n    border: none;\n    color: rgba(0, 0, 0, 0);\n  }\n\n  &>span {\n    display: block;\n    position: relative;\n    width: 2em;\n    height: 2em;\n    transition: all 500ms ease;\n    overflow: hidden;\n    margin: 1em;\n\n    &>span {\n      display: block;\n      background-color: @tintColorHIGH;\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 2em;\n      height: 2em;\n      transition: all 500ms ease;\n      border: 1px solid transparent;\n    }\n  }\n\n  &.play{\n    &>span {\n      -webkit-transform: translate(1em, 0) scale(1.6, 1);\n      transform: translate(1em, 0) scale(1.6, 1);\n\n      &>span {\n        -webkit-transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n        transform: rotate(-45deg) translate(-1em, -1em) scale(1, 1);\n        background-color: @tintColorHIGH;\n      }\n    }\n  }\n\n  &.pause{\n\n    &>span {\n\n      &>span {\n        -webkit-transform: scale(0.4, 1) translate(-1.6em, 0);\n        transform: scale(0.4, 1) translate(-1.6em, 0);\n\n        &.s3 {\n          -webkit-transform: scale(0.4, 1) translate(1.6em, 0);\n          transform: scale(0.4, 1) translate(1.6em, 0);\n        }\n      }\n    }\n  }\n}\n\n"]}]);
 // Exports
-module.exports = exports;
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -40016,26 +36260,25 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var api = __webpack_require__(/*! ../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js!./font-awesome.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/font-awesome/css/font-awesome.css");
 
-var content = __webpack_require__(/*! !../../css-loader/dist/cjs.js!./font-awesome.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/font-awesome/css/font-awesome.css");
+            content = content.__esModule ? content.default : content;
 
-if(typeof content === 'string') content = [[module.i, content, '']];
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
 
-var transform;
-var insertInto;
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
 
 
 
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
+module.exports = content.locals || {};
 
 /***/ }),
 
@@ -40043,10 +36286,12 @@ if(false) {}
 /*!*****************************************************************!*\
   !*** ./node_modules/font-awesome/fonts/fontawesome-webfont.eot ***!
   \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/674f50d287a8c48dc19ba404d20fe713.eot";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/8b43027f47b20503057dfbbaa9401fef.eot");
 
 /***/ }),
 
@@ -40054,10 +36299,12 @@ module.exports = "js/webpack/674f50d287a8c48dc19ba404d20fe713.eot";
 /*!*************************************************************************!*\
   !*** ./node_modules/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0 ***!
   \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/674f50d287a8c48dc19ba404d20fe713.eot";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/8b43027f47b20503057dfbbaa9401fef.eot");
 
 /***/ }),
 
@@ -40065,10 +36312,12 @@ module.exports = "js/webpack/674f50d287a8c48dc19ba404d20fe713.eot";
 /*!*************************************************************************!*\
   !*** ./node_modules/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0 ***!
   \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/912ec66d7572ff821749319396470bde.svg";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/c1e38fd9e0e74ba58f7a2b77ef29fdd3.svg");
 
 /***/ }),
 
@@ -40076,10 +36325,12 @@ module.exports = "js/webpack/912ec66d7572ff821749319396470bde.svg";
 /*!*************************************************************************!*\
   !*** ./node_modules/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0 ***!
   \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/b06871f281fee6b241d60582ae9369b9.ttf";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/1e59d2330b4c6deb84b340635ed36249.ttf");
 
 /***/ }),
 
@@ -40087,10 +36338,12 @@ module.exports = "js/webpack/b06871f281fee6b241d60582ae9369b9.ttf";
 /*!***************************************************************************!*\
   !*** ./node_modules/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 ***!
   \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/af7ae505a9eed503f8b8e6982036873e.woff2";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/20fd1704ea223900efa9fd4e869efb08.woff2");
 
 /***/ }),
 
@@ -40098,10 +36351,12 @@ module.exports = "js/webpack/af7ae505a9eed503f8b8e6982036873e.woff2";
 /*!**************************************************************************!*\
   !*** ./node_modules/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0 ***!
   \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "js/webpack/fee66e712a8a08eef5805a46892932ad.woff";
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("js/webpack/f691f37e57f04c152e2315ab7dbad881.woff");
 
 /***/ }),
 
@@ -41127,7 +37382,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
  * Mousetrap is a simple keyboard shortcut library for Javascript with
  * no external dependencies
  *
- * @version 1.6.2
+ * @version 1.6.5
  * @url craig.is/killing/mice
  */
 (function(window, document, undefined) {
@@ -42092,6 +38347,20 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
             return false;
         }
 
+        // Events originating from a shadow DOM are re-targetted and `e.target` is the shadow host,
+        // not the initial event target in the shadow tree. Note that not all events cross the
+        // shadow boundary.
+        // For shadow trees with `mode: 'open'`, the initial event target is the first element in
+        // the event’s composed path. For shadow trees with `mode: 'closed'`, the initial event
+        // target cannot be obtained.
+        if ('composedPath' in e && typeof e.composedPath === 'function') {
+            // For open shadow trees, update `element` so that the following check works.
+            var initialEventTarget = e.composedPath()[0];
+            if (initialEventTarget !== e.target) {
+                element = initialEventTarget;
+            }
+        }
+
         // stop for input, select, and textarea
         return element.tagName == 'INPUT' || element.tagName == 'SELECT' || element.tagName == 'TEXTAREA' || element.isContentEditable;
     };
@@ -42157,2505 +38426,24 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*global define:false */
 
 /***/ }),
 
-/***/ "./node_modules/remarkable/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/remarkable/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(/*! ./lib/ */ "./node_modules/remarkable/lib/index.js");
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/common/entities.js":
-/*!********************************************************!*\
-  !*** ./node_modules/remarkable/lib/common/entities.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// List of valid entities
-//
-// Generate with ./support/entities.js script
-//
-
-
-/*eslint quotes:0*/
-module.exports = {
-  "Aacute":"\u00C1",
-  "aacute":"\u00E1",
-  "Abreve":"\u0102",
-  "abreve":"\u0103",
-  "ac":"\u223E",
-  "acd":"\u223F",
-  "acE":"\u223E\u0333",
-  "Acirc":"\u00C2",
-  "acirc":"\u00E2",
-  "acute":"\u00B4",
-  "Acy":"\u0410",
-  "acy":"\u0430",
-  "AElig":"\u00C6",
-  "aelig":"\u00E6",
-  "af":"\u2061",
-  "Afr":"\uD835\uDD04",
-  "afr":"\uD835\uDD1E",
-  "Agrave":"\u00C0",
-  "agrave":"\u00E0",
-  "alefsym":"\u2135",
-  "aleph":"\u2135",
-  "Alpha":"\u0391",
-  "alpha":"\u03B1",
-  "Amacr":"\u0100",
-  "amacr":"\u0101",
-  "amalg":"\u2A3F",
-  "AMP":"\u0026",
-  "amp":"\u0026",
-  "And":"\u2A53",
-  "and":"\u2227",
-  "andand":"\u2A55",
-  "andd":"\u2A5C",
-  "andslope":"\u2A58",
-  "andv":"\u2A5A",
-  "ang":"\u2220",
-  "ange":"\u29A4",
-  "angle":"\u2220",
-  "angmsd":"\u2221",
-  "angmsdaa":"\u29A8",
-  "angmsdab":"\u29A9",
-  "angmsdac":"\u29AA",
-  "angmsdad":"\u29AB",
-  "angmsdae":"\u29AC",
-  "angmsdaf":"\u29AD",
-  "angmsdag":"\u29AE",
-  "angmsdah":"\u29AF",
-  "angrt":"\u221F",
-  "angrtvb":"\u22BE",
-  "angrtvbd":"\u299D",
-  "angsph":"\u2222",
-  "angst":"\u00C5",
-  "angzarr":"\u237C",
-  "Aogon":"\u0104",
-  "aogon":"\u0105",
-  "Aopf":"\uD835\uDD38",
-  "aopf":"\uD835\uDD52",
-  "ap":"\u2248",
-  "apacir":"\u2A6F",
-  "apE":"\u2A70",
-  "ape":"\u224A",
-  "apid":"\u224B",
-  "apos":"\u0027",
-  "ApplyFunction":"\u2061",
-  "approx":"\u2248",
-  "approxeq":"\u224A",
-  "Aring":"\u00C5",
-  "aring":"\u00E5",
-  "Ascr":"\uD835\uDC9C",
-  "ascr":"\uD835\uDCB6",
-  "Assign":"\u2254",
-  "ast":"\u002A",
-  "asymp":"\u2248",
-  "asympeq":"\u224D",
-  "Atilde":"\u00C3",
-  "atilde":"\u00E3",
-  "Auml":"\u00C4",
-  "auml":"\u00E4",
-  "awconint":"\u2233",
-  "awint":"\u2A11",
-  "backcong":"\u224C",
-  "backepsilon":"\u03F6",
-  "backprime":"\u2035",
-  "backsim":"\u223D",
-  "backsimeq":"\u22CD",
-  "Backslash":"\u2216",
-  "Barv":"\u2AE7",
-  "barvee":"\u22BD",
-  "Barwed":"\u2306",
-  "barwed":"\u2305",
-  "barwedge":"\u2305",
-  "bbrk":"\u23B5",
-  "bbrktbrk":"\u23B6",
-  "bcong":"\u224C",
-  "Bcy":"\u0411",
-  "bcy":"\u0431",
-  "bdquo":"\u201E",
-  "becaus":"\u2235",
-  "Because":"\u2235",
-  "because":"\u2235",
-  "bemptyv":"\u29B0",
-  "bepsi":"\u03F6",
-  "bernou":"\u212C",
-  "Bernoullis":"\u212C",
-  "Beta":"\u0392",
-  "beta":"\u03B2",
-  "beth":"\u2136",
-  "between":"\u226C",
-  "Bfr":"\uD835\uDD05",
-  "bfr":"\uD835\uDD1F",
-  "bigcap":"\u22C2",
-  "bigcirc":"\u25EF",
-  "bigcup":"\u22C3",
-  "bigodot":"\u2A00",
-  "bigoplus":"\u2A01",
-  "bigotimes":"\u2A02",
-  "bigsqcup":"\u2A06",
-  "bigstar":"\u2605",
-  "bigtriangledown":"\u25BD",
-  "bigtriangleup":"\u25B3",
-  "biguplus":"\u2A04",
-  "bigvee":"\u22C1",
-  "bigwedge":"\u22C0",
-  "bkarow":"\u290D",
-  "blacklozenge":"\u29EB",
-  "blacksquare":"\u25AA",
-  "blacktriangle":"\u25B4",
-  "blacktriangledown":"\u25BE",
-  "blacktriangleleft":"\u25C2",
-  "blacktriangleright":"\u25B8",
-  "blank":"\u2423",
-  "blk12":"\u2592",
-  "blk14":"\u2591",
-  "blk34":"\u2593",
-  "block":"\u2588",
-  "bne":"\u003D\u20E5",
-  "bnequiv":"\u2261\u20E5",
-  "bNot":"\u2AED",
-  "bnot":"\u2310",
-  "Bopf":"\uD835\uDD39",
-  "bopf":"\uD835\uDD53",
-  "bot":"\u22A5",
-  "bottom":"\u22A5",
-  "bowtie":"\u22C8",
-  "boxbox":"\u29C9",
-  "boxDL":"\u2557",
-  "boxDl":"\u2556",
-  "boxdL":"\u2555",
-  "boxdl":"\u2510",
-  "boxDR":"\u2554",
-  "boxDr":"\u2553",
-  "boxdR":"\u2552",
-  "boxdr":"\u250C",
-  "boxH":"\u2550",
-  "boxh":"\u2500",
-  "boxHD":"\u2566",
-  "boxHd":"\u2564",
-  "boxhD":"\u2565",
-  "boxhd":"\u252C",
-  "boxHU":"\u2569",
-  "boxHu":"\u2567",
-  "boxhU":"\u2568",
-  "boxhu":"\u2534",
-  "boxminus":"\u229F",
-  "boxplus":"\u229E",
-  "boxtimes":"\u22A0",
-  "boxUL":"\u255D",
-  "boxUl":"\u255C",
-  "boxuL":"\u255B",
-  "boxul":"\u2518",
-  "boxUR":"\u255A",
-  "boxUr":"\u2559",
-  "boxuR":"\u2558",
-  "boxur":"\u2514",
-  "boxV":"\u2551",
-  "boxv":"\u2502",
-  "boxVH":"\u256C",
-  "boxVh":"\u256B",
-  "boxvH":"\u256A",
-  "boxvh":"\u253C",
-  "boxVL":"\u2563",
-  "boxVl":"\u2562",
-  "boxvL":"\u2561",
-  "boxvl":"\u2524",
-  "boxVR":"\u2560",
-  "boxVr":"\u255F",
-  "boxvR":"\u255E",
-  "boxvr":"\u251C",
-  "bprime":"\u2035",
-  "Breve":"\u02D8",
-  "breve":"\u02D8",
-  "brvbar":"\u00A6",
-  "Bscr":"\u212C",
-  "bscr":"\uD835\uDCB7",
-  "bsemi":"\u204F",
-  "bsim":"\u223D",
-  "bsime":"\u22CD",
-  "bsol":"\u005C",
-  "bsolb":"\u29C5",
-  "bsolhsub":"\u27C8",
-  "bull":"\u2022",
-  "bullet":"\u2022",
-  "bump":"\u224E",
-  "bumpE":"\u2AAE",
-  "bumpe":"\u224F",
-  "Bumpeq":"\u224E",
-  "bumpeq":"\u224F",
-  "Cacute":"\u0106",
-  "cacute":"\u0107",
-  "Cap":"\u22D2",
-  "cap":"\u2229",
-  "capand":"\u2A44",
-  "capbrcup":"\u2A49",
-  "capcap":"\u2A4B",
-  "capcup":"\u2A47",
-  "capdot":"\u2A40",
-  "CapitalDifferentialD":"\u2145",
-  "caps":"\u2229\uFE00",
-  "caret":"\u2041",
-  "caron":"\u02C7",
-  "Cayleys":"\u212D",
-  "ccaps":"\u2A4D",
-  "Ccaron":"\u010C",
-  "ccaron":"\u010D",
-  "Ccedil":"\u00C7",
-  "ccedil":"\u00E7",
-  "Ccirc":"\u0108",
-  "ccirc":"\u0109",
-  "Cconint":"\u2230",
-  "ccups":"\u2A4C",
-  "ccupssm":"\u2A50",
-  "Cdot":"\u010A",
-  "cdot":"\u010B",
-  "cedil":"\u00B8",
-  "Cedilla":"\u00B8",
-  "cemptyv":"\u29B2",
-  "cent":"\u00A2",
-  "CenterDot":"\u00B7",
-  "centerdot":"\u00B7",
-  "Cfr":"\u212D",
-  "cfr":"\uD835\uDD20",
-  "CHcy":"\u0427",
-  "chcy":"\u0447",
-  "check":"\u2713",
-  "checkmark":"\u2713",
-  "Chi":"\u03A7",
-  "chi":"\u03C7",
-  "cir":"\u25CB",
-  "circ":"\u02C6",
-  "circeq":"\u2257",
-  "circlearrowleft":"\u21BA",
-  "circlearrowright":"\u21BB",
-  "circledast":"\u229B",
-  "circledcirc":"\u229A",
-  "circleddash":"\u229D",
-  "CircleDot":"\u2299",
-  "circledR":"\u00AE",
-  "circledS":"\u24C8",
-  "CircleMinus":"\u2296",
-  "CirclePlus":"\u2295",
-  "CircleTimes":"\u2297",
-  "cirE":"\u29C3",
-  "cire":"\u2257",
-  "cirfnint":"\u2A10",
-  "cirmid":"\u2AEF",
-  "cirscir":"\u29C2",
-  "ClockwiseContourIntegral":"\u2232",
-  "CloseCurlyDoubleQuote":"\u201D",
-  "CloseCurlyQuote":"\u2019",
-  "clubs":"\u2663",
-  "clubsuit":"\u2663",
-  "Colon":"\u2237",
-  "colon":"\u003A",
-  "Colone":"\u2A74",
-  "colone":"\u2254",
-  "coloneq":"\u2254",
-  "comma":"\u002C",
-  "commat":"\u0040",
-  "comp":"\u2201",
-  "compfn":"\u2218",
-  "complement":"\u2201",
-  "complexes":"\u2102",
-  "cong":"\u2245",
-  "congdot":"\u2A6D",
-  "Congruent":"\u2261",
-  "Conint":"\u222F",
-  "conint":"\u222E",
-  "ContourIntegral":"\u222E",
-  "Copf":"\u2102",
-  "copf":"\uD835\uDD54",
-  "coprod":"\u2210",
-  "Coproduct":"\u2210",
-  "COPY":"\u00A9",
-  "copy":"\u00A9",
-  "copysr":"\u2117",
-  "CounterClockwiseContourIntegral":"\u2233",
-  "crarr":"\u21B5",
-  "Cross":"\u2A2F",
-  "cross":"\u2717",
-  "Cscr":"\uD835\uDC9E",
-  "cscr":"\uD835\uDCB8",
-  "csub":"\u2ACF",
-  "csube":"\u2AD1",
-  "csup":"\u2AD0",
-  "csupe":"\u2AD2",
-  "ctdot":"\u22EF",
-  "cudarrl":"\u2938",
-  "cudarrr":"\u2935",
-  "cuepr":"\u22DE",
-  "cuesc":"\u22DF",
-  "cularr":"\u21B6",
-  "cularrp":"\u293D",
-  "Cup":"\u22D3",
-  "cup":"\u222A",
-  "cupbrcap":"\u2A48",
-  "CupCap":"\u224D",
-  "cupcap":"\u2A46",
-  "cupcup":"\u2A4A",
-  "cupdot":"\u228D",
-  "cupor":"\u2A45",
-  "cups":"\u222A\uFE00",
-  "curarr":"\u21B7",
-  "curarrm":"\u293C",
-  "curlyeqprec":"\u22DE",
-  "curlyeqsucc":"\u22DF",
-  "curlyvee":"\u22CE",
-  "curlywedge":"\u22CF",
-  "curren":"\u00A4",
-  "curvearrowleft":"\u21B6",
-  "curvearrowright":"\u21B7",
-  "cuvee":"\u22CE",
-  "cuwed":"\u22CF",
-  "cwconint":"\u2232",
-  "cwint":"\u2231",
-  "cylcty":"\u232D",
-  "Dagger":"\u2021",
-  "dagger":"\u2020",
-  "daleth":"\u2138",
-  "Darr":"\u21A1",
-  "dArr":"\u21D3",
-  "darr":"\u2193",
-  "dash":"\u2010",
-  "Dashv":"\u2AE4",
-  "dashv":"\u22A3",
-  "dbkarow":"\u290F",
-  "dblac":"\u02DD",
-  "Dcaron":"\u010E",
-  "dcaron":"\u010F",
-  "Dcy":"\u0414",
-  "dcy":"\u0434",
-  "DD":"\u2145",
-  "dd":"\u2146",
-  "ddagger":"\u2021",
-  "ddarr":"\u21CA",
-  "DDotrahd":"\u2911",
-  "ddotseq":"\u2A77",
-  "deg":"\u00B0",
-  "Del":"\u2207",
-  "Delta":"\u0394",
-  "delta":"\u03B4",
-  "demptyv":"\u29B1",
-  "dfisht":"\u297F",
-  "Dfr":"\uD835\uDD07",
-  "dfr":"\uD835\uDD21",
-  "dHar":"\u2965",
-  "dharl":"\u21C3",
-  "dharr":"\u21C2",
-  "DiacriticalAcute":"\u00B4",
-  "DiacriticalDot":"\u02D9",
-  "DiacriticalDoubleAcute":"\u02DD",
-  "DiacriticalGrave":"\u0060",
-  "DiacriticalTilde":"\u02DC",
-  "diam":"\u22C4",
-  "Diamond":"\u22C4",
-  "diamond":"\u22C4",
-  "diamondsuit":"\u2666",
-  "diams":"\u2666",
-  "die":"\u00A8",
-  "DifferentialD":"\u2146",
-  "digamma":"\u03DD",
-  "disin":"\u22F2",
-  "div":"\u00F7",
-  "divide":"\u00F7",
-  "divideontimes":"\u22C7",
-  "divonx":"\u22C7",
-  "DJcy":"\u0402",
-  "djcy":"\u0452",
-  "dlcorn":"\u231E",
-  "dlcrop":"\u230D",
-  "dollar":"\u0024",
-  "Dopf":"\uD835\uDD3B",
-  "dopf":"\uD835\uDD55",
-  "Dot":"\u00A8",
-  "dot":"\u02D9",
-  "DotDot":"\u20DC",
-  "doteq":"\u2250",
-  "doteqdot":"\u2251",
-  "DotEqual":"\u2250",
-  "dotminus":"\u2238",
-  "dotplus":"\u2214",
-  "dotsquare":"\u22A1",
-  "doublebarwedge":"\u2306",
-  "DoubleContourIntegral":"\u222F",
-  "DoubleDot":"\u00A8",
-  "DoubleDownArrow":"\u21D3",
-  "DoubleLeftArrow":"\u21D0",
-  "DoubleLeftRightArrow":"\u21D4",
-  "DoubleLeftTee":"\u2AE4",
-  "DoubleLongLeftArrow":"\u27F8",
-  "DoubleLongLeftRightArrow":"\u27FA",
-  "DoubleLongRightArrow":"\u27F9",
-  "DoubleRightArrow":"\u21D2",
-  "DoubleRightTee":"\u22A8",
-  "DoubleUpArrow":"\u21D1",
-  "DoubleUpDownArrow":"\u21D5",
-  "DoubleVerticalBar":"\u2225",
-  "DownArrow":"\u2193",
-  "Downarrow":"\u21D3",
-  "downarrow":"\u2193",
-  "DownArrowBar":"\u2913",
-  "DownArrowUpArrow":"\u21F5",
-  "DownBreve":"\u0311",
-  "downdownarrows":"\u21CA",
-  "downharpoonleft":"\u21C3",
-  "downharpoonright":"\u21C2",
-  "DownLeftRightVector":"\u2950",
-  "DownLeftTeeVector":"\u295E",
-  "DownLeftVector":"\u21BD",
-  "DownLeftVectorBar":"\u2956",
-  "DownRightTeeVector":"\u295F",
-  "DownRightVector":"\u21C1",
-  "DownRightVectorBar":"\u2957",
-  "DownTee":"\u22A4",
-  "DownTeeArrow":"\u21A7",
-  "drbkarow":"\u2910",
-  "drcorn":"\u231F",
-  "drcrop":"\u230C",
-  "Dscr":"\uD835\uDC9F",
-  "dscr":"\uD835\uDCB9",
-  "DScy":"\u0405",
-  "dscy":"\u0455",
-  "dsol":"\u29F6",
-  "Dstrok":"\u0110",
-  "dstrok":"\u0111",
-  "dtdot":"\u22F1",
-  "dtri":"\u25BF",
-  "dtrif":"\u25BE",
-  "duarr":"\u21F5",
-  "duhar":"\u296F",
-  "dwangle":"\u29A6",
-  "DZcy":"\u040F",
-  "dzcy":"\u045F",
-  "dzigrarr":"\u27FF",
-  "Eacute":"\u00C9",
-  "eacute":"\u00E9",
-  "easter":"\u2A6E",
-  "Ecaron":"\u011A",
-  "ecaron":"\u011B",
-  "ecir":"\u2256",
-  "Ecirc":"\u00CA",
-  "ecirc":"\u00EA",
-  "ecolon":"\u2255",
-  "Ecy":"\u042D",
-  "ecy":"\u044D",
-  "eDDot":"\u2A77",
-  "Edot":"\u0116",
-  "eDot":"\u2251",
-  "edot":"\u0117",
-  "ee":"\u2147",
-  "efDot":"\u2252",
-  "Efr":"\uD835\uDD08",
-  "efr":"\uD835\uDD22",
-  "eg":"\u2A9A",
-  "Egrave":"\u00C8",
-  "egrave":"\u00E8",
-  "egs":"\u2A96",
-  "egsdot":"\u2A98",
-  "el":"\u2A99",
-  "Element":"\u2208",
-  "elinters":"\u23E7",
-  "ell":"\u2113",
-  "els":"\u2A95",
-  "elsdot":"\u2A97",
-  "Emacr":"\u0112",
-  "emacr":"\u0113",
-  "empty":"\u2205",
-  "emptyset":"\u2205",
-  "EmptySmallSquare":"\u25FB",
-  "emptyv":"\u2205",
-  "EmptyVerySmallSquare":"\u25AB",
-  "emsp":"\u2003",
-  "emsp13":"\u2004",
-  "emsp14":"\u2005",
-  "ENG":"\u014A",
-  "eng":"\u014B",
-  "ensp":"\u2002",
-  "Eogon":"\u0118",
-  "eogon":"\u0119",
-  "Eopf":"\uD835\uDD3C",
-  "eopf":"\uD835\uDD56",
-  "epar":"\u22D5",
-  "eparsl":"\u29E3",
-  "eplus":"\u2A71",
-  "epsi":"\u03B5",
-  "Epsilon":"\u0395",
-  "epsilon":"\u03B5",
-  "epsiv":"\u03F5",
-  "eqcirc":"\u2256",
-  "eqcolon":"\u2255",
-  "eqsim":"\u2242",
-  "eqslantgtr":"\u2A96",
-  "eqslantless":"\u2A95",
-  "Equal":"\u2A75",
-  "equals":"\u003D",
-  "EqualTilde":"\u2242",
-  "equest":"\u225F",
-  "Equilibrium":"\u21CC",
-  "equiv":"\u2261",
-  "equivDD":"\u2A78",
-  "eqvparsl":"\u29E5",
-  "erarr":"\u2971",
-  "erDot":"\u2253",
-  "Escr":"\u2130",
-  "escr":"\u212F",
-  "esdot":"\u2250",
-  "Esim":"\u2A73",
-  "esim":"\u2242",
-  "Eta":"\u0397",
-  "eta":"\u03B7",
-  "ETH":"\u00D0",
-  "eth":"\u00F0",
-  "Euml":"\u00CB",
-  "euml":"\u00EB",
-  "euro":"\u20AC",
-  "excl":"\u0021",
-  "exist":"\u2203",
-  "Exists":"\u2203",
-  "expectation":"\u2130",
-  "ExponentialE":"\u2147",
-  "exponentiale":"\u2147",
-  "fallingdotseq":"\u2252",
-  "Fcy":"\u0424",
-  "fcy":"\u0444",
-  "female":"\u2640",
-  "ffilig":"\uFB03",
-  "fflig":"\uFB00",
-  "ffllig":"\uFB04",
-  "Ffr":"\uD835\uDD09",
-  "ffr":"\uD835\uDD23",
-  "filig":"\uFB01",
-  "FilledSmallSquare":"\u25FC",
-  "FilledVerySmallSquare":"\u25AA",
-  "fjlig":"\u0066\u006A",
-  "flat":"\u266D",
-  "fllig":"\uFB02",
-  "fltns":"\u25B1",
-  "fnof":"\u0192",
-  "Fopf":"\uD835\uDD3D",
-  "fopf":"\uD835\uDD57",
-  "ForAll":"\u2200",
-  "forall":"\u2200",
-  "fork":"\u22D4",
-  "forkv":"\u2AD9",
-  "Fouriertrf":"\u2131",
-  "fpartint":"\u2A0D",
-  "frac12":"\u00BD",
-  "frac13":"\u2153",
-  "frac14":"\u00BC",
-  "frac15":"\u2155",
-  "frac16":"\u2159",
-  "frac18":"\u215B",
-  "frac23":"\u2154",
-  "frac25":"\u2156",
-  "frac34":"\u00BE",
-  "frac35":"\u2157",
-  "frac38":"\u215C",
-  "frac45":"\u2158",
-  "frac56":"\u215A",
-  "frac58":"\u215D",
-  "frac78":"\u215E",
-  "frasl":"\u2044",
-  "frown":"\u2322",
-  "Fscr":"\u2131",
-  "fscr":"\uD835\uDCBB",
-  "gacute":"\u01F5",
-  "Gamma":"\u0393",
-  "gamma":"\u03B3",
-  "Gammad":"\u03DC",
-  "gammad":"\u03DD",
-  "gap":"\u2A86",
-  "Gbreve":"\u011E",
-  "gbreve":"\u011F",
-  "Gcedil":"\u0122",
-  "Gcirc":"\u011C",
-  "gcirc":"\u011D",
-  "Gcy":"\u0413",
-  "gcy":"\u0433",
-  "Gdot":"\u0120",
-  "gdot":"\u0121",
-  "gE":"\u2267",
-  "ge":"\u2265",
-  "gEl":"\u2A8C",
-  "gel":"\u22DB",
-  "geq":"\u2265",
-  "geqq":"\u2267",
-  "geqslant":"\u2A7E",
-  "ges":"\u2A7E",
-  "gescc":"\u2AA9",
-  "gesdot":"\u2A80",
-  "gesdoto":"\u2A82",
-  "gesdotol":"\u2A84",
-  "gesl":"\u22DB\uFE00",
-  "gesles":"\u2A94",
-  "Gfr":"\uD835\uDD0A",
-  "gfr":"\uD835\uDD24",
-  "Gg":"\u22D9",
-  "gg":"\u226B",
-  "ggg":"\u22D9",
-  "gimel":"\u2137",
-  "GJcy":"\u0403",
-  "gjcy":"\u0453",
-  "gl":"\u2277",
-  "gla":"\u2AA5",
-  "glE":"\u2A92",
-  "glj":"\u2AA4",
-  "gnap":"\u2A8A",
-  "gnapprox":"\u2A8A",
-  "gnE":"\u2269",
-  "gne":"\u2A88",
-  "gneq":"\u2A88",
-  "gneqq":"\u2269",
-  "gnsim":"\u22E7",
-  "Gopf":"\uD835\uDD3E",
-  "gopf":"\uD835\uDD58",
-  "grave":"\u0060",
-  "GreaterEqual":"\u2265",
-  "GreaterEqualLess":"\u22DB",
-  "GreaterFullEqual":"\u2267",
-  "GreaterGreater":"\u2AA2",
-  "GreaterLess":"\u2277",
-  "GreaterSlantEqual":"\u2A7E",
-  "GreaterTilde":"\u2273",
-  "Gscr":"\uD835\uDCA2",
-  "gscr":"\u210A",
-  "gsim":"\u2273",
-  "gsime":"\u2A8E",
-  "gsiml":"\u2A90",
-  "GT":"\u003E",
-  "Gt":"\u226B",
-  "gt":"\u003E",
-  "gtcc":"\u2AA7",
-  "gtcir":"\u2A7A",
-  "gtdot":"\u22D7",
-  "gtlPar":"\u2995",
-  "gtquest":"\u2A7C",
-  "gtrapprox":"\u2A86",
-  "gtrarr":"\u2978",
-  "gtrdot":"\u22D7",
-  "gtreqless":"\u22DB",
-  "gtreqqless":"\u2A8C",
-  "gtrless":"\u2277",
-  "gtrsim":"\u2273",
-  "gvertneqq":"\u2269\uFE00",
-  "gvnE":"\u2269\uFE00",
-  "Hacek":"\u02C7",
-  "hairsp":"\u200A",
-  "half":"\u00BD",
-  "hamilt":"\u210B",
-  "HARDcy":"\u042A",
-  "hardcy":"\u044A",
-  "hArr":"\u21D4",
-  "harr":"\u2194",
-  "harrcir":"\u2948",
-  "harrw":"\u21AD",
-  "Hat":"\u005E",
-  "hbar":"\u210F",
-  "Hcirc":"\u0124",
-  "hcirc":"\u0125",
-  "hearts":"\u2665",
-  "heartsuit":"\u2665",
-  "hellip":"\u2026",
-  "hercon":"\u22B9",
-  "Hfr":"\u210C",
-  "hfr":"\uD835\uDD25",
-  "HilbertSpace":"\u210B",
-  "hksearow":"\u2925",
-  "hkswarow":"\u2926",
-  "hoarr":"\u21FF",
-  "homtht":"\u223B",
-  "hookleftarrow":"\u21A9",
-  "hookrightarrow":"\u21AA",
-  "Hopf":"\u210D",
-  "hopf":"\uD835\uDD59",
-  "horbar":"\u2015",
-  "HorizontalLine":"\u2500",
-  "Hscr":"\u210B",
-  "hscr":"\uD835\uDCBD",
-  "hslash":"\u210F",
-  "Hstrok":"\u0126",
-  "hstrok":"\u0127",
-  "HumpDownHump":"\u224E",
-  "HumpEqual":"\u224F",
-  "hybull":"\u2043",
-  "hyphen":"\u2010",
-  "Iacute":"\u00CD",
-  "iacute":"\u00ED",
-  "ic":"\u2063",
-  "Icirc":"\u00CE",
-  "icirc":"\u00EE",
-  "Icy":"\u0418",
-  "icy":"\u0438",
-  "Idot":"\u0130",
-  "IEcy":"\u0415",
-  "iecy":"\u0435",
-  "iexcl":"\u00A1",
-  "iff":"\u21D4",
-  "Ifr":"\u2111",
-  "ifr":"\uD835\uDD26",
-  "Igrave":"\u00CC",
-  "igrave":"\u00EC",
-  "ii":"\u2148",
-  "iiiint":"\u2A0C",
-  "iiint":"\u222D",
-  "iinfin":"\u29DC",
-  "iiota":"\u2129",
-  "IJlig":"\u0132",
-  "ijlig":"\u0133",
-  "Im":"\u2111",
-  "Imacr":"\u012A",
-  "imacr":"\u012B",
-  "image":"\u2111",
-  "ImaginaryI":"\u2148",
-  "imagline":"\u2110",
-  "imagpart":"\u2111",
-  "imath":"\u0131",
-  "imof":"\u22B7",
-  "imped":"\u01B5",
-  "Implies":"\u21D2",
-  "in":"\u2208",
-  "incare":"\u2105",
-  "infin":"\u221E",
-  "infintie":"\u29DD",
-  "inodot":"\u0131",
-  "Int":"\u222C",
-  "int":"\u222B",
-  "intcal":"\u22BA",
-  "integers":"\u2124",
-  "Integral":"\u222B",
-  "intercal":"\u22BA",
-  "Intersection":"\u22C2",
-  "intlarhk":"\u2A17",
-  "intprod":"\u2A3C",
-  "InvisibleComma":"\u2063",
-  "InvisibleTimes":"\u2062",
-  "IOcy":"\u0401",
-  "iocy":"\u0451",
-  "Iogon":"\u012E",
-  "iogon":"\u012F",
-  "Iopf":"\uD835\uDD40",
-  "iopf":"\uD835\uDD5A",
-  "Iota":"\u0399",
-  "iota":"\u03B9",
-  "iprod":"\u2A3C",
-  "iquest":"\u00BF",
-  "Iscr":"\u2110",
-  "iscr":"\uD835\uDCBE",
-  "isin":"\u2208",
-  "isindot":"\u22F5",
-  "isinE":"\u22F9",
-  "isins":"\u22F4",
-  "isinsv":"\u22F3",
-  "isinv":"\u2208",
-  "it":"\u2062",
-  "Itilde":"\u0128",
-  "itilde":"\u0129",
-  "Iukcy":"\u0406",
-  "iukcy":"\u0456",
-  "Iuml":"\u00CF",
-  "iuml":"\u00EF",
-  "Jcirc":"\u0134",
-  "jcirc":"\u0135",
-  "Jcy":"\u0419",
-  "jcy":"\u0439",
-  "Jfr":"\uD835\uDD0D",
-  "jfr":"\uD835\uDD27",
-  "jmath":"\u0237",
-  "Jopf":"\uD835\uDD41",
-  "jopf":"\uD835\uDD5B",
-  "Jscr":"\uD835\uDCA5",
-  "jscr":"\uD835\uDCBF",
-  "Jsercy":"\u0408",
-  "jsercy":"\u0458",
-  "Jukcy":"\u0404",
-  "jukcy":"\u0454",
-  "Kappa":"\u039A",
-  "kappa":"\u03BA",
-  "kappav":"\u03F0",
-  "Kcedil":"\u0136",
-  "kcedil":"\u0137",
-  "Kcy":"\u041A",
-  "kcy":"\u043A",
-  "Kfr":"\uD835\uDD0E",
-  "kfr":"\uD835\uDD28",
-  "kgreen":"\u0138",
-  "KHcy":"\u0425",
-  "khcy":"\u0445",
-  "KJcy":"\u040C",
-  "kjcy":"\u045C",
-  "Kopf":"\uD835\uDD42",
-  "kopf":"\uD835\uDD5C",
-  "Kscr":"\uD835\uDCA6",
-  "kscr":"\uD835\uDCC0",
-  "lAarr":"\u21DA",
-  "Lacute":"\u0139",
-  "lacute":"\u013A",
-  "laemptyv":"\u29B4",
-  "lagran":"\u2112",
-  "Lambda":"\u039B",
-  "lambda":"\u03BB",
-  "Lang":"\u27EA",
-  "lang":"\u27E8",
-  "langd":"\u2991",
-  "langle":"\u27E8",
-  "lap":"\u2A85",
-  "Laplacetrf":"\u2112",
-  "laquo":"\u00AB",
-  "Larr":"\u219E",
-  "lArr":"\u21D0",
-  "larr":"\u2190",
-  "larrb":"\u21E4",
-  "larrbfs":"\u291F",
-  "larrfs":"\u291D",
-  "larrhk":"\u21A9",
-  "larrlp":"\u21AB",
-  "larrpl":"\u2939",
-  "larrsim":"\u2973",
-  "larrtl":"\u21A2",
-  "lat":"\u2AAB",
-  "lAtail":"\u291B",
-  "latail":"\u2919",
-  "late":"\u2AAD",
-  "lates":"\u2AAD\uFE00",
-  "lBarr":"\u290E",
-  "lbarr":"\u290C",
-  "lbbrk":"\u2772",
-  "lbrace":"\u007B",
-  "lbrack":"\u005B",
-  "lbrke":"\u298B",
-  "lbrksld":"\u298F",
-  "lbrkslu":"\u298D",
-  "Lcaron":"\u013D",
-  "lcaron":"\u013E",
-  "Lcedil":"\u013B",
-  "lcedil":"\u013C",
-  "lceil":"\u2308",
-  "lcub":"\u007B",
-  "Lcy":"\u041B",
-  "lcy":"\u043B",
-  "ldca":"\u2936",
-  "ldquo":"\u201C",
-  "ldquor":"\u201E",
-  "ldrdhar":"\u2967",
-  "ldrushar":"\u294B",
-  "ldsh":"\u21B2",
-  "lE":"\u2266",
-  "le":"\u2264",
-  "LeftAngleBracket":"\u27E8",
-  "LeftArrow":"\u2190",
-  "Leftarrow":"\u21D0",
-  "leftarrow":"\u2190",
-  "LeftArrowBar":"\u21E4",
-  "LeftArrowRightArrow":"\u21C6",
-  "leftarrowtail":"\u21A2",
-  "LeftCeiling":"\u2308",
-  "LeftDoubleBracket":"\u27E6",
-  "LeftDownTeeVector":"\u2961",
-  "LeftDownVector":"\u21C3",
-  "LeftDownVectorBar":"\u2959",
-  "LeftFloor":"\u230A",
-  "leftharpoondown":"\u21BD",
-  "leftharpoonup":"\u21BC",
-  "leftleftarrows":"\u21C7",
-  "LeftRightArrow":"\u2194",
-  "Leftrightarrow":"\u21D4",
-  "leftrightarrow":"\u2194",
-  "leftrightarrows":"\u21C6",
-  "leftrightharpoons":"\u21CB",
-  "leftrightsquigarrow":"\u21AD",
-  "LeftRightVector":"\u294E",
-  "LeftTee":"\u22A3",
-  "LeftTeeArrow":"\u21A4",
-  "LeftTeeVector":"\u295A",
-  "leftthreetimes":"\u22CB",
-  "LeftTriangle":"\u22B2",
-  "LeftTriangleBar":"\u29CF",
-  "LeftTriangleEqual":"\u22B4",
-  "LeftUpDownVector":"\u2951",
-  "LeftUpTeeVector":"\u2960",
-  "LeftUpVector":"\u21BF",
-  "LeftUpVectorBar":"\u2958",
-  "LeftVector":"\u21BC",
-  "LeftVectorBar":"\u2952",
-  "lEg":"\u2A8B",
-  "leg":"\u22DA",
-  "leq":"\u2264",
-  "leqq":"\u2266",
-  "leqslant":"\u2A7D",
-  "les":"\u2A7D",
-  "lescc":"\u2AA8",
-  "lesdot":"\u2A7F",
-  "lesdoto":"\u2A81",
-  "lesdotor":"\u2A83",
-  "lesg":"\u22DA\uFE00",
-  "lesges":"\u2A93",
-  "lessapprox":"\u2A85",
-  "lessdot":"\u22D6",
-  "lesseqgtr":"\u22DA",
-  "lesseqqgtr":"\u2A8B",
-  "LessEqualGreater":"\u22DA",
-  "LessFullEqual":"\u2266",
-  "LessGreater":"\u2276",
-  "lessgtr":"\u2276",
-  "LessLess":"\u2AA1",
-  "lesssim":"\u2272",
-  "LessSlantEqual":"\u2A7D",
-  "LessTilde":"\u2272",
-  "lfisht":"\u297C",
-  "lfloor":"\u230A",
-  "Lfr":"\uD835\uDD0F",
-  "lfr":"\uD835\uDD29",
-  "lg":"\u2276",
-  "lgE":"\u2A91",
-  "lHar":"\u2962",
-  "lhard":"\u21BD",
-  "lharu":"\u21BC",
-  "lharul":"\u296A",
-  "lhblk":"\u2584",
-  "LJcy":"\u0409",
-  "ljcy":"\u0459",
-  "Ll":"\u22D8",
-  "ll":"\u226A",
-  "llarr":"\u21C7",
-  "llcorner":"\u231E",
-  "Lleftarrow":"\u21DA",
-  "llhard":"\u296B",
-  "lltri":"\u25FA",
-  "Lmidot":"\u013F",
-  "lmidot":"\u0140",
-  "lmoust":"\u23B0",
-  "lmoustache":"\u23B0",
-  "lnap":"\u2A89",
-  "lnapprox":"\u2A89",
-  "lnE":"\u2268",
-  "lne":"\u2A87",
-  "lneq":"\u2A87",
-  "lneqq":"\u2268",
-  "lnsim":"\u22E6",
-  "loang":"\u27EC",
-  "loarr":"\u21FD",
-  "lobrk":"\u27E6",
-  "LongLeftArrow":"\u27F5",
-  "Longleftarrow":"\u27F8",
-  "longleftarrow":"\u27F5",
-  "LongLeftRightArrow":"\u27F7",
-  "Longleftrightarrow":"\u27FA",
-  "longleftrightarrow":"\u27F7",
-  "longmapsto":"\u27FC",
-  "LongRightArrow":"\u27F6",
-  "Longrightarrow":"\u27F9",
-  "longrightarrow":"\u27F6",
-  "looparrowleft":"\u21AB",
-  "looparrowright":"\u21AC",
-  "lopar":"\u2985",
-  "Lopf":"\uD835\uDD43",
-  "lopf":"\uD835\uDD5D",
-  "loplus":"\u2A2D",
-  "lotimes":"\u2A34",
-  "lowast":"\u2217",
-  "lowbar":"\u005F",
-  "LowerLeftArrow":"\u2199",
-  "LowerRightArrow":"\u2198",
-  "loz":"\u25CA",
-  "lozenge":"\u25CA",
-  "lozf":"\u29EB",
-  "lpar":"\u0028",
-  "lparlt":"\u2993",
-  "lrarr":"\u21C6",
-  "lrcorner":"\u231F",
-  "lrhar":"\u21CB",
-  "lrhard":"\u296D",
-  "lrm":"\u200E",
-  "lrtri":"\u22BF",
-  "lsaquo":"\u2039",
-  "Lscr":"\u2112",
-  "lscr":"\uD835\uDCC1",
-  "Lsh":"\u21B0",
-  "lsh":"\u21B0",
-  "lsim":"\u2272",
-  "lsime":"\u2A8D",
-  "lsimg":"\u2A8F",
-  "lsqb":"\u005B",
-  "lsquo":"\u2018",
-  "lsquor":"\u201A",
-  "Lstrok":"\u0141",
-  "lstrok":"\u0142",
-  "LT":"\u003C",
-  "Lt":"\u226A",
-  "lt":"\u003C",
-  "ltcc":"\u2AA6",
-  "ltcir":"\u2A79",
-  "ltdot":"\u22D6",
-  "lthree":"\u22CB",
-  "ltimes":"\u22C9",
-  "ltlarr":"\u2976",
-  "ltquest":"\u2A7B",
-  "ltri":"\u25C3",
-  "ltrie":"\u22B4",
-  "ltrif":"\u25C2",
-  "ltrPar":"\u2996",
-  "lurdshar":"\u294A",
-  "luruhar":"\u2966",
-  "lvertneqq":"\u2268\uFE00",
-  "lvnE":"\u2268\uFE00",
-  "macr":"\u00AF",
-  "male":"\u2642",
-  "malt":"\u2720",
-  "maltese":"\u2720",
-  "Map":"\u2905",
-  "map":"\u21A6",
-  "mapsto":"\u21A6",
-  "mapstodown":"\u21A7",
-  "mapstoleft":"\u21A4",
-  "mapstoup":"\u21A5",
-  "marker":"\u25AE",
-  "mcomma":"\u2A29",
-  "Mcy":"\u041C",
-  "mcy":"\u043C",
-  "mdash":"\u2014",
-  "mDDot":"\u223A",
-  "measuredangle":"\u2221",
-  "MediumSpace":"\u205F",
-  "Mellintrf":"\u2133",
-  "Mfr":"\uD835\uDD10",
-  "mfr":"\uD835\uDD2A",
-  "mho":"\u2127",
-  "micro":"\u00B5",
-  "mid":"\u2223",
-  "midast":"\u002A",
-  "midcir":"\u2AF0",
-  "middot":"\u00B7",
-  "minus":"\u2212",
-  "minusb":"\u229F",
-  "minusd":"\u2238",
-  "minusdu":"\u2A2A",
-  "MinusPlus":"\u2213",
-  "mlcp":"\u2ADB",
-  "mldr":"\u2026",
-  "mnplus":"\u2213",
-  "models":"\u22A7",
-  "Mopf":"\uD835\uDD44",
-  "mopf":"\uD835\uDD5E",
-  "mp":"\u2213",
-  "Mscr":"\u2133",
-  "mscr":"\uD835\uDCC2",
-  "mstpos":"\u223E",
-  "Mu":"\u039C",
-  "mu":"\u03BC",
-  "multimap":"\u22B8",
-  "mumap":"\u22B8",
-  "nabla":"\u2207",
-  "Nacute":"\u0143",
-  "nacute":"\u0144",
-  "nang":"\u2220\u20D2",
-  "nap":"\u2249",
-  "napE":"\u2A70\u0338",
-  "napid":"\u224B\u0338",
-  "napos":"\u0149",
-  "napprox":"\u2249",
-  "natur":"\u266E",
-  "natural":"\u266E",
-  "naturals":"\u2115",
-  "nbsp":"\u00A0",
-  "nbump":"\u224E\u0338",
-  "nbumpe":"\u224F\u0338",
-  "ncap":"\u2A43",
-  "Ncaron":"\u0147",
-  "ncaron":"\u0148",
-  "Ncedil":"\u0145",
-  "ncedil":"\u0146",
-  "ncong":"\u2247",
-  "ncongdot":"\u2A6D\u0338",
-  "ncup":"\u2A42",
-  "Ncy":"\u041D",
-  "ncy":"\u043D",
-  "ndash":"\u2013",
-  "ne":"\u2260",
-  "nearhk":"\u2924",
-  "neArr":"\u21D7",
-  "nearr":"\u2197",
-  "nearrow":"\u2197",
-  "nedot":"\u2250\u0338",
-  "NegativeMediumSpace":"\u200B",
-  "NegativeThickSpace":"\u200B",
-  "NegativeThinSpace":"\u200B",
-  "NegativeVeryThinSpace":"\u200B",
-  "nequiv":"\u2262",
-  "nesear":"\u2928",
-  "nesim":"\u2242\u0338",
-  "NestedGreaterGreater":"\u226B",
-  "NestedLessLess":"\u226A",
-  "NewLine":"\u000A",
-  "nexist":"\u2204",
-  "nexists":"\u2204",
-  "Nfr":"\uD835\uDD11",
-  "nfr":"\uD835\uDD2B",
-  "ngE":"\u2267\u0338",
-  "nge":"\u2271",
-  "ngeq":"\u2271",
-  "ngeqq":"\u2267\u0338",
-  "ngeqslant":"\u2A7E\u0338",
-  "nges":"\u2A7E\u0338",
-  "nGg":"\u22D9\u0338",
-  "ngsim":"\u2275",
-  "nGt":"\u226B\u20D2",
-  "ngt":"\u226F",
-  "ngtr":"\u226F",
-  "nGtv":"\u226B\u0338",
-  "nhArr":"\u21CE",
-  "nharr":"\u21AE",
-  "nhpar":"\u2AF2",
-  "ni":"\u220B",
-  "nis":"\u22FC",
-  "nisd":"\u22FA",
-  "niv":"\u220B",
-  "NJcy":"\u040A",
-  "njcy":"\u045A",
-  "nlArr":"\u21CD",
-  "nlarr":"\u219A",
-  "nldr":"\u2025",
-  "nlE":"\u2266\u0338",
-  "nle":"\u2270",
-  "nLeftarrow":"\u21CD",
-  "nleftarrow":"\u219A",
-  "nLeftrightarrow":"\u21CE",
-  "nleftrightarrow":"\u21AE",
-  "nleq":"\u2270",
-  "nleqq":"\u2266\u0338",
-  "nleqslant":"\u2A7D\u0338",
-  "nles":"\u2A7D\u0338",
-  "nless":"\u226E",
-  "nLl":"\u22D8\u0338",
-  "nlsim":"\u2274",
-  "nLt":"\u226A\u20D2",
-  "nlt":"\u226E",
-  "nltri":"\u22EA",
-  "nltrie":"\u22EC",
-  "nLtv":"\u226A\u0338",
-  "nmid":"\u2224",
-  "NoBreak":"\u2060",
-  "NonBreakingSpace":"\u00A0",
-  "Nopf":"\u2115",
-  "nopf":"\uD835\uDD5F",
-  "Not":"\u2AEC",
-  "not":"\u00AC",
-  "NotCongruent":"\u2262",
-  "NotCupCap":"\u226D",
-  "NotDoubleVerticalBar":"\u2226",
-  "NotElement":"\u2209",
-  "NotEqual":"\u2260",
-  "NotEqualTilde":"\u2242\u0338",
-  "NotExists":"\u2204",
-  "NotGreater":"\u226F",
-  "NotGreaterEqual":"\u2271",
-  "NotGreaterFullEqual":"\u2267\u0338",
-  "NotGreaterGreater":"\u226B\u0338",
-  "NotGreaterLess":"\u2279",
-  "NotGreaterSlantEqual":"\u2A7E\u0338",
-  "NotGreaterTilde":"\u2275",
-  "NotHumpDownHump":"\u224E\u0338",
-  "NotHumpEqual":"\u224F\u0338",
-  "notin":"\u2209",
-  "notindot":"\u22F5\u0338",
-  "notinE":"\u22F9\u0338",
-  "notinva":"\u2209",
-  "notinvb":"\u22F7",
-  "notinvc":"\u22F6",
-  "NotLeftTriangle":"\u22EA",
-  "NotLeftTriangleBar":"\u29CF\u0338",
-  "NotLeftTriangleEqual":"\u22EC",
-  "NotLess":"\u226E",
-  "NotLessEqual":"\u2270",
-  "NotLessGreater":"\u2278",
-  "NotLessLess":"\u226A\u0338",
-  "NotLessSlantEqual":"\u2A7D\u0338",
-  "NotLessTilde":"\u2274",
-  "NotNestedGreaterGreater":"\u2AA2\u0338",
-  "NotNestedLessLess":"\u2AA1\u0338",
-  "notni":"\u220C",
-  "notniva":"\u220C",
-  "notnivb":"\u22FE",
-  "notnivc":"\u22FD",
-  "NotPrecedes":"\u2280",
-  "NotPrecedesEqual":"\u2AAF\u0338",
-  "NotPrecedesSlantEqual":"\u22E0",
-  "NotReverseElement":"\u220C",
-  "NotRightTriangle":"\u22EB",
-  "NotRightTriangleBar":"\u29D0\u0338",
-  "NotRightTriangleEqual":"\u22ED",
-  "NotSquareSubset":"\u228F\u0338",
-  "NotSquareSubsetEqual":"\u22E2",
-  "NotSquareSuperset":"\u2290\u0338",
-  "NotSquareSupersetEqual":"\u22E3",
-  "NotSubset":"\u2282\u20D2",
-  "NotSubsetEqual":"\u2288",
-  "NotSucceeds":"\u2281",
-  "NotSucceedsEqual":"\u2AB0\u0338",
-  "NotSucceedsSlantEqual":"\u22E1",
-  "NotSucceedsTilde":"\u227F\u0338",
-  "NotSuperset":"\u2283\u20D2",
-  "NotSupersetEqual":"\u2289",
-  "NotTilde":"\u2241",
-  "NotTildeEqual":"\u2244",
-  "NotTildeFullEqual":"\u2247",
-  "NotTildeTilde":"\u2249",
-  "NotVerticalBar":"\u2224",
-  "npar":"\u2226",
-  "nparallel":"\u2226",
-  "nparsl":"\u2AFD\u20E5",
-  "npart":"\u2202\u0338",
-  "npolint":"\u2A14",
-  "npr":"\u2280",
-  "nprcue":"\u22E0",
-  "npre":"\u2AAF\u0338",
-  "nprec":"\u2280",
-  "npreceq":"\u2AAF\u0338",
-  "nrArr":"\u21CF",
-  "nrarr":"\u219B",
-  "nrarrc":"\u2933\u0338",
-  "nrarrw":"\u219D\u0338",
-  "nRightarrow":"\u21CF",
-  "nrightarrow":"\u219B",
-  "nrtri":"\u22EB",
-  "nrtrie":"\u22ED",
-  "nsc":"\u2281",
-  "nsccue":"\u22E1",
-  "nsce":"\u2AB0\u0338",
-  "Nscr":"\uD835\uDCA9",
-  "nscr":"\uD835\uDCC3",
-  "nshortmid":"\u2224",
-  "nshortparallel":"\u2226",
-  "nsim":"\u2241",
-  "nsime":"\u2244",
-  "nsimeq":"\u2244",
-  "nsmid":"\u2224",
-  "nspar":"\u2226",
-  "nsqsube":"\u22E2",
-  "nsqsupe":"\u22E3",
-  "nsub":"\u2284",
-  "nsubE":"\u2AC5\u0338",
-  "nsube":"\u2288",
-  "nsubset":"\u2282\u20D2",
-  "nsubseteq":"\u2288",
-  "nsubseteqq":"\u2AC5\u0338",
-  "nsucc":"\u2281",
-  "nsucceq":"\u2AB0\u0338",
-  "nsup":"\u2285",
-  "nsupE":"\u2AC6\u0338",
-  "nsupe":"\u2289",
-  "nsupset":"\u2283\u20D2",
-  "nsupseteq":"\u2289",
-  "nsupseteqq":"\u2AC6\u0338",
-  "ntgl":"\u2279",
-  "Ntilde":"\u00D1",
-  "ntilde":"\u00F1",
-  "ntlg":"\u2278",
-  "ntriangleleft":"\u22EA",
-  "ntrianglelefteq":"\u22EC",
-  "ntriangleright":"\u22EB",
-  "ntrianglerighteq":"\u22ED",
-  "Nu":"\u039D",
-  "nu":"\u03BD",
-  "num":"\u0023",
-  "numero":"\u2116",
-  "numsp":"\u2007",
-  "nvap":"\u224D\u20D2",
-  "nVDash":"\u22AF",
-  "nVdash":"\u22AE",
-  "nvDash":"\u22AD",
-  "nvdash":"\u22AC",
-  "nvge":"\u2265\u20D2",
-  "nvgt":"\u003E\u20D2",
-  "nvHarr":"\u2904",
-  "nvinfin":"\u29DE",
-  "nvlArr":"\u2902",
-  "nvle":"\u2264\u20D2",
-  "nvlt":"\u003C\u20D2",
-  "nvltrie":"\u22B4\u20D2",
-  "nvrArr":"\u2903",
-  "nvrtrie":"\u22B5\u20D2",
-  "nvsim":"\u223C\u20D2",
-  "nwarhk":"\u2923",
-  "nwArr":"\u21D6",
-  "nwarr":"\u2196",
-  "nwarrow":"\u2196",
-  "nwnear":"\u2927",
-  "Oacute":"\u00D3",
-  "oacute":"\u00F3",
-  "oast":"\u229B",
-  "ocir":"\u229A",
-  "Ocirc":"\u00D4",
-  "ocirc":"\u00F4",
-  "Ocy":"\u041E",
-  "ocy":"\u043E",
-  "odash":"\u229D",
-  "Odblac":"\u0150",
-  "odblac":"\u0151",
-  "odiv":"\u2A38",
-  "odot":"\u2299",
-  "odsold":"\u29BC",
-  "OElig":"\u0152",
-  "oelig":"\u0153",
-  "ofcir":"\u29BF",
-  "Ofr":"\uD835\uDD12",
-  "ofr":"\uD835\uDD2C",
-  "ogon":"\u02DB",
-  "Ograve":"\u00D2",
-  "ograve":"\u00F2",
-  "ogt":"\u29C1",
-  "ohbar":"\u29B5",
-  "ohm":"\u03A9",
-  "oint":"\u222E",
-  "olarr":"\u21BA",
-  "olcir":"\u29BE",
-  "olcross":"\u29BB",
-  "oline":"\u203E",
-  "olt":"\u29C0",
-  "Omacr":"\u014C",
-  "omacr":"\u014D",
-  "Omega":"\u03A9",
-  "omega":"\u03C9",
-  "Omicron":"\u039F",
-  "omicron":"\u03BF",
-  "omid":"\u29B6",
-  "ominus":"\u2296",
-  "Oopf":"\uD835\uDD46",
-  "oopf":"\uD835\uDD60",
-  "opar":"\u29B7",
-  "OpenCurlyDoubleQuote":"\u201C",
-  "OpenCurlyQuote":"\u2018",
-  "operp":"\u29B9",
-  "oplus":"\u2295",
-  "Or":"\u2A54",
-  "or":"\u2228",
-  "orarr":"\u21BB",
-  "ord":"\u2A5D",
-  "order":"\u2134",
-  "orderof":"\u2134",
-  "ordf":"\u00AA",
-  "ordm":"\u00BA",
-  "origof":"\u22B6",
-  "oror":"\u2A56",
-  "orslope":"\u2A57",
-  "orv":"\u2A5B",
-  "oS":"\u24C8",
-  "Oscr":"\uD835\uDCAA",
-  "oscr":"\u2134",
-  "Oslash":"\u00D8",
-  "oslash":"\u00F8",
-  "osol":"\u2298",
-  "Otilde":"\u00D5",
-  "otilde":"\u00F5",
-  "Otimes":"\u2A37",
-  "otimes":"\u2297",
-  "otimesas":"\u2A36",
-  "Ouml":"\u00D6",
-  "ouml":"\u00F6",
-  "ovbar":"\u233D",
-  "OverBar":"\u203E",
-  "OverBrace":"\u23DE",
-  "OverBracket":"\u23B4",
-  "OverParenthesis":"\u23DC",
-  "par":"\u2225",
-  "para":"\u00B6",
-  "parallel":"\u2225",
-  "parsim":"\u2AF3",
-  "parsl":"\u2AFD",
-  "part":"\u2202",
-  "PartialD":"\u2202",
-  "Pcy":"\u041F",
-  "pcy":"\u043F",
-  "percnt":"\u0025",
-  "period":"\u002E",
-  "permil":"\u2030",
-  "perp":"\u22A5",
-  "pertenk":"\u2031",
-  "Pfr":"\uD835\uDD13",
-  "pfr":"\uD835\uDD2D",
-  "Phi":"\u03A6",
-  "phi":"\u03C6",
-  "phiv":"\u03D5",
-  "phmmat":"\u2133",
-  "phone":"\u260E",
-  "Pi":"\u03A0",
-  "pi":"\u03C0",
-  "pitchfork":"\u22D4",
-  "piv":"\u03D6",
-  "planck":"\u210F",
-  "planckh":"\u210E",
-  "plankv":"\u210F",
-  "plus":"\u002B",
-  "plusacir":"\u2A23",
-  "plusb":"\u229E",
-  "pluscir":"\u2A22",
-  "plusdo":"\u2214",
-  "plusdu":"\u2A25",
-  "pluse":"\u2A72",
-  "PlusMinus":"\u00B1",
-  "plusmn":"\u00B1",
-  "plussim":"\u2A26",
-  "plustwo":"\u2A27",
-  "pm":"\u00B1",
-  "Poincareplane":"\u210C",
-  "pointint":"\u2A15",
-  "Popf":"\u2119",
-  "popf":"\uD835\uDD61",
-  "pound":"\u00A3",
-  "Pr":"\u2ABB",
-  "pr":"\u227A",
-  "prap":"\u2AB7",
-  "prcue":"\u227C",
-  "prE":"\u2AB3",
-  "pre":"\u2AAF",
-  "prec":"\u227A",
-  "precapprox":"\u2AB7",
-  "preccurlyeq":"\u227C",
-  "Precedes":"\u227A",
-  "PrecedesEqual":"\u2AAF",
-  "PrecedesSlantEqual":"\u227C",
-  "PrecedesTilde":"\u227E",
-  "preceq":"\u2AAF",
-  "precnapprox":"\u2AB9",
-  "precneqq":"\u2AB5",
-  "precnsim":"\u22E8",
-  "precsim":"\u227E",
-  "Prime":"\u2033",
-  "prime":"\u2032",
-  "primes":"\u2119",
-  "prnap":"\u2AB9",
-  "prnE":"\u2AB5",
-  "prnsim":"\u22E8",
-  "prod":"\u220F",
-  "Product":"\u220F",
-  "profalar":"\u232E",
-  "profline":"\u2312",
-  "profsurf":"\u2313",
-  "prop":"\u221D",
-  "Proportion":"\u2237",
-  "Proportional":"\u221D",
-  "propto":"\u221D",
-  "prsim":"\u227E",
-  "prurel":"\u22B0",
-  "Pscr":"\uD835\uDCAB",
-  "pscr":"\uD835\uDCC5",
-  "Psi":"\u03A8",
-  "psi":"\u03C8",
-  "puncsp":"\u2008",
-  "Qfr":"\uD835\uDD14",
-  "qfr":"\uD835\uDD2E",
-  "qint":"\u2A0C",
-  "Qopf":"\u211A",
-  "qopf":"\uD835\uDD62",
-  "qprime":"\u2057",
-  "Qscr":"\uD835\uDCAC",
-  "qscr":"\uD835\uDCC6",
-  "quaternions":"\u210D",
-  "quatint":"\u2A16",
-  "quest":"\u003F",
-  "questeq":"\u225F",
-  "QUOT":"\u0022",
-  "quot":"\u0022",
-  "rAarr":"\u21DB",
-  "race":"\u223D\u0331",
-  "Racute":"\u0154",
-  "racute":"\u0155",
-  "radic":"\u221A",
-  "raemptyv":"\u29B3",
-  "Rang":"\u27EB",
-  "rang":"\u27E9",
-  "rangd":"\u2992",
-  "range":"\u29A5",
-  "rangle":"\u27E9",
-  "raquo":"\u00BB",
-  "Rarr":"\u21A0",
-  "rArr":"\u21D2",
-  "rarr":"\u2192",
-  "rarrap":"\u2975",
-  "rarrb":"\u21E5",
-  "rarrbfs":"\u2920",
-  "rarrc":"\u2933",
-  "rarrfs":"\u291E",
-  "rarrhk":"\u21AA",
-  "rarrlp":"\u21AC",
-  "rarrpl":"\u2945",
-  "rarrsim":"\u2974",
-  "Rarrtl":"\u2916",
-  "rarrtl":"\u21A3",
-  "rarrw":"\u219D",
-  "rAtail":"\u291C",
-  "ratail":"\u291A",
-  "ratio":"\u2236",
-  "rationals":"\u211A",
-  "RBarr":"\u2910",
-  "rBarr":"\u290F",
-  "rbarr":"\u290D",
-  "rbbrk":"\u2773",
-  "rbrace":"\u007D",
-  "rbrack":"\u005D",
-  "rbrke":"\u298C",
-  "rbrksld":"\u298E",
-  "rbrkslu":"\u2990",
-  "Rcaron":"\u0158",
-  "rcaron":"\u0159",
-  "Rcedil":"\u0156",
-  "rcedil":"\u0157",
-  "rceil":"\u2309",
-  "rcub":"\u007D",
-  "Rcy":"\u0420",
-  "rcy":"\u0440",
-  "rdca":"\u2937",
-  "rdldhar":"\u2969",
-  "rdquo":"\u201D",
-  "rdquor":"\u201D",
-  "rdsh":"\u21B3",
-  "Re":"\u211C",
-  "real":"\u211C",
-  "realine":"\u211B",
-  "realpart":"\u211C",
-  "reals":"\u211D",
-  "rect":"\u25AD",
-  "REG":"\u00AE",
-  "reg":"\u00AE",
-  "ReverseElement":"\u220B",
-  "ReverseEquilibrium":"\u21CB",
-  "ReverseUpEquilibrium":"\u296F",
-  "rfisht":"\u297D",
-  "rfloor":"\u230B",
-  "Rfr":"\u211C",
-  "rfr":"\uD835\uDD2F",
-  "rHar":"\u2964",
-  "rhard":"\u21C1",
-  "rharu":"\u21C0",
-  "rharul":"\u296C",
-  "Rho":"\u03A1",
-  "rho":"\u03C1",
-  "rhov":"\u03F1",
-  "RightAngleBracket":"\u27E9",
-  "RightArrow":"\u2192",
-  "Rightarrow":"\u21D2",
-  "rightarrow":"\u2192",
-  "RightArrowBar":"\u21E5",
-  "RightArrowLeftArrow":"\u21C4",
-  "rightarrowtail":"\u21A3",
-  "RightCeiling":"\u2309",
-  "RightDoubleBracket":"\u27E7",
-  "RightDownTeeVector":"\u295D",
-  "RightDownVector":"\u21C2",
-  "RightDownVectorBar":"\u2955",
-  "RightFloor":"\u230B",
-  "rightharpoondown":"\u21C1",
-  "rightharpoonup":"\u21C0",
-  "rightleftarrows":"\u21C4",
-  "rightleftharpoons":"\u21CC",
-  "rightrightarrows":"\u21C9",
-  "rightsquigarrow":"\u219D",
-  "RightTee":"\u22A2",
-  "RightTeeArrow":"\u21A6",
-  "RightTeeVector":"\u295B",
-  "rightthreetimes":"\u22CC",
-  "RightTriangle":"\u22B3",
-  "RightTriangleBar":"\u29D0",
-  "RightTriangleEqual":"\u22B5",
-  "RightUpDownVector":"\u294F",
-  "RightUpTeeVector":"\u295C",
-  "RightUpVector":"\u21BE",
-  "RightUpVectorBar":"\u2954",
-  "RightVector":"\u21C0",
-  "RightVectorBar":"\u2953",
-  "ring":"\u02DA",
-  "risingdotseq":"\u2253",
-  "rlarr":"\u21C4",
-  "rlhar":"\u21CC",
-  "rlm":"\u200F",
-  "rmoust":"\u23B1",
-  "rmoustache":"\u23B1",
-  "rnmid":"\u2AEE",
-  "roang":"\u27ED",
-  "roarr":"\u21FE",
-  "robrk":"\u27E7",
-  "ropar":"\u2986",
-  "Ropf":"\u211D",
-  "ropf":"\uD835\uDD63",
-  "roplus":"\u2A2E",
-  "rotimes":"\u2A35",
-  "RoundImplies":"\u2970",
-  "rpar":"\u0029",
-  "rpargt":"\u2994",
-  "rppolint":"\u2A12",
-  "rrarr":"\u21C9",
-  "Rrightarrow":"\u21DB",
-  "rsaquo":"\u203A",
-  "Rscr":"\u211B",
-  "rscr":"\uD835\uDCC7",
-  "Rsh":"\u21B1",
-  "rsh":"\u21B1",
-  "rsqb":"\u005D",
-  "rsquo":"\u2019",
-  "rsquor":"\u2019",
-  "rthree":"\u22CC",
-  "rtimes":"\u22CA",
-  "rtri":"\u25B9",
-  "rtrie":"\u22B5",
-  "rtrif":"\u25B8",
-  "rtriltri":"\u29CE",
-  "RuleDelayed":"\u29F4",
-  "ruluhar":"\u2968",
-  "rx":"\u211E",
-  "Sacute":"\u015A",
-  "sacute":"\u015B",
-  "sbquo":"\u201A",
-  "Sc":"\u2ABC",
-  "sc":"\u227B",
-  "scap":"\u2AB8",
-  "Scaron":"\u0160",
-  "scaron":"\u0161",
-  "sccue":"\u227D",
-  "scE":"\u2AB4",
-  "sce":"\u2AB0",
-  "Scedil":"\u015E",
-  "scedil":"\u015F",
-  "Scirc":"\u015C",
-  "scirc":"\u015D",
-  "scnap":"\u2ABA",
-  "scnE":"\u2AB6",
-  "scnsim":"\u22E9",
-  "scpolint":"\u2A13",
-  "scsim":"\u227F",
-  "Scy":"\u0421",
-  "scy":"\u0441",
-  "sdot":"\u22C5",
-  "sdotb":"\u22A1",
-  "sdote":"\u2A66",
-  "searhk":"\u2925",
-  "seArr":"\u21D8",
-  "searr":"\u2198",
-  "searrow":"\u2198",
-  "sect":"\u00A7",
-  "semi":"\u003B",
-  "seswar":"\u2929",
-  "setminus":"\u2216",
-  "setmn":"\u2216",
-  "sext":"\u2736",
-  "Sfr":"\uD835\uDD16",
-  "sfr":"\uD835\uDD30",
-  "sfrown":"\u2322",
-  "sharp":"\u266F",
-  "SHCHcy":"\u0429",
-  "shchcy":"\u0449",
-  "SHcy":"\u0428",
-  "shcy":"\u0448",
-  "ShortDownArrow":"\u2193",
-  "ShortLeftArrow":"\u2190",
-  "shortmid":"\u2223",
-  "shortparallel":"\u2225",
-  "ShortRightArrow":"\u2192",
-  "ShortUpArrow":"\u2191",
-  "shy":"\u00AD",
-  "Sigma":"\u03A3",
-  "sigma":"\u03C3",
-  "sigmaf":"\u03C2",
-  "sigmav":"\u03C2",
-  "sim":"\u223C",
-  "simdot":"\u2A6A",
-  "sime":"\u2243",
-  "simeq":"\u2243",
-  "simg":"\u2A9E",
-  "simgE":"\u2AA0",
-  "siml":"\u2A9D",
-  "simlE":"\u2A9F",
-  "simne":"\u2246",
-  "simplus":"\u2A24",
-  "simrarr":"\u2972",
-  "slarr":"\u2190",
-  "SmallCircle":"\u2218",
-  "smallsetminus":"\u2216",
-  "smashp":"\u2A33",
-  "smeparsl":"\u29E4",
-  "smid":"\u2223",
-  "smile":"\u2323",
-  "smt":"\u2AAA",
-  "smte":"\u2AAC",
-  "smtes":"\u2AAC\uFE00",
-  "SOFTcy":"\u042C",
-  "softcy":"\u044C",
-  "sol":"\u002F",
-  "solb":"\u29C4",
-  "solbar":"\u233F",
-  "Sopf":"\uD835\uDD4A",
-  "sopf":"\uD835\uDD64",
-  "spades":"\u2660",
-  "spadesuit":"\u2660",
-  "spar":"\u2225",
-  "sqcap":"\u2293",
-  "sqcaps":"\u2293\uFE00",
-  "sqcup":"\u2294",
-  "sqcups":"\u2294\uFE00",
-  "Sqrt":"\u221A",
-  "sqsub":"\u228F",
-  "sqsube":"\u2291",
-  "sqsubset":"\u228F",
-  "sqsubseteq":"\u2291",
-  "sqsup":"\u2290",
-  "sqsupe":"\u2292",
-  "sqsupset":"\u2290",
-  "sqsupseteq":"\u2292",
-  "squ":"\u25A1",
-  "Square":"\u25A1",
-  "square":"\u25A1",
-  "SquareIntersection":"\u2293",
-  "SquareSubset":"\u228F",
-  "SquareSubsetEqual":"\u2291",
-  "SquareSuperset":"\u2290",
-  "SquareSupersetEqual":"\u2292",
-  "SquareUnion":"\u2294",
-  "squarf":"\u25AA",
-  "squf":"\u25AA",
-  "srarr":"\u2192",
-  "Sscr":"\uD835\uDCAE",
-  "sscr":"\uD835\uDCC8",
-  "ssetmn":"\u2216",
-  "ssmile":"\u2323",
-  "sstarf":"\u22C6",
-  "Star":"\u22C6",
-  "star":"\u2606",
-  "starf":"\u2605",
-  "straightepsilon":"\u03F5",
-  "straightphi":"\u03D5",
-  "strns":"\u00AF",
-  "Sub":"\u22D0",
-  "sub":"\u2282",
-  "subdot":"\u2ABD",
-  "subE":"\u2AC5",
-  "sube":"\u2286",
-  "subedot":"\u2AC3",
-  "submult":"\u2AC1",
-  "subnE":"\u2ACB",
-  "subne":"\u228A",
-  "subplus":"\u2ABF",
-  "subrarr":"\u2979",
-  "Subset":"\u22D0",
-  "subset":"\u2282",
-  "subseteq":"\u2286",
-  "subseteqq":"\u2AC5",
-  "SubsetEqual":"\u2286",
-  "subsetneq":"\u228A",
-  "subsetneqq":"\u2ACB",
-  "subsim":"\u2AC7",
-  "subsub":"\u2AD5",
-  "subsup":"\u2AD3",
-  "succ":"\u227B",
-  "succapprox":"\u2AB8",
-  "succcurlyeq":"\u227D",
-  "Succeeds":"\u227B",
-  "SucceedsEqual":"\u2AB0",
-  "SucceedsSlantEqual":"\u227D",
-  "SucceedsTilde":"\u227F",
-  "succeq":"\u2AB0",
-  "succnapprox":"\u2ABA",
-  "succneqq":"\u2AB6",
-  "succnsim":"\u22E9",
-  "succsim":"\u227F",
-  "SuchThat":"\u220B",
-  "Sum":"\u2211",
-  "sum":"\u2211",
-  "sung":"\u266A",
-  "Sup":"\u22D1",
-  "sup":"\u2283",
-  "sup1":"\u00B9",
-  "sup2":"\u00B2",
-  "sup3":"\u00B3",
-  "supdot":"\u2ABE",
-  "supdsub":"\u2AD8",
-  "supE":"\u2AC6",
-  "supe":"\u2287",
-  "supedot":"\u2AC4",
-  "Superset":"\u2283",
-  "SupersetEqual":"\u2287",
-  "suphsol":"\u27C9",
-  "suphsub":"\u2AD7",
-  "suplarr":"\u297B",
-  "supmult":"\u2AC2",
-  "supnE":"\u2ACC",
-  "supne":"\u228B",
-  "supplus":"\u2AC0",
-  "Supset":"\u22D1",
-  "supset":"\u2283",
-  "supseteq":"\u2287",
-  "supseteqq":"\u2AC6",
-  "supsetneq":"\u228B",
-  "supsetneqq":"\u2ACC",
-  "supsim":"\u2AC8",
-  "supsub":"\u2AD4",
-  "supsup":"\u2AD6",
-  "swarhk":"\u2926",
-  "swArr":"\u21D9",
-  "swarr":"\u2199",
-  "swarrow":"\u2199",
-  "swnwar":"\u292A",
-  "szlig":"\u00DF",
-  "Tab":"\u0009",
-  "target":"\u2316",
-  "Tau":"\u03A4",
-  "tau":"\u03C4",
-  "tbrk":"\u23B4",
-  "Tcaron":"\u0164",
-  "tcaron":"\u0165",
-  "Tcedil":"\u0162",
-  "tcedil":"\u0163",
-  "Tcy":"\u0422",
-  "tcy":"\u0442",
-  "tdot":"\u20DB",
-  "telrec":"\u2315",
-  "Tfr":"\uD835\uDD17",
-  "tfr":"\uD835\uDD31",
-  "there4":"\u2234",
-  "Therefore":"\u2234",
-  "therefore":"\u2234",
-  "Theta":"\u0398",
-  "theta":"\u03B8",
-  "thetasym":"\u03D1",
-  "thetav":"\u03D1",
-  "thickapprox":"\u2248",
-  "thicksim":"\u223C",
-  "ThickSpace":"\u205F\u200A",
-  "thinsp":"\u2009",
-  "ThinSpace":"\u2009",
-  "thkap":"\u2248",
-  "thksim":"\u223C",
-  "THORN":"\u00DE",
-  "thorn":"\u00FE",
-  "Tilde":"\u223C",
-  "tilde":"\u02DC",
-  "TildeEqual":"\u2243",
-  "TildeFullEqual":"\u2245",
-  "TildeTilde":"\u2248",
-  "times":"\u00D7",
-  "timesb":"\u22A0",
-  "timesbar":"\u2A31",
-  "timesd":"\u2A30",
-  "tint":"\u222D",
-  "toea":"\u2928",
-  "top":"\u22A4",
-  "topbot":"\u2336",
-  "topcir":"\u2AF1",
-  "Topf":"\uD835\uDD4B",
-  "topf":"\uD835\uDD65",
-  "topfork":"\u2ADA",
-  "tosa":"\u2929",
-  "tprime":"\u2034",
-  "TRADE":"\u2122",
-  "trade":"\u2122",
-  "triangle":"\u25B5",
-  "triangledown":"\u25BF",
-  "triangleleft":"\u25C3",
-  "trianglelefteq":"\u22B4",
-  "triangleq":"\u225C",
-  "triangleright":"\u25B9",
-  "trianglerighteq":"\u22B5",
-  "tridot":"\u25EC",
-  "trie":"\u225C",
-  "triminus":"\u2A3A",
-  "TripleDot":"\u20DB",
-  "triplus":"\u2A39",
-  "trisb":"\u29CD",
-  "tritime":"\u2A3B",
-  "trpezium":"\u23E2",
-  "Tscr":"\uD835\uDCAF",
-  "tscr":"\uD835\uDCC9",
-  "TScy":"\u0426",
-  "tscy":"\u0446",
-  "TSHcy":"\u040B",
-  "tshcy":"\u045B",
-  "Tstrok":"\u0166",
-  "tstrok":"\u0167",
-  "twixt":"\u226C",
-  "twoheadleftarrow":"\u219E",
-  "twoheadrightarrow":"\u21A0",
-  "Uacute":"\u00DA",
-  "uacute":"\u00FA",
-  "Uarr":"\u219F",
-  "uArr":"\u21D1",
-  "uarr":"\u2191",
-  "Uarrocir":"\u2949",
-  "Ubrcy":"\u040E",
-  "ubrcy":"\u045E",
-  "Ubreve":"\u016C",
-  "ubreve":"\u016D",
-  "Ucirc":"\u00DB",
-  "ucirc":"\u00FB",
-  "Ucy":"\u0423",
-  "ucy":"\u0443",
-  "udarr":"\u21C5",
-  "Udblac":"\u0170",
-  "udblac":"\u0171",
-  "udhar":"\u296E",
-  "ufisht":"\u297E",
-  "Ufr":"\uD835\uDD18",
-  "ufr":"\uD835\uDD32",
-  "Ugrave":"\u00D9",
-  "ugrave":"\u00F9",
-  "uHar":"\u2963",
-  "uharl":"\u21BF",
-  "uharr":"\u21BE",
-  "uhblk":"\u2580",
-  "ulcorn":"\u231C",
-  "ulcorner":"\u231C",
-  "ulcrop":"\u230F",
-  "ultri":"\u25F8",
-  "Umacr":"\u016A",
-  "umacr":"\u016B",
-  "uml":"\u00A8",
-  "UnderBar":"\u005F",
-  "UnderBrace":"\u23DF",
-  "UnderBracket":"\u23B5",
-  "UnderParenthesis":"\u23DD",
-  "Union":"\u22C3",
-  "UnionPlus":"\u228E",
-  "Uogon":"\u0172",
-  "uogon":"\u0173",
-  "Uopf":"\uD835\uDD4C",
-  "uopf":"\uD835\uDD66",
-  "UpArrow":"\u2191",
-  "Uparrow":"\u21D1",
-  "uparrow":"\u2191",
-  "UpArrowBar":"\u2912",
-  "UpArrowDownArrow":"\u21C5",
-  "UpDownArrow":"\u2195",
-  "Updownarrow":"\u21D5",
-  "updownarrow":"\u2195",
-  "UpEquilibrium":"\u296E",
-  "upharpoonleft":"\u21BF",
-  "upharpoonright":"\u21BE",
-  "uplus":"\u228E",
-  "UpperLeftArrow":"\u2196",
-  "UpperRightArrow":"\u2197",
-  "Upsi":"\u03D2",
-  "upsi":"\u03C5",
-  "upsih":"\u03D2",
-  "Upsilon":"\u03A5",
-  "upsilon":"\u03C5",
-  "UpTee":"\u22A5",
-  "UpTeeArrow":"\u21A5",
-  "upuparrows":"\u21C8",
-  "urcorn":"\u231D",
-  "urcorner":"\u231D",
-  "urcrop":"\u230E",
-  "Uring":"\u016E",
-  "uring":"\u016F",
-  "urtri":"\u25F9",
-  "Uscr":"\uD835\uDCB0",
-  "uscr":"\uD835\uDCCA",
-  "utdot":"\u22F0",
-  "Utilde":"\u0168",
-  "utilde":"\u0169",
-  "utri":"\u25B5",
-  "utrif":"\u25B4",
-  "uuarr":"\u21C8",
-  "Uuml":"\u00DC",
-  "uuml":"\u00FC",
-  "uwangle":"\u29A7",
-  "vangrt":"\u299C",
-  "varepsilon":"\u03F5",
-  "varkappa":"\u03F0",
-  "varnothing":"\u2205",
-  "varphi":"\u03D5",
-  "varpi":"\u03D6",
-  "varpropto":"\u221D",
-  "vArr":"\u21D5",
-  "varr":"\u2195",
-  "varrho":"\u03F1",
-  "varsigma":"\u03C2",
-  "varsubsetneq":"\u228A\uFE00",
-  "varsubsetneqq":"\u2ACB\uFE00",
-  "varsupsetneq":"\u228B\uFE00",
-  "varsupsetneqq":"\u2ACC\uFE00",
-  "vartheta":"\u03D1",
-  "vartriangleleft":"\u22B2",
-  "vartriangleright":"\u22B3",
-  "Vbar":"\u2AEB",
-  "vBar":"\u2AE8",
-  "vBarv":"\u2AE9",
-  "Vcy":"\u0412",
-  "vcy":"\u0432",
-  "VDash":"\u22AB",
-  "Vdash":"\u22A9",
-  "vDash":"\u22A8",
-  "vdash":"\u22A2",
-  "Vdashl":"\u2AE6",
-  "Vee":"\u22C1",
-  "vee":"\u2228",
-  "veebar":"\u22BB",
-  "veeeq":"\u225A",
-  "vellip":"\u22EE",
-  "Verbar":"\u2016",
-  "verbar":"\u007C",
-  "Vert":"\u2016",
-  "vert":"\u007C",
-  "VerticalBar":"\u2223",
-  "VerticalLine":"\u007C",
-  "VerticalSeparator":"\u2758",
-  "VerticalTilde":"\u2240",
-  "VeryThinSpace":"\u200A",
-  "Vfr":"\uD835\uDD19",
-  "vfr":"\uD835\uDD33",
-  "vltri":"\u22B2",
-  "vnsub":"\u2282\u20D2",
-  "vnsup":"\u2283\u20D2",
-  "Vopf":"\uD835\uDD4D",
-  "vopf":"\uD835\uDD67",
-  "vprop":"\u221D",
-  "vrtri":"\u22B3",
-  "Vscr":"\uD835\uDCB1",
-  "vscr":"\uD835\uDCCB",
-  "vsubnE":"\u2ACB\uFE00",
-  "vsubne":"\u228A\uFE00",
-  "vsupnE":"\u2ACC\uFE00",
-  "vsupne":"\u228B\uFE00",
-  "Vvdash":"\u22AA",
-  "vzigzag":"\u299A",
-  "Wcirc":"\u0174",
-  "wcirc":"\u0175",
-  "wedbar":"\u2A5F",
-  "Wedge":"\u22C0",
-  "wedge":"\u2227",
-  "wedgeq":"\u2259",
-  "weierp":"\u2118",
-  "Wfr":"\uD835\uDD1A",
-  "wfr":"\uD835\uDD34",
-  "Wopf":"\uD835\uDD4E",
-  "wopf":"\uD835\uDD68",
-  "wp":"\u2118",
-  "wr":"\u2240",
-  "wreath":"\u2240",
-  "Wscr":"\uD835\uDCB2",
-  "wscr":"\uD835\uDCCC",
-  "xcap":"\u22C2",
-  "xcirc":"\u25EF",
-  "xcup":"\u22C3",
-  "xdtri":"\u25BD",
-  "Xfr":"\uD835\uDD1B",
-  "xfr":"\uD835\uDD35",
-  "xhArr":"\u27FA",
-  "xharr":"\u27F7",
-  "Xi":"\u039E",
-  "xi":"\u03BE",
-  "xlArr":"\u27F8",
-  "xlarr":"\u27F5",
-  "xmap":"\u27FC",
-  "xnis":"\u22FB",
-  "xodot":"\u2A00",
-  "Xopf":"\uD835\uDD4F",
-  "xopf":"\uD835\uDD69",
-  "xoplus":"\u2A01",
-  "xotime":"\u2A02",
-  "xrArr":"\u27F9",
-  "xrarr":"\u27F6",
-  "Xscr":"\uD835\uDCB3",
-  "xscr":"\uD835\uDCCD",
-  "xsqcup":"\u2A06",
-  "xuplus":"\u2A04",
-  "xutri":"\u25B3",
-  "xvee":"\u22C1",
-  "xwedge":"\u22C0",
-  "Yacute":"\u00DD",
-  "yacute":"\u00FD",
-  "YAcy":"\u042F",
-  "yacy":"\u044F",
-  "Ycirc":"\u0176",
-  "ycirc":"\u0177",
-  "Ycy":"\u042B",
-  "ycy":"\u044B",
-  "yen":"\u00A5",
-  "Yfr":"\uD835\uDD1C",
-  "yfr":"\uD835\uDD36",
-  "YIcy":"\u0407",
-  "yicy":"\u0457",
-  "Yopf":"\uD835\uDD50",
-  "yopf":"\uD835\uDD6A",
-  "Yscr":"\uD835\uDCB4",
-  "yscr":"\uD835\uDCCE",
-  "YUcy":"\u042E",
-  "yucy":"\u044E",
-  "Yuml":"\u0178",
-  "yuml":"\u00FF",
-  "Zacute":"\u0179",
-  "zacute":"\u017A",
-  "Zcaron":"\u017D",
-  "zcaron":"\u017E",
-  "Zcy":"\u0417",
-  "zcy":"\u0437",
-  "Zdot":"\u017B",
-  "zdot":"\u017C",
-  "zeetrf":"\u2128",
-  "ZeroWidthSpace":"\u200B",
-  "Zeta":"\u0396",
-  "zeta":"\u03B6",
-  "Zfr":"\u2128",
-  "zfr":"\uD835\uDD37",
-  "ZHcy":"\u0416",
-  "zhcy":"\u0436",
-  "zigrarr":"\u21DD",
-  "Zopf":"\u2124",
-  "zopf":"\uD835\uDD6B",
-  "Zscr":"\uD835\uDCB5",
-  "zscr":"\uD835\uDCCF",
-  "zwj":"\u200D",
-  "zwnj":"\u200C"
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/common/html_blocks.js":
+/***/ "./node_modules/remarkable/dist/esm/index.browser.js":
 /*!***********************************************************!*\
-  !*** ./node_modules/remarkable/lib/common/html_blocks.js ***!
+  !*** ./node_modules/remarkable/dist/esm/index.browser.js ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Remarkable, utils */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// List of valid html blocks names, accorting to commonmark spec
-// http://jgm.github.io/CommonMark/spec.html#html-blocks
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Remarkable", function() { return Remarkable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return utils; });
+var textarea;
 
-
-
-var html_blocks = {};
-
-[
-  'article',
-  'aside',
-  'button',
-  'blockquote',
-  'body',
-  'canvas',
-  'caption',
-  'col',
-  'colgroup',
-  'dd',
-  'div',
-  'dl',
-  'dt',
-  'embed',
-  'fieldset',
-  'figcaption',
-  'figure',
-  'footer',
-  'form',
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'h5',
-  'h6',
-  'header',
-  'hgroup',
-  'hr',
-  'iframe',
-  'li',
-  'map',
-  'object',
-  'ol',
-  'output',
-  'p',
-  'pre',
-  'progress',
-  'script',
-  'section',
-  'style',
-  'table',
-  'tbody',
-  'td',
-  'textarea',
-  'tfoot',
-  'th',
-  'tr',
-  'thead',
-  'ul',
-  'video'
-].forEach(function (name) { html_blocks[name] = true; });
-
-
-module.exports = html_blocks;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/common/html_re.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/remarkable/lib/common/html_re.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Regexps to match html elements
-
-
-
-
-function replace(regex, options) {
-  regex = regex.source;
-  options = options || '';
-
-  return function self(name, val) {
-    if (!name) {
-      return new RegExp(regex, options);
-    }
-    val = val.source || val;
-    regex = regex.replace(name, val);
-    return self;
-  };
+function decodeEntity(name) {
+  textarea = textarea || document.createElement('textarea');
+  textarea.innerHTML = '&' + name + ';';
+  return textarea.value;
 }
-
-
-var attr_name     = /[a-zA-Z_:][a-zA-Z0-9:._-]*/;
-
-var unquoted      = /[^"'=<>`\x00-\x20]+/;
-var single_quoted = /'[^']*'/;
-var double_quoted = /"[^"]*"/;
-
-/*eslint no-spaced-func:0*/
-var attr_value  = replace(/(?:unquoted|single_quoted|double_quoted)/)
-                    ('unquoted', unquoted)
-                    ('single_quoted', single_quoted)
-                    ('double_quoted', double_quoted)
-                    ();
-
-var attribute   = replace(/(?:\s+attr_name(?:\s*=\s*attr_value)?)/)
-                    ('attr_name', attr_name)
-                    ('attr_value', attr_value)
-                    ();
-
-var open_tag    = replace(/<[A-Za-z][A-Za-z0-9]*attribute*\s*\/?>/)
-                    ('attribute', attribute)
-                    ();
-
-var close_tag   = /<\/[A-Za-z][A-Za-z0-9]*\s*>/;
-var comment     = /<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->/;
-var processing  = /<[?].*?[?]>/;
-var declaration = /<![A-Z]+\s+[^>]*>/;
-var cdata       = /<!\[CDATA\[[\s\S]*?\]\]>/;
-
-var HTML_TAG_RE = replace(/^(?:open_tag|close_tag|comment|processing|declaration|cdata)/)
-  ('open_tag', open_tag)
-  ('close_tag', close_tag)
-  ('comment', comment)
-  ('processing', processing)
-  ('declaration', declaration)
-  ('cdata', cdata)
-  ();
-
-
-module.exports.HTML_TAG_RE = HTML_TAG_RE;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/common/url_schemas.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/remarkable/lib/common/url_schemas.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// List of valid url schemas, accorting to commonmark spec
-// http://jgm.github.io/CommonMark/spec.html#autolinks
-
-
-
-
-module.exports = [
-  'coap',
-  'doi',
-  'javascript',
-  'aaa',
-  'aaas',
-  'about',
-  'acap',
-  'cap',
-  'cid',
-  'crid',
-  'data',
-  'dav',
-  'dict',
-  'dns',
-  'file',
-  'ftp',
-  'geo',
-  'go',
-  'gopher',
-  'h323',
-  'http',
-  'https',
-  'iax',
-  'icap',
-  'im',
-  'imap',
-  'info',
-  'ipp',
-  'iris',
-  'iris.beep',
-  'iris.xpc',
-  'iris.xpcs',
-  'iris.lwz',
-  'ldap',
-  'mailto',
-  'mid',
-  'msrp',
-  'msrps',
-  'mtqp',
-  'mupdate',
-  'news',
-  'nfs',
-  'ni',
-  'nih',
-  'nntp',
-  'opaquelocktoken',
-  'pop',
-  'pres',
-  'rtsp',
-  'service',
-  'session',
-  'shttp',
-  'sieve',
-  'sip',
-  'sips',
-  'sms',
-  'snmp',
-  'soap.beep',
-  'soap.beeps',
-  'tag',
-  'tel',
-  'telnet',
-  'tftp',
-  'thismessage',
-  'tn3270',
-  'tip',
-  'tv',
-  'urn',
-  'vemmi',
-  'ws',
-  'wss',
-  'xcon',
-  'xcon-userid',
-  'xmlrpc.beep',
-  'xmlrpc.beeps',
-  'xmpp',
-  'z39.50r',
-  'z39.50s',
-  'adiumxtra',
-  'afp',
-  'afs',
-  'aim',
-  'apt',
-  'attachment',
-  'aw',
-  'beshare',
-  'bitcoin',
-  'bolo',
-  'callto',
-  'chrome',
-  'chrome-extension',
-  'com-eventbrite-attendee',
-  'content',
-  'cvs',
-  'dlna-playsingle',
-  'dlna-playcontainer',
-  'dtn',
-  'dvb',
-  'ed2k',
-  'facetime',
-  'feed',
-  'finger',
-  'fish',
-  'gg',
-  'git',
-  'gizmoproject',
-  'gtalk',
-  'hcp',
-  'icon',
-  'ipn',
-  'irc',
-  'irc6',
-  'ircs',
-  'itms',
-  'jar',
-  'jms',
-  'keyparc',
-  'lastfm',
-  'ldaps',
-  'magnet',
-  'maps',
-  'market',
-  'message',
-  'mms',
-  'ms-help',
-  'msnim',
-  'mumble',
-  'mvn',
-  'notes',
-  'oid',
-  'palm',
-  'paparazzi',
-  'platform',
-  'proxy',
-  'psyc',
-  'query',
-  'res',
-  'resource',
-  'rmi',
-  'rsync',
-  'rtmp',
-  'secondlife',
-  'sftp',
-  'sgn',
-  'skype',
-  'smb',
-  'soldat',
-  'spotify',
-  'ssh',
-  'steam',
-  'svn',
-  'teamspeak',
-  'things',
-  'udp',
-  'unreal',
-  'ut2004',
-  'ventrilo',
-  'view-source',
-  'webcal',
-  'wtai',
-  'wyciwyg',
-  'xfire',
-  'xri',
-  'ymsgr'
-];
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/common/utils.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/remarkable/lib/common/utils.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 
 /**
  * Utility functions
@@ -44739,13 +38527,13 @@ function fromCodePoint(c) {
 
 var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-var entities = __webpack_require__(/*! ./entities */ "./node_modules/remarkable/lib/common/entities.js");
 
 function replaceEntityPattern(match, name) {
   var code = 0;
+  var decoded = decodeEntity(name);
 
-  if (has(entities, name)) {
-    return entities[name];
+  if (name !== decoded) {
+    return decoded;
   } else if (name.charCodeAt(0) === 0x23/* # */ && DIGITAL_ENTITY_TEST_RE.test(name)) {
     code = name[1].toLowerCase() === 'x' ?
       parseInt(name.slice(2), 16)
@@ -44786,1522 +38574,16 @@ function escapeHtml(str) {
   return str;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
-exports.assign            = assign;
-exports.isString          = isString;
-exports.has               = has;
-exports.unescapeMd        = unescapeMd;
-exports.isValidEntityCode = isValidEntityCode;
-exports.fromCodePoint     = fromCodePoint;
-exports.replaceEntities   = replaceEntities;
-exports.escapeHtml        = escapeHtml;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/configs/commonmark.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/remarkable/lib/configs/commonmark.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Commonmark default options
-
-
-
-
-module.exports = {
-  options: {
-    html:         true,         // Enable HTML tags in source
-    xhtmlOut:     true,         // Use '/' to close single tags (<br />)
-    breaks:       false,        // Convert '\n' in paragraphs into <br>
-    langPrefix:   'language-',  // CSS language prefix for fenced blocks
-    linkify:      false,        // autoconvert URL-like texts to links
-    linkTarget:   '',           // set target to open link in
-
-    // Enable some language-neutral replacements + quotes beautification
-    typographer:  false,
-
-    // Double + single quotes replacement pairs, when typographer enabled,
-    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
-    quotes: '“”‘’',
-
-    // Highlighter function. Should return escaped HTML,
-    // or '' if input not changed
-    //
-    // function (/*str, lang*/) { return ''; }
-    //
-    highlight: null,
-
-    maxNesting:   20            // Internal protection, recursion limit
-  },
-
-  components: {
-
-    core: {
-      rules: [
-        'block',
-        'inline',
-        'references',
-        'abbr2'
-      ]
-    },
-
-    block: {
-      rules: [
-        'blockquote',
-        'code',
-        'fences',
-        'heading',
-        'hr',
-        'htmlblock',
-        'lheading',
-        'list',
-        'paragraph'
-      ]
-    },
-
-    inline: {
-      rules: [
-        'autolink',
-        'backticks',
-        'emphasis',
-        'entity',
-        'escape',
-        'htmltag',
-        'links',
-        'newline',
-        'text'
-      ]
-    }
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/configs/default.js":
-/*!********************************************************!*\
-  !*** ./node_modules/remarkable/lib/configs/default.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Remarkable default options
-
-
-
-
-module.exports = {
-  options: {
-    html:         false,        // Enable HTML tags in source
-    xhtmlOut:     false,        // Use '/' to close single tags (<br />)
-    breaks:       false,        // Convert '\n' in paragraphs into <br>
-    langPrefix:   'language-',  // CSS language prefix for fenced blocks
-    linkify:      false,        // autoconvert URL-like texts to links
-    linkTarget:   '',           // set target to open link in
-
-    // Enable some language-neutral replacements + quotes beautification
-    typographer:  false,
-
-    // Double + single quotes replacement pairs, when typographer enabled,
-    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
-    quotes: '“”‘’',
-
-    // Highlighter function. Should return escaped HTML,
-    // or '' if input not changed
-    //
-    // function (/*str, lang*/) { return ''; }
-    //
-    highlight: null,
-
-    maxNesting:   20            // Internal protection, recursion limit
-  },
-
-  components: {
-
-    core: {
-      rules: [
-        'block',
-        'inline',
-        'references',
-        'replacements',
-        'linkify',
-        'smartquotes',
-        'references',
-        'abbr2',
-        'footnote_tail'
-      ]
-    },
-
-    block: {
-      rules: [
-        'blockquote',
-        'code',
-        'fences',
-        'footnote',
-        'heading',
-        'hr',
-        'htmlblock',
-        'lheading',
-        'list',
-        'paragraph',
-        'table'
-      ]
-    },
-
-    inline: {
-      rules: [
-        'autolink',
-        'backticks',
-        'del',
-        'emphasis',
-        'entity',
-        'escape',
-        'footnote_ref',
-        'htmltag',
-        'links',
-        'newline',
-        'text'
-      ]
-    }
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/configs/full.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/remarkable/lib/configs/full.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Remarkable default options
-
-
-
-
-module.exports = {
-  options: {
-    html:         false,        // Enable HTML tags in source
-    xhtmlOut:     false,        // Use '/' to close single tags (<br />)
-    breaks:       false,        // Convert '\n' in paragraphs into <br>
-    langPrefix:   'language-',  // CSS language prefix for fenced blocks
-    linkify:      false,        // autoconvert URL-like texts to links
-    linkTarget:   '',           // set target to open link in
-
-    // Enable some language-neutral replacements + quotes beautification
-    typographer:  false,
-
-    // Double + single quotes replacement pairs, when typographer enabled,
-    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
-    quotes:       '“”‘’',
-
-    // Highlighter function. Should return escaped HTML,
-    // or '' if input not changed
-    //
-    // function (/*str, lang*/) { return ''; }
-    //
-    highlight:     null,
-
-    maxNesting:    20            // Internal protection, recursion limit
-  },
-
-  components: {
-    // Don't restrict core/block/inline rules
-    core: {},
-    block: {},
-    inline: {}
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/helpers/normalize_link.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/remarkable/lib/helpers/normalize_link.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var replaceEntities = __webpack_require__(/*! ../common/utils */ "./node_modules/remarkable/lib/common/utils.js").replaceEntities;
-
-module.exports = function normalizeLink(url) {
-  var normalized = replaceEntities(url);
-  // We shouldn't care about the result of malformed URIs,
-  // and should not throw an exception.
-  try {
-    normalized = decodeURI(normalized);
-  } catch (err) {}
-  return encodeURI(normalized);
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/helpers/normalize_reference.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/remarkable/lib/helpers/normalize_reference.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function normalizeReference(str) {
-  // use .toUpperCase() instead of .toLowerCase()
-  // here to avoid a conflict with Object.prototype
-  // members (most notably, `__proto__`)
-  return str.trim().replace(/\s+/g, ' ').toUpperCase();
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/helpers/parse_link_destination.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/remarkable/lib/helpers/parse_link_destination.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-var normalizeLink = __webpack_require__(/*! ./normalize_link */ "./node_modules/remarkable/lib/helpers/normalize_link.js");
-var unescapeMd    = __webpack_require__(/*! ../common/utils */ "./node_modules/remarkable/lib/common/utils.js").unescapeMd;
-
-/**
- * Parse link destination
- *
- *   - on success it returns a string and updates state.pos;
- *   - on failure it returns null
- *
- * @param  {Object} state
- * @param  {Number} pos
- * @api private
- */
-
-module.exports = function parseLinkDestination(state, pos) {
-  var code, level, link,
-      start = pos,
-      max = state.posMax;
-
-  if (state.src.charCodeAt(pos) === 0x3C /* < */) {
-    pos++;
-    while (pos < max) {
-      code = state.src.charCodeAt(pos);
-      if (code === 0x0A /* \n */) { return false; }
-      if (code === 0x3E /* > */) {
-        link = normalizeLink(unescapeMd(state.src.slice(start + 1, pos)));
-        if (!state.parser.validateLink(link)) { return false; }
-        state.pos = pos + 1;
-        state.linkContent = link;
-        return true;
-      }
-      if (code === 0x5C /* \ */ && pos + 1 < max) {
-        pos += 2;
-        continue;
-      }
-
-      pos++;
-    }
-
-    // no closing '>'
-    return false;
-  }
-
-  // this should be ... } else { ... branch
-
-  level = 0;
-  while (pos < max) {
-    code = state.src.charCodeAt(pos);
-
-    if (code === 0x20) { break; }
-
-    // ascii control chars
-    if (code < 0x20 || code === 0x7F) { break; }
-
-    if (code === 0x5C /* \ */ && pos + 1 < max) {
-      pos += 2;
-      continue;
-    }
-
-    if (code === 0x28 /* ( */) {
-      level++;
-      if (level > 1) { break; }
-    }
-
-    if (code === 0x29 /* ) */) {
-      level--;
-      if (level < 0) { break; }
-    }
-
-    pos++;
-  }
-
-  if (start === pos) { return false; }
-
-  link = unescapeMd(state.src.slice(start, pos));
-  if (!state.parser.validateLink(link)) { return false; }
-
-  state.linkContent = link;
-  state.pos = pos;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/helpers/parse_link_label.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/remarkable/lib/helpers/parse_link_label.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Parse link labels
- *
- * This function assumes that first character (`[`) already matches;
- * returns the end of the label.
- *
- * @param  {Object} state
- * @param  {Number} start
- * @api private
- */
-
-module.exports = function parseLinkLabel(state, start) {
-  var level, found, marker,
-      labelEnd = -1,
-      max = state.posMax,
-      oldPos = state.pos,
-      oldFlag = state.isInLabel;
-
-  if (state.isInLabel) { return -1; }
-
-  if (state.labelUnmatchedScopes) {
-    state.labelUnmatchedScopes--;
-    return -1;
-  }
-
-  state.pos = start + 1;
-  state.isInLabel = true;
-  level = 1;
-
-  while (state.pos < max) {
-    marker = state.src.charCodeAt(state.pos);
-    if (marker === 0x5B /* [ */) {
-      level++;
-    } else if (marker === 0x5D /* ] */) {
-      level--;
-      if (level === 0) {
-        found = true;
-        break;
-      }
-    }
-
-    state.parser.skipToken(state);
-  }
-
-  if (found) {
-    labelEnd = state.pos;
-    state.labelUnmatchedScopes = 0;
-  } else {
-    state.labelUnmatchedScopes = level - 1;
-  }
-
-  // restore old state
-  state.pos = oldPos;
-  state.isInLabel = oldFlag;
-
-  return labelEnd;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/helpers/parse_link_title.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/remarkable/lib/helpers/parse_link_title.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-var unescapeMd = __webpack_require__(/*! ../common/utils */ "./node_modules/remarkable/lib/common/utils.js").unescapeMd;
-
-/**
- * Parse link title
- *
- *   - on success it returns a string and updates state.pos;
- *   - on failure it returns null
- *
- * @param  {Object} state
- * @param  {Number} pos
- * @api private
- */
-
-module.exports = function parseLinkTitle(state, pos) {
-  var code,
-      start = pos,
-      max = state.posMax,
-      marker = state.src.charCodeAt(pos);
-
-  if (marker !== 0x22 /* " */ && marker !== 0x27 /* ' */ && marker !== 0x28 /* ( */) { return false; }
-
-  pos++;
-
-  // if opening marker is "(", switch it to closing marker ")"
-  if (marker === 0x28) { marker = 0x29; }
-
-  while (pos < max) {
-    code = state.src.charCodeAt(pos);
-    if (code === marker) {
-      state.pos = pos + 1;
-      state.linkContent = unescapeMd(state.src.slice(start + 1, pos));
-      return true;
-    }
-    if (code === 0x5C /* \ */ && pos + 1 < max) {
-      pos += 2;
-      continue;
-    }
-
-    pos++;
-  }
-
-  return false;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/remarkable/lib/index.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Local dependencies
- */
-
-var assign       = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js").assign;
-var Renderer     = __webpack_require__(/*! ./renderer */ "./node_modules/remarkable/lib/renderer.js");
-var ParserCore   = __webpack_require__(/*! ./parser_core */ "./node_modules/remarkable/lib/parser_core.js");
-var ParserBlock  = __webpack_require__(/*! ./parser_block */ "./node_modules/remarkable/lib/parser_block.js");
-var ParserInline = __webpack_require__(/*! ./parser_inline */ "./node_modules/remarkable/lib/parser_inline.js");
-var Ruler        = __webpack_require__(/*! ./ruler */ "./node_modules/remarkable/lib/ruler.js");
-
-/**
- * Preset configs
- */
-
-var config = {
-  'default':    __webpack_require__(/*! ./configs/default */ "./node_modules/remarkable/lib/configs/default.js"),
-  'full':       __webpack_require__(/*! ./configs/full */ "./node_modules/remarkable/lib/configs/full.js"),
-  'commonmark': __webpack_require__(/*! ./configs/commonmark */ "./node_modules/remarkable/lib/configs/commonmark.js")
-};
-
-/**
- * The `StateCore` class manages state.
- *
- * @param {Object} `instance` Remarkable instance
- * @param {String} `str` Markdown string
- * @param {Object} `env`
- */
-
-function StateCore(instance, str, env) {
-  this.src = str;
-  this.env = env;
-  this.options = instance.options;
-  this.tokens = [];
-  this.inlineMode = false;
-
-  this.inline = instance.inline;
-  this.block = instance.block;
-  this.renderer = instance.renderer;
-  this.typographer = instance.typographer;
-}
-
-/**
- * The main `Remarkable` class. Create an instance of
- * `Remarkable` with a `preset` and/or `options`.
- *
- * @param {String} `preset` If no preset is given, `default` is used.
- * @param {Object} `options`
- */
-
-function Remarkable(preset, options) {
-  if (typeof preset !== 'string') {
-    options = preset;
-    preset = 'default';
-  }
-
-  this.inline   = new ParserInline();
-  this.block    = new ParserBlock();
-  this.core     = new ParserCore();
-  this.renderer = new Renderer();
-  this.ruler    = new Ruler();
-
-  this.options  = {};
-  this.configure(config[preset]);
-  this.set(options || {});
-}
-
-/**
- * Set options as an alternative to passing them
- * to the constructor.
- *
- * ```js
- * md.set({typographer: true});
- * ```
- * @param {Object} `options`
- * @api public
- */
-
-Remarkable.prototype.set = function (options) {
-  assign(this.options, options);
-};
-
-/**
- * Batch loader for components rules states, and options
- *
- * @param  {Object} `presets`
- */
-
-Remarkable.prototype.configure = function (presets) {
-  var self = this;
-
-  if (!presets) { throw new Error('Wrong `remarkable` preset, check name/content'); }
-  if (presets.options) { self.set(presets.options); }
-  if (presets.components) {
-    Object.keys(presets.components).forEach(function (name) {
-      if (presets.components[name].rules) {
-        self[name].ruler.enable(presets.components[name].rules, true);
-      }
-    });
-  }
-};
-
-/**
- * Use a plugin.
- *
- * ```js
- * var md = new Remarkable();
- *
- * md.use(plugin1)
- *   .use(plugin2, opts)
- *   .use(plugin3);
- * ```
- *
- * @param  {Function} `plugin`
- * @param  {Object} `options`
- * @return {Object} `Remarkable` for chaining
- */
-
-Remarkable.prototype.use = function (plugin, options) {
-  plugin(this, options);
-  return this;
-};
-
-
-/**
- * Parse the input `string` and return a tokens array.
- * Modifies `env` with definitions data.
- *
- * @param  {String} `string`
- * @param  {Object} `env`
- * @return {Array} Array of tokens
- */
-
-Remarkable.prototype.parse = function (str, env) {
-  var state = new StateCore(this, str, env);
-  this.core.process(state);
-  return state.tokens;
-};
-
-/**
- * The main `.render()` method that does all the magic :)
- *
- * @param  {String} `string`
- * @param  {Object} `env`
- * @return {String} Rendered HTML.
- */
-
-Remarkable.prototype.render = function (str, env) {
-  env = env || {};
-  return this.renderer.render(this.parse(str, env), this.options, env);
-};
-
-/**
- * Parse the given content `string` as a single string.
- *
- * @param  {String} `string`
- * @param  {Object} `env`
- * @return {Array} Array of tokens
- */
-
-Remarkable.prototype.parseInline = function (str, env) {
-  var state = new StateCore(this, str, env);
-  state.inlineMode = true;
-  this.core.process(state);
-  return state.tokens;
-};
-
-/**
- * Render a single content `string`, without wrapping it
- * to paragraphs
- *
- * @param  {String} `str`
- * @param  {Object} `env`
- * @return {String}
- */
-
-Remarkable.prototype.renderInline = function (str, env) {
-  env = env || {};
-  return this.renderer.render(this.parseInline(str, env), this.options, env);
-};
-
-/**
- * Expose `Remarkable`
- */
-
-module.exports = Remarkable;
-
-/**
- * Expose `utils`, Useful helper functions for custom
- * rendering.
- */
-
-module.exports.utils = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js");
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/parser_block.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/remarkable/lib/parser_block.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Local dependencies
- */
-
-var Ruler      = __webpack_require__(/*! ./ruler */ "./node_modules/remarkable/lib/ruler.js");
-var StateBlock = __webpack_require__(/*! ./rules_block/state_block */ "./node_modules/remarkable/lib/rules_block/state_block.js");
-
-/**
- * Parser rules
- */
-
-var _rules = [
-  [ 'code',       __webpack_require__(/*! ./rules_block/code */ "./node_modules/remarkable/lib/rules_block/code.js") ],
-  [ 'fences',     __webpack_require__(/*! ./rules_block/fences */ "./node_modules/remarkable/lib/rules_block/fences.js"),     [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'blockquote', __webpack_require__(/*! ./rules_block/blockquote */ "./node_modules/remarkable/lib/rules_block/blockquote.js"), [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'hr',         __webpack_require__(/*! ./rules_block/hr */ "./node_modules/remarkable/lib/rules_block/hr.js"),         [ 'paragraph', 'blockquote', 'list' ] ],
-  [ 'list',       __webpack_require__(/*! ./rules_block/list */ "./node_modules/remarkable/lib/rules_block/list.js"),       [ 'paragraph', 'blockquote' ] ],
-  [ 'footnote',   __webpack_require__(/*! ./rules_block/footnote */ "./node_modules/remarkable/lib/rules_block/footnote.js"),   [ 'paragraph' ] ],
-  [ 'heading',    __webpack_require__(/*! ./rules_block/heading */ "./node_modules/remarkable/lib/rules_block/heading.js"),    [ 'paragraph', 'blockquote' ] ],
-  [ 'lheading',   __webpack_require__(/*! ./rules_block/lheading */ "./node_modules/remarkable/lib/rules_block/lheading.js") ],
-  [ 'htmlblock',  __webpack_require__(/*! ./rules_block/htmlblock */ "./node_modules/remarkable/lib/rules_block/htmlblock.js"),  [ 'paragraph', 'blockquote' ] ],
-  [ 'table',      __webpack_require__(/*! ./rules_block/table */ "./node_modules/remarkable/lib/rules_block/table.js"),      [ 'paragraph' ] ],
-  [ 'deflist',    __webpack_require__(/*! ./rules_block/deflist */ "./node_modules/remarkable/lib/rules_block/deflist.js"),    [ 'paragraph' ] ],
-  [ 'paragraph',  __webpack_require__(/*! ./rules_block/paragraph */ "./node_modules/remarkable/lib/rules_block/paragraph.js") ]
-];
-
-/**
- * Block Parser class
- *
- * @api private
- */
-
-function ParserBlock() {
-  this.ruler = new Ruler();
-  for (var i = 0; i < _rules.length; i++) {
-    this.ruler.push(_rules[i][0], _rules[i][1], {
-      alt: (_rules[i][2] || []).slice()
-    });
-  }
-}
-
-/**
- * Generate tokens for the given input range.
- *
- * @param  {Object} `state` Has properties like `src`, `parser`, `options` etc
- * @param  {Number} `startLine`
- * @param  {Number} `endLine`
- * @api private
- */
-
-ParserBlock.prototype.tokenize = function (state, startLine, endLine) {
-  var rules = this.ruler.getRules('');
-  var len = rules.length;
-  var line = startLine;
-  var hasEmptyLines = false;
-  var ok, i;
-
-  while (line < endLine) {
-    state.line = line = state.skipEmptyLines(line);
-    if (line >= endLine) {
-      break;
-    }
-
-    // Termination condition for nested calls.
-    // Nested calls currently used for blockquotes & lists
-    if (state.tShift[line] < state.blkIndent) {
-      break;
-    }
-
-    // Try all possible rules.
-    // On success, rule should:
-    //
-    // - update `state.line`
-    // - update `state.tokens`
-    // - return true
-
-    for (i = 0; i < len; i++) {
-      ok = rules[i](state, line, endLine, false);
-      if (ok) {
-        break;
-      }
-    }
-
-    // set state.tight iff we had an empty line before current tag
-    // i.e. latest empty line should not count
-    state.tight = !hasEmptyLines;
-
-    // paragraph might "eat" one newline after it in nested lists
-    if (state.isEmpty(state.line - 1)) {
-      hasEmptyLines = true;
-    }
-
-    line = state.line;
-
-    if (line < endLine && state.isEmpty(line)) {
-      hasEmptyLines = true;
-      line++;
-
-      // two empty lines should stop the parser in list mode
-      if (line < endLine && state.parentType === 'list' && state.isEmpty(line)) { break; }
-      state.line = line;
-    }
-  }
-};
-
-var TABS_SCAN_RE = /[\n\t]/g;
-var NEWLINES_RE  = /\r[\n\u0085]|[\u2424\u2028\u0085]/g;
-var SPACES_RE    = /\u00a0/g;
-
-/**
- * Tokenize the given `str`.
- *
- * @param  {String} `str` Source string
- * @param  {Object} `options`
- * @param  {Object} `env`
- * @param  {Array} `outTokens`
- * @api private
- */
-
-ParserBlock.prototype.parse = function (str, options, env, outTokens) {
-  var state, lineStart = 0, lastTabPos = 0;
-  if (!str) { return []; }
-
-  // Normalize spaces
-  str = str.replace(SPACES_RE, ' ');
-
-  // Normalize newlines
-  str = str.replace(NEWLINES_RE, '\n');
-
-  // Replace tabs with proper number of spaces (1..4)
-  if (str.indexOf('\t') >= 0) {
-    str = str.replace(TABS_SCAN_RE, function (match, offset) {
-      var result;
-      if (str.charCodeAt(offset) === 0x0A) {
-        lineStart = offset + 1;
-        lastTabPos = 0;
-        return match;
-      }
-      result = '    '.slice((offset - lineStart - lastTabPos) % 4);
-      lastTabPos = offset - lineStart + 1;
-      return result;
-    });
-  }
-
-  state = new StateBlock(str, this, options, env, outTokens);
-  this.tokenize(state, state.line, state.lineMax);
-};
-
-/**
- * Expose `ParserBlock`
- */
-
-module.exports = ParserBlock;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/parser_core.js":
-/*!****************************************************!*\
-  !*** ./node_modules/remarkable/lib/parser_core.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Local dependencies
- */
-
-var Ruler = __webpack_require__(/*! ./ruler */ "./node_modules/remarkable/lib/ruler.js");
-
-/**
- * Core parser `rules`
- */
-
-var _rules = [
-  [ 'block',          __webpack_require__(/*! ./rules_core/block */ "./node_modules/remarkable/lib/rules_core/block.js")          ],
-  [ 'abbr',           __webpack_require__(/*! ./rules_core/abbr */ "./node_modules/remarkable/lib/rules_core/abbr.js")           ],
-  [ 'references',     __webpack_require__(/*! ./rules_core/references */ "./node_modules/remarkable/lib/rules_core/references.js")     ],
-  [ 'inline',         __webpack_require__(/*! ./rules_core/inline */ "./node_modules/remarkable/lib/rules_core/inline.js")         ],
-  [ 'footnote_tail',  __webpack_require__(/*! ./rules_core/footnote_tail */ "./node_modules/remarkable/lib/rules_core/footnote_tail.js")  ],
-  [ 'abbr2',          __webpack_require__(/*! ./rules_core/abbr2 */ "./node_modules/remarkable/lib/rules_core/abbr2.js")          ],
-  [ 'replacements',   __webpack_require__(/*! ./rules_core/replacements */ "./node_modules/remarkable/lib/rules_core/replacements.js")   ],
-  [ 'smartquotes',    __webpack_require__(/*! ./rules_core/smartquotes */ "./node_modules/remarkable/lib/rules_core/smartquotes.js")    ],
-  [ 'linkify',        __webpack_require__(/*! ./rules_core/linkify */ "./node_modules/remarkable/lib/rules_core/linkify.js")        ]
-];
-
-/**
- * Class for top level (`core`) parser rules
- *
- * @api private
- */
-
-function Core() {
-  this.options = {};
-  this.ruler = new Ruler();
-  for (var i = 0; i < _rules.length; i++) {
-    this.ruler.push(_rules[i][0], _rules[i][1]);
-  }
-}
-
-/**
- * Process rules with the given `state`
- *
- * @param  {Object} `state`
- * @api private
- */
-
-Core.prototype.process = function (state) {
-  var i, l, rules;
-  rules = this.ruler.getRules('');
-  for (i = 0, l = rules.length; i < l; i++) {
-    rules[i](state);
-  }
-};
-
-/**
- * Expose `Core`
- */
-
-module.exports = Core;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/parser_inline.js":
-/*!******************************************************!*\
-  !*** ./node_modules/remarkable/lib/parser_inline.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Local dependencies
- */
-
-var Ruler       = __webpack_require__(/*! ./ruler */ "./node_modules/remarkable/lib/ruler.js");
-var StateInline = __webpack_require__(/*! ./rules_inline/state_inline */ "./node_modules/remarkable/lib/rules_inline/state_inline.js");
-var utils       = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js");
-
-/**
- * Inline Parser `rules`
- */
-
-var _rules = [
-  [ 'text',            __webpack_require__(/*! ./rules_inline/text */ "./node_modules/remarkable/lib/rules_inline/text.js") ],
-  [ 'newline',         __webpack_require__(/*! ./rules_inline/newline */ "./node_modules/remarkable/lib/rules_inline/newline.js") ],
-  [ 'escape',          __webpack_require__(/*! ./rules_inline/escape */ "./node_modules/remarkable/lib/rules_inline/escape.js") ],
-  [ 'backticks',       __webpack_require__(/*! ./rules_inline/backticks */ "./node_modules/remarkable/lib/rules_inline/backticks.js") ],
-  [ 'del',             __webpack_require__(/*! ./rules_inline/del */ "./node_modules/remarkable/lib/rules_inline/del.js") ],
-  [ 'ins',             __webpack_require__(/*! ./rules_inline/ins */ "./node_modules/remarkable/lib/rules_inline/ins.js") ],
-  [ 'mark',            __webpack_require__(/*! ./rules_inline/mark */ "./node_modules/remarkable/lib/rules_inline/mark.js") ],
-  [ 'emphasis',        __webpack_require__(/*! ./rules_inline/emphasis */ "./node_modules/remarkable/lib/rules_inline/emphasis.js") ],
-  [ 'sub',             __webpack_require__(/*! ./rules_inline/sub */ "./node_modules/remarkable/lib/rules_inline/sub.js") ],
-  [ 'sup',             __webpack_require__(/*! ./rules_inline/sup */ "./node_modules/remarkable/lib/rules_inline/sup.js") ],
-  [ 'links',           __webpack_require__(/*! ./rules_inline/links */ "./node_modules/remarkable/lib/rules_inline/links.js") ],
-  [ 'footnote_inline', __webpack_require__(/*! ./rules_inline/footnote_inline */ "./node_modules/remarkable/lib/rules_inline/footnote_inline.js") ],
-  [ 'footnote_ref',    __webpack_require__(/*! ./rules_inline/footnote_ref */ "./node_modules/remarkable/lib/rules_inline/footnote_ref.js") ],
-  [ 'autolink',        __webpack_require__(/*! ./rules_inline/autolink */ "./node_modules/remarkable/lib/rules_inline/autolink.js") ],
-  [ 'htmltag',         __webpack_require__(/*! ./rules_inline/htmltag */ "./node_modules/remarkable/lib/rules_inline/htmltag.js") ],
-  [ 'entity',          __webpack_require__(/*! ./rules_inline/entity */ "./node_modules/remarkable/lib/rules_inline/entity.js") ]
-];
-
-/**
- * Inline Parser class. Note that link validation is stricter
- * in Remarkable than what is specified by CommonMark. If you
- * want to change this you can use a custom validator.
- *
- * @api private
- */
-
-function ParserInline() {
-  this.ruler = new Ruler();
-  for (var i = 0; i < _rules.length; i++) {
-    this.ruler.push(_rules[i][0], _rules[i][1]);
-  }
-
-  // Can be overridden with a custom validator
-  this.validateLink = validateLink;
-}
-
-/**
- * Skip a single token by running all rules in validation mode.
- * Returns `true` if any rule reports success.
- *
- * @param  {Object} `state`
- * @api privage
- */
-
-ParserInline.prototype.skipToken = function (state) {
-  var rules = this.ruler.getRules('');
-  var len = rules.length;
-  var pos = state.pos;
-  var i, cached_pos;
-
-  if ((cached_pos = state.cacheGet(pos)) > 0) {
-    state.pos = cached_pos;
-    return;
-  }
-
-  for (i = 0; i < len; i++) {
-    if (rules[i](state, true)) {
-      state.cacheSet(pos, state.pos);
-      return;
-    }
-  }
-
-  state.pos++;
-  state.cacheSet(pos, state.pos);
-};
-
-/**
- * Generate tokens for the given input range.
- *
- * @param  {Object} `state`
- * @api private
- */
-
-ParserInline.prototype.tokenize = function (state) {
-  var rules = this.ruler.getRules('');
-  var len = rules.length;
-  var end = state.posMax;
-  var ok, i;
-
-  while (state.pos < end) {
-
-    // Try all possible rules.
-    // On success, the rule should:
-    //
-    // - update `state.pos`
-    // - update `state.tokens`
-    // - return true
-    for (i = 0; i < len; i++) {
-      ok = rules[i](state, false);
-
-      if (ok) {
-        break;
-      }
-    }
-
-    if (ok) {
-      if (state.pos >= end) { break; }
-      continue;
-    }
-
-    state.pending += state.src[state.pos++];
-  }
-
-  if (state.pending) {
-    state.pushPending();
-  }
-};
-
-/**
- * Parse the given input string.
- *
- * @param  {String} `str`
- * @param  {Object} `options`
- * @param  {Object} `env`
- * @param  {Array} `outTokens`
- * @api private
- */
-
-ParserInline.prototype.parse = function (str, options, env, outTokens) {
-  var state = new StateInline(str, this, options, env, outTokens);
-  this.tokenize(state);
-};
-
-/**
- * Validate the given `url` by checking for bad protocols.
- *
- * @param  {String} `url`
- * @return {Boolean}
- */
-
-function validateLink(url) {
-  var BAD_PROTOCOLS = [ 'vbscript', 'javascript', 'file', 'data' ];
-  var str = url.trim().toLowerCase();
-  // Care about digital entities "javascript&#x3A;alert(1)"
-  str = utils.replaceEntities(str);
-  if (str.indexOf(':') !== -1 && BAD_PROTOCOLS.indexOf(str.split(':')[0]) !== -1) {
-    return false;
-  }
-  return true;
-}
-
-/**
- * Expose `ParserInline`
- */
-
-module.exports = ParserInline;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/renderer.js":
-/*!*************************************************!*\
-  !*** ./node_modules/remarkable/lib/renderer.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Local dependencies
- */
-
-var utils = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js");
-var rules = __webpack_require__(/*! ./rules */ "./node_modules/remarkable/lib/rules.js");
-
-/**
- * Expose `Renderer`
- */
-
-module.exports = Renderer;
-
-/**
- * Renderer class. Renders HTML and exposes `rules` to allow
- * local modifications.
- */
-
-function Renderer() {
-  this.rules = utils.assign({}, rules);
-
-  // exported helper, for custom rules only
-  this.getBreak = rules.getBreak;
-}
-
-/**
- * Render a string of inline HTML with the given `tokens` and
- * `options`.
- *
- * @param  {Array} `tokens`
- * @param  {Object} `options`
- * @param  {Object} `env`
- * @return {String}
- * @api public
- */
-
-Renderer.prototype.renderInline = function (tokens, options, env) {
-  var _rules = this.rules;
-  var len = tokens.length, i = 0;
-  var result = '';
-
-  while (len--) {
-    result += _rules[tokens[i].type](tokens, i++, options, env, this);
-  }
-
-  return result;
-};
-
-/**
- * Render a string of HTML with the given `tokens` and
- * `options`.
- *
- * @param  {Array} `tokens`
- * @param  {Object} `options`
- * @param  {Object} `env`
- * @return {String}
- * @api public
- */
-
-Renderer.prototype.render = function (tokens, options, env) {
-  var _rules = this.rules;
-  var len = tokens.length, i = -1;
-  var result = '';
-
-  while (++i < len) {
-    if (tokens[i].type === 'inline') {
-      result += this.renderInline(tokens[i].children, options, env);
-    } else {
-      result += _rules[tokens[i].type](tokens, i, options, env, this);
-    }
-  }
-  return result;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/ruler.js":
-/*!**********************************************!*\
-  !*** ./node_modules/remarkable/lib/ruler.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Ruler is a helper class for building responsibility chains from
- * parse rules. It allows:
- *
- *   - easy stack rules chains
- *   - getting main chain and named chains content (as arrays of functions)
- *
- * Helper methods, should not be used directly.
- * @api private
- */
-
-function Ruler() {
-  // List of added rules. Each element is:
-  //
-  // { name: XXX,
-  //   enabled: Boolean,
-  //   fn: Function(),
-  //   alt: [ name2, name3 ] }
-  //
-  this.__rules__ = [];
-
-  // Cached rule chains.
-  //
-  // First level - chain name, '' for default.
-  // Second level - digital anchor for fast filtering by charcodes.
-  //
-  this.__cache__ = null;
-}
-
-/**
- * Find the index of a rule by `name`.
- *
- * @param  {String} `name`
- * @return {Number} Index of the given `name`
- * @api private
- */
-
-Ruler.prototype.__find__ = function (name) {
-  var len = this.__rules__.length;
-  var i = -1;
-
-  while (len--) {
-    if (this.__rules__[++i].name === name) {
-      return i;
-    }
-  }
-  return -1;
-};
-
-/**
- * Build the rules lookup cache
- *
- * @api private
- */
-
-Ruler.prototype.__compile__ = function () {
-  var self = this;
-  var chains = [ '' ];
-
-  // collect unique names
-  self.__rules__.forEach(function (rule) {
-    if (!rule.enabled) {
-      return;
-    }
-
-    rule.alt.forEach(function (altName) {
-      if (chains.indexOf(altName) < 0) {
-        chains.push(altName);
-      }
-    });
-  });
-
-  self.__cache__ = {};
-
-  chains.forEach(function (chain) {
-    self.__cache__[chain] = [];
-    self.__rules__.forEach(function (rule) {
-      if (!rule.enabled) {
-        return;
-      }
-
-      if (chain && rule.alt.indexOf(chain) < 0) {
-        return;
-      }
-      self.__cache__[chain].push(rule.fn);
-    });
-  });
-};
-
-/**
- * Ruler public methods
- * ------------------------------------------------
- */
-
-/**
- * Replace rule function
- *
- * @param  {String} `name` Rule name
- * @param  {Function `fn`
- * @param  {Object} `options`
- * @api private
- */
-
-Ruler.prototype.at = function (name, fn, options) {
-  var idx = this.__find__(name);
-  var opt = options || {};
-
-  if (idx === -1) {
-    throw new Error('Parser rule not found: ' + name);
-  }
-
-  this.__rules__[idx].fn = fn;
-  this.__rules__[idx].alt = opt.alt || [];
-  this.__cache__ = null;
-};
-
-/**
- * Add a rule to the chain before given the `ruleName`.
- *
- * @param  {String}   `beforeName`
- * @param  {String}   `ruleName`
- * @param  {Function} `fn`
- * @param  {Object}   `options`
- * @api private
- */
-
-Ruler.prototype.before = function (beforeName, ruleName, fn, options) {
-  var idx = this.__find__(beforeName);
-  var opt = options || {};
-
-  if (idx === -1) {
-    throw new Error('Parser rule not found: ' + beforeName);
-  }
-
-  this.__rules__.splice(idx, 0, {
-    name: ruleName,
-    enabled: true,
-    fn: fn,
-    alt: opt.alt || []
-  });
-
-  this.__cache__ = null;
-};
-
-/**
- * Add a rule to the chain after the given `ruleName`.
- *
- * @param  {String}   `afterName`
- * @param  {String}   `ruleName`
- * @param  {Function} `fn`
- * @param  {Object}   `options`
- * @api private
- */
-
-Ruler.prototype.after = function (afterName, ruleName, fn, options) {
-  var idx = this.__find__(afterName);
-  var opt = options || {};
-
-  if (idx === -1) {
-    throw new Error('Parser rule not found: ' + afterName);
-  }
-
-  this.__rules__.splice(idx + 1, 0, {
-    name: ruleName,
-    enabled: true,
-    fn: fn,
-    alt: opt.alt || []
-  });
-
-  this.__cache__ = null;
-};
-
-/**
- * Add a rule to the end of chain.
- *
- * @param  {String}   `ruleName`
- * @param  {Function} `fn`
- * @param  {Object}   `options`
- * @return {String}
- */
-
-Ruler.prototype.push = function (ruleName, fn, options) {
-  var opt = options || {};
-
-  this.__rules__.push({
-    name: ruleName,
-    enabled: true,
-    fn: fn,
-    alt: opt.alt || []
-  });
-
-  this.__cache__ = null;
-};
-
-/**
- * Enable a rule or list of rules.
- *
- * @param  {String|Array} `list` Name or array of rule names to enable
- * @param  {Boolean} `strict` If `true`, all non listed rules will be disabled.
- * @api private
- */
-
-Ruler.prototype.enable = function (list, strict) {
-  list = !Array.isArray(list)
-    ? [ list ]
-    : list;
-
-  // In strict mode disable all existing rules first
-  if (strict) {
-    this.__rules__.forEach(function (rule) {
-      rule.enabled = false;
-    });
-  }
-
-  // Search by name and enable
-  list.forEach(function (name) {
-    var idx = this.__find__(name);
-    if (idx < 0) {
-      throw new Error('Rules manager: invalid rule name ' + name);
-    }
-    this.__rules__[idx].enabled = true;
-  }, this);
-
-  this.__cache__ = null;
-};
-
-
-/**
- * Disable a rule or list of rules.
- *
- * @param  {String|Array} `list` Name or array of rule names to disable
- * @api private
- */
-
-Ruler.prototype.disable = function (list) {
-  list = !Array.isArray(list)
-    ? [ list ]
-    : list;
-
-  // Search by name and disable
-  list.forEach(function (name) {
-    var idx = this.__find__(name);
-    if (idx < 0) {
-      throw new Error('Rules manager: invalid rule name ' + name);
-    }
-    this.__rules__[idx].enabled = false;
-  }, this);
-
-  this.__cache__ = null;
-};
-
-/**
- * Get a rules list as an array of functions.
- *
- * @param  {String} `chainName`
- * @return {Object}
- * @api private
- */
-
-Ruler.prototype.getRules = function (chainName) {
-  if (this.__cache__ === null) {
-    this.__compile__();
-  }
-  return this.__cache__[chainName] || [];
-};
-
-/**
- * Expose `Ruler`
- */
-
-module.exports = Ruler;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules.js":
-/*!**********************************************!*\
-  !*** ./node_modules/remarkable/lib/rules.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Local dependencies
- */
-
-var has             = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js").has;
-var unescapeMd      = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js").unescapeMd;
-var replaceEntities = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js").replaceEntities;
-var escapeHtml      = __webpack_require__(/*! ./common/utils */ "./node_modules/remarkable/lib/common/utils.js").escapeHtml;
+var utils = /*#__PURE__*/Object.freeze({
+  isString: isString,
+  has: has,
+  assign: assign,
+  unescapeMd: unescapeMd,
+  isValidEntityCode: isValidEntityCode,
+  fromCodePoint: fromCodePoint,
+  replaceEntities: replaceEntities,
+  escapeHtml: escapeHtml
+});
 
 /**
  * Renderer rules cache
@@ -46717,28 +38999,1460 @@ var getBreak = rules.getBreak = function getBreak(tokens, idx) {
 };
 
 /**
- * Expose `rules`
+ * Renderer class. Renders HTML and exposes `rules` to allow
+ * local modifications.
  */
 
-module.exports = rules;
+function Renderer() {
+  this.rules = assign({}, rules);
+
+  // exported helper, for custom rules only
+  this.getBreak = rules.getBreak;
+}
+
+/**
+ * Render a string of inline HTML with the given `tokens` and
+ * `options`.
+ *
+ * @param  {Array} `tokens`
+ * @param  {Object} `options`
+ * @param  {Object} `env`
+ * @return {String}
+ * @api public
+ */
+
+Renderer.prototype.renderInline = function (tokens, options, env) {
+  var _rules = this.rules;
+  var len = tokens.length, i = 0;
+  var result = '';
+
+  while (len--) {
+    result += _rules[tokens[i].type](tokens, i++, options, env, this);
+  }
+
+  return result;
+};
+
+/**
+ * Render a string of HTML with the given `tokens` and
+ * `options`.
+ *
+ * @param  {Array} `tokens`
+ * @param  {Object} `options`
+ * @param  {Object} `env`
+ * @return {String}
+ * @api public
+ */
+
+Renderer.prototype.render = function (tokens, options, env) {
+  var _rules = this.rules;
+  var len = tokens.length, i = -1;
+  var result = '';
+
+  while (++i < len) {
+    if (tokens[i].type === 'inline') {
+      result += this.renderInline(tokens[i].children, options, env);
+    } else {
+      result += _rules[tokens[i].type](tokens, i, options, env, this);
+    }
+  }
+  return result;
+};
+
+/**
+ * Ruler is a helper class for building responsibility chains from
+ * parse rules. It allows:
+ *
+ *   - easy stack rules chains
+ *   - getting main chain and named chains content (as arrays of functions)
+ *
+ * Helper methods, should not be used directly.
+ * @api private
+ */
+
+function Ruler() {
+  // List of added rules. Each element is:
+  //
+  // { name: XXX,
+  //   enabled: Boolean,
+  //   fn: Function(),
+  //   alt: [ name2, name3 ] }
+  //
+  this.__rules__ = [];
+
+  // Cached rule chains.
+  //
+  // First level - chain name, '' for default.
+  // Second level - digital anchor for fast filtering by charcodes.
+  //
+  this.__cache__ = null;
+}
+
+/**
+ * Find the index of a rule by `name`.
+ *
+ * @param  {String} `name`
+ * @return {Number} Index of the given `name`
+ * @api private
+ */
+
+Ruler.prototype.__find__ = function (name) {
+  var len = this.__rules__.length;
+  var i = -1;
+
+  while (len--) {
+    if (this.__rules__[++i].name === name) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+/**
+ * Build the rules lookup cache
+ *
+ * @api private
+ */
+
+Ruler.prototype.__compile__ = function () {
+  var self = this;
+  var chains = [ '' ];
+
+  // collect unique names
+  self.__rules__.forEach(function (rule) {
+    if (!rule.enabled) {
+      return;
+    }
+
+    rule.alt.forEach(function (altName) {
+      if (chains.indexOf(altName) < 0) {
+        chains.push(altName);
+      }
+    });
+  });
+
+  self.__cache__ = {};
+
+  chains.forEach(function (chain) {
+    self.__cache__[chain] = [];
+    self.__rules__.forEach(function (rule) {
+      if (!rule.enabled) {
+        return;
+      }
+
+      if (chain && rule.alt.indexOf(chain) < 0) {
+        return;
+      }
+      self.__cache__[chain].push(rule.fn);
+    });
+  });
+};
+
+/**
+ * Ruler public methods
+ * ------------------------------------------------
+ */
+
+/**
+ * Replace rule function
+ *
+ * @param  {String} `name` Rule name
+ * @param  {Function `fn`
+ * @param  {Object} `options`
+ * @api private
+ */
+
+Ruler.prototype.at = function (name, fn, options) {
+  var idx = this.__find__(name);
+  var opt = options || {};
+
+  if (idx === -1) {
+    throw new Error('Parser rule not found: ' + name);
+  }
+
+  this.__rules__[idx].fn = fn;
+  this.__rules__[idx].alt = opt.alt || [];
+  this.__cache__ = null;
+};
+
+/**
+ * Add a rule to the chain before given the `ruleName`.
+ *
+ * @param  {String}   `beforeName`
+ * @param  {String}   `ruleName`
+ * @param  {Function} `fn`
+ * @param  {Object}   `options`
+ * @api private
+ */
+
+Ruler.prototype.before = function (beforeName, ruleName, fn, options) {
+  var idx = this.__find__(beforeName);
+  var opt = options || {};
+
+  if (idx === -1) {
+    throw new Error('Parser rule not found: ' + beforeName);
+  }
+
+  this.__rules__.splice(idx, 0, {
+    name: ruleName,
+    enabled: true,
+    fn: fn,
+    alt: opt.alt || []
+  });
+
+  this.__cache__ = null;
+};
+
+/**
+ * Add a rule to the chain after the given `ruleName`.
+ *
+ * @param  {String}   `afterName`
+ * @param  {String}   `ruleName`
+ * @param  {Function} `fn`
+ * @param  {Object}   `options`
+ * @api private
+ */
+
+Ruler.prototype.after = function (afterName, ruleName, fn, options) {
+  var idx = this.__find__(afterName);
+  var opt = options || {};
+
+  if (idx === -1) {
+    throw new Error('Parser rule not found: ' + afterName);
+  }
+
+  this.__rules__.splice(idx + 1, 0, {
+    name: ruleName,
+    enabled: true,
+    fn: fn,
+    alt: opt.alt || []
+  });
+
+  this.__cache__ = null;
+};
+
+/**
+ * Add a rule to the end of chain.
+ *
+ * @param  {String}   `ruleName`
+ * @param  {Function} `fn`
+ * @param  {Object}   `options`
+ * @return {String}
+ */
+
+Ruler.prototype.push = function (ruleName, fn, options) {
+  var opt = options || {};
+
+  this.__rules__.push({
+    name: ruleName,
+    enabled: true,
+    fn: fn,
+    alt: opt.alt || []
+  });
+
+  this.__cache__ = null;
+};
+
+/**
+ * Enable a rule or list of rules.
+ *
+ * @param  {String|Array} `list` Name or array of rule names to enable
+ * @param  {Boolean} `strict` If `true`, all non listed rules will be disabled.
+ * @api private
+ */
+
+Ruler.prototype.enable = function (list, strict) {
+  list = !Array.isArray(list)
+    ? [ list ]
+    : list;
+
+  // In strict mode disable all existing rules first
+  if (strict) {
+    this.__rules__.forEach(function (rule) {
+      rule.enabled = false;
+    });
+  }
+
+  // Search by name and enable
+  list.forEach(function (name) {
+    var idx = this.__find__(name);
+    if (idx < 0) {
+      throw new Error('Rules manager: invalid rule name ' + name);
+    }
+    this.__rules__[idx].enabled = true;
+  }, this);
+
+  this.__cache__ = null;
+};
 
 
-/***/ }),
+/**
+ * Disable a rule or list of rules.
+ *
+ * @param  {String|Array} `list` Name or array of rule names to disable
+ * @api private
+ */
 
-/***/ "./node_modules/remarkable/lib/rules_block/blockquote.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/blockquote.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+Ruler.prototype.disable = function (list) {
+  list = !Array.isArray(list)
+    ? [ list ]
+    : list;
 
-"use strict";
+  // Search by name and disable
+  list.forEach(function (name) {
+    var idx = this.__find__(name);
+    if (idx < 0) {
+      throw new Error('Rules manager: invalid rule name ' + name);
+    }
+    this.__rules__[idx].enabled = false;
+  }, this);
+
+  this.__cache__ = null;
+};
+
+/**
+ * Get a rules list as an array of functions.
+ *
+ * @param  {String} `chainName`
+ * @return {Object}
+ * @api private
+ */
+
+Ruler.prototype.getRules = function (chainName) {
+  if (this.__cache__ === null) {
+    this.__compile__();
+  }
+  return this.__cache__[chainName] || [];
+};
+
+function block(state) {
+
+  if (state.inlineMode) {
+    state.tokens.push({
+      type: 'inline',
+      content: state.src.replace(/\n/g, ' ').trim(),
+      level: 0,
+      lines: [ 0, 1 ],
+      children: []
+    });
+
+  } else {
+    state.block.parse(state.src, state.options, state.env, state.tokens);
+  }
+}
+
+// Inline parser state
+
+function StateInline(src, parserInline, options, env, outTokens) {
+  this.src = src;
+  this.env = env;
+  this.options = options;
+  this.parser = parserInline;
+  this.tokens = outTokens;
+  this.pos = 0;
+  this.posMax = this.src.length;
+  this.level = 0;
+  this.pending = '';
+  this.pendingLevel = 0;
+
+  this.cache = [];        // Stores { start: end } pairs. Useful for backtrack
+                          // optimization of pairs parse (emphasis, strikes).
+
+  // Link parser state vars
+
+  this.isInLabel = false; // Set true when seek link label - we should disable
+                          // "paired" rules (emphasis, strikes) to not skip
+                          // tailing `]`
+
+  this.linkLevel = 0;     // Increment for each nesting link. Used to prevent
+                          // nesting in definitions
+
+  this.linkContent = '';  // Temporary storage for link url
+
+  this.labelUnmatchedScopes = 0; // Track unpaired `[` for link labels
+                                 // (backtrack optimization)
+}
+
+// Flush pending text
+//
+StateInline.prototype.pushPending = function () {
+  this.tokens.push({
+    type: 'text',
+    content: this.pending,
+    level: this.pendingLevel
+  });
+  this.pending = '';
+};
+
+// Push new token to "stream".
+// If pending text exists - flush it as text token
+//
+StateInline.prototype.push = function (token) {
+  if (this.pending) {
+    this.pushPending();
+  }
+
+  this.tokens.push(token);
+  this.pendingLevel = this.level;
+};
+
+// Store value to cache.
+// !!! Implementation has parser-specific optimizations
+// !!! keys MUST be integer, >= 0; values MUST be integer, > 0
+//
+StateInline.prototype.cacheSet = function (key, val) {
+  for (var i = this.cache.length; i <= key; i++) {
+    this.cache.push(0);
+  }
+
+  this.cache[key] = val;
+};
+
+// Get cache value
+//
+StateInline.prototype.cacheGet = function (key) {
+  return key < this.cache.length ? this.cache[key] : 0;
+};
+
+/**
+ * Parse link labels
+ *
+ * This function assumes that first character (`[`) already matches;
+ * returns the end of the label.
+ *
+ * @param  {Object} state
+ * @param  {Number} start
+ * @api private
+ */
+
+function parseLinkLabel(state, start) {
+  var level, found, marker,
+      labelEnd = -1,
+      max = state.posMax,
+      oldPos = state.pos,
+      oldFlag = state.isInLabel;
+
+  if (state.isInLabel) { return -1; }
+
+  if (state.labelUnmatchedScopes) {
+    state.labelUnmatchedScopes--;
+    return -1;
+  }
+
+  state.pos = start + 1;
+  state.isInLabel = true;
+  level = 1;
+
+  while (state.pos < max) {
+    marker = state.src.charCodeAt(state.pos);
+    if (marker === 0x5B /* [ */) {
+      level++;
+    } else if (marker === 0x5D /* ] */) {
+      level--;
+      if (level === 0) {
+        found = true;
+        break;
+      }
+    }
+
+    state.parser.skipToken(state);
+  }
+
+  if (found) {
+    labelEnd = state.pos;
+    state.labelUnmatchedScopes = 0;
+  } else {
+    state.labelUnmatchedScopes = level - 1;
+  }
+
+  // restore old state
+  state.pos = oldPos;
+  state.isInLabel = oldFlag;
+
+  return labelEnd;
+}
+
+// Parse abbreviation definitions, i.e. `*[abbr]: description`
+
+
+function parseAbbr(str, parserInline, options, env) {
+  var state, labelEnd, pos, max, label, title;
+
+  if (str.charCodeAt(0) !== 0x2A/* * */) { return -1; }
+  if (str.charCodeAt(1) !== 0x5B/* [ */) { return -1; }
+
+  if (str.indexOf(']:') === -1) { return -1; }
+
+  state = new StateInline(str, parserInline, options, env, []);
+  labelEnd = parseLinkLabel(state, 1);
+
+  if (labelEnd < 0 || str.charCodeAt(labelEnd + 1) !== 0x3A/* : */) { return -1; }
+
+  max = state.posMax;
+
+  // abbr title is always one line, so looking for ending "\n" here
+  for (pos = labelEnd + 2; pos < max; pos++) {
+    if (state.src.charCodeAt(pos) === 0x0A) { break; }
+  }
+
+  label = str.slice(2, labelEnd);
+  title = str.slice(labelEnd + 2, pos).trim();
+  if (title.length === 0) { return -1; }
+  if (!env.abbreviations) { env.abbreviations = {}; }
+  // prepend ':' to avoid conflict with Object.prototype members
+  if (typeof env.abbreviations[':' + label] === 'undefined') {
+    env.abbreviations[':' + label] = title;
+  }
+
+  return pos;
+}
+
+function abbr(state) {
+  var tokens = state.tokens, i, l, content, pos;
+
+  if (state.inlineMode) {
+    return;
+  }
+
+  // Parse inlines
+  for (i = 1, l = tokens.length - 1; i < l; i++) {
+    if (tokens[i - 1].type === 'paragraph_open' &&
+        tokens[i].type === 'inline' &&
+        tokens[i + 1].type === 'paragraph_close') {
+
+      content = tokens[i].content;
+      while (content.length) {
+        pos = parseAbbr(content, state.inline, state.options, state.env);
+        if (pos < 0) { break; }
+        content = content.slice(pos).trim();
+      }
+
+      tokens[i].content = content;
+      if (!content.length) {
+        tokens[i - 1].tight = true;
+        tokens[i + 1].tight = true;
+      }
+    }
+  }
+}
+
+function normalizeLink(url) {
+  var normalized = replaceEntities(url);
+  // We shouldn't care about the result of malformed URIs,
+  // and should not throw an exception.
+  try {
+    normalized = decodeURI(normalized);
+  } catch (err) {}
+  return encodeURI(normalized);
+}
+
+/**
+ * Parse link destination
+ *
+ *   - on success it returns a string and updates state.pos;
+ *   - on failure it returns null
+ *
+ * @param  {Object} state
+ * @param  {Number} pos
+ * @api private
+ */
+
+function parseLinkDestination(state, pos) {
+  var code, level, link,
+      start = pos,
+      max = state.posMax;
+
+  if (state.src.charCodeAt(pos) === 0x3C /* < */) {
+    pos++;
+    while (pos < max) {
+      code = state.src.charCodeAt(pos);
+      if (code === 0x0A /* \n */) { return false; }
+      if (code === 0x3E /* > */) {
+        link = normalizeLink(unescapeMd(state.src.slice(start + 1, pos)));
+        if (!state.parser.validateLink(link)) { return false; }
+        state.pos = pos + 1;
+        state.linkContent = link;
+        return true;
+      }
+      if (code === 0x5C /* \ */ && pos + 1 < max) {
+        pos += 2;
+        continue;
+      }
+
+      pos++;
+    }
+
+    // no closing '>'
+    return false;
+  }
+
+  // this should be ... } else { ... branch
+
+  level = 0;
+  while (pos < max) {
+    code = state.src.charCodeAt(pos);
+
+    if (code === 0x20) { break; }
+
+    // ascii control chars
+    if (code < 0x20 || code === 0x7F) { break; }
+
+    if (code === 0x5C /* \ */ && pos + 1 < max) {
+      pos += 2;
+      continue;
+    }
+
+    if (code === 0x28 /* ( */) {
+      level++;
+      if (level > 1) { break; }
+    }
+
+    if (code === 0x29 /* ) */) {
+      level--;
+      if (level < 0) { break; }
+    }
+
+    pos++;
+  }
+
+  if (start === pos) { return false; }
+
+  link = unescapeMd(state.src.slice(start, pos));
+  if (!state.parser.validateLink(link)) { return false; }
+
+  state.linkContent = link;
+  state.pos = pos;
+  return true;
+}
+
+/**
+ * Parse link title
+ *
+ *   - on success it returns a string and updates state.pos;
+ *   - on failure it returns null
+ *
+ * @param  {Object} state
+ * @param  {Number} pos
+ * @api private
+ */
+
+function parseLinkTitle(state, pos) {
+  var code,
+      start = pos,
+      max = state.posMax,
+      marker = state.src.charCodeAt(pos);
+
+  if (marker !== 0x22 /* " */ && marker !== 0x27 /* ' */ && marker !== 0x28 /* ( */) { return false; }
+
+  pos++;
+
+  // if opening marker is "(", switch it to closing marker ")"
+  if (marker === 0x28) { marker = 0x29; }
+
+  while (pos < max) {
+    code = state.src.charCodeAt(pos);
+    if (code === marker) {
+      state.pos = pos + 1;
+      state.linkContent = unescapeMd(state.src.slice(start + 1, pos));
+      return true;
+    }
+    if (code === 0x5C /* \ */ && pos + 1 < max) {
+      pos += 2;
+      continue;
+    }
+
+    pos++;
+  }
+
+  return false;
+}
+
+function normalizeReference(str) {
+  // use .toUpperCase() instead of .toLowerCase()
+  // here to avoid a conflict with Object.prototype
+  // members (most notably, `__proto__`)
+  return str.trim().replace(/\s+/g, ' ').toUpperCase();
+}
+
+function parseReference(str, parser, options, env) {
+  var state, labelEnd, pos, max, code, start, href, title, label;
+
+  if (str.charCodeAt(0) !== 0x5B/* [ */) { return -1; }
+
+  if (str.indexOf(']:') === -1) { return -1; }
+
+  state = new StateInline(str, parser, options, env, []);
+  labelEnd = parseLinkLabel(state, 0);
+
+  if (labelEnd < 0 || str.charCodeAt(labelEnd + 1) !== 0x3A/* : */) { return -1; }
+
+  max = state.posMax;
+
+  // [label]:   destination   'title'
+  //         ^^^ skip optional whitespace here
+  for (pos = labelEnd + 2; pos < max; pos++) {
+    code = state.src.charCodeAt(pos);
+    if (code !== 0x20 && code !== 0x0A) { break; }
+  }
+
+  // [label]:   destination   'title'
+  //            ^^^^^^^^^^^ parse this
+  if (!parseLinkDestination(state, pos)) { return -1; }
+  href = state.linkContent;
+  pos = state.pos;
+
+  // [label]:   destination   'title'
+  //                       ^^^ skipping those spaces
+  start = pos;
+  for (pos = pos + 1; pos < max; pos++) {
+    code = state.src.charCodeAt(pos);
+    if (code !== 0x20 && code !== 0x0A) { break; }
+  }
+
+  // [label]:   destination   'title'
+  //                          ^^^^^^^ parse this
+  if (pos < max && start !== pos && parseLinkTitle(state, pos)) {
+    title = state.linkContent;
+    pos = state.pos;
+  } else {
+    title = '';
+    pos = start;
+  }
+
+  // ensure that the end of the line is empty
+  while (pos < max && state.src.charCodeAt(pos) === 0x20/* space */) { pos++; }
+  if (pos < max && state.src.charCodeAt(pos) !== 0x0A) { return -1; }
+
+  label = normalizeReference(str.slice(1, labelEnd));
+  if (typeof env.references[label] === 'undefined') {
+    env.references[label] = { title: title, href: href };
+  }
+
+  return pos;
+}
+
+
+function references(state) {
+  var tokens = state.tokens, i, l, content, pos;
+
+  state.env.references = state.env.references || {};
+
+  if (state.inlineMode) {
+    return;
+  }
+
+  // Scan definitions in paragraph inlines
+  for (i = 1, l = tokens.length - 1; i < l; i++) {
+    if (tokens[i].type === 'inline' &&
+        tokens[i - 1].type === 'paragraph_open' &&
+        tokens[i + 1].type === 'paragraph_close') {
+
+      content = tokens[i].content;
+      while (content.length) {
+        pos = parseReference(content, state.inline, state.options, state.env);
+        if (pos < 0) { break; }
+        content = content.slice(pos).trim();
+      }
+
+      tokens[i].content = content;
+      if (!content.length) {
+        tokens[i - 1].tight = true;
+        tokens[i + 1].tight = true;
+      }
+    }
+  }
+}
+
+function inline(state) {
+  var tokens = state.tokens, tok, i, l;
+
+  // Parse inlines
+  for (i = 0, l = tokens.length; i < l; i++) {
+    tok = tokens[i];
+    if (tok.type === 'inline') {
+      state.inline.parse(tok.content, state.options, state.env, tok.children);
+    }
+  }
+}
+
+function footnote_block(state) {
+  var i, l, j, t, lastParagraph, list, tokens, current, currentLabel,
+      level = 0,
+      insideRef = false,
+      refTokens = {};
+
+  if (!state.env.footnotes) { return; }
+
+  state.tokens = state.tokens.filter(function(tok) {
+    if (tok.type === 'footnote_reference_open') {
+      insideRef = true;
+      current = [];
+      currentLabel = tok.label;
+      return false;
+    }
+    if (tok.type === 'footnote_reference_close') {
+      insideRef = false;
+      // prepend ':' to avoid conflict with Object.prototype members
+      refTokens[':' + currentLabel] = current;
+      return false;
+    }
+    if (insideRef) { current.push(tok); }
+    return !insideRef;
+  });
+
+  if (!state.env.footnotes.list) { return; }
+  list = state.env.footnotes.list;
+
+  state.tokens.push({
+    type: 'footnote_block_open',
+    level: level++
+  });
+  for (i = 0, l = list.length; i < l; i++) {
+    state.tokens.push({
+      type: 'footnote_open',
+      id: i,
+      level: level++
+    });
+
+    if (list[i].tokens) {
+      tokens = [];
+      tokens.push({
+        type: 'paragraph_open',
+        tight: false,
+        level: level++
+      });
+      tokens.push({
+        type: 'inline',
+        content: '',
+        level: level,
+        children: list[i].tokens
+      });
+      tokens.push({
+        type: 'paragraph_close',
+        tight: false,
+        level: --level
+      });
+    } else if (list[i].label) {
+      tokens = refTokens[':' + list[i].label];
+    }
+
+    state.tokens = state.tokens.concat(tokens);
+    if (state.tokens[state.tokens.length - 1].type === 'paragraph_close') {
+      lastParagraph = state.tokens.pop();
+    } else {
+      lastParagraph = null;
+    }
+
+    t = list[i].count > 0 ? list[i].count : 1;
+    for (j = 0; j < t; j++) {
+      state.tokens.push({
+        type: 'footnote_anchor',
+        id: i,
+        subId: j,
+        level: level
+      });
+    }
+
+    if (lastParagraph) {
+      state.tokens.push(lastParagraph);
+    }
+
+    state.tokens.push({
+      type: 'footnote_close',
+      level: --level
+    });
+  }
+  state.tokens.push({
+    type: 'footnote_block_close',
+    level: --level
+  });
+}
+
+// Enclose abbreviations in <abbr> tags
+//
+
+var PUNCT_CHARS = ' \n()[]\'".,!?-';
+
+
+// from Google closure library
+// http://closure-library.googlecode.com/git-history/docs/local_closure_goog_string_string.js.source.html#line1021
+function regEscape(s) {
+  return s.replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1');
+}
+
+
+function abbr2(state) {
+  var i, j, l, tokens, token, text, nodes, pos, level, reg, m, regText,
+      blockTokens = state.tokens;
+
+  if (!state.env.abbreviations) { return; }
+  if (!state.env.abbrRegExp) {
+    regText = '(^|[' + PUNCT_CHARS.split('').map(regEscape).join('') + '])'
+            + '(' + Object.keys(state.env.abbreviations).map(function (x) {
+                      return x.substr(1);
+                    }).sort(function (a, b) {
+                      return b.length - a.length;
+                    }).map(regEscape).join('|') + ')'
+            + '($|[' + PUNCT_CHARS.split('').map(regEscape).join('') + '])';
+    state.env.abbrRegExp = new RegExp(regText, 'g');
+  }
+  reg = state.env.abbrRegExp;
+
+  for (j = 0, l = blockTokens.length; j < l; j++) {
+    if (blockTokens[j].type !== 'inline') { continue; }
+    tokens = blockTokens[j].children;
+
+    // We scan from the end, to keep position when new tags added.
+    for (i = tokens.length - 1; i >= 0; i--) {
+      token = tokens[i];
+      if (token.type !== 'text') { continue; }
+
+      pos = 0;
+      text = token.content;
+      reg.lastIndex = 0;
+      level = token.level;
+      nodes = [];
+
+      while ((m = reg.exec(text))) {
+        if (reg.lastIndex > pos) {
+          nodes.push({
+            type: 'text',
+            content: text.slice(pos, m.index + m[1].length),
+            level: level
+          });
+        }
+
+        nodes.push({
+          type: 'abbr_open',
+          title: state.env.abbreviations[':' + m[2]],
+          level: level++
+        });
+        nodes.push({
+          type: 'text',
+          content: m[2],
+          level: level
+        });
+        nodes.push({
+          type: 'abbr_close',
+          level: --level
+        });
+        pos = reg.lastIndex - m[3].length;
+      }
+
+      if (!nodes.length) { continue; }
+
+      if (pos < text.length) {
+        nodes.push({
+          type: 'text',
+          content: text.slice(pos),
+          level: level
+        });
+      }
+
+      // replace current node
+      blockTokens[j].children = tokens = [].concat(tokens.slice(0, i), nodes, tokens.slice(i + 1));
+    }
+  }
+}
+
+// Simple typographical replacements
+//
+// TODO:
+// - fractionals 1/2, 1/4, 3/4 -> ½, ¼, ¾
+// - miltiplication 2 x 4 -> 2 × 4
+
+var RARE_RE = /\+-|\.\.|\?\?\?\?|!!!!|,,|--/;
+
+var SCOPED_ABBR_RE = /\((c|tm|r|p)\)/ig;
+var SCOPED_ABBR = {
+  'c': '©',
+  'r': '®',
+  'p': '§',
+  'tm': '™'
+};
+
+function replaceScopedAbbr(str) {
+  if (str.indexOf('(') < 0) { return str; }
+
+  return str.replace(SCOPED_ABBR_RE, function(match, name) {
+    return SCOPED_ABBR[name.toLowerCase()];
+  });
+}
+
+
+function replace(state) {
+  var i, token, text, inlineTokens, blkIdx;
+
+  if (!state.options.typographer) { return; }
+
+  for (blkIdx = state.tokens.length - 1; blkIdx >= 0; blkIdx--) {
+
+    if (state.tokens[blkIdx].type !== 'inline') { continue; }
+
+    inlineTokens = state.tokens[blkIdx].children;
+
+    for (i = inlineTokens.length - 1; i >= 0; i--) {
+      token = inlineTokens[i];
+      if (token.type === 'text') {
+        text = token.content;
+
+        text = replaceScopedAbbr(text);
+
+        if (RARE_RE.test(text)) {
+          text = text
+            .replace(/\+-/g, '±')
+            // .., ..., ....... -> …
+            // but ?..... & !..... -> ?.. & !..
+            .replace(/\.{2,}/g, '…').replace(/([?!])…/g, '$1..')
+            .replace(/([?!]){4,}/g, '$1$1$1').replace(/,{2,}/g, ',')
+            // em-dash
+            .replace(/(^|[^-])---([^-]|$)/mg, '$1\u2014$2')
+            // en-dash
+            .replace(/(^|\s)--(\s|$)/mg, '$1\u2013$2')
+            .replace(/(^|[^-\s])--([^-\s]|$)/mg, '$1\u2013$2');
+        }
+
+        token.content = text;
+      }
+    }
+  }
+}
+
+// Convert straight quotation marks to typographic ones
+//
+
+var QUOTE_TEST_RE = /['"]/;
+var QUOTE_RE = /['"]/g;
+var PUNCT_RE = /[-\s()\[\]]/;
+var APOSTROPHE = '’';
+
+// This function returns true if the character at `pos`
+// could be inside a word.
+function isLetter(str, pos) {
+  if (pos < 0 || pos >= str.length) { return false; }
+  return !PUNCT_RE.test(str[pos]);
+}
+
+
+function replaceAt(str, index, ch) {
+  return str.substr(0, index) + ch + str.substr(index + 1);
+}
+
+
+function smartquotes(state) {
+  /*eslint max-depth:0*/
+  var i, token, text, t, pos, max, thisLevel, lastSpace, nextSpace, item,
+      canOpen, canClose, j, isSingle, blkIdx, tokens,
+      stack;
+
+  if (!state.options.typographer) { return; }
+
+  stack = [];
+
+  for (blkIdx = state.tokens.length - 1; blkIdx >= 0; blkIdx--) {
+
+    if (state.tokens[blkIdx].type !== 'inline') { continue; }
+
+    tokens = state.tokens[blkIdx].children;
+    stack.length = 0;
+
+    for (i = 0; i < tokens.length; i++) {
+      token = tokens[i];
+
+      if (token.type !== 'text' || QUOTE_TEST_RE.test(token.text)) { continue; }
+
+      thisLevel = tokens[i].level;
+
+      for (j = stack.length - 1; j >= 0; j--) {
+        if (stack[j].level <= thisLevel) { break; }
+      }
+      stack.length = j + 1;
+
+      text = token.content;
+      pos = 0;
+      max = text.length;
+
+      /*eslint no-labels:0,block-scoped-var:0*/
+      OUTER:
+      while (pos < max) {
+        QUOTE_RE.lastIndex = pos;
+        t = QUOTE_RE.exec(text);
+        if (!t) { break; }
+
+        lastSpace = !isLetter(text, t.index - 1);
+        pos = t.index + 1;
+        isSingle = (t[0] === "'");
+        nextSpace = !isLetter(text, pos);
+
+        if (!nextSpace && !lastSpace) {
+          // middle of word
+          if (isSingle) {
+            token.content = replaceAt(token.content, t.index, APOSTROPHE);
+          }
+          continue;
+        }
+
+        canOpen = !nextSpace;
+        canClose = !lastSpace;
+
+        if (canClose) {
+          // this could be a closing quote, rewind the stack to get a match
+          for (j = stack.length - 1; j >= 0; j--) {
+            item = stack[j];
+            if (stack[j].level < thisLevel) { break; }
+            if (item.single === isSingle && stack[j].level === thisLevel) {
+              item = stack[j];
+              if (isSingle) {
+                tokens[item.token].content = replaceAt(tokens[item.token].content, item.pos, state.options.quotes[2]);
+                token.content = replaceAt(token.content, t.index, state.options.quotes[3]);
+              } else {
+                tokens[item.token].content = replaceAt(tokens[item.token].content, item.pos, state.options.quotes[0]);
+                token.content = replaceAt(token.content, t.index, state.options.quotes[1]);
+              }
+              stack.length = j;
+              continue OUTER;
+            }
+          }
+        }
+
+        if (canOpen) {
+          stack.push({
+            token: i,
+            pos: t.index,
+            single: isSingle,
+            level: thisLevel
+          });
+        } else if (canClose && isSingle) {
+          token.content = replaceAt(token.content, t.index, APOSTROPHE);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Core parser `rules`
+ */
+
+var _rules = [
+  [ 'block',          block          ],
+  [ 'abbr',           abbr           ],
+  [ 'references',     references     ],
+  [ 'inline',         inline         ],
+  [ 'footnote_tail',  footnote_block  ],
+  [ 'abbr2',          abbr2          ],
+  [ 'replacements',   replace   ],
+  [ 'smartquotes',    smartquotes    ],
+];
+
+/**
+ * Class for top level (`core`) parser rules
+ *
+ * @api private
+ */
+
+function Core() {
+  this.options = {};
+  this.ruler = new Ruler();
+  for (var i = 0; i < _rules.length; i++) {
+    this.ruler.push(_rules[i][0], _rules[i][1]);
+  }
+}
+
+/**
+ * Process rules with the given `state`
+ *
+ * @param  {Object} `state`
+ * @api private
+ */
+
+Core.prototype.process = function (state) {
+  var i, l, rules;
+  rules = this.ruler.getRules('');
+  for (i = 0, l = rules.length; i < l; i++) {
+    rules[i](state);
+  }
+};
+
+// Parser state class
+
+function StateBlock(src, parser, options, env, tokens) {
+  var ch, s, start, pos, len, indent, indent_found;
+
+  this.src = src;
+
+  // Shortcuts to simplify nested calls
+  this.parser = parser;
+
+  this.options = options;
+
+  this.env = env;
+
+  //
+  // Internal state vartiables
+  //
+
+  this.tokens = tokens;
+
+  this.bMarks = [];  // line begin offsets for fast jumps
+  this.eMarks = [];  // line end offsets for fast jumps
+  this.tShift = [];  // indent for each line
+
+  // block parser variables
+  this.blkIndent  = 0; // required block content indent
+                       // (for example, if we are in list)
+  this.line       = 0; // line index in src
+  this.lineMax    = 0; // lines count
+  this.tight      = false;  // loose/tight mode for lists
+  this.parentType = 'root'; // if `list`, block parser stops on two newlines
+  this.ddIndent   = -1; // indent of the current dd block (-1 if there isn't any)
+
+  this.level = 0;
+
+  // renderer
+  this.result = '';
+
+  // Create caches
+  // Generate markers.
+  s = this.src;
+  indent = 0;
+  indent_found = false;
+
+  for (start = pos = indent = 0, len = s.length; pos < len; pos++) {
+    ch = s.charCodeAt(pos);
+
+    if (!indent_found) {
+      if (ch === 0x20/* space */) {
+        indent++;
+        continue;
+      } else {
+        indent_found = true;
+      }
+    }
+
+    if (ch === 0x0A || pos === len - 1) {
+      if (ch !== 0x0A) { pos++; }
+      this.bMarks.push(start);
+      this.eMarks.push(pos);
+      this.tShift.push(indent);
+
+      indent_found = false;
+      indent = 0;
+      start = pos + 1;
+    }
+  }
+
+  // Push fake entry to simplify cache bounds checks
+  this.bMarks.push(s.length);
+  this.eMarks.push(s.length);
+  this.tShift.push(0);
+
+  this.lineMax = this.bMarks.length - 1; // don't count last fake line
+}
+
+StateBlock.prototype.isEmpty = function isEmpty(line) {
+  return this.bMarks[line] + this.tShift[line] >= this.eMarks[line];
+};
+
+StateBlock.prototype.skipEmptyLines = function skipEmptyLines(from) {
+  for (var max = this.lineMax; from < max; from++) {
+    if (this.bMarks[from] + this.tShift[from] < this.eMarks[from]) {
+      break;
+    }
+  }
+  return from;
+};
+
+// Skip spaces from given position.
+StateBlock.prototype.skipSpaces = function skipSpaces(pos) {
+  for (var max = this.src.length; pos < max; pos++) {
+    if (this.src.charCodeAt(pos) !== 0x20/* space */) { break; }
+  }
+  return pos;
+};
+
+// Skip char codes from given position
+StateBlock.prototype.skipChars = function skipChars(pos, code) {
+  for (var max = this.src.length; pos < max; pos++) {
+    if (this.src.charCodeAt(pos) !== code) { break; }
+  }
+  return pos;
+};
+
+// Skip char codes reverse from given position - 1
+StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code, min) {
+  if (pos <= min) { return pos; }
+
+  while (pos > min) {
+    if (code !== this.src.charCodeAt(--pos)) { return pos + 1; }
+  }
+  return pos;
+};
+
+// cut lines range from source.
+StateBlock.prototype.getLines = function getLines(begin, end, indent, keepLastLF) {
+  var i, first, last, queue, shift,
+      line = begin;
+
+  if (begin >= end) {
+    return '';
+  }
+
+  // Opt: don't use push queue for single line;
+  if (line + 1 === end) {
+    first = this.bMarks[line] + Math.min(this.tShift[line], indent);
+    last = keepLastLF ? this.eMarks[line] + 1 : this.eMarks[line];
+    return this.src.slice(first, last);
+  }
+
+  queue = new Array(end - begin);
+
+  for (i = 0; line < end; line++, i++) {
+    shift = this.tShift[line];
+    if (shift > indent) { shift = indent; }
+    if (shift < 0) { shift = 0; }
+
+    first = this.bMarks[line] + shift;
+
+    if (line + 1 < end || keepLastLF) {
+      // No need for bounds check because we have fake entry on tail.
+      last = this.eMarks[line] + 1;
+    } else {
+      last = this.eMarks[line];
+    }
+
+    queue[i] = this.src.slice(first, last);
+  }
+
+  return queue.join('');
+};
+
+// Code block (4 spaces padded)
+
+function code(state, startLine, endLine/*, silent*/) {
+  var nextLine, last;
+
+  if (state.tShift[startLine] - state.blkIndent < 4) { return false; }
+
+  last = nextLine = startLine + 1;
+
+  while (nextLine < endLine) {
+    if (state.isEmpty(nextLine)) {
+      nextLine++;
+      continue;
+    }
+    if (state.tShift[nextLine] - state.blkIndent >= 4) {
+      nextLine++;
+      last = nextLine;
+      continue;
+    }
+    break;
+  }
+
+  state.line = nextLine;
+  state.tokens.push({
+    type: 'code',
+    content: state.getLines(startLine, last, 4 + state.blkIndent, true),
+    block: true,
+    lines: [ startLine, state.line ],
+    level: state.level
+  });
+
+  return true;
+}
+
+// fences (``` lang, ~~~ lang)
+
+function fences(state, startLine, endLine, silent) {
+  var marker, len, params, nextLine, mem,
+      haveEndMarker = false,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  if (pos + 3 > max) { return false; }
+
+  marker = state.src.charCodeAt(pos);
+
+  if (marker !== 0x7E/* ~ */ && marker !== 0x60 /* ` */) {
+    return false;
+  }
+
+  // scan marker length
+  mem = pos;
+  pos = state.skipChars(pos, marker);
+
+  len = pos - mem;
+
+  if (len < 3) { return false; }
+
+  params = state.src.slice(pos, max).trim();
+
+  if (params.indexOf('`') >= 0) { return false; }
+
+  // Since start is found, we can report success here in validation mode
+  if (silent) { return true; }
+
+  // search end of block
+  nextLine = startLine;
+
+  for (;;) {
+    nextLine++;
+    if (nextLine >= endLine) {
+      // unclosed block should be autoclosed by end of document.
+      // also block seems to be autoclosed by end of parent
+      break;
+    }
+
+    pos = mem = state.bMarks[nextLine] + state.tShift[nextLine];
+    max = state.eMarks[nextLine];
+
+    if (pos < max && state.tShift[nextLine] < state.blkIndent) {
+      // non-empty line with negative indent should stop the list:
+      // - ```
+      //  test
+      break;
+    }
+
+    if (state.src.charCodeAt(pos) !== marker) { continue; }
+
+    if (state.tShift[nextLine] - state.blkIndent >= 4) {
+      // closing fence should be indented less than 4 spaces
+      continue;
+    }
+
+    pos = state.skipChars(pos, marker);
+
+    // closing code fence must be at least as long as the opening one
+    if (pos - mem < len) { continue; }
+
+    // make sure tail has spaces only
+    pos = state.skipSpaces(pos);
+
+    if (pos < max) { continue; }
+
+    haveEndMarker = true;
+    // found!
+    break;
+  }
+
+  // If a fence has heading spaces, they should be removed from its inner block
+  len = state.tShift[startLine];
+
+  state.line = nextLine + (haveEndMarker ? 1 : 0);
+  state.tokens.push({
+    type: 'fence',
+    params: params,
+    content: state.getLines(startLine + 1, nextLine, len, true),
+    lines: [ startLine, state.line ],
+    level: state.level
+  });
+
+  return true;
+}
+
 // Block quotes
 
-
-
-
-module.exports = function blockquote(state, startLine, endLine, silent) {
+function blockquote(state, startLine, endLine, silent) {
   var nextLine, lastLineEmpty, oldTShift, oldBMarks, oldIndent, oldParentType, lines,
       terminatorRules,
       i, l, terminate,
@@ -46865,544 +40579,11 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
   state.blkIndent = oldIndent;
 
   return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/code.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/code.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Code block (4 spaces padded)
-
-
-
-
-module.exports = function code(state, startLine, endLine/*, silent*/) {
-  var nextLine, last;
-
-  if (state.tShift[startLine] - state.blkIndent < 4) { return false; }
-
-  last = nextLine = startLine + 1;
-
-  while (nextLine < endLine) {
-    if (state.isEmpty(nextLine)) {
-      nextLine++;
-      continue;
-    }
-    if (state.tShift[nextLine] - state.blkIndent >= 4) {
-      nextLine++;
-      last = nextLine;
-      continue;
-    }
-    break;
-  }
-
-  state.line = nextLine;
-  state.tokens.push({
-    type: 'code',
-    content: state.getLines(startLine, last, 4 + state.blkIndent, true),
-    block: true,
-    lines: [ startLine, state.line ],
-    level: state.level
-  });
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/deflist.js":
-/*!************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/deflist.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Definition lists
-
-
-
-
-// Search `[:~][\n ]`, returns next pos after marker on success
-// or -1 on fail.
-function skipMarker(state, line) {
-  var pos, marker,
-      start = state.bMarks[line] + state.tShift[line],
-      max = state.eMarks[line];
-
-  if (start >= max) { return -1; }
-
-  // Check bullet
-  marker = state.src.charCodeAt(start++);
-  if (marker !== 0x7E/* ~ */ && marker !== 0x3A/* : */) { return -1; }
-
-  pos = state.skipSpaces(start);
-
-  // require space after ":"
-  if (start === pos) { return -1; }
-
-  // no empty definitions, e.g. "  : "
-  if (pos >= max) { return -1; }
-
-  return pos;
 }
 
-function markTightParagraphs(state, idx) {
-  var i, l,
-      level = state.level + 2;
-
-  for (i = idx + 2, l = state.tokens.length - 2; i < l; i++) {
-    if (state.tokens[i].level === level && state.tokens[i].type === 'paragraph_open') {
-      state.tokens[i + 2].tight = true;
-      state.tokens[i].tight = true;
-      i += 2;
-    }
-  }
-}
-
-module.exports = function deflist(state, startLine, endLine, silent) {
-  var contentStart,
-      ddLine,
-      dtLine,
-      itemLines,
-      listLines,
-      listTokIdx,
-      nextLine,
-      oldIndent,
-      oldDDIndent,
-      oldParentType,
-      oldTShift,
-      oldTight,
-      prevEmptyEnd,
-      tight;
-
-  if (silent) {
-    // quirk: validation mode validates a dd block only, not a whole deflist
-    if (state.ddIndent < 0) { return false; }
-    return skipMarker(state, startLine) >= 0;
-  }
-
-  nextLine = startLine + 1;
-  if (state.isEmpty(nextLine)) {
-    if (++nextLine > endLine) { return false; }
-  }
-
-  if (state.tShift[nextLine] < state.blkIndent) { return false; }
-  contentStart = skipMarker(state, nextLine);
-  if (contentStart < 0) { return false; }
-
-  if (state.level >= state.options.maxNesting) { return false; }
-
-  // Start list
-  listTokIdx = state.tokens.length;
-
-  state.tokens.push({
-    type: 'dl_open',
-    lines: listLines = [ startLine, 0 ],
-    level: state.level++
-  });
-
-  //
-  // Iterate list items
-  //
-
-  dtLine = startLine;
-  ddLine = nextLine;
-
-  // One definition list can contain multiple DTs,
-  // and one DT can be followed by multiple DDs.
-  //
-  // Thus, there is two loops here, and label is
-  // needed to break out of the second one
-  //
-  /*eslint no-labels:0,block-scoped-var:0*/
-  OUTER:
-  for (;;) {
-    tight = true;
-    prevEmptyEnd = false;
-
-    state.tokens.push({
-      type: 'dt_open',
-      lines: [ dtLine, dtLine ],
-      level: state.level++
-    });
-    state.tokens.push({
-      type: 'inline',
-      content: state.getLines(dtLine, dtLine + 1, state.blkIndent, false).trim(),
-      level: state.level + 1,
-      lines: [ dtLine, dtLine ],
-      children: []
-    });
-    state.tokens.push({
-      type: 'dt_close',
-      level: --state.level
-    });
-
-    for (;;) {
-      state.tokens.push({
-        type: 'dd_open',
-        lines: itemLines = [ nextLine, 0 ],
-        level: state.level++
-      });
-
-      oldTight = state.tight;
-      oldDDIndent = state.ddIndent;
-      oldIndent = state.blkIndent;
-      oldTShift = state.tShift[ddLine];
-      oldParentType = state.parentType;
-      state.blkIndent = state.ddIndent = state.tShift[ddLine] + 2;
-      state.tShift[ddLine] = contentStart - state.bMarks[ddLine];
-      state.tight = true;
-      state.parentType = 'deflist';
-
-      state.parser.tokenize(state, ddLine, endLine, true);
-
-      // If any of list item is tight, mark list as tight
-      if (!state.tight || prevEmptyEnd) {
-        tight = false;
-      }
-      // Item become loose if finish with empty line,
-      // but we should filter last element, because it means list finish
-      prevEmptyEnd = (state.line - ddLine) > 1 && state.isEmpty(state.line - 1);
-
-      state.tShift[ddLine] = oldTShift;
-      state.tight = oldTight;
-      state.parentType = oldParentType;
-      state.blkIndent = oldIndent;
-      state.ddIndent = oldDDIndent;
-
-      state.tokens.push({
-        type: 'dd_close',
-        level: --state.level
-      });
-
-      itemLines[1] = nextLine = state.line;
-
-      if (nextLine >= endLine) { break OUTER; }
-
-      if (state.tShift[nextLine] < state.blkIndent) { break OUTER; }
-      contentStart = skipMarker(state, nextLine);
-      if (contentStart < 0) { break; }
-
-      ddLine = nextLine;
-
-      // go to the next loop iteration:
-      // insert DD tag and repeat checking
-    }
-
-    if (nextLine >= endLine) { break; }
-    dtLine = nextLine;
-
-    if (state.isEmpty(dtLine)) { break; }
-    if (state.tShift[dtLine] < state.blkIndent) { break; }
-
-    ddLine = dtLine + 1;
-    if (ddLine >= endLine) { break; }
-    if (state.isEmpty(ddLine)) { ddLine++; }
-    if (ddLine >= endLine) { break; }
-
-    if (state.tShift[ddLine] < state.blkIndent) { break; }
-    contentStart = skipMarker(state, ddLine);
-    if (contentStart < 0) { break; }
-
-    // go to the next loop iteration:
-    // insert DT and DD tags and repeat checking
-  }
-
-  // Finilize list
-  state.tokens.push({
-    type: 'dl_close',
-    level: --state.level
-  });
-  listLines[1] = nextLine;
-
-  state.line = nextLine;
-
-  // mark paragraphs tight if needed
-  if (tight) {
-    markTightParagraphs(state, listTokIdx);
-  }
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/fences.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/fences.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// fences (``` lang, ~~~ lang)
-
-
-
-
-module.exports = function fences(state, startLine, endLine, silent) {
-  var marker, len, params, nextLine, mem,
-      haveEndMarker = false,
-      pos = state.bMarks[startLine] + state.tShift[startLine],
-      max = state.eMarks[startLine];
-
-  if (pos + 3 > max) { return false; }
-
-  marker = state.src.charCodeAt(pos);
-
-  if (marker !== 0x7E/* ~ */ && marker !== 0x60 /* ` */) {
-    return false;
-  }
-
-  // scan marker length
-  mem = pos;
-  pos = state.skipChars(pos, marker);
-
-  len = pos - mem;
-
-  if (len < 3) { return false; }
-
-  params = state.src.slice(pos, max).trim();
-
-  if (params.indexOf('`') >= 0) { return false; }
-
-  // Since start is found, we can report success here in validation mode
-  if (silent) { return true; }
-
-  // search end of block
-  nextLine = startLine;
-
-  for (;;) {
-    nextLine++;
-    if (nextLine >= endLine) {
-      // unclosed block should be autoclosed by end of document.
-      // also block seems to be autoclosed by end of parent
-      break;
-    }
-
-    pos = mem = state.bMarks[nextLine] + state.tShift[nextLine];
-    max = state.eMarks[nextLine];
-
-    if (pos < max && state.tShift[nextLine] < state.blkIndent) {
-      // non-empty line with negative indent should stop the list:
-      // - ```
-      //  test
-      break;
-    }
-
-    if (state.src.charCodeAt(pos) !== marker) { continue; }
-
-    if (state.tShift[nextLine] - state.blkIndent >= 4) {
-      // closing fence should be indented less than 4 spaces
-      continue;
-    }
-
-    pos = state.skipChars(pos, marker);
-
-    // closing code fence must be at least as long as the opening one
-    if (pos - mem < len) { continue; }
-
-    // make sure tail has spaces only
-    pos = state.skipSpaces(pos);
-
-    if (pos < max) { continue; }
-
-    haveEndMarker = true;
-    // found!
-    break;
-  }
-
-  // If a fence has heading spaces, they should be removed from its inner block
-  len = state.tShift[startLine];
-
-  state.line = nextLine + (haveEndMarker ? 1 : 0);
-  state.tokens.push({
-    type: 'fence',
-    params: params,
-    content: state.getLines(startLine + 1, nextLine, len, true),
-    lines: [ startLine, state.line ],
-    level: state.level
-  });
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/footnote.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/footnote.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process footnote reference list
-
-
-
-
-module.exports = function footnote(state, startLine, endLine, silent) {
-  var oldBMark, oldTShift, oldParentType, pos, label,
-      start = state.bMarks[startLine] + state.tShift[startLine],
-      max = state.eMarks[startLine];
-
-  // line should be at least 5 chars - "[^x]:"
-  if (start + 4 > max) { return false; }
-
-  if (state.src.charCodeAt(start) !== 0x5B/* [ */) { return false; }
-  if (state.src.charCodeAt(start + 1) !== 0x5E/* ^ */) { return false; }
-  if (state.level >= state.options.maxNesting) { return false; }
-
-  for (pos = start + 2; pos < max; pos++) {
-    if (state.src.charCodeAt(pos) === 0x20) { return false; }
-    if (state.src.charCodeAt(pos) === 0x5D /* ] */) {
-      break;
-    }
-  }
-
-  if (pos === start + 2) { return false; } // no empty footnote labels
-  if (pos + 1 >= max || state.src.charCodeAt(++pos) !== 0x3A /* : */) { return false; }
-  if (silent) { return true; }
-  pos++;
-
-  if (!state.env.footnotes) { state.env.footnotes = {}; }
-  if (!state.env.footnotes.refs) { state.env.footnotes.refs = {}; }
-  label = state.src.slice(start + 2, pos - 2);
-  state.env.footnotes.refs[':' + label] = -1;
-
-  state.tokens.push({
-    type: 'footnote_reference_open',
-    label: label,
-    level: state.level++
-  });
-
-  oldBMark = state.bMarks[startLine];
-  oldTShift = state.tShift[startLine];
-  oldParentType = state.parentType;
-  state.tShift[startLine] = state.skipSpaces(pos) - pos;
-  state.bMarks[startLine] = pos;
-  state.blkIndent += 4;
-  state.parentType = 'footnote';
-
-  if (state.tShift[startLine] < state.blkIndent) {
-    state.tShift[startLine] += state.blkIndent;
-    state.bMarks[startLine] -= state.blkIndent;
-  }
-
-  state.parser.tokenize(state, startLine, endLine, true);
-
-  state.parentType = oldParentType;
-  state.blkIndent -= 4;
-  state.tShift[startLine] = oldTShift;
-  state.bMarks[startLine] = oldBMark;
-
-  state.tokens.push({
-    type: 'footnote_reference_close',
-    level: --state.level
-  });
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/heading.js":
-/*!************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/heading.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// heading (#, ##, ...)
-
-
-
-
-module.exports = function heading(state, startLine, endLine, silent) {
-  var ch, level, tmp,
-      pos = state.bMarks[startLine] + state.tShift[startLine],
-      max = state.eMarks[startLine];
-
-  if (pos >= max) { return false; }
-
-  ch  = state.src.charCodeAt(pos);
-
-  if (ch !== 0x23/* # */ || pos >= max) { return false; }
-
-  // count heading level
-  level = 1;
-  ch = state.src.charCodeAt(++pos);
-  while (ch === 0x23/* # */ && pos < max && level <= 6) {
-    level++;
-    ch = state.src.charCodeAt(++pos);
-  }
-
-  if (level > 6 || (pos < max && ch !== 0x20/* space */)) { return false; }
-
-  if (silent) { return true; }
-
-  // Let's cut tails like '    ###  ' from the end of string
-
-  max = state.skipCharsBack(max, 0x20, pos); // space
-  tmp = state.skipCharsBack(max, 0x23, pos); // #
-  if (tmp > pos && state.src.charCodeAt(tmp - 1) === 0x20/* space */) {
-    max = tmp;
-  }
-
-  state.line = startLine + 1;
-
-  state.tokens.push({ type: 'heading_open',
-    hLevel: level,
-    lines: [ startLine, state.line ],
-    level: state.level
-  });
-
-  // only if header is not empty
-  if (pos < max) {
-    state.tokens.push({
-      type: 'inline',
-      content: state.src.slice(pos, max).trim(),
-      level: state.level + 1,
-      lines: [ startLine, state.line ],
-      children: []
-    });
-  }
-  state.tokens.push({ type: 'heading_close', hLevel: level, level: state.level });
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/hr.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/hr.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 // Horizontal rule
 
-
-
-
-module.exports = function hr(state, startLine, endLine, silent) {
+function hr(state, startLine, endLine, silent) {
   var marker, cnt, ch,
       pos = state.bMarks[startLine],
       max = state.eMarks[startLine];
@@ -47441,176 +40622,9 @@ module.exports = function hr(state, startLine, endLine, silent) {
   });
 
   return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/htmlblock.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/htmlblock.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// HTML block
-
-
-
-
-var block_names = __webpack_require__(/*! ../common/html_blocks */ "./node_modules/remarkable/lib/common/html_blocks.js");
-
-
-var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
-var HTML_TAG_CLOSE_RE = /^<\/([a-zA-Z]{1,15})[\s>]/;
-
-function isLetter(ch) {
-  /*eslint no-bitwise:0*/
-  var lc = ch | 0x20; // to lower case
-  return (lc >= 0x61/* a */) && (lc <= 0x7a/* z */);
 }
 
-module.exports = function htmlblock(state, startLine, endLine, silent) {
-  var ch, match, nextLine,
-      pos = state.bMarks[startLine],
-      max = state.eMarks[startLine],
-      shift = state.tShift[startLine];
-
-  pos += shift;
-
-  if (!state.options.html) { return false; }
-
-  if (shift > 3 || pos + 2 >= max) { return false; }
-
-  if (state.src.charCodeAt(pos) !== 0x3C/* < */) { return false; }
-
-  ch = state.src.charCodeAt(pos + 1);
-
-  if (ch === 0x21/* ! */ || ch === 0x3F/* ? */) {
-    // Directive start / comment start / processing instruction start
-    if (silent) { return true; }
-
-  } else if (ch === 0x2F/* / */ || isLetter(ch)) {
-
-    // Probably start or end of tag
-    if (ch === 0x2F/* \ */) {
-      // closing tag
-      match = state.src.slice(pos, max).match(HTML_TAG_CLOSE_RE);
-      if (!match) { return false; }
-    } else {
-      // opening tag
-      match = state.src.slice(pos, max).match(HTML_TAG_OPEN_RE);
-      if (!match) { return false; }
-    }
-    // Make sure tag name is valid
-    if (block_names[match[1].toLowerCase()] !== true) { return false; }
-    if (silent) { return true; }
-
-  } else {
-    return false;
-  }
-
-  // If we are here - we detected HTML block.
-  // Let's roll down till empty line (block end).
-  nextLine = startLine + 1;
-  while (nextLine < state.lineMax && !state.isEmpty(nextLine)) {
-    nextLine++;
-  }
-
-  state.line = nextLine;
-  state.tokens.push({
-    type: 'htmlblock',
-    level: state.level,
-    lines: [ startLine, state.line ],
-    content: state.getLines(startLine, nextLine, 0, true)
-  });
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/lheading.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/lheading.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// lheading (---, ===)
-
-
-
-
-module.exports = function lheading(state, startLine, endLine/*, silent*/) {
-  var marker, pos, max,
-      next = startLine + 1;
-
-  if (next >= endLine) { return false; }
-  if (state.tShift[next] < state.blkIndent) { return false; }
-
-  // Scan next line
-
-  if (state.tShift[next] - state.blkIndent > 3) { return false; }
-
-  pos = state.bMarks[next] + state.tShift[next];
-  max = state.eMarks[next];
-
-  if (pos >= max) { return false; }
-
-  marker = state.src.charCodeAt(pos);
-
-  if (marker !== 0x2D/* - */ && marker !== 0x3D/* = */) { return false; }
-
-  pos = state.skipChars(pos, marker);
-
-  pos = state.skipSpaces(pos);
-
-  if (pos < max) { return false; }
-
-  pos = state.bMarks[startLine] + state.tShift[startLine];
-
-  state.line = next + 1;
-  state.tokens.push({
-    type: 'heading_open',
-    hLevel: marker === 0x3D/* = */ ? 1 : 2,
-    lines: [ startLine, state.line ],
-    level: state.level
-  });
-  state.tokens.push({
-    type: 'inline',
-    content: state.src.slice(pos, state.eMarks[startLine]).trim(),
-    level: state.level + 1,
-    lines: [ startLine, state.line - 1 ],
-    children: []
-  });
-  state.tokens.push({
-    type: 'heading_close',
-    hLevel: marker === 0x3D/* = */ ? 1 : 2,
-    level: state.level
-  });
-
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/list.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/list.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 // Lists
-
-
-
 
 // Search `[-+*][\n ]`, returns next pos arter marker on success
 // or -1 on fail.
@@ -47691,7 +40705,7 @@ function markTightParagraphs(state, idx) {
 }
 
 
-module.exports = function list(state, startLine, endLine, silent) {
+function list(state, startLine, endLine, silent) {
   var nextLine,
       indent,
       oldTShift,
@@ -47872,264 +40886,311 @@ module.exports = function list(state, startLine, endLine, silent) {
   }
 
   return true;
-};
+}
 
+// Process footnote reference list
 
-/***/ }),
+function footnote(state, startLine, endLine, silent) {
+  var oldBMark, oldTShift, oldParentType, pos, label,
+      start = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
 
-/***/ "./node_modules/remarkable/lib/rules_block/paragraph.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/paragraph.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  // line should be at least 5 chars - "[^x]:"
+  if (start + 4 > max) { return false; }
 
-"use strict";
-// Paragraph
+  if (state.src.charCodeAt(start) !== 0x5B/* [ */) { return false; }
+  if (state.src.charCodeAt(start + 1) !== 0x5E/* ^ */) { return false; }
+  if (state.level >= state.options.maxNesting) { return false; }
 
-
-
-
-module.exports = function paragraph(state, startLine/*, endLine*/) {
-  var endLine, content, terminate, i, l,
-      nextLine = startLine + 1,
-      terminatorRules;
-
-  endLine = state.lineMax;
-
-  // jump line-by-line until empty one or EOF
-  if (nextLine < endLine && !state.isEmpty(nextLine)) {
-    terminatorRules = state.parser.ruler.getRules('paragraph');
-
-    for (; nextLine < endLine && !state.isEmpty(nextLine); nextLine++) {
-      // this would be a code block normally, but after paragraph
-      // it's considered a lazy continuation regardless of what's there
-      if (state.tShift[nextLine] - state.blkIndent > 3) { continue; }
-
-      // Some tags can terminate paragraph without empty line.
-      terminate = false;
-      for (i = 0, l = terminatorRules.length; i < l; i++) {
-        if (terminatorRules[i](state, nextLine, endLine, true)) {
-          terminate = true;
-          break;
-        }
-      }
-      if (terminate) { break; }
+  for (pos = start + 2; pos < max; pos++) {
+    if (state.src.charCodeAt(pos) === 0x20) { return false; }
+    if (state.src.charCodeAt(pos) === 0x5D /* ] */) {
+      break;
     }
   }
 
-  content = state.getLines(startLine, nextLine, state.blkIndent, false).trim();
+  if (pos === start + 2) { return false; } // no empty footnote labels
+  if (pos + 1 >= max || state.src.charCodeAt(++pos) !== 0x3A /* : */) { return false; }
+  if (silent) { return true; }
+  pos++;
 
-  state.line = nextLine;
-  if (content.length) {
-    state.tokens.push({
-      type: 'paragraph_open',
-      tight: false,
-      lines: [ startLine, state.line ],
-      level: state.level
-    });
+  if (!state.env.footnotes) { state.env.footnotes = {}; }
+  if (!state.env.footnotes.refs) { state.env.footnotes.refs = {}; }
+  label = state.src.slice(start + 2, pos - 2);
+  state.env.footnotes.refs[':' + label] = -1;
+
+  state.tokens.push({
+    type: 'footnote_reference_open',
+    label: label,
+    level: state.level++
+  });
+
+  oldBMark = state.bMarks[startLine];
+  oldTShift = state.tShift[startLine];
+  oldParentType = state.parentType;
+  state.tShift[startLine] = state.skipSpaces(pos) - pos;
+  state.bMarks[startLine] = pos;
+  state.blkIndent += 4;
+  state.parentType = 'footnote';
+
+  if (state.tShift[startLine] < state.blkIndent) {
+    state.tShift[startLine] += state.blkIndent;
+    state.bMarks[startLine] -= state.blkIndent;
+  }
+
+  state.parser.tokenize(state, startLine, endLine, true);
+
+  state.parentType = oldParentType;
+  state.blkIndent -= 4;
+  state.tShift[startLine] = oldTShift;
+  state.bMarks[startLine] = oldBMark;
+
+  state.tokens.push({
+    type: 'footnote_reference_close',
+    level: --state.level
+  });
+
+  return true;
+}
+
+// heading (#, ##, ...)
+
+function heading(state, startLine, endLine, silent) {
+  var ch, level, tmp,
+      pos = state.bMarks[startLine] + state.tShift[startLine],
+      max = state.eMarks[startLine];
+
+  if (pos >= max) { return false; }
+
+  ch  = state.src.charCodeAt(pos);
+
+  if (ch !== 0x23/* # */ || pos >= max) { return false; }
+
+  // count heading level
+  level = 1;
+  ch = state.src.charCodeAt(++pos);
+  while (ch === 0x23/* # */ && pos < max && level <= 6) {
+    level++;
+    ch = state.src.charCodeAt(++pos);
+  }
+
+  if (level > 6 || (pos < max && ch !== 0x20/* space */)) { return false; }
+
+  if (silent) { return true; }
+
+  // Let's cut tails like '    ###  ' from the end of string
+
+  max = state.skipCharsBack(max, 0x20, pos); // space
+  tmp = state.skipCharsBack(max, 0x23, pos); // #
+  if (tmp > pos && state.src.charCodeAt(tmp - 1) === 0x20/* space */) {
+    max = tmp;
+  }
+
+  state.line = startLine + 1;
+
+  state.tokens.push({ type: 'heading_open',
+    hLevel: level,
+    lines: [ startLine, state.line ],
+    level: state.level
+  });
+
+  // only if header is not empty
+  if (pos < max) {
     state.tokens.push({
       type: 'inline',
-      content: content,
+      content: state.src.slice(pos, max).trim(),
       level: state.level + 1,
       lines: [ startLine, state.line ],
       children: []
     });
-    state.tokens.push({
-      type: 'paragraph_close',
-      tight: false,
-      level: state.level
-    });
   }
+  state.tokens.push({ type: 'heading_close', hLevel: level, level: state.level });
 
   return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/state_block.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/state_block.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Parser state class
-
-
-
-
-function StateBlock(src, parser, options, env, tokens) {
-  var ch, s, start, pos, len, indent, indent_found;
-
-  this.src = src;
-
-  // Shortcuts to simplify nested calls
-  this.parser = parser;
-
-  this.options = options;
-
-  this.env = env;
-
-  //
-  // Internal state vartiables
-  //
-
-  this.tokens = tokens;
-
-  this.bMarks = [];  // line begin offsets for fast jumps
-  this.eMarks = [];  // line end offsets for fast jumps
-  this.tShift = [];  // indent for each line
-
-  // block parser variables
-  this.blkIndent  = 0; // required block content indent
-                       // (for example, if we are in list)
-  this.line       = 0; // line index in src
-  this.lineMax    = 0; // lines count
-  this.tight      = false;  // loose/tight mode for lists
-  this.parentType = 'root'; // if `list`, block parser stops on two newlines
-  this.ddIndent   = -1; // indent of the current dd block (-1 if there isn't any)
-
-  this.level = 0;
-
-  // renderer
-  this.result = '';
-
-  // Create caches
-  // Generate markers.
-  s = this.src;
-  indent = 0;
-  indent_found = false;
-
-  for (start = pos = indent = 0, len = s.length; pos < len; pos++) {
-    ch = s.charCodeAt(pos);
-
-    if (!indent_found) {
-      if (ch === 0x20/* space */) {
-        indent++;
-        continue;
-      } else {
-        indent_found = true;
-      }
-    }
-
-    if (ch === 0x0A || pos === len - 1) {
-      if (ch !== 0x0A) { pos++; }
-      this.bMarks.push(start);
-      this.eMarks.push(pos);
-      this.tShift.push(indent);
-
-      indent_found = false;
-      indent = 0;
-      start = pos + 1;
-    }
-  }
-
-  // Push fake entry to simplify cache bounds checks
-  this.bMarks.push(s.length);
-  this.eMarks.push(s.length);
-  this.tShift.push(0);
-
-  this.lineMax = this.bMarks.length - 1; // don't count last fake line
 }
 
-StateBlock.prototype.isEmpty = function isEmpty(line) {
-  return this.bMarks[line] + this.tShift[line] >= this.eMarks[line];
-};
+// lheading (---, ===)
 
-StateBlock.prototype.skipEmptyLines = function skipEmptyLines(from) {
-  for (var max = this.lineMax; from < max; from++) {
-    if (this.bMarks[from] + this.tShift[from] < this.eMarks[from]) {
-      break;
-    }
-  }
-  return from;
-};
+function lheading(state, startLine, endLine/*, silent*/) {
+  var marker, pos, max,
+      next = startLine + 1;
 
-// Skip spaces from given position.
-StateBlock.prototype.skipSpaces = function skipSpaces(pos) {
-  for (var max = this.src.length; pos < max; pos++) {
-    if (this.src.charCodeAt(pos) !== 0x20/* space */) { break; }
-  }
-  return pos;
-};
+  if (next >= endLine) { return false; }
+  if (state.tShift[next] < state.blkIndent) { return false; }
 
-// Skip char codes from given position
-StateBlock.prototype.skipChars = function skipChars(pos, code) {
-  for (var max = this.src.length; pos < max; pos++) {
-    if (this.src.charCodeAt(pos) !== code) { break; }
-  }
-  return pos;
-};
+  // Scan next line
 
-// Skip char codes reverse from given position - 1
-StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code, min) {
-  if (pos <= min) { return pos; }
+  if (state.tShift[next] - state.blkIndent > 3) { return false; }
 
-  while (pos > min) {
-    if (code !== this.src.charCodeAt(--pos)) { return pos + 1; }
-  }
-  return pos;
-};
+  pos = state.bMarks[next] + state.tShift[next];
+  max = state.eMarks[next];
 
-// cut lines range from source.
-StateBlock.prototype.getLines = function getLines(begin, end, indent, keepLastLF) {
-  var i, first, last, queue, shift,
-      line = begin;
+  if (pos >= max) { return false; }
 
-  if (begin >= end) {
-    return '';
-  }
+  marker = state.src.charCodeAt(pos);
 
-  // Opt: don't use push queue for single line;
-  if (line + 1 === end) {
-    first = this.bMarks[line] + Math.min(this.tShift[line], indent);
-    last = keepLastLF ? this.eMarks[line] + 1 : this.eMarks[line];
-    return this.src.slice(first, last);
-  }
+  if (marker !== 0x2D/* - */ && marker !== 0x3D/* = */) { return false; }
 
-  queue = new Array(end - begin);
+  pos = state.skipChars(pos, marker);
 
-  for (i = 0; line < end; line++, i++) {
-    shift = this.tShift[line];
-    if (shift > indent) { shift = indent; }
-    if (shift < 0) { shift = 0; }
+  pos = state.skipSpaces(pos);
 
-    first = this.bMarks[line] + shift;
+  if (pos < max) { return false; }
 
-    if (line + 1 < end || keepLastLF) {
-      // No need for bounds check because we have fake entry on tail.
-      last = this.eMarks[line] + 1;
+  pos = state.bMarks[startLine] + state.tShift[startLine];
+
+  state.line = next + 1;
+  state.tokens.push({
+    type: 'heading_open',
+    hLevel: marker === 0x3D/* = */ ? 1 : 2,
+    lines: [ startLine, state.line ],
+    level: state.level
+  });
+  state.tokens.push({
+    type: 'inline',
+    content: state.src.slice(pos, state.eMarks[startLine]).trim(),
+    level: state.level + 1,
+    lines: [ startLine, state.line - 1 ],
+    children: []
+  });
+  state.tokens.push({
+    type: 'heading_close',
+    hLevel: marker === 0x3D/* = */ ? 1 : 2,
+    level: state.level
+  });
+
+  return true;
+}
+
+// List of valid html blocks names, accorting to commonmark spec
+// http://jgm.github.io/CommonMark/spec.html#html-blocks
+
+var html_blocks = {};
+
+[
+  'article',
+  'aside',
+  'button',
+  'blockquote',
+  'body',
+  'canvas',
+  'caption',
+  'col',
+  'colgroup',
+  'dd',
+  'div',
+  'dl',
+  'dt',
+  'embed',
+  'fieldset',
+  'figcaption',
+  'figure',
+  'footer',
+  'form',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'header',
+  'hgroup',
+  'hr',
+  'iframe',
+  'li',
+  'map',
+  'object',
+  'ol',
+  'output',
+  'p',
+  'pre',
+  'progress',
+  'script',
+  'section',
+  'style',
+  'table',
+  'tbody',
+  'td',
+  'textarea',
+  'tfoot',
+  'th',
+  'tr',
+  'thead',
+  'ul',
+  'video'
+].forEach(function (name) { html_blocks[name] = true; });
+
+// HTML block
+
+
+var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
+var HTML_TAG_CLOSE_RE = /^<\/([a-zA-Z]{1,15})[\s>]/;
+
+function isLetter$1(ch) {
+  /*eslint no-bitwise:0*/
+  var lc = ch | 0x20; // to lower case
+  return (lc >= 0x61/* a */) && (lc <= 0x7a/* z */);
+}
+
+function htmlblock(state, startLine, endLine, silent) {
+  var ch, match, nextLine,
+      pos = state.bMarks[startLine],
+      max = state.eMarks[startLine],
+      shift = state.tShift[startLine];
+
+  pos += shift;
+
+  if (!state.options.html) { return false; }
+
+  if (shift > 3 || pos + 2 >= max) { return false; }
+
+  if (state.src.charCodeAt(pos) !== 0x3C/* < */) { return false; }
+
+  ch = state.src.charCodeAt(pos + 1);
+
+  if (ch === 0x21/* ! */ || ch === 0x3F/* ? */) {
+    // Directive start / comment start / processing instruction start
+    if (silent) { return true; }
+
+  } else if (ch === 0x2F/* / */ || isLetter$1(ch)) {
+
+    // Probably start or end of tag
+    if (ch === 0x2F/* \ */) {
+      // closing tag
+      match = state.src.slice(pos, max).match(HTML_TAG_CLOSE_RE);
+      if (!match) { return false; }
     } else {
-      last = this.eMarks[line];
+      // opening tag
+      match = state.src.slice(pos, max).match(HTML_TAG_OPEN_RE);
+      if (!match) { return false; }
     }
+    // Make sure tag name is valid
+    if (html_blocks[match[1].toLowerCase()] !== true) { return false; }
+    if (silent) { return true; }
 
-    queue[i] = this.src.slice(first, last);
+  } else {
+    return false;
   }
 
-  return queue.join('');
-};
+  // If we are here - we detected HTML block.
+  // Let's roll down till empty line (block end).
+  nextLine = startLine + 1;
+  while (nextLine < state.lineMax && !state.isEmpty(nextLine)) {
+    nextLine++;
+  }
 
+  state.line = nextLine;
+  state.tokens.push({
+    type: 'htmlblock',
+    level: state.level,
+    lines: [ startLine, state.line ],
+    content: state.getLines(startLine, nextLine, 0, true)
+  });
 
-module.exports = StateBlock;
+  return true;
+}
 
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_block/table.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_block/table.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 // GFM table, non-standard
-
-
-
 
 function getLine(state, line) {
   var pos = state.bMarks[line] + state.blkIndent,
@@ -48138,7 +41199,7 @@ function getLine(state, line) {
   return state.src.substr(pos, max - pos);
 }
 
-module.exports = function table(state, startLine, endLine, silent) {
+function table(state, startLine, endLine, silent) {
   var ch, lineText, pos, i, nextLine, rows, cell,
       aligns, t, tableLines, tbodyLines;
 
@@ -48263,941 +41324,566 @@ module.exports = function table(state, startLine, endLine, silent) {
   tableLines[1] = tbodyLines[1] = nextLine;
   state.line = nextLine;
   return true;
-};
+}
 
+// Definition lists
 
-/***/ }),
+// Search `[:~][\n ]`, returns next pos after marker on success
+// or -1 on fail.
+function skipMarker(state, line) {
+  var pos, marker,
+      start = state.bMarks[line] + state.tShift[line],
+      max = state.eMarks[line];
 
-/***/ "./node_modules/remarkable/lib/rules_core/abbr.js":
-/*!********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/abbr.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  if (start >= max) { return -1; }
 
-"use strict";
-// Parse abbreviation definitions, i.e. `*[abbr]: description`
-//
+  // Check bullet
+  marker = state.src.charCodeAt(start++);
+  if (marker !== 0x7E/* ~ */ && marker !== 0x3A/* : */) { return -1; }
 
+  pos = state.skipSpaces(start);
 
+  // require space after ":"
+  if (start === pos) { return -1; }
 
-
-var StateInline    = __webpack_require__(/*! ../rules_inline/state_inline */ "./node_modules/remarkable/lib/rules_inline/state_inline.js");
-var parseLinkLabel = __webpack_require__(/*! ../helpers/parse_link_label */ "./node_modules/remarkable/lib/helpers/parse_link_label.js");
-
-
-function parseAbbr(str, parserInline, options, env) {
-  var state, labelEnd, pos, max, label, title;
-
-  if (str.charCodeAt(0) !== 0x2A/* * */) { return -1; }
-  if (str.charCodeAt(1) !== 0x5B/* [ */) { return -1; }
-
-  if (str.indexOf(']:') === -1) { return -1; }
-
-  state = new StateInline(str, parserInline, options, env, []);
-  labelEnd = parseLinkLabel(state, 1);
-
-  if (labelEnd < 0 || str.charCodeAt(labelEnd + 1) !== 0x3A/* : */) { return -1; }
-
-  max = state.posMax;
-
-  // abbr title is always one line, so looking for ending "\n" here
-  for (pos = labelEnd + 2; pos < max; pos++) {
-    if (state.src.charCodeAt(pos) === 0x0A) { break; }
-  }
-
-  label = str.slice(2, labelEnd);
-  title = str.slice(labelEnd + 2, pos).trim();
-  if (title.length === 0) { return -1; }
-  if (!env.abbreviations) { env.abbreviations = {}; }
-  // prepend ':' to avoid conflict with Object.prototype members
-  if (typeof env.abbreviations[':' + label] === 'undefined') {
-    env.abbreviations[':' + label] = title;
-  }
+  // no empty definitions, e.g. "  : "
+  if (pos >= max) { return -1; }
 
   return pos;
 }
 
-module.exports = function abbr(state) {
-  var tokens = state.tokens, i, l, content, pos;
+function markTightParagraphs$1(state, idx) {
+  var i, l,
+      level = state.level + 2;
 
-  if (state.inlineMode) {
-    return;
-  }
-
-  // Parse inlines
-  for (i = 1, l = tokens.length - 1; i < l; i++) {
-    if (tokens[i - 1].type === 'paragraph_open' &&
-        tokens[i].type === 'inline' &&
-        tokens[i + 1].type === 'paragraph_close') {
-
-      content = tokens[i].content;
-      while (content.length) {
-        pos = parseAbbr(content, state.inline, state.options, state.env);
-        if (pos < 0) { break; }
-        content = content.slice(pos).trim();
-      }
-
-      tokens[i].content = content;
-      if (!content.length) {
-        tokens[i - 1].tight = true;
-        tokens[i + 1].tight = true;
-      }
+  for (i = idx + 2, l = state.tokens.length - 2; i < l; i++) {
+    if (state.tokens[i].level === level && state.tokens[i].type === 'paragraph_open') {
+      state.tokens[i + 2].tight = true;
+      state.tokens[i].tight = true;
+      i += 2;
     }
   }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_core/abbr2.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/abbr2.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Enclose abbreviations in <abbr> tags
-//
-
-
-
-var PUNCT_CHARS = ' \n()[]\'".,!?-';
-
-
-// from Google closure library
-// http://closure-library.googlecode.com/git-history/docs/local_closure_goog_string_string.js.source.html#line1021
-function regEscape(s) {
-  return s.replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1');
 }
 
+function deflist(state, startLine, endLine, silent) {
+  var contentStart,
+      ddLine,
+      dtLine,
+      itemLines,
+      listLines,
+      listTokIdx,
+      nextLine,
+      oldIndent,
+      oldDDIndent,
+      oldParentType,
+      oldTShift,
+      oldTight,
+      prevEmptyEnd,
+      tight;
 
-module.exports = function abbr2(state) {
-  var i, j, l, tokens, token, text, nodes, pos, level, reg, m, regText,
-      blockTokens = state.tokens;
-
-  if (!state.env.abbreviations) { return; }
-  if (!state.env.abbrRegExp) {
-    regText = '(^|[' + PUNCT_CHARS.split('').map(regEscape).join('') + '])'
-            + '(' + Object.keys(state.env.abbreviations).map(function (x) {
-                      return x.substr(1);
-                    }).sort(function (a, b) {
-                      return b.length - a.length;
-                    }).map(regEscape).join('|') + ')'
-            + '($|[' + PUNCT_CHARS.split('').map(regEscape).join('') + '])';
-    state.env.abbrRegExp = new RegExp(regText, 'g');
+  if (silent) {
+    // quirk: validation mode validates a dd block only, not a whole deflist
+    if (state.ddIndent < 0) { return false; }
+    return skipMarker(state, startLine) >= 0;
   }
-  reg = state.env.abbrRegExp;
 
-  for (j = 0, l = blockTokens.length; j < l; j++) {
-    if (blockTokens[j].type !== 'inline') { continue; }
-    tokens = blockTokens[j].children;
-
-    // We scan from the end, to keep position when new tags added.
-    for (i = tokens.length - 1; i >= 0; i--) {
-      token = tokens[i];
-      if (token.type !== 'text') { continue; }
-
-      pos = 0;
-      text = token.content;
-      reg.lastIndex = 0;
-      level = token.level;
-      nodes = [];
-
-      while ((m = reg.exec(text))) {
-        if (reg.lastIndex > pos) {
-          nodes.push({
-            type: 'text',
-            content: text.slice(pos, m.index + m[1].length),
-            level: level
-          });
-        }
-
-        nodes.push({
-          type: 'abbr_open',
-          title: state.env.abbreviations[':' + m[2]],
-          level: level++
-        });
-        nodes.push({
-          type: 'text',
-          content: m[2],
-          level: level
-        });
-        nodes.push({
-          type: 'abbr_close',
-          level: --level
-        });
-        pos = reg.lastIndex - m[3].length;
-      }
-
-      if (!nodes.length) { continue; }
-
-      if (pos < text.length) {
-        nodes.push({
-          type: 'text',
-          content: text.slice(pos),
-          level: level
-        });
-      }
-
-      // replace current node
-      blockTokens[j].children = tokens = [].concat(tokens.slice(0, i), nodes, tokens.slice(i + 1));
-    }
+  nextLine = startLine + 1;
+  if (state.isEmpty(nextLine)) {
+    if (++nextLine > endLine) { return false; }
   }
-};
 
+  if (state.tShift[nextLine] < state.blkIndent) { return false; }
+  contentStart = skipMarker(state, nextLine);
+  if (contentStart < 0) { return false; }
 
-/***/ }),
+  if (state.level >= state.options.maxNesting) { return false; }
 
-/***/ "./node_modules/remarkable/lib/rules_core/block.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/block.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  // Start list
+  listTokIdx = state.tokens.length;
 
-"use strict";
+  state.tokens.push({
+    type: 'dl_open',
+    lines: listLines = [ startLine, 0 ],
+    level: state.level++
+  });
 
+  //
+  // Iterate list items
+  //
 
-module.exports = function block(state) {
+  dtLine = startLine;
+  ddLine = nextLine;
 
-  if (state.inlineMode) {
+  // One definition list can contain multiple DTs,
+  // and one DT can be followed by multiple DDs.
+  //
+  // Thus, there is two loops here, and label is
+  // needed to break out of the second one
+  //
+  /*eslint no-labels:0,block-scoped-var:0*/
+  OUTER:
+  for (;;) {
+    tight = true;
+    prevEmptyEnd = false;
+
+    state.tokens.push({
+      type: 'dt_open',
+      lines: [ dtLine, dtLine ],
+      level: state.level++
+    });
     state.tokens.push({
       type: 'inline',
-      content: state.src.replace(/\n/g, ' ').trim(),
-      level: 0,
-      lines: [ 0, 1 ],
+      content: state.getLines(dtLine, dtLine + 1, state.blkIndent, false).trim(),
+      level: state.level + 1,
+      lines: [ dtLine, dtLine ],
       children: []
     });
-
-  } else {
-    state.block.parse(state.src, state.options, state.env, state.tokens);
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_core/footnote_tail.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/footnote_tail.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-
-module.exports = function footnote_block(state) {
-  var i, l, j, t, lastParagraph, list, tokens, current, currentLabel,
-      level = 0,
-      insideRef = false,
-      refTokens = {};
-
-  if (!state.env.footnotes) { return; }
-
-  state.tokens = state.tokens.filter(function(tok) {
-    if (tok.type === 'footnote_reference_open') {
-      insideRef = true;
-      current = [];
-      currentLabel = tok.label;
-      return false;
-    }
-    if (tok.type === 'footnote_reference_close') {
-      insideRef = false;
-      // prepend ':' to avoid conflict with Object.prototype members
-      refTokens[':' + currentLabel] = current;
-      return false;
-    }
-    if (insideRef) { current.push(tok); }
-    return !insideRef;
-  });
-
-  if (!state.env.footnotes.list) { return; }
-  list = state.env.footnotes.list;
-
-  state.tokens.push({
-    type: 'footnote_block_open',
-    level: level++
-  });
-  for (i = 0, l = list.length; i < l; i++) {
     state.tokens.push({
-      type: 'footnote_open',
-      id: i,
-      level: level++
+      type: 'dt_close',
+      level: --state.level
     });
 
-    if (list[i].tokens) {
-      tokens = [];
-      tokens.push({
-        type: 'paragraph_open',
-        tight: false,
-        level: level++
-      });
-      tokens.push({
-        type: 'inline',
-        content: '',
-        level: level,
-        children: list[i].tokens
-      });
-      tokens.push({
-        type: 'paragraph_close',
-        tight: false,
-        level: --level
-      });
-    } else if (list[i].label) {
-      tokens = refTokens[':' + list[i].label];
-    }
-
-    state.tokens = state.tokens.concat(tokens);
-    if (state.tokens[state.tokens.length - 1].type === 'paragraph_close') {
-      lastParagraph = state.tokens.pop();
-    } else {
-      lastParagraph = null;
-    }
-
-    t = list[i].count > 0 ? list[i].count : 1;
-    for (j = 0; j < t; j++) {
+    for (;;) {
       state.tokens.push({
-        type: 'footnote_anchor',
-        id: i,
-        subId: j,
-        level: level
+        type: 'dd_open',
+        lines: itemLines = [ nextLine, 0 ],
+        level: state.level++
       });
+
+      oldTight = state.tight;
+      oldDDIndent = state.ddIndent;
+      oldIndent = state.blkIndent;
+      oldTShift = state.tShift[ddLine];
+      oldParentType = state.parentType;
+      state.blkIndent = state.ddIndent = state.tShift[ddLine] + 2;
+      state.tShift[ddLine] = contentStart - state.bMarks[ddLine];
+      state.tight = true;
+      state.parentType = 'deflist';
+
+      state.parser.tokenize(state, ddLine, endLine, true);
+
+      // If any of list item is tight, mark list as tight
+      if (!state.tight || prevEmptyEnd) {
+        tight = false;
+      }
+      // Item become loose if finish with empty line,
+      // but we should filter last element, because it means list finish
+      prevEmptyEnd = (state.line - ddLine) > 1 && state.isEmpty(state.line - 1);
+
+      state.tShift[ddLine] = oldTShift;
+      state.tight = oldTight;
+      state.parentType = oldParentType;
+      state.blkIndent = oldIndent;
+      state.ddIndent = oldDDIndent;
+
+      state.tokens.push({
+        type: 'dd_close',
+        level: --state.level
+      });
+
+      itemLines[1] = nextLine = state.line;
+
+      if (nextLine >= endLine) { break OUTER; }
+
+      if (state.tShift[nextLine] < state.blkIndent) { break OUTER; }
+      contentStart = skipMarker(state, nextLine);
+      if (contentStart < 0) { break; }
+
+      ddLine = nextLine;
+
+      // go to the next loop iteration:
+      // insert DD tag and repeat checking
     }
 
-    if (lastParagraph) {
-      state.tokens.push(lastParagraph);
-    }
+    if (nextLine >= endLine) { break; }
+    dtLine = nextLine;
 
+    if (state.isEmpty(dtLine)) { break; }
+    if (state.tShift[dtLine] < state.blkIndent) { break; }
+
+    ddLine = dtLine + 1;
+    if (ddLine >= endLine) { break; }
+    if (state.isEmpty(ddLine)) { ddLine++; }
+    if (ddLine >= endLine) { break; }
+
+    if (state.tShift[ddLine] < state.blkIndent) { break; }
+    contentStart = skipMarker(state, ddLine);
+    if (contentStart < 0) { break; }
+
+    // go to the next loop iteration:
+    // insert DT and DD tags and repeat checking
+  }
+
+  // Finilize list
+  state.tokens.push({
+    type: 'dl_close',
+    level: --state.level
+  });
+  listLines[1] = nextLine;
+
+  state.line = nextLine;
+
+  // mark paragraphs tight if needed
+  if (tight) {
+    markTightParagraphs$1(state, listTokIdx);
+  }
+
+  return true;
+}
+
+// Paragraph
+
+function paragraph(state, startLine/*, endLine*/) {
+  var endLine, content, terminate, i, l,
+      nextLine = startLine + 1,
+      terminatorRules;
+
+  endLine = state.lineMax;
+
+  // jump line-by-line until empty one or EOF
+  if (nextLine < endLine && !state.isEmpty(nextLine)) {
+    terminatorRules = state.parser.ruler.getRules('paragraph');
+
+    for (; nextLine < endLine && !state.isEmpty(nextLine); nextLine++) {
+      // this would be a code block normally, but after paragraph
+      // it's considered a lazy continuation regardless of what's there
+      if (state.tShift[nextLine] - state.blkIndent > 3) { continue; }
+
+      // Some tags can terminate paragraph without empty line.
+      terminate = false;
+      for (i = 0, l = terminatorRules.length; i < l; i++) {
+        if (terminatorRules[i](state, nextLine, endLine, true)) {
+          terminate = true;
+          break;
+        }
+      }
+      if (terminate) { break; }
+    }
+  }
+
+  content = state.getLines(startLine, nextLine, state.blkIndent, false).trim();
+
+  state.line = nextLine;
+  if (content.length) {
     state.tokens.push({
-      type: 'footnote_close',
-      level: --level
+      type: 'paragraph_open',
+      tight: false,
+      lines: [ startLine, state.line ],
+      level: state.level
+    });
+    state.tokens.push({
+      type: 'inline',
+      content: content,
+      level: state.level + 1,
+      lines: [ startLine, state.line ],
+      children: []
+    });
+    state.tokens.push({
+      type: 'paragraph_close',
+      tight: false,
+      level: state.level
     });
   }
-  state.tokens.push({
-    type: 'footnote_block_close',
-    level: --level
-  });
-};
 
+  return true;
+}
 
-/***/ }),
+/**
+ * Parser rules
+ */
 
-/***/ "./node_modules/remarkable/lib/rules_core/inline.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/inline.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+var _rules$1 = [
+  [ 'code',       code ],
+  [ 'fences',     fences,     [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'blockquote', blockquote, [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'hr',         hr,         [ 'paragraph', 'blockquote', 'list' ] ],
+  [ 'list',       list,       [ 'paragraph', 'blockquote' ] ],
+  [ 'footnote',   footnote,   [ 'paragraph' ] ],
+  [ 'heading',    heading,    [ 'paragraph', 'blockquote' ] ],
+  [ 'lheading',   lheading ],
+  [ 'htmlblock',  htmlblock,  [ 'paragraph', 'blockquote' ] ],
+  [ 'table',      table,      [ 'paragraph' ] ],
+  [ 'deflist',    deflist,    [ 'paragraph' ] ],
+  [ 'paragraph',  paragraph ]
+];
 
-"use strict";
+/**
+ * Block Parser class
+ *
+ * @api private
+ */
 
+function ParserBlock() {
+  this.ruler = new Ruler();
+  for (var i = 0; i < _rules$1.length; i++) {
+    this.ruler.push(_rules$1[i][0], _rules$1[i][1], {
+      alt: (_rules$1[i][2] || []).slice()
+    });
+  }
+}
 
-module.exports = function inline(state) {
-  var tokens = state.tokens, tok, i, l;
+/**
+ * Generate tokens for the given input range.
+ *
+ * @param  {Object} `state` Has properties like `src`, `parser`, `options` etc
+ * @param  {Number} `startLine`
+ * @param  {Number} `endLine`
+ * @api private
+ */
 
-  // Parse inlines
-  for (i = 0, l = tokens.length; i < l; i++) {
-    tok = tokens[i];
-    if (tok.type === 'inline') {
-      state.inline.parse(tok.content, state.options, state.env, tok.children);
+ParserBlock.prototype.tokenize = function (state, startLine, endLine) {
+  var rules = this.ruler.getRules('');
+  var len = rules.length;
+  var line = startLine;
+  var hasEmptyLines = false;
+  var ok, i;
+
+  while (line < endLine) {
+    state.line = line = state.skipEmptyLines(line);
+    if (line >= endLine) {
+      break;
+    }
+
+    // Termination condition for nested calls.
+    // Nested calls currently used for blockquotes & lists
+    if (state.tShift[line] < state.blkIndent) {
+      break;
+    }
+
+    // Try all possible rules.
+    // On success, rule should:
+    //
+    // - update `state.line`
+    // - update `state.tokens`
+    // - return true
+
+    for (i = 0; i < len; i++) {
+      ok = rules[i](state, line, endLine, false);
+      if (ok) {
+        break;
+      }
+    }
+
+    // set state.tight iff we had an empty line before current tag
+    // i.e. latest empty line should not count
+    state.tight = !hasEmptyLines;
+
+    // paragraph might "eat" one newline after it in nested lists
+    if (state.isEmpty(state.line - 1)) {
+      hasEmptyLines = true;
+    }
+
+    line = state.line;
+
+    if (line < endLine && state.isEmpty(line)) {
+      hasEmptyLines = true;
+      line++;
+
+      // two empty lines should stop the parser in list mode
+      if (line < endLine && state.parentType === 'list' && state.isEmpty(line)) { break; }
+      state.line = line;
     }
   }
 };
 
+var TABS_SCAN_RE = /[\n\t]/g;
+var NEWLINES_RE  = /\r[\n\u0085]|[\u2424\u2028\u0085]/g;
+var SPACES_RE    = /\u00a0/g;
 
-/***/ }),
+/**
+ * Tokenize the given `str`.
+ *
+ * @param  {String} `str` Source string
+ * @param  {Object} `options`
+ * @param  {Object} `env`
+ * @param  {Array} `outTokens`
+ * @api private
+ */
 
-/***/ "./node_modules/remarkable/lib/rules_core/linkify.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/linkify.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+ParserBlock.prototype.parse = function (str, options, env, outTokens) {
+  var state, lineStart = 0, lastTabPos = 0;
+  if (!str) { return []; }
 
-"use strict";
-// Replace link-like texts with link nodes.
-//
-// Currently restricted by `inline.validateLink()` to http/https/ftp
-//
+  // Normalize spaces
+  str = str.replace(SPACES_RE, ' ');
 
+  // Normalize newlines
+  str = str.replace(NEWLINES_RE, '\n');
 
-
-var Autolinker = __webpack_require__(/*! autolinker */ "./node_modules/autolinker/dist/Autolinker.js");
-
-
-var LINK_SCAN_RE = /www|@|\:\/\//;
-
-
-function isLinkOpen(str) {
-  return /^<a[>\s]/i.test(str);
-}
-function isLinkClose(str) {
-  return /^<\/a\s*>/i.test(str);
-}
-
-// Stupid fabric to avoid singletons, for thread safety.
-// Required for engines like Nashorn.
-//
-function createLinkifier() {
-  var links = [];
-  var autolinker = new Autolinker({
-    stripPrefix: false,
-    url: true,
-    email: true,
-    twitter: false,
-    replaceFn: function (linker, match) {
-      // Only collect matched strings but don't change anything.
-      switch (match.getType()) {
-        /*eslint default-case:0*/
-        case 'url':
-          links.push({
-            text: match.matchedText,
-            url: match.getUrl()
-          });
-          break;
-        case 'email':
-          links.push({
-            text: match.matchedText,
-            // normalize email protocol
-            url: 'mailto:' + match.getEmail().replace(/^mailto:/i, '')
-          });
-          break;
+  // Replace tabs with proper number of spaces (1..4)
+  if (str.indexOf('\t') >= 0) {
+    str = str.replace(TABS_SCAN_RE, function (match, offset) {
+      var result;
+      if (str.charCodeAt(offset) === 0x0A) {
+        lineStart = offset + 1;
+        lastTabPos = 0;
+        return match;
       }
+      result = '    '.slice((offset - lineStart - lastTabPos) % 4);
+      lastTabPos = offset - lineStart + 1;
+      return result;
+    });
+  }
+
+  state = new StateBlock(str, this, options, env, outTokens);
+  this.tokenize(state, state.line, state.lineMax);
+};
+
+// Skip text characters for text token, place those to pending buffer
+// and increment current pos
+
+// Rule to skip pure text
+// '{}$%@~+=:' reserved for extentions
+
+function isTerminatorChar(ch) {
+  switch (ch) {
+    case 0x0A/* \n */:
+    case 0x5C/* \ */:
+    case 0x60/* ` */:
+    case 0x2A/* * */:
+    case 0x5F/* _ */:
+    case 0x5E/* ^ */:
+    case 0x5B/* [ */:
+    case 0x5D/* ] */:
+    case 0x21/* ! */:
+    case 0x26/* & */:
+    case 0x3C/* < */:
+    case 0x3E/* > */:
+    case 0x7B/* { */:
+    case 0x7D/* } */:
+    case 0x24/* $ */:
+    case 0x25/* % */:
+    case 0x40/* @ */:
+    case 0x7E/* ~ */:
+    case 0x2B/* + */:
+    case 0x3D/* = */:
+    case 0x3A/* : */:
+      return true;
+    default:
       return false;
-    }
-  });
-
-  return {
-    links: links,
-    autolinker: autolinker
-  };
+  }
 }
 
+function text(state, silent) {
+  var pos = state.pos;
 
-module.exports = function linkify(state) {
-  var i, j, l, tokens, token, text, nodes, ln, pos, level, htmlLinkLevel,
-      blockTokens = state.tokens,
-      linkifier = null, links, autolinker;
-
-  if (!state.options.linkify) { return; }
-
-  for (j = 0, l = blockTokens.length; j < l; j++) {
-    if (blockTokens[j].type !== 'inline') { continue; }
-    tokens = blockTokens[j].children;
-
-    htmlLinkLevel = 0;
-
-    // We scan from the end, to keep position when new tags added.
-    // Use reversed logic in links start/end match
-    for (i = tokens.length - 1; i >= 0; i--) {
-      token = tokens[i];
-
-      // Skip content of markdown links
-      if (token.type === 'link_close') {
-        i--;
-        while (tokens[i].level !== token.level && tokens[i].type !== 'link_open') {
-          i--;
-        }
-        continue;
-      }
-
-      // Skip content of html tag links
-      if (token.type === 'htmltag') {
-        if (isLinkOpen(token.content) && htmlLinkLevel > 0) {
-          htmlLinkLevel--;
-        }
-        if (isLinkClose(token.content)) {
-          htmlLinkLevel++;
-        }
-      }
-      if (htmlLinkLevel > 0) { continue; }
-
-      if (token.type === 'text' && LINK_SCAN_RE.test(token.content)) {
-
-        // Init linkifier in lazy manner, only if required.
-        if (!linkifier) {
-          linkifier = createLinkifier();
-          links = linkifier.links;
-          autolinker = linkifier.autolinker;
-        }
-
-        text = token.content;
-        links.length = 0;
-        autolinker.link(text);
-
-        if (!links.length) { continue; }
-
-        // Now split string to nodes
-        nodes = [];
-        level = token.level;
-
-        for (ln = 0; ln < links.length; ln++) {
-
-          if (!state.inline.validateLink(links[ln].url)) { continue; }
-
-          pos = text.indexOf(links[ln].text);
-
-          if (pos) {
-            level = level;
-            nodes.push({
-              type: 'text',
-              content: text.slice(0, pos),
-              level: level
-            });
-          }
-          nodes.push({
-            type: 'link_open',
-            href: links[ln].url,
-            title: '',
-            level: level++
-          });
-          nodes.push({
-            type: 'text',
-            content: links[ln].text,
-            level: level
-          });
-          nodes.push({
-            type: 'link_close',
-            level: --level
-          });
-          text = text.slice(pos + links[ln].text.length);
-        }
-        if (text.length) {
-          nodes.push({
-            type: 'text',
-            content: text,
-            level: level
-          });
-        }
-
-        // replace current node
-        blockTokens[j].children = tokens = [].concat(tokens.slice(0, i), nodes, tokens.slice(i + 1));
-      }
-    }
+  while (pos < state.posMax && !isTerminatorChar(state.src.charCodeAt(pos))) {
+    pos++;
   }
-};
 
+  if (pos === state.pos) { return false; }
 
-/***/ }),
+  if (!silent) { state.pending += state.src.slice(state.pos, pos); }
 
-/***/ "./node_modules/remarkable/lib/rules_core/references.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/references.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  state.pos = pos;
 
-"use strict";
+  return true;
+}
 
+// Proceess '\n'
 
+function newline(state, silent) {
+  var pmax, max, pos = state.pos;
 
-var StateInline          = __webpack_require__(/*! ../rules_inline/state_inline */ "./node_modules/remarkable/lib/rules_inline/state_inline.js");
-var parseLinkLabel       = __webpack_require__(/*! ../helpers/parse_link_label */ "./node_modules/remarkable/lib/helpers/parse_link_label.js");
-var parseLinkDestination = __webpack_require__(/*! ../helpers/parse_link_destination */ "./node_modules/remarkable/lib/helpers/parse_link_destination.js");
-var parseLinkTitle       = __webpack_require__(/*! ../helpers/parse_link_title */ "./node_modules/remarkable/lib/helpers/parse_link_title.js");
-var normalizeReference   = __webpack_require__(/*! ../helpers/normalize_reference */ "./node_modules/remarkable/lib/helpers/normalize_reference.js");
+  if (state.src.charCodeAt(pos) !== 0x0A/* \n */) { return false; }
 
-
-function parseReference(str, parser, options, env) {
-  var state, labelEnd, pos, max, code, start, href, title, label;
-
-  if (str.charCodeAt(0) !== 0x5B/* [ */) { return -1; }
-
-  if (str.indexOf(']:') === -1) { return -1; }
-
-  state = new StateInline(str, parser, options, env, []);
-  labelEnd = parseLinkLabel(state, 0);
-
-  if (labelEnd < 0 || str.charCodeAt(labelEnd + 1) !== 0x3A/* : */) { return -1; }
-
+  pmax = state.pending.length - 1;
   max = state.posMax;
 
-  // [label]:   destination   'title'
-  //         ^^^ skip optional whitespace here
-  for (pos = labelEnd + 2; pos < max; pos++) {
-    code = state.src.charCodeAt(pos);
-    if (code !== 0x20 && code !== 0x0A) { break; }
-  }
-
-  // [label]:   destination   'title'
-  //            ^^^^^^^^^^^ parse this
-  if (!parseLinkDestination(state, pos)) { return -1; }
-  href = state.linkContent;
-  pos = state.pos;
-
-  // [label]:   destination   'title'
-  //                       ^^^ skipping those spaces
-  start = pos;
-  for (pos = pos + 1; pos < max; pos++) {
-    code = state.src.charCodeAt(pos);
-    if (code !== 0x20 && code !== 0x0A) { break; }
-  }
-
-  // [label]:   destination   'title'
-  //                          ^^^^^^^ parse this
-  if (pos < max && start !== pos && parseLinkTitle(state, pos)) {
-    title = state.linkContent;
-    pos = state.pos;
-  } else {
-    title = '';
-    pos = start;
-  }
-
-  // ensure that the end of the line is empty
-  while (pos < max && state.src.charCodeAt(pos) === 0x20/* space */) { pos++; }
-  if (pos < max && state.src.charCodeAt(pos) !== 0x0A) { return -1; }
-
-  label = normalizeReference(str.slice(1, labelEnd));
-  if (typeof env.references[label] === 'undefined') {
-    env.references[label] = { title: title, href: href };
-  }
-
-  return pos;
-}
-
-
-module.exports = function references(state) {
-  var tokens = state.tokens, i, l, content, pos;
-
-  state.env.references = state.env.references || {};
-
-  if (state.inlineMode) {
-    return;
-  }
-
-  // Scan definitions in paragraph inlines
-  for (i = 1, l = tokens.length - 1; i < l; i++) {
-    if (tokens[i].type === 'inline' &&
-        tokens[i - 1].type === 'paragraph_open' &&
-        tokens[i + 1].type === 'paragraph_close') {
-
-      content = tokens[i].content;
-      while (content.length) {
-        pos = parseReference(content, state.inline, state.options, state.env);
-        if (pos < 0) { break; }
-        content = content.slice(pos).trim();
-      }
-
-      tokens[i].content = content;
-      if (!content.length) {
-        tokens[i - 1].tight = true;
-        tokens[i + 1].tight = true;
-      }
-    }
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_core/replacements.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/replacements.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Simple typographical replacements
-//
-
-
-// TODO:
-// - fractionals 1/2, 1/4, 3/4 -> ½, ¼, ¾
-// - miltiplication 2 x 4 -> 2 × 4
-
-var RARE_RE = /\+-|\.\.|\?\?\?\?|!!!!|,,|--/;
-
-var SCOPED_ABBR_RE = /\((c|tm|r|p)\)/ig;
-var SCOPED_ABBR = {
-  'c': '©',
-  'r': '®',
-  'p': '§',
-  'tm': '™'
-};
-
-function replaceScopedAbbr(str) {
-  if (str.indexOf('(') < 0) { return str; }
-
-  return str.replace(SCOPED_ABBR_RE, function(match, name) {
-    return SCOPED_ABBR[name.toLowerCase()];
-  });
-}
-
-
-module.exports = function replace(state) {
-  var i, token, text, inlineTokens, blkIdx;
-
-  if (!state.options.typographer) { return; }
-
-  for (blkIdx = state.tokens.length - 1; blkIdx >= 0; blkIdx--) {
-
-    if (state.tokens[blkIdx].type !== 'inline') { continue; }
-
-    inlineTokens = state.tokens[blkIdx].children;
-
-    for (i = inlineTokens.length - 1; i >= 0; i--) {
-      token = inlineTokens[i];
-      if (token.type === 'text') {
-        text = token.content;
-
-        text = replaceScopedAbbr(text);
-
-        if (RARE_RE.test(text)) {
-          text = text
-            .replace(/\+-/g, '±')
-            // .., ..., ....... -> …
-            // but ?..... & !..... -> ?.. & !..
-            .replace(/\.{2,}/g, '…').replace(/([?!])…/g, '$1..')
-            .replace(/([?!]){4,}/g, '$1$1$1').replace(/,{2,}/g, ',')
-            // em-dash
-            .replace(/(^|[^-])---([^-]|$)/mg, '$1\u2014$2')
-            // en-dash
-            .replace(/(^|\s)--(\s|$)/mg, '$1\u2013$2')
-            .replace(/(^|[^-\s])--([^-\s]|$)/mg, '$1\u2013$2');
-        }
-
-        token.content = text;
-      }
-    }
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_core/smartquotes.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_core/smartquotes.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Convert straight quotation marks to typographic ones
-//
-
-
-
-var QUOTE_TEST_RE = /['"]/;
-var QUOTE_RE = /['"]/g;
-var PUNCT_RE = /[-\s()\[\]]/;
-var APOSTROPHE = '’';
-
-// This function returns true if the character at `pos`
-// could be inside a word.
-function isLetter(str, pos) {
-  if (pos < 0 || pos >= str.length) { return false; }
-  return !PUNCT_RE.test(str[pos]);
-}
-
-
-function replaceAt(str, index, ch) {
-  return str.substr(0, index) + ch + str.substr(index + 1);
-}
-
-
-module.exports = function smartquotes(state) {
-  /*eslint max-depth:0*/
-  var i, token, text, t, pos, max, thisLevel, lastSpace, nextSpace, item,
-      canOpen, canClose, j, isSingle, blkIdx, tokens,
-      stack;
-
-  if (!state.options.typographer) { return; }
-
-  stack = [];
-
-  for (blkIdx = state.tokens.length - 1; blkIdx >= 0; blkIdx--) {
-
-    if (state.tokens[blkIdx].type !== 'inline') { continue; }
-
-    tokens = state.tokens[blkIdx].children;
-    stack.length = 0;
-
-    for (i = 0; i < tokens.length; i++) {
-      token = tokens[i];
-
-      if (token.type !== 'text' || QUOTE_TEST_RE.test(token.text)) { continue; }
-
-      thisLevel = tokens[i].level;
-
-      for (j = stack.length - 1; j >= 0; j--) {
-        if (stack[j].level <= thisLevel) { break; }
-      }
-      stack.length = j + 1;
-
-      text = token.content;
-      pos = 0;
-      max = text.length;
-
-      /*eslint no-labels:0,block-scoped-var:0*/
-      OUTER:
-      while (pos < max) {
-        QUOTE_RE.lastIndex = pos;
-        t = QUOTE_RE.exec(text);
-        if (!t) { break; }
-
-        lastSpace = !isLetter(text, t.index - 1);
-        pos = t.index + 1;
-        isSingle = (t[0] === "'");
-        nextSpace = !isLetter(text, pos);
-
-        if (!nextSpace && !lastSpace) {
-          // middle of word
-          if (isSingle) {
-            token.content = replaceAt(token.content, t.index, APOSTROPHE);
-          }
-          continue;
-        }
-
-        canOpen = !nextSpace;
-        canClose = !lastSpace;
-
-        if (canClose) {
-          // this could be a closing quote, rewind the stack to get a match
-          for (j = stack.length - 1; j >= 0; j--) {
-            item = stack[j];
-            if (stack[j].level < thisLevel) { break; }
-            if (item.single === isSingle && stack[j].level === thisLevel) {
-              item = stack[j];
-              if (isSingle) {
-                tokens[item.token].content = replaceAt(tokens[item.token].content, item.pos, state.options.quotes[2]);
-                token.content = replaceAt(token.content, t.index, state.options.quotes[3]);
-              } else {
-                tokens[item.token].content = replaceAt(tokens[item.token].content, item.pos, state.options.quotes[0]);
-                token.content = replaceAt(token.content, t.index, state.options.quotes[1]);
-              }
-              stack.length = j;
-              continue OUTER;
-            }
+  // '  \n' -> hardbreak
+  // Lookup in pending chars is bad practice! Don't copy to other rules!
+  // Pending string is stored in concat mode, indexed lookups will cause
+  // convertion to flat mode.
+  if (!silent) {
+    if (pmax >= 0 && state.pending.charCodeAt(pmax) === 0x20) {
+      if (pmax >= 1 && state.pending.charCodeAt(pmax - 1) === 0x20) {
+        // Strip out all trailing spaces on this line.
+        for (var i = pmax - 2; i >= 0; i--) {
+          if (state.pending.charCodeAt(i) !== 0x20) {
+            state.pending = state.pending.substring(0, i + 1);
+            break;
           }
         }
-
-        if (canOpen) {
-          stack.push({
-            token: i,
-            pos: t.index,
-            single: isSingle,
-            level: thisLevel
-          });
-        } else if (canClose && isSingle) {
-          token.content = replaceAt(token.content, t.index, APOSTROPHE);
-        }
+        state.push({
+          type: 'hardbreak',
+          level: state.level
+        });
+      } else {
+        state.pending = state.pending.slice(0, -1);
+        state.push({
+          type: 'softbreak',
+          level: state.level
+        });
       }
-    }
-  }
-};
 
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/autolink.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/autolink.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process autolinks '<protocol:...>'
-
-
-
-var url_schemas   = __webpack_require__(/*! ../common/url_schemas */ "./node_modules/remarkable/lib/common/url_schemas.js");
-var normalizeLink = __webpack_require__(/*! ../helpers/normalize_link */ "./node_modules/remarkable/lib/helpers/normalize_link.js");
-
-
-/*eslint max-len:0*/
-var EMAIL_RE    = /^<([a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)>/;
-var AUTOLINK_RE = /^<([a-zA-Z.\-]{1,25}):([^<>\x00-\x20]*)>/;
-
-
-module.exports = function autolink(state, silent) {
-  var tail, linkMatch, emailMatch, url, fullUrl, pos = state.pos;
-
-  if (state.src.charCodeAt(pos) !== 0x3C/* < */) { return false; }
-
-  tail = state.src.slice(pos);
-
-  if (tail.indexOf('>') < 0) { return false; }
-
-  linkMatch = tail.match(AUTOLINK_RE);
-
-  if (linkMatch) {
-    if (url_schemas.indexOf(linkMatch[1].toLowerCase()) < 0) { return false; }
-
-    url = linkMatch[0].slice(1, -1);
-    fullUrl = normalizeLink(url);
-    if (!state.parser.validateLink(url)) { return false; }
-
-    if (!silent) {
+    } else {
       state.push({
-        type: 'link_open',
-        href: fullUrl,
+        type: 'softbreak',
         level: state.level
       });
-      state.push({
-        type: 'text',
-        content: url,
-        level: state.level + 1
-      });
-      state.push({ type: 'link_close', level: state.level });
     }
-
-    state.pos += linkMatch[0].length;
-    return true;
   }
 
-  emailMatch = tail.match(EMAIL_RE);
+  pos++;
 
-  if (emailMatch) {
+  // skip heading spaces for next line
+  while (pos < max && state.src.charCodeAt(pos) === 0x20) { pos++; }
 
-    url = emailMatch[0].slice(1, -1);
+  state.pos = pos;
+  return true;
+}
 
-    fullUrl = normalizeLink('mailto:' + url);
-    if (!state.parser.validateLink(fullUrl)) { return false; }
+// Proceess escaped chars and hardbreaks
 
-    if (!silent) {
-      state.push({
-        type: 'link_open',
-        href: fullUrl,
-        level: state.level
-      });
-      state.push({
-        type: 'text',
-        content: url,
-        level: state.level + 1
-      });
-      state.push({ type: 'link_close', level: state.level });
+var ESCAPED = [];
+
+for (var i = 0; i < 256; i++) { ESCAPED.push(0); }
+
+'\\!"#$%&\'()*+,./:;<=>?@[]^_`{|}~-'
+  .split('').forEach(function(ch) { ESCAPED[ch.charCodeAt(0)] = 1; });
+
+
+function escape(state, silent) {
+  var ch, pos = state.pos, max = state.posMax;
+
+  if (state.src.charCodeAt(pos) !== 0x5C/* \ */) { return false; }
+
+  pos++;
+
+  if (pos < max) {
+    ch = state.src.charCodeAt(pos);
+
+    if (ch < 256 && ESCAPED[ch] !== 0) {
+      if (!silent) { state.pending += state.src[pos]; }
+      state.pos += 2;
+      return true;
     }
 
-    state.pos += emailMatch[0].length;
-    return true;
+    if (ch === 0x0A) {
+      if (!silent) {
+        state.push({
+          type: 'hardbreak',
+          level: state.level
+        });
+      }
+
+      pos++;
+      // skip leading whitespaces from next line
+      while (pos < max && state.src.charCodeAt(pos) === 0x20) { pos++; }
+
+      state.pos = pos;
+      return true;
+    }
   }
 
-  return false;
-};
+  if (!silent) { state.pending += '\\'; }
+  state.pos++;
+  return true;
+}
 
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/backticks.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/backticks.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 // Parse backticks
 
-
-
-module.exports = function backticks(state, silent) {
+function backticks(state, silent) {
   var start, max, marker, matchStart, matchEnd,
       pos = state.pos,
       ch = state.src.charCodeAt(pos);
@@ -49238,24 +41924,11 @@ module.exports = function backticks(state, silent) {
   if (!silent) { state.pending += marker; }
   state.pos += marker.length;
   return true;
-};
+}
 
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/del.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/del.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 // Process ~~deleted text~~
 
-
-
-module.exports = function del(state, silent) {
+function del(state, silent) {
   var found,
       pos,
       stack,
@@ -49334,23 +42007,175 @@ module.exports = function del(state, silent) {
   state.pos = state.posMax + 2;
   state.posMax = max;
   return true;
-};
+}
 
+// Process ++inserted text++
 
-/***/ }),
+function ins(state, silent) {
+  var found,
+      pos,
+      stack,
+      max = state.posMax,
+      start = state.pos,
+      lastChar,
+      nextChar;
 
-/***/ "./node_modules/remarkable/lib/rules_inline/emphasis.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/emphasis.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  if (state.src.charCodeAt(start) !== 0x2B/* + */) { return false; }
+  if (silent) { return false; } // don't run any pairs in validation mode
+  if (start + 4 >= max) { return false; }
+  if (state.src.charCodeAt(start + 1) !== 0x2B/* + */) { return false; }
+  if (state.level >= state.options.maxNesting) { return false; }
 
-"use strict";
+  lastChar = start > 0 ? state.src.charCodeAt(start - 1) : -1;
+  nextChar = state.src.charCodeAt(start + 2);
+
+  if (lastChar === 0x2B/* + */) { return false; }
+  if (nextChar === 0x2B/* + */) { return false; }
+  if (nextChar === 0x20 || nextChar === 0x0A) { return false; }
+
+  pos = start + 2;
+  while (pos < max && state.src.charCodeAt(pos) === 0x2B/* + */) { pos++; }
+  if (pos !== start + 2) {
+    // sequence of 3+ markers taking as literal, same as in a emphasis
+    state.pos += pos - start;
+    if (!silent) { state.pending += state.src.slice(start, pos); }
+    return true;
+  }
+
+  state.pos = start + 2;
+  stack = 1;
+
+  while (state.pos + 1 < max) {
+    if (state.src.charCodeAt(state.pos) === 0x2B/* + */) {
+      if (state.src.charCodeAt(state.pos + 1) === 0x2B/* + */) {
+        lastChar = state.src.charCodeAt(state.pos - 1);
+        nextChar = state.pos + 2 < max ? state.src.charCodeAt(state.pos + 2) : -1;
+        if (nextChar !== 0x2B/* + */ && lastChar !== 0x2B/* + */) {
+          if (lastChar !== 0x20 && lastChar !== 0x0A) {
+            // closing '++'
+            stack--;
+          } else if (nextChar !== 0x20 && nextChar !== 0x0A) {
+            // opening '++'
+            stack++;
+          } // else {
+            //  // standalone ' ++ ' indented with spaces
+            // }
+          if (stack <= 0) {
+            found = true;
+            break;
+          }
+        }
+      }
+    }
+
+    state.parser.skipToken(state);
+  }
+
+  if (!found) {
+    // parser failed to find ending tag, so it's not valid emphasis
+    state.pos = start;
+    return false;
+  }
+
+  // found!
+  state.posMax = state.pos;
+  state.pos = start + 2;
+
+  if (!silent) {
+    state.push({ type: 'ins_open', level: state.level++ });
+    state.parser.tokenize(state);
+    state.push({ type: 'ins_close', level: --state.level });
+  }
+
+  state.pos = state.posMax + 2;
+  state.posMax = max;
+  return true;
+}
+
+// Process ==highlighted text==
+
+function mark(state, silent) {
+  var found,
+      pos,
+      stack,
+      max = state.posMax,
+      start = state.pos,
+      lastChar,
+      nextChar;
+
+  if (state.src.charCodeAt(start) !== 0x3D/* = */) { return false; }
+  if (silent) { return false; } // don't run any pairs in validation mode
+  if (start + 4 >= max) { return false; }
+  if (state.src.charCodeAt(start + 1) !== 0x3D/* = */) { return false; }
+  if (state.level >= state.options.maxNesting) { return false; }
+
+  lastChar = start > 0 ? state.src.charCodeAt(start - 1) : -1;
+  nextChar = state.src.charCodeAt(start + 2);
+
+  if (lastChar === 0x3D/* = */) { return false; }
+  if (nextChar === 0x3D/* = */) { return false; }
+  if (nextChar === 0x20 || nextChar === 0x0A) { return false; }
+
+  pos = start + 2;
+  while (pos < max && state.src.charCodeAt(pos) === 0x3D/* = */) { pos++; }
+  if (pos !== start + 2) {
+    // sequence of 3+ markers taking as literal, same as in a emphasis
+    state.pos += pos - start;
+    if (!silent) { state.pending += state.src.slice(start, pos); }
+    return true;
+  }
+
+  state.pos = start + 2;
+  stack = 1;
+
+  while (state.pos + 1 < max) {
+    if (state.src.charCodeAt(state.pos) === 0x3D/* = */) {
+      if (state.src.charCodeAt(state.pos + 1) === 0x3D/* = */) {
+        lastChar = state.src.charCodeAt(state.pos - 1);
+        nextChar = state.pos + 2 < max ? state.src.charCodeAt(state.pos + 2) : -1;
+        if (nextChar !== 0x3D/* = */ && lastChar !== 0x3D/* = */) {
+          if (lastChar !== 0x20 && lastChar !== 0x0A) {
+            // closing '=='
+            stack--;
+          } else if (nextChar !== 0x20 && nextChar !== 0x0A) {
+            // opening '=='
+            stack++;
+          } // else {
+            //  // standalone ' == ' indented with spaces
+            // }
+          if (stack <= 0) {
+            found = true;
+            break;
+          }
+        }
+      }
+    }
+
+    state.parser.skipToken(state);
+  }
+
+  if (!found) {
+    // parser failed to find ending tag, so it's not valid emphasis
+    state.pos = start;
+    return false;
+  }
+
+  // found!
+  state.posMax = state.pos;
+  state.pos = start + 2;
+
+  if (!silent) {
+    state.push({ type: 'mark_open', level: state.level++ });
+    state.parser.tokenize(state);
+    state.push({ type: 'mark_close', level: --state.level });
+  }
+
+  state.pos = state.posMax + 2;
+  state.posMax = max;
+  return true;
+}
+
 // Process *this* and _that_
-
-
-
 
 function isAlphaNum(code) {
   return (code >= 0x30 /* 0 */ && code <= 0x39 /* 9 */) ||
@@ -49397,7 +42222,7 @@ function scanDelims(state, start) {
   };
 }
 
-module.exports = function emphasis(state, silent) {
+function emphasis(state, silent) {
   var startCount,
       count,
       found,
@@ -49495,447 +42320,126 @@ module.exports = function emphasis(state, silent) {
   state.pos = state.posMax + startCount;
   state.posMax = max;
   return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/entity.js":
-/*!************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/entity.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process html entity - &#123;, &#xAF;, &quot;, ...
-
-
-
-var entities          = __webpack_require__(/*! ../common/entities */ "./node_modules/remarkable/lib/common/entities.js");
-var has               = __webpack_require__(/*! ../common/utils */ "./node_modules/remarkable/lib/common/utils.js").has;
-var isValidEntityCode = __webpack_require__(/*! ../common/utils */ "./node_modules/remarkable/lib/common/utils.js").isValidEntityCode;
-var fromCodePoint     = __webpack_require__(/*! ../common/utils */ "./node_modules/remarkable/lib/common/utils.js").fromCodePoint;
-
-
-var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
-var NAMED_RE   = /^&([a-z][a-z0-9]{1,31});/i;
-
-
-module.exports = function entity(state, silent) {
-  var ch, code, match, pos = state.pos, max = state.posMax;
-
-  if (state.src.charCodeAt(pos) !== 0x26/* & */) { return false; }
-
-  if (pos + 1 < max) {
-    ch = state.src.charCodeAt(pos + 1);
-
-    if (ch === 0x23 /* # */) {
-      match = state.src.slice(pos).match(DIGITAL_RE);
-      if (match) {
-        if (!silent) {
-          code = match[1][0].toLowerCase() === 'x' ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
-          state.pending += isValidEntityCode(code) ? fromCodePoint(code) : fromCodePoint(0xFFFD);
-        }
-        state.pos += match[0].length;
-        return true;
-      }
-    } else {
-      match = state.src.slice(pos).match(NAMED_RE);
-      if (match) {
-        if (has(entities, match[1])) {
-          if (!silent) { state.pending += entities[match[1]]; }
-          state.pos += match[0].length;
-          return true;
-        }
-      }
-    }
-  }
-
-  if (!silent) { state.pending += '&'; }
-  state.pos++;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/escape.js":
-/*!************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/escape.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Proceess escaped chars and hardbreaks
-
-
-
-var ESCAPED = [];
-
-for (var i = 0; i < 256; i++) { ESCAPED.push(0); }
-
-'\\!"#$%&\'()*+,./:;<=>?@[]^_`{|}~-'
-  .split('').forEach(function(ch) { ESCAPED[ch.charCodeAt(0)] = 1; });
-
-
-module.exports = function escape(state, silent) {
-  var ch, pos = state.pos, max = state.posMax;
-
-  if (state.src.charCodeAt(pos) !== 0x5C/* \ */) { return false; }
-
-  pos++;
-
-  if (pos < max) {
-    ch = state.src.charCodeAt(pos);
-
-    if (ch < 256 && ESCAPED[ch] !== 0) {
-      if (!silent) { state.pending += state.src[pos]; }
-      state.pos += 2;
-      return true;
-    }
-
-    if (ch === 0x0A) {
-      if (!silent) {
-        state.push({
-          type: 'hardbreak',
-          level: state.level
-        });
-      }
-
-      pos++;
-      // skip leading whitespaces from next line
-      while (pos < max && state.src.charCodeAt(pos) === 0x20) { pos++; }
-
-      state.pos = pos;
-      return true;
-    }
-  }
-
-  if (!silent) { state.pending += '\\'; }
-  state.pos++;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/footnote_inline.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/footnote_inline.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process inline footnotes (^[...])
-
-
-
-var parseLinkLabel = __webpack_require__(/*! ../helpers/parse_link_label */ "./node_modules/remarkable/lib/helpers/parse_link_label.js");
-
-
-module.exports = function footnote_inline(state, silent) {
-  var labelStart,
-      labelEnd,
-      footnoteId,
-      oldLength,
-      max = state.posMax,
-      start = state.pos;
-
-  if (start + 2 >= max) { return false; }
-  if (state.src.charCodeAt(start) !== 0x5E/* ^ */) { return false; }
-  if (state.src.charCodeAt(start + 1) !== 0x5B/* [ */) { return false; }
-  if (state.level >= state.options.maxNesting) { return false; }
-
-  labelStart = start + 2;
-  labelEnd = parseLinkLabel(state, start + 1);
-
-  // parser failed to find ']', so it's not a valid note
-  if (labelEnd < 0) { return false; }
-
-  // We found the end of the link, and know for a fact it's a valid link;
-  // so all that's left to do is to call tokenizer.
-  //
-  if (!silent) {
-    if (!state.env.footnotes) { state.env.footnotes = {}; }
-    if (!state.env.footnotes.list) { state.env.footnotes.list = []; }
-    footnoteId = state.env.footnotes.list.length;
-
-    state.pos = labelStart;
-    state.posMax = labelEnd;
-
-    state.push({
-      type: 'footnote_ref',
-      id: footnoteId,
-      level: state.level
-    });
-    state.linkLevel++;
-    oldLength = state.tokens.length;
-    state.parser.tokenize(state);
-    state.env.footnotes.list[footnoteId] = { tokens: state.tokens.splice(oldLength) };
-    state.linkLevel--;
-  }
-
-  state.pos = labelEnd + 1;
-  state.posMax = max;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/footnote_ref.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/footnote_ref.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process footnote references ([^...])
-
-
-
-
-module.exports = function footnote_ref(state, silent) {
-  var label,
-      pos,
-      footnoteId,
-      footnoteSubId,
-      max = state.posMax,
-      start = state.pos;
-
-  // should be at least 4 chars - "[^x]"
-  if (start + 3 > max) { return false; }
-
-  if (!state.env.footnotes || !state.env.footnotes.refs) { return false; }
-  if (state.src.charCodeAt(start) !== 0x5B/* [ */) { return false; }
-  if (state.src.charCodeAt(start + 1) !== 0x5E/* ^ */) { return false; }
-  if (state.level >= state.options.maxNesting) { return false; }
-
-  for (pos = start + 2; pos < max; pos++) {
-    if (state.src.charCodeAt(pos) === 0x20) { return false; }
-    if (state.src.charCodeAt(pos) === 0x0A) { return false; }
-    if (state.src.charCodeAt(pos) === 0x5D /* ] */) {
-      break;
-    }
-  }
-
-  if (pos === start + 2) { return false; } // no empty footnote labels
-  if (pos >= max) { return false; }
-  pos++;
-
-  label = state.src.slice(start + 2, pos - 1);
-  if (typeof state.env.footnotes.refs[':' + label] === 'undefined') { return false; }
-
-  if (!silent) {
-    if (!state.env.footnotes.list) { state.env.footnotes.list = []; }
-
-    if (state.env.footnotes.refs[':' + label] < 0) {
-      footnoteId = state.env.footnotes.list.length;
-      state.env.footnotes.list[footnoteId] = { label: label, count: 0 };
-      state.env.footnotes.refs[':' + label] = footnoteId;
-    } else {
-      footnoteId = state.env.footnotes.refs[':' + label];
-    }
-
-    footnoteSubId = state.env.footnotes.list[footnoteId].count;
-    state.env.footnotes.list[footnoteId].count++;
-
-    state.push({
-      type: 'footnote_ref',
-      id: footnoteId,
-      subId: footnoteSubId,
-      level: state.level
-    });
-  }
-
-  state.pos = pos;
-  state.posMax = max;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/htmltag.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/htmltag.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process html tags
-
-
-
-
-var HTML_TAG_RE = __webpack_require__(/*! ../common/html_re */ "./node_modules/remarkable/lib/common/html_re.js").HTML_TAG_RE;
-
-
-function isLetter(ch) {
-  /*eslint no-bitwise:0*/
-  var lc = ch | 0x20; // to lower case
-  return (lc >= 0x61/* a */) && (lc <= 0x7a/* z */);
 }
 
+// Process ~subscript~
 
-module.exports = function htmltag(state, silent) {
-  var ch, match, max, pos = state.pos;
+// same as UNESCAPE_MD_RE plus a space
+var UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 
-  if (!state.options.html) { return false; }
-
-  // Check start
-  max = state.posMax;
-  if (state.src.charCodeAt(pos) !== 0x3C/* < */ ||
-      pos + 2 >= max) {
-    return false;
-  }
-
-  // Quick fail on second char
-  ch = state.src.charCodeAt(pos + 1);
-  if (ch !== 0x21/* ! */ &&
-      ch !== 0x3F/* ? */ &&
-      ch !== 0x2F/* / */ &&
-      !isLetter(ch)) {
-    return false;
-  }
-
-  match = state.src.slice(pos).match(HTML_TAG_RE);
-  if (!match) { return false; }
-
-  if (!silent) {
-    state.push({
-      type: 'htmltag',
-      content: state.src.slice(pos, pos + match[0].length),
-      level: state.level
-    });
-  }
-  state.pos += match[0].length;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/ins.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/ins.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process ++inserted text++
-
-
-
-module.exports = function ins(state, silent) {
+function sub(state, silent) {
   var found,
-      pos,
-      stack,
+      content,
       max = state.posMax,
-      start = state.pos,
-      lastChar,
-      nextChar;
+      start = state.pos;
 
-  if (state.src.charCodeAt(start) !== 0x2B/* + */) { return false; }
+  if (state.src.charCodeAt(start) !== 0x7E/* ~ */) { return false; }
   if (silent) { return false; } // don't run any pairs in validation mode
-  if (start + 4 >= max) { return false; }
-  if (state.src.charCodeAt(start + 1) !== 0x2B/* + */) { return false; }
+  if (start + 2 >= max) { return false; }
   if (state.level >= state.options.maxNesting) { return false; }
 
-  lastChar = start > 0 ? state.src.charCodeAt(start - 1) : -1;
-  nextChar = state.src.charCodeAt(start + 2);
+  state.pos = start + 1;
 
-  if (lastChar === 0x2B/* + */) { return false; }
-  if (nextChar === 0x2B/* + */) { return false; }
-  if (nextChar === 0x20 || nextChar === 0x0A) { return false; }
-
-  pos = start + 2;
-  while (pos < max && state.src.charCodeAt(pos) === 0x2B/* + */) { pos++; }
-  if (pos !== start + 2) {
-    // sequence of 3+ markers taking as literal, same as in a emphasis
-    state.pos += pos - start;
-    if (!silent) { state.pending += state.src.slice(start, pos); }
-    return true;
-  }
-
-  state.pos = start + 2;
-  stack = 1;
-
-  while (state.pos + 1 < max) {
-    if (state.src.charCodeAt(state.pos) === 0x2B/* + */) {
-      if (state.src.charCodeAt(state.pos + 1) === 0x2B/* + */) {
-        lastChar = state.src.charCodeAt(state.pos - 1);
-        nextChar = state.pos + 2 < max ? state.src.charCodeAt(state.pos + 2) : -1;
-        if (nextChar !== 0x2B/* + */ && lastChar !== 0x2B/* + */) {
-          if (lastChar !== 0x20 && lastChar !== 0x0A) {
-            // closing '++'
-            stack--;
-          } else if (nextChar !== 0x20 && nextChar !== 0x0A) {
-            // opening '++'
-            stack++;
-          } // else {
-            //  // standalone ' ++ ' indented with spaces
-            // }
-          if (stack <= 0) {
-            found = true;
-            break;
-          }
-        }
-      }
+  while (state.pos < max) {
+    if (state.src.charCodeAt(state.pos) === 0x7E/* ~ */) {
+      found = true;
+      break;
     }
 
     state.parser.skipToken(state);
   }
 
-  if (!found) {
-    // parser failed to find ending tag, so it's not valid emphasis
+  if (!found || start + 1 === state.pos) {
+    state.pos = start;
+    return false;
+  }
+
+  content = state.src.slice(start + 1, state.pos);
+
+  // don't allow unescaped spaces/newlines inside
+  if (content.match(/(^|[^\\])(\\\\)*\s/)) {
     state.pos = start;
     return false;
   }
 
   // found!
   state.posMax = state.pos;
-  state.pos = start + 2;
+  state.pos = start + 1;
 
   if (!silent) {
-    state.push({ type: 'ins_open', level: state.level++ });
-    state.parser.tokenize(state);
-    state.push({ type: 'ins_close', level: --state.level });
+    state.push({
+      type: 'sub',
+      level: state.level,
+      content: content.replace(UNESCAPE_RE, '$1')
+    });
   }
 
-  state.pos = state.posMax + 2;
+  state.pos = state.posMax + 1;
   state.posMax = max;
   return true;
-};
+}
 
+// Process ^superscript^
 
-/***/ }),
+// same as UNESCAPE_MD_RE plus a space
+var UNESCAPE_RE$1 = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 
-/***/ "./node_modules/remarkable/lib/rules_inline/links.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/links.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+function sup(state, silent) {
+  var found,
+      content,
+      max = state.posMax,
+      start = state.pos;
 
-"use strict";
+  if (state.src.charCodeAt(start) !== 0x5E/* ^ */) { return false; }
+  if (silent) { return false; } // don't run any pairs in validation mode
+  if (start + 2 >= max) { return false; }
+  if (state.level >= state.options.maxNesting) { return false; }
+
+  state.pos = start + 1;
+
+  while (state.pos < max) {
+    if (state.src.charCodeAt(state.pos) === 0x5E/* ^ */) {
+      found = true;
+      break;
+    }
+
+    state.parser.skipToken(state);
+  }
+
+  if (!found || start + 1 === state.pos) {
+    state.pos = start;
+    return false;
+  }
+
+  content = state.src.slice(start + 1, state.pos);
+
+  // don't allow unescaped spaces/newlines inside
+  if (content.match(/(^|[^\\])(\\\\)*\s/)) {
+    state.pos = start;
+    return false;
+  }
+
+  // found!
+  state.posMax = state.pos;
+  state.pos = start + 1;
+
+  if (!silent) {
+    state.push({
+      type: 'sup',
+      level: state.level,
+      content: content.replace(UNESCAPE_RE$1, '$1')
+    });
+  }
+
+  state.pos = state.posMax + 1;
+  state.posMax = max;
+  return true;
+}
+
 // Process [links](<to> "stuff")
 
 
-
-var parseLinkLabel       = __webpack_require__(/*! ../helpers/parse_link_label */ "./node_modules/remarkable/lib/helpers/parse_link_label.js");
-var parseLinkDestination = __webpack_require__(/*! ../helpers/parse_link_destination */ "./node_modules/remarkable/lib/helpers/parse_link_destination.js");
-var parseLinkTitle       = __webpack_require__(/*! ../helpers/parse_link_title */ "./node_modules/remarkable/lib/helpers/parse_link_title.js");
-var normalizeReference   = __webpack_require__(/*! ../helpers/normalize_reference */ "./node_modules/remarkable/lib/helpers/normalize_reference.js");
-
-
-module.exports = function links(state, silent) {
+function links(state, silent) {
   var labelStart,
       labelEnd,
       label,
@@ -50094,461 +42598,1009 @@ module.exports = function links(state, silent) {
   state.pos = pos;
   state.posMax = max;
   return true;
-};
+}
+
+// Process inline footnotes (^[...])
 
 
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/mark.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/mark.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process ==highlighted text==
-
-
-
-module.exports = function del(state, silent) {
-  var found,
-      pos,
-      stack,
+function footnote_inline(state, silent) {
+  var labelStart,
+      labelEnd,
+      footnoteId,
+      oldLength,
       max = state.posMax,
-      start = state.pos,
-      lastChar,
-      nextChar;
+      start = state.pos;
 
-  if (state.src.charCodeAt(start) !== 0x3D/* = */) { return false; }
-  if (silent) { return false; } // don't run any pairs in validation mode
-  if (start + 4 >= max) { return false; }
-  if (state.src.charCodeAt(start + 1) !== 0x3D/* = */) { return false; }
+  if (start + 2 >= max) { return false; }
+  if (state.src.charCodeAt(start) !== 0x5E/* ^ */) { return false; }
+  if (state.src.charCodeAt(start + 1) !== 0x5B/* [ */) { return false; }
   if (state.level >= state.options.maxNesting) { return false; }
 
-  lastChar = start > 0 ? state.src.charCodeAt(start - 1) : -1;
-  nextChar = state.src.charCodeAt(start + 2);
+  labelStart = start + 2;
+  labelEnd = parseLinkLabel(state, start + 1);
 
-  if (lastChar === 0x3D/* = */) { return false; }
-  if (nextChar === 0x3D/* = */) { return false; }
-  if (nextChar === 0x20 || nextChar === 0x0A) { return false; }
+  // parser failed to find ']', so it's not a valid note
+  if (labelEnd < 0) { return false; }
 
-  pos = start + 2;
-  while (pos < max && state.src.charCodeAt(pos) === 0x3D/* = */) { pos++; }
-  if (pos !== start + 2) {
-    // sequence of 3+ markers taking as literal, same as in a emphasis
-    state.pos += pos - start;
-    if (!silent) { state.pending += state.src.slice(start, pos); }
+  // We found the end of the link, and know for a fact it's a valid link;
+  // so all that's left to do is to call tokenizer.
+  //
+  if (!silent) {
+    if (!state.env.footnotes) { state.env.footnotes = {}; }
+    if (!state.env.footnotes.list) { state.env.footnotes.list = []; }
+    footnoteId = state.env.footnotes.list.length;
+
+    state.pos = labelStart;
+    state.posMax = labelEnd;
+
+    state.push({
+      type: 'footnote_ref',
+      id: footnoteId,
+      level: state.level
+    });
+    state.linkLevel++;
+    oldLength = state.tokens.length;
+    state.parser.tokenize(state);
+    state.env.footnotes.list[footnoteId] = { tokens: state.tokens.splice(oldLength) };
+    state.linkLevel--;
+  }
+
+  state.pos = labelEnd + 1;
+  state.posMax = max;
+  return true;
+}
+
+// Process footnote references ([^...])
+
+function footnote_ref(state, silent) {
+  var label,
+      pos,
+      footnoteId,
+      footnoteSubId,
+      max = state.posMax,
+      start = state.pos;
+
+  // should be at least 4 chars - "[^x]"
+  if (start + 3 > max) { return false; }
+
+  if (!state.env.footnotes || !state.env.footnotes.refs) { return false; }
+  if (state.src.charCodeAt(start) !== 0x5B/* [ */) { return false; }
+  if (state.src.charCodeAt(start + 1) !== 0x5E/* ^ */) { return false; }
+  if (state.level >= state.options.maxNesting) { return false; }
+
+  for (pos = start + 2; pos < max; pos++) {
+    if (state.src.charCodeAt(pos) === 0x20) { return false; }
+    if (state.src.charCodeAt(pos) === 0x0A) { return false; }
+    if (state.src.charCodeAt(pos) === 0x5D /* ] */) {
+      break;
+    }
+  }
+
+  if (pos === start + 2) { return false; } // no empty footnote labels
+  if (pos >= max) { return false; }
+  pos++;
+
+  label = state.src.slice(start + 2, pos - 1);
+  if (typeof state.env.footnotes.refs[':' + label] === 'undefined') { return false; }
+
+  if (!silent) {
+    if (!state.env.footnotes.list) { state.env.footnotes.list = []; }
+
+    if (state.env.footnotes.refs[':' + label] < 0) {
+      footnoteId = state.env.footnotes.list.length;
+      state.env.footnotes.list[footnoteId] = { label: label, count: 0 };
+      state.env.footnotes.refs[':' + label] = footnoteId;
+    } else {
+      footnoteId = state.env.footnotes.refs[':' + label];
+    }
+
+    footnoteSubId = state.env.footnotes.list[footnoteId].count;
+    state.env.footnotes.list[footnoteId].count++;
+
+    state.push({
+      type: 'footnote_ref',
+      id: footnoteId,
+      subId: footnoteSubId,
+      level: state.level
+    });
+  }
+
+  state.pos = pos;
+  state.posMax = max;
+  return true;
+}
+
+// List of valid url schemas, accorting to commonmark spec
+// http://jgm.github.io/CommonMark/spec.html#autolinks
+
+var url_schemas = [
+  'coap',
+  'doi',
+  'javascript',
+  'aaa',
+  'aaas',
+  'about',
+  'acap',
+  'cap',
+  'cid',
+  'crid',
+  'data',
+  'dav',
+  'dict',
+  'dns',
+  'file',
+  'ftp',
+  'geo',
+  'go',
+  'gopher',
+  'h323',
+  'http',
+  'https',
+  'iax',
+  'icap',
+  'im',
+  'imap',
+  'info',
+  'ipp',
+  'iris',
+  'iris.beep',
+  'iris.xpc',
+  'iris.xpcs',
+  'iris.lwz',
+  'ldap',
+  'mailto',
+  'mid',
+  'msrp',
+  'msrps',
+  'mtqp',
+  'mupdate',
+  'news',
+  'nfs',
+  'ni',
+  'nih',
+  'nntp',
+  'opaquelocktoken',
+  'pop',
+  'pres',
+  'rtsp',
+  'service',
+  'session',
+  'shttp',
+  'sieve',
+  'sip',
+  'sips',
+  'sms',
+  'snmp',
+  'soap.beep',
+  'soap.beeps',
+  'tag',
+  'tel',
+  'telnet',
+  'tftp',
+  'thismessage',
+  'tn3270',
+  'tip',
+  'tv',
+  'urn',
+  'vemmi',
+  'ws',
+  'wss',
+  'xcon',
+  'xcon-userid',
+  'xmlrpc.beep',
+  'xmlrpc.beeps',
+  'xmpp',
+  'z39.50r',
+  'z39.50s',
+  'adiumxtra',
+  'afp',
+  'afs',
+  'aim',
+  'apt',
+  'attachment',
+  'aw',
+  'beshare',
+  'bitcoin',
+  'bolo',
+  'callto',
+  'chrome',
+  'chrome-extension',
+  'com-eventbrite-attendee',
+  'content',
+  'cvs',
+  'dlna-playsingle',
+  'dlna-playcontainer',
+  'dtn',
+  'dvb',
+  'ed2k',
+  'facetime',
+  'feed',
+  'finger',
+  'fish',
+  'gg',
+  'git',
+  'gizmoproject',
+  'gtalk',
+  'hcp',
+  'icon',
+  'ipn',
+  'irc',
+  'irc6',
+  'ircs',
+  'itms',
+  'jar',
+  'jms',
+  'keyparc',
+  'lastfm',
+  'ldaps',
+  'magnet',
+  'maps',
+  'market',
+  'message',
+  'mms',
+  'ms-help',
+  'msnim',
+  'mumble',
+  'mvn',
+  'notes',
+  'oid',
+  'palm',
+  'paparazzi',
+  'platform',
+  'proxy',
+  'psyc',
+  'query',
+  'res',
+  'resource',
+  'rmi',
+  'rsync',
+  'rtmp',
+  'secondlife',
+  'sftp',
+  'sgn',
+  'skype',
+  'smb',
+  'soldat',
+  'spotify',
+  'ssh',
+  'steam',
+  'svn',
+  'teamspeak',
+  'things',
+  'udp',
+  'unreal',
+  'ut2004',
+  'ventrilo',
+  'view-source',
+  'webcal',
+  'wtai',
+  'wyciwyg',
+  'xfire',
+  'xri',
+  'ymsgr'
+];
+
+// Process autolinks '<protocol:...>'
+
+
+/*eslint max-len:0*/
+var EMAIL_RE    = /^<([a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)>/;
+var AUTOLINK_RE = /^<([a-zA-Z.\-]{1,25}):([^<>\x00-\x20]*)>/;
+
+
+function autolink(state, silent) {
+  var tail, linkMatch, emailMatch, url, fullUrl, pos = state.pos;
+
+  if (state.src.charCodeAt(pos) !== 0x3C/* < */) { return false; }
+
+  tail = state.src.slice(pos);
+
+  if (tail.indexOf('>') < 0) { return false; }
+
+  linkMatch = tail.match(AUTOLINK_RE);
+
+  if (linkMatch) {
+    if (url_schemas.indexOf(linkMatch[1].toLowerCase()) < 0) { return false; }
+
+    url = linkMatch[0].slice(1, -1);
+    fullUrl = normalizeLink(url);
+    if (!state.parser.validateLink(url)) { return false; }
+
+    if (!silent) {
+      state.push({
+        type: 'link_open',
+        href: fullUrl,
+        level: state.level
+      });
+      state.push({
+        type: 'text',
+        content: url,
+        level: state.level + 1
+      });
+      state.push({ type: 'link_close', level: state.level });
+    }
+
+    state.pos += linkMatch[0].length;
     return true;
   }
 
-  state.pos = start + 2;
-  stack = 1;
+  emailMatch = tail.match(EMAIL_RE);
 
-  while (state.pos + 1 < max) {
-    if (state.src.charCodeAt(state.pos) === 0x3D/* = */) {
-      if (state.src.charCodeAt(state.pos + 1) === 0x3D/* = */) {
-        lastChar = state.src.charCodeAt(state.pos - 1);
-        nextChar = state.pos + 2 < max ? state.src.charCodeAt(state.pos + 2) : -1;
-        if (nextChar !== 0x3D/* = */ && lastChar !== 0x3D/* = */) {
-          if (lastChar !== 0x20 && lastChar !== 0x0A) {
-            // closing '=='
-            stack--;
-          } else if (nextChar !== 0x20 && nextChar !== 0x0A) {
-            // opening '=='
-            stack++;
-          } // else {
-            //  // standalone ' == ' indented with spaces
-            // }
-          if (stack <= 0) {
-            found = true;
-            break;
-          }
-        }
-      }
-    }
+  if (emailMatch) {
 
-    state.parser.skipToken(state);
-  }
+    url = emailMatch[0].slice(1, -1);
 
-  if (!found) {
-    // parser failed to find ending tag, so it's not valid emphasis
-    state.pos = start;
-    return false;
-  }
+    fullUrl = normalizeLink('mailto:' + url);
+    if (!state.parser.validateLink(fullUrl)) { return false; }
 
-  // found!
-  state.posMax = state.pos;
-  state.pos = start + 2;
-
-  if (!silent) {
-    state.push({ type: 'mark_open', level: state.level++ });
-    state.parser.tokenize(state);
-    state.push({ type: 'mark_close', level: --state.level });
-  }
-
-  state.pos = state.posMax + 2;
-  state.posMax = max;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/newline.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/newline.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Proceess '\n'
-
-
-
-module.exports = function newline(state, silent) {
-  var pmax, max, pos = state.pos;
-
-  if (state.src.charCodeAt(pos) !== 0x0A/* \n */) { return false; }
-
-  pmax = state.pending.length - 1;
-  max = state.posMax;
-
-  // '  \n' -> hardbreak
-  // Lookup in pending chars is bad practice! Don't copy to other rules!
-  // Pending string is stored in concat mode, indexed lookups will cause
-  // convertion to flat mode.
-  if (!silent) {
-    if (pmax >= 0 && state.pending.charCodeAt(pmax) === 0x20) {
-      if (pmax >= 1 && state.pending.charCodeAt(pmax - 1) === 0x20) {
-        // Strip out all trailing spaces on this line.
-        for (var i = pmax - 2; i >= 0; i--) {
-          if (state.pending.charCodeAt(i) !== 0x20) {
-            state.pending = state.pending.substring(0, i + 1);
-            break;
-          }
-        }
-        state.push({
-          type: 'hardbreak',
-          level: state.level
-        });
-      } else {
-        state.pending = state.pending.slice(0, -1);
-        state.push({
-          type: 'softbreak',
-          level: state.level
-        });
-      }
-
-    } else {
+    if (!silent) {
       state.push({
-        type: 'softbreak',
+        type: 'link_open',
+        href: fullUrl,
         level: state.level
       });
+      state.push({
+        type: 'text',
+        content: url,
+        level: state.level + 1
+      });
+      state.push({ type: 'link_close', level: state.level });
     }
+
+    state.pos += emailMatch[0].length;
+    return true;
   }
 
-  pos++;
-
-  // skip heading spaces for next line
-  while (pos < max && state.src.charCodeAt(pos) === 0x20) { pos++; }
-
-  state.pos = pos;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/state_inline.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/state_inline.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Inline parser state
-
-
-
-function StateInline(src, parserInline, options, env, outTokens) {
-  this.src = src;
-  this.env = env;
-  this.options = options;
-  this.parser = parserInline;
-  this.tokens = outTokens;
-  this.pos = 0;
-  this.posMax = this.src.length;
-  this.level = 0;
-  this.pending = '';
-  this.pendingLevel = 0;
-
-  this.cache = [];        // Stores { start: end } pairs. Useful for backtrack
-                          // optimization of pairs parse (emphasis, strikes).
-
-  // Link parser state vars
-
-  this.isInLabel = false; // Set true when seek link label - we should disable
-                          // "paired" rules (emphasis, strikes) to not skip
-                          // tailing `]`
-
-  this.linkLevel = 0;     // Increment for each nesting link. Used to prevent
-                          // nesting in definitions
-
-  this.linkContent = '';  // Temporary storage for link url
-
-  this.labelUnmatchedScopes = 0; // Track unpaired `[` for link labels
-                                 // (backtrack optimization)
+  return false;
 }
 
-// Flush pending text
-//
-StateInline.prototype.pushPending = function () {
-  this.tokens.push({
-    type: 'text',
-    content: this.pending,
-    level: this.pendingLevel
-  });
-  this.pending = '';
-};
+// Regexps to match html elements
 
-// Push new token to "stream".
-// If pending text exists - flush it as text token
-//
-StateInline.prototype.push = function (token) {
-  if (this.pending) {
-    this.pushPending();
-  }
+function replace$1(regex, options) {
+  regex = regex.source;
+  options = options || '';
 
-  this.tokens.push(token);
-  this.pendingLevel = this.level;
-};
-
-// Store value to cache.
-// !!! Implementation has parser-specific optimizations
-// !!! keys MUST be integer, >= 0; values MUST be integer, > 0
-//
-StateInline.prototype.cacheSet = function (key, val) {
-  for (var i = this.cache.length; i <= key; i++) {
-    this.cache.push(0);
-  }
-
-  this.cache[key] = val;
-};
-
-// Get cache value
-//
-StateInline.prototype.cacheGet = function (key) {
-  return key < this.cache.length ? this.cache[key] : 0;
-};
-
-module.exports = StateInline;
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/sub.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/sub.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process ~subscript~
-
-
-
-// same as UNESCAPE_MD_RE plus a space
-var UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
-
-module.exports = function sub(state, silent) {
-  var found,
-      content,
-      max = state.posMax,
-      start = state.pos;
-
-  if (state.src.charCodeAt(start) !== 0x7E/* ~ */) { return false; }
-  if (silent) { return false; } // don't run any pairs in validation mode
-  if (start + 2 >= max) { return false; }
-  if (state.level >= state.options.maxNesting) { return false; }
-
-  state.pos = start + 1;
-
-  while (state.pos < max) {
-    if (state.src.charCodeAt(state.pos) === 0x7E/* ~ */) {
-      found = true;
-      break;
+  return function self(name, val) {
+    if (!name) {
+      return new RegExp(regex, options);
     }
+    val = val.source || val;
+    regex = regex.replace(name, val);
+    return self;
+  };
+}
 
-    state.parser.skipToken(state);
-  }
 
-  if (!found || start + 1 === state.pos) {
-    state.pos = start;
+var attr_name     = /[a-zA-Z_:][a-zA-Z0-9:._-]*/;
+
+var unquoted      = /[^"'=<>`\x00-\x20]+/;
+var single_quoted = /'[^']*'/;
+var double_quoted = /"[^"]*"/;
+
+/*eslint no-spaced-func:0*/
+var attr_value  = replace$1(/(?:unquoted|single_quoted|double_quoted)/)
+                    ('unquoted', unquoted)
+                    ('single_quoted', single_quoted)
+                    ('double_quoted', double_quoted)
+                    ();
+
+var attribute   = replace$1(/(?:\s+attr_name(?:\s*=\s*attr_value)?)/)
+                    ('attr_name', attr_name)
+                    ('attr_value', attr_value)
+                    ();
+
+var open_tag    = replace$1(/<[A-Za-z][A-Za-z0-9]*attribute*\s*\/?>/)
+                    ('attribute', attribute)
+                    ();
+
+var close_tag   = /<\/[A-Za-z][A-Za-z0-9]*\s*>/;
+var comment     = /<!---->|<!--(?:-?[^>-])(?:-?[^-])*-->/;
+var processing  = /<[?].*?[?]>/;
+var declaration = /<![A-Z]+\s+[^>]*>/;
+var cdata       = /<!\[CDATA\[[\s\S]*?\]\]>/;
+
+var HTML_TAG_RE = replace$1(/^(?:open_tag|close_tag|comment|processing|declaration|cdata)/)
+  ('open_tag', open_tag)
+  ('close_tag', close_tag)
+  ('comment', comment)
+  ('processing', processing)
+  ('declaration', declaration)
+  ('cdata', cdata)
+  ();
+
+// Process html tags
+
+
+function isLetter$2(ch) {
+  /*eslint no-bitwise:0*/
+  var lc = ch | 0x20; // to lower case
+  return (lc >= 0x61/* a */) && (lc <= 0x7a/* z */);
+}
+
+
+function htmltag(state, silent) {
+  var ch, match, max, pos = state.pos;
+
+  if (!state.options.html) { return false; }
+
+  // Check start
+  max = state.posMax;
+  if (state.src.charCodeAt(pos) !== 0x3C/* < */ ||
+      pos + 2 >= max) {
     return false;
   }
 
-  content = state.src.slice(start + 1, state.pos);
-
-  // don't allow unescaped spaces/newlines inside
-  if (content.match(/(^|[^\\])(\\\\)*\s/)) {
-    state.pos = start;
+  // Quick fail on second char
+  ch = state.src.charCodeAt(pos + 1);
+  if (ch !== 0x21/* ! */ &&
+      ch !== 0x3F/* ? */ &&
+      ch !== 0x2F/* / */ &&
+      !isLetter$2(ch)) {
     return false;
   }
 
-  // found!
-  state.posMax = state.pos;
-  state.pos = start + 1;
+  match = state.src.slice(pos).match(HTML_TAG_RE);
+  if (!match) { return false; }
 
   if (!silent) {
     state.push({
-      type: 'sub',
-      level: state.level,
-      content: content.replace(UNESCAPE_RE, '$1')
+      type: 'htmltag',
+      content: state.src.slice(pos, pos + match[0].length),
+      level: state.level
     });
   }
-
-  state.pos = state.posMax + 1;
-  state.posMax = max;
+  state.pos += match[0].length;
   return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/sup.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/sup.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Process ^superscript^
-
-
-
-// same as UNESCAPE_MD_RE plus a space
-var UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
-
-module.exports = function sup(state, silent) {
-  var found,
-      content,
-      max = state.posMax,
-      start = state.pos;
-
-  if (state.src.charCodeAt(start) !== 0x5E/* ^ */) { return false; }
-  if (silent) { return false; } // don't run any pairs in validation mode
-  if (start + 2 >= max) { return false; }
-  if (state.level >= state.options.maxNesting) { return false; }
-
-  state.pos = start + 1;
-
-  while (state.pos < max) {
-    if (state.src.charCodeAt(state.pos) === 0x5E/* ^ */) {
-      found = true;
-      break;
-    }
-
-    state.parser.skipToken(state);
-  }
-
-  if (!found || start + 1 === state.pos) {
-    state.pos = start;
-    return false;
-  }
-
-  content = state.src.slice(start + 1, state.pos);
-
-  // don't allow unescaped spaces/newlines inside
-  if (content.match(/(^|[^\\])(\\\\)*\s/)) {
-    state.pos = start;
-    return false;
-  }
-
-  // found!
-  state.posMax = state.pos;
-  state.pos = start + 1;
-
-  if (!silent) {
-    state.push({
-      type: 'sup',
-      level: state.level,
-      content: content.replace(UNESCAPE_RE, '$1')
-    });
-  }
-
-  state.pos = state.posMax + 1;
-  state.posMax = max;
-  return true;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/remarkable/lib/rules_inline/text.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/remarkable/lib/rules_inline/text.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Skip text characters for text token, place those to pending buffer
-// and increment current pos
-
-
-
-// Rule to skip pure text
-// '{}$%@~+=:' reserved for extentions
-
-function isTerminatorChar(ch) {
-  switch (ch) {
-    case 0x0A/* \n */:
-    case 0x5C/* \ */:
-    case 0x60/* ` */:
-    case 0x2A/* * */:
-    case 0x5F/* _ */:
-    case 0x5E/* ^ */:
-    case 0x5B/* [ */:
-    case 0x5D/* ] */:
-    case 0x21/* ! */:
-    case 0x26/* & */:
-    case 0x3C/* < */:
-    case 0x3E/* > */:
-    case 0x7B/* { */:
-    case 0x7D/* } */:
-    case 0x24/* $ */:
-    case 0x25/* % */:
-    case 0x40/* @ */:
-    case 0x7E/* ~ */:
-    case 0x2B/* + */:
-    case 0x3D/* = */:
-    case 0x3A/* : */:
-      return true;
-    default:
-      return false;
-  }
 }
 
-module.exports = function text(state, silent) {
+// Process html entity - &#123;, &#xAF;, &quot;, ...
+
+
+var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
+var NAMED_RE   = /^&([a-z][a-z0-9]{1,31});/i;
+
+
+function entity(state, silent) {
+  var ch, code, match, pos = state.pos, max = state.posMax;
+
+  if (state.src.charCodeAt(pos) !== 0x26/* & */) { return false; }
+
+  if (pos + 1 < max) {
+    ch = state.src.charCodeAt(pos + 1);
+
+    if (ch === 0x23 /* # */) {
+      match = state.src.slice(pos).match(DIGITAL_RE);
+      if (match) {
+        if (!silent) {
+          code = match[1][0].toLowerCase() === 'x' ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
+          state.pending += isValidEntityCode(code) ? fromCodePoint(code) : fromCodePoint(0xFFFD);
+        }
+        state.pos += match[0].length;
+        return true;
+      }
+    } else {
+      match = state.src.slice(pos).match(NAMED_RE);
+      if (match) {
+        var decoded = decodeEntity(match[1]);
+        if (match[1] !== decoded) {
+          if (!silent) { state.pending += decoded; }
+          state.pos += match[0].length;
+          return true;
+        }
+      }
+    }
+  }
+
+  if (!silent) { state.pending += '&'; }
+  state.pos++;
+  return true;
+}
+
+/**
+ * Inline Parser `rules`
+ */
+
+var _rules$2 = [
+  [ 'text',            text ],
+  [ 'newline',         newline ],
+  [ 'escape',          escape ],
+  [ 'backticks',       backticks ],
+  [ 'del',             del ],
+  [ 'ins',             ins ],
+  [ 'mark',            mark ],
+  [ 'emphasis',        emphasis ],
+  [ 'sub',             sub ],
+  [ 'sup',             sup ],
+  [ 'links',           links ],
+  [ 'footnote_inline', footnote_inline ],
+  [ 'footnote_ref',    footnote_ref ],
+  [ 'autolink',        autolink ],
+  [ 'htmltag',         htmltag ],
+  [ 'entity',          entity ]
+];
+
+/**
+ * Inline Parser class. Note that link validation is stricter
+ * in Remarkable than what is specified by CommonMark. If you
+ * want to change this you can use a custom validator.
+ *
+ * @api private
+ */
+
+function ParserInline() {
+  this.ruler = new Ruler();
+  for (var i = 0; i < _rules$2.length; i++) {
+    this.ruler.push(_rules$2[i][0], _rules$2[i][1]);
+  }
+
+  // Can be overridden with a custom validator
+  this.validateLink = validateLink;
+}
+
+/**
+ * Skip a single token by running all rules in validation mode.
+ * Returns `true` if any rule reports success.
+ *
+ * @param  {Object} `state`
+ * @api privage
+ */
+
+ParserInline.prototype.skipToken = function (state) {
+  var rules = this.ruler.getRules('');
+  var len = rules.length;
   var pos = state.pos;
+  var i, cached_pos;
 
-  while (pos < state.posMax && !isTerminatorChar(state.src.charCodeAt(pos))) {
-    pos++;
+  if ((cached_pos = state.cacheGet(pos)) > 0) {
+    state.pos = cached_pos;
+    return;
   }
 
-  if (pos === state.pos) { return false; }
+  for (i = 0; i < len; i++) {
+    if (rules[i](state, true)) {
+      state.cacheSet(pos, state.pos);
+      return;
+    }
+  }
 
-  if (!silent) { state.pending += state.src.slice(state.pos, pos); }
-
-  state.pos = pos;
-
-  return true;
+  state.pos++;
+  state.cacheSet(pos, state.pos);
 };
+
+/**
+ * Generate tokens for the given input range.
+ *
+ * @param  {Object} `state`
+ * @api private
+ */
+
+ParserInline.prototype.tokenize = function (state) {
+  var rules = this.ruler.getRules('');
+  var len = rules.length;
+  var end = state.posMax;
+  var ok, i;
+
+  while (state.pos < end) {
+
+    // Try all possible rules.
+    // On success, the rule should:
+    //
+    // - update `state.pos`
+    // - update `state.tokens`
+    // - return true
+    for (i = 0; i < len; i++) {
+      ok = rules[i](state, false);
+
+      if (ok) {
+        break;
+      }
+    }
+
+    if (ok) {
+      if (state.pos >= end) { break; }
+      continue;
+    }
+
+    state.pending += state.src[state.pos++];
+  }
+
+  if (state.pending) {
+    state.pushPending();
+  }
+};
+
+/**
+ * Parse the given input string.
+ *
+ * @param  {String} `str`
+ * @param  {Object} `options`
+ * @param  {Object} `env`
+ * @param  {Array} `outTokens`
+ * @api private
+ */
+
+ParserInline.prototype.parse = function (str, options, env, outTokens) {
+  var state = new StateInline(str, this, options, env, outTokens);
+  this.tokenize(state);
+};
+
+/**
+ * Validate the given `url` by checking for bad protocols.
+ *
+ * @param  {String} `url`
+ * @return {Boolean}
+ */
+
+function validateLink(url) {
+  var BAD_PROTOCOLS = [ 'vbscript', 'javascript', 'file', 'data' ];
+  var str = url.trim().toLowerCase();
+  // Care about digital entities "javascript&#x3A;alert(1)"
+  str = replaceEntities(str);
+  if (str.indexOf(':') !== -1 && BAD_PROTOCOLS.indexOf(str.split(':')[0]) !== -1) {
+    return false;
+  }
+  return true;
+}
+
+// Remarkable default options
+
+var defaultConfig = {
+  options: {
+    html:         false,        // Enable HTML tags in source
+    xhtmlOut:     false,        // Use '/' to close single tags (<br />)
+    breaks:       false,        // Convert '\n' in paragraphs into <br>
+    langPrefix:   'language-',  // CSS language prefix for fenced blocks
+    linkTarget:   '',           // set target to open link in
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer:  false,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
+    quotes: '“”‘’',
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if input not changed
+    //
+    // function (/*str, lang*/) { return ''; }
+    //
+    highlight: null,
+
+    maxNesting:   20            // Internal protection, recursion limit
+  },
+
+  components: {
+
+    core: {
+      rules: [
+        'block',
+        'inline',
+        'references',
+        'replacements',
+        'smartquotes',
+        'references',
+        'abbr2',
+        'footnote_tail'
+      ]
+    },
+
+    block: {
+      rules: [
+        'blockquote',
+        'code',
+        'fences',
+        'footnote',
+        'heading',
+        'hr',
+        'htmlblock',
+        'lheading',
+        'list',
+        'paragraph',
+        'table'
+      ]
+    },
+
+    inline: {
+      rules: [
+        'autolink',
+        'backticks',
+        'del',
+        'emphasis',
+        'entity',
+        'escape',
+        'footnote_ref',
+        'htmltag',
+        'links',
+        'newline',
+        'text'
+      ]
+    }
+  }
+};
+
+// Remarkable default options
+
+var fullConfig = {
+  options: {
+    html:         false,        // Enable HTML tags in source
+    xhtmlOut:     false,        // Use '/' to close single tags (<br />)
+    breaks:       false,        // Convert '\n' in paragraphs into <br>
+    langPrefix:   'language-',  // CSS language prefix for fenced blocks
+    linkTarget:   '',           // set target to open link in
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer:  false,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
+    quotes:       '“”‘’',
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if input not changed
+    //
+    // function (/*str, lang*/) { return ''; }
+    //
+    highlight:     null,
+
+    maxNesting:    20            // Internal protection, recursion limit
+  },
+
+  components: {
+    // Don't restrict core/block/inline rules
+    core: {},
+    block: {},
+    inline: {}
+  }
+};
+
+// Commonmark default options
+
+var commonmarkConfig = {
+  options: {
+    html:         true,         // Enable HTML tags in source
+    xhtmlOut:     true,         // Use '/' to close single tags (<br />)
+    breaks:       false,        // Convert '\n' in paragraphs into <br>
+    langPrefix:   'language-',  // CSS language prefix for fenced blocks
+    linkTarget:   '',           // set target to open link in
+
+    // Enable some language-neutral replacements + quotes beautification
+    typographer:  false,
+
+    // Double + single quotes replacement pairs, when typographer enabled,
+    // and smartquotes on. Set doubles to '«»' for Russian, '„“' for German.
+    quotes: '“”‘’',
+
+    // Highlighter function. Should return escaped HTML,
+    // or '' if input not changed
+    //
+    // function (/*str, lang*/) { return ''; }
+    //
+    highlight: null,
+
+    maxNesting:   20            // Internal protection, recursion limit
+  },
+
+  components: {
+
+    core: {
+      rules: [
+        'block',
+        'inline',
+        'references',
+        'abbr2'
+      ]
+    },
+
+    block: {
+      rules: [
+        'blockquote',
+        'code',
+        'fences',
+        'heading',
+        'hr',
+        'htmlblock',
+        'lheading',
+        'list',
+        'paragraph'
+      ]
+    },
+
+    inline: {
+      rules: [
+        'autolink',
+        'backticks',
+        'emphasis',
+        'entity',
+        'escape',
+        'htmltag',
+        'links',
+        'newline',
+        'text'
+      ]
+    }
+  }
+};
+
+/**
+ * Preset configs
+ */
+
+var config = {
+  'default': defaultConfig,
+  'full': fullConfig,
+  'commonmark': commonmarkConfig
+};
+
+/**
+ * The `StateCore` class manages state.
+ *
+ * @param {Object} `instance` Remarkable instance
+ * @param {String} `str` Markdown string
+ * @param {Object} `env`
+ */
+
+function StateCore(instance, str, env) {
+  this.src = str;
+  this.env = env;
+  this.options = instance.options;
+  this.tokens = [];
+  this.inlineMode = false;
+
+  this.inline = instance.inline;
+  this.block = instance.block;
+  this.renderer = instance.renderer;
+  this.typographer = instance.typographer;
+}
+
+/**
+ * The main `Remarkable` class. Create an instance of
+ * `Remarkable` with a `preset` and/or `options`.
+ *
+ * @param {String} `preset` If no preset is given, `default` is used.
+ * @param {Object} `options`
+ */
+
+function Remarkable(preset, options) {
+  if (typeof preset !== 'string') {
+    options = preset;
+    preset = 'default';
+  }
+
+  if (options && options.linkify != null) {
+    console.warn(
+      'linkify option is removed. Use linkify plugin instead:\n\n' +
+      'import Remarkable from \'remarkable\';\n' +
+      'import linkify from \'remarkable/linkify\';\n' +
+      'new Remarkable().use(linkify)\n'
+    );
+  }
+
+  this.inline   = new ParserInline();
+  this.block    = new ParserBlock();
+  this.core     = new Core();
+  this.renderer = new Renderer();
+  this.ruler    = new Ruler();
+
+  this.options  = {};
+  this.configure(config[preset]);
+  this.set(options || {});
+}
+
+/**
+ * Set options as an alternative to passing them
+ * to the constructor.
+ *
+ * ```js
+ * md.set({typographer: true});
+ * ```
+ * @param {Object} `options`
+ * @api public
+ */
+
+Remarkable.prototype.set = function (options) {
+  assign(this.options, options);
+};
+
+/**
+ * Batch loader for components rules states, and options
+ *
+ * @param  {Object} `presets`
+ */
+
+Remarkable.prototype.configure = function (presets) {
+  var self = this;
+
+  if (!presets) { throw new Error('Wrong `remarkable` preset, check name/content'); }
+  if (presets.options) { self.set(presets.options); }
+  if (presets.components) {
+    Object.keys(presets.components).forEach(function (name) {
+      if (presets.components[name].rules) {
+        self[name].ruler.enable(presets.components[name].rules, true);
+      }
+    });
+  }
+};
+
+/**
+ * Use a plugin.
+ *
+ * ```js
+ * var md = new Remarkable();
+ *
+ * md.use(plugin1)
+ *   .use(plugin2, opts)
+ *   .use(plugin3);
+ * ```
+ *
+ * @param  {Function} `plugin`
+ * @param  {Object} `options`
+ * @return {Object} `Remarkable` for chaining
+ */
+
+Remarkable.prototype.use = function (plugin, options) {
+  plugin(this, options);
+  return this;
+};
+
+
+/**
+ * Parse the input `string` and return a tokens array.
+ * Modifies `env` with definitions data.
+ *
+ * @param  {String} `string`
+ * @param  {Object} `env`
+ * @return {Array} Array of tokens
+ */
+
+Remarkable.prototype.parse = function (str, env) {
+  var state = new StateCore(this, str, env);
+  this.core.process(state);
+  return state.tokens;
+};
+
+/**
+ * The main `.render()` method that does all the magic :)
+ *
+ * @param  {String} `string`
+ * @param  {Object} `env`
+ * @return {String} Rendered HTML.
+ */
+
+Remarkable.prototype.render = function (str, env) {
+  env = env || {};
+  return this.renderer.render(this.parse(str, env), this.options, env);
+};
+
+/**
+ * Parse the given content `string` as a single string.
+ *
+ * @param  {String} `string`
+ * @param  {Object} `env`
+ * @return {Array} Array of tokens
+ */
+
+Remarkable.prototype.parseInline = function (str, env) {
+  var state = new StateCore(this, str, env);
+  state.inlineMode = true;
+  this.core.process(state);
+  return state.tokens;
+};
+
+/**
+ * Render a single content `string`, without wrapping it
+ * to paragraphs
+ *
+ * @param  {String} `str`
+ * @param  {Object} `env`
+ * @return {String}
+ */
+
+Remarkable.prototype.renderInline = function (str, env) {
+  env = env || {};
+  return this.renderer.render(this.parseInline(str, env), this.options, env);
+};
+
+
 
 
 /***/ }),
@@ -50959,494 +44011,283 @@ exports['default'] = index;
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/lib/addStyles.js":
-/*!****************************************************!*\
-  !*** ./node_modules/style-loader/lib/addStyles.js ***!
-  \****************************************************/
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
+"use strict";
 
-var stylesInDom = {};
 
-var	memoize = function (fn) {
-	var memo;
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
 
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
+    return memo;
+  };
+}();
 
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
 
-var getTarget = function (target) {
-  return document.querySelector(target);
-};
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
 
-var getElement = (function (fn) {
-	var memo = {};
+      memo[target] = styleTarget;
+    }
 
-	return function(target) {
-                // If passing function in options, then use it for resolve "head" element.
-                // Useful for Shadow Root style i.e
-                // {
-                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-                // }
-                if (typeof target === 'function') {
-                        return target();
-                }
-                if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target);
-			// Special case to return head of iframe instead of iframe itself
-			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-				try {
-					// This will throw an exception if access to iframe is blocked
-					// due to cross-origin restrictions
-					styleTarget = styleTarget.contentDocument.head;
-				} catch(e) {
-					styleTarget = null;
-				}
-			}
-			memo[target] = styleTarget;
-		}
-		return memo[target]
-	};
-})();
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : undefined;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && btoa) {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
 
 var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-        if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertInto + " " + options.insertAt.before);
-		target.insertBefore(style, nextSibling);
-	} else {
-		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/lib/urls.js":
-/*!***********************************************!*\
-  !*** ./node_modules/style-loader/lib/urls.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
   }
 
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
   }
 
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
 
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
 
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
 
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+    var newLastIdentifiers = modulesToDom(newList, options);
 
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
 
-		// convert the url to a full url
-		var newUrl;
+      var _index = getIndexByIdentifier(_identifier);
 
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
 
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
+        stylesInDom.splice(_index, 1);
+      }
+    }
 
-	// send back the fixed css
-	return fixedCss;
+    lastIdentifiers = newLastIdentifiers;
+  };
 };
-
 
 /***/ }),
 

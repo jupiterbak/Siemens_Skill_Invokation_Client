@@ -88,7 +88,7 @@ Signals_DataSource = Signals_DataSource.extend({
             _this.setWidth(width+5);
             _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`});
             _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`});
-        }
+        };
         this.on("change:userData.dataId",function(emitter, event){
             _this.layerAttr("label", {text: event.value});
             if(_this.constSignalValue){
