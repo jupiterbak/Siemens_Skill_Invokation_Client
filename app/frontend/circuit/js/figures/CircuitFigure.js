@@ -159,6 +159,10 @@ export default draw2d.SetFigure.extend({
   onStop: function (context) {
   },
 
+  validateInputs: function () {
+    return true;
+  },
+
   getParameterSettings: function () {
     return []
   },

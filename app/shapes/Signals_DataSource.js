@@ -4,6 +4,10 @@
 // created with http://www.draw2d.org
 //
 //
+
+const { json } = require("body-parser");
+const { isNullOrUndefined } = require("node-opcua");
+
 var Signals_DataSource = CircuitFigure.extend({
 
     NAME: "Signals_DataSource",
@@ -67,10 +71,12 @@ var Signals_DataSource = CircuitFigure.extend({
  * Looks disconcerting - extending my own class. But this is a good method to
  * merge basic code and override them with custom methods.
  */
+
 Signals_DataSource = Signals_DataSource.extend({
 
     init: function(attr, setter, getter){
-         this._super(attr, setter, getter);
+        this._super(attr, setter, getter);
+        this._valueParserInst = new ValueParserValidator();
 
         this.attr({resizeable:false});
         this.getOutputPort(0).attr({
@@ -218,10 +224,46 @@ Signals_DataSource = Signals_DataSource.extend({
             }
         },
         {
+            name:"dataType",
+            label:"Data Type (OPC UA)",
+            property:{
+                type: "select",
+                optional_values:[
+                    {label: "Boolean", value:"Boolean"},
+                    {label: "Byte", value:"Byte"},
+                    {label: "SByte", value:"SByte"},                    
+                    {label: "Int16", value:"Int16"},
+                    {label: "Int32", value:"Int32"},
+                    {label: "UInt16", value:"UInt16"},
+                    {label: "UInt32", value:"UInt32"},
+                    {label: "Float", value:"Float"},
+                    {label: "Double", value:"Double"},
+                    {label: "String", value:"String"},
+                    {label: "localizedText", value:"localizedText"},                    
+                    {label: "Timestamp", value:"Timestamp"},
+                    {label: "Date", value:"Date"}
+                ]
+            },
+            default_value:'String'
+        },
+        {
+            name:"dataIsArray",
+            label:"Is Array? (1-Dim) e.g [x,...,x]",
+            property:{
+                type: "checkbox",
+                optional_values:[
+                    true,
+                    false
+                ],
+                value:false
+            },
+            default_value:false
+        },
+        {
             name:"dataValue",
             label:"(Optional) Data Value",
             property:{
-                type: "int"
+                type: "String"
             }
         }];
     },
@@ -259,5 +301,47 @@ Signals_DataSource = Signals_DataSource.extend({
         }
 
         return this
+    },
+
+    validateInputs: function(){
+        var self = this;
+        // Read the content of the input fields
+        // Value
+        var el_value = $("#figure_property_dataValue")[0];
+        var _value = el_value?el_value.value:"";
+        // Datatype
+        var el_dataType = $("#figure_property_dataType")[0];
+        var _dataType = el_dataType?el_dataType.value:"String";
+        // IsArray
+        var el_isArray = $("#figure_property_dataIsArray")[0];
+        var _isArray = el_isArray?el_isArray.checked===true:false;
+    
+        // Check value considering the Datatype and the value rank
+        var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
+        
+        // Return true if value is ok oder generate the error message
+        if( parsed_value===null || parsed_value.value === null || isNaN(parsed_value.value)){
+            return false;
+        }else{
+            // Change the value with the parsed value
+            el_value.value = JSON.stringify(parsed_value.value);
+            return true;
+        }
+        
+    },
+    
+    checkOPCUAValue: function(dataType, dataValue, isArray){
+        var self = this;
+        // Return true or false if datavalue is of datatype
+        var _value = null;
+        try {
+          _value = self._valueParserInst.parse(dataType,dataValue,isArray);
+        } catch (error) {
+            console.log("Error Parsing...");
+            // TODO: Propagate the Error
+            return null;
+        }
+        return _value;
     }
 });
+

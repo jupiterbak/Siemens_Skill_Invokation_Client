@@ -19,6 +19,7 @@ import inlineSVG from "../lib/inlineSVG"
 import hardware from "./hardware"
 import skillproxy from "./io/BackendSkills"
 import application_log from "./WindowLogger"
+import ValueParserValidator from "./util/ValueParserValidator"
 
 
 export default {
@@ -38,5 +39,6 @@ export default {
   ConnectionRouter,
   CircuitFigure,
   skillproxy,
-  application_log
+  application_log,
+  ValueParserValidator
 }

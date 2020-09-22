@@ -530,200 +530,278 @@ var Signals_DataSource = CircuitFigure.extend({
  * Looks disconcerting - extending my own class. But this is a good method to
  * merge basic code and override them with custom methods.
  */
+
 Signals_DataSource = Signals_DataSource.extend({
 
-    init: function(attr, setter, getter){
-         this._super(attr, setter, getter);
+  init: function(attr, setter, getter){
+      this._super(attr, setter, getter);
+      this._valueParserInst = new ValueParserValidator();
 
-        this.attr({resizeable:false});
-        this.getOutputPort(0).attr({
-            semanticGroup:"data"
-        });
-        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
-        
-        var _this = this;
-             
-        // calculate the outer frame/shape in the correct size in relation to the length of the text
-        //
-        _this.adjustWidth = function(){
-            var width = _this.layerGet("label").getBBox().width+15;
+      this.attr({resizeable:false});
+      this.getOutputPort(0).attr({
+          semanticGroup:"data"
+      });
+      this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
+      
+      var _this = this;
+           
+      // calculate the outer frame/shape in the correct size in relation to the length of the text
+      //
+      _this.adjustWidth = function(){
+          var width = _this.layerGet("label").getBBox().width+15;
 
-            _this.setWidth(width+5);
-            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`});
-            _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`});
-        };
-        this.on("change:userData.dataId",function(emitter, event){
-            _this.layerAttr("label", {text: event.value});
-            if(_this.constSignalValue){
-                // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " + event.value + ": " + _this.constSignalValue});
-            }
-            _this.adjustWidth();
-        });
-
-        this.on("change:userData.dataValue",function(emitter, event){
-            _this.constSignalValue = event.value;
-            var dataId = _this.attr("userData.dataId");
-            if(!dataId){
-                dataId = "Data_Id";
-                _this.attr("userData.dataId", dataId);
-            }
-            _this.layerAttr("label", {text: dataId});            
-            if(_this.constSignalValue){
-                // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " + dataId + ": " + _this.constSignalValue});
-            }
-            _this.adjustWidth();
-        });
-
-        this.on("added", function(){
-            var dataId = _this.attr("userData.dataId");
-            if(!dataId){
-                dataId = "Data_Id";
-                _this.attr("userData.dataId", dataId);
-            }
-            _this.layerAttr("label", {text: dataId});
-            var dataValue = _this.attr("userData.dataValue");
-            if(dataValue){
-                _this.constSignalValue = dataValue;
-                // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _this.constSignalValue});
-            }
-            _this.adjustWidth();
-        });
-
-        // override the "getValue" method of the port and delegate them to the related party (SourceTarget port)
-        this.originalGetValue = this.getOutputPort(0).getValue;
-    },
-
-    /**
-     *  Called by the simulator for every calculation
-     *  loop
-     *  @required
-     **/
-    calculate:function(context)
-    {
-        var _this = this;
-        var dataId = this.attr("userData.dataId");
-        this.getOutputPort(0).getValue = function(){
-            if(_this.constSignalValue){
-                return _this.constSignalValue;
-            }else{
-                if(context.signalPorts && context.signalPorts[dataId]){
-                    if(context.signalPorts[dataId] instanceof draw2d.Port){
-                        return context.signalPorts[dataId].getValue();
-                    }
-                    else {
-                        return 0;
-                    }
-                }else {
-                    return 0;
-                }              
-            }                
-        };
-
-        // first check if any object already create the signal context
-        if(!context.signalPorts){
-            context.signalPorts = { };
-        }
-        
-        // check if my signal port is set 
-        if(_this.constSignalValue){
-            if(!(dataId in context.signalPorts)){
-                context.signalPorts[dataId] = _this.getOutputPort(0);
-            }
-        }
-
-        var _val = _this.getOutputPort(0).getValue();
-        if(_val){
-            if(_this.constSignalValue){
-                // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _val});
-                _this.adjustWidth();
-            }else{
-                // Update the label with the value
-                _this.layerAttr("label", {text: dataId + ": " + _val});
-                _this.adjustWidth();
-            }
-            
-        }else{
-            // Update the label with the value
-            _this.layerAttr("label", {text: dataId});
-            _this.adjustWidth();
-        }
-    },
-
-    /**
-     *  Called if the simulation mode is starting
-     *  @required
-     **/
-    onStart:function(context)
-    {
-    },
-
-    /**
-     *  Called if the simulation mode is stopping
-     *  @required
-     **/
-    onStop:function(context)
-    {
-    },
-
-
-    getParameterSettings: function()
-    {
-        return [
-        {
-            name:"dataId",
-            label:"Data Id",
-            property:{
-                type: "string"
-            }
-        },
-        {
-            name:"dataValue",
-            label:"(Optional) Data Value",
-            property:{
-                type: "int"
-            }
-        }];
-    },
-    
-    /**
-     * Get the simulator a hint which kind of hardware the shapes requires or supports
-     * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost
-     * and your are running a circuit which needs this kind of hardware...
-     **/
-    getRequiredHardware: function(){
-      return {
-        raspi: false,
-        arduino: false
+          _this.setWidth(width+5);
+          _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`});
+          _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`});
       };
-    },
-    
-    /**
-     * @private
-     */
-    applyTransformation: function () {
-        let s =
-        // override the base implementation and do not scale the internal SVG elements....this let the arrow looks a like streche...we
-        // calculate the path in the event handler. A lot more code....but the result is much cleaner
-        //"S" + this.scaleX + "," + this.scaleY + ",0,0 " +
-        "R" + this.rotationAngle + "," + ((this.getWidth() / 2) | 0) + "," + ((this.getHeight() / 2) | 0) +
-        "T" + this.getAbsoluteX() + "," + this.getAbsoluteY() +
-        ""
-        this.svgNodes.transform(s)
-        if (this.rotationAngle === 90 || this.rotationAngle === 270) {
-        let before = this.svgNodes.getBBox(true)
-        let ratio = before.height / before.width
-        let reverseRatio = before.width / before.height
-        let rs = "...S" + ratio + "," + reverseRatio + "," + (this.getAbsoluteX() + this.getWidth() / 2) + "," + (this.getAbsoluteY() + this.getHeight() / 2)
-        this.svgNodes.transform(rs)
-        }
+      this.on("change:userData.dataId",function(emitter, event){
+          _this.layerAttr("label", {text: event.value});
+          if(_this.constSignalValue){
+              // Update the label with the value
+              _this.layerAttr("label", {text: "(Const) " + event.value + ": " + _this.constSignalValue});
+          }
+          _this.adjustWidth();
+      });
 
-        return this
-    }
+      this.on("change:userData.dataValue",function(emitter, event){
+          _this.constSignalValue = event.value;
+          var dataId = _this.attr("userData.dataId");
+          if(!dataId){
+              dataId = "Data_Id";
+              _this.attr("userData.dataId", dataId);
+          }
+          _this.layerAttr("label", {text: dataId});            
+          if(_this.constSignalValue){
+              // Update the label with the value
+              _this.layerAttr("label", {text: "(Const) " + dataId + ": " + _this.constSignalValue});
+          }
+          _this.adjustWidth();
+      });
+
+      this.on("added", function(){
+          var dataId = _this.attr("userData.dataId");
+          if(!dataId){
+              dataId = "Data_Id";
+              _this.attr("userData.dataId", dataId);
+          }
+          _this.layerAttr("label", {text: dataId});
+          var dataValue = _this.attr("userData.dataValue");
+          if(dataValue){
+              _this.constSignalValue = dataValue;
+              // Update the label with the value
+              _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _this.constSignalValue});
+          }
+          _this.adjustWidth();
+      });
+
+      // override the "getValue" method of the port and delegate them to the related party (SourceTarget port)
+      this.originalGetValue = this.getOutputPort(0).getValue;
+  },
+
+  /**
+   *  Called by the simulator for every calculation
+   *  loop
+   *  @required
+   **/
+  calculate:function(context)
+  {
+      var _this = this;
+      var dataId = this.attr("userData.dataId");
+      this.getOutputPort(0).getValue = function(){
+          if(_this.constSignalValue){
+              return _this.constSignalValue;
+          }else{
+              if(context.signalPorts && context.signalPorts[dataId]){
+                  if(context.signalPorts[dataId] instanceof draw2d.Port){
+                      return context.signalPorts[dataId].getValue();
+                  }
+                  else {
+                      return 0;
+                  }
+              }else {
+                  return 0;
+              }              
+          }                
+      };
+
+      // first check if any object already create the signal context
+      if(!context.signalPorts){
+          context.signalPorts = { };
+      }
+      
+      // check if my signal port is set 
+      if(_this.constSignalValue){
+          if(!(dataId in context.signalPorts)){
+              context.signalPorts[dataId] = _this.getOutputPort(0);
+          }
+      }
+
+      var _val = _this.getOutputPort(0).getValue();
+      if(_val){
+          if(_this.constSignalValue){
+              // Update the label with the value
+              _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _val});
+              _this.adjustWidth();
+          }else{
+              // Update the label with the value
+              _this.layerAttr("label", {text: dataId + ": " + _val});
+              _this.adjustWidth();
+          }
+          
+      }else{
+          // Update the label with the value
+          _this.layerAttr("label", {text: dataId});
+          _this.adjustWidth();
+      }
+  },
+
+  /**
+   *  Called if the simulation mode is starting
+   *  @required
+   **/
+  onStart:function(context)
+  {
+  },
+
+  /**
+   *  Called if the simulation mode is stopping
+   *  @required
+   **/
+  onStop:function(context)
+  {
+  },
+
+
+  getParameterSettings: function()
+  {
+      return [
+      {
+          name:"dataId",
+          label:"Data Id",
+          property:{
+              type: "string"
+          }
+      },
+      {
+          name:"dataType",
+          label:"Data Type (OPC UA)",
+          property:{
+              type: "select",
+              optional_values:[
+                  {label: "Boolean", value:"Boolean"},
+                  {label: "Byte", value:"Byte"},
+                  {label: "Int16", value:"Int16"},
+                  {label: "Int32", value:"Int32"},
+                  {label: "UInt16", value:"UInt16"},
+                  {label: "UInt32", value:"UInt32"},
+                  {label: "Float", value:"Float"},
+                  {label: "Double", value:"Double"},
+                  {label: "String", value:"String"},
+                  {label: "Timestamp", value:"Timestamp"},
+                  {label: "Date", value:"Date"}
+              ]
+          },
+          default_value:'String'
+      },
+      {
+          name:"dataIsArray",
+          label:"Is Array? (1-Dim) e.g [x,...,x]",
+          property:{
+              type: "checkbox",
+              optional_values:[
+                  true,
+                  false
+              ],
+              value:false
+          },
+          default_value:false
+      },
+      {
+          name:"dataValue",
+          label:"(Optional) Data Value",
+          property:{
+              type: "String"
+          }
+      }];
+  },
+  
+  /**
+   * Get the simulator a hint which kind of hardware the shapes requires or supports
+   * This helps the simulator to bring up some dialogs and messages if any new hardware is connected/get lost
+   * and your are running a circuit which needs this kind of hardware...
+   **/
+  getRequiredHardware: function(){
+    return {
+      raspi: false,
+      arduino: false
+    };
+  },
+  
+  /**
+   * @private
+   */
+  applyTransformation: function () {
+      let s =
+      // override the base implementation and do not scale the internal SVG elements....this let the arrow looks a like streche...we
+      // calculate the path in the event handler. A lot more code....but the result is much cleaner
+      //"S" + this.scaleX + "," + this.scaleY + ",0,0 " +
+      "R" + this.rotationAngle + "," + ((this.getWidth() / 2) | 0) + "," + ((this.getHeight() / 2) | 0) +
+      "T" + this.getAbsoluteX() + "," + this.getAbsoluteY() +
+      ""
+      this.svgNodes.transform(s)
+      if (this.rotationAngle === 90 || this.rotationAngle === 270) {
+      let before = this.svgNodes.getBBox(true)
+      let ratio = before.height / before.width
+      let reverseRatio = before.width / before.height
+      let rs = "...S" + ratio + "," + reverseRatio + "," + (this.getAbsoluteX() + this.getWidth() / 2) + "," + (this.getAbsoluteY() + this.getHeight() / 2)
+      this.svgNodes.transform(rs)
+      }
+
+      return this
+  },
+
+  validateInputs: function(){
+      var self = this;
+      // Read the content of the input fields
+      // Value
+      var el_value = $("#figure_property_dataValue")[0];
+      var _value = el_value?el_value.value:"";
+      // Datatype
+      var el_dataType = $("#figure_property_dataType")[0];
+      var _dataType = el_dataType?el_dataType.value:"String";
+      // IsArray
+      var el_isArray = $("#figure_property_dataIsArray")[0];
+      var _isArray = el_isArray?el_isArray.checked===true:false;
+  
+      // Check value considering the Datatype and the value rank
+      var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
+      
+      // Return true if value is ok oder generate the error message
+      if( parsed_value===null || parsed_value.value === null || isNaN(parsed_value.value)){
+          return false;
+      }else{
+          // Change the value with the parsed value
+          el_value.value = JSON.stringify(parsed_value.value);
+          return true;
+      }
+      
+  },
+  
+  checkOPCUAValue: function(dataType, dataValue, isArray){
+      var self = this;
+      // Return true or false if datavalue is of datatype
+      var _value = null;
+      try {
+        _value = self._valueParserInst.parse(dataType,dataValue,isArray);
+      } catch (error) {
+          console.log("Error Parsing...");
+          // TODO: Propagate the Error
+          return null;
+      }
+      return _value;
+  }
 });
+
 
 
 // Generated Code for the Draw2D touch HTML5 lib.
@@ -732,6 +810,7 @@ Signals_DataSource = Signals_DataSource.extend({
 // created with http://www.draw2d.org
 //
 //
+
 var Signals_DataTarget = CircuitFigure.extend({
 
     NAME: "Signals_DataTarget",
