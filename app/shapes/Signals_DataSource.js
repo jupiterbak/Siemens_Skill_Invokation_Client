@@ -320,7 +320,7 @@ Signals_DataSource = Signals_DataSource.extend({
         var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
         
         // Return true if value is ok oder generate the error message
-        if( parsed_value===null || parsed_value.value === null || isNaN(parsed_value.value)){
+        if( parsed_value===null || parsed_value.value === null){
             return false;
         }else{
             // Change the value with the parsed value
