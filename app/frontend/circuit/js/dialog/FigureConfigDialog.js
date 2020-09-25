@@ -79,13 +79,13 @@ export default dialog= new class FigureConfigDialog {
 
     $("#figureConfigDialog input").keypress((e) => {
       if (e.which == 13) {
-        if(self.figure.validateInputs()){
-          this.hide();
-        }else{
-          // TODO: Generate Error message
+        var _validation_results = self.figure.validateInputs();
+        if(_validation_results.error){
           // Show error message
-          $("#FigureConfigDialogMessage").text("Value is not compatible with the datatype.");
+          $("#FigureConfigDialogMessage").text(_validation_results.error);
           $("#FigureConfigDialogMessage").show();
+        }else{
+          this.hide();
         }
       }
     });
@@ -96,13 +96,14 @@ export default dialog= new class FigureConfigDialog {
     });
 
     $("#figureConfigDialog .submit").on("click",  () => {
-      if(self.figure.validateInputs()){
-        this.hide();
-      }else{
-        // TODO: Generate Error message
-        $("#FigureConfigDialogMessage").text("Value is not compatible with the datatype.");
+      var _validation_results = self.figure.validateInputs();
+      if(_validation_results.error){
+        // Show error message
+        $("#FigureConfigDialogMessage").text(_validation_results.error);
         $("#FigureConfigDialogMessage").show();
-      }      
+      }else{
+        this.hide();
+      }   
     });
 
     $.each(settings, (index, setting) =>{

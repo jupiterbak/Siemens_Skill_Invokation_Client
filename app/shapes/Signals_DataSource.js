@@ -5,9 +5,6 @@
 //
 //
 
-const { json } = require("body-parser");
-const { isNullOrUndefined } = require("node-opcua");
-
 var Signals_DataSource = CircuitFigure.extend({
 
     NAME: "Signals_DataSource",
@@ -236,12 +233,12 @@ Signals_DataSource = Signals_DataSource.extend({
                     {label: "Int32", value:"Int32"},
                     {label: "UInt16", value:"UInt16"},
                     {label: "UInt32", value:"UInt32"},
-                    {label: "Float", value:"Float"},
-                    {label: "Double", value:"Double"},
+                    {label: "Float (e.g 1.023)", value:"Float"},
+                    {label: "Double (e.g 1.023)", value:"Double"},
                     {label: "String", value:"String"},
                     {label: "localizedText", value:"localizedText"},                    
                     {label: "Timestamp", value:"Timestamp"},
-                    {label: "Date", value:"Date"}
+                    {label: "Date (e.g. '01 Jan 1970')", value:"Date"}
                 ]
             },
             default_value:'String'
@@ -320,11 +317,11 @@ Signals_DataSource = Signals_DataSource.extend({
         var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
         
         // Return true if value is ok oder generate the error message
-        if( parsed_value===null || parsed_value.value === null){
-            return false;
+        if( parsed_value.error){
+            return {error: parsed_value.error};
         }else{
             // Change the value with the parsed value
-            el_value.value = JSON.stringify(parsed_value.value);
+            el_value.value = JSON.stringify(parsed_value.value.value);
             return true;
         }
         
@@ -336,12 +333,21 @@ Signals_DataSource = Signals_DataSource.extend({
         var _value = null;
         try {
           _value = self._valueParserInst.parse(dataType,dataValue,isArray);
-        } catch (error) {
-            console.log("Error Parsing...");
-            // TODO: Propagate the Error
-            return null;
+        }catch (e) {
+            if (typeof e === "string") {
+                return {error: e, value: null};
+            }
+            else if (typeof e === "object")
+            {
+                if (e instanceof SyntaxError) {
+                    return {error: "Value is not valid.", value: null};
+                }
+                else{
+                    return {error: "Error occured while parsing the value.", value: null};
+                }
+            }            
         }
-        return _value;
+        return {error: null, value: _value};
     }
 });
 

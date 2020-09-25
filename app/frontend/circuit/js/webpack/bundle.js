@@ -2892,13 +2892,13 @@ exports.default = dialog = new (function () {
 
       $("#figureConfigDialog input").keypress(function (e) {
         if (e.which == 13) {
-          if (self.figure.validateInputs()) {
-            _this.hide();
-          } else {
-            // TODO: Generate Error message
+          var _validation_results = self.figure.validateInputs();
+          if (_validation_results.error) {
             // Show error message
-            $("#FigureConfigDialogMessage").text("Value is not compatible with the datatype.");
+            $("#FigureConfigDialogMessage").text(_validation_results.error);
             $("#FigureConfigDialogMessage").show();
+          } else {
+            _this.hide();
           }
         }
       });
@@ -2909,12 +2909,13 @@ exports.default = dialog = new (function () {
       });
 
       $("#figureConfigDialog .submit").on("click", function () {
-        if (self.figure.validateInputs()) {
-          _this.hide();
-        } else {
-          // TODO: Generate Error message
-          $("#FigureConfigDialogMessage").text("Value is not compatible with the datatype.");
+        var _validation_results = self.figure.validateInputs();
+        if (_validation_results.error) {
+          // Show error message
+          $("#FigureConfigDialogMessage").text(_validation_results.error);
           $("#FigureConfigDialogMessage").show();
+        } else {
+          _this.hide();
         }
       });
 
@@ -3646,7 +3647,7 @@ exports.default = draw2d.SetFigure.extend({
   onStop: function onStop(context) {},
 
   validateInputs: function validateInputs() {
-    return true;
+    return { error: null };
   },
 
   getParameterSettings: function getParameterSettings() {
@@ -6437,22 +6438,156 @@ var ValueParserValidator = function () {
     _createClass(ValueParserValidator, [{
         key: "stringToUInt32Array",
         value: function stringToUInt32Array(_str) {
+            if (_str === null || _str === undefined || _str === "") {
+                throw "Array is empty.";
+            }
             var str = ("" + _str).toLowerCase();
-            var array = str ? JSON.parse(str).map(function (value) {
+            return JSON.parse(str).map(function (value) {
                 return parseInt(value);
-            }) : null;
-            return array;
+            }).map(function (_value) {
+                if (isNaN(_value)) {
+                    throw "A value is not a number";
+                }
+                return _value;
+            });
         }
     }, {
         key: "ListOf",
         value: function ListOf(isArray, parseFunc, _txt) {
+            if (_txt === null || _txt === undefined || _txt === "") {
+                throw "Array is empty.";
+            }
             var txt = ("" + _txt).toLowerCase();
             if (isArray) {
-                return txt ? JSON.parse(txt).map(function (value) {
+                var _tmp = JSON.parse(txt).map(function (value) {
                     return parseFunc(value);
-                }) : null;
+                });
+                if (!Array.isArray(_tmp)) {
+                    throw "Value is not an Array.";
+                }
+                _tmp.map(function (_iter, _index) {
+                    if (_iter === undefined) {
+                        throw "The value " + _index + " of the array is undefined.";
+                    }
+                    if (_iter === null) {
+                        throw "The value " + _index + " of the array is null";
+                    }
+                    if ("" + _iter === "") {
+                        throw "The value " + _index + " of the array is empty.";
+                    }
+                    return _iter;
+                });
+                return _tmp;
             } else {
-                return txt ? parseFunc(txt) : null;
+                var _rslt = parseFunc(txt);
+                if (_rslt === undefined) {
+                    throw "The value is undefined.";
+                }
+                if (_rslt === null) {
+                    throw "The value is null.";
+                }
+                if ("" + _rslt === "") {
+                    throw "The value is empty.";
+                }
+                return _rslt;
+            }
+        }
+    }, {
+        key: "ListOfNumbers",
+        value: function ListOfNumbers(isArray, parseFunc, _txt) {
+            if (_txt === null || _txt === undefined || _txt === "") {
+                throw "Array is empty.";
+            }
+            var txt = ("" + _txt).toLowerCase();
+            if (isArray) {
+                var _tmp = JSON.parse(txt).map(function (value) {
+                    return parseFunc(value);
+                });
+                if (!Array.isArray(_tmp)) {
+                    throw "Value is not an Array.";
+                }
+
+                _tmp.map(function (_iter, _index) {
+                    if (_iter === undefined) {
+                        throw "The value " + _index + " of the array is undefined.";
+                    }
+                    if (_iter === null) {
+                        throw "The value " + _index + " of the array is null";
+                    }
+                    if ("" + _iter === "") {
+                        throw "The value " + _index + " of the array is empty.";
+                    }
+                    if (isNaN(_iter)) {
+                        throw "The value " + _index + " of the array is not a number.";
+                    }
+                    return _iter;
+                });
+
+                return _tmp;
+            } else {
+                var _rslt = parseFunc(txt);
+                if (_rslt === undefined) {
+                    throw "The value is undefined.";
+                }
+                if (_rslt === null) {
+                    throw "The value is null.";
+                }
+                if ("" + _rslt === "") {
+                    throw "The value is empty.";
+                }
+                if (isNaN(_rslt)) {
+                    throw "The value is not a number.";
+                }
+                return _rslt;
+            }
+        }
+    }, {
+        key: "ListOfDates",
+        value: function ListOfDates(isArray, _txt) {
+            if (_txt === null || _txt === undefined || _txt === "") {
+                throw "Array is empty.";
+            }
+            var txt = ("" + _txt).toLowerCase();
+            if (isArray) {
+                var _tmp = JSON.parse(txt).map(function (value) {
+                    return new Date(value);
+                });
+                if (!Array.isArray(_tmp)) {
+                    throw "Value is not an Array.";
+                }
+
+                _tmp.map(function (_iter, _index) {
+                    if (_iter === undefined) {
+                        throw "The value " + _index + " of the array is undefined.";
+                    }
+                    if (_iter === null) {
+                        throw "The value " + _index + " of the array is null";
+                    }
+                    if ("" + _iter === "") {
+                        throw "The value " + _index + " of the array is empty.";
+                    }
+                    if (isNaN(_iter.getTime())) {
+                        throw "The value " + _index + " of the array is not a valid date.";
+                    }
+                    return _iter.toDateString();
+                });
+
+                return _tmp;
+            } else {
+                var _rslt = new Date(txt);
+                if (_rslt === undefined) {
+                    throw "The value is undefined.";
+                }
+                if (_rslt === null) {
+                    throw "The value is null.";
+                }
+                if ("" + _rslt === "") {
+                    throw "The value is empty.";
+                }
+                if (isNaN(_rslt.getTime())) {
+                    throw "The value is not a valid date.";
+                }
+                return _rslt.toDateString();
             }
         }
     }, {
@@ -6496,21 +6631,27 @@ var ValueParserValidator = function () {
             } else if (_dtype === 'localizedText') {
                 _value = self.ListOf(_isArray, self.localizedText_parser, value);
             } else if (_dtype === 'Double') {
-                _value = self.ListOf(_isArray, parseFloat, value);
+                _value = self.ListOfNumbers(_isArray, parseFloat, value);
+            } else if (_dtype === 'Float') {
+                _value = self.ListOfNumbers(_isArray, parseFloat, value);
             } else if (_dtype === 'SByte') {
-                _value = self.ListOf(_isArray, parseInt, value);
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
             } else if (_dtype === 'Int16') {
-                _value = self.ListOf(_isArray, parseInt, value);
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
             } else if (_dtype === 'Int32') {
-                _value = self.ListOf(_isArray, parseInt, value);
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
             } else if (_dtype === 'Byte') {
-                _value = self.ListOf(_isArray, parseInt, value);
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
             } else if (_dtype === 'UInt16') {
-                _value = self.ListOf(_isArray, parseInt, value);
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
             } else if (_dtype === 'UInt32') {
-                _value = self.ListOf(_isArray, parseInt, value);
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'Date') {
+                _value = self.ListOfDates(_isArray, value);
+            } else if (_dtype === 'Timestamp') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
             } else {
-                _value = null;
+                throw "Datatype is not supported.";
             }
 
             return {

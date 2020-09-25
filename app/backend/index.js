@@ -6,7 +6,7 @@ const app = express();
 const http = require('http').Server(app);
 const path = require('path');
 const childProcess = require('child_process');
-const phantomjs = require('phantomjs');
+const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser');
 const glob = require("glob");
 const template7 = require('template7');
@@ -138,7 +138,7 @@ function runServer() {
 
             // create the js/png/md async to avoid a blocked UI
             //
-            let binPath = phantomjs.path;
+            let binPath = 'node';
             let childArgs = [
                 path.normalize(__dirname + '/../shape2code/converter.js'),
                 path.normalize(shapeDirApp + req.body.filePath),
@@ -156,11 +156,11 @@ function runServer() {
             console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
             childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
                 if (err) {
-                    console.log(`stdout: ${stdout}`);
+                    console.error(`stderr: ${stderr}`);
                     throw err;
-                }
+                }                
                 
-                console.error(`stderr: ${stderr}`);
+                console.log(`stdout: ${stdout}`);
 
                 let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
                 glob(pattern, {}, function(er, files) {
@@ -216,7 +216,7 @@ function runServer() {
 
                 // create the js/png/md async to avoid a blocked UI
                 //
-                let binPath = phantomjs.path;
+                let binPath = "node";
                 let childArgs = [
                     path.normalize(__dirname + '/../shape2code/converter.js'),
                     path.normalize(shapeDirApp + req.body.filePath),
@@ -578,7 +578,7 @@ function runServer() {
 
     //  Start the web server
     http.listen(port, function() {
-        console.log('using phantomJS for server side rendering of shape previews:', phantomjs.path)
+        console.log('using Puppeteer for server side rendering of shape previews:', puppeteer.path)
         console.log('+------------------------------------------------------------+');
         console.log('| Welcome to the SP347 Skill Invokation Client               |');
         console.log('|------------------------------------------------------------|');

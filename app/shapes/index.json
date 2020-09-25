@@ -57,27 +57,5 @@
       "START"
     ],
     "filePath": "START.shape"
-  },
-  {
-    "name": "Tests2_localhost_4844_Skill_Add",
-    "tags": [
-      "Tests2",
-      "localhost",
-      "4844",
-      "Skill",
-      "Add"
-    ],
-    "filePath": "Tests2_localhost_4844_Skill_Add.shape"
-  },
-  {
-    "name": "Tests_localhost_4844_Skill_Add",
-    "tags": [
-      "Tests",
-      "localhost",
-      "4844",
-      "Skill",
-      "Add"
-    ],
-    "filePath": "Tests_localhost_4844_Skill_Add.shape"
   }
 ]

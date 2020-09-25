@@ -160,7 +160,7 @@ export default draw2d.SetFigure.extend({
   },
 
   validateInputs: function () {
-    return true;
+    return {error: null};
   },
 
   getParameterSettings: function () {
