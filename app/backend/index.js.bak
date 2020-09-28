@@ -5,8 +5,8 @@ const fs = require('fs');
 const app = express();
 const http = require('http').Server(app);
 const path = require('path');
-const childProcess = require('child_process');
-const phantomjs = require('phantomjs');
+const childProcess = require('child_process')
+const phantomjs = require('phantomjs')
 const bodyParser = require('body-parser');
 const glob = require("glob");
 const template7 = require('template7');
@@ -25,7 +25,7 @@ const logger = winston.createLogger({
             return `${log.timestamp} - [${log.level}] | [${log.service}] : ${log.message}`;
         })
     ),
-    defaultMeta: { service: 'Backend' },
+    defaultMeta: { service: 'Dummy Server' },
 });
 
 

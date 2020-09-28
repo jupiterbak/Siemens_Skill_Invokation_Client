@@ -87,6 +87,7 @@ page.open('http://localhost:7400/designer', function(status) {
         fs.write(shape2CodePath("exporter.js"),
             "var json=" + json + ";\n" +
             "var pkg='" + pkg + "';\n" +
+            "console.log('App -->' + app);\n" +
             code);
         if (page.injectJs(shape2CodePath('exporter.js'))) {
             waitFor({

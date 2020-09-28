@@ -1,0 +1,985 @@
+{
+    "ip": "localhost",
+    "port": "4840",
+    "skill": {
+        "name": "InsertSkill",
+        "nodeId": "ns=4;i=1027"
+    },
+    "skillModel": {
+        "Description": {
+            "name": "Description",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1028"
+            },
+            "type": "Object"
+        },
+        "Invokation": {
+            "name": "Invokation",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1029"
+            },
+            "type": "Object",
+            "Start": {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1029"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1079"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Position",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "654daba5-59e9-4aad-84f0-f7a40ecdb518",
+                            "id_label": "95fdf434-2f1c-44ab-bf81-7435342285f6",
+                            "id_port": "ddb1b791-8ad0-45af-accb-54c2502eded3"
+                        },
+                        {
+                            "name": "BuildingBlockTypeId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "73d8c606-c629-4dd3-b27a-661f2b76396e",
+                            "id_label": "80321b13-0846-463f-9ab8-a76b1c7dff65",
+                            "id_port": "bc4df631-5425-4fc8-b9a9-c74bd819e25c"
+                        },
+                        {
+                            "name": "Orientation",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "7d91de00-9062-48fe-83a9-890531f9d71e",
+                            "id_label": "aa7a39da-4968-42c6-9868-259ff94c2c55",
+                            "id_port": "5a391ccf-f5eb-4699-a8fb-64a653726cab"
+                        },
+                        {
+                            "name": "RFID",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "0cfd8ad3-c7c0-4357-8832-823cb08110b5",
+                            "id_label": "8bc0c16b-05dd-4a8b-9868-4afb1bcd0a07",
+                            "id_port": "599a40f4-a5b2-400d-aca9-b9cb5a8e953c"
+                        },
+                        {
+                            "name": "CurrentConfiguration_BuildingBlockTypeId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "24354121-b27c-4da2-936d-d53980fbf4f7",
+                            "id_label": "866edbbc-c691-4b0e-ab8c-20a49ea8c907",
+                            "id_port": "a4f3ba44-11f3-4aed-ba86-57d303d524ed"
+                        },
+                        {
+                            "name": "CurrentConfiguration_Orientation",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "aab8ab25-e80d-48ea-a7ad-7cf2900dddd1",
+                            "id_label": "3e99270c-f6b1-4210-8f32-a87c216fe26f",
+                            "id_port": "fd29b6d4-fae0-45d3-9d02-505309846c12"
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "ca3266fe-1d03-4b23-a5f5-1a264ad4ce09",
+                            "id_label": "fc05d005-4bdb-4166-ac4a-b804a688a802",
+                            "id_port": "dc64e09e-b007-454f-847f-a382594c7df9"
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1080"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1081"
+                    },
+                    "type": "Variable"
+                }
+            },
+            "ResultTrigger": {
+                "name": "ResultTrigger",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1091"
+                },
+                "type": "Variable"
+            },
+            "GetResult": {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1029"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1092"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "RFID",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "e5b933bc-7742-49e6-b8cc-179a51e3e5a2",
+                            "id_label": "5f688455-88f1-46f6-bfbd-b4b965a96925",
+                            "id_port": "36962b28-9757-442f-9a67-3ed5e02d6ff2"
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "0af3be8b-f822-4837-a2a1-123842a1ba97",
+                            "id_label": "a8a40292-2799-4372-a59b-7808435cc3f8",
+                            "id_port": "feab3385-7978-4faf-b777-05999cccdb7c"
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1093"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1094"
+                    },
+                    "type": "Variable"
+                }
+            }
+        },
+        "StateMachine": {
+            "name": "StateMachine",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1030"
+            },
+            "type": "StateMachineType",
+            "AvailableStates": {
+                "name": "AvailableStates",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1031"
+                },
+                "type": "Variable"
+            },
+            "AvailableTransitions": {
+                "name": "AvailableTransitions",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1032"
+                },
+                "type": "Variable"
+            },
+            "ClearedStateMachine": {
+                "name": "ClearedStateMachine",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1033"
+                },
+                "type": "StateMachineType",
+                "AvailableStates": {
+                    "name": "AvailableStates",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1036"
+                    },
+                    "type": "Variable"
+                },
+                "AvailableTransitions": {
+                    "name": "AvailableTransitions",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1037"
+                    },
+                    "type": "Variable"
+                },
+                "CurrentState": {
+                    "name": "CurrentState",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1038"
+                    },
+                    "type": "Variable",
+                    "Id": {
+                        "name": "Id",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1043"
+                        },
+                        "type": "Variable",
+                        "interval": "50"
+                    }
+                },
+                "LastTransition": {
+                    "name": "LastTransition",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1039"
+                    },
+                    "type": "Variable",
+                    "Id": {
+                        "name": "Id",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1044"
+                        },
+                        "type": "Variable",
+                        "interval": "50"
+                    }
+                },
+                "RunningStateMachine": {
+                    "name": "RunningStateMachine",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1040"
+                    },
+                    "type": "StateMachineType",
+                    "AvailableStates": {
+                        "name": "AvailableStates",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1045"
+                        },
+                        "type": "Variable"
+                    },
+                    "AvailableTransitions": {
+                        "name": "AvailableTransitions",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1046"
+                        },
+                        "type": "Variable"
+                    },
+                    "CurrentState": {
+                        "name": "CurrentState",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1047"
+                        },
+                        "type": "Variable",
+                        "Id": {
+                            "name": "Id",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1053"
+                            },
+                            "type": "Variable",
+                            "interval": "50"
+                        }
+                    },
+                    "ExecuteStateMachine": {
+                        "name": "ExecuteStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1048"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1054"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1055"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1056"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1071"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1057"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1072"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    },
+                    "HoldStateMachine": {
+                        "name": "HoldStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1049"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1058"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1059"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1060"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1073"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1061"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1074"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    },
+                    "IdleStateMachine": {
+                        "name": "IdleStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1050"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1062"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1063"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1064"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1075"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1065"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1076"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    },
+                    "LastTransition": {
+                        "name": "LastTransition",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1051"
+                        },
+                        "type": "Variable",
+                        "Id": {
+                            "name": "Id",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1066"
+                            },
+                            "type": "Variable",
+                            "interval": "50"
+                        }
+                    },
+                    "ResettingStateMachine": {
+                        "name": "ResettingStateMachine",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1052"
+                        },
+                        "type": "StateMachineType",
+                        "AvailableStates": {
+                            "name": "AvailableStates",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1067"
+                            },
+                            "type": "Variable"
+                        },
+                        "AvailableTransitions": {
+                            "name": "AvailableTransitions",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1068"
+                            },
+                            "type": "Variable"
+                        },
+                        "CurrentState": {
+                            "name": "CurrentState",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1069"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1077"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        },
+                        "LastTransition": {
+                            "name": "LastTransition",
+                            "nodeId": {
+                                "ns": "4",
+                                "nid": "1070"
+                            },
+                            "type": "Variable",
+                            "Id": {
+                                "name": "Id",
+                                "nodeId": {
+                                    "ns": "4",
+                                    "nid": "1078"
+                                },
+                                "type": "Variable",
+                                "interval": "50"
+                            }
+                        }
+                    }
+                }
+            },
+            "CurrentState": {
+                "name": "CurrentState",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1034"
+                },
+                "type": "Variable",
+                "Id": {
+                    "name": "Id",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1041"
+                    },
+                    "type": "Variable",
+                    "interval": "50"
+                }
+            },
+            "LastTransition": {
+                "name": "LastTransition",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1035"
+                },
+                "type": "Variable",
+                "Id": {
+                    "name": "Id",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1042"
+                    },
+                    "type": "Variable",
+                    "interval": "50"
+                }
+            }
+        }
+    },
+    "objectMonitor": {
+        "CURRENT_STATES": [
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1043"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1044"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1053"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1071"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1072"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1073"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1074"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1075"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1076"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1066"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1077"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1078"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1041"
+                },
+                "type": "Variable",
+                "interval": "50"
+            },
+            {
+                "name": "Id",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1042"
+                },
+                "type": "Variable",
+                "interval": "50"
+            }
+        ],
+        "ACTIONS": [
+            {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1029"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1079"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Position",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "BuildingBlockTypeId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "Orientation",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "RFID",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "CurrentConfiguration_BuildingBlockTypeId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "CurrentConfiguration_Orientation",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1080"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1081"
+                    },
+                    "type": "Variable"
+                }
+            },
+            {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1029"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1092"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "RFID",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ],
+                    "outputArguments": [
+                        {
+                            "name": "ErrorId",
+                            "dataType": "ns=0;i=4",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1093"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1094"
+                    },
+                    "type": "Variable"
+                }
+            }
+        ]
+    },
+    "version": "V3",
+    "parameters": {
+        "inputs": [
+            {
+                "name": "Position",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "654daba5-59e9-4aad-84f0-f7a40ecdb518",
+                "id_label": "95fdf434-2f1c-44ab-bf81-7435342285f6",
+                "id_port": "ddb1b791-8ad0-45af-accb-54c2502eded3"
+            },
+            {
+                "name": "BuildingBlockTypeId",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "73d8c606-c629-4dd3-b27a-661f2b76396e",
+                "id_label": "80321b13-0846-463f-9ab8-a76b1c7dff65",
+                "id_port": "bc4df631-5425-4fc8-b9a9-c74bd819e25c"
+            },
+            {
+                "name": "Orientation",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "7d91de00-9062-48fe-83a9-890531f9d71e",
+                "id_label": "aa7a39da-4968-42c6-9868-259ff94c2c55",
+                "id_port": "5a391ccf-f5eb-4699-a8fb-64a653726cab"
+            },
+            {
+                "name": "RFID",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "0cfd8ad3-c7c0-4357-8832-823cb08110b5",
+                "id_label": "8bc0c16b-05dd-4a8b-9868-4afb1bcd0a07",
+                "id_port": "599a40f4-a5b2-400d-aca9-b9cb5a8e953c"
+            },
+            {
+                "name": "CurrentConfiguration_BuildingBlockTypeId",
+                "dataType": "ns=0;i=4",
+                "valueRank": "1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "24354121-b27c-4da2-936d-d53980fbf4f7",
+                "id_label": "866edbbc-c691-4b0e-ab8c-20a49ea8c907",
+                "id_port": "a4f3ba44-11f3-4aed-ba86-57d303d524ed"
+            },
+            {
+                "name": "CurrentConfiguration_Orientation",
+                "dataType": "ns=0;i=4",
+                "valueRank": "1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "aab8ab25-e80d-48ea-a7ad-7cf2900dddd1",
+                "id_label": "3e99270c-f6b1-4210-8f32-a87c216fe26f",
+                "id_port": "fd29b6d4-fae0-45d3-9d02-505309846c12"
+            },
+            {
+                "name": "RFID",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "e5b933bc-7742-49e6-b8cc-179a51e3e5a2",
+                "id_label": "5f688455-88f1-46f6-bfbd-b4b965a96925",
+                "id_port": "36962b28-9757-442f-9a67-3ed5e02d6ff2"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "ErrorId",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "ca3266fe-1d03-4b23-a5f5-1a264ad4ce09",
+                "id_label": "fc05d005-4bdb-4166-ac4a-b804a688a802",
+                "id_port": "dc64e09e-b007-454f-847f-a382594c7df9"
+            },
+            {
+                "name": "ErrorId",
+                "dataType": "ns=0;i=4",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "0af3be8b-f822-4837-a2a1-123842a1ba97",
+                "id_label": "a8a40292-2799-4372-a59b-7808435cc3f8",
+                "id_port": "feab3385-7978-4faf-b777-05999cccdb7c"
+            }
+        ]
+    }
+}
