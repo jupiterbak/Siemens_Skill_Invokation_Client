@@ -1,0 +1,479 @@
+{
+    "ip": "localhost",
+    "port": "4847",
+    "skill": {
+        "name": "Assembly2",
+        "nodeId": "ns=4;i=1030"
+    },
+    "skillModel": {
+        "PickAndPlace": {
+            "name": "PickAndPlace",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1020"
+            },
+            "type": "Object",
+            "Description": {
+                "name": "Description",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1021"
+                },
+                "type": "Object"
+            },
+            "Invokation": {
+                "name": "Invokation",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1022"
+                },
+                "type": "Object",
+                "GetResult": {
+                    "name": "GetResult",
+                    "objectId": {
+                        "ns": "4",
+                        "nid": "1022"
+                    },
+                    "methodId": {
+                        "ns": "4",
+                        "nid": "1023"
+                    },
+                    "type": "Method",
+                    "parameters": {
+                        "inputArguments": "",
+                        "outputArguments": [
+                            {
+                                "name": "ValueOut",
+                                "dataType": "ns=0;i=10",
+                                "valueRank": "-1",
+                                "arrayDimensions": [
+                                    "0"
+                                ]
+                            }
+                        ]
+                    },
+                    "InputArguments": {
+                        "name": "InputArguments",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1026"
+                        },
+                        "type": "Variable"
+                    },
+                    "OutputArguments": {
+                        "name": "OutputArguments",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1027"
+                        },
+                        "type": "Variable"
+                    }
+                },
+                "ResultTrigger": {
+                    "name": "ResultTrigger",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1024"
+                    },
+                    "type": "Variable"
+                },
+                "Start": {
+                    "name": "Start",
+                    "objectId": {
+                        "ns": "4",
+                        "nid": "1022"
+                    },
+                    "methodId": {
+                        "ns": "4",
+                        "nid": "1025"
+                    },
+                    "type": "Method",
+                    "parameters": {
+                        "inputArguments": [
+                            {
+                                "name": "Value1",
+                                "dataType": "ns=0;i=10",
+                                "valueRank": "-1",
+                                "arrayDimensions": [
+                                    "0"
+                                ]
+                            },
+                            {
+                                "name": "Value2",
+                                "dataType": "ns=0;i=10",
+                                "valueRank": "-1",
+                                "arrayDimensions": [
+                                    "0"
+                                ]
+                            }
+                        ],
+                        "outputArguments": ""
+                    },
+                    "InputArguments": {
+                        "name": "InputArguments",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1028"
+                        },
+                        "type": "Variable"
+                    },
+                    "OutputArguments": {
+                        "name": "OutputArguments",
+                        "nodeId": {
+                            "ns": "4",
+                            "nid": "1029"
+                        },
+                        "type": "Variable"
+                    }
+                }
+            }
+        },
+        "Description": {
+            "name": "Description",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1031"
+            },
+            "type": "Object"
+        },
+        "Invokation": {
+            "name": "Invokation",
+            "nodeId": {
+                "ns": "4",
+                "nid": "1032"
+            },
+            "type": "Object",
+            "GetResult": {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1032"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1033"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": "",
+                    "outputArguments": [
+                        {
+                            "name": "ValueOut",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "dc683f0a-8cb3-4489-a905-ea43f3286311",
+                            "id_label": "e0f6f8c9-9103-4a81-8fef-b9b3a2ea018f",
+                            "id_port": "faafce9e-b971-4c51-b057-6906810489b6"
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1036"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1037"
+                    },
+                    "type": "Variable"
+                }
+            },
+            "ResultTrigger": {
+                "name": "ResultTrigger",
+                "nodeId": {
+                    "ns": "4",
+                    "nid": "1034"
+                },
+                "type": "Variable"
+            },
+            "Start": {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1032"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1035"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Value1",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "4540938d-2d57-419d-adf9-06e45a31ce71",
+                            "id_label": "f731677c-6367-4c69-9cfc-c6b76b56cc04",
+                            "id_port": "76c3098b-624c-42d6-bc1d-a188b6c199a2"
+                        },
+                        {
+                            "name": "Value2",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ],
+                            "id_circle": "af0d4003-226e-4d1b-abbd-cea2ba41e7cb",
+                            "id_label": "7519d123-bb0e-414c-819d-ad440827ab00",
+                            "id_port": "b6badde0-5947-4687-800f-cebdfa3d123c"
+                        }
+                    ],
+                    "outputArguments": ""
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1038"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1039"
+                    },
+                    "type": "Variable"
+                }
+            }
+        }
+    },
+    "objectMonitor": {
+        "ACTIONS": [
+            {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1022"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1023"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": "",
+                    "outputArguments": [
+                        {
+                            "name": "ValueOut",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1026"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1027"
+                    },
+                    "type": "Variable"
+                }
+            },
+            {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1022"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1025"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Value1",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "Value2",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ],
+                    "outputArguments": ""
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1028"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1029"
+                    },
+                    "type": "Variable"
+                }
+            },
+            {
+                "name": "GetResult",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1032"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1033"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": "",
+                    "outputArguments": [
+                        {
+                            "name": "ValueOut",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ]
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1036"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1037"
+                    },
+                    "type": "Variable"
+                }
+            },
+            {
+                "name": "Start",
+                "objectId": {
+                    "ns": "4",
+                    "nid": "1032"
+                },
+                "methodId": {
+                    "ns": "4",
+                    "nid": "1035"
+                },
+                "type": "Method",
+                "parameters": {
+                    "inputArguments": [
+                        {
+                            "name": "Value1",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        },
+                        {
+                            "name": "Value2",
+                            "dataType": "ns=0;i=10",
+                            "valueRank": "-1",
+                            "arrayDimensions": [
+                                "0"
+                            ]
+                        }
+                    ],
+                    "outputArguments": ""
+                },
+                "InputArguments": {
+                    "name": "InputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1038"
+                    },
+                    "type": "Variable"
+                },
+                "OutputArguments": {
+                    "name": "OutputArguments",
+                    "nodeId": {
+                        "ns": "4",
+                        "nid": "1039"
+                    },
+                    "type": "Variable"
+                }
+            }
+        ]
+    },
+    "version": "V3",
+    "parameters": {
+        "inputs": [
+            {
+                "name": "Value1",
+                "dataType": "ns=0;i=10",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "4540938d-2d57-419d-adf9-06e45a31ce71",
+                "id_label": "f731677c-6367-4c69-9cfc-c6b76b56cc04",
+                "id_port": "76c3098b-624c-42d6-bc1d-a188b6c199a2"
+            },
+            {
+                "name": "Value2",
+                "dataType": "ns=0;i=10",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "af0d4003-226e-4d1b-abbd-cea2ba41e7cb",
+                "id_label": "7519d123-bb0e-414c-819d-ad440827ab00",
+                "id_port": "b6badde0-5947-4687-800f-cebdfa3d123c"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "ValueOut",
+                "dataType": "ns=0;i=10",
+                "valueRank": "-1",
+                "arrayDimensions": [
+                    "0"
+                ],
+                "id_circle": "dc683f0a-8cb3-4489-a905-ea43f3286311",
+                "id_label": "e0f6f8c9-9103-4a81-8fef-b9b3a2ea018f",
+                "id_port": "faafce9e-b971-4c51-b057-6906810489b6"
+            }
+        ]
+    }
+}

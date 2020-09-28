@@ -1304,10 +1304,33 @@ var FilterPane = function () {
           if (figure.outputPorts) {
             self.insertPane(self.html, "figure_outputs_count", 'Outputs', figure.outputPorts.data.length);
           }
+
+          if (desc.skill_descp) {
+            // Check if subskills
+            var _keys = self.filterKeys(desc.skill_descp.skillModel).filter(function (el) {
+              return el !== "Description" && el !== "Invokation";
+            });
+
+            _keys.forEach(function (e) {
+              var obj_ = desc.skill_descp.skillModel[e];
+              self.insertPane(self.html, "figure_subskill_" + obj_.name, 'HasSubSkill ' + obj_.name, obj_.name);
+            });
+          }
         });
       }
 
       this.currentFigure = figure;
+    }
+  }, {
+    key: "filterKeys",
+    value: function filterKeys(obj) {
+      var keys = [];
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          keys.push(key);
+        }
+      }
+      return keys;
     }
   }, {
     key: "insertPane",

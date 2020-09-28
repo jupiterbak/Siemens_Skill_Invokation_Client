@@ -7,6 +7,56 @@
     "filePath": "AND.shape"
   },
   {
+    "name": "AssemblyBenchMark_localhost_4847_Assembly",
+    "tags": [
+      "AssemblyBenchMark",
+      "localhost",
+      "4847",
+      "Assembly"
+    ],
+    "filePath": "AssemblyBenchMark_localhost_4847_Assembly.shape"
+  },
+  {
+    "name": "AssemblyBenchMark_localhost_4847_Assembly2",
+    "tags": [
+      "AssemblyBenchMark",
+      "localhost",
+      "4847",
+      "Assembly2"
+    ],
+    "filePath": "AssemblyBenchMark_localhost_4847_Assembly2.shape"
+  },
+  {
+    "name": "AssemblyBenchMark_localhost_4847_Load",
+    "tags": [
+      "AssemblyBenchMark",
+      "localhost",
+      "4847",
+      "Load"
+    ],
+    "filePath": "AssemblyBenchMark_localhost_4847_Load.shape"
+  },
+  {
+    "name": "AssemblyBenchMark_localhost_4847_PickAndPlace",
+    "tags": [
+      "AssemblyBenchMark",
+      "localhost",
+      "4847",
+      "PickAndPlace"
+    ],
+    "filePath": "AssemblyBenchMark_localhost_4847_PickAndPlace.shape"
+  },
+  {
+    "name": "AssemblyBenchMark_localhost_4847_Unload",
+    "tags": [
+      "AssemblyBenchMark",
+      "localhost",
+      "4847",
+      "Unload"
+    ],
+    "filePath": "AssemblyBenchMark_localhost_4847_Unload.shape"
+  },
+  {
     "name": "Documentation_Text",
     "tags": [
       "Documentation",
