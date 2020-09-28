@@ -78,7 +78,7 @@
       "stroke": 0,
       "radius": 0,
       "dasharray": null,
-      "text": "{{skill.name}} ({{version}})",
+      "text": "{{getShortenedSkillName skill.name}} ({{version}})",
       "outlineStroke": 0,
       "outlineColor": "#FF0000",
       "fontSize": 16,

@@ -46,7 +46,7 @@ import conf from './Configuration'
 $(window).load(function() {
     socket = io({
         path: '/socket.io'
-    })
+    });
 
     // remove the fileOpen/Save stuff if we run in a "serverless" mode. e.g. on gh-pages
     // (fake event from the socket.io mock )
@@ -74,9 +74,9 @@ $(window).load(function() {
         // export all required classes for deserialize JSON with "eval"
         // "eval" code didn't sees imported class or code
         //
-        app = require("./Application")
-        require("./hardware").init(socket)
-        inlineSVG.init()
+        app = require("./Application");
+        require("./hardware").init(socket);
+        inlineSVG.init();
     }).fail(function() {
         if (arguments[0].readyState == 0) {
             //script failed to load

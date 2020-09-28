@@ -94,15 +94,26 @@ export default class Palette {
             //  '  </div>');
 
             //    $("#paletteElements").append("<div>++</div>");
+
+            // Animate teh tooltip
+            //$('*[data-toggle="tooltip"]').tooltip({
+            $('.pallette_item').tooltip({
+                placement: "bottom",
+                container: "body",
+                delay: {show: 1000, hide: 10},
+                html: true
+            });
         });
 
         socket.on("shape:generating", function(msg) {
-            $("div[data-file='" + msg.filePath + "'] ").addClass("spinner")
+            $.notify({ message: "Generating shape."},{ type: 'warning'});
+            $("div[data-file='" + msg.filePath + "'] ").addClass("spinner");
         });
 
         socket.on("shape:generated", function(msg) {
-            $("div[data-file='" + msg.filePath + "'] ").removeClass("spinner")
-            $("div[data-file='" + msg.filePath + "'] img").attr({ src: conf.shapes.url + msg.imagePath + "?timestamp=" + new Date().getTime() })
+            $("div[data-file='" + msg.filePath + "'] ").removeClass("spinner");
+            $("div[data-file='" + msg.filePath + "'] img").attr({ src: conf.shapes.url + msg.imagePath + "?timestamp=" + new Date().getTime() });
+            $.notify({ message: "Shape generation done."},{ type: 'info'});
         });
     }
 

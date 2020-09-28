@@ -46,6 +46,10 @@ template7.registerHelper('getLocalizedTextNodeID', function(nodeIdTxt) {
     return cliTruncate((""+ nodeIdTxt).replace(new RegExp('"', 'g'),""), 10);
 });
 
+template7.registerHelper('getShortenedSkillName', function(skillName) {
+    return cliTruncate((""+ skillName), 13, {position: 'middle'});
+});
+
 // Tell the bodyparser middleware to accept more data
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));

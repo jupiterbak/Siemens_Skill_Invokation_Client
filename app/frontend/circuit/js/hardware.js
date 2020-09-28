@@ -22,27 +22,29 @@ export default {
    * @param s
    */
   init: function (s) {
-    socket = s
+    socket = s;
     // GPIO from RasperyPi
     //
     socket.on("gpo:change", msg =>{
-      values[msg.pin] = !!parseInt(msg.value)
-    })
+      values[msg.pin] = !!parseInt(msg.value);
+    });
 
     socket.on('disconnect',  () => {
-      this.raspi.emit("disconnect")
-    })
+      $.notify({ message: "Websocket disconnected."},{ type: 'danger'});
+      this.raspi.emit("disconnect");
+    });
     socket.on('connect',  () => {
-      this.raspi.emit("connect")
-    })
+      this.raspi.emit("connect");
+      $.notify({ message: "Websocket connected"},{ type: 'info'});
+    });
 
     // Init the WEBUSB stuff
     //
     serial.getPorts().then(ports => {
       if (ports.length !== 0) {
-        this.arduino.connectPort(ports[0])
+        this.arduino.connectPort(ports[0]);
       }
-    })
+    });
   },
 
   arduino: new class extends EventEmitter{

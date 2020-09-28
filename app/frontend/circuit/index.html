@@ -198,7 +198,7 @@
                 <h5 class="font-weight-bold text-center">{{name}}</h5>
             </div>
             {{#shapes}}
-            <div data-name='{{name}}' data-file='{{filePath}}' class="mix col-md-6 pallette_item">
+            <div data-name='{{name}}' data-file='{{filePath}}' data-toggle="tooltip" title="{{basename}}" class="mix col-md-6 pallette_item">
                 <div class="glow">
                     <img data-shape="{{name}}" class="draw2d_droppable" src="{{shapesUrl}}{{name}}.png" />
                     <div>{{basename}}</div>
