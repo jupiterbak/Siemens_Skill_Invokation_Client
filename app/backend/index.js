@@ -63,6 +63,9 @@ const shapeDirApp = path.normalize(__dirname + '/../shapes/');
 const shape2CodeDir = path.normalize(__dirname + '/../shape2code/');
 const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
 
+// Api backend
+const api = require('./src/api');
+
 // Application specific services
 const kg_enpoints = require("./src/sparql_endpoint");
 var KGEnpoints = {};
@@ -579,6 +582,17 @@ function runServer() {
             res.send(JSON.stringify([]));
         }
     });
+
+
+    // =================================================================
+    // Handle skill invocation client API
+    //
+    // =================================================================
+    app.get('/v1/skills', (req, res) => api.);
+    app.get('/backend/shape/get', (req, res) => storage.getJSONFile(shapeDirApp, req.query.filePath, res));
+    app.get('/backend/shape/image', (req, res) => storage.getBase64Image(shapeDirApp, req.query.filePath, res));
+    app.post('/backend/shape/delete', (req, res) => storage.deleteFile(shapeDirApp, req.body.filePath, res));
+    app.post('/backend/shape/rename', (req, res) => storage.renameFile(shapeDirApp, req.body.from, req.body.to, res));
 
     //  Start the web server
     http.listen(port, function() {

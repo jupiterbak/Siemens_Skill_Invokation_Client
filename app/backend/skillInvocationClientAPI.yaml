@@ -1,0 +1,145 @@
+swagger: "2.0"
+info:
+  description: "Sample API for the Siemens Skill Invocation Client. Using this API, a machine or module can register itself to the tool and also browse all avialable skills"
+  version: "1.0.0"
+  title: "Skill Invocation Client API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "jupiter.bakakeu@faps.fau.de"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+basePath: "/v1"
+tags:
+- name: "skill invocation client"
+  description: "Access to the Skill Invocation Client"
+schemes:
+- "https"
+- "http"
+paths:
+  /skills:
+    get:
+      summary: "Get all saved skill definitions"
+      description: ""
+      operationId: "listSkills"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Skill"
+    post:
+      summary: "Register a new module"
+      description: ""
+      operationId: "registerModule"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Module name and OPC UA Server description that needs to be browsed."
+        required: true
+        schema:
+          $ref: "#/definitions/Module"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Skill"
+    delete:
+      summary: "Deregister a module"
+      description: ""
+      operationId: "deleteModule"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Module"
+      responses:
+        "200":
+            description: "OK."
+        "405":
+          description: "Invalid input"
+  /skills/findByModule:
+    get:
+      summary: "Finds all the skills implemented by a specific module."
+      description: ""
+      operationId: "findSkillsByIP"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Module Description to deregister."
+        required: true
+        schema:
+          $ref: "#/definitions/Module"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Skill"
+        "400":
+          description: "Invalid status value"
+definitions:
+  Module:
+    type: "object"
+    required:
+    - "name"
+    - "ip"
+    - "port"
+    properties:
+      name:
+        type: "string"
+        example: "InsertSkill"
+      ip:
+        type: "string"
+        example: "192.168.0.1"
+      port:
+        type: "integer"
+        format: "int32"
+        example: 4840
+  Skill:
+    type: "object"
+    required:
+    - "name"
+    - "module_name"
+    - "ip"
+    - "port"
+    properties:
+      name:
+        type: "string"
+        example: "InsertSkill"
+      module_name:
+        type: "string"
+        example: "AssemblyModule 1"
+      ip:
+        type: "string"
+        example: "192.168.0.1"
+      port:
+        type: "integer"
+        format: "int32"
+        example: 4840
+      nodeId:
+        type: "string"
+        example: "ns=4;i=7001"
+      version:
+        type: "string"
+        example: "V1"
