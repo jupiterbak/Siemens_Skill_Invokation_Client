@@ -1,5 +1,6 @@
 
 import skillproxy from "./../io/BackendSkills"
+import async from 'async';
 
 export default class BrowseSkillsDialog {
 
@@ -61,6 +62,37 @@ export default class BrowseSkillsDialog {
             $("#skillBrowseDialog .alert").text("Found " + _skills.length + " skills. saving ...").show();
             self.log.info("[OPCUA] Found " + _skills.length + " skill(s). saving ...");
             // Save the found skills
+            /*
+            async.eachSeries(_skills, function(_skill, callback) {
+              $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
+              $("#skillBrowseDialog .alert").addClass("spinner");
+              // Save the skill synchronously
+              skillproxy.saveSkill(_skill, machineName)
+              .then(function(s_data) {
+                if(s_data.err){                  
+                  $("#skillBrowseDialog .alert").text("Error while saving the skill " + _skill.skill.name + ":" + s_data.err).show();
+                  $("#skillBrowseDialog .alert").removeClass("spinner");
+                  callback("[OPCUA] Error while saving the skill"  + _skill.skill.name + ":" + s_data.err);
+                }else{
+                  $("#skillBrowseDialog .alert").text("Skill " + _skill.skill.name + "saved successfully.").show();
+                  self.log.info("[OPCUA] Skill " + _skill.skill.name + "saved successfully.");
+                  $("#skillBrowseDialog .alert").removeClass("spinner");
+                  callback();
+                }
+              });              
+            }, function(err) {
+                if( err ) {
+                  // One of the iterations produced an error.
+                  // All processing will now stop.
+                  self.log.error(err);
+                } else {
+                  $('#skillBrowseDialog').modal('hide');
+                    Mousetrap.unpause();
+                    location.reload();
+                  }
+            });
+            */
+            
             for (var i = 0, len = _skills.length; i < len; i++) {
               var _skill = _skills[i];
               $("#skillBrowseDialog .alert").text("Saving Skill " + _skill.skill.name + " ...").show();
@@ -85,7 +117,7 @@ export default class BrowseSkillsDialog {
                 }
               });
             }
-
+            
             /*                                  
             setTimeout(() => {              
               $('#skillBrowseDialog').modal('hide');

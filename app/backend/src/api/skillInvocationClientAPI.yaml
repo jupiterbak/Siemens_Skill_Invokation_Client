@@ -14,18 +14,18 @@ tags:
 - name: "skill invocation client"
   description: "Access to the Skill Invocation Client"
 schemes:
-- "https"
 - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
 paths:
   /skills:
+    x-swagger-router-controller: "skill_router"
     get:
       summary: "Get all saved skill definitions"
       description: ""
       operationId: "listSkills"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
       responses:
         "200":
           description: "successful operation"
@@ -37,14 +37,10 @@ paths:
       summary: "Register a new module"
       description: ""
       operationId: "registerModule"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
       parameters:
       - in: "body"
-        name: "body"
-        description: "Module name and OPC UA Server description that needs to be browsed."
+        name: "module"
+        description: "Module object and OPC UA Server description that needs to be browsed."
         required: true
         schema:
           $ref: "#/definitions/Module"
@@ -55,40 +51,37 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/Skill"
-    delete:
-      summary: "Deregister a module"
+    put:
+      summary: "Update the skills of a module"
       description: ""
-      operationId: "deleteModule"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
+      operationId: "updateModule"
       parameters:
       - in: "body"
-        name: "body"
-        description: "Pet object that needs to be added to the store"
+        name: "module"
+        description: "Module object and OPC UA Server description that needs to be updated."
         required: true
         schema:
           $ref: "#/definitions/Module"
       responses:
         "200":
-            description: "OK."
-        "405":
-          description: "Invalid input"
-  /skills/findByModule:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Skill"
+  
+  /skills/{moduleName}:
+    x-swagger-router-controller: "skill_router"
     get:
-      summary: "Finds all the skills implemented by a specific module."
+      summary: "Get all the skills belonging to a module."
       description: ""
-      operationId: "findSkillsByIP"
-      produces:
-      - "application/json"
+      operationId: "getSkillsByModule"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "Module Description to deregister."
-        required: true
-        schema:
-          $ref: "#/definitions/Module"
+        - name: "moduleName"
+          in: "path"
+          required: true
+          description: "The name of module to search for."
+          type: "string"
       responses:
         "200":
           description: "successful operation"
@@ -98,6 +91,22 @@ paths:
               $ref: "#/definitions/Skill"
         "400":
           description: "Invalid status value"
+    delete:
+      summary: "Delete a skill from the repository"
+      description: ""
+      operationId: "deleteModule"
+      parameters:
+        - name: "moduleName"
+          in: "path"
+          required: true
+          description: "The name of the module to remove"
+          type: "string"
+      responses:
+        "200":
+            description: "OK."
+        "405":
+          description: "Invalid input"
+  
 definitions:
   Module:
     type: "object"

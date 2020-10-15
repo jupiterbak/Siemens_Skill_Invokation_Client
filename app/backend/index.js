@@ -3,6 +3,7 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
+const app_api = require('connect')();
 const http = require('http').Server(app);
 const path = require('path');
 const childProcess = require('child_process');
@@ -11,6 +12,8 @@ const bodyParser = require('body-parser');
 const glob = require("glob");
 const template7 = require('template7');
 const cliTruncate = require('cli-truncate');
+var swaggerTools = require('swagger-tools');
+var jsyaml = require('js-yaml');
 const winston = require('winston');
 const logger = winston.createLogger({
     transports: [new winston.transports.Console()],
@@ -63,9 +66,6 @@ const shapeDirApp = path.normalize(__dirname + '/../shapes/');
 const shape2CodeDir = path.normalize(__dirname + '/../shape2code/');
 const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
 
-// Api backend
-const api = require('./src/api');
-
 // Application specific services
 const kg_enpoints = require("./src/sparql_endpoint");
 var KGEnpoints = {};
@@ -74,6 +74,7 @@ const OPCUAClientService = require("./src/OPCUAClientService");
 // Determine the IP:PORT to use for the http server
 //
 const address = require("./src/network");
+const { UONE } = require('long');
 const port = defaultSettings.uiPort || 7400;
 
 // =======================================================================
@@ -83,6 +84,45 @@ const port = defaultSettings.uiPort || 7400;
 // =======================================================================
 // Initialize SocketIO
 const io = require('./src/comm/websocket').connect(http, { path: '/socket.io' }, logger, KGEnpoints);
+
+// =======================================================================
+//
+// The Swagger API HTTP Server.
+//
+// =======================================================================
+function configureSwaggerAPI(_app, _callBack){
+
+    
+    // swaggerRouter configuration
+    var options = {
+        swaggerUi: path.join(__dirname, 'swagger.json'),
+        controllers: path.join(__dirname, './src/api/controllers'),
+        useStubs: process.env.NODE_ENV === 'development' // Conditionally turn on stubs (mock mode)
+    };
+    
+    // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
+    var spec = fs.readFileSync(path.join(__dirname,'./src/api/skillInvocationClientAPI.yaml'), 'utf8');
+    var swaggerDoc = jsyaml.safeLoad(spec);
+    
+    // Initialize the Swagger middleware
+    swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
+        
+
+        // Interpret Swagger resources and attach metadata to request - must be first in swagger-tools middleware chain
+        _app.use(middleware.swaggerMetadata());
+    
+        // Validate Swagger requests
+        _app.use(middleware.swaggerValidator());
+    
+        // Route validated requests to appropriate controller
+        _app.use(middleware.swaggerRouter(options));
+    
+        // Serve the Swagger documents and Swagger UI
+        _app.use(middleware.swaggerUi());
+        
+        _callBack(_app);
+    });    
+}
 
 // =======================================================================
 //
@@ -285,7 +325,6 @@ function runServer() {
                             imagePath: req.body.filePath.replace(".shape", ".png"),
                             jsPath: req.body.filePath.replace(".shape", ".js")
                         });
-                        console.log(`stdout: ${stdout}`);
                     }
                 });
             });
@@ -585,26 +624,44 @@ function runServer() {
 
 
     // =================================================================
-    // Handle skill invocation client API
+    // Now configure the Swager api and start the server.
     //
     // =================================================================
-    app.get('/v1/skills', (req, res) => api.);
-    app.get('/backend/shape/get', (req, res) => storage.getJSONFile(shapeDirApp, req.query.filePath, res));
-    app.get('/backend/shape/image', (req, res) => storage.getBase64Image(shapeDirApp, req.query.filePath, res));
-    app.post('/backend/shape/delete', (req, res) => storage.deleteFile(shapeDirApp, req.body.filePath, res));
-    app.post('/backend/shape/rename', (req, res) => storage.renameFile(shapeDirApp, req.body.from, req.body.to, res));
-
     //  Start the web server
-    http.listen(port, function() {
-        console.log('using Puppeteer for server side rendering of shape previews:', puppeteer.path)
-        console.log('+------------------------------------------------------------+');
-        console.log('| Welcome to the SP347 Skill Invokation Client               |');
-        console.log('|------------------------------------------------------------|');
-        console.log('| System is up and running. Copy the URL below and open this |');
-        console.log('| in your browser: http://' + address + ':' + port + '/                 |');
-        console.log('|                  http://localhost:' + port + '/                    |');
-        console.log('+------------------------------------------------------------+');
-    });
-}
+    configureSwaggerAPI(app_api, function(_app){
 
+        // Bind the swagger API server with the main server
+        app.use('/api/', _app);
+
+        // Export the main application before starting the server
+        global.MAIN_APP = {
+            io:io,
+            http:http,
+            opcuaclientservice:opcuaclientservice,
+            address:address,
+            skillParser:skillParser,
+            template7:template7,
+            port:port,
+            storage:storage,
+            logger:logger,
+            kg_enpoints:kg_enpoints
+        };
+
+        // Start listening to the main server on port
+        http.listen(port, function() {
+            console.log('using Puppeteer for server side rendering of shape previews:', puppeteer.path)
+            console.log('+------------------------------------------------------------+');
+            console.log('| Welcome to the SP347 Skill Invokation Client               |');
+            console.log('|------------------------------------------------------------|');
+            console.log('| System is up and running. Copy the URL below and open this |');
+            console.log('| in your browser: http://' + address + ':' + port + '/                 |');
+            console.log('|                  http://localhost:' + port + '/                    |');
+            console.log('| SWagger Docs:    http://' + address + ':' + port + '/api/docs         |');
+            console.log('| Rest API:        http://localhost:' + port + '/api/                |');
+            console.log('+------------------------------------------------------------+');
+        });
+    })
+    
+}
 runServer();
+

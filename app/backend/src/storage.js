@@ -3,8 +3,8 @@ const glob = require("glob");
 const path = require('path');
 
 const brainDirHOME = "./.skillInvocationClient/";
-const brainDirUserHOME = brainDirHOME + "brain/"
-const shapeDirUserHOME = brainDirHOME + "shapes/"
+const brainDirUserHOME = brainDirHOME + "brain/";
+const shapeDirUserHOME = brainDirHOME + "shapes/";
 
 
 /**
@@ -85,13 +85,13 @@ module.exports = {
         return fs.rename(baseDir + from, baseDir + to, err => {
             if (err) console.log(err)
             res.send('true')
-        })
+        });
     },
 
     deleteFile: function(baseDir, subDir, res) {
         return fs.unlink(baseDir + subDir, err => {
             if (err) console.log(err)
             res.send('true')
-        })
+        });
     }
 }

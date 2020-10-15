@@ -1,0 +1,254 @@
+{
+  "draw2d": [
+    {
+      "type": "shape_designer.figure.PolyRect",
+      "id": "c55dd135-15db-7c71-5efa-f6761c073e66",
+      "x": 7984.59375,
+      "y": 7935,
+      "width": 30,
+      "height": 85,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n        this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.getInputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getOutputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getInputPort(1).attr({\n            semanticGroup:\"signal\"\n        });\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n\n    },\n    \n    calculate:function()\n    {\n        var i1 = this.getInputPort(0);\n        var i2 = this.getInputPort(1);\n        var o1 = this.getOutputPort(0);\n        \n        o1.setValue(i1.getValue() || i2.getValue());\n    },\n    \n    onStart:function(){\n        ;\n    },\n\n    getParameterSettings: function()\n    {\n        return [\n        {\n            name:\"dataId\",\n            label:\"Data Id\",\n            property:{\n                type: \"string\"\n            }\n        },\n        {\n            name:\"dataValue\",\n            label:\"(Optional) Data Value\",\n            property:{\n                type: \"int\"\n            }\n        }];\n    }\n});",
+        "name": "Rectangle",
+        "markdown": "# OR Gate\n\n## Description\nThe `OR gate` is a digital logic gate that implements logical \ndisjunction - it behaves according to the truth table to the\n \n \n\n**Therefore, A `High` output results if one or both the \ninputs to the gate are `High`**\n\n## Logic table\n\n| INPUT 1   | INPUT   |  OUTPUT    |\n|:---------:|:-------:|:----------:|\n| Low       | Low     |  Low       |\n| `High`      | Low     |  `High`       |\n| Low       | `High`    |  `High`       |\n| `High`      | `High`    |  `High`    |\n\n"
+      },
+      "cssClass": "shape_designer_figure_PolyRect",
+      "ports": [],
+      "bgColor": "#FFFFFF",
+      "color": "#303030",
+      "stroke": 1,
+      "radius": 3,
+      "dasharray": null,
+      "vertices": [
+        {
+          "x": 7984.59375,
+          "y": 7935
+        },
+        {
+          "x": 8014.59375,
+          "y": 7935
+        },
+        {
+          "x": 8014.59375,
+          "y": 8020
+        },
+        {
+          "x": 7984.59375,
+          "y": 8020
+        }
+      ],
+      "blur": 0,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.SizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        },
+        {
+          "name": "shape_designer.filter.RadiusFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "592a8604-e0a9-8913-445d-621078e5ae97",
+      "x": 7978.59375,
+      "y": 7984.5,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "input01",
+        "type": "Input",
+        "direction": 3
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "5fc48f01-fecb-0d5f-ed4f-81a4bc26ae63",
+      "x": 7978.59375,
+      "y": 8006.5,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "input02",
+        "type": "Input",
+        "direction": 3
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "7c8a6215-ce17-6a10-c85b-b97fd0de466c",
+      "x": 8015.59375,
+      "y": 7995,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "output",
+        "type": "Output",
+        "direction": 1
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLabel",
+      "id": "0a4705bb-c6fd-7a26-332f-6972e8683949",
+      "x": 7984.59375,
+      "y": 7984.5,
+      "width": 30.350000381469727,
+      "height": 23,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Label"
+      },
+      "cssClass": "shape_designer_figure_ExtLabel",
+      "ports": [],
+      "bgColor": "none",
+      "color": "#1B1B1B",
+      "stroke": 0,
+      "radius": 0,
+      "dasharray": null,
+      "text": ">1",
+      "outlineStroke": 0,
+      "outlineColor": "none",
+      "fontSize": 20,
+      "fontColor": "#080808",
+      "fontFamily": null,
+      "editor": "LabelInplaceEditor",
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontSizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "2239fbb0-97a8-9fb5-4b78-08d3b916025f",
+      "x": 7978.59375,
+      "y": 7957.5,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "input01",
+        "type": "Input",
+        "direction": 3
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    }
+  ],
+  "image": "data:image/png;base64,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"
+}
