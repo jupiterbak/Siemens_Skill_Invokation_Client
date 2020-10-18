@@ -8,6 +8,7 @@ import hardware from "./Hardware"
 import inlineSVG from "../lib/inlineSVG"
 import LabelInplaceEditor from './LabelInplaceEditor'
 import skillproxy from "./io/BackendSkills"
+import ValueParserValidator from "./util/ValueParserValidator"
 
 export default {
   hardware,
@@ -16,5 +17,6 @@ export default {
   Mousetrap,
   CircuitFigure,
   inlineSVG,
-  skillproxy
+  skillproxy,
+  ValueParserValidator
 }

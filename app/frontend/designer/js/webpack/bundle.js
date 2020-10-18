@@ -5293,7 +5293,7 @@ module.exports = exports.default;
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
-/*! CommonJS bailout: module.exports is used directly at 50:0-14 */
+/*! CommonJS bailout: module.exports is used directly at 55:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -5335,6 +5335,10 @@ var _BackendSkills = __webpack_require__(/*! ./io/BackendSkills */ "./app/fronte
 
 var _BackendSkills2 = _interopRequireDefault(_BackendSkills);
 
+var _ValueParserValidator = __webpack_require__(/*! ./util/ValueParserValidator */ "./app/frontend/designer/js/util/ValueParserValidator.js");
+
+var _ValueParserValidator2 = _interopRequireDefault(_ValueParserValidator);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -5344,7 +5348,8 @@ exports.default = {
   Mousetrap: _mousetrap2.default,
   CircuitFigure: _CircuitFigure2.default,
   inlineSVG: _inlineSVG2.default,
-  skillproxy: _BackendSkills2.default
+  skillproxy: _BackendSkills2.default,
+  ValueParserValidator: _ValueParserValidator2.default
 };
 module.exports = exports.default;
 
@@ -7049,6 +7054,293 @@ exports.default = _AbstractToolPolicy2.default.extend({
   }
 });
 module.exports = exports.default;
+
+/***/ }),
+
+/***/ "./app/frontend/designer/js/util/ValueParserValidator.js":
+/*!***************************************************************!*\
+  !*** ./app/frontend/designer/js/util/ValueParserValidator.js ***!
+  \***************************************************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 274:0-14 */
+/***/ ((module) => {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Copyright 2020 Siemens AG.
+ * 
+ * Project: SP 347
+ * Author:
+ *  - Jupiter Bakakeu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ * --------------------------------------------------------------------
+ * ###################### Changes #####################################
+ * -- 22.09.2020
+ *      Initial implementation
+ * --------------------------------------------------------------------
+ **/
+
+/*#####################################################################################*/
+/* ValueParserValidator
+ /*#####################################################################################*/
+
+var ValueParserValidator = function () {
+    function ValueParserValidator() {
+        _classCallCheck(this, ValueParserValidator);
+
+        this.reg = /ns=([0-9]+);(.*)/;
+    }
+
+    _createClass(ValueParserValidator, [{
+        key: "stringToUInt32Array",
+        value: function stringToUInt32Array(_str) {
+            if (_str === null || _str === undefined || _str === "") {
+                throw "Array is empty.";
+            }
+            var str = ("" + _str).toLowerCase();
+            return JSON.parse(str).map(function (value) {
+                return parseInt(value);
+            }).map(function (_value) {
+                if (isNaN(_value)) {
+                    throw "A value is not a number";
+                }
+                return _value;
+            });
+        }
+    }, {
+        key: "ListOf",
+        value: function ListOf(isArray, parseFunc, _txt) {
+            if (_txt === null || _txt === undefined || _txt === "") {
+                throw "Array is empty.";
+            }
+            var txt = ("" + _txt).toLowerCase();
+            if (isArray) {
+                var _tmp = JSON.parse(txt).map(function (value) {
+                    return parseFunc(value);
+                });
+                if (!Array.isArray(_tmp)) {
+                    throw "Value is not an Array.";
+                }
+                _tmp.map(function (_iter, _index) {
+                    if (_iter === undefined) {
+                        throw "The value " + _index + " of the array is undefined.";
+                    }
+                    if (_iter === null) {
+                        throw "The value " + _index + " of the array is null";
+                    }
+                    if ("" + _iter === "") {
+                        throw "The value " + _index + " of the array is empty.";
+                    }
+                    return _iter;
+                });
+                return _tmp;
+            } else {
+                var _rslt = parseFunc(txt);
+                if (_rslt === undefined) {
+                    throw "The value is undefined.";
+                }
+                if (_rslt === null) {
+                    throw "The value is null.";
+                }
+                if ("" + _rslt === "") {
+                    throw "The value is empty.";
+                }
+                return _rslt;
+            }
+        }
+    }, {
+        key: "ListOfNumbers",
+        value: function ListOfNumbers(isArray, parseFunc, _txt) {
+            if (_txt === null || _txt === undefined || _txt === "") {
+                throw "Array is empty.";
+            }
+            var txt = ("" + _txt).toLowerCase();
+            if (isArray) {
+                var _tmp = JSON.parse(txt).map(function (value) {
+                    return parseFunc(value);
+                });
+                if (!Array.isArray(_tmp)) {
+                    throw "Value is not an Array.";
+                }
+
+                _tmp.map(function (_iter, _index) {
+                    if (_iter === undefined) {
+                        throw "The value " + _index + " of the array is undefined.";
+                    }
+                    if (_iter === null) {
+                        throw "The value " + _index + " of the array is null";
+                    }
+                    if ("" + _iter === "") {
+                        throw "The value " + _index + " of the array is empty.";
+                    }
+                    if (isNaN(_iter)) {
+                        throw "The value " + _index + " of the array is not a number.";
+                    }
+                    return _iter;
+                });
+
+                return _tmp;
+            } else {
+                var _rslt = parseFunc(txt);
+                if (_rslt === undefined) {
+                    throw "The value is undefined.";
+                }
+                if (_rslt === null) {
+                    throw "The value is null.";
+                }
+                if ("" + _rslt === "") {
+                    throw "The value is empty.";
+                }
+                if (isNaN(_rslt)) {
+                    throw "The value is not a number.";
+                }
+                return _rslt;
+            }
+        }
+    }, {
+        key: "ListOfDates",
+        value: function ListOfDates(isArray, _txt) {
+            if (_txt === null || _txt === undefined || _txt === "") {
+                throw "Array is empty.";
+            }
+            var txt = ("" + _txt).toLowerCase();
+            if (isArray) {
+                var _tmp = JSON.parse(txt).map(function (value) {
+                    return new Date(value);
+                });
+                if (!Array.isArray(_tmp)) {
+                    throw "Value is not an Array.";
+                }
+
+                _tmp.map(function (_iter, _index) {
+                    if (_iter === undefined) {
+                        throw "The value " + _index + " of the array is undefined.";
+                    }
+                    if (_iter === null) {
+                        throw "The value " + _index + " of the array is null";
+                    }
+                    if ("" + _iter === "") {
+                        throw "The value " + _index + " of the array is empty.";
+                    }
+                    if (isNaN(_iter.getTime())) {
+                        throw "The value " + _index + " of the array is not a valid date.";
+                    }
+                    return _iter.toDateString();
+                });
+
+                return _tmp;
+            } else {
+                var _rslt = new Date(txt);
+                if (_rslt === undefined) {
+                    throw "The value is undefined.";
+                }
+                if (_rslt === null) {
+                    throw "The value is null.";
+                }
+                if ("" + _rslt === "") {
+                    throw "The value is empty.";
+                }
+                if (isNaN(_rslt.getTime())) {
+                    throw "The value is not a valid date.";
+                }
+                return _rslt.toDateString();
+            }
+        }
+    }, {
+        key: "localizedText_parser",
+        value: function localizedText_parser(text) {
+            var _localizedText = {};
+            _localizedText.locale = text.trim();
+            _localizedText.text = text.trim();
+            return _localizedText;
+        }
+    }, {
+        key: "text_parser",
+        value: function text_parser(text) {
+            return text ? "" + text : null;
+        }
+    }, {
+        key: "parse",
+        value: function parse(dataType, value_input, isArray) {
+            var self = this;
+            var _dtype = dataType ? dataType : 'String';
+            var _isArray = isArray ? isArray : false;
+            var value = ("" + value_input).toLowerCase();
+            var _value = null;
+
+            if (_dtype === 'Null' || _dtype === undefined) {
+                _value = self.ListOf(_isArray, function (text) {
+                    return null;
+                }, value);
+            } else if (_dtype === 'String') {
+                _value = self.ListOf(_isArray, function (text) {
+                    return text ? "" + text : null;
+                }, value);
+            } else if (_dtype === 'Boolean') {
+                _value = self.ListOf(_isArray, function (text) {
+                    return text ? ("" + text).toLowerCase() === "true" ? true : false : false;
+                }, value);
+            } else if (_dtype === 'ByteString') {
+                _value = self.ListOf(_isArray, function (text) {
+                    return text ? Buffer.from("" + text, "base64") : null;
+                }, value);
+            } else if (_dtype === 'localizedText') {
+                _value = self.ListOf(_isArray, self.localizedText_parser, value);
+            } else if (_dtype === 'Double') {
+                _value = self.ListOfNumbers(_isArray, parseFloat, value);
+            } else if (_dtype === 'Float') {
+                _value = self.ListOfNumbers(_isArray, parseFloat, value);
+            } else if (_dtype === 'SByte') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'Int16') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'Int32') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'Byte') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'UInt16') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'UInt32') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else if (_dtype === 'Date') {
+                _value = self.ListOfDates(_isArray, value);
+            } else if (_dtype === 'Timestamp') {
+                _value = self.ListOfNumbers(_isArray, parseInt, value);
+            } else {
+                throw "Datatype is not supported.";
+            }
+
+            return {
+                dataType: _dtype, //el.dataType.value, // only basic datatypes are supported
+                isArray: _isArray,
+                value: _value
+            };
+        }
+    }]);
+
+    return ValueParserValidator;
+}();
+
+module.exports = ValueParserValidator;
 
 /***/ }),
 

@@ -755,59 +755,57 @@ OR = OR.extend({
 // created with http://www.draw2d.org
 //
 //
-
 var Signals_DataSource = CircuitFigure.extend({
 
-    NAME: "Signals_DataSource",
-    VERSION: "1.0.168_309",
- 
-    init:function(attr, setter, getter)
-    {
-      var _this = this;
- 
-      this._super( $.extend({stroke:0, bgColor:null, width:65.72720000000481,height:22},attr), setter, getter);
-      var port;
-      // Port
-      port = this.addPort(new DecoratedOutputPort(), new draw2d.layout.locator.XYRelPortLocator({x: 98.47855986562651, y: 46.56272727272815 }));
-      port.setConnectionDirection(1);
-      port.setBackgroundColor("#37B1DE");
-      port.setName("Port");
-      port.setMaxFanOut(20);
-    },
- 
-    createShapeElement : function()
-    {
-       var shape = this._super();
-       this.originalWidth = 65.72720000000481;
-       this.originalHeight= 22;
-       return shape;
-    },
- 
-    createSet: function()
-    {
-        this.canvas.paper.setStart();
-        var shape = null;
-        // BoundingBox
-        shape = this.canvas.paper.path("M0,0 L65.72720000000481,0 L65.72720000000481,22 L0,22");
-        shape.attr({"stroke":"none","stroke-width":0,"fill":"none"});
-        shape.data("name","BoundingBox");
-        
-        // outline
-        shape = this.canvas.paper.path('M0 0L53.81817921990478 0L65.72720000000481 10L53.81817921990478 20L0.24380000000201107 20.243800000000192Z');
-        shape.attr({"stroke":"rgba(0,120,242,1)","stroke-width":1,"fill":"rgba(255,255,255,1)","dasharray":null,"stroke-dasharray":null,"opacity":1});
-        shape.data("name","outline");
-        
-        // label
-        shape = this.canvas.paper.text(0,0,'Data_ID');
-        shape.attr({"x":4.773050000005242,"y":11,"text-anchor":"start","text":"Data_ID","font-family":"\"Arial\"","font-size":12,"stroke":"#000000","fill":"#0078F2","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
-        shape.data("name","label");
-        
- 
-        return this.canvas.paper.setFinish();
-    }
- });
+   NAME: "Signals_DataSource",
 
- /**
+   init:function(attr, setter, getter)
+   {
+     var _this = this;
+
+     this._super( $.extend({stroke:0, bgColor:null, width:65.72720000000481,height:22},attr), setter, getter);
+     var port;
+     // Port
+     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(98.47855986562651, 46.56272727272815));
+     port.setConnectionDirection(1);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port");
+     port.setMaxFanOut(20);
+   },
+
+   createShapeElement : function()
+   {
+      var shape = this._super();
+      this.originalWidth = 65.72720000000481;
+      this.originalHeight= 22;
+      return shape;
+   },
+
+   createSet: function()
+   {
+       this.canvas.paper.setStart();
+       var shape = null;
+       // BoundingBox
+       shape = this.canvas.paper.path("M0,0 L65.72720000000481,0 L65.72720000000481,22 L0,22");
+       shape.attr({"stroke":"none","stroke-width":0,"fill":"none"});
+       shape.data("name","BoundingBox");
+       
+       // outline
+       shape = this.canvas.paper.path('M0 0L53.81817921990478 0L65.72720000000481 10L53.81817921990478 20L0.24380000000201107 20.243800000000192Z');
+       shape.attr({"stroke":"#41AAAA","stroke-width":1,"fill":"none","dasharray":null,"opacity":1});
+       shape.data("name","outline");
+       
+       // label
+       shape = this.canvas.paper.text(0,0,'Data_ID');
+       shape.attr({"x":4.773050000005242,"y":11,"text-anchor":"start","text":"Data_ID","font-family":"\"Arial\"","font-size":12,"stroke":"#41AAAA","fill":"#41AAAA","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","label");
+       
+
+       return this.canvas.paper.setFinish();
+   }
+});
+
+/**
  * Generated Code for the Draw2D touch HTML5 lib.
  * File will be generated if you save the *.shape file.
  *
@@ -819,7 +817,6 @@ var Signals_DataSource = CircuitFigure.extend({
  * Looks disconcerting - extending my own class. But this is a good method to
  * merge basic code and override them with custom methods.
  */
-
 Signals_DataSource = Signals_DataSource.extend({
 
     init: function(attr, setter, getter){
@@ -1100,9 +1097,8 @@ Signals_DataSource = Signals_DataSource.extend({
         }
         return {error: null, value: _value};
     }
+
 });
-
-
 
 
 // Generated Code for the Draw2D touch HTML5 lib.
@@ -1113,56 +1109,55 @@ Signals_DataSource = Signals_DataSource.extend({
 //
 var Signals_DataTarget = CircuitFigure.extend({
 
-    NAME: "Signals_DataTarget",
-    VERSION: "1.0.168_309",
- 
-    init:function(attr, setter, getter)
-    {
-      var _this = this;
- 
-      this._super( $.extend({stroke:0, bgColor:null, width:69.55780000000595,height:22},attr), setter, getter);
-      var port;
-      // Port
-      port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator({x: -1.8643487861801238, y: 48.86363636363637 }));
-      port.setConnectionDirection(3);
-      port.setBackgroundColor("#37B1DE");
-      port.setName("Port");
-      port.setMaxFanOut(20);
-    },
- 
-    createShapeElement : function()
-    {
-       var shape = this._super();
-       this.originalWidth = 69.55780000000595;
-       this.originalHeight= 22;
-       return shape;
-    },
- 
-    createSet: function()
-    {
-        this.canvas.paper.setStart();
-        var shape = null;
-        // BoundingBox
-        shape = this.canvas.paper.path("M0,0 L69.55780000000595,0 L69.55780000000595,22 L0,22");
-        shape.attr({"stroke":"none","stroke-width":0,"fill":"none"});
-        shape.data("name","BoundingBox");
-        
-        // outline
-        shape = this.canvas.paper.path('M0 9.932800000005955L13.10158237711039 0.75L69 0.75L69 20.75L11.482077748871234 20.75Z');
-        shape.attr({"stroke":"rgba(0,120,242,1)","stroke-width":1,"fill":"rgba(255,255,255,1)","dasharray":null,"stroke-dasharray":null,"opacity":1});
-        shape.data("name","outline");
-        
-        // label
-        shape = this.canvas.paper.text(0,0,'Data_ID');
-        shape.attr({"x":13.182800000005955,"y":11,"text-anchor":"start","text":"Data_ID","font-family":"\"Arial\"","font-size":12,"stroke":"#000000","fill":"#0078F2","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
-        shape.data("name","label");
-        
- 
-        return this.canvas.paper.setFinish();
-    }
- });
- 
- /**
+   NAME: "Signals_DataTarget",
+
+   init:function(attr, setter, getter)
+   {
+     var _this = this;
+
+     this._super( $.extend({stroke:0, bgColor:null, width:69,height:22},attr), setter, getter);
+     var port;
+     // Port
+     port = this.addPort(new DecoratedInputPort(), new draw2d.layout.locator.XYRelPortLocator(-1.8794202898459553, 48.86363636363637));
+     port.setConnectionDirection(3);
+     port.setBackgroundColor("#1C9BAB");
+     port.setName("Port");
+     port.setMaxFanOut(20);
+   },
+
+   createShapeElement : function()
+   {
+      var shape = this._super();
+      this.originalWidth = 69;
+      this.originalHeight= 22;
+      return shape;
+   },
+
+   createSet: function()
+   {
+       this.canvas.paper.setStart();
+       var shape = null;
+       // BoundingBox
+       shape = this.canvas.paper.path("M0,0 L69,0 L69,22 L0,22");
+       shape.attr({"stroke":"none","stroke-width":0,"fill":"none"});
+       shape.data("name","BoundingBox");
+       
+       // outline
+       shape = this.canvas.paper.path('M0 9.932800000005955L13.10158237711039 0.75L69 0.75L69 20.75L11.482077748871234 20.75Z');
+       shape.attr({"stroke":"#41AAAA","stroke-width":1,"fill":"none","dasharray":null,"opacity":1});
+       shape.data("name","outline");
+       
+       // label
+       shape = this.canvas.paper.text(0,0,'Data_ID');
+       shape.attr({"x":13.182800000005955,"y":11,"text-anchor":"start","text":"Data_ID","font-family":"\"Arial\"","font-size":12,"stroke":"#41AAAA","fill":"#41AAAA","stroke-scale":true,"font-weight":"normal","stroke-width":0,"opacity":1});
+       shape.data("name","label");
+       
+
+       return this.canvas.paper.setFinish();
+   }
+});
+
+/**
  * Generated Code for the Draw2D touch HTML5 lib.
  * File will be generated if you save the *.shape file.
  *

@@ -12,8 +12,9 @@
  */
 Signals_DataSource = Signals_DataSource.extend({
 
-init: function(attr, setter, getter){
-         this._super(attr, setter, getter);
+    init: function(attr, setter, getter){
+        this._super(attr, setter, getter);
+        this._valueParserInst = new ValueParserValidator();
 
         this.attr({resizeable:false});
         this.getOutputPort(0).attr({
@@ -25,19 +26,35 @@ init: function(attr, setter, getter){
              
         // calculate the outer frame/shape in the correct size in relation to the length of the text
         //
-        var adjustWidth = function(){
-            var width = _this.layerGet("label").getBBox().width+15
+        _this.adjustWidth = function(){
+            var width = _this.layerGet("label").getBBox().width+15;
 
             _this.setWidth(width+5);
-            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`})
-            _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`})
-        }
+            _this.layerAttr("BoundingBox", { path: `M0 0 L${width} 0 L${width} 20 L0 20 Z`});
+            _this.layerAttr("outline",     { path: `M0 0 L${width-13} 0 L${width} 10 L${width-13} 20 L0 20 Z`});
+        };
         this.on("change:userData.dataId",function(emitter, event){
-            _this.layerAttr("label", {text: event.value})
-            adjustWidth();
+            _this.layerAttr("label", {text: event.value});
+            if(_this.constSignalValue){
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " + event.value + ": " + _this.constSignalValue});
+            }
+            _this.adjustWidth();
         });
+
         this.on("change:userData.dataValue",function(emitter, event){
             _this.constSignalValue = event.value;
+            var dataId = _this.attr("userData.dataId");
+            if(!dataId){
+                dataId = "Data_Id";
+                _this.attr("userData.dataId", dataId);
+            }
+            _this.layerAttr("label", {text: dataId});            
+            if(_this.constSignalValue){
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " + dataId + ": " + _this.constSignalValue});
+            }
+            _this.adjustWidth();
         });
 
         this.on("added", function(){
@@ -46,13 +63,15 @@ init: function(attr, setter, getter){
                 dataId = "Data_Id";
                 _this.attr("userData.dataId", dataId);
             }
-            _this.layerAttr("label", {text: dataId})
-            adjustWidth()
+            _this.layerAttr("label", {text: dataId});
             var dataValue = _this.attr("userData.dataValue");
-            if( dataValue){
+            if(dataValue){
                 _this.constSignalValue = dataValue;
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _this.constSignalValue});
             }
-        })
+            _this.adjustWidth();
+        });
 
         // override the "getValue" method of the port and delegate them to the related party (SourceTarget port)
         this.originalGetValue = this.getOutputPort(0).getValue;
@@ -95,7 +114,25 @@ init: function(attr, setter, getter){
                 context.signalPorts[dataId] = _this.getOutputPort(0);
             }
         }
-            },
+
+        var _val = _this.getOutputPort(0).getValue();
+        if(_val){
+            if(_this.constSignalValue){
+                // Update the label with the value
+                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _val});
+                _this.adjustWidth();
+            }else{
+                // Update the label with the value
+                _this.layerAttr("label", {text: dataId + ": " + _val});
+                _this.adjustWidth();
+            }
+            
+        }else{
+            // Update the label with the value
+            _this.layerAttr("label", {text: dataId});
+            _this.adjustWidth();
+        }
+    },
 
     /**
      *  Called if the simulation mode is starting
@@ -125,10 +162,46 @@ init: function(attr, setter, getter){
             }
         },
         {
+            name:"dataType",
+            label:"Data Type (OPC UA)",
+            property:{
+                type: "select",
+                optional_values:[
+                    {label: "Boolean", value:"Boolean"},
+                    {label: "Byte", value:"Byte"},
+                    {label: "SByte", value:"SByte"},                    
+                    {label: "Int16", value:"Int16"},
+                    {label: "Int32", value:"Int32"},
+                    {label: "UInt16", value:"UInt16"},
+                    {label: "UInt32", value:"UInt32"},
+                    {label: "Float (e.g 1.023)", value:"Float"},
+                    {label: "Double (e.g 1.023)", value:"Double"},
+                    {label: "String", value:"String"},
+                    {label: "localizedText", value:"localizedText"},                    
+                    {label: "Timestamp", value:"Timestamp"},
+                    {label: "Date (e.g. '01 Jan 1970')", value:"Date"}
+                ]
+            },
+            default_value:'String'
+        },
+        {
+            name:"dataIsArray",
+            label:"Is Array? (1-Dim) e.g [x,...,x]",
+            property:{
+                type: "checkbox",
+                optional_values:[
+                    true,
+                    false
+                ],
+                value:false
+            },
+            default_value:false
+        },
+        {
             name:"dataValue",
             label:"(Optional) Data Value",
             property:{
-                type: "int"
+                type: "String"
             }
         }];
     },
@@ -142,7 +215,7 @@ init: function(attr, setter, getter){
       return {
         raspi: false,
         arduino: false
-      }
+      };
     },
     
     /**
@@ -166,6 +239,56 @@ init: function(attr, setter, getter){
         }
 
         return this
+    },
+
+    validateInputs: function(){
+        var self = this;
+        // Read the content of the input fields
+        // Value
+        var el_value = $("#figure_property_dataValue")[0];
+        var _value = el_value?el_value.value:"";
+        // Datatype
+        var el_dataType = $("#figure_property_dataType")[0];
+        var _dataType = el_dataType?el_dataType.value:"String";
+        // IsArray
+        var el_isArray = $("#figure_property_dataIsArray")[0];
+        var _isArray = el_isArray?el_isArray.checked===true:false;
+    
+        // Check value considering the Datatype and the value rank
+        var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
+        
+        // Return true if value is ok oder generate the error message
+        if( parsed_value.error){
+            return {error: parsed_value.error};
+        }else{
+            // Change the value with the parsed value
+            el_value.value = JSON.stringify(parsed_value.value.value);
+            return true;
+        }
+        
+    },
+    
+    checkOPCUAValue: function(dataType, dataValue, isArray){
+        var self = this;
+        // Return true or false if datavalue is of datatype
+        var _value = null;
+        try {
+          _value = self._valueParserInst.parse(dataType,dataValue,isArray);
+        }catch (e) {
+            if (typeof e === "string") {
+                return {error: e, value: null};
+            }
+            else if (typeof e === "object")
+            {
+                if (e instanceof SyntaxError) {
+                    return {error: "Value is not valid.", value: null};
+                }
+                else{
+                    return {error: "Error occured while parsing the value.", value: null};
+                }
+            }            
+        }
+        return {error: null, value: _value};
     }
 
 });
