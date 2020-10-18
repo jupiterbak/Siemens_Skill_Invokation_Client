@@ -200,14 +200,14 @@ function runServer() {
                 filePath: req.body.filePath
             });
 
-            console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+            logger.info("Run Child Process: " + binPath  + " " + childArgs[0] + " " + childArgs[1] + " " + childArgs[2] + " " + childArgs[3]);
             childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
                 if (err) {
-                    console.error(`stderr: ${stderr}`);
+                    logger.error(`stderr: ${stderr}`);
                     throw err;
                 }                
                 
-                console.log(`stdout: ${stdout}`);
+                // logger.info(`stdout: ${stdout}`);
 
                 let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
                 glob(pattern, {}, function(er, files) {
@@ -279,7 +279,7 @@ function runServer() {
                 });
                 
                 // console.log("Generating skill images...");
-                console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                logger.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
                 // childProcess.on('close', (code) => {
                 //     console.log(`child process close all stdio with code ${code}`);
                 // });
@@ -293,10 +293,10 @@ function runServer() {
                 // });
 
                 childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-                    console.log(`stdout: ${stdout}`);
+                    //logger.log(`stdout: ${stdout}`);
                     
                     if (err){
-                        console.error(`stderr: ${stderr}`);
+                        logger.error(`stderr: ${stderr}`);
                         // file could be saved but the index were not properly generated.
                         //
                         res.send(JSON.stringify({err:"Skill could be saved but the index were not properly generated."}));

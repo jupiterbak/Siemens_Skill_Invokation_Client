@@ -20,7 +20,23 @@ import hardware from "./hardware"
 import skillproxy from "./io/BackendSkills"
 import application_log from "./WindowLogger"
 import ValueParserValidator from "./util/ValueParserValidator"
+let markdownRenderer = require('markdown-it')()
+markdownRenderer.use(require("markdown-it-asciimath"));
 
+// Remember old renderer, if overridden, or proxy to default renderer
+let defaultRender = markdownRenderer.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+  return self.renderToken(tokens, idx, options);
+};
+
+markdownRenderer.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+  let aIndex = tokens[idx].attrIndex('target');
+  if (aIndex < 0) {
+    tokens[idx].attrPush(['target', '_blank']); // add new attribute
+  } else {
+    tokens[idx].attrs[aIndex][1] = '_blank';    // replace value of existing attr
+  }
+  return defaultRender(tokens, idx, options, env, self);
+};
 
 export default {
   ConnectionSelectionFeedbackPolicy,
@@ -40,5 +56,6 @@ export default {
   CircuitFigure,
   skillproxy,
   application_log,
+  markdownRenderer,
   ValueParserValidator
 }

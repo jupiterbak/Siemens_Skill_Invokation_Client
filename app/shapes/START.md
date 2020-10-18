@@ -1,13 +1,7 @@
-# T-FlipFlop
+# START
 
 ## Description
 
-The D FlipFLop is widely used. It is also known as a 
-*toggle*  flip-flop.
+The **START** component generate a single impuls at the start of the simulation. flip-flop.
 
-A T flip-flop is a device which swaps or **toggles** state 
-every time it is triggered if the T input is asserted, 
-otherwise it holds the current output.
-
-
-The toggle flip-flop is also a frequency divider.
+Please use it to generate the initial contril signal.

@@ -7,6 +7,21 @@
     "filePath": "AND.shape"
   },
   {
+    "name": "DELAY",
+    "tags": [
+      "DELAY"
+    ],
+    "filePath": "DELAY.shape"
+  },
+  {
+    "name": "Documentation_Markdown",
+    "tags": [
+      "Documentation",
+      "Markdown"
+    ],
+    "filePath": "Documentation_Markdown.shape"
+  },
+  {
     "name": "Documentation_Text",
     "tags": [
       "Documentation",

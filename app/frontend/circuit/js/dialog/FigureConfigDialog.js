@@ -14,6 +14,7 @@ export default dialog= new class FigureConfigDialog {
   show(figure, pos) {
     var self = this;
     Mousetrap.pause();
+
     currentFigure = figure;
     this.figure = figure;
 
@@ -53,8 +54,23 @@ export default dialog= new class FigureConfigDialog {
           '         </div>                  '
         );
         output = output + compiled_checkbox.render(el);
-      }
-      
+      }else if(el.property.type === 'textarea' || el.property.type === 'longtext'){
+        var compiled_checkbox = Hogan.compile(
+          '         <div class="form-group">' +
+          '               <label for="figure_property_{{name}}">{{label}}</label>' +
+          '               <textarea type="text" class="form-control" id="figure_property_{{name}}" data-name="{{name}}" value="{{value}}" placeholder="{{label}}">{{value}}</textarea>' +
+          '         </div>                  '
+        );
+        output = output + compiled_checkbox.render(el);
+      }else if(el.property.type === 'integer' || el.property.type === 'number'){
+        var compiled_checkbox = Hogan.compile(
+          '         <div class="form-group">' +
+          '               <label for="figure_property_{{name}}">{{label}}</label>' +
+          '               <input type="number" class="form-control" id="figure_property_{{name}}" data-name="{{name}}" value="{{value}}" placeholder="{{label}}">' +
+          '         </div>                  '
+        );
+        output = output + compiled_checkbox.render(el);
+      }  
       else{
         var compiled = Hogan.compile(
           '         <div class="form-group">' +
@@ -75,10 +91,34 @@ export default dialog= new class FigureConfigDialog {
     $("#FigureConfigDialogMessage").text("");
     //$("#FigureConfigDialogMessage").hide();
 
-    $("#figureConfigDialog input, #figureConfigDialog select").focus();
+    $("#figureConfigDialog input, #figureConfigDialog select, #figureConfigDialog textarea").focus();
 
     $("#figureConfigDialog input").keypress((e) => {
       if (e.which == 13) {
+        var _validateInput = self.figure.validateInputs;
+        if(_validateInput){
+          var _validation_results = self.figure.validateInputs();
+          if(_validation_results.error){
+            // Show error message
+            $("#FigureConfigDialogMessage").text(_validation_results.error);
+            $("#FigureConfigDialogMessage").show();
+          }else{
+            this.hide();
+          }
+        }else{
+          this.hide();
+        }
+      }
+    });
+
+    $("#figureConfigDialog textarea, #figureConfigDialog input, #figureConfigDialog select").change(function(){
+      $("#FigureConfigDialogMessage").text("");
+      $("#FigureConfigDialogMessage").hide();
+    });
+
+    $("#figureConfigDialog .submit").on("click",  () => {
+      var _validateInput = self.figure.validateInputs;
+      if(_validateInput){
         var _validation_results = self.figure.validateInputs();
         if(_validation_results.error){
           // Show error message
@@ -87,23 +127,9 @@ export default dialog= new class FigureConfigDialog {
         }else{
           this.hide();
         }
-      }
-    });
-
-    $("#figureConfigDialog input, #figureConfigDialog select").change(function(){
-      $("#FigureConfigDialogMessage").text("");
-      $("#FigureConfigDialogMessage").hide();
-    });
-
-    $("#figureConfigDialog .submit").on("click",  () => {
-      var _validation_results = self.figure.validateInputs();
-      if(_validation_results.error){
-        // Show error message
-        $("#FigureConfigDialogMessage").text(_validation_results.error);
-        $("#FigureConfigDialogMessage").show();
       }else{
         this.hide();
-      }   
+      }         
     });
 
     $.each(settings, (index, setting) =>{
@@ -115,7 +141,7 @@ export default dialog= new class FigureConfigDialog {
   hide() {
     Mousetrap.unpause();
     if (currentFigure !== null) {
-      $("#figureConfigDialog input, #figureConfigDialog select").each(function (i, element) {
+      $("#figureConfigDialog textarea, #figureConfigDialog input, #figureConfigDialog select").each(function (i, element) {
         element = $(element);
         var value = element.val();
         var name = element.data("name");

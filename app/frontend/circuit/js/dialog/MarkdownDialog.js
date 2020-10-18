@@ -1,4 +1,4 @@
-import Remarkable from "remarkable"
+var MarkdownIt = require('markdown-it');
 
 export default class MarkdownDialog {
 
@@ -15,8 +15,8 @@ export default class MarkdownDialog {
   }
 
   show(markdown) {
-    let markdownParser = new Remarkable('full', this.defaults)
-    $('#markdownDialog .html').html(markdownParser.render(markdown))
-    $('#markdownDialog').modal('show')
+    let markdownParser = new MarkdownIt(this.defaults);
+    $('#markdownDialog .html').html(markdownParser.render(markdown));
+    $('#markdownDialog').modal('show');
   }
 }

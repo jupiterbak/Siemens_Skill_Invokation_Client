@@ -1,13 +1,7 @@
-# T-FlipFlop
+# MUX
 
 ## Description
 
-The D FlipFLop is widely used. It is also known as a 
-*toggle*  flip-flop.
+The **MUX** Component multiplex the input control signal to all outputs.  flip-flop.
 
-A T flip-flop is a device which swaps or **toggles** state 
-every time it is triggered if the T input is asserted, 
-otherwise it holds the current output.
-
-
-The toggle flip-flop is also a frequency divider.
+Please use it to parallelize the control signal.

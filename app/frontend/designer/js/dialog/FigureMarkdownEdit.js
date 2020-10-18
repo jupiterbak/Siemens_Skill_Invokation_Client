@@ -1,4 +1,4 @@
-import Remarkable from "remarkable"
+var MarkdownIt = require('markdown-it');
 
 export default class FigureMarkdownEdit {
 
@@ -23,7 +23,7 @@ export default class FigureMarkdownEdit {
   show() {
     Mousetrap.pause()
     var _this = this
-    this.mdHtml = new Remarkable('full', this.defaults)
+    this.mdHtml = new MarkdownIt(this.defaults)
 
     var markdown = shape_designer.app.getConfiguration("markdown")
     markdown = markdown ? markdown : "# Header \n## Subheader \nbe nice and write a help file for your new \ncreated ***DigitalTrainingStudion*** shape. \n\n  - point 1\n  - point 2\n  - point 3"

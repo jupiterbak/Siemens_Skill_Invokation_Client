@@ -1,0 +1,475 @@
+{
+  "draw2d": [
+    {
+      "type": "shape_designer.figure.PolyRect",
+      "id": "1b71bcf4-939c-5650-8a7e-68514e9d2149",
+      "x": 7958,
+      "y": 7965.5,
+      "width": 84,
+      "height": 69,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n        this._super(attr, setter, getter);\n\n        this.on(\"change:userData.delay\",(emitter, event)=>{\n            var value = event.value;\n            this.delayedValues = []; \n            this.delayedValues.length = parseInt(parseInt(value)/50);\n            this.pointer=0;\n            \n        });\n        this.attr({\n            resizeable:false,\n            \"userData.delay\":500\n        });\n        this.getOutputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getInputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n    },\n    \n    /**\n     * called every '10 [ms]' from the application.\n     * \n     **/\n    calculate:function(context)\n    {\n       this.getOutputPort(0).setValue(this.delayedValues[this.pointer]);\n       this.delayedValues[this.pointer] = this.getInputPort(0).getValue();\n       this.pointer = (this.pointer+1)%this.delayedValues.length; \n    },\n    \n    onStart:function(context)\n    {\n        this.currentTimer=0;\n    },\n    \n    onStop:function(context)\n    {\n    },\n\n    getParameterSettings:function()\n    {\n        return [\n        {\n            name:\"delay\",\n            label:\"Delay [ms]\",\n            property:{\n                type: \"integer\",\n                min: 10,\n                max: 15000,\n                increment:10\n        }\n        \n        }];\n    }\n\n});",
+        "name": "Rectangle",
+        "markdown": "# Delay Object\n\n## Description\n\nThis module `delays` the input signal\nto the given time delay.\n\n",
+        "type": "Output",
+        "direction": 1
+      },
+      "cssClass": "shape_designer_figure_PolyRect",
+      "ports": [],
+      "bgColor": "#FFFFFF",
+      "color": "#303030",
+      "stroke": 1,
+      "radius": 2,
+      "dasharray": null,
+      "vertices": [
+        {
+          "x": 8042,
+          "y": 8034.5
+        },
+        {
+          "x": 7958,
+          "y": 8034.5
+        },
+        {
+          "x": 7958,
+          "y": 7965.5
+        },
+        {
+          "x": 8042,
+          "y": 7965.5
+        }
+      ],
+      "blur": 0,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.SizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        },
+        {
+          "name": "shape_designer.filter.RadiusFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "f4d5683a-7c42-8771-5df4-e4e9da5b8b46",
+      "x": 8037.5,
+      "y": 7996.45952,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n        this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n\n        this.currentTimer=0;\n    },\n    \n    /**\n     * called every '10 [ms]' from the application. do a little bit calculation\n     * to change the state every 100ms (10Hz)\n     * \n     **/\n    calculate:function()\n    {\n       // 10 ticks every 10ms => 10Hz    \n       this.currentTimer = (this.currentTimer+1)%10; \n       if(this.currentTimer===0){\n           this.value = !this.value;\n           this.getOutputPort(0).setValue(this.value);\n       }\n    },\n    \n    onStart:function()\n    {\n        this.currentTimer=0;\n    },\n    \n    onStop:function()\n    {\n    },\n\n    getParameterSettings: function()\n    {\n        return [\n        {\n            name:\"delay\",\n            label:\"Delay [ms]\",\n            property:{\n                type: \"integer\",\n                min: 10,\n                max: 100,\n                increment:10\n        }\n        \n        }];\n    }\n\n});",
+        "name": "output_0",
+        "markdown": "# Clock Signal\n\nIn electronics and especially synchronous digital circuits, \na clock signal is a particular type of signal that \noscillates between a `high` and a `low` state and is \nutilized like a metronome to coordinate actions \nof digital circuits.\n\nThe hertz (symbol `Hz`) is the unit of frequency in the \nInternational System of Units (SI) and is defined as \none cycle per second. \n\nIt is named for Heinrich Rudolf Hertz, the first person \nto provide conclusive proof of the existence of \nelectromagnetic waves.",
+        "type": "Output",
+        "direction": 1
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#37B1DE",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "3dce50be-cb62-93ee-6ae9-8a903ea77fae",
+      "x": 7948.5,
+      "y": 7996.45952,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "input_0",
+        "type": "Input",
+        "direction": 3,
+        "fanout": 20
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#37B1DE",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLabel",
+      "id": "b2c77c52-e79e-8ed4-37bc-e645231ca929",
+      "x": 7992,
+      "y": 7989,
+      "width": 34.59375,
+      "height": 21,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Label"
+      },
+      "cssClass": "shape_designer_figure_ExtLabel",
+      "ports": [],
+      "bgColor": "none",
+      "color": "#1B1B1B",
+      "stroke": 0,
+      "radius": 0,
+      "dasharray": null,
+      "text": "Delay",
+      "outlineStroke": 0,
+      "outlineColor": "none",
+      "fontSize": 11,
+      "fontColor": "#41AAAA",
+      "fontFamily": null,
+      "editor": "LabelInplaceEditor",
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontSizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "f45ae44d-a82d-f2e6-28ae-59dde3f4c067",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Line"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": null,
+      "color": "#A8A8A8",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7967.9163485938825,
+          "y": 7986.131087969916
+        },
+        {
+          "x": 7967.9818845938835,
+          "y": 8013.836431969918
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": "",
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "b4adf9ad-f0e9-fab0-f5a4-19740aa1fd89",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Line"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": null,
+      "color": "#C9C9C9",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7993.984444593883,
+          "y": 8023.189391969912
+        },
+        {
+          "x": 7993.411004593883,
+          "y": 7992.797071969915
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": "",
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "d3f4301d-7c4a-ed21-8251-50473ab0c628",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "pulseline_top"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": 1,
+      "color": "#000000",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7962.002237499999,
+          "y": 7985.276879999998
+        },
+        {
+          "x": 7969.309437499999,
+          "y": 7985.276879999998
+        },
+        {
+          "x": 7969.309437499998,
+          "y": 7971.506239999997
+        },
+        {
+          "x": 7999.2756775,
+          "y": 7971.833919999997
+        },
+        {
+          "x": 7999.2756775,
+          "y": 7984.492499999998
+        },
+        {
+          "x": 8033.065577499999,
+          "y": 7984.820179999997
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": 2,
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        },
+        {
+          "name": "shape_designer.filter.RadiusFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "67f7e37e-c165-3c63-63e0-b47dc000ed8f",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "pulseline_bottom"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": 1,
+      "color": "#000000",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7961.103997499997,
+          "y": 8024.694799999996
+        },
+        {
+          "x": 7993.642557499998,
+          "y": 8024.694799999996
+        },
+        {
+          "x": 7993.642557499998,
+          "y": 8011.907199999996
+        },
+        {
+          "x": 8023.608797499997,
+          "y": 8011.579519999996
+        },
+        {
+          "x": 8023.608797499997,
+          "y": 8024.238099999996
+        },
+        {
+          "x": 8036.754857499996,
+          "y": 8024.238099999995
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": 2,
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        },
+        {
+          "name": "shape_designer.filter.RadiusFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "cb143409-9709-4790-4652-c8bad2c0e4ef",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Line"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": 2,
+      "color": "#41AAAA",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7968.086228750001,
+          "y": 7999.345013999995
+        },
+        {
+          "x": 7968.4139087500025,
+          "y": 8007.930230000003
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": "",
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "81ff2cc0-a962-2fcd-861e-3d9671384541",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Line"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": 2,
+      "color": "#41AAAA",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7992.252628750002,
+          "y": 8003.50095
+        },
+        {
+          "x": 7989.38542875,
+          "y": 8007.728022
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": "",
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "68fbd21e-7171-5729-773d-887407bf5c72",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Line"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": 2,
+      "color": "#41AAAA",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7988.601300750001,
+          "y": 7999.998645999998
+        },
+        {
+          "x": 7992.07470875,
+          "y": 8003.373749999998
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": "",
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLine",
+      "id": "2c8a2e58-a4a1-1a9f-3db4-173a42aa8d6f",
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Line"
+      },
+      "cssClass": "shape_designer_figure_ExtLine",
+      "stroke": 2,
+      "color": "#41AAAA",
+      "outlineStroke": 0,
+      "outlineColor": "#000000",
+      "policy": "draw2d.policy.line.VertexSelectionFeedbackPolicy",
+      "vertex": [
+        {
+          "x": 7969.171028750003,
+          "y": 8003.667670000003
+        },
+        {
+          "x": 7991.125588750001,
+          "y": 8003.995350000001
+        }
+      ],
+      "router": "draw2d.layout.connection.VertexRouter",
+      "radius": "",
+      "filters": [
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        }
+      ]
+    }
+  ],
+  "image": "data:image/png;base64,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"
+}
