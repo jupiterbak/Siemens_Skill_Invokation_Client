@@ -153,6 +153,7 @@ function runServer() {
     // =================================================================
     app.get('/backend/brain/list', (req, res) => storage.listFiles(storage.brainDirUserHOME, req.query.path, res));
     app.get('/backend/brain/get', (req, res) => storage.getJSONFile(storage.brainDirUserHOME, req.query.filePath, res));
+    app.get('/backend/guide/get', (req, res) => storage.getJSONFile(storage.guidesirUserHOME, req.query.filePath, res));
     app.get('/backend/brain/image', (req, res) => storage.getBase64Image(storage.brainDirUserHOME, req.query.filePath, res));
     app.post('/backend/brain/delete', (req, res) => storage.deleteFile(storage.brainDirUserHOME, req.body.filePath, res));
     app.post('/backend/brain/rename', (req, res) => storage.renameFile(storage.brainDirUserHOME, req.body.from, req.body.to, res));
@@ -279,7 +280,7 @@ function runServer() {
                 });
                 
                 // console.log("Generating skill images...");
-                logger.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                logger.info(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
                 // childProcess.on('close', (code) => {
                 //     console.log(`child process close all stdio with code ${code}`);
                 // });

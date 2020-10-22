@@ -8,6 +8,15 @@ SP 347 Skill Invocation Client
 
 ***Fig. 1:*** *Screenshot of the Siemens Skill Invocation Client.* 
 
+# TODOs [22.10.2020]
+
+- [ ] Skill Invocation Client API
+  - [x] Initial Implementation
+  - [ ] During "POST" and "DELETE" make sure that no clients are connected. Return Error code when a client is connected.
+- [ ] Cron Job to synchronize "code.siemens" and "github"
+- [ ] Defiine and implements additional control components to ease the engineering of the control path e.g. "IF ... ELSE", "XOR", "NOR", etc...
+
+
 ---
 ## Requirements
 

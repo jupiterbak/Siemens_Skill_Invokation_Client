@@ -237,7 +237,7 @@ OPCUAClientInterface.prototype.ExecuteMethod = function(arg, fCallBack) {
                                     self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.actionName + "] : " + err);
                                     fCallBack({ text: "Could not execute action.", err: err }, null);
                                 } else {
-                                    if (response[0].statusCode == 0) {
+                                    if (response[0].statusCode < 0x80000000) {
                                         self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.actionName + "] successfully with errorCode: " + response[0].statusCode);
                                         fCallBack(null, response[0]);
                                     } else {
@@ -302,7 +302,7 @@ OPCUAClientInterface.prototype.ExecuteMethodNode = function(arg, fCallBack) {
                                 self.logger.error("MICROSERVICE[" + self.settings.name + "] could not execute action [" + arg.skillName + "] : " + err);
                                 fCallBack({ text: "Could not execute action.", err: err }, null);
                             } else {
-                                if (response[0].statusCode == 0) {
+                                if (response[0].statusCode < 0x80000000) {
                                     self.logger.info("MICROSERVICE[" + self.settings.name + "] executed action [" + arg.skillName + "] successfully with errorCode: " + response[0].statusCode);
                                     fCallBack(null, response[0]);
                                 } else {

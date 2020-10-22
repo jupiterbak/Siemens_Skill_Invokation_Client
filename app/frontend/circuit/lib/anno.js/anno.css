@@ -19,6 +19,7 @@
 }
 .anno .anno-inner {
   position: relative;
+  z-index: 5000;
   background: white;
   -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.35);
@@ -40,7 +41,7 @@
   padding: 7px 14px;
   height: auto;
   width: auto;
-  background: #11a2dc;
+  background: #41aaaa;
   border: none;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -58,10 +59,10 @@
   transition: all 150ms cubic-bezier(0.68, 0, 0.265, 1);
 }
 .anno .anno-inner .anno-btn-container .anno-btn:hover {
-  background: #0f91c4;
+  background: #41aaaa;
 }
 .anno .anno-inner .anno-btn-container .anno-btn:active {
-  background: #0d7fad;
+  background: #41aaaa;
 }
 .anno .anno-inner .anno-btn-container .anno-btn.anno-btn-low-importance {
   background: none;
@@ -148,7 +149,7 @@
 }
 .anno-overlay {
   position: fixed;
-  z-index: 1000;
+  z-index: 400;
   height: 100%;
   width: 100%;
   top: 0;
@@ -166,5 +167,5 @@
   opacity: 0;
 }
 .anno-emphasise-target {
-  z-index: 1001 !important !important;
+  z-index: 1001 !important;
 }

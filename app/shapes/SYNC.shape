@@ -1,0 +1,218 @@
+{
+  "draw2d": [
+    {
+      "type": "shape_designer.figure.PolyRect",
+      "id": "c55dd135-15db-7c71-5efa-f6761c073e66",
+      "x": 7980,
+      "y": 7975,
+      "width": 40,
+      "height": 50,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "baseClass": "draw2d.SetFigure",
+        "code": "/**\n * by 'Draw2D Shape Designer'\n *\n * Custom JS code to tweak the standard behaviour of the generated\n * shape. add your custome code and event handler here.\n *\n *\n */\ntestShape = testShape.extend({\n\n    init: function(attr, setter, getter){\n         this._super(attr, setter, getter);\n\n        this.attr({resizeable:false});\n        this.getInputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getInputPort(1).attr({\n            semanticGroup:\"signal\"\n        });\n        this.getOutputPort(0).attr({\n            semanticGroup:\"signal\"\n        });\n        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\n        \n        this.state = 100; // STOPPED\n        this.to_read_wait = null;\n        this.first_one = null;\n        this.last_one = null;\n    },\n    \n    calculate:function()\n    {\n        var i1 = this.getInputPort(0);\n        var i2 = this.getInputPort(1);\n        var o1 = this.getOutputPort(0);\n        \n        // STATE MACHINE\n        switch (this.state) {\n            case 100: // STOPPED\n                o1.setValue(false);\n                if(i1.getValue() === true && i2.getValue() === true){\n                    this.state = 300;\n                    this.first_one = i1.getValue();\n                    this.last_one = i2.getValue();\n                }else if(i1.getValue() === true && i2.getValue() === false){\n                    this.state = 200;\n                    this.first_one = i1.getValue();\n                    this.last_one = null;\n                    this.to_read_wait = 1;\n                }else if(i1.getValue() === false && i2.getValue() === true){\n                    this.state = 200;\n                    this.first_one = i2.getValue();\n                    this.last_one = null;\n                    this.to_read_wait = 0;\n                }\n                break;\n            case 200: // WAIT SECOND\n                if(this.getInputPort(this.to_read_wait).getValue() === true){\n                    this.last_one = this.getInputPort(this.to_read_wait).getValue();\n                    this.state = 300;\n                }\n                break;\n            case 300: // Set Output\n                o1.setValue(this.first_one && this.last_one);\n                this.state = 100;\n                break;\n        }\n    },\n    \n     /**\n     *  Called if the simulation mode is starting\n     **/\n    onStart:function(){\n        var self = this;\n        this.state = 100; // STOPPED\n    },\n    \n    /**\n     *  Called if the simulation mode is stopping\n     **/\n    onStop:function(){\n        var self = this;\n        this.state = 100; // STOPPED\n    },\n});",
+        "name": "Rectangle",
+        "markdown": "# SYNC\n\n## Description\n\nThe **SYNC** Component synchronize the input control signal to all the output.\n\nPlease use it to synchronize the control signals.",
+        "type": "Output",
+        "direction": 1
+      },
+      "cssClass": "shape_designer_figure_PolyRect",
+      "ports": [],
+      "bgColor": "#FFFFFF",
+      "color": "#303030",
+      "stroke": 1,
+      "radius": 1,
+      "dasharray": null,
+      "vertices": [
+        {
+          "x": 7980,
+          "y": 7975
+        },
+        {
+          "x": 8020,
+          "y": 7975
+        },
+        {
+          "x": 8020,
+          "y": 8025
+        },
+        {
+          "x": 7980,
+          "y": 8025
+        }
+      ],
+      "blur": 0,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.SizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.StrokeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        },
+        {
+          "name": "shape_designer.filter.RadiusFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtLabel",
+      "id": "08459b5e-14e9-38d5-14dc-4b24f166cd2d",
+      "x": 7980,
+      "y": 7990.89,
+      "width": 30.578125,
+      "height": 21.359375,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "Label"
+      },
+      "cssClass": "shape_designer_figure_ExtLabel",
+      "ports": [],
+      "bgColor": "none",
+      "color": "#1B1B1B",
+      "stroke": 0,
+      "radius": 0,
+      "dasharray": null,
+      "text": "SYNC",
+      "outlineStroke": 0,
+      "outlineColor": "none",
+      "fontSize": 10,
+      "fontColor": "#080808",
+      "fontFamily": null,
+      "editor": "LabelInplaceEditor",
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontSizeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FontColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "5fc48f01-fecb-0d5f-ed4f-81a4bc26ae63",
+      "x": 7972.51696,
+      "y": 8012,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "input_2",
+        "type": "Input",
+        "direction": 3
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "a440d172-2316-023b-7cc0-a8b23f51feeb",
+      "x": 7972.51696,
+      "y": 7979.89,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "input_1",
+        "type": "Input",
+        "direction": 3
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    },
+    {
+      "type": "shape_designer.figure.ExtPort",
+      "id": "078497de-04ae-57d8-a141-a3d4afacfe39",
+      "x": 8015.84035284,
+      "y": 7994.756,
+      "width": 10,
+      "height": 10,
+      "alpha": 1,
+      "angle": 0,
+      "userData": {
+        "name": "output_1",
+        "type": "Output",
+        "direction": 1
+      },
+      "cssClass": "shape_designer_figure_ExtPort",
+      "ports": [],
+      "bgColor": "#1C9BAB",
+      "color": "#1B1B1B",
+      "stroke": 1,
+      "dasharray": null,
+      "filters": [
+        {
+          "name": "shape_designer.filter.PositionFilter"
+        },
+        {
+          "name": "shape_designer.filter.FanoutFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortDirectionFilter"
+        },
+        {
+          "name": "shape_designer.filter.PortTypeFilter"
+        },
+        {
+          "name": "shape_designer.filter.FillColorFilter"
+        }
+      ]
+    }
+  ],
+  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABGCAYAAACQRffVAAAAkUlEQVR4Xu3UAREAIAzEsM2/aQTgoAsO+Oa2c+ztsf+OD9eLK6xwbAGkY0G/7yiscGwBpGNBHS2kkY4tgHQsqCuNNNKxBZCOBXWlkUY6tgDSsaCuNNJIxxZAOhbUlUYa6dgCSMeCutJIIx1bAOlYUFcaaaRjCyAdC+pKI410bAGkY0FdaaSRji2AdCyoK32O9ANl0gBHW+JDOgAAAABJRU5ErkJggg=="
+}

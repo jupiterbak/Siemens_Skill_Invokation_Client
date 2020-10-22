@@ -334,6 +334,7 @@ testShape = testShape.extend({
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
             this.layerAttr("Skill_State", {text: 'State: Error'});
+            this.layerAttr("circle",{fill:"#FFB19A"});
         }
         this.last_en_value = this.getOutputPort(0).getValue();
     },

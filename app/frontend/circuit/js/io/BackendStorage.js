@@ -103,6 +103,18 @@ class BackendStorage {
       })
   }
 
+  /**
+   * Load the file content of the given path
+   *
+   * @param fileName
+   * @returns {*}
+   */
+  loadGuide(fileName, _callback) {
+    return $.getJSON(conf.backend.guide.get(fileName), _callback).fail(function(jqXHR, textStatus, errorThrown) {
+      console.error("ERROR: " + textStatus);
+    });
+  }
+
   deleteFile(fileName) {
     return $.ajax({
         url: conf.backend.file.del,

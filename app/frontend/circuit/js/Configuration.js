@@ -19,6 +19,9 @@ export default {
       rename:  `../backend/brain/rename`,
       save:     `../backend/brain/save`
     },
+    guide: {
+      get:    file       => `../backend/guide/get?filePath=${file}`,
+    },
     skill:{
       connect: '/backend/skill/connect',
       browse: '/backend/skill/browse',
@@ -42,6 +45,9 @@ export default {
   },
   shapes: {
     url: "./shapes/"
+  },
+  guides: {
+    url: "./guides/"
   },
   color: {
     high: "#faa50a",

@@ -304,7 +304,7 @@ testShape = testShape.extend({
                 application_log.error("[" + self.NAME + "] Error while fetching the results of the skill: " + JSON.stringify(resp_getResults.err));
               }else{
                 // Set Synchronous Output
-                var _offset = (self.start_call_results.results.outputArguments || []).length;
+                var _offset = (self.description.skillModel.Invokation.Start.parameters.outputArguments || []).length;
                 var _outputs = resp_getResults.results.outputArguments;
                 for (var index = 0; index < _outputs.length; index++) {
                   self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value);
@@ -369,6 +369,7 @@ testShape = testShape.extend({
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
             this.layerAttr("Skill_State", {text: 'State: Error'});
+            this.layerAttr("circle",{fill:"#FFB19A"});
         }
         this.last_en_value = this.getOutputPort(0).getValue();
     },

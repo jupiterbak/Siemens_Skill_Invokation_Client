@@ -5,6 +5,7 @@ const path = require('path');
 const brainDirHOME = "./.skillInvocationClient/";
 const brainDirUserHOME = brainDirHOME + "brain/";
 const shapeDirUserHOME = brainDirHOME + "shapes/";
+const guidesirUserHOME = brainDirHOME + "guides/";
 
 
 /**
@@ -29,6 +30,7 @@ try {
 module.exports = {
     brainDirUserHOME: brainDirUserHOME,
     shapeDirUserHOME: shapeDirUserHOME,
+    guidesirUserHOME: guidesirUserHOME,
 
     listFiles: function(baseDir, subDir, res) {
         glob(baseDir + subDir + "*", {}, function(er, files) {

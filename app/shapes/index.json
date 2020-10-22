@@ -72,5 +72,12 @@
       "START"
     ],
     "filePath": "START.shape"
+  },
+  {
+    "name": "SYNC",
+    "tags": [
+      "SYNC"
+    ],
+    "filePath": "SYNC.shape"
   }
 ]

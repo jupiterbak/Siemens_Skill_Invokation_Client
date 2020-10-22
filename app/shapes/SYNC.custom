@@ -1,0 +1,86 @@
+/**
+ * by 'Draw2D Shape Designer'
+ *
+ * Custom JS code to tweak the standard behaviour of the generated
+ * shape. add your custome code and event handler here.
+ *
+ *
+ */
+SYNC = SYNC.extend({
+
+    init: function(attr, setter, getter){
+         this._super(attr, setter, getter);
+
+        this.attr({resizeable:false});
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(1).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
+        
+        this.state = 100; // STOPPED
+        this.to_read_wait = null;
+        this.first_one = null;
+        this.last_one = null;
+    },
+    
+    calculate:function()
+    {
+        var i1 = this.getInputPort(0);
+        var i2 = this.getInputPort(1);
+        var o1 = this.getOutputPort(0);
+        
+        // STATE MACHINE
+        switch (this.state) {
+            case 100: // STOPPED
+                o1.setValue(false);
+                if(i1.getValue() === true && i2.getValue() === true){
+                    this.state = 300;
+                    this.first_one = i1.getValue();
+                    this.last_one = i2.getValue();
+                }else if(i1.getValue() === true && i2.getValue() === false){
+                    this.state = 200;
+                    this.first_one = i1.getValue();
+                    this.last_one = null;
+                    this.to_read_wait = 1;
+                }else if(i1.getValue() === false && i2.getValue() === true){
+                    this.state = 200;
+                    this.first_one = i2.getValue();
+                    this.last_one = null;
+                    this.to_read_wait = 0;
+                }
+                break;
+            case 200: // WAIT SECOND
+                if(this.getInputPort(this.to_read_wait).getValue() === true){
+                    this.last_one = this.getInputPort(this.to_read_wait).getValue();
+                    this.state = 300;
+                }
+                break;
+            case 300: // Set Output
+                o1.setValue(this.first_one && this.last_one);
+                this.state = 100;
+                break;
+        }
+    },
+    
+     /**
+     *  Called if the simulation mode is starting
+     **/
+    onStart:function(){
+        var self = this;
+        this.state = 100; // STOPPED
+    },
+    
+    /**
+     *  Called if the simulation mode is stopping
+     **/
+    onStop:function(){
+        var self = this;
+        this.state = 100; // STOPPED
+    },
+});

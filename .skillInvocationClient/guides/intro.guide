@@ -1,0 +1,37 @@
+{
+  "screen": "#probe_window_stick",
+  "waitFor": "#paletteElementsScroll",
+  "steps":[
+      {
+        "target": "#editorBrowseSkills",
+        "position": "center-bottom",
+        "content": "Browse the automation skills of your module..."
+      },
+      {
+        "target": "#paletteElementsScroll",
+        "position": "center-right",
+        "content": "...all skills and components needed to build the logic of your orchestration are listened here..."
+      },
+      {
+        "target": "#draw2dCanvasWrapper",
+        "position": "center-left",
+        "content": "...design your orchestraion logic..."
+      },    
+      {
+        "target": "#simulationStartStop",
+        "position": "left",
+        "content": "...start your orchestration..."
+      },
+      {
+        "target": "#probe_window_stick",
+        "position": "center-top",
+        "content": "...and open the logger view to inspect the signals"
+      },
+      {
+        "target": "#editorgroup_fileoperations",
+        "position": "center-bottom",
+        "content": "... satisfied? save and load your logic here..."
+      }
+    ]
+}
+

@@ -13,7 +13,6 @@ import BrowseSkillsDialog from "./dialog/BrowseSkillsDialog"
 import storage from './io/BackendStorage'
 import conf from "./Configuration"
 
-
 /**
  * wait asyn that an DOM element is present
  * Usage: checkElement("<selector>").then(function(){alert("element found")})
@@ -76,6 +75,7 @@ class Application {
             return false;
         });
 
+        // pallette Animation
         $("#showPalette").on("click", () => {
             var panel = $('.palette');
             if (panel.hasClass("visible")) {
@@ -96,8 +96,9 @@ class Application {
             return false;
         });
 
-        // enable the tooltip for all buttons
-        //
+        /*
+        * Enable the tooltip for all buttons
+        */
         $('*[data-toggle="tooltip"]').tooltip({
             placement: "bottom",
             container: "body",
@@ -137,6 +138,15 @@ class Application {
                 });
             }
         }
+
+        // Annotation animation on "Circuit"
+        storage.loadGuide("intro.guide", function (guide) {
+            $(guide.screen).click();
+            checkElement("#paletteElementsScroll").then(() => {
+              let anno = new Anno(guide.steps)
+              anno.show()
+            });
+        });
 
         // listen on the history object to load files
         //
