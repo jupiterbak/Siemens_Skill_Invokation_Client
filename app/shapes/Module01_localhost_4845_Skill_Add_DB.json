@@ -1,0 +1,141 @@
+{
+    "ip": "localhost",
+    "port": "4845",
+    "skill": {
+        "name": "Skill_Add_DB",
+        "nodeId": "ns=4;s=\"Skill_Add_DB\""
+    },
+    "skillModel": {
+        "Request": {
+            "name": "Request",
+            "nodeId": {
+                "ns": 4,
+                "nid": "\"Skill_Insert_DB\".\"Request\""
+            },
+            "type": "Object",
+            "value1": {
+                "name": "value1",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Request\".\"value1\""
+                },
+                "type": "Variable",
+                "id_circle": "6fa426ad-918c-4bd6-a4c1-1fe6b5311baa",
+                "id_label": "31c19c67-e886-400c-989b-442d5cb15e2d",
+                "id_port": "49c62c6c-c0ac-4fe6-995d-ace2106c8d3c"
+            },
+            "value2": {
+                "name": "value2",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Request\".\"value2\""
+                },
+                "type": "Variable",
+                "id_circle": "1ca32877-aea5-4db3-a776-f51f9e8b7f59",
+                "id_label": "88e0c7a3-eb5f-49da-b4ec-e18c46739bda",
+                "id_port": "c62149a8-53e0-428f-a263-957c0d6dbd8f"
+            }
+        },
+        "Result": {
+            "name": "Result",
+            "nodeId": {
+                "ns": 4,
+                "nid": "\"Skill_Insert_DB\".\"Result\""
+            },
+            "type": "Object",
+            "ErrorId": {
+                "name": "ErrorId",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
+                },
+                "type": "Variable",
+                "id_circle": "3bc523a9-1bcf-4154-a099-dcf3cb6a50d8",
+                "id_label": "a99a5abb-4370-406c-8d2d-3de2ca33ec96",
+                "id_port": "377b2c49-e436-4218-a737-87f1b22b363b"
+            },
+            "valueOut": {
+                "name": "valueOut",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
+                },
+                "type": "Variable",
+                "id_circle": "ae2ff98e-0a59-430e-98f1-b10ef16ba559",
+                "id_label": "c3cf71d5-c27e-46c7-9449-90396b8eb0fb",
+                "id_port": "f48416c0-5402-4df9-80fe-6f206aa6ec66"
+            }
+        },
+        "RequestProvided": {
+            "name": "RequestProvided",
+            "nodeId": {
+                "ns": 4,
+                "nid": "\"Skill_Insert_DB\".\"RequestProvided\""
+            },
+            "type": "Variable"
+        },
+        "ResultAcknowledge": {
+            "name": "ResultAcknowledge",
+            "nodeId": {
+                "ns": 4,
+                "nid": "\"Skill_Insert_DB\".\"ResultAcknowledge\""
+            },
+            "type": "Variable"
+        }
+    },
+    "objectMonitor": {
+        "CURRENT_STATES": [],
+        "KPI": []
+    },
+    "version": "V1",
+    "parameters": {
+        "inputs": [
+            {
+                "name": "value1",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Request\".\"value1\""
+                },
+                "type": "Variable",
+                "id_circle": "6fa426ad-918c-4bd6-a4c1-1fe6b5311baa",
+                "id_label": "31c19c67-e886-400c-989b-442d5cb15e2d",
+                "id_port": "49c62c6c-c0ac-4fe6-995d-ace2106c8d3c"
+            },
+            {
+                "name": "value2",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Request\".\"value2\""
+                },
+                "type": "Variable",
+                "id_circle": "1ca32877-aea5-4db3-a776-f51f9e8b7f59",
+                "id_label": "88e0c7a3-eb5f-49da-b4ec-e18c46739bda",
+                "id_port": "c62149a8-53e0-428f-a263-957c0d6dbd8f"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "ErrorId",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Result\".\"ErrorId\""
+                },
+                "type": "Variable",
+                "id_circle": "3bc523a9-1bcf-4154-a099-dcf3cb6a50d8",
+                "id_label": "a99a5abb-4370-406c-8d2d-3de2ca33ec96",
+                "id_port": "377b2c49-e436-4218-a737-87f1b22b363b"
+            },
+            {
+                "name": "valueOut",
+                "nodeId": {
+                    "ns": 4,
+                    "nid": "\"Skill_Insert_DB\".\"Result\".\"valueOut\""
+                },
+                "type": "Variable",
+                "id_circle": "ae2ff98e-0a59-430e-98f1-b10ef16ba559",
+                "id_label": "c3cf71d5-c27e-46c7-9449-90396b8eb0fb",
+                "id_port": "f48416c0-5402-4df9-80fe-6f206aa6ec66"
+            }
+        ]
+    }
+}

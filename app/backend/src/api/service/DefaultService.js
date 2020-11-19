@@ -13,11 +13,11 @@ const shapeDirApp = path.normalize('./app/shapes/');
 const shape2CodeDir = path.normalize('./app/shape2code/');
 
 /**
- * Get all saved skill definitions
- * 
+* Get all saved skill definitions
+* 
  *
- * returns List
- **/
+* returns List
+**/
 exports.listSkills = function() {
   return new Promise(function(resolve, reject) {
     // read all document in shape dirs
@@ -46,12 +46,12 @@ exports.listSkills = function() {
 };
 
 /**
- * Get all the skills belonging to a module.
- * 
+* Get all the skills belonging to a module.
+* 
  *
- * moduleName String The name of module to search for.
- * returns List
- **/
+* moduleName String The name of module to search for.
+* returns List
+**/
 exports.getSkillsByModule = function(moduleName) {
   // Prepare the request
   var machineName = ("" + moduleName).replace(/\s/g, "");
@@ -108,39 +108,54 @@ function concatFiles(dirname) {
   fs.writeFileSync(indexFile, content);
 }
 /**
- * Delete a skill from the repository
- * 
+* Delete a skill from the repository
+* 
  *
- * moduleName String The name of the module to remove
- * no response value expected for this operation
- **/
+* moduleName String The name of the module to remove
+* no response value expected for this operation
+**/
 exports.deleteModule = function(moduleName) {
-  // Prepare the request
-  var machineName = ("" + moduleName).replace(/\s/g, "");
-  return new Promise(function(resolve, reject) {
+  var rslt = [];
+  if(Object.keys(global.MAIN_APP.io.sockets).length === 0){
+  
+    // Prepare the request
+    var machineName = ("" + moduleName).replace(/\s/g, "");
+    return new Promise(function(resolve, reject) {
     // read all document in shape dirs
-    glob(shapeDirUserHOME + "/" + machineName +"_*.*", {}, function(er, files) {
-      var rslt = [];
-      files.forEach(function (f) {        
-        try {
-          fs.unlinkSync(f);
-          rslt.push(
-            {
-              err:null
-            }
-          );
-         } catch (e) {
-          rslt.push(
-            {
-              err:JSON.stringify(e)
-            }
-          );
-         }
+      glob(shapeDirUserHOME + "/" + machineName +"_*.*", {}, function(er, files) {
+    
+        files.forEach(function (f) {        
+          try {
+            fs.unlinkSync(f);
+            rslt.push(
+              {
+                err:null
+              }
+            );
+          } catch (e) {
+            rslt.push(
+                {
+                  err:JSON.stringify(e)
+                }
+            );
+          }
+        });
+        concatFiles(shapeDirUserHOME+ "/");    
+        resolve(rslt);
       });
-      concatFiles(shapeDirUserHOME+ "/");    
+    }); 
+  }
+  else{
+    return new Promise(function(resolve, reject) {
+      rslt.push(
+        {
+          err:"Delete not permitted. A client is connected to the server."
+        }
+      );
       resolve(rslt);
     });
-  }); 
+  }
+  
 };
 
 
@@ -249,12 +264,12 @@ function generate_skill(skill_to_generate, filePath, _callback, _fcallback){
 
 
 /**
- * Register a new module
- * 
+* Register a new module
+* 
  *
- * module Module Module object and OPC UA Server description that needs to be browsed.
- * returns List
- **/
+* module Module Module object and OPC UA Server description that needs to be browsed.
+* returns List
+**/
 exports.registerModule = function(module) {
   return new Promise(function(resolve, reject) {
     var machineName = ("" + module.name).replace(/\s/g, "");
@@ -314,34 +329,49 @@ exports.registerModule = function(module) {
 
 
 /**
- * Update the skills of a module
- * 
+* Update the skills of a module
+* 
  *
- * module Module Module object and OPC UA Server description that needs to be updated.
- * returns List
- **/
+* module Module Module object and OPC UA Server description that needs to be updated.
+* returns List
+**/
 exports.updateModule = function(module) {
+  var self = this;
+  var rslt = [];
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "port" : 4840,
-  "ip" : "192.168.0.1",
-  "name" : "InsertSkill",
-  "module_name" : "AssemblyModule 1",
-  "nodeId" : "ns=4;i=7001",
-  "version" : "V1"
-}, {
-  "port" : 4840,
-  "ip" : "192.168.0.1",
-  "name" : "InsertSkill",
-  "module_name" : "AssemblyModule 1",
-  "nodeId" : "ns=4;i=7001",
-  "version" : "V1"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+    if(Object.keys(global.MAIN_APP.io.sockets).length === 0){
+      self.deleteModule(module)
+        .then(function (deleteResult) {
+          if (deleteResult.err){
+            reject(
+              {
+                err:"Update could not be executed. Existing module could not be deleted."
+              }
+            );
+          }else{
+            return self.registerModule(module);
+          }
+        }).then(function (registered_results) {
+          if (registered_results.err){
+            reject(
+              {
+                err:"Update could not be executed. The new module could not be registered."
+              }
+            );
+          }else{
+            resolve(registered_results);
+          }        
+        })
+        .catch(function (err_object) {
+          reject(err_object);
+        });
+    }else{
+      rslt.push(
+        {
+          err:"Update Module not permitted. A client is connected to the server."
+        }
+      );
+      resolve(rslt);
     }
   });
 }
