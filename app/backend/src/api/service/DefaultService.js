@@ -116,7 +116,7 @@ function concatFiles(dirname) {
 **/
 exports.deleteModule = function(moduleName) {
   var rslt = [];
-  if(Object.keys(global.MAIN_APP.io.sockets).length === 0){
+  if((Object.keys(global.MAIN_APP.io.io.clients().connected)).length === 0){
   
     // Prepare the request
     var machineName = ("" + moduleName).replace(/\s/g, "");
@@ -339,7 +339,7 @@ exports.updateModule = function(module) {
   var self = this;
   var rslt = [];
   return new Promise(function(resolve, reject) {
-    if(Object.keys(global.MAIN_APP.io.sockets).length === 0){
+    if((Object.keys(global.MAIN_APP.io.io.clients().connected)).length === 0){
       self.deleteModule(module)
         .then(function (deleteResult) {
           if (deleteResult.err){
