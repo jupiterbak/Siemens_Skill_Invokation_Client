@@ -69,6 +69,7 @@ var Signals_DataSource = CircuitFigure.extend({
 Signals_DataSource = Signals_DataSource.extend({
 
     init: function(attr, setter, getter){
+        var self = this;
         this._super(attr, setter, getter);
         this._valueParserInst = new ValueParserValidator();
 
@@ -99,16 +100,33 @@ Signals_DataSource = Signals_DataSource.extend({
         });
 
         this.on("change:userData.dataValue",function(emitter, event){
-            _this.constSignalValue = event.value;
+            // Add Label for DataID
             var dataId = _this.attr("userData.dataId");
             if(!dataId){
                 dataId = "Data_Id";
                 _this.attr("userData.dataId", dataId);
             }
-            _this.layerAttr("label", {text: dataId});            
+            _this.layerAttr("label", {text: dataId});
+            
+            // Parse the value
+            var _dataType = _this.attr("userData.dataType");
+            var _value = _this.attr("userData.dataValue");
+            var _isArray = _this.attr("userData.dataIsArray");
+            
+            // Check value considering the Datatype and the value rank
+            var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
+            
+            // Save the value if ok else save null
+            if( parsed_value.error){
+                _this.constSignalValue = null;
+            }else{
+                _this.constSignalValue = parsed_value.value.value;
+            }
+
+            // Change the label
             if(_this.constSignalValue){
                 // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " + dataId + ": " + _this.constSignalValue});
+                _this.layerAttr("label", {text: "(Const) " + dataId + ": " + JSON.stringify(_this.constSignalValue)});
             }
             _this.adjustWidth();
         });
@@ -122,9 +140,21 @@ Signals_DataSource = Signals_DataSource.extend({
             _this.layerAttr("label", {text: dataId});
             var dataValue = _this.attr("userData.dataValue");
             if(dataValue){
-                _this.constSignalValue = dataValue;
+                // Parse the value
+                var _dataType = _this.attr("userData.dataType");
+                var _isArray = _this.attr("userData.dataIsArray");
+                
+                // Check value considering the Datatype and the value rank
+                var parsed_value = self.checkOPCUAValue(_dataType, dataValue, _isArray);
+                
+                // Save the value if ok else save null
+                if( parsed_value.error){
+                    _this.constSignalValue = null;
+                }else{
+                    _this.constSignalValue = parsed_value.value.value;
+                }
                 // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _this.constSignalValue});
+                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + JSON.stringify(_this.constSignalValue)});
             }
             _this.adjustWidth();
         });
@@ -320,8 +350,7 @@ Signals_DataSource = Signals_DataSource.extend({
             // Change the value with the parsed value
             el_value.value = JSON.stringify(parsed_value.value.value);
             return true;
-        }
-        
+        }        
     },
     
     checkOPCUAValue: function(dataType, dataValue, isArray){
