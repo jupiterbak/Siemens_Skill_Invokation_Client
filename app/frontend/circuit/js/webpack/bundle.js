@@ -7742,7 +7742,7 @@ module.exports = exports.default;
   \**************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
-/*! CommonJS bailout: module.exports is used directly at 152:0-14 */
+/*! CommonJS bailout: module.exports is used directly at 156:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -7880,6 +7880,10 @@ exports.default = dialog = new (function () {
           element = $(element);
           var value = element.val();
           var name = element.data("name");
+          // Correct value for checkboxes
+          if (element.is(':checkbox')) {
+            value = element ? element.is(":checked") === true : false;
+          }
 
           currentFigure.attr("userData." + name, value);
         });

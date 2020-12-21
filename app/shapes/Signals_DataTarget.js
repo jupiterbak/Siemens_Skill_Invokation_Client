@@ -137,7 +137,7 @@ Signals_DataTarget = Signals_DataTarget.extend({
             // Update the value
             // var _val = _this.signalPort.getValue();
             // if(_val){
-                _this.layerAttr("label", {text: dataId + ": " + _this.signalPort.getValue()});
+                _this.layerAttr("label", {text: dataId + ": " + JSON.stringify(_this.signalPort.getValue())});
                 _this.adjustWidth();
             // }else{
             //     _this.layerAttr("label", {text: dataId});
@@ -219,3 +219,4 @@ Signals_DataTarget = Signals_DataTarget.extend({
     }
 
 });
+

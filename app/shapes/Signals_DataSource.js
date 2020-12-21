@@ -92,9 +92,9 @@ Signals_DataSource = Signals_DataSource.extend({
         };
         this.on("change:userData.dataId",function(emitter, event){
             _this.layerAttr("label", {text: event.value});
-            if(_this.constSignalValue){
+            if( !(_this.constSignalValue === undefined || _this.constSignalValue === null)){
                 // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " + event.value + ": " + _this.constSignalValue});
+                _this.layerAttr("label", {text: "(Const) " + event.value + ": " + JSON.stringify(_this.constSignalValue)});
             }
             _this.adjustWidth();
         });
@@ -112,7 +112,7 @@ Signals_DataSource = Signals_DataSource.extend({
             var _dataType = _this.attr("userData.dataType");
             var _value = _this.attr("userData.dataValue");
             var _isArray = _this.attr("userData.dataIsArray");
-            
+           
             // Check value considering the Datatype and the value rank
             var parsed_value = self.checkOPCUAValue(_dataType, _value, _isArray);
             
@@ -124,10 +124,7 @@ Signals_DataSource = Signals_DataSource.extend({
             }
 
             // Change the label
-            if(_this.constSignalValue){
-                // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " + dataId + ": " + JSON.stringify(_this.constSignalValue)});
-            }
+            _this.layerAttr("label", {text: "(Const) " + dataId + ": " + JSON.stringify(_this.constSignalValue)});
             _this.adjustWidth();
         });
 
@@ -139,7 +136,7 @@ Signals_DataSource = Signals_DataSource.extend({
             }
             _this.layerAttr("label", {text: dataId});
             var dataValue = _this.attr("userData.dataValue");
-            if(dataValue){
+            if( !(dataValue === undefined || dataValue === null)){
                 // Parse the value
                 var _dataType = _this.attr("userData.dataType");
                 var _isArray = _this.attr("userData.dataIsArray");
@@ -158,7 +155,6 @@ Signals_DataSource = Signals_DataSource.extend({
             }
             _this.adjustWidth();
         });
-
         // override the "getValue" method of the port and delegate them to the related party (SourceTarget port)
         this.originalGetValue = this.getOutputPort(0).getValue;
     },
@@ -173,9 +169,10 @@ Signals_DataSource = Signals_DataSource.extend({
         var _this = this;
         var dataId = this.attr("userData.dataId");
         this.getOutputPort(0).getValue = function(){
-            if(_this.constSignalValue){
+            if( !(_this.constSignalValue === undefined || _this.constSignalValue === null)){
                 return _this.constSignalValue;
             }else{
+                /*
                 if(context.signalPorts && context.signalPorts[dataId]){
                     if(context.signalPorts[dataId] instanceof draw2d.Port){
                         return context.signalPorts[dataId].getValue();
@@ -185,7 +182,8 @@ Signals_DataSource = Signals_DataSource.extend({
                     }
                 }else {
                     return 0;
-                }              
+                }*/
+                return 0;            
             }                
         };
 
@@ -194,22 +192,21 @@ Signals_DataSource = Signals_DataSource.extend({
             context.signalPorts = { };
         }
         
-        // check if my signal port is set 
-        if(_this.constSignalValue){
-            if(!(dataId in context.signalPorts)){
-                context.signalPorts[dataId] = _this.getOutputPort(0);
-            }
+        // check if my signal port is set         
+        if(!(dataId in context.signalPorts)){
+            context.signalPorts[dataId] = _this.getOutputPort(0);
         }
 
+        // Set the label
         var _val = _this.getOutputPort(0).getValue();
-        if(_val){
-            if(_this.constSignalValue){
+        if( !(_val === undefined || _val === null)){
+            if( !(_this.constSignalValue === undefined || _this.constSignalValue === null)){
                 // Update the label with the value
-                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + _val});
+                _this.layerAttr("label", {text: "(Const) " +dataId + ": " + JSON.stringify(_val)});
                 _this.adjustWidth();
             }else{
                 // Update the label with the value
-                _this.layerAttr("label", {text: dataId + ": " + _val});
+                _this.layerAttr("label", {text: dataId + ": " + JSON.stringify(_val)});
                 _this.adjustWidth();
             }
             
@@ -377,3 +374,5 @@ Signals_DataSource = Signals_DataSource.extend({
     }
 
 });
+
+

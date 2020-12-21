@@ -1,5 +1,5 @@
 //"private" variables
-import Hogan from "hogan.js"
+import Hogan from "hogan.js";
 
 var currentFigure = null;
 
@@ -145,6 +145,10 @@ export default dialog= new class FigureConfigDialog {
         element = $(element);
         var value = element.val();
         var name = element.data("name");
+        // Correct value for checkboxes
+        if(element.is(':checkbox')){
+          value = element?element.is(":checked")===true:false;
+        }
 
         currentFigure.attr("userData." + name, value);
       });
