@@ -14,6 +14,7 @@ const template7 = require('template7');
 const cliTruncate = require('cli-truncate');
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
+
 const winston = require('winston');
 const logger = winston.createLogger({
     transports: [new winston.transports.Console()],
@@ -59,7 +60,9 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // application specific configuration settings
 //
-const defaultSettings = require("./settings/default_settings");
+var config_spec = fs.readFileSync(path.join(__dirname,'/config.yml'), 'utf8');
+const defaultSettings = jsyaml.safeLoad(config_spec);
+
 const storage = require("./src/storage.js");
 const skillParser = require("./src/skill_parser.js");
 const shapeDirApp = path.normalize(__dirname + '/../shapes/');
@@ -70,6 +73,7 @@ const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
 const kg_enpoints = require("./src/sparql_endpoint");
 var KGEnpoints = {};
 const OPCUAClientService = require("./src/OPCUAClientService");
+const DiscoveryServerClient = require("./src/DiscoveryServerClient");
 
 // Determine the IP:PORT to use for the http server
 //
@@ -133,10 +137,18 @@ function configureSwaggerAPI(_app, _callBack){
 // =======================================================================
 function runServer() {
     // Instantiate and start the OPC UA Backend service
-    let opcua_settings = defaultSettings.service.opcuaclient || {};
+    let opcua_settings = defaultSettings.services.opcuaclient || {};
     let opcuaclientservice = new OPCUAClientService();
     opcuaclientservice.init(io, opcua_settings, logger);
     opcuaclientservice.start();
+
+    // Instantiate and start the OPC UA Discovery service
+    if( defaultSettings.services.opcuaclient){   
+        let discovery_settings = defaultSettings.services.opcua_dicovery || {};
+        let discoveryService = new DiscoveryServerClient();
+        discoveryService.init(io, discovery_settings, logger);
+        discoveryService.start();    
+    }
 
     // provide the  WebApp with this very simple
     // HTTP server. Good enough for an private raspi access
@@ -650,7 +662,7 @@ function runServer() {
 
         // Start listening to the main server on port
         http.listen(port, function() {
-            console.log('using Puppeteer for server side rendering of shape previews:', puppeteer.path)
+            console.log('using Puppeteer for server side rendering of shape previews:', puppeteer._projectRoot)
             console.log('+------------------------------------------------------------+');
             console.log('| Welcome to the SP347 Skill Invokation Client               |');
             console.log('|------------------------------------------------------------|');
