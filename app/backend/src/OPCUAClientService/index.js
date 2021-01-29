@@ -916,7 +916,7 @@ async function getSkillObject(client, nodeId, rslts) {
         }
         return _rslts;
     });
-}
+};
 
 function isSkillObjectType(client, nodeId) {
     return new Promise((resolve, reject) => {

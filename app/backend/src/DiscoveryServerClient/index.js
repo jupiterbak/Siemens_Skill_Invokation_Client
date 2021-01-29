@@ -36,7 +36,6 @@ const infinite_connectivity_strategy = {
     randomisationFactor: 0
 };
 
-
 const OPCUAClientBase = require("node-opcua-client").OPCUAClientBase;
 const SecurityPolicy = require("node-opcua-secure-channel").SecurityPolicy;
 const MessageSecurityMode = require("node-opcua-service-secure-channel").MessageSecurityMode;
@@ -113,6 +112,7 @@ var DiscoveryServerClient = function() {
     this._server_endpoints = null;
     this.started = false;
     this.known_server_endpoints = [];
+    this.crawler = null;
 };
 
 DiscoveryServerClient.prototype.findServersOnNetwork = function(callback) {
@@ -155,6 +155,7 @@ DiscoveryServerClient.prototype.init = function(sio, _settings, _logger) {
     self._registration_client = client;
     self.logger.info("MICROSERVICE[" + self.settings.name + "] initialized successfully!");
 };
+
 DiscoveryServerClient.prototype.start = function() {
     var self = this;
     if (self.started) {
@@ -197,20 +198,60 @@ DiscoveryServerClient.prototype.start = function() {
                 callback(null);
             },
             function findServer_on_discovery_server(callback) {
-                self._registration_client.findServersOnNetwork(self.settings.discoveryServerEndpointUrl, function (err,  serversOnNetworks) {
-                    if (!err) {
-                        if(serversOnNetworks){
-                            self.known_server_endpoints = serversOnNetworks;
-                            serversOnNetworks.forEach(function(current) {
-                                self.logger.info("MICROSERVICE[" + self.settings.name + "] founded this servers: " + current.discoveryUrl);
-                            });
+                self.crawler = setInterval(() => {
+                    self._registration_client.findServersOnNetwork(self.settings.discoveryServerEndpointUrl, function (err,  serversOnNetworks) {
+                        if (!err) {
+                            if(serversOnNetworks){
+                                // Check for new servers
+                                var new_servers = [];
+                                serversOnNetworks.forEach(function(current) {
+                                    var _founded = false;
+                                    for (var index = 0; index < self.known_server_endpoints.length; index++) {
+                                        if(self.known_server_endpoints[index].discoveryUrl === current.discoveryUrl){
+                                            _founded = true;
+                                            break;
+                                        }                                        
+                                    }
+                                    if (_founded === false){
+                                        new_servers.push(current);
+                                    }
+                                });
+
+                                // Check for removed servers
+                                var removed_servers = [];
+                                self.known_server_endpoints.forEach(function(current) {
+                                    var _founded = false;
+                                    for (var index = 0; index < serversOnNetworks.length; index++) {
+                                        if(serversOnNetworks[index].discoveryUrl === current.discoveryUrl){
+                                            _founded = true;
+                                            break;
+                                        }                                        
+                                    }
+                                    if (_founded === false){
+                                        removed_servers.push(current);
+                                    }
+                                });
+                                
+                                self.known_server_endpoints = serversOnNetworks;
+
+                                // print out new servers
+                                new_servers.forEach(function(current) {                                    
+                                    self.logger.info("MICROSERVICE[" + self.settings.name + "] founded this servers: " + current.discoveryUrl);
+                                });
+
+                                // print out server removed
+                                removed_servers.forEach(function(current) {                                    
+                                    self.logger.info("MICROSERVICE[" + self.settings.name + "] server: " + current.discoveryUrl + " has been removed.");
+                                });
+                            }
+                        } else {
+                            self.logger.warn("MICROSERVICE[" + self.settings.name + "] cannot find servers on network.");
                         }
-                        
-                    } else {
-                        self.logger.warn("MICROSERVICE[" + self.settings.name + "] cannot find servers on network.");
-                    }
-                    callback(err);
-                });
+                        if (callback === null){
+                            callback(err);
+                        }                        
+                    });
+                }, 30000);
             },
             // function closing_discovery_server_connection(callback) {
             //     self._registration_client.disconnect(function(err) {
@@ -220,6 +261,9 @@ DiscoveryServerClient.prototype.start = function() {
             // },
         ], function (err) {
             if(err){
+                if(self.crawler){
+                    clearInterval(self.crawler);
+                }                
                 if (self._registration_client) {
                     self._registration_client.disconnect(function(err) {
                         self._registration_client = null;
@@ -228,12 +272,11 @@ DiscoveryServerClient.prototype.start = function() {
                 }else {
                     self.logger.warn("MICROSERVICE[" + self.settings.name + "] Starting has been canceled");
                 }
+                self._registration_client = null;
             }else{
                 self.started = true; 
             }
-            self._registration_client = null;
         });
-
         self.logger.info("MICROSERVICE[" + self.settings.name + "] started successfully!");
     }
     return when.resolve();
@@ -241,10 +284,20 @@ DiscoveryServerClient.prototype.start = function() {
 
 DiscoveryServerClient.prototype.stop = function() {
     var self = this;
+    if(self.crawler){
+        clearInterval(self.crawler);
+    } 
+    if (self._registration_client) {
+        self._registration_client.disconnect(function(err) {
+            self._registration_client = null;
+            self.logger.warn("MICROSERVICE[" + self.settings.name + "] registration client has been canceled");
+        });
+    }else {
+        self.logger.warn("MICROSERVICE[" + self.settings.name + "] registration client has been canceled");
+    }
+    self._registration_client = null;   
     self.started = false;
-    self.manager.close(function() {
-        self.logger.info("MICROSERVICE[" + self.settings.name + "] stopped successfully!");
-    });
+    self.logger.info("MICROSERVICE[" + self.settings.name + "] has been stopped.");
     return when.resolve();
 };
 

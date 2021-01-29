@@ -24,39 +24,26 @@ describe ("Connections 2", function(){
                 done();
             });
         });
-    
-        it("Circuit sreenshot", done=>{            
-
-            (async () => {
-                const browser = await puppeteer.launch();
-                const page = await browser.newPage();
-                await page.goto('https://example.com/');
-                await page.screenshot({path: 'C:\GitHub\Siemens_Skill_Invokation_Client_Restrukturierung\test\results/circuit.png'});
-                await browser.close();
+        it("Variables2", done=>{
+            request("http://localhost:7400/api/v1/skills" , function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
                 done();
-            })();
+            });
         });
 
-        // it("Variables2", done=>{
-        //     request("http://localhost:7400/api/v1/skills" , function(error, response, body) {
-        //         expect(response.statusCode).to.equal(200);
-        //         done();
-        //     });
-        // });
+        it("Variables3", done=>{
+            request("http://localhost:7400/api/v1/skills" , function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                done();
+            });
+        });
 
-        // it("Variables3", done=>{
-        //     request("http://localhost:7400/api/v1/skills" , function(error, response, body) {
-        //         expect(response.statusCode).to.equal(200);
-        //         done();
-        //     });
-        // });
-
-        // it("Variables4", done=>{
-        //     request("http://localhost:7400/api/v1/skills" , function(error, response, body) {
-        //         expect(response.statusCode).to.equal(200);
-        //         done();
-        //     });
-        // });
+        it("Variables4", done=>{
+            request("http://localhost:7400/api/v1/skills" , function(error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                done();
+            });
+        });
     });
 });
 
