@@ -1,0 +1,149 @@
+/**
+ * by 'Draw2D Shape Designer'
+ *
+ * Custom JS code to tweak the standard behaviour of the generated
+ * shape. add your custome code and event handler here.
+ *
+ *
+ */
+SWITCH = SWITCH.extend({
+
+    init: function(attr, setter, getter){
+        this._super(attr, setter, getter);
+        this.on("change:userData.case1",(emitter, event)=>{
+            this.case1Val = event.value;
+        });
+        this.on("change:userData.case2",(emitter, event)=>{
+            this.case2Val = event.value;
+        });
+        this.on("change:userData.case3",(emitter, event)=>{
+            this.case3Val = event.value;
+        });
+        this.on("change:userData.case4",(emitter, event)=>{
+            this.case4Val = event.value;
+        });
+        this.on("change:userData.case5",(emitter, event)=>{
+            this.case5Val = event.value;
+        });
+        this.on("change:userData.default",(emitter, event)=>{
+            if(event.value == 0) 
+            this.defaultVal = false;
+            if(event.value == 1)
+            this.defaultVal = true;
+         });
+        this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(1).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(2).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(3).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(4).attr({
+            semanticGroup:"signal"
+        });
+        this.getOutputPort(5).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(0).attr({
+            semanticGroup:"signal"
+        });
+        this.getInputPort(1).attr({
+            semanticGroup:"data"
+        });
+        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
+
+    },
+    
+    calculate:function()
+    {
+        var i1 = this.getInputPort(0);
+        var i2 = this.getInputPort(1);
+        var o1 = this.getOutputPort(0);
+        var o2 = this.getOutputPort(1);
+        var o3 = this.getOutputPort(2);
+        var o4 = this.getOutputPort(3);
+        var o5 = this.getOutputPort(4);
+        var o6 = this.getOutputPort(5);
+        o1.setValue(i1.getValue() && (i2.getValue() == this.case1Val));
+        o2.setValue(i1.getValue() && (i2.getValue() == this.case2Val));
+        o3.setValue(i1.getValue() && (i2.getValue() == this.case3Val));
+        o4.setValue(i1.getValue() && (i2.getValue() == this.case4Val));
+        o5.setValue(i1.getValue() && (i2.getValue() == this.case5Val));
+        o6.setValue(i1.getValue() && this.defaultVal && !o1.getValue() && !o2.getValue() 
+        && !o3.getValue() && !o4.getValue() && !o5.getValue());
+    },
+
+    /**
+     *  Called if the simulation mode is starting
+     *  @required
+     **/
+    onStart:function(context)
+    {
+    },
+
+    /**
+     *  Called if the simulation mode is stopping
+     *  @required
+     **/
+    onStop:function(context)
+    {
+    },
+
+    getParameterSettings:function()
+    {
+        return [
+        {
+            name:"case1",
+            label:"Case 1 Value",
+            property:{
+                type: "String",
+            }
+        },
+        {
+            name:"case2",
+            label:"Case 2 Value",
+            property:{
+                type: "String",
+            }
+        },
+        {
+            name:"case3",
+            label:"Case 3 Value",
+            property:{
+                type: "String",
+            }
+        },
+        {
+            name:"case4",
+            label:"Case 4 Value",
+            property:{
+                type: "String",
+            }
+        },
+        {
+            name:"case5",
+            label:"Case 5 Value",
+            property:{
+                type: "String",
+            }
+        },
+        {
+            name:"default",
+            label:"Default Value",
+            property:{
+                type: "select",
+                optional_values:[
+                    {label: "HIGH", value:1},
+                    {label: "LOW", value:0}
+                ]
+            },
+            default_value:0
+        }];
+    }
+});

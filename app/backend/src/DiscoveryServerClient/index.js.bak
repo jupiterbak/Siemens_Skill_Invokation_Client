@@ -297,9 +297,7 @@ DiscoveryServerClient.prototype.stop = function() {
     }
     self._registration_client = null;   
     self.started = false;
-    self.manager.close(function() {
-        self.logger.info("MICROSERVICE[" + self.settings.name + "] stopped successfully!");
-    });
+    self.logger.info("MICROSERVICE[" + self.settings.name + "] has been stopped.");
     return when.resolve();
 };
 

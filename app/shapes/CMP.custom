@@ -1,0 +1,89 @@
+/**
+ * by 'Draw2D Shape Designer'
+ *
+ * Custom JS code to tweak the standard behaviour of the generated
+ * shape. add your custome code and event handler here.
+ *
+ *
+ */
+CMP = CMP.extend({
+
+    init: function(attr, setter, getter){
+        this._super(attr, setter, getter);
+        this.on("change:userData.operator",(emitter, event)=>{
+            this.operatorValue = event.value;
+        });
+        this.attr({resizeable:false});
+        this.getOutputPort(0).attr({
+            semanticGroup:"data"
+        });
+        this.getInputPort(0).attr({
+            semanticGroup:"data"
+        });
+        this.getInputPort(1).attr({
+            semanticGroup:"data"
+        });
+        this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());
+
+    },
+    
+    calculate:function()
+    {
+        var i1 = this.getInputPort(0);
+        var i2 = this.getInputPort(1);
+        var o1 = this.getOutputPort(0);
+        
+        switch(this.operatorValue){
+            default:
+            case "greater (>)"          :   o1.setValue(i1.getValue() > i2.getValue());
+            break;
+            case "greater or equal (>=)":   o1.setValue(i1.getValue() >= i2.getValue());
+            break;
+            case "equal (=)"            :   o1.setValue(i1.getValue() == i2.getValue());
+            break;
+            case "smaller (<)"          :   o1.setValue(i1.getValue() < i2.getValue());
+            break;
+            case "smaller or equal (<=)":   o1.setValue(i1.getValue() <= i2.getValue());
+            break;
+            case "not equal (!=)"       :   o1.setValue(i1.getValue() != i2.getValue());
+            break;
+        }
+    },
+
+    /**
+     *  Called if the simulation mode is starting
+     *  @required
+     **/
+    onStart:function(context)
+    {
+    },
+
+    /**
+     *  Called if the simulation mode is stopping
+     *  @required
+     **/
+    onStop:function(context)
+    {
+    },
+
+    getParameterSettings: function()
+    {
+        return [
+        {
+            name:"operator",
+            label:"Comparison operator",
+            property:{
+                type: "select",
+                optional_values:[
+                    {label: "greater (>)", value:"greater (>)"},
+                    {label: "greater or equal (>=)", value:"greater or equal (>=)"},
+                    {label: "equal (=)", value:"equal (=)"},                    
+                    {label: "smaller (<)", value:"smaller (<)"},
+                    {label: "smaller or equal (<=)", value:"smaller or equal (<=)"},
+                    {label: "not equal (!=)", value:"not equal (!=)"}
+                ]
+            },
+            default_value:'greater (>)'
+        }];
+    },
+});

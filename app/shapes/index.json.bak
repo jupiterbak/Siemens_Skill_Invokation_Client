@@ -7,13 +7,6 @@
     "filePath": "AND.shape"
   },
   {
-    "name": "CMP",
-    "tags": [
-      "CMP"
-    ],
-    "filePath": "CMP.shape"
-  },
-  {
     "name": "DELAY",
     "tags": [
       "DELAY"
@@ -42,13 +35,6 @@
       "End"
     ],
     "filePath": "End.shape"
-  },
-  {
-    "name": "IF",
-    "tags": [
-      "IF"
-    ],
-    "filePath": "IF.shape"
   },
   {
     "name": "MUX",
@@ -86,13 +72,6 @@
       "START"
     ],
     "filePath": "START.shape"
-  },
-  {
-    "name": "SWITCH",
-    "tags": [
-      "SWITCH"
-    ],
-    "filePath": "SWITCH.shape"
   },
   {
     "name": "SYNC",

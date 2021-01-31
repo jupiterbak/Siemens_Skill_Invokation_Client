@@ -105,3 +105,10 @@ dist
 
 # Jetbrain dev Tools
 .idea
+
+# Visual Studio Code files 
+.vcode/
+
+# Internal files
+.skillInvocationClient/
+

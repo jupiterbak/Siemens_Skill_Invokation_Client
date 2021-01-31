@@ -1,6 +1,6 @@
 uiPort: 7400
 services:
-  opcuaclient: True
+  opcuaclient: False
   opcua_dicovery:
     discoveryServerEndpointUrl: 'opc.tcp://localhost:48400'
     connection_options:
