@@ -1,0 +1,27 @@
+uiPort: 7400
+services:
+  opcuaclient:
+    name: "OPCUAClientService0"
+    type: "OPCUAClientService"
+    id: "IOTRuntime_0"
+    level: "info"
+    modulesetting:
+      interval: 10
+      ip: "0.0.0.0"
+      port: 4840 ## default OPC UA Port to initialize the input text fields
+      defaultObjectModel:
+        _states:
+          - Id
+          - xResultAcknowledge
+          - xRequestProvided" ## // ["CurrentStateExt", "CurrentState", "Id"]
+        _kpi: ["CurrentLoads", "CurrentLoad", "CurrMachSpeed", "TargetLoad", "Product", "MachSpeed", "StateChangeInProgress", "Interlocked", "EnergySource", "SupportedModes", "Version", "MachSpeed_AC", "MachSpeed_DC"]
+        _actions: ["Abort", "Clear", "Reset", "Stop", "Hold", "Start", "UnHold", "GetResult"]
+  opcua_dicovery:
+    enabled: False
+    discoveryServerEndpointUrl: 'opc.tcp://localhost:48400'
+    connection_options:
+      applicationName: "SIC Discovery server client"
+      endpoint_must_exist: False
+      keepSessionAlive: True
+      requestedSessionTimeout: 60000
+      connectionStrategy: infinite_connectivity_strategy

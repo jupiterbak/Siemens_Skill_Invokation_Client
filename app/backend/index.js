@@ -61,7 +61,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // application specific configuration settings
 //
-var config_spec = fs.readFileSync(path.join(__dirname,'/config.yml'), 'utf8');
+var config_spec = fs.readFileSync(path.join(__dirname,'./settings/config.yml'), 'utf8');
 const defaultSettings = jsyaml.safeLoad(config_spec);
 
 const storage = require("./src/storage.js");
@@ -144,7 +144,7 @@ function runServer() {
     opcuaclientservice.start();
 
     // Instantiate and start the OPC UA Discovery service
-    if( defaultSettings.services.opcuaclient){   
+    if( defaultSettings.services.opcua_dicovery.enabled){   
         let discovery_settings = defaultSettings.services.opcua_dicovery || {};
         let discoveryService = new DiscoveryServerClient();
         discoveryService.init(io, discovery_settings, logger);
