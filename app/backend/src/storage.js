@@ -4,8 +4,9 @@ const path = require('path');
 
 const brainDirHOME = "./.skillInvocationClient/";
 const brainDirUserHOME = brainDirHOME + "brain/";
+const mtpDirUserHOME = brainDirHOME + "mtp/";
 const shapeDirUserHOME = brainDirHOME + "shapes/";
-const guidesirUserHOME = brainDirHOME + "guides/";
+const guidesDirUserHOME = brainDirHOME + "guides/";
 
 
 /**
@@ -21,7 +22,9 @@ try {
 
     ensure(brainDirHOME)
     ensure(brainDirUserHOME)
+    ensure(guidesDirUserHOME)
     ensure(shapeDirUserHOME)
+    ensure(mtpDirUserHOME)
 } catch (e) {
     console.log(e)
 }
@@ -30,7 +33,8 @@ try {
 module.exports = {
     brainDirUserHOME: brainDirUserHOME,
     shapeDirUserHOME: shapeDirUserHOME,
-    guidesirUserHOME: guidesirUserHOME,
+    guidesirUserHOME: guidesDirUserHOME,
+    mtpDirUserHOME: mtpDirUserHOME,
 
     listFiles: function(baseDir, subDir, res) {
         glob(baseDir + subDir + "*", {}, function(er, files) {
@@ -56,6 +60,21 @@ module.exports = {
         try {
             let readStream = fs.createReadStream(file)
             res.setHeader('Content-Type', 'application/json')
+            readStream.pipe(res)
+        } catch (exc) {
+            res.status(404).send('Not found')
+        }
+    },
+
+    getXMLFile: function(baseDir, subDir, res) {
+        let file = baseDir + subDir
+        if (!fs.existsSync(file)) {
+            res.status(404).send('Not found')
+            return
+        }
+        try {
+            let readStream = fs.createReadStream(file)
+            res.setHeader('Content-Type', 'application/xml')
             readStream.pipe(res)
         } catch (exc) {
             res.status(404).send('Not found')

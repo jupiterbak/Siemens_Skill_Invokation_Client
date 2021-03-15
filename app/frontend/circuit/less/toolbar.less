@@ -124,5 +124,40 @@
         }
       }
     }
+
+    .open{
+      .dropdown-menu {
+        -webkit-transform: scale(1, 1);
+        opacity:1;
+        transform: scale(1, 1);
+      }
+    }
+    .dropdown-menu {
+      opacity:0.1;
+      animation-fill-mode: forwards;
+      transform: scale(1, 0);
+      transform-origin: 0 0 ;
+      display: block;
+      transition: all 0.2s ease;
+    }
+
+    .tool_shape_entry {
+      text-align: left;  
+      img{
+        height:30px;
+        padding-right:0px;
+      }  
+      .tool_label{
+        min-width:80px;
+        display:inline-block;
+      }  
+      .tool_shortcut{
+        color:rgba(0, 0, 0, 0.5);
+      }
+      &.tool_disabled {
+        pointer-events:none; //This makes it not clickable
+        opacity:0.6;         //This grays it out to look disabled
+    }
+    }
   }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
  // Load the http module to create an http server.
 
- const express = require('express');
+const express = require('express');
 const fs = require('fs');
 const app = express();
 const app_api = require('connect')();
@@ -15,6 +15,7 @@ const template7 = require('template7');
 const cliTruncate = require('cli-truncate');
 var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
+var async = require("async");
 
 const winston = require('winston');
 const logger = winston.createLogger({
@@ -52,7 +53,13 @@ template7.registerHelper('getLocalizedTextNodeID', function(nodeIdTxt) {
 });
 
 template7.registerHelper('getShortenedSkillName', function(skillName) {
-    return cliTruncate((""+ skillName), 13, {position: 'middle'});
+    return cliTruncate((""+ skillName), 10, {position: 'start'});
+});
+
+template7.registerHelper('getParameterName', function(paramName) {
+    var _tmp = ""+ paramName
+    var res = _tmp.split("_");
+    return res[res.length -1];
 });
 
 // Tell the bodyparser middleware to accept more data
@@ -66,6 +73,7 @@ const defaultSettings = jsyaml.safeLoad(config_spec);
 
 const storage = require("./src/storage.js");
 const skillParser = require("./src/skill_parser.js");
+const MTPParser = require('./src/MTPParser.js');
 const shapeDirApp = path.normalize(__dirname + '/../shapes/');
 const shape2CodeDir = path.normalize(__dirname + '/../shape2code/');
 const skillTemplateDir = path.normalize(__dirname + '/../skilltemplate/');
@@ -179,6 +187,152 @@ function runServer() {
         });
     });
 
+    // =================================================================
+    // Handle mtp files
+    //
+    // =================================================================
+    app.get('/backend/mtp/list', (req, res) => storage.listFiles(storage.mtpDirUserHOME, req.query.path, res));
+    app.get('/backend/mtp/get', (req, res) => storage.getXMLFile(storage.mtpDirUserHOME, req.query.filePath, res));
+    app.post('/backend/mtp/delete', (req, res) => storage.deleteFile(storage.mtpDirUserHOME, req.body.filePath, res));
+    app.post('/backend/mtp/rename', (req, res) => storage.renameFile(storage.mtpDirUserHOME, req.body.from, req.body.to, res));
+    app.post('/backend/mtp/save', (req, res) => {
+        logger.info("New MTP file to save: "+ storage.mtpDirUserHOME + req.body.filePath);
+        fs.writeFile(storage.mtpDirUserHOME + req.body.filePath, req.body.content, (err) => {
+            if (err) throw err;
+            io.emit("mtp:file:saved", {
+                filePath: req.body.filePath
+            });
+            // File is saved, now parse it
+            // Parse the skill object to determine the version and the parameters
+            let _skill_parser = new MTPParser(req.body.content, logger);
+            let _parsed_services = _skill_parser.getParsedservices();
+            io.emit("mtp:services:count", {
+                count: _parsed_services.length
+            });
+
+            fs.readFile(path.normalize(skillTemplateDir + '/skill_template.shape'), "utf8", (err, data) => {
+                if (err) throw err;                
+                var _service_index = 0;
+                async.eachSeries(_parsed_services, function(_parsed_service, callback) {
+                    //#############################
+                    // Compile the template object
+                    let compiledTemplate = template7.compile(data);
+                    let _content = compiledTemplate(_parsed_service);
+                    // console.log(_content);
+                    // Add Custom Code depending on the version of the skill
+                    let _content_json = JSON.parse(_content);           
+                    _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/mtp_custom_code_' +  _parsed_service.version +'.txt'), "utf8");         
+                    
+
+                    // Generate the JSON file path, which describe the skill (OPC UA)
+                    let _serviceDesriptionFile = path.normalize(shapeDirApp + "MTP_"+ (_parsed_service.ip).split(".").join("") + "_" + _parsed_service.port + "_" + _parsed_service.skill.name);
+                    _serviceDesriptionFile = _serviceDesriptionFile + ".json";
+                    let _serviceDesriptionFileContent = JSON.stringify(_parsed_service,null, 4);
+
+                    // Generate the .shape description file path for the MTP-Service
+                    let _shapeDesriptionFile = path.normalize(_serviceDesriptionFile).replace(".json", ".shape");
+                    fs.writeFile(_shapeDesriptionFile, JSON.stringify(_content_json, null, 4), (err) => {
+                        if (err){                    
+                            // file could not be saved.
+                            //
+                            res.send(JSON.stringify({err:"MTP-Services couldn't be saved."}));
+                            throw err;
+                        }
+
+                        // create the js/png/md async to avoid a blocked UI
+                        //
+                        let binPath = "node";
+                        let childArgs = [
+                            path.normalize(__dirname + '/../shape2code/converter.js'),
+                            path.normalize(_shapeDesriptionFile),
+                            shape2CodeDir,
+                            shapeDirApp
+                        ];
+
+                        // inform the browser that the processing of the
+                        // code generation is ongoing
+                        //
+                        io.emit("shape:generating", {
+                            filePath: _shapeDesriptionFile
+                        });
+                        io.emit("mtp:service:generating", {
+                            service: _parsed_service.skill.name,
+                            index:_service_index
+                        });
+                        
+                        // console.log("Generating skill images...");
+                        //console.log(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                        //logger.info(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                        // childProcess.on('close', (code) => {
+                        //     console.log(`child process close all stdio with code ${code}`);
+                        // });
+                        
+                        // childProcess.on('exit', (code) => {
+                        //     console.log(`child process exited with code ${code}`);
+                        // });
+
+                        // childProcess.on('disconnect', (code) => {
+                        //     console.log(`child process exited with code ${code}`);
+                        // });
+
+                        childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+                            //logger.log(`stdout: ${stdout}`);
+                            
+                            if (err){
+                                logger.error(`stderr: ${stderr}`);
+                                // file could be saved but the index were not properly generated.
+                                //
+                                res.send(JSON.stringify({err:"MTP-Services could be saved but the index were not properly generated."}));
+                                callback(err);
+                                // throw err;
+                            }else{
+                                // Write the skill description as JSON
+                                fs.writeFileSync(_serviceDesriptionFile, _serviceDesriptionFileContent);
+                                
+                                // Copy the generated files to the user directory
+                                let pattern = (_shapeDesriptionFile).replace(".shape", ".*");
+                                glob(pattern, {}, function(er, files) {
+                                    files.forEach(file => {
+                                        fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
+                                            if (err) throw err;
+                                        });
+                                    });
+                                });
+                                
+                                // SocketIO
+                                io.emit("mtp:service:generated", {
+                                    service: _parsed_service.skill.name,
+                                    index: _service_index
+                                });
+                                io.emit("shape:generated", {
+                                    filePath: _shapeDesriptionFile
+                                });
+                                // Do work to process file here
+                                _service_index += 1;
+                                callback();
+                            }
+                        });
+                    });
+
+                }, function(err) {
+                    // if any of the file processing produced an error, err would equal that error
+                    if( err ) {
+                      // One of the iterations produced an error.
+                      // All processing will now stop.
+                      logger.error('A service failed to process');
+                    } else {
+                        logger.info('All services have been processed successfully');
+                      // file is saved...fine
+                        //
+                        res.send(JSON.stringify({err:null}));
+                    }
+                    io.emit("mtp:services:generated", {
+                        filePath: req.body.filePath
+                    });
+                });                
+            });             
+        });
+    });
 
     // =================================================================
     // Handle shape files
@@ -254,7 +408,7 @@ function runServer() {
             let _skill_parser = new skillParser(_skill, logger);
             let _parsed_skill = _skill_parser.getParsedObject();
             
-            // Comile the template object
+            // Compile the template object
             let compiledTemplate = template7.compile(data);
             let _content = compiledTemplate(_parsed_skill);
             // console.log(_content);
@@ -293,7 +447,7 @@ function runServer() {
                 });
                 
                 // console.log("Generating skill images...");
-                logger.info(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                // logger.info(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
                 // childProcess.on('close', (code) => {
                 //     console.log(`child process close all stdio with code ${code}`);
                 // });

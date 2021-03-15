@@ -7,13 +7,6 @@
     "filePath": "AND.shape"
   },
   {
-    "name": "CMP",
-    "tags": [
-      "CMP"
-    ],
-    "filePath": "CMP.shape"
-  },
-  {
     "name": "DELAY",
     "tags": [
       "DELAY"
@@ -42,25 +35,6 @@
       "End"
     ],
     "filePath": "End.shape"
-  },
-  {
-    "name": "IF",
-    "tags": [
-      "IF"
-    ],
-    "filePath": "IF.shape"
-  },
-  {
-    "name": "Module01_localhost_4845_Skill_Add_DB",
-    "tags": [
-      "Module01",
-      "localhost",
-      "4845",
-      "Skill",
-      "Add",
-      "DB"
-    ],
-    "filePath": "Module01_localhost_4845_Skill_Add_DB.shape"
   },
   {
     "name": "MUX",
@@ -98,13 +72,6 @@
       "START"
     ],
     "filePath": "START.shape"
-  },
-  {
-    "name": "SWITCH",
-    "tags": [
-      "SWITCH"
-    ],
-    "filePath": "SWITCH.shape"
   },
   {
     "name": "SYNC",

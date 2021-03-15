@@ -192,7 +192,7 @@ export default draw2d.Canvas.extend({
         //
         $("#canvas_zoom_out").on("click", () => setZoom(_this.getZoom() * 0.8));
 
-        $("#statusWebUSB .help-link").on("click", () => new WebUSBHelpDialog().show())
+        $("#statusWebUSB .help-link").on("click", () => new WebUSBHelpDialog().show());
 
         hardware.arduino.on("disconnect", this.hardwareChanged.bind(this));
         hardware.arduino.on("connect", this.hardwareChanged.bind(this));

@@ -10,6 +10,8 @@
 //
 export default {
   fileSuffix: ".brain",
+  mtpFileSuffix: ".aml",
+  xmlFileSuffix: ".xml",
   backend: {
     file: {
       list:   path       => `../backend/brain/list?path=${path}`,
@@ -21,6 +23,13 @@ export default {
     },
     guide: {
       get:    file       => `../backend/guide/get?filePath=${file}`,
+    },
+    mtp: {
+      list:   path       => `../backend/mtp/list?path=${path}`,
+      get:    file       => `../backend/mtp/get?filePath=${file}`,
+      del:     `../backend/mtp/delete`,
+      rename:  `../backend/mtp/rename`,
+      save:     `../backend/mtp/save`
     },
     skill:{
       connect: '/backend/skill/connect',

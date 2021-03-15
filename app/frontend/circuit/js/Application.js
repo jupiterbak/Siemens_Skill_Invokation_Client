@@ -12,6 +12,7 @@ import FileSave from "./dialog/FileSave"
 import BrowseSkillsDialog from "./dialog/BrowseSkillsDialog"
 import storage from './io/BackendStorage'
 import conf from "./Configuration"
+import MTPLoadDialog from "./dialog/MTPLoadDialog"
 
 /**
  * wait asyn that an DOM element is present
@@ -70,8 +71,19 @@ class Application {
         $("#BrowseSkills, #editorBrowseSkills").on("click", () => {
             new BrowseSkillsDialog().show(self.view);
         });
+
         Mousetrap.bindGlobal(['ctrl+b', 'command+b'], () => {
             new BrowseSkillsDialog().show(self.view);
+            return false;
+        });
+
+        // MTP-menu Handler
+        $("#loadMTPFile").on("click", () => {
+            new MTPLoadDialog().show(self.view);
+        });
+        
+        Mousetrap.bindGlobal(['ctrl+m', 'command+m'], () => {
+            new MTPLoadDialog().show(self.view);
             return false;
         });
 

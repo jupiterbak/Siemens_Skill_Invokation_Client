@@ -78,6 +78,21 @@ class BackendStorage {
     )
   }
 
+  saveMTPFile(xml_content, fileName, progerssfeedback) {
+    return $.ajax({
+        url: conf.backend.mtp.save,
+        method: "POST",
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          filePath: fileName,
+          content: xml_content
+        }
+      }
+    );
+  }
+
   /**
    * Load the file content of the given path
    *
@@ -149,6 +164,16 @@ class BackendStorage {
     // I don't like dots in the name to
     file = file.replace(RegExp("[.]", "g"), "_")
     file = file + conf.fileSuffix
+    return file
+  }
+
+  sanitizeMTPFile(file) {
+    file = sanitize(file, "_")
+    file = file.replace(conf.mtpFileSuffix, "")
+    file = file.replace(conf.xmlFileSuffix, "")
+    // I don't like dots in the name to
+    file = file.replace(RegExp("[.]", "g"), "_")
+    file = file + conf.mtpFileSuffix
     return file
   }
 

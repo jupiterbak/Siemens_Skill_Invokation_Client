@@ -110,6 +110,20 @@
                             </span>
                         </span>
 
+                        <span class="group" id="editorgroup_mtpfileoperations" >
+                            <span class="image-button" >
+                                <img src="./images/toolbar_element_doc.svg" class="dropdown-toggle" data-toggle="dropdown"/>
+                                <div>MTP <span class="caret"></span></div>
+                                <label class="dropdown" >
+                                    <ul class="dropdown-menu" role="menu" id="mtp_action_menu">
+                                        <li class="tool_shape_entry" id="loadMTPFile" ><a href="#"><img  src="./images/navigation_file.svg"><span class="tool_label">Import</span></a></li>
+                                        <li class="tool_shape_entry tool_disabled" id="exportMTPFile" ><a href="#"><img  src="./images/toolbar_download.svg"><span class="tool_label">Export</span></a></li>                             
+                                    </ul>
+                                </label>
+                            </span>
+                        </span>
+                        
+
                         <ul class="dropdown-menu" role="menu">
                             <form class="form-horizontal" role="form">
                                 <label class="statusIndicator" id="statusRaspi">
@@ -250,10 +264,20 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <br/>
-                            <div class="alert alert-primary " role="alert">                               
-                            </div>                            
+                            <br>
+                            <br>                         
                             <fieldset>
+                                <div class="form-group" id="skill_browse_progress_formgroup">
+                                    <label id="LabelSkillBrowseProgressBar" class="col-sm-12 control-label" for="SkillBrowseProgressBar">&spar; </label>
+                                    <div class="col-lg-12">
+                                        <div class="progress">
+                                            <div id="SkillBrowseProgressBar" class="progress-bar progress-bar-striped active" name="SkillBrowseProgressBar" role="progressbar"
+                                            aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width:1%">
+                                              1%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-12 control-label" for="paramIPOPCUA">Module Name </label>
                                     <div class="col-sm-12">
@@ -272,7 +296,6 @@
                                         <input type="text" class="form-control floating-label opcuaport" placeholder="4840" value="4840">
                                     </div>
                                 </div>
-                                <br/>
                             </fieldset> 
                         </div>
                     </div>
@@ -284,6 +307,59 @@
             </div>
         </div>
     </div>
+
+<!--
+  # MTP File Open Dilog
+  #
+  #
+-->
+<div id="mtpFileSaveDialog" class="modal fade genericDialog" tabindex="-1">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="media-heading">Upoad MTP-File</h4>
+            </div>
+            <div class="modal-body">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                            <div class="media-object filePreview ion-ios-upload-outline"></div>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <br>
+                        <br>
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="file" id="mtpFileSaveDialogUploadBtn" accept="application/xml,.aml" class="form-control floating-label githubFileName">
+                                </div> 
+                            </div>
+                            <div class="form-group" id="mtp_file_progress_formgroup">
+                                <label id="LabelFileUploadProgressBar" class="col-sm-12 control-label" for="FileUploadProgressBar">&spar; </label>
+                                <div class="col-lg-12">
+                                    <div class="progress">
+                                        <div id="FileUploadProgressBar" class="progress-bar progress-bar-striped active" name="FileUploadProgressBar" role="progressbar"
+                                        aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width:1%">
+                                          1%
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>                            
+                        </fieldset>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">Abort</button>
+                <button class="btn btn-primary okButton"><span>Upload</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!--
   # Save Dialog
