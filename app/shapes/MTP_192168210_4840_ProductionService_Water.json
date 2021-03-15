@@ -1,0 +1,47 @@
+{
+    "ip": "192.168.2.10",
+    "port": "4840",
+    "skill": {
+        "name": "ProductionService_Water"
+    },
+    "skillModel": {},
+    "version": "V0",
+    "parameters": {
+        "inputs": [
+            {
+                "name": "ProductionService_WaterSpeed",
+                "nodeId": {
+                    "ns": "-",
+                    "nid": "-"
+                },
+                "type": "Variable",
+                "id_circle": "72786513-75df-411f-b990-5a67b8a6ce5a",
+                "id_label": "873aa796-4338-42cf-b913-128ba86fd4ad",
+                "id_port": "ec96d524-eb55-420c-8d5f-cc13f5a65b56"
+            },
+            {
+                "name": "ProductionService_WaterFlow",
+                "nodeId": {
+                    "ns": "-",
+                    "nid": "-"
+                },
+                "type": "Variable",
+                "id_circle": "20180f0b-2b5a-494f-8324-95fb05cc2bd2",
+                "id_label": "502b09cd-4374-41ab-b815-f871d3f92758",
+                "id_port": "4cd4cc96-9139-46b5-a2df-5f99afebef37"
+            },
+            {
+                "name": "ProductionService_WaterDischargePressure",
+                "nodeId": {
+                    "ns": "-",
+                    "nid": "-"
+                },
+                "type": "Variable",
+                "id_circle": "72cb70b6-0c11-410e-ae4e-f584ea0a33b4",
+                "id_label": "eee11230-790f-4f24-b18a-a4fbdcaa4dca",
+                "id_port": "483f4e77-9f42-4f3a-819d-6b011f0ff03d"
+            }
+        ],
+        "outputs": []
+    }
+}

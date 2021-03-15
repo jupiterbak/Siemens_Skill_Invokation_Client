@@ -8173,6 +8173,7 @@ var MTPLoadDialog = function () {
         reader.onloadend = function () {
           var xmlData = reader.result;
           var service_count = 1;
+          var view_count = 1;
           $('#LabelFileUploadProgressBar').text("Saving file ...");
           $('#FileUploadProgressBar').css('width', 5 + '%').attr('aria-valuenow', 5);
           $('#FileUploadProgressBar').text(5 + '%');
@@ -8180,8 +8181,30 @@ var MTPLoadDialog = function () {
           // setUp All socket Io messages
           socket.on("mtp:file:saved", function (msg) {
             $('#LabelFileUploadProgressBar').text("MTP-File saved.");
-            $('#FileUploadProgressBar').css('width', 100 + '%').attr('aria-valuenow', 100);
-            $('#FileUploadProgressBar').text(100 + '%');
+            $('#FileUploadProgressBar').css('width', 50 + '%').attr('aria-valuenow', 50);
+            $('#FileUploadProgressBar').text(50 + '%');
+          });
+
+          socket.on("mtp:file:parsing", function (msg) {
+            $('#LabelFileUploadProgressBar').text("Parsing MTP-File...");
+            $('#FileUploadProgressBar').css('width', 55 + '%').attr('aria-valuenow', 55);
+            $('#FileUploadProgressBar').text(55 + '%');
+          });
+
+          socket.on("mtp:saving:views", function (msg) {
+            view_count = msg.count;
+            $('#LabelFileUploadProgressBar').text("Saving Views...");
+            $('#FileUploadProgressBar').css('width', 75 + '%').attr('aria-valuenow', 75);
+            $('#FileUploadProgressBar').text(75 + '%');
+          });
+
+          socket.on("mtp:saving:view", function (msg) {
+            $('#LabelFileUploadProgressBar').text("Generating View_" + msg.index + " as .brain file");
+            if (view_count !== 0) {
+              var v_percentage = msg.index / view_count * 25 + 75;
+              $('#FileUploadProgressBar').css('width', v_percentage + '%').attr('aria-valuenow', v_percentage);
+              $('#FileUploadProgressBar').text(v_percentage + '%');
+            }
           });
 
           socket.on("mtp:services:count", function (msg) {

@@ -204,7 +204,26 @@ function runServer() {
             });
             // File is saved, now parse it
             // Parse the skill object to determine the version and the parameters
+            io.emit("mtp:file:parsing", {});
             let _skill_parser = new MTPParser(req.body.content, logger);
+
+            // Extract and save the views as brain files
+            let hmi_views = _skill_parser.getParsedHMIViews();
+            io.emit("mtp:saving:views", {
+                count: hmi_views.length
+            });
+            // save it to the brain dir as .brain files
+            for (let i = 0; i < hmi_views.length; i++) {
+                const view = hmi_views[i];
+                var v_path = path.normalize(storage.brainDirUserHOME + req.body.filePath).replace(".aml", "");
+                v_path = v_path + "_View_" + i + ".brain"
+                // Write the view as brain file
+                io.emit("mtp:saving:view", {
+                    index: i
+                });
+                fs.writeFileSync(v_path, JSON.stringify(view,null, 4));
+            }
+
             let _parsed_services = _skill_parser.getParsedservices();
             io.emit("mtp:services:count", {
                 count: _parsed_services.length
