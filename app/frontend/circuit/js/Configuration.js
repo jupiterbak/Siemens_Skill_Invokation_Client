@@ -29,7 +29,15 @@ export default {
       get:    file       => `../backend/mtp/get?filePath=${file}`,
       del:     `../backend/mtp/delete`,
       rename:  `../backend/mtp/rename`,
-      save:     `../backend/mtp/save`
+      save:     `../backend/mtp/save`,
+
+      getDescription: '/backend/mtp/getDescription',
+      connect: '/backend/mtp/connect',
+      disconnect: '/backend/mtp/disconnect',      
+      writeRequestParameters: '/backend/mtp/writeRequestParameters',
+      readResultParameters: '/backend/mtp/readResultParameters',
+      monitorService: '/backend/mtp/monitorService',
+      call: '/backend/mtp/callService'
     },
     skill:{
       connect: '/backend/skill/connect',
