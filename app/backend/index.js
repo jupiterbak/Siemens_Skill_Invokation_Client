@@ -20,8 +20,8 @@ var async = require("async");
 const winston = require('winston');
 const logger = winston.createLogger({
     transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: 'SIC.log', level: 'debug' })
+        new winston.transports.Console({level: 'debug' }),
+        //new winston.transports.File({ filename: 'SIC.log', level: 'debug' })
     ],
     format: winston.format.combine(
         winston.format.timestamp({
