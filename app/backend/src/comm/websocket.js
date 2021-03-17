@@ -15,11 +15,11 @@ module.exports = {
     this.logger = logger;
     this.io = require('socket.io')(http, params);
     this.io.on('connection', function(socket) {
-      self.logger.info("New Socket IO Connection.", { service: 'Socket_IO'});
+      self.logger.debug("New Socket IO Connection.", { service: 'Socket_IO'});
       self.sockets[socket.id.replace("/#", "")] = socket;
       socket.emit("connected", socket.id.replace("/#", ""));
       socket.on('disconnect', function() {
-        logger.info("Socket IO Disconnection: " + socket.id + ".", { service: 'Socket_IO'});
+        sellf.logger.debug("Socket IO Disconnection: " + socket.id + ".", { service: 'Socket_IO'});
       });
 
       // Propagate the last events to the new connected client.
@@ -82,7 +82,7 @@ module.exports = {
     }else{
       self.io.sockets.emit(eventID, data);
     }
-    self.logger.info("Socket IO Event: " + eventID, { service: 'Socket_IO'});
+    self.logger.debug("" + eventID, { service: 'Socket_IO'});
   },
   io: null,
   logger: null

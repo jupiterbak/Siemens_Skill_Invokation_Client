@@ -19,6 +19,11 @@ var MTPParser = function(raw_xml_json_object, logger) {
     this.dom = new dom();
     this.xml_serial = new xmlserial();
     this.mtp_xml_object = raw_xml_json_object; 
+    self.moduleTypePackage_doc = null;
+    //this.opcua_server_set_doc = null;
+    this.connection_set_instance_list_doc = null;
+    this.connection_set_source_list_doc = null;
+
     this.mtp_services = this.parseAllServices(this.mtp_xml_object);
     this.hmi_views = this.parseAllHMIViews(this.mtp_xml_object);
 };
@@ -40,46 +45,106 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
     var doc = self.dom.parseFromString(mtp_xml_object);
 
     // determine the Version
-    var version_node = xpath.select("/CAEXFile[@SchemaVersion]", doc);
-    var _tmp_version = parser.xml2js(self.xml_serial.serializeToString(version_node[0]),{compact: true, spaces: 4});
-    self.version = _tmp_version.CAEXFile._attributes.SchemaVersion;
-    
-    // Extract the connectionSet & IP-Address    
-    var connection_set = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPCommunicationSUCLib/ServerAssembly/OPCUAServer']", doc);
-    if(connection_set[0]){
-        var _tmp = parser.xml2js(self.xml_serial.serializeToString(connection_set[0]),{compact: true, spaces: 4});
+    //var version_node = xpath.select("/CAEXFile[@SchemaVersion]", doc);
+    //var _tmp_version = parser.xml2js(self.xml_serial.serializeToString(version_node[0]),{compact: true, spaces: 4});
+    //self.version = _tmp_version.CAEXFile._attributes.SchemaVersion;
+    self.version = xpath.select("/CAEXFile/@SchemaVersion", doc)[0].value;
+
+    // get the module type package
+    var moduleTypePackage_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/ModuleTypePackage']", doc, false);
+    if(moduleTypePackage_node.length > 0){
+        self.moduleTypePackage_doc = new dom().parseFromString(self.xml_serial.serializeToString(moduleTypePackage_node[0]));
+    }
+
+    // extract instance list from Connection set
+    var connection_set_instance_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/CommunicationSet/InstanceList']", self.moduleTypePackage_doc, false);
+    if(connection_set_instance_node.length > 0){
+        self.connection_set_instance_list_doc = new dom().parseFromString(self.xml_serial.serializeToString(connection_set_instance_node[0]));
+    }
+
+    // extract sources list from Connection set
+    var connection_set_source_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/CommunicationSet/SourceList']", self.moduleTypePackage_doc, false);
+    if(connection_set_source_node.length > 0){
+        self.connection_set_source_list_doc = new dom().parseFromString(self.xml_serial.serializeToString(connection_set_source_node[0]));
+    }
+        
+    // Extract the connectionSet & IP-Address
+    // TODO: JUPITER - Add Support for multiple opcua servers
+    /*    
+    var opcua_server_set = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPCommunicationSUCLib/ServerAssembly/OPCUAServer']", self.connection_set_source_list_doc);
+    if(opcua_server_set.length > 0){
+        var _tmp = parser.xml2js(self.xml_serial.serializeToString(opcua_server_set[0]),{compact: true, spaces: 4});
         var myURL =  url.parse(_tmp.InternalElement.Attribute.Value._text);
         self.service_port = myURL.port;
         self.service_ip = myURL.host.split(':')[0];
+        //self.opcua_server_set_doc = new dom().parseFromString(self.xml_serial.serializeToString(opcua_server_set[0]));
+    }
+    */
+    var opcua_server_urls = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPCommunicationSUCLib/ServerAssembly/OPCUAServer']/Attribute[@Name='Endpoint']/Value/text()", self.connection_set_source_list_doc);
+    if(opcua_server_urls.length > 0){
+        var myURL =  url.parse(opcua_server_urls[0].nodeValue);
+        self.service_port = myURL.port;
+        self.service_ip = myURL.host.split(':')[0];
+        
     }
     
     // Extract all MTP services
     this.service_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/Service']", doc);
 
     // Extract all procedures/Strategies from the mtp services and generate corresponding skill models
-    this.service_nodes.forEach(view_node => {
-        var view_doc = new dom().parseFromString(self.xml_serial.serializeToString(view_node));
-        var _tmp_view = parser.xml2js(self.xml_serial.serializeToString(view_node),{compact: true, spaces: 4});
+    this.service_nodes.forEach(service_node => {
+        var service_doc = new dom().parseFromString(self.xml_serial.serializeToString(service_node));
+        var _tmp_service = parser.xml2js(self.xml_serial.serializeToString(service_node),{compact: true, spaces: 4});
+
+        var _service_model = {
+            "Description": {
+                "name": _tmp_service.InternalElement._attributes.Name,
+            },
+            "Interface":null
+        };
+
+        // Get the service properties and build a skill model
+        
+        // External refID from MTP
+        var _serviceRefID = self.filterByAttribute(_tmp_service.InternalElement.Attribute, 'RefID').Value._text;
+        if(_serviceRefID){
+            // Save 
+            _service_model.Description['RefID'] = _serviceRefID;
+            // Get Communication Instance object
+            var service_com_Inst_node = xpath.select("//InternalElement[(@RefBaseSystemUnitPath='MTPDataObjectSUCLib/DataAssembly/ServiceControl') and (Attribute/Value/text() ='" + _serviceRefID + "')]", self.connection_set_instance_list_doc);
+            if(service_com_Inst_node.length > 0){
+                var _tmp_service_Inst = parser.xml2js(self.xml_serial.serializeToString(service_com_Inst_node[0]),{compact: true, spaces: 4});
+
+                // Extract all Attribute RefID
+                var _tmp_service_Inst_attr = self.getAllAttributeAsObject(_tmp_service_Inst.InternalElement.Attribute);
+
+                // Extract al OPCUA Tag for the attribute of the services
+                var _tmp_service_opcua_tag = self.getAllOPCUATagAsObject(_tmp_service_Inst_attr, self.connection_set_source_list_doc);
+
+                // Save
+                _service_model.Interface = _tmp_service_opcua_tag;
+            }
+        }
+        
 
         // Extract Strategy for this service
-        var strategy_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceStrategy']", view_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
+        var strategy_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceStrategy']", service_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
         
         // Transcribe mtp to skill model    
         strategy_nodes.forEach(visua_object_node => {
             var strategy_doc = new dom().parseFromString(self.xml_serial.serializeToString(visua_object_node));
 
             // Parse the xmljs
-            var _tmp = parser.xml2js(self.xml_serial.serializeToString(visua_object_node),{compact: true, spaces: 4});
+            var _tmp_strategy = parser.xml2js(self.xml_serial.serializeToString(visua_object_node),{compact: true, spaces: 4});
             
             // Add skill model
             var _skill_model = {
                 "ip": self.service_ip,
                 "port": self.service_port,
                 "skill": {
-                    "name": _tmp_view.InternalElement._attributes.Name + "_" + _tmp.InternalElement._attributes.Name
+                    "name": _tmp_service.InternalElement._attributes.Name + "_" + _tmp_strategy.InternalElement._attributes.Name
                 },
-                "skillModel": {
-                },
+                "serviceModel": _service_model,
                 "version": "V0",
                 "parameters": {
                     "inputs": [],
@@ -91,12 +156,13 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
             var parameter_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceParameter/StrategyParameter']", strategy_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
             parameter_nodes.forEach(parameter_node => {
                 var _tmp_param = parser.xml2js(self.xml_serial.serializeToString(parameter_node),{compact: true, spaces: 4});
+                // Get the parameter description
+                var param_desc = [];
+                param_desc = self.parseParameterDescriptionWithOPCUAInterface(_tmp_param, self.connection_set_instance_list_doc, self.connection_set_source_list_doc);
+                
                 _skill_model.parameters.inputs.push({
                     "name": _tmp_param.InternalElement._attributes.Name,
-                    "nodeId": {
-                        "ns": "-",
-                        "nid": "-"
-                    },
+                    "Interface": param_desc,
                     "type": "Variable",
                     "id_circle": uuidv4(),
                     "id_label": uuidv4(),
@@ -271,13 +337,75 @@ MTPParser.prototype.getParsedHMIViews = function() {
     return self.hmi_views;
 };
 
-MTPParser.prototype.filterByAttribute = function(_list, _attr) {
-    for (let i = 0; i < _list.length; i++) {
-        const _elem = _list[i];
-        if (_elem._attributes.Name === _attr){
-            return _elem;
+MTPParser.prototype.parseParameterDescriptionWithOPCUAInterface = function(param_node,instance_list_doc, source_list_doc) {
+    var self = this;
+    var _res = {};
+    // Name
+    var _param_name = param_node.InternalElement._attributes.Name;
+    // External refID from MTP
+    var _RefID = self.filterByAttribute(param_node.InternalElement.Attribute, 'RefID').Value._text;
+    if(_RefID){
+        // Get Communication Instance object
+        var param_Inst_node = xpath.select("//InternalElement[Attribute/Value/text() ='" + _RefID + "']", instance_list_doc);
+        if(param_Inst_node.length > 0){
+            var _tmp_param_Inst = parser.xml2js(self.xml_serial.serializeToString(param_Inst_node[0]),{compact: true, spaces: 4});
+
+            // Extract all Attribute RefID
+            var _tmp_param_Inst_attr = self.getAllAttributeAsObject(_tmp_param_Inst.InternalElement.Attribute);
+
+            // Extract al OPCUA Tag for the attribute of the services
+            var _tmp_param_opcua_tag = self.getAllOPCUATagAsObject(_tmp_param_Inst_attr, source_list_doc);
+
+            // Save
+            _res = _tmp_param_opcua_tag;
         }
     }
+    return _res;
+};
+
+MTPParser.prototype.getAllOPCUATagAsObject = function(src_object, source_list_doc) {
+    var self = this;
+    var _res = {};
+    for(var key in src_object) {
+        var refID = src_object[key];
+        // 
+        var opcua_Inst_node = xpath.select("//ExternalInterface[(@RefBaseClassPath='MTPCommunicationICLib/DataItem/OPCUAItem') and (@ID ='" + refID + "')]", source_list_doc);
+        if(opcua_Inst_node.length > 0){
+            var _tmp_opcua_Inst = parser.xml2js(self.xml_serial.serializeToString(opcua_Inst_node[0]),{compact: true, spaces: 4});
+            var _tmp_opcua_Inst_Attr = self.getAllAttributeAsObject(_tmp_opcua_Inst.ExternalInterface.Attribute);
+
+            _res[key] ={
+                "name": _tmp_opcua_Inst.ExternalInterface._attributes.Name,
+                "nodeId": _tmp_opcua_Inst_Attr,
+            };
+        }
+        // do something with "key" and "value" variables
+    }
+    return _res;
+};
+
+MTPParser.prototype.getAllAttributeAsObject = function(_list) {
+    var _res = {};
+
+    for (let i = 0; i < _list.length; i++) {
+        const _elem = _list[i];
+        _res[_elem._attributes.Name] = _elem.Value._text;
+    }
+    return _res;
+};
+
+MTPParser.prototype.filterByAttribute = function(_list, _attr) {
+    if(Array.isArray(_list) ){
+        for (let i = 0; i < _list.length; i++) {
+            const _elem = _list[i];
+            if (_elem._attributes.Name === _attr){
+                return _elem;
+            }
+        }
+    }else{
+        return _list;
+    }
+    
     return null;
 };
 

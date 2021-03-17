@@ -70,7 +70,10 @@ export default class ProbeWindow {
     // get all probes from the canvas and add them to the window
     //
     this.canvas.getLines().each(function (i, line) {
-      let probe = line.getProbeFigure();
+      let probe = null;
+      if(line.getProbeFigure()){
+        probe = line.getProbeFigure();
+      }
       if (probe !== null) {
         probes.push(probe);
       }

@@ -19,7 +19,10 @@ var async = require("async");
 
 const winston = require('winston');
 const logger = winston.createLogger({
-    transports: [new winston.transports.Console()],
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'SIC.log', level: 'debug' })
+    ],
     format: winston.format.combine(
         winston.format.timestamp({
             format: 'YYYY-MM-DD HH:mm:ss'
@@ -518,6 +521,140 @@ function runServer() {
         });
     });
 
+    // =================================================================
+    // Handle MTP-Services request
+    //
+    // =================================================================
+    // Get a mtp-service description
+    app.get('/backend/mtp/getDescription', (req, res) => {
+        logger.debug("MTPService getDescription called.", { service: 'Backend'});
+        var _mtp_service_desc = req.query.mtp_service_name;
+        if(_mtp_service_desc){
+            try {
+                    _json_resp = JSON.parse(fs.readFileSync(path.normalize(shapeDirApp + _mtp_service_desc + ".json"), "utf8"));
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:null, mtp_service_descp: _json_resp}));
+                } catch (err) {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify({err:"Cannot read the requested mtp-service description."}));
+                }
+            
+        }else{
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({err:"Please summit the name of the mtp_service to read."}));
+        }
+    });
+
+    // Connect to a MTP-Service during the execution of a sequence
+    app.get('/backend/mtp/connect', (req, res) => {
+        logger.debug("MTP-Service connect called.", { service: 'Backend'});
+        var params = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT"
+        };
+        opcuaclientservice.ConnectMTPService(params, io, function(err, client) {
+            // SockeiIO feedback
+            //io.emit("serverstatus", connectionMsg);
+            // io.emit("skillModels", gFoundedSkills);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, connected: client?client.connected:false }));
+        });
+    });
+
+    app.get('/backend/mtp/disconnect', (req, res) => {
+        logger.debug("MTP-Service connect called.", { service: 'Backend'});
+        var params = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT"
+        };
+        opcuaclientservice.DisconnectMTPService(params, function(err, client) {
+            // SockeiIO feedback
+            //io.emit("serverstatus", connectionMsg);
+            // io.emit("skillModels", gFoundedSkills);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, connected: client.connected }));
+        });
+    });
+
+    // Write MTP-Parameter
+    app.get('/backend/mtp/writeRequestParameters', (req, res) => {
+        logger.debug("MTP-writeRequestParameters called.", { service: 'Backend'});
+        let variable = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.body.ip, 
+            port: req.body.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.body.mtpServiceName,
+            nodes: req.body.nodes,
+            values: req.body.values
+        };
+
+        opcuaclientservice.WriteVariableNodesWithNSUrl(variable, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
+    });
+
+    // read MTP-Result Parameter
+    app.get('/backend/mtp/readResultParameters', (req, res) => {
+        logger.debug("MTP-readResultVariables called.", { service: 'Backend'});
+        let variables = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.body.ip, 
+            port: req.body.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.body.mtpServiceName,
+            nodes: req.body.nodes
+        };
+
+        opcuaclientservice.readVariableNodesWithNSUrl(variables, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
+    });
+
+    // Monitor MTP-Service
+    app.get('/backend/mtp/monitorService', (req, res) => {
+        logger.debug("monitorNode called.", { service: 'Backend'});
+        var param = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.body.ip, 
+            port: req.body.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.body.mtpServiceName,
+            nodes: req.body.nodes
+        };
+
+        opcuaclientservice.monitorMTPService(param, io, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
+    });
+
+    // Call MTP-Service
+    // NOTE: Call is resumed as writting certain values to the OPC UA server on specified tags. 
+    // Therefore we assume that the variables and values have already been prepared
+    app.get('/backend/mtp/callService', (req, res) => {
+        logger.debug("MTP-callService called.", { service: 'Backend'});
+        let variable = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.body.ip, 
+            port: req.body.port, 
+            serverName: "INVOCATION_CLIENT",
+            skillName: req.body.mtpServiceName,
+            nodes: req.body.nodes,
+            values: req.body.values
+        };
+
+        opcuaclientservice.WriteVariableNodesWithNSUrl(variable, function(err, results) {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, results: results }));
+        });
+    });
 
     // =================================================================
     // Handle OPC UA Interfaces
@@ -576,6 +713,23 @@ function runServer() {
             // io.emit("skillModels", gFoundedSkills);
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({ err: err, results: results }));
+        });
+    });
+
+    app.get('/backend/skill/disconnect', (req, res) => {
+        logger.debug("Service connect called.", { service: 'Backend'});
+        var params = { 
+            socketID: "INVOCATION_CLIENT", 
+            ip: req.query.ip, 
+            port: req.query.port, 
+            serverName: "INVOCATION_CLIENT"
+        };
+        opcuaclientservice.DisconnectPLC(params, function(err, client) {
+            // SockeiIO feedback
+            //io.emit("serverstatus", connectionMsg);
+            // io.emit("skillModels", gFoundedSkills);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({ err: err, connected: client.connected }));
         });
     });
 

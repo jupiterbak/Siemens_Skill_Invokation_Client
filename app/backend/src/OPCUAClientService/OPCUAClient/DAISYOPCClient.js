@@ -620,14 +620,15 @@ DAISYOPCClient.prototype.readDataType = function(ns, nid, callback) {
 DAISYOPCClient.prototype.readNodesDataByNodeIds = function(nodeIds, callback) {
     var nodes_to_reads = [];
     var max_age = 0;
-    nodeIds.forEach(nID => {
+    for (var index = 0; index < nodeIds.length; index++) {
+        var nID = nodeIds[index];
         var type = guidtest(nID.nid);
         nodes_to_reads.push(
             {
                 nodeId: "ns=" + nID.ns + ";" + type + "=" + nID.nid
             }
         );
-    });    
+    }  
     this.session.read(nodes_to_reads, max_age, function(err, dataValues) {
         callback(err, dataValues);
     });
@@ -840,9 +841,7 @@ DAISYOPCClient.prototype.monitorNode = function(ns, nid, browseName, samplingInt
                 });
             }
           }
-    );
-
-    
+    );    
 };
 
 /**

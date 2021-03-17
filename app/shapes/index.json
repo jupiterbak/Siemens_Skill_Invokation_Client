@@ -37,50 +37,6 @@
     "filePath": "End.shape"
   },
   {
-    "name": "MTP_192168210_4840_ProductionService_Cip",
-    "tags": [
-      "MTP",
-      "192168210",
-      "4840",
-      "ProductionService",
-      "Cip"
-    ],
-    "filePath": "MTP_192168210_4840_ProductionService_Cip.shape"
-  },
-  {
-    "name": "MTP_192168210_4840_ProductionService_Production",
-    "tags": [
-      "MTP",
-      "192168210",
-      "4840",
-      "ProductionService",
-      "Production"
-    ],
-    "filePath": "MTP_192168210_4840_ProductionService_Production.shape"
-  },
-  {
-    "name": "MTP_192168210_4840_ProductionService_Standby",
-    "tags": [
-      "MTP",
-      "192168210",
-      "4840",
-      "ProductionService",
-      "Standby"
-    ],
-    "filePath": "MTP_192168210_4840_ProductionService_Standby.shape"
-  },
-  {
-    "name": "MTP_192168210_4840_ProductionService_Water",
-    "tags": [
-      "MTP",
-      "192168210",
-      "4840",
-      "ProductionService",
-      "Water"
-    ],
-    "filePath": "MTP_192168210_4840_ProductionService_Water.shape"
-  },
-  {
     "name": "MUX",
     "tags": [
       "MUX"
