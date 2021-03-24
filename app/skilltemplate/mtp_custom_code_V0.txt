@@ -28,9 +28,9 @@ testShape = testShape.extend({
         }        
       }
       var o_ports = this.getOutputPorts().data.length;
-      for (var index = 0; index < o_ports; index++) {
-        if(index > 0){
-          this.getOutputPort(index).attr({
+      for (var i = 0; i < o_ports; i++) {
+        if(i > 0){
+          this.getOutputPort(i).attr({
             semanticGroup:"data"
           });
         }        
@@ -57,11 +57,11 @@ testShape = testShape.extend({
       this.start_call_results = null;
       this.get_results_call_results = null;
 
-      for (var index = 0; index < this.getInputPorts().length -1 ; index++) {
-        this.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
+      for (var j = 0; j < this.getInputPorts().length -1 ; j++) {
+        this.layerAttr("Circle_IN_" + (j + 1) ,{fill:"#f0f0f0"});              
       }
-      for (var index = 0; index < this.getOutputPorts().length -1; index++) {
-        this.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});              
+      for (var k = 0; k < this.getOutputPorts().length -1; k++) {
+        this.layerAttr("Circle_OUT_" + (k + 1) ,{fill:"#f0f0f0"});              
       }
     },
     
@@ -69,16 +69,16 @@ testShape = testShape.extend({
         var self = this;
         // STATE MACHINE
         switch (this.state) {
-          case 0: // Wait for enable signal
+          case 0: // Stopped. waiting for enable signal
             this.getOutputPort(0).setValue(false);
             this.layerAttr("Circle_en",{fill:"#f0f0f0"});
             this.layerAttr("Circle_done",{fill:"#f0f0f0"});
             for (var index = 0; index < this.getInputPorts().length - 1; index++) {
               self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
             }
-            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-              self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-              self.getOutputPort(index).setValue(0);               
+            for (var i = 0; i < this.getOutputPorts().length - 1; i++) {
+              self.layerAttr("Circle_OUT_" + (i + 1) ,{fill:"#f0f0f0"});
+              self.getOutputPort(i).setValue(0);               
             }
             this.currentTimer=0;
             this.layerAttr("led_power",{fill:"#FF3C00"});
@@ -220,16 +220,16 @@ testShape = testShape.extend({
             self._params_nodes = [];
             self._params_values = [];
             var _inputs = this.description.parameters.inputs || [];
-            for (var index = 0; index < _inputs.length; index++) {              
-              self.layerAttr("Circle_IN_" + (index) ,{fill:"#faa50a"});
-              var el = _inputs[index];
+            for (var i = 0; i < _inputs.length; i++) {              
+              self.layerAttr("Circle_IN_" + (i) ,{fill:"#faa50a"});
+              var el = _inputs[i];
               // Push the node VExt
               self._params_nodes.push({
                 "ns_url": el.Interface.VExt.nodeId.Namespace,
                 "nid":  el.Interface.VExt.nodeId.Identifier,
               });
               // Push the value of VExt
-              self._params_values.push(this.getInputPort(index + 1).getValue()?this.getInputPort(index + 1).getValue():0);
+              self._params_values.push(this.getInputPort(i + 1).getValue()?this.getInputPort(i + 1).getValue():0);
               // Push the node Sync
               self._params_nodes.push({
                 "ns_url": el.Interface.Sync.nodeId.Namespace,
@@ -337,149 +337,109 @@ testShape = testShape.extend({
           case 140: // Wait for read request set points
             break;
           case 15: // Start the execution of the procedure
-          // case 12: // Call the skill (Model with state machine)
-          //   this.layerAttr("Circle_en",{fill:"#faa50a"});
-          //   this.layerAttr("led_power",{fill:"#33DE09"});
-          //   this.layerAttr("led_connected",{fill:"#33DE09"});
-          //   this.layerAttr("circle",{fill:"#f0f0f0"});
-          //   this.layerAttr("Skill_State", {text: 'State: Starting'});
-          //   application_log.info("[" + self.NAME + "] starting the skill." );
-          //   // sample the input values
-          //   var _params = [];
-          //   var _inputs = this.description.skillModel.Invokation.Start.parameters.inputArguments || [];
-          //   for (var index = 0; index < _inputs.length; index++) {              
-          //     self.layerAttr("Circle_IN_" + (index) ,{fill:"#faa50a"});
-          //     var el = _inputs[index];
-          //     _params.push({
-          //         dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25
-          //         arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02
-          //         value: this.getInputPort(index + 1).getValue()?this.getInputPort(index + 1).getValue():0
-          //     });
-          //   }
+            this.layerAttr("Circle_en",{fill:"#faa50a"});
+            this.layerAttr("led_power",{fill:"#33DE09"});
+            this.layerAttr("led_connected",{fill:"#33DE09"});
+            this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: Starting'});
+            application_log.info("[" + self.NAME + "] calling the service." );
 
-          //   // Call the skill
-          //   skillproxy.startSkill(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_start) {
-          //     self.start_call_results = resp_start;
-          //     if(resp_start.err){
-          //       // Make transition to err
-          //       self.state = 6;
-          //       self.err_msg = "Error while starting the skill!";
-          //       application_log.error("[" + self.NAME + "] Error while starting the skill: " + JSON.stringify(resp_start.err));
-          //     }else{
-          //       // Set Synchronous Output
-          //       var _outputs = resp_start.results.outputArguments;
-          //       for (var index = 0; index < _outputs.length; index++) {
-          //         self.getOutputPort(index + 1).setValue(_outputs[index].value);
-          //         self.layerAttr("Circle_OUT_" + (index) ,{fill:"#faa50a"});
-          //       }
-          //       // Make transition
-          //       self.state = 2;
-          //       self.layerAttr("Skill_State", {text: 'State: Executing'});
-          //       application_log.info("[" + self.NAME + "] successfully executing the skill. Waiting for the skill to complete..." );
-          //     }
-          //   });
+            var _call_nodes = [];
+            var _call_values = [];
+            if(self.description.serviceModel && self.description.serviceModel.Interface){
+              _call_nodes = [
+                // "OpMode"
+                {
+                  "ns_url": self.description.serviceModel.Interface.CommandExt.Namespace,
+                  "nid":  self.description.serviceModel.Interface.CommandExt.Identifier,
+                }];
+                _call_values = [4]; // Start cmd
+            }
 
-          //   this.state = 120;               
-          //   break;
-          // case 120: // Wait for the callback
-          //   this.currentTimer=0;
-          //   break;
-          // case 2: // Wait for the  skill to be done
-          //   self.layerAttr("Skill_State", {text: 'State: Executing'});
-          //   if (self.description.skillModel.StateMachine){              
-          //     if(self.service_current_state.includes('completed')){
-          //       // Make transition
-          //       this.state = 3;
-          //       this.layerAttr("Skill_State", {text: 'State: Completed'});
-          //       application_log.info("[" + self.NAME + "] skill execution completed." );
-          //     }
-          //   }else{
-          //     if(self.last_result_trigger_value > self.initial_result_trigger_value){
-          //       // Make transition
-          //       this.state = 3;
-          //       this.layerAttr("Skill_State", {text: 'State: Completed'});
-          //       application_log.info("[" + self.NAME + "] skill execution completed." );
-          //     }
-          //   }            
-          //   break;
-          // case 3: // Call Get results
-          //   this.layerAttr("Circle_en",{fill:"#faa50a"});
-          //   this.layerAttr("led_power",{fill:"#33DE09"});
-          //   this.layerAttr("led_connected",{fill:"#33DE09"});
-          //   this.layerAttr("circle",{fill:"#f0f0f0"});
-          //   this.layerAttr("Skill_State", {text: 'State: Getting results'});
-          //   application_log.info("[" + self.NAME + "] fetching the skill execution results..." );
-          //   // sample the input values
-          //   var _params = [];
-          //   var _inputs = this.description.skillModel.Invokation.GetResult.parameters.inputArguments || [];
-          //   var _offset = (this.description.skillModel.Invokation.Start.parameters.inputArguments || []).length;
-          //   for (var index = 0; index < _inputs.length; index++) {              
-          //     self.layerAttr("Circle_IN_" + (index + _offset) ,{fill:"#faa50a"});
-          //     var el = _inputs[index];
-          //     _params.push({
-          //         dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25
-          //         arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02
-          //         value: this.getInputPort(index + 1 + _offset).getValue()?this.getInputPort(index + 1 + _offset).getValue():0
-          //     });
-          //   }
+            // Start Executing the service by writing the "CommandExt" value
+            mtpproxy.callService(self.description.ip, self.description.port, self.skill.name, _call_nodes,_call_values).then(function (resp_call) {
+              if(resp_call.err){
+                // Make transition to err
+                self.state = 6;
+                self.err_msg = "Error while calling the mtp service!";
+                application_log.error("[" + self.NAME + "] Error while calling the mtp service.");
+              }else{
+                self.state = 2;
+                application_log.info("[" + self.NAME + "] successfully called the mtp service." );               
+              }
+            });  
+            self.state = 150;           
+            break;
+          case 150: // Wait for the start execution callbck
+            this.currentTimer=new Date();
+            break;
+          case 2: // Wait completing or complete event
+            self.layerAttr("Skill_State", {text: 'State: Executing'});
+            if(self.service_current_state === 65536 || self.service_current_state === 131072){ // Completing || Complete
+              self.state = 3; // Stat resetting the service
+              this.layerAttr("Skill_State", {text: 'State: Completed'});
+              application_log.info("[" + self.NAME + "] mtp service execution completed. It took: "+ (new Date()-self.currentTimer));
+            }
+            break;
+          case 3: // reset the service
+            this.layerAttr("Circle_en",{fill:"#faa50a"});
+            this.layerAttr("led_power",{fill:"#33DE09"});
+            this.layerAttr("led_connected",{fill:"#33DE09"});
+            this.layerAttr("circle",{fill:"#f0f0f0"});
+            this.layerAttr("Skill_State", {text: 'State: reseting'});
+            application_log.info("[" + self.NAME + "] resetting the service." );
 
-          //   // Call the emthod
-          //   skillproxy.getResultsOfSkillCall(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_getResults) {
-          //     self.get_results_call_results = resp_getResults;
-          //     if(resp_getResults.err){
-          //       // Make transition to err
-          //       self.state = 6;
-          //       self.err_msg = "Error while fetching the results of the skill!";
-          //       application_log.error("[" + self.NAME + "] Error while fetching the results of the skill: " + JSON.stringify(resp_getResults.err));
-          //     }else{
-          //       // Set Synchronous Output
-          //       var _offset = (self.description.skillModel.Invokation.Start.parameters.outputArguments || []).length;
-          //       var _outputs = resp_getResults.results.outputArguments;
-          //       for (var index = 0; index < _outputs.length; index++) {
-          //         self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value);
-          //         self.layerAttr("Circle_OUT_" + (index + _offset) ,{fill:"#faa50a"});
-          //       }
-          //       // Make transition
-          //       self.state = 310;
-          //       application_log.info("[" + self.NAME + "] results fetched sucessfully." );
-          //     }
-          //   });
+            var _reset_nodes = [];
+            var _reset_values = [];
+            if(self.description.serviceModel && self.description.serviceModel.Interface){
+              _reset_nodes = [
+                // "OpMode"
+                {
+                  "ns_url": self.description.serviceModel.Interface.CommandExt.Namespace,
+                  "nid":  self.description.serviceModel.Interface.CommandExt.Identifier,
+                }];
+                _reset_values = [2]; // reset
+            }
 
-          //   // Wait
-          //   this.state = 300;
-          //   break;
-          // case 300: // Wait call getResults
-          //   break;
-          // case 310: // Wait until skill is ready again
-          //   if (self.description.skillModel.StateMachine){              
-          //     if(self.service_current_state.includes('skill_ready')){
-          //       // Make transition
-          //       this.state = 4;
-          //       this.layerAttr("Skill_State", {text: 'State: Done'});
-          //       application_log.info("[" + self.NAME + "] skill execusion is done." );
-          //     }
-          //   }else{
-          //     this.state = 4;
-          //     this.layerAttr("Skill_State", {text: 'State: Done'});
-          //     application_log.info("[" + self.NAME + "] skill execusion is done." );
-          //   }            
-          //   break;
-          // case 4: // Set the done signal
-          //   this.getOutputPort(0).setValue(true);
+            // Start resetting the service by writing the "CommandExt" value
+            mtpproxy.callService(self.description.ip, self.description.port, self.skill.name, _reset_nodes,_reset_values).then(function (resp_call) {
+              if(resp_call.err){
+                // Make transition to err
+                self.state = 6;
+                self.err_msg = "Error while resetting the mtp service!";
+                application_log.error("[" + self.NAME + "] Error while resetting the mtp service.");
+              }else{
+                self.state = 310;
+                application_log.info("[" + self.NAME + "] successfully resetting the mtp service." );               
+              }
+            });
+            this.state = 300;
+            break;
+          case 300: // Wait call for resseting
+            break;
+          case 310: // Wait until the service is ready again
+            if(self.service_current_state === 16){ // Idle
+              this.layerAttr("Skill_State", {text: 'State: Done'});
+              application_log.info("[" + self.NAME + "] service execusion is done." );
+              this.state = 4;
+            }          
+            break;
+          case 4: // Set the done signal
+            this.getOutputPort(0).setValue(true);
 
-          //   this.layerAttr("Circle_done",{fill:"#faa50a"});
-          //   this.layerAttr("led_power",{fill:"#FF3C00"});
-          //   this.layerAttr("led_connected",{fill:"#f0f0f0"});
-          //   this.layerAttr("circle",{fill:"#ffffff"});
-          //   if(! this.getInputPort(0).getValue()){
-          //       this.state = 5;
-          //   }
-          //   break;
+            this.layerAttr("Circle_done",{fill:"#faa50a"});
+            this.layerAttr("led_power",{fill:"#FF3C00"});
+            this.layerAttr("led_connected",{fill:"#f0f0f0"});
+            this.layerAttr("circle",{fill:"#ffffff"});
+            if(! this.getInputPort(0).getValue()){
+                this.state = 5;
+            }
+            break;
           case 5: // Reinitialize
             this.getOutputPort(0).setValue(false); // Done signal
-            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-              self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-              self.getOutputPort(index).setValue(0);                
+            for (var l = 0; l < this.getOutputPorts().length - 1; l++) {
+              self.layerAttr("Circle_OUT_" + (l + 1) ,{fill:"#f0f0f0"});
+              self.getOutputPort(l).setValue(0);                
             }
             this.layerAttr("Circle_en",{fill:"#f0f0f0"});
             this.layerAttr("Circle_done",{fill:"#f0f0f0"});
@@ -487,7 +447,7 @@ testShape = testShape.extend({
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
-            this.state = 0; // reinitializing
+            this.state = 0; // Stopped
             this.layerAttr("Skill_State", {text: 'State: Ready'});
             break;
           case 6: // Error
@@ -517,9 +477,9 @@ testShape = testShape.extend({
         for (var index = 0; index < this.getInputPorts().length - 1; index++) {
           self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
-        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-          self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-          self.getOutputPort(index).setValue(0);                
+        for (var h = 0; h < this.getOutputPorts().length - 1; h++) {
+          self.layerAttr("Circle_OUT_" + (h + 1) ,{fill:"#f0f0f0"});
+          self.getOutputPort(h).setValue(0);                
         }
         this.layerAttr("Skill_State", {text: 'State: not connected'});
         //application_log.info("[" + self.NAME + "] skill execusion started." );
@@ -544,9 +504,9 @@ testShape = testShape.extend({
         for (var index = 0; index < this.getInputPorts().length - 1; index++) {
           self.layerAttr("Circle_IN_" + (index + 1) ,{fill:"#f0f0f0"});              
         }
-        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {
-          self.layerAttr("Circle_OUT_" + (index + 1) ,{fill:"#f0f0f0"});
-          self.getOutputPort(index).setValue(0);              
+        for (var j = 0; j < this.getOutputPorts().length - 1; j++) {
+          self.layerAttr("Circle_OUT_" + (j + 1) ,{fill:"#f0f0f0"});
+          self.getOutputPort(j).setValue(0);              
         }
 
         this.state = 5; // STOPPED
