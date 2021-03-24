@@ -1,0 +1,625 @@
+{
+    "ip": "192.168.2.10",
+    "port": "4840",
+    "skill": {
+        "name": "ProductionService_Cip"
+    },
+    "serviceModel": {
+        "Description": {
+            "name": "ProductionService",
+            "RefID": "c159850c-43bd-46a0-9b40-cb5f1aafa645"
+        },
+        "Interface": {
+            "OpMode": {
+                "name": "ProductionService.MTP.OpMode",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"OpMode\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "CommandMan": {
+                "name": "ProductionService.MTP.CommandMan",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"CommandMan\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "CommandInt": {
+                "name": "ProductionService.MTP.CommandInt",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"CommandInt\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "CommandExt": {
+                "name": "ProductionService.MTP.CommandExt",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"CommandExt\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "StrategyMan": {
+                "name": "ProductionService.MTP.StrategyMan",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"StrategyMan\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "StrategyInt": {
+                "name": "ProductionService.MTP.StrategyInt",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"StrategyInt\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "StrategyExt": {
+                "name": "ProductionService.MTP.StrategyExt",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"StrategyExt\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "CommandEnable": {
+                "name": "ProductionService.MTP.CommandEnable",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"CommandEnable\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "CurrentState": {
+                "name": "ProductionService.MTP.CurrentState",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"CurrentState\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "CurrentStrategy": {
+                "name": "ProductionService.MTP.CurrentStrategy",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"CurrentStrategy\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "InteractQuestionID": {
+                "name": "ProductionService.MTP.InteractQuestionID",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"InteractQuestionID\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "InteractAnswerID": {
+                "name": "ProductionService.MTP.InteractAnswerID",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"InteractAnswerID\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "PosTextID": {
+                "name": "ProductionService.MTP.PosTextID",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"PosTextID\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "OSLevel": {
+                "name": "ProductionService.MTP.OSLevel",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"OSLevel\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            },
+            "WQC": {
+                "name": "ProductionService.MTP.WQC",
+                "nodeId": {
+                    "Access": "3",
+                    "Identifier": "\"ProductionService\".\"MTP\".\"WQC\"",
+                    "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                }
+            }
+        }
+    },
+    "version": "V0",
+    "parameters": {
+        "inputs": [
+            {
+                "name": "ProductionService_CipSpeed",
+                "Interface": {
+                    "VMan": {
+                        "name": "ProductionService_CipSpeed.MTP.VMan",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VMan\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "Sync": {
+                        "name": "ProductionService_CipSpeed.MTP.Sync",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"Sync\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OpMode": {
+                        "name": "ProductionService_CipSpeed.MTP.OpMode",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"OpMode\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VExt": {
+                        "name": "ProductionService_CipSpeed.MTP.VExt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VExt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VInt": {
+                        "name": "ProductionService_CipSpeed.MTP.VInt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VInt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VOut": {
+                        "name": "ProductionService_CipSpeed.MTP.VOut",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VOut\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMin": {
+                        "name": "ProductionService_CipSpeed.MTP.VSclMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VSclMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMax": {
+                        "name": "ProductionService_CipSpeed.MTP.VSclMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VSclMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VUnit": {
+                        "name": "ProductionService_CipSpeed.MTP.VUnit",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VUnit\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMin": {
+                        "name": "ProductionService_CipSpeed.MTP.VMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMax": {
+                        "name": "ProductionService_CipSpeed.MTP.VMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VRbk": {
+                        "name": "ProductionService_CipSpeed.MTP.VRbk",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"VRbk\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OSLevel": {
+                        "name": "ProductionService_CipSpeed.MTP.OSLevel",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"OSLevel\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "WQC": {
+                        "name": "ProductionService_CipSpeed.MTP.WQC",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipSpeed\".\"MTP\".\"WQC\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    }
+                },
+                "type": "Variable",
+                "id_circle": "90e81810-5c2d-48aa-be9d-faa80a604cb5",
+                "id_label": "4255b082-3c78-47b6-bc7d-0257e4000b43",
+                "id_port": "1d288bfd-dfbe-4253-ae8d-85a35426a8e9"
+            },
+            {
+                "name": "ProductionService_CipFlow",
+                "Interface": {
+                    "VMan": {
+                        "name": "ProductionService_CipFlow.MTP.VMan",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VMan\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "Sync": {
+                        "name": "ProductionService_CipFlow.MTP.Sync",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"Sync\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OpMode": {
+                        "name": "ProductionService_CipFlow.MTP.OpMode",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"OpMode\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VExt": {
+                        "name": "ProductionService_CipFlow.MTP.VExt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VExt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VInt": {
+                        "name": "ProductionService_CipFlow.MTP.VInt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VInt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VOut": {
+                        "name": "ProductionService_CipFlow.MTP.VOut",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VOut\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMin": {
+                        "name": "ProductionService_CipFlow.MTP.VSclMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VSclMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMax": {
+                        "name": "ProductionService_CipFlow.MTP.VSclMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VSclMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VUnit": {
+                        "name": "ProductionService_CipFlow.MTP.VUnit",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VUnit\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMin": {
+                        "name": "ProductionService_CipFlow.MTP.VMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMax": {
+                        "name": "ProductionService_CipFlow.MTP.VMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VRbk": {
+                        "name": "ProductionService_CipFlow.MTP.VRbk",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"VRbk\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OSLevel": {
+                        "name": "ProductionService_CipFlow.MTP.OSLevel",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"OSLevel\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "WQC": {
+                        "name": "ProductionService_CipFlow.MTP.WQC",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipFlow\".\"MTP\".\"WQC\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    }
+                },
+                "type": "Variable",
+                "id_circle": "1a9dcedc-f652-4d44-9224-023497ee38ba",
+                "id_label": "10dad81d-f052-4ce0-8858-a85dd81a4ff9",
+                "id_port": "befd4ecb-3cc0-4613-ae87-66315c2e507d"
+            },
+            {
+                "name": "ProductionService_CipDischargePressure",
+                "Interface": {
+                    "VMan": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VMan",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VMan\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "Sync": {
+                        "name": "ProductionService_CipDischargePressure.MTP.Sync",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"Sync\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OpMode": {
+                        "name": "ProductionService_CipDischargePressure.MTP.OpMode",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"OpMode\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VExt": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VExt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VExt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VInt": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VInt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VInt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VOut": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VOut",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VOut\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMin": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VSclMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VSclMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMax": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VSclMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VSclMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VUnit": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VUnit",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VUnit\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMin": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMax": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VRbk": {
+                        "name": "ProductionService_CipDischargePressure.MTP.VRbk",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"VRbk\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OSLevel": {
+                        "name": "ProductionService_CipDischargePressure.MTP.OSLevel",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"OSLevel\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "WQC": {
+                        "name": "ProductionService_CipDischargePressure.MTP.WQC",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipDischargePressure\".\"MTP\".\"WQC\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    }
+                },
+                "type": "Variable",
+                "id_circle": "38dee60c-ea3b-41bb-90cd-cfb8b88a9e41",
+                "id_label": "0ecde110-283b-4d18-889a-0c56355ea788",
+                "id_port": "adad3cf8-bb55-4899-ba47-7d6658d0b67b"
+            },
+            {
+                "name": "ProductionService_CipInterval",
+                "Interface": {
+                    "VMan": {
+                        "name": "ProductionService_CipInterval.MTP.VMan",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VMan\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "Sync": {
+                        "name": "ProductionService_CipInterval.MTP.Sync",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"Sync\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OpMode": {
+                        "name": "ProductionService_CipInterval.MTP.OpMode",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"OpMode\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VExt": {
+                        "name": "ProductionService_CipInterval.MTP.VExt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VExt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VInt": {
+                        "name": "ProductionService_CipInterval.MTP.VInt",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VInt\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VOut": {
+                        "name": "ProductionService_CipInterval.MTP.VOut",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VOut\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMin": {
+                        "name": "ProductionService_CipInterval.MTP.VSclMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VSclMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VSclMax": {
+                        "name": "ProductionService_CipInterval.MTP.VSclMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VSclMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VUnit": {
+                        "name": "ProductionService_CipInterval.MTP.VUnit",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VUnit\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMin": {
+                        "name": "ProductionService_CipInterval.MTP.VMin",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VMin\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VMax": {
+                        "name": "ProductionService_CipInterval.MTP.VMax",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VMax\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "VRbk": {
+                        "name": "ProductionService_CipInterval.MTP.VRbk",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"VRbk\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "OSLevel": {
+                        "name": "ProductionService_CipInterval.MTP.OSLevel",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"OSLevel\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    },
+                    "WQC": {
+                        "name": "ProductionService_CipInterval.MTP.WQC",
+                        "nodeId": {
+                            "Access": "3",
+                            "Identifier": "\"ProductionService_CipInterval\".\"MTP\".\"WQC\"",
+                            "Namespace": "http://www.siemens.com/simatic-s7-opcua"
+                        }
+                    }
+                },
+                "type": "Variable",
+                "id_circle": "d1b275c5-ce0a-47e2-a2b6-09fc7bba8adf",
+                "id_label": "f9c46219-ea92-4ac0-9d54-8b43c5979e2e",
+                "id_port": "244e4b71-7886-4989-9cd6-59749d1d54d1"
+            }
+        ],
+        "outputs": []
+    }
+}

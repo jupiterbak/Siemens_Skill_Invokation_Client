@@ -208,10 +208,10 @@ function runServer() {
             // File is saved, now parse it
             // Parse the skill object to determine the version and the parameters
             io.emit("mtp:file:parsing", {});
-            let _skill_parser = new MTPParser(req.body.content, logger);
+            let _mtp_parser = new MTPParser(req.body.content, logger);
 
             // Extract and save the views as brain files
-            let hmi_views = _skill_parser.getParsedHMIViews();
+            let hmi_views = _mtp_parser.getParsedHMIViews();
             io.emit("mtp:saving:views", {
                 count: hmi_views.length
             });
@@ -227,7 +227,7 @@ function runServer() {
                 fs.writeFileSync(v_path, JSON.stringify(view,null, 4));
             }
 
-            let _parsed_services = _skill_parser.getParsedservices();
+            let _parsed_services = _mtp_parser.getParsedservices();
             io.emit("mtp:services:count", {
                 count: _parsed_services.length
             });
@@ -418,110 +418,6 @@ function runServer() {
     });
 
     // =================================================================
-    // Handle skill browse
-    //
-    // =================================================================
-    app.post('/backend/skill/save', (req, res) => {
-        fs.readFile(path.normalize(skillTemplateDir + '/skill_template.shape'), "utf8", (err, data) => {
-            if (err) throw err;            
-            let _skill = req.body.skill;
-
-            // Parse the skill object to determine the version and the parameters
-            let _skill_parser = new skillParser(_skill, logger);
-            let _parsed_skill = _skill_parser.getParsedObject();
-            
-            // Compile the template object
-            let compiledTemplate = template7.compile(data);
-            let _content = compiledTemplate(_parsed_skill);
-            // console.log(_content);
-            // Add Custom Code depending on the version of the skill
-            let _content_json = JSON.parse(_content);           
-            _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code_' +  _parsed_skill.version +'.txt'), "utf8");         
-
-            // Generate the JSON file path, which describe the skill (OPC UA)
-            let skillDesriptionFile = path.normalize(shapeDirApp + req.body.filePath);
-            skillDesriptionFile = skillDesriptionFile.replace(".shape", ".json");
-            let skillDesriptionFileContent = JSON.stringify(_parsed_skill,null, 4);
-            
-            fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
-                if (err){                    
-                    // file could not be saved.
-                    //
-                    res.send(JSON.stringify({err:"Skill couldn't be saved."}));
-                    throw err;
-                }
-
-                // create the js/png/md async to avoid a blocked UI
-                //
-                let binPath = "node";
-                let childArgs = [
-                    path.normalize(__dirname + '/../shape2code/converter.js'),
-                    path.normalize(shapeDirApp + req.body.filePath),
-                    shape2CodeDir,
-                    shapeDirApp
-                ];
-
-                // inform the browser that the processing of the
-                // code generation is ongoing
-                //
-                io.emit("shape:generating", {
-                    filePath: req.body.filePath
-                });
-                
-                // console.log("Generating skill images...");
-                // logger.info(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
-                // childProcess.on('close', (code) => {
-                //     console.log(`child process close all stdio with code ${code}`);
-                // });
-                
-                // childProcess.on('exit', (code) => {
-                //     console.log(`child process exited with code ${code}`);
-                // });
-
-                // childProcess.on('disconnect', (code) => {
-                //     console.log(`child process exited with code ${code}`);
-                // });
-
-                childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
-                    //logger.log(`stdout: ${stdout}`);
-                    
-                    if (err){
-                        logger.error(`stderr: ${stderr}`);
-                        // file could be saved but the index were not properly generated.
-                        //
-                        res.send(JSON.stringify({err:"Skill could be saved but the index were not properly generated."}));
-                        throw err;
-                    }else{
-                        // Write the skill description as JSON
-                        fs.writeFileSync(skillDesriptionFile, skillDesriptionFileContent);
-                        
-                        // Copy the generated files to the user directory
-                        let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
-                        glob(pattern, {}, function(er, files) {
-                            files.forEach(file => {
-                                fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
-                                    if (err) throw err;
-                                });
-                            });
-                        });
-
-                        // file is saved...fine
-                        //
-                        res.send(JSON.stringify({err:null}));
-
-                        // SocketIO
-                        io.emit("shape:generated", {
-                            filePath: req.body.filePath,
-                            imagePath: req.body.filePath.replace(".shape", ".png"),
-                            jsPath: req.body.filePath.replace(".shape", ".js")
-                        });
-                    }
-                });
-            });
-        });
-    });
-
-    // =================================================================
     // Handle MTP-Services request
     //
     // =================================================================
@@ -653,6 +549,111 @@ function runServer() {
         opcuaclientservice.WriteVariableNodesWithNSUrl(variable, function(err, results) {
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({ err: err, results: results }));
+        });
+    });
+
+    
+    // =================================================================
+    // Handle skill browse
+    //
+    // =================================================================
+    app.post('/backend/skill/save', (req, res) => {
+        fs.readFile(path.normalize(skillTemplateDir + '/skill_template.shape'), "utf8", (err, data) => {
+            if (err) throw err;            
+            let _skill = req.body.skill;
+
+            // Parse the skill object to determine the version and the parameters
+            let _skill_parser = new skillParser(_skill, logger);
+            let _parsed_skill = _skill_parser.getParsedObject();
+            
+            // Compile the template object
+            let compiledTemplate = template7.compile(data);
+            let _content = compiledTemplate(_parsed_skill);
+            // console.log(_content);
+            // Add Custom Code depending on the version of the skill
+            let _content_json = JSON.parse(_content);           
+            _content_json.draw2d[0].userData.code = "" + fs.readFileSync(path.normalize(skillTemplateDir + '/skill_custom_code_' +  _parsed_skill.version +'.txt'), "utf8");         
+
+            // Generate the JSON file path, which describe the skill (OPC UA)
+            let skillDesriptionFile = path.normalize(shapeDirApp + req.body.filePath);
+            skillDesriptionFile = skillDesriptionFile.replace(".shape", ".json");
+            let skillDesriptionFileContent = JSON.stringify(_parsed_skill,null, 4);
+            
+            fs.writeFile(shapeDirApp + req.body.filePath, JSON.stringify(_content_json, null, 4), (err) => {
+                if (err){                    
+                    // file could not be saved.
+                    //
+                    res.send(JSON.stringify({err:"Skill couldn't be saved."}));
+                    throw err;
+                }
+
+                // create the js/png/md async to avoid a blocked UI
+                //
+                let binPath = "node";
+                let childArgs = [
+                    path.normalize(__dirname + '/../shape2code/converter.js'),
+                    path.normalize(shapeDirApp + req.body.filePath),
+                    shape2CodeDir,
+                    shapeDirApp
+                ];
+
+                // inform the browser that the processing of the
+                // code generation is ongoing
+                //
+                io.emit("shape:generating", {
+                    filePath: req.body.filePath
+                });
+                
+                // console.log("Generating skill images...");
+                // logger.info(binPath, childArgs[0], childArgs[1], childArgs[2], childArgs[3]);
+                // childProcess.on('close', (code) => {
+                //     console.log(`child process close all stdio with code ${code}`);
+                // });
+                
+                // childProcess.on('exit', (code) => {
+                //     console.log(`child process exited with code ${code}`);
+                // });
+
+                // childProcess.on('disconnect', (code) => {
+                //     console.log(`child process exited with code ${code}`);
+                // });
+
+                childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+                    //logger.log(`stdout: ${stdout}`);
+                    
+                    if (err){
+                        logger.error(`stderr: ${stderr}`);
+                        // file could be saved but the index were not properly generated.
+                        //
+                        res.send(JSON.stringify({err:"Skill could be saved but the index were not properly generated."}));
+                        throw err;
+                    }else{
+                        // Write the skill description as JSON
+                        fs.writeFileSync(skillDesriptionFile, skillDesriptionFileContent);
+                        
+                        // Copy the generated files to the user directory
+                        let pattern = (shapeDirApp + req.body.filePath).replace(".shape", ".*");
+                        glob(pattern, {}, function(er, files) {
+                            files.forEach(file => {
+                                fs.copyFile(file, file.replace(shapeDirApp, storage.shapeDirUserHOME), (err) => {
+                                    if (err) throw err;
+                                });
+                            });
+                        });
+
+                        // file is saved...fine
+                        //
+                        res.send(JSON.stringify({err:null}));
+
+                        // SocketIO
+                        io.emit("shape:generated", {
+                            filePath: req.body.filePath,
+                            imagePath: req.body.filePath.replace(".shape", ".png"),
+                            jsPath: req.body.filePath.replace(".shape", ".js")
+                        });
+                    }
+                });
+            });
         });
     });
 

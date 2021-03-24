@@ -18,6 +18,7 @@ import "./util/mousetrap-pause"
 import inlineSVG from "../lib/inlineSVG"
 import hardware from "./hardware"
 import skillproxy from "./io/BackendSkills"
+import mtpproxy from "./io/BackendMTPService"
 import application_log from "./WindowLogger"
 import ValueParserValidator from "./util/ValueParserValidator"
 let markdownRenderer = require('markdown-it')()
@@ -55,6 +56,7 @@ export default {
   ConnectionRouter,
   CircuitFigure,
   skillproxy,
+  mtpproxy,
   application_log,
   markdownRenderer,
   ValueParserValidator
