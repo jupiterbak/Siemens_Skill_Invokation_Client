@@ -19,7 +19,7 @@ module.exports = {
       self.sockets[socket.id.replace("/#", "")] = socket;
       socket.emit("connected", socket.id.replace("/#", ""));
       socket.on('disconnect', function() {
-        sellf.logger.debug("Socket IO Disconnection: " + socket.id + ".", { service: 'Socket_IO'});
+        self.logger.debug("Socket IO Disconnection: " + socket.id + ".", { service: 'Socket_IO'});
       });
 
       // Propagate the last events to the new connected client.
