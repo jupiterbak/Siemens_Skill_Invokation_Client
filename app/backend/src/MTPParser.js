@@ -1,5 +1,5 @@
 
-const uuidv4 = require('uuid/v4');
+var uuidv4 = require('uuid/v4');
 var parser = require('xml-js');
 var xpath = require('xpath');
 var dom = require('xmldom').DOMParser;
@@ -25,7 +25,7 @@ var MTPParser = function(raw_xml_json_object, logger) {
     this.connection_set_source_list_doc = null;
 
     this.mtp_services = this.parseAllServices(this.mtp_xml_object);
-    this.hmi_views = this.parseAllHMIViews(this.mtp_xml_object);
+    //this.hmi_views = this.parseAllHMIViews(this.mtp_xml_object);
 };
 
 function hasOwnProperty(obj, prop) {
@@ -40,34 +40,38 @@ function hasOwnProperty(obj, prop) {
 // =================================================================
 MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
     var self = this;
-    
+    //console.time("Load MTP");
     // Parse the dom
     var doc = self.dom.parseFromString(mtp_xml_object);
-
+    //console.timeLog("Load MTP", "--> ParseString()");
     // determine the Version
     //var version_node = xpath.select("/CAEXFile[@SchemaVersion]", doc);
     //var _tmp_version = parser.xml2js(self.xml_serial.serializeToString(version_node[0]),{compact: true, spaces: 4});
     //self.version = _tmp_version.CAEXFile._attributes.SchemaVersion;
     self.version = xpath.select("/CAEXFile/@SchemaVersion", doc)[0].value;
 
+    //console.timeLog("Load MTP", "--> Read version");
+
     // get the module type package
     var moduleTypePackage_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/ModuleTypePackage']", doc, false);
     if(moduleTypePackage_node.length > 0){
         self.moduleTypePackage_doc = new dom().parseFromString(self.xml_serial.serializeToString(moduleTypePackage_node[0]));
     }
+    //console.timeLog("Load MTP", "--> GetModuleTypePackage");
 
     // extract instance list from Connection set
     var connection_set_instance_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/CommunicationSet/InstanceList']", self.moduleTypePackage_doc, false);
     if(connection_set_instance_node.length > 0){
         self.connection_set_instance_list_doc = new dom().parseFromString(self.xml_serial.serializeToString(connection_set_instance_node[0]));
     }
-
+    //console.timeLog("Load MTP", "--> Get Connection Instance");
     // extract sources list from Connection set
     var connection_set_source_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/CommunicationSet/SourceList']", self.moduleTypePackage_doc, false);
     if(connection_set_source_node.length > 0){
         self.connection_set_source_list_doc = new dom().parseFromString(self.xml_serial.serializeToString(connection_set_source_node[0]));
     }
-        
+    //console.timeLog("Load MTP", "--> Get Connection Source List");
+
     // Extract the connectionSet & IP-Address
     // TODO: JUPITER - Add Support for multiple opcua servers
     /*    
@@ -87,12 +91,15 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
         self.service_ip = myURL.host.split(':')[0];
         
     }
-    
+    //console.timeLog("Load MTP", "--> Get OPC UA Server Instance");
+
     // Extract all MTP services
     this.service_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/Service']", doc);
-
+    //console.timeLog("Load MTP", "--> Extract MTP services");
+    //console.timeLog("Load MTP", "--> Start Reading services");
     // Extract all procedures/Strategies from the mtp services and generate corresponding skill models
     this.service_nodes.forEach(service_node => {
+        //console.timeLog("Load MTP", "--> New service");
         var service_doc = new dom().parseFromString(self.xml_serial.serializeToString(service_node));
         var _tmp_service = parser.xml2js(self.xml_serial.serializeToString(service_node),{compact: true, spaces: 4});
 
@@ -102,7 +109,7 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
             },
             "Interface":null
         };
-
+        //console.timeLog("Load MTP", "--> Start read service attributes");
         // Get the service properties and build a skill model
         
         // External refID from MTP
@@ -125,13 +132,15 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
                 _service_model.Interface = _tmp_service_opcua_tag;
             }
         }
-        
+        //console.timeLog("Load MTP", "--> End read service attributes");
 
         // Extract Strategy for this service
         var strategy_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceStrategy']", service_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
         
+        //console.timeLog("Load MTP", "--> Start read Strategies");
         // Transcribe mtp to skill model    
         strategy_nodes.forEach(visua_object_node => {
+            //console.timeLog("Load MTP", "--> new Strategy");
             var strategy_doc = new dom().parseFromString(self.xml_serial.serializeToString(visua_object_node));
 
             // Parse the xmljs
@@ -152,6 +161,7 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
                 }
             };
 
+            //console.timeLog("Load MTP", "--> read Strategy Parameter");
             // Extract Strategy parameters and generate inputs
             var parameter_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceParameter/StrategyParameter']", strategy_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
             parameter_nodes.forEach(parameter_node => {
@@ -169,10 +179,14 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
                     "id_port": uuidv4()
                 });
             });
+            //console.timeLog("Load MTP", "--> End Read Strategy Parameter");
             // Add to the skill list
             self.mtp_services.push(_skill_model);
         });
+        //console.timeLog("Load MTP", "--> End read Strategies");
     });
+    //console.timeLog("Load MTP", "--> End Reading services");
+    //console.timeEnd("Load MTP");
     return self.mtp_services;
 };
 

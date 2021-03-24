@@ -202,6 +202,8 @@ function runServer() {
         logger.info("New MTP file to save: "+ storage.mtpDirUserHOME + req.body.filePath);
         fs.writeFile(storage.mtpDirUserHOME + req.body.filePath, req.body.content, (err) => {
             if (err) throw err;
+            res.send(JSON.stringify({err:null}));
+
             io.emit("mtp:file:saved", {
                 filePath: req.body.filePath
             });
@@ -211,6 +213,7 @@ function runServer() {
             let _mtp_parser = new MTPParser(req.body.content, logger);
 
             // Extract and save the views as brain files
+            
             let hmi_views = _mtp_parser.getParsedHMIViews();
             io.emit("mtp:saving:views", {
                 count: hmi_views.length
@@ -226,14 +229,16 @@ function runServer() {
                 });
                 fs.writeFileSync(v_path, JSON.stringify(view,null, 4));
             }
+            
 
-            let _parsed_services = _mtp_parser.getParsedservices();
-            io.emit("mtp:services:count", {
-                count: _parsed_services.length
-            });
-
+            let _parsed_services = _mtp_parser.getParsedservices();            
+            
             fs.readFile(path.normalize(skillTemplateDir + '/skill_template.shape'), "utf8", (err, data) => {
-                if (err) throw err;                
+                if (err) throw err;
+                io.emit("mtp_services_count", {
+                    count: _parsed_services.length
+                });
+
                 var _service_index = 0;
                 async.eachSeries(_parsed_services, function(_parsed_service, callback) {
                     //#############################
@@ -257,7 +262,7 @@ function runServer() {
                         if (err){                    
                             // file could not be saved.
                             //
-                            res.send(JSON.stringify({err:"MTP-Services couldn't be saved."}));
+                            //res.send(JSON.stringify({err:"MTP-Services couldn't be saved."}));
                             throw err;
                         }
 
@@ -304,7 +309,7 @@ function runServer() {
                                 logger.error(`stderr: ${stderr}`);
                                 // file could be saved but the index were not properly generated.
                                 //
-                                res.send(JSON.stringify({err:"MTP-Services could be saved but the index were not properly generated."}));
+                                //res.send(JSON.stringify({err:"MTP-Services could be saved but the index were not properly generated."}));
                                 callback(err);
                                 // throw err;
                             }else{
@@ -343,11 +348,11 @@ function runServer() {
                       // All processing will now stop.
                       logger.error('A service failed to process');
                     } else {
-                        logger.info('All services have been processed successfully');
+                      logger.info('All services have been processed successfully');
                       // file is saved...fine
                         //
-                        res.send(JSON.stringify({err:null}));
                     }
+                    //res.send(JSON.stringify({err:err}));
                     io.emit("mtp:services:generated", {
                         filePath: req.body.filePath
                     });

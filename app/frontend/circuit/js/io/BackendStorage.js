@@ -81,6 +81,7 @@ class BackendStorage {
   saveMTPFile(xml_content, fileName, progerssfeedback) {
     return $.ajax({
         url: conf.backend.mtp.save,
+        timeout: 300000,
         method: "POST",
         xhrFields: {
           withCredentials: true

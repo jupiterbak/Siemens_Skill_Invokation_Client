@@ -5241,7 +5241,15 @@ exports.default = {
       },
       del: "../backend/mtp/delete",
       rename: "../backend/mtp/rename",
-      save: "../backend/mtp/save"
+      save: "../backend/mtp/save",
+
+      getDescription: '/backend/mtp/getDescription',
+      connect: '/backend/mtp/connect',
+      disconnect: '/backend/mtp/disconnect',
+      writeRequestParameters: '/backend/mtp/writeRequestParameters',
+      readResultParameters: '/backend/mtp/readResultParameters',
+      monitorService: '/backend/mtp/monitorService',
+      call: '/backend/mtp/callService'
     },
     skill: {
       connect: '/backend/skill/connect',
@@ -6285,7 +6293,10 @@ var ProbeWindow = function () {
       // get all probes from the canvas and add them to the window
       //
       this.canvas.getLines().each(function (i, line) {
-        var probe = line.getProbeFigure();
+        var probe = null;
+        if (line.getProbeFigure()) {
+          probe = line.getProbeFigure();
+        }
         if (probe !== null) {
           probes.push(probe);
         }
@@ -8193,6 +8204,7 @@ var MTPLoadDialog = function () {
 
           socket.on("mtp:saving:views", function (msg) {
             view_count = msg.count;
+            console.log("View count", view_count);
             $('#LabelFileUploadProgressBar').text("Saving Views...");
             $('#FileUploadProgressBar').css('width', 75 + '%').attr('aria-valuenow', 75);
             $('#FileUploadProgressBar').text(75 + '%');
@@ -8207,13 +8219,16 @@ var MTPLoadDialog = function () {
             }
           });
 
-          socket.on("mtp:services:count", function (msg) {
+          socket.on("mtp_services_count", function (msg) {
             service_count = msg.count;
+            console.log("Service count", service_count);
           });
+
           socket.on("mtp:service:generating", function (msg) {
             $('#LabelFileUploadProgressBar').text("Generating service: " + msg.service + " ...");
             if (service_count !== 0) {
               var percentage = msg.index / service_count * 100;
+              console.log("mtp:service:generating percentage", percentage);
               $('#FileUploadProgressBar').css('width', percentage + '%').attr('aria-valuenow', percentage);
               $('#FileUploadProgressBar').text(percentage + '%');
             }
@@ -8223,6 +8238,7 @@ var MTPLoadDialog = function () {
             $('#LabelFileUploadProgressBar').text("Service: " + msg.service + " generated.");
             if (service_count !== 0) {
               var percentage = (msg.index + 1) / service_count * 100;
+              console.log("mtp:service:generated percentage", percentage);
               $('#FileUploadProgressBar').css('width', percentage + '%').attr('aria-valuenow', percentage);
               $('#FileUploadProgressBar').text(percentage + '%');
             }
@@ -9827,6 +9843,10 @@ var _BackendSkills = __webpack_require__(/*! ./io/BackendSkills */ "./app/fronte
 
 var _BackendSkills2 = _interopRequireDefault(_BackendSkills);
 
+var _BackendMTPService = __webpack_require__(/*! ./io/BackendMTPService */ "./app/frontend/circuit/js/io/BackendMTPService.js");
+
+var _BackendMTPService2 = _interopRequireDefault(_BackendMTPService);
+
 var _WindowLogger = __webpack_require__(/*! ./WindowLogger */ "./app/frontend/circuit/js/WindowLogger.js");
 
 var _WindowLogger2 = _interopRequireDefault(_WindowLogger);
@@ -9872,6 +9892,7 @@ exports.default = {
   ConnectionRouter: _ConnectionRouter2.default,
   CircuitFigure: _CircuitFigure2.default,
   skillproxy: _BackendSkills2.default,
+  mtpproxy: _BackendMTPService2.default,
   application_log: _WindowLogger2.default,
   markdownRenderer: markdownRenderer,
   ValueParserValidator: _ValueParserValidator2.default
@@ -10214,6 +10235,190 @@ $(window).load(function () {
         }
     });
 });
+
+/***/ }),
+
+/***/ "./app/frontend/circuit/js/io/BackendMTPService.js":
+/*!*********************************************************!*\
+  !*** ./app/frontend/circuit/js/io/BackendMTPService.js ***!
+  \*********************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Configuration = __webpack_require__(/*! ./../Configuration */ "./app/frontend/circuit/js/Configuration.js");
+
+var _Configuration2 = _interopRequireDefault(_Configuration);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var sanitize = __webpack_require__(/*! sanitize-filename */ "./node_modules/sanitize-filename/index.js");
+
+var BackendMTPService = function () {
+
+  /**
+   * @constructor
+   *
+   */
+  function BackendMTPService() {
+    _classCallCheck(this, BackendMTPService);
+
+    this.skillList = [];
+    Object.preventExtensions(this);
+  }
+
+  _createClass(BackendMTPService, [{
+    key: "connectMTPService",
+    value: function connectMTPService(ip, port) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.mtp.connect,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: ip,
+          port: port
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, connected: resp.connected };
+        }
+      });
+    }
+  }, {
+    key: "getMTPServiceDescription",
+    value: function getMTPServiceDescription(_mtp_service_name) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.mtp.getDescription,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          mtp_service_name: _mtp_service_name
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, mtp_service_descp: resp.mtp_service_descp };
+        }
+      });
+    }
+  }, {
+    key: "writeRequestParameters",
+    value: function writeRequestParameters(_ip, _port, _mtp_service_name, _nodes, _values) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.mtp.writeRequestParameters,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          mtpServiceName: _mtp_service_name,
+          nodes: _nodes,
+          values: _values
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+      });
+    }
+  }, {
+    key: "readResultParameters",
+    value: function readResultParameters(_ip, _port, _mtp_service_name, _nodes) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.mtp.readResultParameters,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          mtpServiceName: _mtp_service_name,
+          nodes: _nodes
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+      });
+    }
+  }, {
+    key: "monitorService",
+    value: function monitorService(_ip, _port, _mtp_service_name, _nodes) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.mtp.monitorService,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          mtpServiceName: _mtp_service_name,
+          nodes: _nodes
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+      });
+    }
+  }, {
+    key: "callService",
+    value: function callService(_ip, _port, _mtp_service_name, _call_nodes, _call_values) {
+      var self = this;
+      return $.ajax({
+        url: _Configuration2.default.backend.mtp.call,
+        xhrFields: {
+          withCredentials: true
+        },
+        data: {
+          ip: _ip,
+          port: _port,
+          mtpServiceName: _mtp_service_name,
+          nodes: _call_nodes,
+          values: _call_values
+        }
+      }).then(function (resp) {
+        if (resp.err) {
+          return { err: resp.err };
+        } else {
+          return { err: resp.err, results: resp.results };
+        }
+      });
+    }
+  }]);
+
+  return BackendMTPService;
+}();
+
+var mtp_services_proxy = new BackendMTPService();
+exports.default = mtp_services_proxy;
+module.exports = exports.default;
 
 /***/ }),
 
@@ -10670,6 +10875,7 @@ var BackendStorage = function () {
     value: function saveMTPFile(xml_content, fileName, progerssfeedback) {
       return $.ajax({
         url: _Configuration2.default.backend.mtp.save,
+        timeout: 300000,
         method: "POST",
         xhrFields: {
           withCredentials: true

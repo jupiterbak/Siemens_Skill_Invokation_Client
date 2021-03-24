@@ -83,7 +83,7 @@ module.exports = {
       self.io.sockets.emit(eventID, data);
     }
     self.logger.debug("" + eventID , { service: 'Socket_IO'});
-    //console.log(data);
+    // console.log(data);
   },
   io: null,
   logger: null

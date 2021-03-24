@@ -88,6 +88,7 @@ export default class MTPLoadDialog {
 
           socket.on("mtp:saving:views", function(msg) {
             view_count = msg.count;
+            console.log("View count", view_count);
             $('#LabelFileUploadProgressBar').text("Saving Views...");
             $('#FileUploadProgressBar').css('width', 75+'%').attr('aria-valuenow', 75);
             $('#FileUploadProgressBar').text(75+'%');
@@ -102,13 +103,16 @@ export default class MTPLoadDialog {
             }            
           });
 
-          socket.on("mtp:services:count", function(msg) {
+          socket.on("mtp_services_count", function(msg) {
             service_count = msg.count;
+            console.log("Service count", service_count);
           });
+          
           socket.on("mtp:service:generating", function(msg) {
             $('#LabelFileUploadProgressBar').text("Generating service: " + msg.service + " ...");
             if(service_count !== 0){
               var percentage = (msg.index / service_count) * 100;
+              console.log("mtp:service:generating percentage", percentage);
               $('#FileUploadProgressBar').css('width', percentage+'%').attr('aria-valuenow', percentage);
               $('#FileUploadProgressBar').text(percentage+'%');
             }            
@@ -118,6 +122,7 @@ export default class MTPLoadDialog {
             $('#LabelFileUploadProgressBar').text("Service: " + msg.service + " generated.");
             if(service_count !== 0){
               var percentage = ((msg.index + 1) / service_count) * 100;
+              console.log("mtp:service:generated percentage", percentage);
               $('#FileUploadProgressBar').css('width', percentage+'%').attr('aria-valuenow', percentage);
               $('#FileUploadProgressBar').text(percentage+'%');
             }            
