@@ -46,7 +46,11 @@ testShape = testShape.extend({
       this.state = 5; // STOPPED
       this.last_en_value = 0;
       this.err_msg = "";
-      this.service_current_state = "Ready";
+      this.service_current_state =null;
+      this.service_current_procedure = null;
+      this.service_procedure_req = null;
+      this.service_command_en = null;
+
       this._params_nodes = [];
       this._params_values = [];
 
@@ -84,12 +88,12 @@ testShape = testShape.extend({
             this.layerAttr("led_power",{fill:"#FF3C00"});
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
-            this.layerAttr("Skill_State", {text: 'State: not connected'});
+            this.layerAttr("Skill_State", {text: 'State: Stopped'});
             if(this.getInputPort(0).getValue()){
                 this.state = 10;
             }
             break;
-          case 10: // Get The skill description
+          case 10: // Get The service description
             this.layerAttr("Circle_en",{fill:"#faa50a"});
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#FF3C00"});
@@ -149,33 +153,58 @@ testShape = testShape.extend({
             var node2Monitor = [];
             if(self.description.serviceModel && self.description.serviceModel.Interface){
               node2Monitor = [
-                // "OpMode"
+                // "StateCur"
                 {
-                  "ns_url": self.description.serviceModel.Interface.OpMode.Namespace,
-                  "nid":  self.description.serviceModel.Interface.OpMode.Identifier,
+                  "ns_url": self.description.serviceModel.Interface.StateCur.Namespace,
+                  "nid":  self.description.serviceModel.Interface.StateCur.Identifier,
                 },
-                // "CurrentState"
+                // "ProcedureCur"
                 {
-                  "ns_url": self.description.serviceModel.Interface.CurrentState.Namespace,
-                  "nid":  self.description.serviceModel.Interface.CurrentState.Identifier,
+                  "ns_url": self.description.serviceModel.Interface.ProcedureCur.Namespace,
+                  "nid":  self.description.serviceModel.Interface.ProcedureCur.Identifier,
                 },
-                // "CurrentStrategy"
+                // "ProcedureReq"
                 {
-                  "ns_url": self.description.serviceModel.Interface.CurrentStrategy.Namespace,
-                  "nid":  self.description.serviceModel.Interface.CurrentStrategy.Identifier,
+                  "ns_url": self.description.serviceModel.Interface.ProcedureReq.Namespace,
+                  "nid":  self.description.serviceModel.Interface.ProcedureReq.Identifier,
+                },
+                // "CommandEn"
+                {
+                  "ns_url": self.description.serviceModel.Interface.CommandEn.Namespace,
+                  "nid":  self.description.serviceModel.Interface.CommandEn.Identifier,
                 }
-                ];
+              ];
+
+              // Monitor also all output values. Therefore, add all ouputs nodeIds
+              var _outputs = this.description.parameters.outputs || [];
+              for (var k = 0; k < _outputs.length; k++) {
+                var _o_elem = _outputs[k];
+                node2Monitor.push({
+                  "ns_url": _o_elem.Interface.V.nodeId.Namespace,
+                  "nid":  _o_elem.Interface.V.nodeId.Identifier,
+                });
+              }
             }
 
             // Adjust the websocket event filtering
             socket.on("monitorMTPServiceChanged", function (data) {
-              if(data && data.length >= 2){
-                // get the curent value of the state
-                var _cur_state_evt = data[1];
-                // Check if the event is intended for this service
+              if(data && data.length >= 1){
+                var _cur_state_evt = data[0];
                 if(("" + _cur_state_evt.skill) === self.skill.name){
-                  self.service_current_state = data[1].value.value;
-                }                      
+                  if(data && data.length >= 4){                    
+                    // Check if the event is intended for this service                    
+                      self.service_current_state = data[0].value.value;
+                      self.service_current_procedure = data[1].value.value;
+                      self.service_procedure_req = data[2].value.value;
+                      self.service_command_en = data[3].value.value;                                        
+                  }
+                  var _outputs_sio = this.description.parameters.outputs || [];
+                  if(data && data.length >= 4 + _outputs_sio.length){
+                    for (var k = 0; k < _outputs_sio.length; k++) {
+                      self.getOutputPort(1 + k).setValue(data[k + 4].value.value || 0);
+                    }
+                  }
+                }
               }
             });
 
@@ -202,9 +231,10 @@ testShape = testShape.extend({
             this.layerAttr("led_power",{fill:"#33DE09"});
             this.layerAttr("led_connected",{fill:"#33DE09"});
             this.layerAttr("circle",{fill:"#f0f0f0"});
-            self.layerAttr("Skill_State", {text: 'MTP-State: ' + self.service_current_state});
-            if(self.service_current_state === 16){
+            self.layerAttr("Skill_State", {text: 'State: ' + self.service_current_state});
+            if(self.service_current_state === 16){ // MTP "Idle" state
               self.state = 13; // Write the request parameters to initiate the service call
+              this.layerAttr("Skill_State", {text: 'State: Idle'});
             }
             break;
           case 13: // Write all request parameters
@@ -240,7 +270,7 @@ testShape = testShape.extend({
             }
 
             // Start writing the request parameters
-            mtpproxy.writeRequestParameters(self.description.ip, self.description.port, self.skill.name, _params_nodes,_params_values).then(function (resp_wr_param) {
+            mtpproxy.writeRequestParameters(self.description.ip, self.description.port, self.skill.name, self._params_nodes,self._params_values).then(function (resp_wr_param) {
               if(resp_wr_param.err){
                 // Make transition to err
                 self.state = 6;
@@ -289,9 +319,9 @@ testShape = testShape.extend({
             var _setpoints_nodes = []; 
                        
             var _setpoints_inputs = this.description.parameters.inputs || [];
-            for (var index = 0; index < _setpoints_inputs.length; index++) {              
-              self.layerAttr("Circle_IN_" + (index) ,{fill:"#faa50a"});
-              var _setpoints_el = _setpoints_inputs[index];
+            for (var l = 0; l < _setpoints_inputs.length; l++) {              
+              self.layerAttr("Circle_IN_" + (l) ,{fill:"#faa50a"});
+              var _setpoints_el = _setpoints_inputs[l];
               // Push the node VExt
               _setpoints_nodes.push({
                 "ns_url": _setpoints_el.Interface.VOut.nodeId.Namespace,
@@ -309,18 +339,18 @@ testShape = testShape.extend({
               }else{
                 // Check if all variable have been read successfully
                 // Check if the set points are equals to the parameter values
-                var all_acepted = true;
+                var all_accepted = true;
                 if(resp_read.results){
                   for (var i = 0; i < resp_read.results.length; i++) {
                     var _res = resp_read.results[i];
                     if((_res.statusCode.value !== 0) || (_res.value.value !== self._params_values[2*i]) ){
-                      all_acepted = false;
+                      all_accepted = false;
                     }
                   }
                 }
 
                 // If all values have not been acepted, then goto error
-                if(all_acepted === true){
+                if(all_accepted === true){
                   // Make transition to call the service
                   self.state = 15;
                   application_log.info("[" + self.NAME + "] All the service parameters have been accepted." );
@@ -343,12 +373,74 @@ testShape = testShape.extend({
             this.layerAttr("circle",{fill:"#f0f0f0"});
             this.layerAttr("Skill_State", {text: 'State: Starting'});
             application_log.info("[" + self.NAME + "] calling the service." );
+            self.state = 151;
+            break;
+          case 151: // Check if execution is allowed
+            // TODO: Check if command_en is allowed
+            //if(self.service_command_en){
+              self.state = 152;
+            //}            
+            break;
+          case 152: // Write the procedure number to call
+            var _call_prod_nodes = [];
+            var _call_prod_values = [];
+            if(self.description.serviceModel && self.description.serviceModel.Interface){
+              _call_prod_nodes = [
+                // "ProcedureExt"
+                {
+                  "ns_url": self.description.serviceModel.Interface.ProcedureExt.Namespace,
+                  "nid":  self.description.serviceModel.Interface.ProcedureExt.Identifier,
+                }];
+                _call_prod_values = [self.description.skill.ProcedureID]; // Start cmd
+            }
 
+            // Start writting the procedure
+            mtpproxy.writeRequestParameters(self.description.ip, self.description.port, self.skill.name, _call_prod_nodes,_call_prod_values).then(function (resp_proc_call) {
+              if(resp_proc_call.err){
+                // Make transition to err
+                self.state = 6;
+                self.err_msg = "Error while writing the requested procedure number!";
+                application_log.error("[" + self.NAME + "] Error while writing the requested procedure number.");
+              }else{
+                // Check if all variable have been written successfully
+                var all_proc_done = true;
+                if(resp_proc_call.results){
+                  for (var i = 0; i < resp_proc_call.results.length; i++) {
+                    var _res = resp_proc_call.results[i];
+                    if(_res.value !== 0){
+                      all_proc_done = false;
+                    }
+                  }
+                }
+
+                // If writting the parameters was not suceesfull
+                if(all_proc_done === true){
+                  // Make transition to wait until the procedure request is accepted
+                  self.state = 153;
+                  application_log.info("[" + self.NAME + "] successfully wrote the requested procedure number." ); 
+                }else{
+                  // Make transition to err
+                  self.state = 6;
+                  self.err_msg = "Error while writing the requested procedure number!";
+                  application_log.error("[" + self.NAME + "] Error while writing the requested procedure number.");
+                }                               
+              }
+            });
+            self.state = 1520;
+            break;
+          case 1520: // Wait writting the procedure number
+            break;
+          case 153: // Wait until procedure request is accepted.
+            if(( "" + self.service_procedure_req) === self.description.skill.ProcedureID ){
+              self.state = 155;
+            }
+            break;
+          case 155: // Write the command external
             var _call_nodes = [];
             var _call_values = [];
             if(self.description.serviceModel && self.description.serviceModel.Interface){
               _call_nodes = [
-                // "OpMode"
+                // "CommandExt"
                 {
                   "ns_url": self.description.serviceModel.Interface.CommandExt.Namespace,
                   "nid":  self.description.serviceModel.Interface.CommandExt.Identifier,
@@ -364,21 +456,102 @@ testShape = testShape.extend({
                 self.err_msg = "Error while calling the mtp service!";
                 application_log.error("[" + self.NAME + "] Error while calling the mtp service.");
               }else{
-                self.state = 2;
-                application_log.info("[" + self.NAME + "] successfully called the mtp service." );               
+                // Check if all variable have been written successfully
+                var all_done = true;
+                if(resp_call.results){
+                  for (var i = 0; i < resp_call.results.length; i++) {
+                    var _res = resp_call.results[i];
+                    if(_res.value !== 0){
+                      all_done = false;
+                    }
+                  }
+                }
+
+                // If writting the parameters was not suceesfull
+                if(all_done === true){
+                  // Make transition to wait for the complete or completing state
+                  if("" + self.description.skill.IsSelfCompleting === "True"){
+                    self.state = 25; // Wait for complete
+                  }else{
+                    self.state = 21; // Wait for completing
+                  }
+                  
+                  application_log.info("[" + self.NAME + "] successfully called the mtp service." ); 
+                }else{
+                  // Make transition to err
+                  self.state = 6;
+                  self.err_msg = "Error while calling the mtp service!";
+                  application_log.error("[" + self.NAME + "] Error while calling the mtp service.");
+                }                               
               }
             });  
-            self.state = 150;           
+            self.state = 1550;           
             break;
-          case 150: // Wait for the start execution callbck
+          case 1550: // Wait for the start execution callback
             this.currentTimer=new Date();
             break;
-          case 2: // Wait completing or complete event
+          case 21: // Wait completing 
             self.layerAttr("Skill_State", {text: 'State: Executing'});
-            if(self.service_current_state === 65536 || self.service_current_state === 131072){ // Completing || Complete
+            if(self.service_current_state === 65536 ){ // Completing
+              self.state = 22; // request the complete state
+              this.layerAttr("Skill_State", {text: 'State: Completing'});
+              application_log.info("[" + self.NAME + "] mtp service execution is completing.");
+            }
+            break;
+          case 22: // request the complete state
+            var _call_compl_nodes = [];
+            var _call_compl_values = [];
+            if(self.description.serviceModel && self.description.serviceModel.Interface){
+              _call_compl_nodes = [
+                // "CommandExt"
+                {
+                  "ns_url": self.description.serviceModel.Interface.CommandExt.Namespace,
+                  "nid":  self.description.serviceModel.Interface.CommandExt.Identifier,
+                }];
+                _call_compl_values = [1024]; // Cmd "Complete"
+            }
+
+            // Start Executing the cmd by writing the "CommandExt" value
+            mtpproxy.callService(self.description.ip, self.description.port, self.skill.name, _call_compl_nodes,_call_compl_values).then(function (resp_compl_call) {
+              if(resp_compl_call.err){
+                // Make transition to err
+                self.state = 6;
+                self.err_msg = "Error while requesting the 'Complete' state!";
+                application_log.error("[" + self.NAME + "] Error while requesting the 'Complete' state.");
+              }else{
+                // Check if all variable have been written successfully
+                var all_compl_done = true;
+                if(resp_compl_call.results){
+                  for (var i = 0; i < resp_compl_call.results.length; i++) {
+                    var _res = resp_compl_call.results[i];
+                    if(_res.value !== 0){
+                      all_compl_done = false;
+                    }
+                  }
+                }
+
+                // If writting the parameters was not suceesfull
+                if(all_compl_done === true){
+                  // Make transition to wait for the complete state                  
+                  self.state = 25; // Wait for completing            
+                  application_log.info("[" + self.NAME + "] successfully crequested the 'Complete' state." ); 
+                }else{
+                  // Make transition to err
+                  self.state = 6;
+                  self.err_msg = "Error while requesting the 'Complete' state!";
+                  application_log.error("[" + self.NAME + "] Error while requesting the 'Complete' state.");
+                }                               
+              }
+            });  
+            self.state = 220; 
+            break;
+          case 220: // Wait for CommandExt "Completing" request
+            break;
+          case 25: // Wait for "Complete" state
+            if(self.service_current_state === 131072){ // Complete
               self.state = 3; // Stat resetting the service
               this.layerAttr("Skill_State", {text: 'State: Completed'});
-              application_log.info("[" + self.NAME + "] mtp service execution completed. It took: "+ (new Date()-self.currentTimer));
+              application_log.info("[" + self.NAME + "] mtp service execution completed. It took: "+ ((new Date().getTime()-self.currentTimer.getTime())/ 1000) + " s");
             }
             break;
           case 3: // reset the service
@@ -393,7 +566,7 @@ testShape = testShape.extend({
             var _reset_values = [];
             if(self.description.serviceModel && self.description.serviceModel.Interface){
               _reset_nodes = [
-                // "OpMode"
+                // "CommandExt"
                 {
                   "ns_url": self.description.serviceModel.Interface.CommandExt.Namespace,
                   "nid":  self.description.serviceModel.Interface.CommandExt.Identifier,
@@ -409,8 +582,28 @@ testShape = testShape.extend({
                 self.err_msg = "Error while resetting the mtp service!";
                 application_log.error("[" + self.NAME + "] Error while resetting the mtp service.");
               }else{
-                self.state = 310;
-                application_log.info("[" + self.NAME + "] successfully resetting the mtp service." );               
+                // Check if all variable have been written successfully
+                var all_done = true;
+                if(resp_call.results){
+                  for (var i = 0; i < resp_call.results.length; i++) {
+                    var _res = resp_call.results[i];
+                    if(_res.value !== 0){
+                      all_done = false;
+                    }
+                  }
+                }
+
+                // If writting the parameters was not suceesfull
+                if(all_done === true){
+                  // Make transition to write the request parameters
+                  self.state = 310;
+                  application_log.info("[" + self.NAME + "] successfully resetting the mtp service." );
+                }else{
+                  // Make transition to err
+                  self.state = 6;
+                  self.err_msg = "Error while resetting the mtp service!";
+                  application_log.error("[" + self.NAME + "] Error while resetting the mtp service.");
+                }                
               }
             });
             this.state = 300;
@@ -419,8 +612,8 @@ testShape = testShape.extend({
             break;
           case 310: // Wait until the service is ready again
             if(self.service_current_state === 16){ // Idle
-              this.layerAttr("Skill_State", {text: 'State: Done'});
-              application_log.info("[" + self.NAME + "] service execusion is done." );
+              this.layerAttr("Skill_State", {text: 'State: Idle'});
+              application_log.info("[" + self.NAME + "] service execusion is done. service is ready." );
               this.state = 4;
             }          
             break;
@@ -448,7 +641,7 @@ testShape = testShape.extend({
             this.layerAttr("led_connected",{fill:"#f0f0f0"});
             this.layerAttr("circle",{fill:"#ffffff"});
             this.state = 0; // Stopped
-            this.layerAttr("Skill_State", {text: 'State: Ready'});
+            this.layerAttr("Skill_State", {text: 'State: Reinitialze'});
             break;
           case 6: // Error
             this.getOutputPort(0).setValue(false);
@@ -482,8 +675,7 @@ testShape = testShape.extend({
           self.getOutputPort(h).setValue(0);                
         }
         this.layerAttr("Skill_State", {text: 'State: not connected'});
-        //application_log.info("[" + self.NAME + "] skill execusion started." );
-        application_log.error("[" + self.NAME + "] MTP-Service is not implemented." );
+        application_log.info("[" + self.NAME + "] MTP-Service execusion started." );
         this.state = 5; // STOPPED
         this.last_en_value = 0; 
     },
@@ -512,11 +704,11 @@ testShape = testShape.extend({
         this.state = 5; // STOPPED
         this.last_en_value = 0;
         
-        socket.off("opcua_serverstatus", function(msg){
+        socket.off("serverstatus", function(msg){
           // console.log("####### Serverstatus");
         });
         
-        socket.off("SkillStatesChanged", function(msg){
+        socket.off("monitorMTPServiceChanged", function(msg){
           // console.log("####### StatesChanged");
         });
     },

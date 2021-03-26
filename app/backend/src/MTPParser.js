@@ -24,8 +24,11 @@ var MTPParser = function(raw_xml_json_object, logger) {
     this.connection_set_instance_list_doc = null;
     this.connection_set_source_list_doc = null;
 
+    this.instance_list_dict = {};
+    this.source_list_dict = {};
+
     this.mtp_services = this.parseAllServices(this.mtp_xml_object);
-    //this.hmi_views = this.parseAllHMIViews(this.mtp_xml_object);
+    this.hmi_views = this.parseAllHMIViews(this.mtp_xml_object);
 };
 
 function hasOwnProperty(obj, prop) {
@@ -65,12 +68,35 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
         self.connection_set_instance_list_doc = new dom().parseFromString(self.xml_serial.serializeToString(connection_set_instance_node[0]));
     }
     //console.timeLog("Load MTP", "--> Get Connection Instance");
+
+    // Build Instance list Dict
+    var _tmp_inst_list = parser.xml2js(self.xml_serial.serializeToString(connection_set_instance_node[0]),{compact: true, spaces: 4});
+    _tmp_inst_list.InternalElement.InternalElement.forEach(__ie => { // InternalElement
+        if (__ie.Attribute && __ie.Attribute.length){
+            __ie.Attribute.forEach(_ie_attr => {
+                if(_ie_attr._attributes.Name === 'RefID'){
+                    self.instance_list_dict[_ie_attr.Value._text] = __ie.Attribute;
+                }                
+            });
+        }
+    });
+    
+    //console.timeLog("Load MTP", "--> Build Instance list Dict");
+
+
     // extract sources list from Connection set
     var connection_set_source_node = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPSUCLib/CommunicationSet/SourceList']", self.moduleTypePackage_doc, false);
     if(connection_set_source_node.length > 0){
         self.connection_set_source_list_doc = new dom().parseFromString(self.xml_serial.serializeToString(connection_set_source_node[0]));
     }
     //console.timeLog("Load MTP", "--> Get Connection Source List");
+
+    // Prepare Source List dict
+    var _tmp_src_list = parser.xml2js(self.xml_serial.serializeToString(connection_set_source_node[0]),{compact: true, spaces: 4});
+    _tmp_src_list.InternalElement.InternalElement.ExternalInterface.forEach(_ei => {
+        self.source_list_dict[_ei._attributes.ID] = _ei.Attribute;
+    });
+    //console.timeLog("Load MTP", "--> Build Source list Dict");
 
     // Extract the connectionSet & IP-Address
     // TODO: JUPITER - Add Support for multiple opcua servers
@@ -118,12 +144,12 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
             // Save 
             _service_model.Description['RefID'] = _serviceRefID;
             // Get Communication Instance object
-            var service_com_Inst_node = xpath.select("//InternalElement[(@RefBaseSystemUnitPath='MTPDataObjectSUCLib/DataAssembly/ServiceControl') and (Attribute/Value/text() ='" + _serviceRefID + "')]", self.connection_set_instance_list_doc);
-            if(service_com_Inst_node.length > 0){
-                var _tmp_service_Inst = parser.xml2js(self.xml_serial.serializeToString(service_com_Inst_node[0]),{compact: true, spaces: 4});
-
+            var service_com_Inst_attr_list = self.instance_list_dict[_serviceRefID];
+            
+            if(service_com_Inst_attr_list && (service_com_Inst_attr_list.length > 0)){
+                
                 // Extract all Attribute RefID
-                var _tmp_service_Inst_attr = self.getAllAttributeAsObject(_tmp_service_Inst.InternalElement.Attribute);
+                var _tmp_service_Inst_attr = self.getAllAttributeAsObject(service_com_Inst_attr_list);
 
                 // Extract al OPCUA Tag for the attribute of the services
                 var _tmp_service_opcua_tag = self.getAllOPCUATagAsObject(_tmp_service_Inst_attr, self.connection_set_source_list_doc);
@@ -134,24 +160,29 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
         }
         //console.timeLog("Load MTP", "--> End read service attributes");
 
-        // Extract Strategy for this service
-        var strategy_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceStrategy']", service_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
+        // Extract Procedure for this service
+        var procedure_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceProcedure']", service_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
         
         //console.timeLog("Load MTP", "--> Start read Strategies");
         // Transcribe mtp to skill model    
-        strategy_nodes.forEach(visua_object_node => {
-            //console.timeLog("Load MTP", "--> new Strategy");
-            var strategy_doc = new dom().parseFromString(self.xml_serial.serializeToString(visua_object_node));
+        procedure_nodes.forEach(visua_object_node => {
+            //console.timeLog("Load MTP", "--> new Procedure");
+            var procedure_doc = new dom().parseFromString(self.xml_serial.serializeToString(visua_object_node));
 
             // Parse the xmljs
-            var _tmp_strategy = parser.xml2js(self.xml_serial.serializeToString(visua_object_node),{compact: true, spaces: 4});
+            var _tmp_procedure = parser.xml2js(self.xml_serial.serializeToString(visua_object_node),{compact: true, spaces: 4});
             
             // Add skill model
-            var _skill_model = {
+            var _procedure_model = {
                 "ip": self.service_ip,
                 "port": self.service_port,
                 "skill": {
-                    "name": _tmp_service.InternalElement._attributes.Name + "_" + _tmp_strategy.InternalElement._attributes.Name
+                    "name": _tmp_service.InternalElement._attributes.Name + "_" + _tmp_procedure.InternalElement._attributes.Name,
+                    "IsSelfCompleting": self.filterByAttribute(_tmp_procedure.InternalElement.Attribute, 'IsSelfCompleting').Value._text,
+                    "ProcedureID": self.filterByAttribute(_tmp_procedure.InternalElement.Attribute, 'ProcedureID').Value._text,
+                    "IsDefault": self.filterByAttribute(_tmp_procedure.InternalElement.Attribute, 'IsDefault').Value._text,
+                    "Description":self.filterByAttribute(_tmp_procedure.InternalElement.Attribute, 'Description').Value._text,
+                    "Type": self.filterByAttribute(_tmp_procedure.InternalElement.Attribute, 'Type').Value._text
                 },
                 "serviceModel": _service_model,
                 "version": "V0",
@@ -161,27 +192,45 @@ MTPParser.prototype.parseAllServices = function(mtp_xml_object) {
                 }
             };
 
-            //console.timeLog("Load MTP", "--> read Strategy Parameter");
-            // Extract Strategy parameters and generate inputs
-            var parameter_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceParameter/StrategyParameter']", strategy_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
-            parameter_nodes.forEach(parameter_node => {
-                var _tmp_param = parser.xml2js(self.xml_serial.serializeToString(parameter_node),{compact: true, spaces: 4});
+            //console.timeLog("Load MTP", "--> read Procedure Parameter");
+            // Extract Procedure parameters and generate inputs
+            //var parameter_nodes = xpath.select("//InternalElement[@RefBaseSystemUnitPath='MTPServiceSUCLib/ServiceParameter/ProcedureParameter']", procedure_doc);//,null, xpath.XPathResult.ANY_TYPE, null);
+            var parameter_nodes = _tmp_procedure.InternalElement.InternalElement;
+            parameter_nodes.forEach(_tmp_param => {
                 // Get the parameter description
                 var param_desc = [];
-                param_desc = self.parseParameterDescriptionWithOPCUAInterface(_tmp_param, self.connection_set_instance_list_doc, self.connection_set_source_list_doc);
+                param_desc = self.parseParameterDescriptionWithOPCUAInterface(_tmp_param);
+                // Name
+                var _param_name = _tmp_param._attributes.Name;
+                var _param_type = self.filterByAttribute(_tmp_param.Attribute, 'Type').Value._text;
+
+                if(_param_type === 'ProcedureParameter' || _param_type === 'ConfigurationParameter' || _param_type === 'ProcessValueIn'){
+                    _procedure_model.parameters.inputs.push({
+                        "name": _param_name,
+                        "type": _param_type,
+                        "Interface": param_desc,
+                        "type": "Variable",
+                        "id_circle": uuidv4(),
+                        "id_label": uuidv4(),
+                        "id_port": uuidv4()
+                    });
+                }else if(_param_type === 'ProcessValueOutput' || _param_type === 'ReportValue'){
+                    _procedure_model.parameters.outputs.push({
+                        "name": _param_name,
+                        "type": _param_type,
+                        "Interface": param_desc,
+                        "type": "Variable",
+                        "id_circle": uuidv4(),
+                        "id_label": uuidv4(),
+                        "id_port": uuidv4()
+                    });
+                }
                 
-                _skill_model.parameters.inputs.push({
-                    "name": _tmp_param.InternalElement._attributes.Name,
-                    "Interface": param_desc,
-                    "type": "Variable",
-                    "id_circle": uuidv4(),
-                    "id_label": uuidv4(),
-                    "id_port": uuidv4()
-                });
+                
             });
-            //console.timeLog("Load MTP", "--> End Read Strategy Parameter");
+            //console.timeLog("Load MTP", "--> End Read Procedure Parameter");
             // Add to the skill list
-            self.mtp_services.push(_skill_model);
+            self.mtp_services.push(_procedure_model);
         });
         //console.timeLog("Load MTP", "--> End read Strategies");
     });
@@ -351,24 +400,21 @@ MTPParser.prototype.getParsedHMIViews = function() {
     return self.hmi_views;
 };
 
-MTPParser.prototype.parseParameterDescriptionWithOPCUAInterface = function(param_node,instance_list_doc, source_list_doc) {
+MTPParser.prototype.parseParameterDescriptionWithOPCUAInterface = function(param_node) {
     var self = this;
     var _res = {};
-    // Name
-    var _param_name = param_node.InternalElement._attributes.Name;
     // External refID from MTP
-    var _RefID = self.filterByAttribute(param_node.InternalElement.Attribute, 'RefID').Value._text;
+    var _RefID = self.filterByAttribute(param_node.Attribute, 'RefID').Value._text;
     if(_RefID){
         // Get Communication Instance object
-        var param_Inst_node = xpath.select("//InternalElement[Attribute/Value/text() ='" + _RefID + "']", instance_list_doc);
-        if(param_Inst_node.length > 0){
-            var _tmp_param_Inst = parser.xml2js(self.xml_serial.serializeToString(param_Inst_node[0]),{compact: true, spaces: 4});
-
-            // Extract all Attribute RefID
-            var _tmp_param_Inst_attr = self.getAllAttributeAsObject(_tmp_param_Inst.InternalElement.Attribute);
+        var param_Inst_attr = self.instance_list_dict[_RefID];
+        if(param_Inst_attr){
+            
+            // Extract all Attribute
+            var _tmp_param_Inst_attr = self.getAllAttributeAsObject(param_Inst_attr);
 
             // Extract al OPCUA Tag for the attribute of the services
-            var _tmp_param_opcua_tag = self.getAllOPCUATagAsObject(_tmp_param_Inst_attr, source_list_doc);
+            var _tmp_param_opcua_tag = self.getAllOPCUATagAsObject(_tmp_param_Inst_attr);
 
             // Save
             _res = _tmp_param_opcua_tag;
@@ -377,23 +423,20 @@ MTPParser.prototype.parseParameterDescriptionWithOPCUAInterface = function(param
     return _res;
 };
 
-MTPParser.prototype.getAllOPCUATagAsObject = function(src_object, source_list_doc) {
+MTPParser.prototype.getAllOPCUATagAsObject = function(src_object) {
     var self = this;
     var _res = {};
     for(var key in src_object) {
         var refID = src_object[key];
-        // 
-        var opcua_Inst_node = xpath.select("//ExternalInterface[(@RefBaseClassPath='MTPCommunicationICLib/DataItem/OPCUAItem') and (@ID ='" + refID + "')]", source_list_doc);
-        if(opcua_Inst_node.length > 0){
-            var _tmp_opcua_Inst = parser.xml2js(self.xml_serial.serializeToString(opcua_Inst_node[0]),{compact: true, spaces: 4});
-            var _tmp_opcua_Inst_Attr = self.getAllAttributeAsObject(_tmp_opcua_Inst.ExternalInterface.Attribute);
-
+        //
+        var  opcua_Inst_attr_list = self.source_list_dict[refID];
+        if(opcua_Inst_attr_list){
+            var _tmp_opcua_Inst_Attr = self.getAllAttributeAsObject(opcua_Inst_attr_list);
             _res[key] ={
-                "name": _tmp_opcua_Inst.ExternalInterface._attributes.Name,
+                //"name": _tmp_opcua_Inst.ExternalInterface._attributes.Name,
                 "nodeId": _tmp_opcua_Inst_Attr,
             };
         }
-        // do something with "key" and "value" variables
     }
     return _res;
 };
@@ -403,7 +446,9 @@ MTPParser.prototype.getAllAttributeAsObject = function(_list) {
 
     for (let i = 0; i < _list.length; i++) {
         const _elem = _list[i];
-        _res[_elem._attributes.Name] = _elem.Value._text;
+        if(_elem.Value){
+            _res[_elem._attributes.Name] = _elem.Value._text;
+        }        
     }
     return _res;
 };

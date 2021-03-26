@@ -60,9 +60,10 @@ template7.registerHelper('getShortenedSkillName', function(skillName) {
 });
 
 template7.registerHelper('getParameterName', function(paramName) {
-    var _tmp = ""+ paramName
+    return cliTruncate((""+ paramName), 12, {position: 'start'});
+    /*var _tmp = ""+ paramName
     var res = _tmp.split("_");
-    return res[res.length -1];
+    return res[res.length -1];*/
 });
 
 // Tell the bodyparser middleware to accept more data
