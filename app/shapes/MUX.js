@@ -15,13 +15,13 @@ var MUX = CircuitFigure.extend({
      this._super( $.extend({stroke:0, bgColor:null, width:40,height:50},attr), setter, getter);
      var port;
      // output_2
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(102.52031250000073, 19.780000000000655));
+     port = this.addPort(new DecoratedLabeledOutputPort(), new draw2d.layout.locator.XYRelPortLocator(102.52031250000073, 19.780000000000655));
      port.setConnectionDirection(1);
      port.setBackgroundColor("#1C9BAB");
      port.setName("output_2");
      port.setMaxFanOut(20);
      // output_1
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(102.52031250000073, 82.87137500000063));
+     port = this.addPort(new DecoratedLabeledOutputPort(), new draw2d.layout.locator.XYRelPortLocator(102.52031250000073, 82.87137500000063));
      port.setConnectionDirection(1);
      port.setBackgroundColor("#1C9BAB");
      port.setName("output_1");

@@ -68,6 +68,6 @@ export default {
   },
   color: {
     high: "#faa50a",
-    low:  "#0078F2"
+    low:  "#1C9BAB" //"#0078F2"
   }
 };

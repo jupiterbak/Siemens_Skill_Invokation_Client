@@ -2,6 +2,7 @@
 import ConnectionSelectionFeedbackPolicy from "./ConnectionSelectionFeedbackPolicy"
 import DecoratedInputPort from "./figures/DecoratedInputPort"
 import DecoratedOutputPort from "./figures/DecoratedOutputPort"
+import DecoratedLabeledOutputPort from "./figures/DecoratedLabeledOutputPort"
 import MarkerFigure from "./marker/MarkerFigure"
 import MarkerStateAFigure from "./marker/MarkerStateAFigure"
 import MarkerStateBFigure from "./marker/MarkerStateBFigure"
@@ -21,6 +22,7 @@ import skillproxy from "./io/BackendSkills"
 import mtpproxy from "./io/BackendMTPService"
 import application_log from "./WindowLogger"
 import ValueParserValidator from "./util/ValueParserValidator"
+
 let markdownRenderer = require('markdown-it')()
 markdownRenderer.use(require("markdown-it-asciimath"));
 
@@ -44,6 +46,7 @@ export default {
   hardware,
   DecoratedInputPort,
   DecoratedOutputPort,
+  DecoratedLabeledOutputPort,
   MarkerFigure,
   MarkerStateAFigure,
   MarkerStateBFigure,

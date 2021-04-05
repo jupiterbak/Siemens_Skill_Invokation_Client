@@ -15,7 +15,7 @@ var START = CircuitFigure.extend({
      this._super( $.extend({stroke:0, bgColor:null, width:30,height:30},attr), setter, getter);
      var port;
      // Port
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(103.33333333333334, 49.44075946666696));
+     port = this.addPort(new DecoratedLabeledOutputPort(), new draw2d.layout.locator.XYRelPortLocator(103.33333333333334, 49.44075946666696));
      port.setConnectionDirection(1);
      port.setBackgroundColor("#37B1DE");
      port.setName("Port");

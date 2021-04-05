@@ -12,7 +12,7 @@ export default draw2d.OutputPort.extend({
 
     this.installEditPolicy(growPolicy);
 
-    var circle = new draw2d.shape.basic.Circle({radius:2, stroke:0, bgColor: "#909090"});
+    let circle = new draw2d.shape.basic.Circle({radius:2, stroke:0, bgColor: "#1C9BAB"});
     circle.hitTest = () => false;
     this.add(circle, locator);
   },

@@ -32,5 +32,24 @@ OR = OR.extend({
         var o1 = this.getOutputPort(0);
         
         o1.setValue(i1.getValue() || i2.getValue());
+    },
+
+    getParameterSettings: function()
+    {
+        return [
+        {
+            name:"dataId",
+            label:"Data Id",
+            property:{
+                type: "string"
+            }
+        },
+        {
+            name:"dataValue",
+            label:"(Optional) Data Value",
+            property:{
+                type: "int"
+            }
+        }];
     }
 });

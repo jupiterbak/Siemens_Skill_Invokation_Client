@@ -27,7 +27,7 @@ var SYNC = CircuitFigure.extend({
      port.setName("input_1");
      port.setMaxFanOut(20);
      // output_1
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(102.10088210000094, 49.512000000000626));
+     port = this.addPort(new DecoratedLabeledOutputPort(), new draw2d.layout.locator.XYRelPortLocator(102.10088210000094, 49.512000000000626));
      port.setConnectionDirection(1);
      port.setBackgroundColor("#1C9BAB");
      port.setName("output_1");

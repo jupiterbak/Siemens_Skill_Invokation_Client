@@ -21,7 +21,7 @@ var MTP_192168210_4840_Add02_Add = CircuitFigure.extend({
      port.setName("Port_en");
      port.setMaxFanOut(20);
      // Port_done
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(97.37470167064438, 32.35294117647059));
+     port = this.addPort(new DecoratedLabeledOutputPort(), new draw2d.layout.locator.XYRelPortLocator(97.37470167064438, 32.35294117647059));
      port.setConnectionDirection(1);
      port.setBackgroundColor("#1C9BAB");
      port.setName("Port_done");
@@ -39,7 +39,7 @@ var MTP_192168210_4840_Add02_Add = CircuitFigure.extend({
      port.setName("Port_IN_1");
      port.setMaxFanOut(20);
      // Port_OUT_0
-     port = this.createPort("output", new draw2d.layout.locator.XYRelPortLocator(97.61336515513126, 43.21266968325792));
+     port = this.addPort(new DecoratedLabeledOutputPort(), new draw2d.layout.locator.XYRelPortLocator(97.61336515513126, 43.21266968325792));
      port.setConnectionDirection(1);
      port.setBackgroundColor("#1C9BAB");
      port.setName("Port_OUT_0");

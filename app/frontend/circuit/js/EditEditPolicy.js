@@ -1,4 +1,5 @@
 import MarkerFigure from "./figures/MarkerFigure"
+import LabeledMarkerFigure from "./figures/LabeledMarkerFigure"
 import FigureConfigDialog from "./dialog/FigureConfigDialog"
 
 export default draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
@@ -25,7 +26,7 @@ export default draw2d.policy.canvas.BoundingboxSelectionPolicy.extend({
     // we only forward the click-event to the MarkerFigure which the user can show hide per
     // default
     // lt in the edit mode as well.
-    if (figure instanceof MarkerFigure) {
+    if (figure instanceof MarkerFigure || figure instanceof LabeledMarkerFigure) {
       this._super(figure, mouseX, mouseY, shiftKey, ctrlKey);
     }
   },
