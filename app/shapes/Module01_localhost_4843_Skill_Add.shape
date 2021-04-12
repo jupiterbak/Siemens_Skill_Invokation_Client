@@ -6,12 +6,12 @@
             "x": 7900.241887499999,
             "y": 7889.5,
             "width": 200,
-            "height": 159,
+            "height": 146,
             "alpha": 1,
             "angle": 0,
             "userData": {
                 "baseClass": "draw2d.SetFigure",
-                "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    init: function(attr, setter, getter){\r\n      this._super(attr, setter, getter);\r\n\r\n      this.attr({resizeable:false});\r\n\r\n      // Input control signal types\r\n      this.getOutputPort(0).attr({\r\n        semanticGroup:\"signal\"\r\n      });\r\n      this.getInputPort(0).attr({\r\n          semanticGroup:\"signal\"\r\n      });\r\n\r\n      // Other signals\r\n      var i_ports = this.getInputPorts().data.length;\r\n      for (var index = 0; index < i_ports; index++) {\r\n        if(index > 0){\r\n          this.getInputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n      var o_ports = this.getOutputPorts().data.length;\r\n      for (var i = 0; i < o_ports; i++) {\r\n        if(i > 0){\r\n          this.getOutputPort(i).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n\r\n      this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n      // get the skill description from the backend.\r\n      this.description = null;\r\n      \r\n      var _this= this;\r\n      this.currentTimer=0;\r\n      this.state = 5; // STOPPED\r\n      this.last_en_value = 0;\r\n      this.err_msg = \"\";\r\n      this.service_current_state =null;\r\n      this.service_current_procedure = null;\r\n      this.service_procedure_req = null;\r\n      this.service_command_en = null;\r\n\r\n      this._params_nodes = [];\r\n      this._params_values = [];\r\n\r\n      this.initial_result_trigger_value = 0;\r\n      this.last_result_trigger_value = 0;\r\n\r\n      this.monitor_rt_call_results = null;\r\n      this.start_call_results = null;\r\n      this.get_results_call_results = null;\r\n\r\n      for (var j = 0; j < this.getInputPorts().length -1 ; j++) {\r\n        this.layerAttr(\"Circle_IN_\" + (j + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n      for (var k = 0; k < this.getOutputPorts().length -1; k++) {\r\n        this.layerAttr(\"Circle_OUT_\" + (k + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // Stopped. waiting for enable signal\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n            }\r\n            for (var i = 0; i < this.getOutputPorts().length - 1; i++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (i + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(i).setValue(0);               \r\n            }\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Stopped'});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The service description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting descr.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Getting mtp description.\");\r\n            // asynchronous call\r\n            mtpproxy.getMTPServiceDescription(this.NAME).then(function (desc) {\r\n                if (desc.mtp_service_descp){\r\n                    self.description = desc.mtp_service_descp;\r\n                }\r\n                if(self.description){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Could not fetch the mtp service description.\");\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the mtp service\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Connecting'});\r\n            this.layerAttr(\"led_connected\",{fill:\"#ffb300\"}); // Orange\r\n            application_log.info(\"[\" + self.NAME + \"] connecting to the OPCUA server...\");\r\n            mtpproxy.connectMTPService(self.description.ip, self.description.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while connecting to the mtp service!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while connecting to the OPCUA server: \" + JSON.stringify(resp_con.err));\r\n                }else{\r\n                  self.layerAttr(\"Skill_State\", {text: 'State: Connected'});\r\n                  application_log.info(\"[\" + self.NAME + \"] connected to the OPCUA server.\");\r\n                  socket.on(\"serverstatus\", function(msg){\r\n                    // console.log(\"####### Serverstatus\");\r\n                    application_log.debug(msg.msg);\r\n                  });\r\n                  self.state = 12; // monitor the service                 \r\n                }\r\n            }); \r\n            self.state = 110;               \r\n            break;\r\n          case 110: // Wait for result of connect skill\r\n            this.currentTimer=0;\r\n            break;\r\n          case 12: // Monitor the service\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Monitoring the service.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Monitoring the service.\");\r\n            // 1. Extract the opc ua nodes to monitor from the description\r\n            // [ \"opMode\", \"CurrentState\", \"CurrentStrategy\"\r\n            var node2Monitor = [];\r\n            if(self.description.serviceModel && self.description.serviceModel.Interface){\r\n              node2Monitor = [\r\n                // \"StateCur\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.StateCur.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.StateCur.Identifier,\r\n                },\r\n                // \"ProcedureCur\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.ProcedureCur.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.ProcedureCur.Identifier,\r\n                },\r\n                // \"ProcedureReq\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.ProcedureReq.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.ProcedureReq.Identifier,\r\n                },\r\n                // \"CommandEn\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.CommandEn.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.CommandEn.Identifier,\r\n                }\r\n              ];\r\n\r\n              // Monitor also all output values. Therefore, add all ouputs nodeIds\r\n              var _outputs = this.description.parameters.outputs || [];\r\n              for (var k = 0; k < _outputs.length; k++) {\r\n                var _o_elem = _outputs[k];\r\n                node2Monitor.push({\r\n                  \"ns_url\": _o_elem.Interface.V.nodeId.Namespace,\r\n                  \"nid\":  _o_elem.Interface.V.nodeId.Identifier,\r\n                });\r\n              }\r\n            }\r\n\r\n            // Adjust the websocket event filtering\r\n            socket.on(\"monitorMTPServiceChanged\", function (data) {\r\n              if(data && data.length >= 1){\r\n                var _cur_state_evt = data[0];\r\n                if((\"\" + _cur_state_evt.skill) === self.skill.name){\r\n                  if(data && data.length >= 4){                    \r\n                    // Check if the event is intended for this service                    \r\n                      self.service_current_state = data[0].value.value;\r\n                      self.service_current_procedure = data[1].value.value;\r\n                      self.service_procedure_req = data[2].value.value;\r\n                      self.service_command_en = data[3].value.value;                                        \r\n                  }\r\n                  var _outputs_sio = this.description.parameters.outputs || [];\r\n                  if(data && data.length >= 4 + _outputs_sio.length){\r\n                    for (var k = 0; k < _outputs_sio.length; k++) {\r\n                      self.getOutputPort(1 + k).setValue(data[k + 4].value.value || 0);\r\n                    }\r\n                  }\r\n                }\r\n              }\r\n            });\r\n\r\n            // monitoring starten\r\n            mtpproxy.monitorService(self.description.ip, self.description.port, self.skill.name, node2Monitor).then(function (resp_moni) {\r\n              if(resp_moni.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while monitoing to the mtp service!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while monitoring to the MTP service.\");\r\n              }else{\r\n                // Make transition to wait until the service is ready.\r\n                self.state = 125;\r\n                application_log.info(\"[\" + self.NAME + \"] successfully monitoring the service.\" );\r\n              }\r\n            });\r\n\r\n            self.state = 120;\r\n            break;           \r\n          case 120: // Wait for service monitoring \r\n            break;\r\n          case 125: // Wait until the service is ready\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            self.layerAttr(\"Skill_State\", {text: 'State: ' + self.service_current_state});\r\n            if(self.service_current_state === 16){ // MTP \"Idle\" state\r\n              self.state = 13; // Write the request parameters to initiate the service call\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Idle'});\r\n            }\r\n            break;\r\n          case 13: // Write all request parameters\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Writing Params.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Writing the procedure parameter.\");\r\n\r\n            // 1. Extract the opc ua nodes to write the request parameters from the description\r\n            // [ \"opMode\", \"CurrentState\", \"CurrentStrategy\"\r\n            self._params_nodes = [];\r\n            self._params_values = [];\r\n            var _inputs = this.description.parameters.inputs || [];\r\n            for (var i = 0; i < _inputs.length; i++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (i) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[i];\r\n              // Push the node VExt\r\n              self._params_nodes.push({\r\n                \"ns_url\": el.Interface.VExt.nodeId.Namespace,\r\n                \"nid\":  el.Interface.VExt.nodeId.Identifier,\r\n              });\r\n              // Push the value of VExt\r\n              self._params_values.push(this.getInputPort(i + 1).getValue()?this.getInputPort(i + 1).getValue():0);\r\n              // Push the node Sync\r\n              self._params_nodes.push({\r\n                \"ns_url\": el.Interface.Sync.nodeId.Namespace,\r\n                \"nid\":  el.Interface.Sync.nodeId.Identifier,\r\n              });\r\n              // Push the value of Sync\r\n              self._params_values.push(true);              \r\n            }\r\n\r\n            // Start writing the request parameters\r\n            mtpproxy.writeRequestParameters(self.description.ip, self.description.port, self.skill.name, self._params_nodes,self._params_values).then(function (resp_wr_param) {\r\n              if(resp_wr_param.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while writing the request parameters to the mtp service!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while monitoring to the MTP service.\");\r\n              }else{\r\n                // Check if all variable have been written successfully\r\n                var all_done = true;\r\n                if(resp_wr_param.results){\r\n                  for (var i = 0; i < resp_wr_param.results.length; i++) {\r\n                    var _res = resp_wr_param.results[i];\r\n                    if(_res.value !== 0){\r\n                      all_done = false;\r\n                    }\r\n                  }\r\n                }\r\n\r\n                // If writting the parameters was not suceesfull\r\n                if(all_done === true){\r\n                  // Make transition to write the request parameters\r\n                  self.state = 14;\r\n                  application_log.info(\"[\" + self.NAME + \"] successfully wrote the service parameters.\" );\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while writing the request parameters to the mtp service!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while monitoring to the MTP service.\");\r\n                }                \r\n              }\r\n            });\r\n\r\n            self.state = 130;\r\n            break;\r\n          case 130: // Wait write parameter\r\n            break;\r\n          case 14: // Check if the set points have been accepted by the service\r\n            this.layerAttr(\"Circle_en\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Reading Setpoints.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Reading the procedure parameter set points.\");\r\n\r\n            // 1. Extract the opc ua nodes to write the request parameters from the description\r\n            // [ \"opMode\", \"CurrentState\", \"CurrentStrategy\"\r\n            var _setpoints_nodes = []; \r\n                       \r\n            var _setpoints_inputs = this.description.parameters.inputs || [];\r\n            for (var l = 0; l < _setpoints_inputs.length; l++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (l) ,{fill:\"#faa50a\"});\r\n              var _setpoints_el = _setpoints_inputs[l];\r\n              // Push the node VExt\r\n              _setpoints_nodes.push({\r\n                \"ns_url\": _setpoints_el.Interface.VOut.nodeId.Namespace,\r\n                \"nid\":  _setpoints_el.Interface.VOut.nodeId.Identifier,\r\n              });            \r\n            }\r\n\r\n            // Start writing the request parameters\r\n            mtpproxy.readResultParameters(self.description.ip, self.description.port, self.skill.name, _setpoints_nodes).then(function (resp_read) {\r\n              if(resp_read.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while reading the request parameters set points!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while reading the request parameters set points.\");\r\n              }else{\r\n                // Check if all variable have been read successfully\r\n                // Check if the set points are equals to the parameter values\r\n                var all_accepted = true;\r\n                if(resp_read.results){\r\n                  for (var i = 0; i < resp_read.results.length; i++) {\r\n                    var _res = resp_read.results[i];\r\n                    if((_res.statusCode.value !== 0) || (_res.value.value !== self._params_values[2*i]) ){\r\n                      all_accepted = false;\r\n                    }\r\n                  }\r\n                }\r\n\r\n                // If all values have not been acepted, then goto error\r\n                if(all_accepted === true){\r\n                  // Make transition to call the service\r\n                  self.state = 15;\r\n                  application_log.info(\"[\" + self.NAME + \"] All the service parameters have been accepted.\" );\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error: The service parameter have not been accepted!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error: The service parameter have not been accepted.\");\r\n                }                \r\n              }\r\n            });\r\n            self.state = 140;\r\n            break;\r\n          case 140: // Wait for read request set points\r\n            break;\r\n          case 15: // Start the execution of the procedure\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Starting'});\r\n            application_log.info(\"[\" + self.NAME + \"] calling the service.\" );\r\n            self.state = 151;\r\n            break;\r\n          case 151: // Check if execution is allowed\r\n            // TODO: Check if command_en is allowed\r\n            //if(self.service_command_en){\r\n              self.state = 152;\r\n            //}            \r\n            break;\r\n          case 152: // Write the procedure number to call\r\n            var _call_prod_nodes = [];\r\n            var _call_prod_values = [];\r\n            if(self.description.serviceModel && self.description.serviceModel.Interface){\r\n              _call_prod_nodes = [\r\n                // \"ProcedureExt\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.ProcedureExt.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.ProcedureExt.Identifier,\r\n                }];\r\n                _call_prod_values = [self.description.skill.ProcedureID]; // Start cmd\r\n            }\r\n\r\n            // Start writting the procedure\r\n            mtpproxy.writeRequestParameters(self.description.ip, self.description.port, self.skill.name, _call_prod_nodes,_call_prod_values).then(function (resp_proc_call) {\r\n              if(resp_proc_call.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while writing the requested procedure number!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while writing the requested procedure number.\");\r\n              }else{\r\n                // Check if all variable have been written successfully\r\n                var all_proc_done = true;\r\n                if(resp_proc_call.results){\r\n                  for (var i = 0; i < resp_proc_call.results.length; i++) {\r\n                    var _res = resp_proc_call.results[i];\r\n                    if(_res.value !== 0){\r\n                      all_proc_done = false;\r\n                    }\r\n                  }\r\n                }\r\n\r\n                // If writting the parameters was not suceesfull\r\n                if(all_proc_done === true){\r\n                  // Make transition to wait until the procedure request is accepted\r\n                  self.state = 153;\r\n                  application_log.info(\"[\" + self.NAME + \"] successfully wrote the requested procedure number.\" ); \r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while writing the requested procedure number!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while writing the requested procedure number.\");\r\n                }                               \r\n              }\r\n            });\r\n            self.state = 1520;\r\n            break;\r\n          case 1520: // Wait writting the procedure number\r\n            break;\r\n          case 153: // Wait until procedure request is accepted.\r\n            if(( \"\" + self.service_procedure_req) === self.description.skill.ProcedureID ){\r\n              self.state = 155;\r\n            }\r\n            break;\r\n          case 155: // Write the command external\r\n            var _call_nodes = [];\r\n            var _call_values = [];\r\n            if(self.description.serviceModel && self.description.serviceModel.Interface){\r\n              _call_nodes = [\r\n                // \"CommandExt\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.CommandExt.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.CommandExt.Identifier,\r\n                }];\r\n                _call_values = [4]; // Start cmd\r\n            }\r\n\r\n            // Start Executing the service by writing the \"CommandExt\" value\r\n            mtpproxy.callService(self.description.ip, self.description.port, self.skill.name, _call_nodes,_call_values).then(function (resp_call) {\r\n              if(resp_call.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while calling the mtp service!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while calling the mtp service.\");\r\n              }else{\r\n                // Check if all variable have been written successfully\r\n                var all_done = true;\r\n                if(resp_call.results){\r\n                  for (var i = 0; i < resp_call.results.length; i++) {\r\n                    var _res = resp_call.results[i];\r\n                    if(_res.value !== 0){\r\n                      all_done = false;\r\n                    }\r\n                  }\r\n                }\r\n\r\n                // If writting the parameters was not suceesfull\r\n                if(all_done === true){\r\n                  // Make transition to wait for the complete or completing state\r\n                  if(\"\" + self.description.skill.IsSelfCompleting === \"True\"){\r\n                    self.state = 25; // Wait for complete\r\n                  }else{\r\n                    self.state = 21; // Wait for completing\r\n                  }\r\n                  \r\n                  application_log.info(\"[\" + self.NAME + \"] successfully called the mtp service.\" ); \r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while calling the mtp service!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while calling the mtp service.\");\r\n                }                               \r\n              }\r\n            });  \r\n            self.state = 1550;           \r\n            break;\r\n          case 1550: // Wait for the start execution callback\r\n            this.currentTimer=new Date();\r\n            break;\r\n          case 21: // Wait completing \r\n            self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n            if(self.service_current_state === 65536 ){ // Completing\r\n              self.state = 22; // request the complete state\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Completing'});\r\n              application_log.info(\"[\" + self.NAME + \"] mtp service execution is completing.\");\r\n            }\r\n            break;\r\n          case 22: // request the complete state\r\n            var _call_compl_nodes = [];\r\n            var _call_compl_values = [];\r\n            if(self.description.serviceModel && self.description.serviceModel.Interface){\r\n              _call_compl_nodes = [\r\n                // \"CommandExt\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.CommandExt.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.CommandExt.Identifier,\r\n                }];\r\n                _call_compl_values = [1024]; // Cmd \"Complete\"\r\n            }\r\n\r\n            // Start Executing the cmd by writing the \"CommandExt\" value\r\n            mtpproxy.callService(self.description.ip, self.description.port, self.skill.name, _call_compl_nodes,_call_compl_values).then(function (resp_compl_call) {\r\n              if(resp_compl_call.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while requesting the 'Complete' state!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while requesting the 'Complete' state.\");\r\n              }else{\r\n                // Check if all variable have been written successfully\r\n                var all_compl_done = true;\r\n                if(resp_compl_call.results){\r\n                  for (var i = 0; i < resp_compl_call.results.length; i++) {\r\n                    var _res = resp_compl_call.results[i];\r\n                    if(_res.value !== 0){\r\n                      all_compl_done = false;\r\n                    }\r\n                  }\r\n                }\r\n\r\n                // If writting the parameters was not suceesfull\r\n                if(all_compl_done === true){\r\n                  // Make transition to wait for the complete state                  \r\n                  self.state = 25; // Wait for completing            \r\n                  application_log.info(\"[\" + self.NAME + \"] successfully crequested the 'Complete' state.\" ); \r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while requesting the 'Complete' state!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while requesting the 'Complete' state.\");\r\n                }                               \r\n              }\r\n            });  \r\n            self.state = 220; \r\n            break;\r\n          case 220: // Wait for CommandExt \"Completing\" request\r\n            break;\r\n          case 25: // Wait for \"Complete\" state\r\n            if(self.service_current_state === 131072){ // Complete\r\n              self.state = 3; // Stat resetting the service\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n              application_log.info(\"[\" + self.NAME + \"] mtp service execution completed. It took: \"+ ((new Date().getTime()-self.currentTimer.getTime())/ 1000) + \" s\");\r\n            }\r\n            break;\r\n          case 3: // reset the service\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: reseting'});\r\n            application_log.info(\"[\" + self.NAME + \"] resetting the service.\" );\r\n\r\n            var _reset_nodes = [];\r\n            var _reset_values = [];\r\n            if(self.description.serviceModel && self.description.serviceModel.Interface){\r\n              _reset_nodes = [\r\n                // \"CommandExt\"\r\n                {\r\n                  \"ns_url\": self.description.serviceModel.Interface.CommandExt.Namespace,\r\n                  \"nid\":  self.description.serviceModel.Interface.CommandExt.Identifier,\r\n                }];\r\n                _reset_values = [2]; // reset\r\n            }\r\n\r\n            // Start resetting the service by writing the \"CommandExt\" value\r\n            mtpproxy.callService(self.description.ip, self.description.port, self.skill.name, _reset_nodes,_reset_values).then(function (resp_call) {\r\n              if(resp_call.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while resetting the mtp service!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while resetting the mtp service.\");\r\n              }else{\r\n                // Check if all variable have been written successfully\r\n                var all_done = true;\r\n                if(resp_call.results){\r\n                  for (var i = 0; i < resp_call.results.length; i++) {\r\n                    var _res = resp_call.results[i];\r\n                    if(_res.value !== 0){\r\n                      all_done = false;\r\n                    }\r\n                  }\r\n                }\r\n\r\n                // If writting the parameters was not suceesfull\r\n                if(all_done === true){\r\n                  // Make transition to write the request parameters\r\n                  self.state = 310;\r\n                  application_log.info(\"[\" + self.NAME + \"] successfully resetting the mtp service.\" );\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while resetting the mtp service!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while resetting the mtp service.\");\r\n                }                \r\n              }\r\n            });\r\n            this.state = 300;\r\n            break;\r\n          case 300: // Wait call for resseting\r\n            break;\r\n          case 310: // Wait until the service is ready again\r\n            if(self.service_current_state === 16){ // Idle\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Idle'});\r\n              application_log.info(\"[\" + self.NAME + \"] service execusion is done. service is ready.\" );\r\n              this.state = 4;\r\n            }          \r\n            break;\r\n          case 4: // Set the done signal\r\n            this.getOutputPort(0).setValue(true);\r\n\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false); // Done signal\r\n            for (var l = 0; l < this.getOutputPorts().length - 1; l++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (l + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(l).setValue(0);                \r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0; // Stopped\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Reinitialze'});\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Error'});\r\n            this.layerAttr(\"circle\",{fill:\"#FFB19A\"});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var h = 0; h < this.getOutputPorts().length - 1; h++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (h + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(h).setValue(0);                \r\n        }\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] MTP-Service execusion started.\" );\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0; \r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] MTP-service execusion stopped.\" );\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var j = 0; j < this.getOutputPorts().length - 1; j++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (j + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(j).setValue(0);              \r\n        }\r\n\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n        \r\n        socket.off(\"serverstatus\", function(msg){\r\n          // console.log(\"####### Serverstatus\");\r\n        });\r\n        \r\n        socket.off(\"monitorMTPServiceChanged\", function(msg){\r\n          // console.log(\"####### StatesChanged\");\r\n        });\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      };\r\n    }\r\n});",
+                "code": "/**\r\n * Jupiter Bakakeu\r\n *\r\n *\r\n */\r\ntestShape = testShape.extend({\r\n\r\n    init: function(attr, setter, getter){\r\n      this._super(attr, setter, getter);\r\n\r\n      this.attr({resizeable:false});\r\n\r\n      // Input control signal types\r\n      this.getOutputPort(0).attr({\r\n        semanticGroup:\"signal\"\r\n      });\r\n      this.getInputPort(0).attr({\r\n          semanticGroup:\"signal\"\r\n      });\r\n\r\n      // Other signals\r\n      var i_ports = this.getInputPorts().data.length;\r\n      for (var index = 0; index < i_ports; index++) {\r\n        if(index > 0){\r\n          this.getInputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n      var o_ports = this.getOutputPorts().data.length;\r\n      for (var index = 0; index < o_ports; index++) {\r\n        if(index > 0){\r\n          this.getOutputPort(index).attr({\r\n            semanticGroup:\"data\"\r\n          });\r\n        }        \r\n      }\r\n\r\n      this.installEditPolicy(new draw2d.policy.figure.AntSelectionFeedbackPolicy());\r\n\r\n      // get the skill description from the backend.\r\n      this.description = null;\r\n      \r\n      var _this= this;\r\n      this.currentTimer=0;\r\n      this.state = 5; // STOPPED\r\n      this.last_en_value = 0;\r\n      this.err_msg = \"\";\r\n      this.skill_current_state = \"Ready\";\r\n\r\n      this.initial_result_trigger_value = 0;\r\n      this.last_result_trigger_value = 0;\r\n\r\n      this.monitor_rt_call_results = null;\r\n      this.start_call_results = null;\r\n      this.get_results_call_results = null;\r\n\r\n      for (var index = 0; index < this.getInputPorts().length -1 ; index++) {\r\n        this.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n      for (var index = 0; index < this.getOutputPorts().length -1; index++) {\r\n        this.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n      }\r\n    },\r\n    \r\n    calculate:function(){\r\n        var self = this;\r\n        // STATE MACHINE\r\n        switch (this.state) {\r\n          case 0: // STOPPED\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n            }\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);               \r\n            }\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n            if(this.getInputPort(0).getValue()){\r\n                this.state = 10;\r\n            }\r\n            break;\r\n          case 10: // Get The skill description\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting descr.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Getting skill description.\");\r\n            skillproxy.getSkillDescription(this.NAME).then(function (desc) {\r\n                if (desc.skill_descp){\r\n                    self.description = desc.skill_descp;\r\n                }\r\n                if(self.description){\r\n                  // Make transition\r\n                  self.state = 11;\r\n                }else{\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Could not fetch the skill description\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Could not fetch the skill description.\");\r\n                }\r\n            });\r\n            this.state = 100;                       \r\n            break;\r\n          case 100: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 11: // Connect to the skill\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Connecting'});\r\n            this.layerAttr(\"led_connected\",{fill:\"#ffb300\"}); // Orange\r\n            application_log.info(\"[\" + self.NAME + \"] connecting to the OPCUA server...\");\r\n            skillproxy.connectSkill(self.description.ip, self.description.port).then(function (resp_con) {\r\n                if(resp_con.err){\r\n                  // Make transition to err\r\n                  self.state = 6;\r\n                  self.err_msg = \"Error while connecting to the skill!\";\r\n                  application_log.error(\"[\" + self.NAME + \"] Error while connecting to the OPCUA server: \" + JSON.stringify(resp_con.err));\r\n                }else{\r\n                  self.layerAttr(\"Skill_State\", {text: 'State: Connected'});\r\n                  application_log.info(\"[\" + self.NAME + \"] connected to the OPCUA server.\");\r\n                  socket.on(\"opcua_serverstatus\", function(msg){\r\n                    // console.log(\"####### Serverstatus\");\r\n                  });\r\n                  \r\n                  socket.on(\"SkillStatesChanged\", function(data){\r\n                    // console.log(\"####### StatesChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    var _changed_states = [];\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                var candidates = skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) { return item.id === el.state.value});\r\n                                // filter with the nodeId\r\n                                if (candidates.length == 0) {\r\n                                    candidates =skillproxy.getSkillStateConfig().nodeDataArray.filter(function(item) {\r\n                                        var src = el.state.value;\r\n                                        var target = item.nid;\r\n                                        var rslt = (\"\" + src).indexOf(target);\r\n                                        return rslt >= 0;\r\n                                    });\r\n                                }\r\n                                if (candidates.length > 0) {\r\n                                    _changed_states.push(candidates[0].id);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                    self.skill_current_state = _changed_states;\r\n                  });\r\n\r\n                  socket.on(\"ResultTriggerChanged\", function(data){\r\n                    // console.log(\"####### ResultTriggerChanged\");\r\n                    // Filter the event for the state changes related to this skill.\r\n                    for (var prop in data) {\r\n                        if (Object.prototype.hasOwnProperty.call(data, prop)) {\r\n                            var el = data[prop];\r\n                            if (el.ip === self.description.ip && el.port === self.description.port && el.skill === self.description.skill.name) {\r\n                                self.last_result_trigger_value = el.value.value;\r\n                            }\r\n                        }\r\n                    }\r\n                  });\r\n                  \r\n                  // Make transition\r\n                  if (self.description.skillModel.StateMachine){\r\n                    self.state = 12; // Call the skill directly\r\n                  }else{\r\n                    self.state = 130; // monitor result trigger before calling the skill\r\n                  }                  \r\n                }\r\n            }); \r\n            self.state = 110;               \r\n            break;\r\n          case 110: // Wait for result of connect skill\r\n            this.currentTimer=0;\r\n            break;\r\n          case 130: // Subscribe to result trigger before calling the skill\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Subscribing to result trigger.'});\r\n            application_log.info(\"[\" + self.NAME + \"] Subscribing to result trigger.\");\r\n            skillproxy.monitorSkillResultsTrigger(self.description.ip, self.description.port, self.description.skill.name, self.description.skillModel.Invokation.ResultTrigger).then(function (resp_rt) {\r\n              self.monitor_rt_call_results = resp_rt;\r\n              if(resp_rt.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while monitoring result trigger!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while monitoring result trigger: \" + JSON.stringify(resp_rt.err));\r\n              }else{\r\n                if(resp_rt.results){\r\n                  self.initial_result_trigger_value = resp_rt.results.value.value;\r\n                }else{\r\n                  self.initial_result_trigger_value = 0;\r\n                }\r\n                // Make transition to call the skill\r\n                self.state = 12;\r\n                application_log.info(\"[\" + self.NAME + \"] successfully monitoring the result trigger.\" );\r\n              }\r\n            });\r\n            self.state = 135;\r\n            break;\r\n          case 135: // Wait for call \r\n            break;\r\n          case 12: // Call the skill (Model with state machine)\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Starting'});\r\n            application_log.info(\"[\" + self.NAME + \"] starting the skill.\" );\r\n            // sample the input values\r\n            var _params = [];\r\n            var _inputs = this.description.skillModel.Invokation.Start.parameters.inputArguments || [];\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _params.push({\r\n                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25\r\n                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02\r\n                  value: this.getInputPort(index + 1).getValue()?this.getInputPort(index + 1).getValue():0\r\n              });\r\n            }\r\n\r\n            // Call the skill\r\n            skillproxy.startSkill(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_start) {\r\n              self.start_call_results = resp_start;\r\n              if(resp_start.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while starting the skill!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while starting the skill: \" + JSON.stringify(resp_start.err));\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _outputs = resp_start.results.outputArguments;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1).setValue(_outputs[index].value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index) ,{fill:\"#faa50a\"});\r\n                }\r\n                // Make transition\r\n                self.state = 2;\r\n                self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n                application_log.info(\"[\" + self.NAME + \"] successfully executing the skill. Waiting for the skill to complete...\" );\r\n              }\r\n            });\r\n\r\n            this.state = 120;               \r\n            break;\r\n          case 120: // Wait for the callback\r\n            this.currentTimer=0;\r\n            break;\r\n          case 2: // Wait for the  skill to be done\r\n            self.layerAttr(\"Skill_State\", {text: 'State: Executing'});\r\n            if (self.description.skillModel.StateMachine){              \r\n              if(self.skill_current_state.includes('completed')){\r\n                // Make transition\r\n                this.state = 3;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n                application_log.info(\"[\" + self.NAME + \"] skill execution completed.\" );\r\n              }\r\n            }else{\r\n              if(self.last_result_trigger_value > self.initial_result_trigger_value){\r\n                // Make transition\r\n                this.state = 3;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Completed'});\r\n                application_log.info(\"[\" + self.NAME + \"] skill execution completed.\" );\r\n              }\r\n            }            \r\n            break;\r\n          case 3: // Call Get results\r\n            this.layerAttr(\"Circle_en\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#33DE09\"});\r\n            this.layerAttr(\"circle\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Getting results'});\r\n            application_log.info(\"[\" + self.NAME + \"] fetching the skill execution results...\" );\r\n            // sample the input values\r\n            var _params = [];\r\n            var _inputs = this.description.skillModel.Invokation.GetResult.parameters.inputArguments || [];\r\n            var _offset = (this.description.skillModel.Invokation.Start.parameters.inputArguments || []).length;\r\n            for (var index = 0; index < _inputs.length; index++) {              \r\n              self.layerAttr(\"Circle_IN_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n              var el = _inputs[index];\r\n              _params.push({\r\n                  dataType: el.dataType, // Null: 0, Boolean: 1, SByte: 2, // signed Byte = Int8 Byte : 3, // unsigned Byte = UInt8 Int16: 4, UInt16: 5, Int32: 6, UInt32: 7, Int64: 8, UInt64: 9, Float: 10, Double: 11, String: 12, DateTime: 13, Guid: 14, ByteString: 15, XmlElement: 16, NodeId: 17, ExpandedNodeId: 18, StatusCode: 19, QualifiedName: 20, LocalizedText: 21, ExtensionObject: 22, DataValue: 23, Variant: 24, DiagnosticInfo: 25\r\n                  arrayType: el.valueRank, //Scalar: 0x00, Array: 0x01, Matrix: 0x02\r\n                  value: this.getInputPort(index + 1 + _offset).getValue()?this.getInputPort(index + 1 + _offset).getValue():0\r\n              });\r\n            }\r\n\r\n            // Call the emthod\r\n            skillproxy.getResultsOfSkillCall(self.description.ip, self.description.port, self.description.skill.name, _params).then(function (resp_getResults) {\r\n              self.get_results_call_results = resp_getResults;\r\n              if(resp_getResults.err){\r\n                // Make transition to err\r\n                self.state = 6;\r\n                self.err_msg = \"Error while fetching the results of the skill!\";\r\n                application_log.error(\"[\" + self.NAME + \"] Error while fetching the results of the skill: \" + JSON.stringify(resp_getResults.err));\r\n              }else{\r\n                // Set Synchronous Output\r\n                var _offset = (self.description.skillModel.Invokation.Start.parameters.outputArguments || []).length;\r\n                var _outputs = resp_getResults.results.outputArguments;\r\n                for (var index = 0; index < _outputs.length; index++) {\r\n                  self.getOutputPort(index + 1 + _offset).setValue(_outputs[index].value);\r\n                  self.layerAttr(\"Circle_OUT_\" + (index + _offset) ,{fill:\"#faa50a\"});\r\n                }\r\n                // Make transition\r\n                self.state = 310;\r\n                application_log.info(\"[\" + self.NAME + \"] results fetched sucessfully.\" );\r\n              }\r\n            });\r\n\r\n            // Wait\r\n            this.state = 300;\r\n            break;\r\n          case 300: // Wait call getResults\r\n            break;\r\n          case 310: // Wait until skill is ready again\r\n            if (self.description.skillModel.StateMachine){              \r\n              if(self.skill_current_state.includes('skill_ready')){\r\n                // Make transition\r\n                this.state = 4;\r\n                this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n                application_log.info(\"[\" + self.NAME + \"] skill execusion is done.\" );\r\n              }\r\n            }else{\r\n              this.state = 4;\r\n              this.layerAttr(\"Skill_State\", {text: 'State: Done'});\r\n              application_log.info(\"[\" + self.NAME + \"] skill execusion is done.\" );\r\n            }            \r\n            break;\r\n          case 4: // Set the done signal\r\n            this.getOutputPort(0).setValue(true);\r\n\r\n            this.layerAttr(\"Circle_done\",{fill:\"#faa50a\"});\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            if(! this.getInputPort(0).getValue()){\r\n                this.state = 5;\r\n            }\r\n            break;\r\n          case 5: // Reinitialize\r\n            this.getOutputPort(0).setValue(false);\r\n            for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n              self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n              self.getOutputPort(index).setValue(0);                \r\n            }\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n            this.state = 0;\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Ready'});\r\n            break;\r\n          case 6: // Error\r\n            this.getOutputPort(0).setValue(false);\r\n            this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n            this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n            this.currentTimer=0;\r\n            this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"led_connected\",{fill:\"#FF3C00\"});\r\n            this.layerAttr(\"Skill_State\", {text: 'State: Error'});\r\n            this.layerAttr(\"circle\",{fill:\"#FFB19A\"});\r\n        }\r\n        this.last_en_value = this.getOutputPort(0).getValue();\r\n    },\r\n    \r\n   /**\r\n     *  Called if the simulation mode is starting\r\n     **/\r\n    onStart:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);                \r\n        }\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] skill execusion started.\" );\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n    },\r\n\r\n    /**\r\n     *  Called if the simulation mode is stopping\r\n     **/\r\n    onStop:function(){\r\n        var self = this;\r\n        this.currentTimer=0;\r\n        this.layerAttr(\"led_power\",{fill:\"#FF3C00\"});\r\n        this.layerAttr(\"led_connected\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_en\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"Circle_done\",{fill:\"#f0f0f0\"});\r\n        this.layerAttr(\"circle\",{fill:\"#ffffff\"});\r\n        this.layerAttr(\"Skill_State\", {text: 'State: not connected'});\r\n        application_log.info(\"[\" + self.NAME + \"] skill execusion stopped.\" );\r\n        for (var index = 0; index < this.getInputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_IN_\" + (index + 1) ,{fill:\"#f0f0f0\"});              \r\n        }\r\n        for (var index = 0; index < this.getOutputPorts().length - 1; index++) {\r\n          self.layerAttr(\"Circle_OUT_\" + (index + 1) ,{fill:\"#f0f0f0\"});\r\n          self.getOutputPort(index).setValue(0);              \r\n        }\r\n\r\n        this.state = 5; // STOPPED\r\n        this.last_en_value = 0;\r\n        \r\n        socket.off(\"opcua_serverstatus\", function(msg){\r\n          // console.log(\"####### Serverstatus\");\r\n        });\r\n        \r\n        socket.off(\"SkillStatesChanged\", function(msg){\r\n          // console.log(\"####### StatesChanged\");\r\n        });\r\n    },\r\n    \r\n    getRequiredHardware: function(){\r\n      return {\r\n        raspi: false,\r\n        arduino: false\r\n      };\r\n    }\r\n});",
                 "name": "circle",
                 "markdown": "#Skill Template"
             },
@@ -78,7 +78,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "…ock_Dummy (V0)",
+            "text": "Skill_Add (V3)",
             "outlineStroke": 0,
             "outlineColor": "#FF0000",
             "fontSize": 16,
@@ -326,7 +326,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "3278a2d9-0721-4f40-a42a-270f89092078",
+            "id": "a75c4659-dc2e-4804-8551-a821339a6e6a",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -361,7 +361,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "2f195776-a422-4d16-b984-64a664173f83",
+            "id": "da8f9d37-d639-4caf-ba6c-f4400c32bf78",
             "x": 7905,
             "y": 7974,
             "width": 100,
@@ -378,7 +378,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "…edResult_In",
+            "text": "Value1",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 8,
@@ -399,7 +399,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "5036ca42-c696-4ea4-8391-de1a3a5b75da",
+            "id": "eef5baf8-6370-4c28-8488-c991cff1fdc4",
             "x": 7896,
             "y": 7980,
             "width": 10,
@@ -437,7 +437,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "631cdf54-a8e9-4d38-a46f-2e69294f4241",
+            "id": "ae086ea2-1a59-4b33-ab67-325609bf3c35",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -472,7 +472,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "dc1e4786-7b1f-48a7-8982-e190473fc1ac",
+            "id": "476f08a6-9953-4eeb-b98e-681f94b81fd2",
             "x": 7905,
             "y": 7987,
             "width": 100,
@@ -489,7 +489,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "Time_In",
+            "text": "Value2",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 8,
@@ -510,7 +510,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "a2bf1dac-37f4-4db5-ab2e-5ef6deca84d6",
+            "id": "5dcbf4ae-76d4-4996-bb73-620117a88093",
             "x": 7896,
             "y": 7993,
             "width": 10,
@@ -548,118 +548,7 @@
         },
         {
             "type": "shape_designer.figure.PolyCircle",
-            "id": "a6218df1-6d47-4fb8-ad59-f997c23d0edf",
-            "x": 7896,
-            "y": 8006,
-            "width": 10,
-            "height": 10,
-            "alpha": 1,
-            "angle": 0,
-            "userData": {
-                "name": "Circle_IN_2"
-            },
-            "cssClass": "shape_designer_figure_PolyCircle",
-            "ports": [],
-            "bgColor": "#F2F2F2",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "radius": 0,
-            "dasharray": null,
-            "blur": 0,
-            "filters": [
-                {
-                    "name": "shape_designer.filter.PositionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.SizeFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FillColorFilter"
-                },
-                {
-                    "name": "shape_designer.filter.StrokeFilter"
-                }
-            ]
-        },
-        {
-            "type": "shape_designer.figure.ExtLabel",
-            "id": "5a790dc0-c050-4555-be70-5ddf13ce9094",
-            "x": 7905,
-            "y": 8000,
-            "width": 100,
-            "height": 21.234375,
-            "alpha": 1,
-            "angle": 0,
-            "userData": {
-                "name": "Label_IN_2"
-            },
-            "cssClass": "shape_designer_figure_ExtLabel",
-            "ports": [],
-            "bgColor": "none",
-            "color": "#1B1B1B",
-            "stroke": 0,
-            "radius": 0,
-            "dasharray": null,
-            "text": "Order_In",
-            "outlineStroke": 0,
-            "outlineColor": "none",
-            "fontSize": 8,
-            "fontColor": "#080808",
-            "fontFamily": null,
-            "editor": "LabelInplaceEditor",
-            "filters": [
-                {
-                    "name": "shape_designer.filter.PositionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FontSizeFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FontColorFilter"
-                }
-            ]
-        },
-        {
-            "type": "shape_designer.figure.ExtPort",
-            "id": "68dc6bfd-99a5-4d15-927b-694d36ef8078",
-            "x": 7896,
-            "y": 8006,
-            "width": 10,
-            "height": 10,
-            "alpha": 1,
-            "angle": 0,
-            "userData": {
-                "name": "Port_IN_2",
-                "type": "Input",
-                "direction": 3
-            },
-            "cssClass": "shape_designer_figure_ExtPort",
-            "ports": [],
-            "bgColor": "#1C9BAB",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "dasharray": null,
-            "filters": [
-                {
-                    "name": "shape_designer.filter.PositionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FanoutFilter"
-                },
-                {
-                    "name": "shape_designer.filter.PortDirectionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.PortTypeFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FillColorFilter"
-                }
-            ]
-        },
-        {
-            "type": "shape_designer.figure.PolyCircle",
-            "id": "f37081d6-aab2-464c-807f-54acf964016c",
+            "id": "bf044123-27d0-4058-b784-2d6564f57838",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -694,7 +583,7 @@
         },
         {
             "type": "shape_designer.figure.ExtLabel",
-            "id": "e07ff563-8fdc-4f58-a1b8-4f103cad1f54",
+            "id": "f226827e-d7a2-4f40-81eb-367babacbc04",
             "x": 8038,
             "y": 7974,
             "width": 60,
@@ -711,7 +600,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "ErrorId_Out",
+            "text": "ValueOut",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 8,
@@ -732,7 +621,7 @@
         },
         {
             "type": "shape_designer.figure.ExtPort",
-            "id": "6ba959a6-39aa-44ce-8245-a3a099109f49",
+            "id": "c79ab448-22d8-47d4-ab39-6ff03b5ca17f",
             "x": 8095,
             "y": 7980,
             "width": 10,
@@ -741,117 +630,6 @@
             "angle": 0,
             "userData": {
                 "name": "Port_OUT_0",
-                "type": "Output",
-                "direction": 1
-            },
-            "cssClass": "shape_designer_figure_ExtPort",
-            "ports": [],
-            "bgColor": "#1C9BAB",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "dasharray": null,
-            "filters": [
-                {
-                    "name": "shape_designer.filter.PositionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FanoutFilter"
-                },
-                {
-                    "name": "shape_designer.filter.PortDirectionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.PortTypeFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FillColorFilter"
-                }
-            ]
-        },
-        {
-            "type": "shape_designer.figure.PolyCircle",
-            "id": "f34428ca-ad16-458c-b8e0-3ad7449f7da4",
-            "x": 8095,
-            "y": 7993,
-            "width": 10,
-            "height": 10,
-            "alpha": 1,
-            "angle": 0,
-            "userData": {
-                "name": "Circle_OUT_1"
-            },
-            "cssClass": "shape_designer_figure_PolyCircle",
-            "ports": [],
-            "bgColor": "#F2F2F2",
-            "color": "#1B1B1B",
-            "stroke": 1,
-            "radius": 0,
-            "dasharray": null,
-            "blur": 0,
-            "filters": [
-                {
-                    "name": "shape_designer.filter.PositionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.SizeFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FillColorFilter"
-                },
-                {
-                    "name": "shape_designer.filter.StrokeFilter"
-                }
-            ]
-        },
-        {
-            "type": "shape_designer.figure.ExtLabel",
-            "id": "c6ca7051-8657-4209-ae6b-ca5f4f5f310c",
-            "x": 8038,
-            "y": 7987,
-            "width": 60,
-            "height": 21.234375,
-            "alpha": 1,
-            "angle": 0,
-            "userData": {
-                "name": "Label_OUT_1"
-            },
-            "cssClass": "shape_designer_figure_ExtLabel",
-            "ports": [],
-            "bgColor": "none",
-            "color": "#1B1B1B",
-            "stroke": 0,
-            "radius": 0,
-            "dasharray": null,
-            "text": "Info_Out",
-            "outlineStroke": 0,
-            "outlineColor": "none",
-            "fontSize": 8,
-            "fontColor": "#080808",
-            "fontFamily": null,
-            "editor": "LabelInplaceEditor",
-            "filters": [
-                {
-                    "name": "shape_designer.filter.PositionFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FontSizeFilter"
-                },
-                {
-                    "name": "shape_designer.filter.FontColorFilter"
-                }
-            ]
-        },
-        {
-            "type": "shape_designer.figure.ExtPort",
-            "id": "f11d142f-bc2b-4023-a1e5-5a3677012afb",
-            "x": 8095,
-            "y": 7993,
-            "width": 10,
-            "height": 10,
-            "alpha": 1,
-            "angle": 0,
-            "userData": {
-                "name": "Port_OUT_1",
                 "type": "Output",
                 "direction": 1
             },
@@ -968,7 +746,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "192.168.2.10:4840",
+            "text": "localhost:4843",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 12,
@@ -1044,7 +822,7 @@
             "stroke": 0,
             "radius": 0,
             "dasharray": null,
-            "text": "NodeID: undefined",
+            "text": "NodeID: ns=4;i=50…",
             "outlineStroke": 0,
             "outlineColor": "none",
             "fontSize": 12,

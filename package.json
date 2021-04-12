@@ -94,7 +94,7 @@
     "markdown-it-container": "^3.0.0",
     "md5": "^2.3.0",
     "mousetrap": "^1.6.5",
-    "node-opcua": "2.9.1",
+    "node-opcua": "2.36.0",
     "oauth2orize": "^1.11.0",
     "on-headers": "^1.0.2",
     "portfinder": "^1.0.28",

@@ -466,9 +466,9 @@
                         }
                     }
                 },
-                "id_circle": "cb5c84f5-4f1e-478b-a5c1-3879f6770b64",
-                "id_label": "5318b09d-47aa-4fa1-b93d-a65f98299358",
-                "id_port": "c3387611-bbb5-4e09-8702-2b605bf6f5c6"
+                "id_circle": "67231e49-6103-4d72-bc31-92d7f8613235",
+                "id_label": "e47a3ab5-a328-43fe-abe3-84492a49d478",
+                "id_port": "10b4d105-8336-4db3-b2bc-d1843f515429"
             },
             {
                 "name": "IN1",
@@ -692,9 +692,9 @@
                         }
                     }
                 },
-                "id_circle": "9a95ef70-56e9-4c68-aaa4-96aaa440de06",
-                "id_label": "9c3cb6dd-01b3-41fa-b36e-a73b468ff2f2",
-                "id_port": "f9886c9c-8f1a-4375-b650-5a5b20b99b1a"
+                "id_circle": "bce313fb-c2d1-477e-8beb-b469b2d2d572",
+                "id_label": "0838e7ae-1874-4b6f-bf29-8c11561b673c",
+                "id_port": "fff36dc5-13ae-4100-8402-6cb280803cc1"
             }
         ],
         "outputs": [
@@ -738,9 +738,9 @@
                         }
                     }
                 },
-                "id_circle": "140e7a18-07a4-47d3-b273-780a87db443a",
-                "id_label": "925fe7ba-34a3-4022-8aba-4f0c07253732",
-                "id_port": "bedc22e7-991f-4d2e-882e-081f415a7c33"
+                "id_circle": "2f13cbd0-9f2e-4718-8012-7ba3d2a88151",
+                "id_label": "d509f8ef-9541-427e-b690-ea6add4daf57",
+                "id_port": "447e6152-141a-4630-a622-dbf46f995967"
             }
         ]
     }
