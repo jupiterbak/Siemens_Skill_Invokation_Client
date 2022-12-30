@@ -48,7 +48,7 @@
     "imports-loader": "^0.8.0",
     "jshint-stylish": "latest",
     "less-loader": "^4.1.0",
-    "mocha": "^8.1.1",
+    "mocha": "^8.4.0",
     "octicons": "4.3.0",
     "remarkable": "^1.7.1",
     "script-loader": "^0.7.2",
